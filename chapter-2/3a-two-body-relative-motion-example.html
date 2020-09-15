@@ -263,7 +263,7 @@
 <p>First, we set up the initial values and constants. Recalling the definition of <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\mu = G\left(m_1 + m_2\right)\]</div>
-<p>In the function we will write, the state vector will be called <span class="math notranslate nohighlight">\(y\)</span>, so its initial value is <span class="math notranslate nohighlight">\(y_0\)</span>. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.</p>
+<p>In the function we will write, the state vector will be called <span class="math notranslate nohighlight">\(Y\)</span>, so its initial value is <span class="math notranslate nohighlight">\(Y_0\)</span>. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430E-20</span>  <span class="c1"># km**3/(kg * s**2)</span>
@@ -273,14 +273,14 @@
 <span class="n">R_E</span> <span class="o">=</span> <span class="mf">6378.12</span>  <span class="c1"># km</span>
 <span class="n">r_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6000</span><span class="p">))</span>  <span class="c1"># km</span>
 <span class="n">v_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># km/s</span>
-<span class="n">y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">r_0</span><span class="p">,</span> <span class="n">v_0</span><span class="p">))</span>
+<span class="n">Y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">r_0</span><span class="p">,</span> <span class="n">v_0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
+<p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{Y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
 <p>The function takes the time <span class="math notranslate nohighlight">\(t\)</span> and current value of the state vector <span class="math notranslate nohighlight">\(y\)</span> as inputs. Because of the way that we constructed the initial values, the first 3 values of the state vector are the coordinates of <span class="math notranslate nohighlight">\(m_1\)</span>, the next 3 values are the coordinates of <span class="math notranslate nohighlight">\(m_2\)</span>, the next 3 values are the velocity components of <span class="math notranslate nohighlight">\(m_1\)</span>, and the last three values are the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span>. However, if you construct your initial state vector in a different order, make sure you match that order in your function. It doesn’t matter what order you choose, as long as you’re consistent.</p>
-<p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">ydot</span></code> back to the solver.</p>
+<p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">Ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">Ydot</span></code> back to the solver.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">relative_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
@@ -295,15 +295,15 @@
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
     
     <span class="c1"># Create the derivative vector and copy the velocities into it</span>
-    <span class="n">ydot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
-    <span class="n">ydot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+    <span class="n">Ydot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+    <span class="n">Ydot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
     
     <span class="c1"># Calculate the accelerations</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">temp</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
-    <span class="n">ydot</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">*</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">Ydot</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">*</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">ydot</span>
+    <span class="k">return</span> <span class="n">Ydot</span>
 </pre></div>
 </div>
 </div>
@@ -315,11 +315,11 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
 <span class="n">t_f</span> <span class="o">=</span> <span class="mi">14_400</span>  <span class="c1"># seconds</span>
 <span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">relative_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">relative_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">Y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">)</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># km</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>  <span class="c1"># km/s</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># km</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>  <span class="c1"># km/s</span>
 </pre></div>
 </div>
 </div>
