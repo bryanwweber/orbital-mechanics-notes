@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 2.3 - Equations of Relative Motion &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example: Two-Body Problem in the Co-Moving Frame" href="3a-two-body-relative-motion-example.html" />
+    <link rel="prev" title="Example: Two-Body Problem in an Inertial Frame" href="2a-two-body-inertial-example.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hohmann.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/3-kinematics.html">
+   Chapter 1.3 - Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+   Chapter 1.6 - Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+   Chapter 1.7 - Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter-2/3-equations-of-relative-motion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-of-relative-motion">
+   Equation of Relative Motion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equation-of-motion-in-a-co-moving-frame">
+   Equation of Motion in a Co-moving Frame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motion-relative-to-the-center-of-mass">
+   Motion Relative to the Center of Mass
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chapter-2-3-equations-of-relative-motion">
+<h1>Chapter 2.3 - Equations of Relative Motion<a class="headerlink" href="#chapter-2-3-equations-of-relative-motion" title="Permalink to this headline">¶</a></h1>
+<p>To proceed in our solution of the two-body problem, it is advantageous to represent the problem in relative coordinates, rather than the inertial coordinates of the last section. This will allow us to develop a conceptual understanding of the system that enhances the practical understanding developed in the previous section.</p>
+<p>According to Prussing and Conway <a class="bibtex reference internal" href="#prussing2013" id="id1">[1]</a>:</p>
+<blockquote>
+<div><p>The solution for the allowed relative motion was first obtained by Isaac Newton in 1683. Newton was arguably the first person capable of obtaining it since the solution requires a law of gravitation, a law of motion, and differential calculus, all of which he invented. <strong>pp. 11</strong></p>
+</div></blockquote>
+<div class="section" id="equation-of-relative-motion">
+<h2>Equation of Relative Motion<a class="headerlink" href="#equation-of-relative-motion" title="Permalink to this headline">¶</a></h2>
+<p>The equation of motion is derived from the equation for the relative position of <span class="math notranslate nohighlight">\(m_2\)</span> with respect to <span class="math notranslate nohighlight">\(m_1\)</span> by differentiating twice:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}} = \ddot{\vector{R}}_2 - \ddot{\vector{R}}_1\]</div>
+<p>Plugging in the results for the two absolute position vectors, <span class="math notranslate nohighlight">\(\ddot{\vector{R}}\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}} = -\frac{G\left(m_1 + m_2\right)}{r^2}\uvec{u}_r\]</div>
+<p>where <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> is the unit vector pointing in the <span class="math notranslate nohighlight">\(\vector{r}\)</span> direction, that is, from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span>.</p>
+<p>We now define a parameter, <span class="math notranslate nohighlight">\(\mu\)</span>, called the <strong>gravitational parameter</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\mu = G\left(m_1 + m_2\right)\]</div>
+<p>The utility of this parameter is mostly for the case where <span class="math notranslate nohighlight">\(m_1 &gt;&gt; m_2\)</span>, which is the case for many practical problems. For instance, human-built devices orbiting around a planet have a much smaller mass than the planet, such that</p>
+<div class="math notranslate nohighlight">
+\[\mu \approx G m_1\]</div>
+<p>Therefore, we can tabulate values of <span class="math notranslate nohighlight">\(\mu\)</span> for various celestial bodies, rather than computing it every time.</p>
+<p>Returning to the equation of motion, and substituting <span class="math notranslate nohighlight">\(\mu\)</span> and the definition of <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}} = -\frac{\mu}{r^3}\vector{r}\]</div>
+<p>This is a nonlinear, second-order ordinary differential equation. It can be solved analytically, if we can find the constants of integration. There are two vector constants of integration, each of which have three scalar components. Thus, there are six constants of integration that must be determined from the initial conditions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Interestingly, the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> can be interchanged by multiplying the equation above by -1. Thus, the motion of <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(m_2\)</span> has the same shape as the reverse. In other words, if you were standing on the Moon, the Earth would appear to be orbiting you!</p>
+</div>
+</div>
+<div class="section" id="equation-of-motion-in-a-co-moving-frame">
+<h2>Equation of Motion in a Co-moving Frame<a class="headerlink" href="#equation-of-motion-in-a-co-moving-frame" title="Permalink to this headline">¶</a></h2>
+<p>In the previous section, we developed the relative equation of motion in the inertial frame. This is because <span class="math notranslate nohighlight">\(\vector{R}\)</span> has components in the inertial frame. It is also convenient to locate the two masses in a coordinate system attached to, and moving with, <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the components of <span class="math notranslate nohighlight">\(\vector{r}\)</span> are:</p>
+<div class="math notranslate nohighlight">
+\[\vector{r} = x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><em>relative</em> here means relative to the moving reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span></p>
+</div>
+<p>We can find the relative velocity and acceleration:</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}\dot{\vector{r}}_{\text{rel}} &amp;= \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k} &amp; \ddot{\vector{r}}_{\text{rel}} &amp;= \ddot{x}\uvec{\imath} + \ddot{y}\uvec{\jmath} + \ddot{z}\uvec{k}\end{aligned}\]</div>
+<p>We know that the absolute acceleration is equal to the relative acceleration only in the case where <span class="math notranslate nohighlight">\(\vector{\Omega}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{\Omega}}\)</span>, the angular velocity and acceleration of the moving reference frame, are zero.</p>
+<p>If we imagine a non-rotating coordinate system attached to <span class="math notranslate nohighlight">\(m_1\)</span>, then the equation of motion for the relative acceleration can be solved numerically in exactly the same way as the equations for absolute motion we used in the last section. The only difference is that the state vector has only 6 components, the 3 position coordinates, and the 3 velocity components, instead of 12 as in the absolute motion example.</p>
+</div>
+<div class="section" id="motion-relative-to-the-center-of-mass">
+<h2>Motion Relative to the Center of Mass<a class="headerlink" href="#motion-relative-to-the-center-of-mass" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note the lower case <span class="math notranslate nohighlight">\(\vector{r}\)</span> for the position relative to <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</div>
+<p>There is one other interesting case to examine here, which is the motion of the masses relative to the center of mass, <span class="math notranslate nohighlight">\(G\)</span>, of the system. Let <span class="math notranslate nohighlight">\(\vector{r}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{r}_2\)</span> be the position vectors of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> relative to the center of mass, respectively. We also note that, in this definition, <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> points in the same direction as <span class="math notranslate nohighlight">\(\vector{r}_2\)</span>.</p>
+<p>Skipping all the algebra, it turns out that the equation of motion for <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(G\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}}_2 = - \frac{\mu'}{r_2^3}\vector{r}_2\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\mu' = \left(\frac{m_1}{m_1 + m_2}\right)^3\mu\]</div>
+<p>and <span class="math notranslate nohighlight">\(\mu\)</span> is as given previously. Similarly, the equation of motion for <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(G\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}}_1 = - \frac{\mu''}{r_1^3}\vector{r}_1\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\mu' = \left(\frac{m_2}{m_1 + m_2}\right)^3\mu\]</div>
+<p>Thus, we can see that all three equations of relative motion:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(G\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(G\)</span></p></li>
+</ol>
+<p>have the same form, differing only in the constants. The solutions to these equations will all have the same shape! In other words, if <span class="math notranslate nohighlight">\(m_2\)</span> is orbiting around <span class="math notranslate nohighlight">\(m_1\)</span> in an ellipse, then <span class="math notranslate nohighlight">\(m_2\)</span> and <span class="math notranslate nohighlight">\(m_1\)</span> will orbit around <span class="math notranslate nohighlight">\(G\)</span> in an ellipse!</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-chapter-2/3-equations-of-relative-motion-0"><dl class="citation">
+<dt class="bibtex label" id="prussing2013"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>John E. Prussing and Bruce A. Conway. <em>Orbital Mechanics</em>. Oxford University Press, New York, second edition, 2013. ISBN 978-0-19-983770-0.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="2a-two-body-inertial-example.html" title="previous page">Example: Two-Body Problem in an Inertial Frame</a>
+    <a class='right-next' id="next-link" href="3a-two-body-relative-motion-example.html" title="next page">Example: Two-Body Problem in the Co-Moving Frame</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 2.4 - Angular Momentum and the Orbit Formulas &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Example: Two-Body Problem in the Co-Moving Frame" href="3a-two-body-relative-motion-example.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hohmann.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/3-kinematics.html">
+   Chapter 1.3 - Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+   Chapter 1.6 - Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+   Chapter 1.7 - Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter-2/4-angular-momentum-and-the-orbit-formulas.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relative-angular-momentum">
+   Relative Angular Momentum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orbital-plane">
+   Orbital Plane
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-orbit-equation">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orbital-parameters">
+   Orbital Parameters
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chapter-2-4-angular-momentum-and-the-orbit-formulas">
+<h1>Chapter 2.4 - Angular Momentum and the Orbit Formulas<a class="headerlink" href="#chapter-2-4-angular-momentum-and-the-orbit-formulas" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we are going to use the relative motion results from the last section to define the equations for orbits. In the process, we will derive Kepler’s second law!</p>
+<div class="section" id="relative-angular-momentum">
+<h2>Relative Angular Momentum<a class="headerlink" href="#relative-angular-momentum" title="Permalink to this headline">¶</a></h2>
+<p>The angular momentum of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span> is the moment of the linear momentum of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vector{H}_{2/1} = \vector{r}\cross m_2 \dot{\vector{r}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m_2\dot{\vector{r}}\)</span> is the linear moment of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. Dividing through by <span class="math notranslate nohighlight">\(m_2\)</span>, we can define <span class="math notranslate nohighlight">\(\vector{h} = \vector{H}_{2/1}/m_{2}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\vector{h} = \vector{r}\cross\dot{\vector{r}}\]</div>
+<p>This is the <strong>specific angular momentum</strong> of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>.</p>
+<p>Now, let’s see how the angular momentum varies with time. We know that angular momentum must be conserved (that’s one of the fundamental laws of the universe, as far as we know). Taking the time derivative of the specific angular momentum, we find:</p>
+<div class="math notranslate nohighlight">
+\[\dot{\vector{h}} = \dot{\vector{r}}\cross\dot{\vector{r}} + \vector{r}\cross\ddot{\vector{r}}\]</div>
+<p>The first term is zero by the definition of the cross product. To simplify the second term, we recall the definition of the acceleration from the last section:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}} = -\frac{\mu}{r^3}\vector{r}\]</div>
+<p>which results in</p>
+<div class="math notranslate nohighlight">
+\[\dot{\vector{h}} = -\frac{\mu}{r^3}\left(\vector{r}\cross\vector{r}\right) = \vector{0}\]</div>
+<p>What this result says is that the specific angular momentum is always constant! In other words, since there are no external torques on the system, the angular momentum is conserved!</p>
+<p>If <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{r}}\)</span> are parallel, that is, <span class="math notranslate nohighlight">\(m_2\)</span> is moving directly towards or away from <span class="math notranslate nohighlight">\(m_1\)</span>, then <span class="math notranslate nohighlight">\(\vector{h} = \vector{0}\)</span>, and the angular momentum will always be zero. Thus, <span class="math notranslate nohighlight">\(m_2\)</span> cannot follow a curved path relative to <span class="math notranslate nohighlight">\(m_1\)</span> and will remain on the straight line trajectory.</p>
+</div>
+<div class="section" id="orbital-plane">
+<h2>Orbital Plane<a class="headerlink" href="#orbital-plane" title="Permalink to this headline">¶</a></h2>
+<p>The two vectors <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{r}}\)</span> define a plane called the <strong>orbital plane</strong>. The angular momentum vector is perpendicular to this plane. The unit vector normal to the plane is:</p>
+<div class="math notranslate nohighlight">
+\[\uvec{h} = \frac{\vector{h}}{h}\]</div>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is the magnitude of the specific angular momentum. Since the angular momentum is constant for all time, it cannot change direction and it cannot change magnitude. Therefore, the unit vector perpendicular to the plane is constant for all time. This means that <span class="math notranslate nohighlight">\(m_2\)</span> always orbits in the same plane around <span class="math notranslate nohighlight">\(m_1\)</span>.</p>
+<p>In this situation, it is convenient to observe the plane looking in the same direction as <span class="math notranslate nohighlight">\(-\uvec{h}\)</span>, that is, looking down onto the orbit. We will resolve the relative velocity into two components, one parallel and one perpendicular to <span class="math notranslate nohighlight">\(\vector{r}\)</span>. The unit vectors in these directions are <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> and <span class="math notranslate nohighlight">\(\uvec{u}_{\perp}\)</span>, respectively. Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\vector{v} = v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\]</div>
+<p>The angular momentum can then be defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\vector{h} &amp;= \vector{r}\cross\vector{v} = r\uvec{u}_r \cross\left(v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\right)\\ &amp;= r v_r\left(\uvec{u}_r\cross\uvec{u}_r\right) + r v_{\perp}\left(\uvec{u}_r\cross\uvec{u}_{\perp}\right)\\ &amp;= r v_{\perp}\uvec{h}\end{aligned}\end{split}\]</div>
+<p>where the last result comes from the definition of <span class="math notranslate nohighlight">\(\uvec{h}\)</span> as perpendicular to the orbital plane. This means that the magnitude of the angular momentum is:</p>
+<div class="math notranslate nohighlight">
+\[h = r v_{\perp}\]</div>
+<p>Now consider <span class="math notranslate nohighlight">\(m_2\)</span> in orbit around <span class="math notranslate nohighlight">\(m_1\)</span>. As <span class="math notranslate nohighlight">\(m_2\)</span> moves, the position vector <span class="math notranslate nohighlight">\(\vector{r}\)</span> sweeps out an area inside the orbit. Over one whole orbit, the entire area inside the orbit will be swept. During a differential time interval <span class="math notranslate nohighlight">\(dt\)</span>, a differential area <span class="math notranslate nohighlight">\(dA\)</span> is swept. The rate of change of this area is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dA}{dt} = \frac{h}{2}\]</div>
+<p>This is called the <strong>areal velocity</strong>. Since <span class="math notranslate nohighlight">\(h\)</span> is constant, because of conservation of angular momentum, <span class="math notranslate nohighlight">\(dA/dt\)</span> is also constant. This is Kepler’s Second Law:</p>
+<div class="admonition">
+<p class="admonition-title"> <strong>Kepler’s Second Law</strong></p>
+<p>Equal areas are swept out in equal times</p>
+</div>
+<p>This can be shown by integrating the last equation:</p>
+<div class="math notranslate nohighlight">
+\[A_2 - A_1 = \int_{t_1}^{t_2} \frac{h}{2} dt = \frac{h}{2}\left(t_2 - t_1\right)\]</div>
+<p>since <span class="math notranslate nohighlight">\(h\)</span> is constant. Assuming that <span class="math notranslate nohighlight">\(\Delta t\)</span> is the same, the swept area will be the same.</p>
+</div>
+<div class="section" id="the-orbit-equation">
+<h2>The Orbit Equation<a class="headerlink" href="#the-orbit-equation" title="Permalink to this headline">¶</a></h2>
+<p>Now, we’ll return to the equation of relative motion:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}} = -\left(\frac{\mu}{r^3}\right)\vector{r}\]</div>
+<p>Our goal is to be able to integrate this equation to find the position and velocity of the satellite at any instant. Since this is a second-order differential equation, and there are three components in the absolute acceleration vector, we will need 6 constants of integration. Three of the constants are given by the specific angular momentum, <span class="math notranslate nohighlight">\(\vector{h}\)</span>, and we will find two more in the course of the following discussion. The sixth is found in Chapter 3.</p>
+<p>We start by taking the cross product of this equation with the angular momentum, <span class="math notranslate nohighlight">\(\vector{h}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\vector{r}}\cross\vector{h} = -\left(\frac{\mu}{r^3}\right)\vector{r}\cross\vector{h}\]</div>
+<p>Let’s try to replace the left-hand side of the equation. By the product rule of differentiation, we find:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \ddot{\vector{r}}\cross\vector{h} + \dot{\vector{r}}\cross\dot{\vector{h}}\]</div>
+<p>But the angular momentum is constant, so its derivative must be zero:</p>
+<div class="math notranslate nohighlight">
+\[\dot{\vector{h}} = \vector{0}\]</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \ddot{\vector{r}}\cross\vector{h}\]</div>
+<p>So, the left-hand side of the formula is in terms of <span class="math notranslate nohighlight">\(d/dt(\ldots)\)</span>. Let’s get the right-hand side into the same form so we can simplify. After a bunch of algebra, we find:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r^3}\vector{r}\cross\vector{h} = -\frac{d}{dt}\left(\frac{\vector{r}}{r}\right)\]</div>
+<p>Substituting everything together, we find:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \frac{d}{dt}\left(\mu\frac{\vector{r}}{r}\right)\]</div>
+<p>Rearranging:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h} - \mu\frac{\vector{r}}{r}\right) = \vector{0}\]</div>
+<p>This equation can be integrated to find:</p>
+<div class="math notranslate nohighlight">
+\[\dot{\vector{r}}\cross\vector{h} - \mu\frac{\vector{r}}{r} = \vector{C}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{C}\)</span> is called the <strong>Laplace vector</strong> and is a constant. By taking the dot product of this equation with the angular momentum <span class="math notranslate nohighlight">\(\vector{h}\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[\vector{C}\cdot\vector{h} = 0\]</div>
+<p>In other words, the Laplace vector and the angular momentum are perpendicular. Since the angular momentum is perpendicular to the orbital plane, <span class="math notranslate nohighlight">\(\vector{C}\)</span> must lie in the orbital plane.</p>
+<p>The Laplace vector has the same dimensions as <span class="math notranslate nohighlight">\(\mu\)</span>, so we can transform it into a dimensionless number by dividing the equation by <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-vector-orbit-equation">
+<span class="eqno">(1)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{e} = \vector{C}/\mu\)</span> and is called the <strong>eccentricity vector</strong>. Since <span class="math notranslate nohighlight">\(\vector{C}\)</span> lies in the orbital plane, <span class="math notranslate nohighlight">\(\vector{e}\)</span> also lies in the orbital plane. The line along <span class="math notranslate nohighlight">\(\vector{e}\)</span> is called the <strong>apse line</strong>.</p>
+<p>The eccentricity vector provides two more of the constants of integration that we need for the equation of motion. However, due to the fact that <span class="math notranslate nohighlight">\(\vector{e}\)</span> and <span class="math notranslate nohighlight">\(\vector{h}\)</span> are perpendicular, we know that:</p>
+<div class="math notranslate nohighlight">
+\[\vector{e}\cdot\vector{h} = 0\]</div>
+<p>such that only 5 of the components of these vectors are independent. The sixth is determined by the dot product above.</p>
+<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(1)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
+<p>To obtain a scalar equation, we take the dot product of this equation with <span class="math notranslate nohighlight">\(\vector{r}\)</span>. After some algebra, we end up at:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(e = \mag{\vector{e}}\)</span> is called the <strong>eccentricity</strong>. This is called the <strong>orbit equation</strong> and it defines the path of <span class="math notranslate nohighlight">\(m_2\)</span> around <span class="math notranslate nohighlight">\(m_1\)</span>, relative to <span class="math notranslate nohighlight">\(m_1\)</span>. In this equation, <span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, and <span class="math notranslate nohighlight">\(\mu\)</span> are all constant. Since <span class="math notranslate nohighlight">\(e\)</span> is the magnitude of <span class="math notranslate nohighlight">\(\vector{e}\)</span>, it is strictly positive, <span class="math notranslate nohighlight">\(e \geq 0\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>Conic sections</strong> are the curve formed by the intersection of a plane and a cone.</p>
+</div>
+<p>The orbit equation describes <a class="reference external" href="https://en.wikipedia.org/wiki/Conic_section"><strong>conic sections</strong></a>, meaning that all orbits are one of four types:</p>
+<ol class="simple">
+<li><p>Ellipses</p></li>
+<li><p>Circles (a special case of the ellipse)</p></li>
+<li><p>Parabolas</p></li>
+<li><p>Hyperbolas</p></li>
+</ol>
+<p>We are going to handle each of these in turn in a few sections. In the meantime, we are going to do a little bit of work directly with the orbit equation.</p>
+</div>
+<div class="section" id="orbital-parameters">
+<h2>Orbital Parameters<a class="headerlink" href="#orbital-parameters" title="Permalink to this headline">¶</a></h2>
+<p>It is convenient to have direct formulas to compute the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. The component of velocity normal to the position vector is:</p>
+<div class="math notranslate nohighlight">
+\[v_{\perp} = r\dot{\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{\theta}\)</span> is the angular velocity of the position vector, or the rate of change of the true anomaly. From the magnitude of the specific angular momentum, <span class="math notranslate nohighlight">\(h = r v_{\perp}\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[h = r^2 \dot{\theta}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[v_{\perp} = \frac{h}{r} = \frac{\mu}{h}\left(1 + e \cos\theta\right)\]</div>
+<p>The component of velocity along the position vector is <span class="math notranslate nohighlight">\(v_r\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[v_r = \dot{r} = \frac{\mu}{h} e \sin\theta\]</div>
+<p>Recalling that the true anomaly is defined with <span class="math notranslate nohighlight">\(\theta=0\)</span> pointing along the apse line, or the eccentricity vector, we can see that the distance, <span class="math notranslate nohighlight">\(r\)</span>, from <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> is the smallest when <span class="math notranslate nohighlight">\(\theta = 0\)</span> and largest when <span class="math notranslate nohighlight">\(\theta = \pi\)</span>. The exception is when <span class="math notranslate nohighlight">\(e = 0\)</span>, in which case the orbital radius is constant, and the orbit is a circle.</p>
+<p>The points of closest and farthest approach of <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> are called <strong>periapsis</strong> and <strong>apoapsis</strong> respectively. Both of them occur along the apse line.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The terms <strong>periapsis</strong> and <strong>apoapsis</strong> are composed of two parts - a prefix indicating the distance from the primary object, and a suffix indicating which astronomical body is the primary. The prefixes are <strong>peri-</strong>, which comes from a Greek root meaning <em>near</em>, and <strong>apo-</strong>, which comes from a Greek root meaning <em>away from</em>.</p>
+<p>The suffixes depend on the primary body in the orbit. For orbits around the Earth, the suffix is <strong>-gee</strong>. So the closest point in an Earth orbit is <strong>perigee</strong> and the farthest point is <strong>apogee</strong>. Some other common suffixes are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Body</p></th>
+<th class="head"><p>Suffix</p></th>
+<th class="head"><p>Nearest point</p></th>
+<th class="head"><p>Farthest Point</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Earth</p></td>
+<td><p>-gee</p></td>
+<td><p>perigee</p></td>
+<td><p>apogee</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sun</p></td>
+<td><p>-helion</p></td>
+<td><p>perihelion</p></td>
+<td><p>apohelion</p></td>
+</tr>
+<tr class="row-even"><td><p>Moon</p></td>
+<td><p>-lune</p></td>
+<td><p>perilune</p></td>
+<td><p>apolune</p></td>
+</tr>
+<tr class="row-odd"><td><p>General</p></td>
+<td><p>-apsis</p></td>
+<td><p>periapsis</p></td>
+<td><p>apoapsis</p></td>
+</tr>
+</tbody>
+</table>
+<p>Check out <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">Wikipedia</a> for more.</p>
+</div>
+<p>The distance to periapsis is given by setting <span class="math notranslate nohighlight">\(\theta = 0\)</span> in the orbit equation:</p>
+<div class="math notranslate nohighlight">
+\[r_p = \frac{h^2}{\mu}\frac{1}{1 + e}\]</div>
+<p>At periapsis, the radial velocity component is zero. For <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; \pi\)</span>, the radial velocity is positive and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis.</p>
+<p>At <span class="math notranslate nohighlight">\(\theta = \pi\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span> reaches apoapsis and the radial component of velocity is again zero. The distance to apoapsis is:</p>
+<div class="math notranslate nohighlight">
+\[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="3a-two-body-relative-motion-example.html" title="previous page">Example: Two-Body Problem in the Co-Moving Frame</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

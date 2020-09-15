@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example: Two-Body Problem in the Co-Moving Frame &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2.4 - Angular Momentum and the Orbit Formulas" href="4-angular-momentum-and-the-orbit-formulas.html" />
+    <link rel="prev" title="Chapter 2.3 - Equations of Relative Motion" href="3-equations-of-relative-motion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hohmann.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/3-kinematics.html">
+   Chapter 1.3 - Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+   Chapter 1.6 - Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+   Chapter 1.7 - Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter-2/3a-two-body-relative-motion-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapter-2/3a-two-body-relative-motion-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/chapter-2/3a-two-body-relative-motion-example.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="example-two-body-problem-in-the-co-moving-frame">
+<h1>Example: Two-Body Problem in the Co-Moving Frame<a class="headerlink" href="#example-two-body-problem-in-the-co-moving-frame" title="Permalink to this headline">¶</a></h1>
+<p>Recall the equations of motion for the two-body problem in a reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\vector{r} &amp;= x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\\\vector{v} &amp;= \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k}\\\vector{a} &amp;= \ddot{x}\uvec{\imath} + \ddot{y}\uvec{\jmath} + \ddot{z}\uvec{k}\\\end{aligned}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}\ddot{x} &amp;= -\frac{\mu}{r^3}x &amp; \ddot{y} &amp;= -\frac{\mu}{r^3}y &amp; \ddot{z} &amp;= -\frac{\mu}{r^3}z\end{aligned}\]</div>
+<p>In this Notebook, we will solve the two-body problem for relative motion and plot the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we set up the initial values and constants. Recalling the definition of <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mu = G\left(m_1 + m_2\right)\]</div>
+<p>In the function we will write, the state vector will be called <span class="math notranslate nohighlight">\(y\)</span>, so its initial value is <span class="math notranslate nohighlight">\(y_0\)</span>. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430E-20</span>  <span class="c1"># km**3/(kg * s**2)</span>
+<span class="n">m_1</span> <span class="o">=</span> <span class="mf">5.974E24</span>  <span class="c1"># kg</span>
+<span class="n">m_2</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># kg</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">m_1</span> <span class="o">+</span> <span class="n">m_2</span><span class="p">)</span>
+<span class="n">R_E</span> <span class="o">=</span> <span class="mf">6378.12</span>  <span class="c1"># km</span>
+<span class="n">r_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6000</span><span class="p">))</span>  <span class="c1"># km</span>
+<span class="n">v_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># km/s</span>
+<span class="n">y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">r_0</span><span class="p">,</span> <span class="n">v_0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
+<p>The function takes the time <span class="math notranslate nohighlight">\(t\)</span> and current value of the state vector <span class="math notranslate nohighlight">\(y\)</span> as inputs. Because of the way that we constructed the initial values, the first 3 values of the state vector are the coordinates of <span class="math notranslate nohighlight">\(m_1\)</span>, the next 3 values are the coordinates of <span class="math notranslate nohighlight">\(m_2\)</span>, the next 3 values are the velocity components of <span class="math notranslate nohighlight">\(m_1\)</span>, and the last three values are the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span>. However, if you construct your initial state vector in a different order, make sure you match that order in your function. It doesn’t matter what order you choose, as long as you’re consistent.</p>
+<p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">ydot</span></code> back to the solver.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">relative_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system relative to $m_1$.</span>
+<span class="sd">    </span>
+<span class="sd">    The state vector ``Y`` should be in the order:</span>
+<span class="sd">    </span>
+<span class="sd">    1. Relative coordinates of $m_2$ relative to $m_1$</span>
+<span class="sd">    2. Velocity components of $m_2$ relative to $m_1$</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the three position components</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+    
+    <span class="c1"># Create the derivative vector and copy the velocities into it</span>
+    <span class="n">ydot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+    <span class="n">ydot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+    
+    <span class="c1"># Calculate the accelerations</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">*</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">ydot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the function defined, we can call <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
+<p>Once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code>. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">y</span></code>. Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
+<span class="n">t_f</span> <span class="o">=</span> <span class="mi">14_400</span>  <span class="c1"># seconds</span>
+<span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">relative_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># km</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>  <span class="c1"># km/s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">altitude</span> <span class="o">=</span> <span class="n">r_mag</span> <span class="o">-</span> <span class="n">R_E</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">min_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+<span class="n">i_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+<span class="n">max_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+<span class="n">i_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+<span class="n">speed_at_min_alt</span> <span class="o">=</span> <span class="n">speed</span><span class="p">[</span><span class="n">i_min</span><span class="p">]</span>
+<span class="n">speed_at_max_alt</span> <span class="o">=</span> <span class="n">speed</span><span class="p">[</span><span class="n">i_max</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The minimum altitude during the orbit is: </span><span class="si">{</span><span class="n">min_altitude</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The velocity at the minimum altitude is: </span><span class="si">{</span><span class="n">speed_at_min_alt</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The maximum altitude during the orbit is: </span><span class="si">{</span><span class="n">max_altitude</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The velocity at the maximum altitude is: </span><span class="si">{</span><span class="n">speed_at_max_alt</span><span class="si">:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The minimum altitude during the orbit is: 3621.88 km
+The velocity at the minimum altitude is: 7.00 km/s
+The maximum altitude during the orbit is: 9419.16 km
+The velocity at the maximum altitude is: 4.4389 km/s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Orbit&quot;</span><span class="p">);</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">R_E</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">R_E</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">R_E</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">i_min</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="n">i_min</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="n">i_min</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Min. Altitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">i_max</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="n">i_max</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="n">i_max</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Max. Altitude&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3a-two-body-relative-motion-example_9_0.png" src="../_images/3a-two-body-relative-motion-example_9_0.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="3-equations-of-relative-motion.html" title="previous page">Chapter 2.3 - Equations of Relative Motion</a>
+    <a class='right-next' id="next-link" href="4-angular-momentum-and-the-orbit-formulas.html" title="next page">Chapter 2.4 - Angular Momentum and the Orbit Formulas</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
