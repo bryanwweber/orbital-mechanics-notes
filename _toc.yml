@@ -1,0 +1,15 @@
+- file: intro
+- part: Chapter 1
+  chapters:
+    - file: chapter-1/3-kinematics
+    - file: chapter-1/4-mass-force-and-newtons-law-of-gravitation
+    - file: chapter-1/5-newtons-laws
+    - file: chapter-1/6-time-derivatives-of-moving-vectors
+    - file: chapter-1/7-relative-motion
+- part: Chapter 2
+  chapters:
+    - file: chapter-2/2-equations-of-motion-in-an-inertial-frame
+    - file: chapter-2/2a-two-body-inertial-example
+    - file: chapter-2/3-equations-of-relative-motion
+    - file: chapter-2/3a-two-body-relative-motion-example
+    - file: chapter-2/4-angular-momentum-and-the-orbit-formulas
