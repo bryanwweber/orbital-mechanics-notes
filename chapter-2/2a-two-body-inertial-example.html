@@ -266,11 +266,20 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430E-11</span>  <span class="c1"># m**3/(kg * s**2)</span>
 <span class="n">m_1</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">=</span> <span class="mf">1.0E26</span>  <span class="c1"># kg</span>
+
 <span class="n">R1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m</span>
 <span class="n">R2_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m</span>
 <span class="n">V1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m/s</span>
 <span class="n">V2_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m/s</span>
+
 <span class="n">y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">R1_0</span><span class="p">,</span> <span class="n">R2_0</span><span class="p">,</span> <span class="n">V1_0</span><span class="p">,</span> <span class="n">V2_0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[      0       0       0 3000000       0       0   10000   20000   30000
+       0   40000       0]
 </pre></div>
 </div>
 </div>
@@ -326,7 +335,9 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
 <span class="n">t_f</span> <span class="o">=</span> <span class="mi">480</span>  <span class="c1"># seconds</span>
 <span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">absolute_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">)</span>
+<span class="c1"># MATLAB: ode45(absolute_motion, [t_0, t_f], y_0)</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span>
 <span class="n">R_1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c1"># km</span>
