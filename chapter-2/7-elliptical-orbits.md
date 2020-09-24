@@ -16,7 +16,7 @@ $$r_a = \frac{h^2}{\mu}\frac{1}{1 - e}$$
 
 Let $2a$ denote the total distance from periapsis to apoapsis along the apse line. Then:
 
-$a = \frac{h^2}{\mu} \frac{1}{1 - e^2}$$
+$$a = \frac{h^2}{\mu} \frac{1}{1 - e^2}$$
 
 where $a$ is the **semi-major axis** of the ellipse. We can then write the orbit equation in terms of the semimajor axis:
 
