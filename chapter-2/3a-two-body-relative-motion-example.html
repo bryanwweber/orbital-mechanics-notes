@@ -15,7 +15,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -289,8 +290,11 @@
 <span class="n">m_2</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># kg</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">m_1</span> <span class="o">+</span> <span class="n">m_2</span><span class="p">)</span>
 <span class="n">R_E</span> <span class="o">=</span> <span class="mf">6378.12</span>  <span class="c1"># km</span>
-<span class="n">r_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6000</span><span class="p">))</span>  <span class="c1"># km</span>
-<span class="n">v_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># km/s</span>
+
+<span class="c1"># r_0 = np.array((8000, 0, 6000))  # km</span>
+<span class="c1"># v_0 = np.array((0, 7, 0))  # km/s</span>
+<span class="n">r_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">3207</span><span class="p">,</span> <span class="mi">5459</span><span class="p">,</span> <span class="mi">2714</span><span class="p">))</span>
+<span class="n">v_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="o">-</span><span class="mf">6.532</span><span class="p">,</span> <span class="mf">0.7835</span><span class="p">,</span> <span class="mf">6.142</span><span class="p">))</span>
 <span class="n">Y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">r_0</span><span class="p">,</span> <span class="n">v_0</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -311,11 +315,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Get the three position components</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-    
+
     <span class="c1"># Create the derivative vector and copy the velocities into it</span>
     <span class="n">Ydot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
     <span class="n">Ydot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
-    
+
     <span class="c1"># Calculate the accelerations</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">temp</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
@@ -345,16 +349,26 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># altitude is the distance above the surface of the Earth</span>
 <span class="n">altitude</span> <span class="o">=</span> <span class="n">r_mag</span> <span class="o">-</span> <span class="n">R_E</span>
+
 <span class="n">speed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">min_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
 <span class="n">i_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+
 <span class="n">max_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
 <span class="n">i_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+
 <span class="n">speed_at_min_alt</span> <span class="o">=</span> <span class="n">speed</span><span class="p">[</span><span class="n">i_min</span><span class="p">]</span>
 <span class="n">speed_at_max_alt</span> <span class="o">=</span> <span class="n">speed</span><span class="p">[</span><span class="n">i_max</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The minimum altitude during the orbit is: </span><span class="si">{</span><span class="n">min_altitude</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The minimum altitude during the orbit is: </span><span class="si">{</span><span class="n">min_altitude</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The velocity at the minimum altitude is: </span><span class="si">{</span><span class="n">speed_at_min_alt</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The maximum altitude during the orbit is: </span><span class="si">{</span><span class="n">max_altitude</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The velocity at the maximum altitude is: </span><span class="si">{</span><span class="n">speed_at_max_alt</span><span class="si">:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
@@ -362,10 +376,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The minimum altitude during the orbit is: 3621.88 km
-The velocity at the minimum altitude is: 7.00 km/s
-The maximum altitude during the orbit is: 9419.16 km
-The velocity at the maximum altitude is: 4.4389 km/s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The minimum altitude during the orbit is: 510.37 km
+The velocity at the minimum altitude is: 9.00 km/s
+The maximum altitude during the orbit is: 9603.93 km
+The velocity at the maximum altitude is: 3.8877 km/s
 </pre></div>
 </div>
 </div>
@@ -376,6 +390,7 @@ The velocity at the maximum altitude is: 4.4389 km/s
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Orbit&quot;</span><span class="p">);</span>
 
+<span class="c1"># This adds a sphere to the plot of the radius of the Earth</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">P</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
@@ -392,7 +407,7 @@ The velocity at the maximum altitude is: 4.4389 km/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3a-two-body-relative-motion-example_9_0.png" src="../_images/3a-two-body-relative-motion-example_9_0.png" />
+<img alt="../_images/3a-two-body-relative-motion-example_10_0.png" src="../_images/3a-two-body-relative-motion-example_10_0.png" />
 </div>
 </div>
 </div>

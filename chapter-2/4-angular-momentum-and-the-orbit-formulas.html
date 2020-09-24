@@ -15,7 +15,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -247,6 +248,23 @@
   <a class="reference internal nav-link" href="#orbital-parameters">
    Orbital Parameters
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#periapsis-and-apoapsis">
+     Periapsis and Apoapsis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flight-path-angle">
+     Flight Path Angle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latus-rectum">
+     Latus Rectum
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -384,8 +402,10 @@
 <p>The component of velocity along the position vector is <span class="math notranslate nohighlight">\(v_r\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[v_r = \dot{r} = \frac{\mu}{h} e \sin\theta\]</div>
+<div class="section" id="periapsis-and-apoapsis">
+<h3>Periapsis and Apoapsis<a class="headerlink" href="#periapsis-and-apoapsis" title="Permalink to this headline">¶</a></h3>
 <p>Recalling that the true anomaly is defined with <span class="math notranslate nohighlight">\(\theta=0\)</span> pointing along the apse line, or the eccentricity vector, we can see that the distance, <span class="math notranslate nohighlight">\(r\)</span>, from <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> is the smallest when <span class="math notranslate nohighlight">\(\theta = 0\)</span> and largest when <span class="math notranslate nohighlight">\(\theta = \pi\)</span>. The exception is when <span class="math notranslate nohighlight">\(e = 0\)</span>, in which case the orbital radius is constant, and the orbit is a circle.</p>
-<p>The points of closest and farthest approach of <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> are called <strong>periapsis</strong> and <strong>apoapsis</strong> respectively. Both of them occur along the apse line.</p>
+<p>The points of closest and farthest approach of <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> are called <strong>periapsis</strong> and <strong>apoapsis</strong> respectively. Both of them occur along the apse line. However, when <span class="math notranslate nohighlight">\(e\geq 1\)</span>, apoapsis occurs at an infinitely far distance from <span class="math notranslate nohighlight">\(m_1\)</span>, as we will see.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The terms <strong>periapsis</strong> and <strong>apoapsis</strong> are composed of two parts - a prefix indicating the distance from the primary object, and a suffix indicating which astronomical body is the primary. The prefixes are <strong>peri-</strong>, which comes from a Greek root meaning <em>near</em>, and <strong>apo-</strong>, which comes from a Greek root meaning <em>away from</em>.</p>
@@ -430,6 +450,23 @@
 <p>At <span class="math notranslate nohighlight">\(\theta = \pi\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span> reaches apoapsis and the radial component of velocity is again zero. The distance to apoapsis is:</p>
 <div class="math notranslate nohighlight">
 \[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
+<p>After apoapsis, the radial velocity is negative, which means <span class="math notranslate nohighlight">\(m_2\)</span> is moving towards periapsis.</p>
+</div>
+<div class="section" id="flight-path-angle">
+<h3>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>flight path angle</strong> is the angle that the velocity vector makes with the normal to the position vector. The normal to the position vector points in the same direction as <span class="math notranslate nohighlight">\(\vector{v}_{\perp}\)</span> by definition, so the flight path angle is zero at periapsis and apoapsis. The direction of the normal vector to the position is called the <strong>local horizon</strong>.</p>
+<p>By forming a right triangle with the velocity components, we can determine the flight path angle:</p>
+<div class="math notranslate nohighlight">
+\[\tan \gamma = \frac{v_r}{v_{\perp}} = \frac{e\sin\theta}{1 + e\cos\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma\)</span> is the flight path angle.</p>
+<p>The flight path angle is positive when <span class="math notranslate nohighlight">\(v_r\)</span> is positive and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis, and vice versa when <span class="math notranslate nohighlight">\(v_r\)</span> is negative.</p>
+</div>
+<div class="section" id="latus-rectum">
+<h3>Latus Rectum<a class="headerlink" href="#latus-rectum" title="Permalink to this headline">¶</a></h3>
+<p>The trajectory of <span class="math notranslate nohighlight">\(m_2\)</span> around <span class="math notranslate nohighlight">\(m_1\)</span> is symmetrical about the apse line. A chord of the orbit that intersects <span class="math notranslate nohighlight">\(m_1\)</span> at the apse line is called the <strong>latus rectum</strong>. The apse line divides the latus rectum into two halves, each of length <span class="math notranslate nohighlight">\(p\)</span>, called the <strong>semilatus rectum</strong> or the <strong>parameter of the orbit</strong>. The semilatus rectum can be calculated by:</p>
+<div class="math notranslate nohighlight">
+\[p = \frac{h^2}{\mu}\]</div>
+</div>
 </div>
 </div>
 

@@ -112,7 +112,7 @@ Conservative forces allow infinite conversion of energy between forms. Non-conse
 
 Gravity is a [**conservative force**](https://en.wikipedia.org/wiki/Conservative_force), which means that the force field can be determined from the gradient of the potential energy function:
 
-$$\vector{F} = - \nabla V$$
+$$\vector{F} = - \vector{\nabla} V$$
 
 Thus, the attractive forces between the masses are given by:
 
