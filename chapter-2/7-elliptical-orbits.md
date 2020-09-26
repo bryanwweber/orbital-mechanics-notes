@@ -64,7 +64,7 @@ $$T = \frac{2\pi ab}{h}$$
 
 Subbing the expressions for $a$ and $b$, we find:
 
-$$T = \frac{2\pi}{\sqrt{mu}}a^{3/2}$$
+$$T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}$$
 
 which is also the same formula as a circle, with the semimajor axis in the role of the radius. Note that this formula is also independent of the eccentricity. This equation represents Kepler's third law:
 
