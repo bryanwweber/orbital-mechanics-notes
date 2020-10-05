@@ -155,7 +155,7 @@ There are a few things we can note from these equations. First, the $x$ and $y$ 
 ## Nondimensional Equations of Motion
 
 ```{margin}
-In a later section, the book also makes these equations nondimensional, since it aids the solution of some of the Lagrange points.
+In a later section, the book also makes these equations nondimensional, since it aids the solution of some of the Lagrange points. This section is adapted from Rubinsztejn {cite}`Rubinsztejn2018,Rubinsztejn2018a,Rubinsztejn2018b`.
 ```
 
 Next, let's make these equations nondimensional. This offers the advantage of being general for any system we want to study, and removing the dependence on the rate of rotation of the coordinate system. We start by defining a few characteristic parameters.
@@ -166,7 +166,7 @@ $$t^* = \sqrt{\frac{r_{12}^3}{G\left(m_1 + m_2\right)}}$$
 
 This characteristic time is used to generate the nondimensional time:
 
-$\tau = \frac{t}{t^*}$$
+$$\tau = \frac{t}{t^*}$$
 
 Then we need to define the dimensionless position vectors. The vector from $G$ becomes:
 
@@ -315,12 +315,13 @@ import numpy as np
 from scipy.optimize import newton
 import matplotlib.pyplot as plt
 plt.rc("font", size=20)
+
+
 def collinear_lagrange(xstar, pi_2):
     return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
 
-
 n_points = 1000
-pi_2 = np.linspace(1e-5, 1.0-1e-5, 1000)
+pi_2 = np.linspace(1e-5, 1.0-1e-5, n_points)
 L_2 = newton(func=collinear_lagrange, x0=np.repeat(1, n_points), args=(pi_2,))
 L_1 = newton(func=collinear_lagrange, x0=np.repeat(0, n_points), args=(pi_2,))
 L_3 = newton(func=collinear_lagrange, x0=np.repeat(-1, n_points), args=(pi_2,))
@@ -352,8 +353,7 @@ By convention, the Lagrange points are numbered such that $L_1$ lies between $m_
 The figure below plots the five Lagrange points in nondimensional coordinates as a function of the mass ratio $\pi_2$:
 
 ```{code-cell}
-:tags: [remove-input]
-%matplotlib agg
+:tags: [remove-input, remove-output]
 from scipy.optimize import newton
 import numpy as np
 import matplotlib.pyplot as plt
@@ -440,6 +440,10 @@ pi_2 = np.hstack((np.logspace(-5, -1, 25), np.linspace(0.1, 0.8, 50), np.logspac
 anim = animation.FuncAnimation(
     fig, animate, init_func=init, frames=pi_2, blit=True
 )
+```
+
+```{code-cell}
+:tags: [remove-input]
 HTML(anim.to_jshtml())
 ```
 
@@ -452,8 +456,7 @@ $$U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\lef
 A plot of this function is shown below, including the positions of the five Lagrange points, for $\pi_2 = 0.3$:
 
 ```{code-cell}
-:tags: [remove-input, remove-output]
-from myst_nb import glue
+:tags: [remove-input]
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -492,7 +495,7 @@ r_1_L3 = m_1 - L_3
 r_2_L3 = m_2 - L_3
 U_L3 = -(1 - pi_2) / r_1_L3 - pi_2 / r_2_L3 - 0.5 * ((1 - pi_2) * r_1_L3**2 + pi_2 * r_2_L3**2)
 
-fig = plt.figure()
+fig = plt.figure(figsize=(12, 12))
 ax = fig.add_subplot(111, projection='3d')
 azim = -29.220779220779093
 elev = 69.05844155844153
@@ -500,16 +503,12 @@ ax.view_init(elev, azim)
 ax.set_zlim(-3, -1.5)
 ax.axis('off')
 ax.plot_surface(X, Y, U, rcount=100, ccount=100, cmap=cm.cividis, linewidth=0, antialiased=True, alpha=0.8)
-ax.plot(L_1, 0, U_L1, 'rv', zorder=10, label="$L_1$")
-ax.plot(L_2, 0, U_L2, 'r^', zorder=10, label="$L_2$")
-ax.plot(L_3, 0, U_L3, 'rp', zorder=10, label="$L_3$")
-ax.plot(0.5 - pi_2, np.sqrt(3)/2, L_45, 'rX', zorder=10, label="$L_4$")
-ax.plot(0.5 - pi_2, -np.sqrt(3)/2, L_45, 'rs', zorder=10, label="$L_5$")
-ax.legend()
-glue("potential_function", fig, display=False)
-```
-
-```{glue:} potential_function
+ax.plot(L_1, 0, U_L1, 'rv', zorder=10, label="$L_1$", markersize=15)
+ax.plot(L_2, 0, U_L2, 'r^', zorder=10, label="$L_2$", markersize=15)
+ax.plot(L_3, 0, U_L3, 'rp', zorder=10, label="$L_3$", markersize=15)
+ax.plot(0.5 - pi_2, np.sqrt(3)/2, L_45, 'rX', zorder=10, label="$L_4$", markersize=15)
+ax.plot(0.5 - pi_2, -np.sqrt(3)/2, L_45, 'rs', zorder=10, label="$L_5$", markersize=15)
+ax.legend();
 ```
 
 Using this figure, we can get a qualitative sense of the stability of the Lagrange points. Imagine that we turn the potential function upside-down, and put a marble on each of the Lagrange points. We can see that $L_4$ and $L_5$ are at the bottom of a bowl. Slight displacements of the marble will cause it to return to the initial position, so these points are considered **stable** Lagrange points.
@@ -527,11 +526,13 @@ which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Ear
 However, other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points, in particular, the orbit of Jupiter around the sun. There are groups of asteroids, called **trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter.
 
 ```{code-cell}
-:tags: [remove-input, remove-output]
-from myst_nb import glue
+:tags: [remove-input]
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+
+plt.rcdefaults()
+
 img = mpimg.imread('../images/InnerSolarSystem-en.png')
 fig, ax = plt.subplots(figsize=(12, 12))
 ax.axis('off')
@@ -573,12 +574,7 @@ ax.annotate("$L_4$", xy=(x_G, y_G), ha="left", va="top", fontsize=30, color="r")
 x_arc_G = 3*r_J/4 * np.cos(theta_J - arc) + 300
 y_arc_G = 3*r_J/4 * np.sin(theta_J - arc) + 300
 ax.plot(x_arc_G, y_arc_G, lw=3, color="r")
-ax.annotate("60°", xy=(7*r_J/8*np.cos(theta_J - np.pi/6) + 300, 7*r_J/8*np.sin(theta_J - np.pi/6) + 300), fontsize=30, color='r', ha="center", va="center")
-
-glue("trojan_asteroids", fig, display=False)
-```
-
-```{glue:} trojan_asteroids
+ax.annotate("60°", xy=(7*r_J/8*np.cos(theta_J - np.pi/6) + 300, 7*r_J/8*np.sin(theta_J - np.pi/6) + 300), fontsize=30, color='r', ha="center", va="center");
 ```
 
 As you can see, there are clusters of asteroids at angles of $\pm 60^{\circ}$ from Jupiter, corresponding to the $L_4$ and $L_5$ Lagrange points!
@@ -588,6 +584,137 @@ On the other hand, $L_1$, $L_2$, and $L_3$ are all **saddle points**, meaning th
 Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope is planned to launch to the $L_2$ of the Earth-Sun system sometime this year.
 
 $L_1$ and $L_2$ in the Earth-Sun system are about 1.5 million km towards the Sun and away from the Sun, starting at the Earth, respectively. $L_3$ lies on the other side of the Sun, and has long been the predicted location of a hidden planet, since it could not be observed from Earth prior to the advent of satellite observation. Now, of course, we know there is no planet at that location.
+
+## The Jacobi Constant
+
+Let's return now to the graph of the potential function. The potential function represents the potential energy that the tertiary mass will have if it is located at a given $x$-$y$ point in the orbital plane. The tertiary mass will also have some velocity, $v$, with a corresponding kinetic energy.
+
+From the law of conservation of energy, we know that the sum of the kinetic and potential energies of the tertiary mass will be constant. The potential energy (repeated here from above) is:
+
+$$U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]$$
+
+The first two terms in this equation are the gravitational potential energy due to the position of the tertiary mass relative to $m_1$ and $m_2$. The third term is the potential energy of the centrifugal force induced by the rotation of the coordinate system.
+
+In nondimensional coordinates, the mass-specific kinetic energy is:
+
+$$\frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]$$
+
+Combining these equations, we find from conservation of energy:
+
+$$\frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] = C$$(jacobi-constant)
+
+The constant $C$ is called the Jacobi Constant, and represents the total energy of the tertiary mass relative to the rotating reference frame.
+
+Since $C$ is a constant, the total energy of the tertiary mass is fixed. Consider the tertiary mass at some location $\left(x^*_1, y^*_1)$ such that it has potential energy $U_1$. Assume first that the velocity is zero. Then, the Jacobi constant is just equal to $U_1$, and the mass cannot "climb" any higher out of the potential energy surface. Thus, there is a region of space where the mass cannot access because it doesn't have enough energy!
+
+Assume now that the velocity of the mass is $v^*_1$. Then the Jacobi constant is equal to the sum of the kinetic and potential energies. If the mass wants to climb up the potential energy surface, it can trade kinetic energy for potential energy. Eventually, however, the kinetic energy and the velocity will go to zero, and the mass cannot climb any higher!
+
+```{margin}
+Koon et al. {cite}`Koon2011` also refer to the area where a particle cannot enter as the **Hill's region**.
+```
+
+Now, let's turn this problem around. We want to know, for a given value of $C$, what regions of space will be inaccessible. Consider the tertiary mass with a certain value of $C$ and at a particular location. As the mass moves, it exchanges energy between kinetic energy (velocity) and potential energy. At some position, the $C$ will be equal to $U$, and the velocity will be (by definition) zero. Thus, the mass cannot travel any further in that direction.
+
+For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting $v^* = 0$ in Eq. {eq}`jacobi-constant`:
+
+$$\frac{2 \left(1 - \pi_2\right)}{\sigma} + \frac{2 \pi_2}{\psi} + \left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] + 2C = 0$$
+
+Since the first three terms on the left are all positive, zero velocity curves correspond to negative values of the Jacobi constant. The figure below plots the forbidden regions, shown as shaded areas, for several values of $C$:
+
+```{code-cell}
+:tags: [remove-input]
+from scipy.optimize import newton
+import numpy as np
+import matplotlib.pyplot as plt
+
+# These masses represent the Earth-Moon system
+m_1 = 5.974E24  # kg
+m_2 = 7.348E22 # kg
+pi_2 = m_2/(m_1 + m_2)
+
+x_1, y_1 = -pi_2 + 0.01, 0
+x_2, y_2 = 1 - pi_2 + 0.01, 0
+
+sigma_m1 = np.sqrt((x_1 + pi_2)**2 + y_1**2)
+psi_m1 = np.sqrt((x_1 - 1 + pi_2)**2 + y_1**2)
+C_m1 = -(1 - pi_2) / sigma_m1 - pi_2 / psi_m1 - ((1 - pi_2) * sigma_m1**2 + pi_2 * psi_m1**2) / 2
+
+sigma_m2 = np.sqrt((x_2 + pi_2)**2 + y_2**2)
+psi_m2 = np.sqrt((x_2 - 1 + pi_2)**2 + y_2**2)
+C_m2 = -(1 - pi_2) / sigma_m2 - pi_2 / psi_m2 - ((1 - pi_2) * sigma_m2**2 + pi_2 * psi_m2**2) / 2
+
+x_L4, y_L4 = 0.5 - pi_2, np.sqrt(3)/2
+
+sigma_L4 = np.sqrt((x_L4 + pi_2)**2 + y_L4**2)
+psi_L4 = np.sqrt((x_L4 - 1 + pi_2)**2 + y_L4**2)
+C_4 = -(1 - pi_2) / sigma_L4 - pi_2 / psi_L4 - ((1 - pi_2) * sigma_L4**2 + pi_2 * psi_L4**2) / 2
+
+
+def collinear_lagrange(xstar, pi_2):
+    return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
+
+y_L1 = y_L2 = y_L3 = 0
+x_L1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
+x_L2 = newton(func=collinear_lagrange, x0=1, args=(pi_2,))
+x_L3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
+
+sigma_L1 = np.sqrt((x_L1 + pi_2)**2 + y_L1**2)
+psi_L1 = np.sqrt((x_L1 - 1 + pi_2)**2 + y_L1**2)
+C_1 = -(1 - pi_2) / sigma_L1 - pi_2 / psi_L1 - ((1 - pi_2) * sigma_L1**2 + pi_2 * psi_L1**2) / 2
+
+sigma_L2 = np.sqrt((x_L2 + pi_2)**2 + y_L2**2)
+psi_L2 = np.sqrt((x_L2 - 1 + pi_2)**2 + y_L2**2)
+C_2 = -(1 - pi_2) / sigma_L2 - pi_2 / psi_L2 - ((1 - pi_2) * sigma_L2**2 + pi_2 * psi_L2**2) / 2
+
+sigma_L3 = np.sqrt((x_L3 + pi_2)**2 + y_L3**2)
+psi_L3 = np.sqrt((x_L3 - 1 + pi_2)**2 + y_L3**2)
+C_3 = -(1 - pi_2) / sigma_L3 - pi_2 / psi_L3 - ((1 - pi_2) * sigma_L3**2 + pi_2 * psi_L3**2) / 2
+
+fixed_points = ((x_1, x_2, x_L1, x_L2, x_L3, x_L4, x_L4), (y_1, y_2, y_L1, y_L2, y_L3, y_L4, -y_L4))
+fixed_labels = ("Earth", "Moon", "$L_1$", "$L_2$", "$L_3$", "$L_4$", "$L_5$")
+
+x_min, x_max = -1.25, 1.25
+y_min, y_max = -1.25, 1.25
+
+n_samples = 1000
+x = np.linspace(x_min, x_max, n_samples)
+y = np.linspace(y_min, y_max, int(n_samples / 2))
+X, Y = np.meshgrid(x, y)
+sigma = np.sqrt((X + pi_2)**2 + Y**2)
+psi = np.sqrt((X - 1 + pi_2)**2 + Y**2)
+
+C_values = (C_m2 + 0.9, C_1, C_2, C_3, (C_3 + C_4) / 2, C_4-1e-6)
+
+fig, axes = plt.subplots(nrows=3, ncols=2, figsize=(9, 12))
+for (C, ax) in zip(C_values, axes.flatten()):
+    ax.set_aspect("equal")
+    ax.set_ylim(y_min, y_max)
+    ax.set_xlim(x_min, x_max)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.xaxis.set_tick_params(bottom=False, top=False, which="both", labelbottom=False)
+    ax.yaxis.set_tick_params(left=False, right=False, which="both", labelleft=False)
+
+    # Move remaining spines to the center
+    ax.spines["bottom"].set_position("zero")  # spine for xaxis
+    ax.spines["left"].set_position("zero")  # spine for yaxis
+
+    for (x, y, label) in zip(fixed_points[0], fixed_points[1], fixed_labels):
+        va = "bottom"
+        if label == "Moon":
+            va = "top"
+            y -= 0.05
+        ax.annotate(label, xy=(x, y), ha="center", va=va)
+
+    ax.set_title(f"$C$ = {C:.5F}")
+    ax.plot(fixed_points[0], fixed_points[1], 'ko', markersize=1)
+    U = 2*(1 - pi_2) / sigma + 2* pi_2 / psi + ((1 - pi_2) * sigma**2 + pi_2 * psi**2) + 2*C
+    V = np.zeros((int(n_samples / 2), n_samples))
+    V[U < 0] = 1
+
+    cs = ax.contourf(X, Y, V, levels=[0, 0.5, 1], colors=('w', 'silver'))
+    cs = ax.contour(X, Y, V, levels=[0, 0.5, 1], colors=('w', 'black'), linewidths=0.5)
+```
 
 ## References
 

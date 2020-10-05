@@ -12,15 +12,12 @@ def plot_figure():
     ax.set_ylim((-1, 1))
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    # Show ticks on the left and lower axes only
     ax.xaxis.set_tick_params(bottom=False, top=False, which="both", labelbottom=False)
     ax.yaxis.set_tick_params(left=False, right=False, which="both", labelleft=False)
 
     # Move remaining spines to the center
     ax.spines["bottom"].set_position("zero")  # spine for xaxis
-    #    - will pass through the center of the y-values (which is 0)
     ax.spines["left"].set_position("zero")  # spine for yaxis
-    #    - will pass through the center of the x-values (which is 5)
 
     ann = ax.annotate("", xy=(0.8, 0.75), ha="center", va="center", fontsize=20)
     ann_2 = ax.annotate(
