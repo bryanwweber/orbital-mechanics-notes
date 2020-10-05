@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example: CR3BP Equations of Motion &amp; Jacobi Constant &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    <title>Example: CR3BP Equations of Motion &#8212; Notes on Orbital Mechanics for Engineering Students</title>
     
   <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
@@ -223,7 +223,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Example: CR3BP Equations of Motion &amp; Jacobi Constant
+   Example: CR3BP Equations of Motion
   </a>
  </li>
 </ul>
@@ -338,8 +338,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solve-the-equations-of-motion-for-the-cr3bp">
-   Solve the Equations of Motion for the CR3BP
+  <a class="reference internal nav-link" href="#calculating-the-jacobi-constant">
+   Calculating the Jacobi Constant
   </a>
  </li>
 </ul>
@@ -353,10 +353,8 @@
         
               <div>
                 
-  <div class="section" id="example-cr3bp-equations-of-motion-jacobi-constant">
-<h1>Example: CR3BP Equations of Motion &amp; Jacobi Constant<a class="headerlink" href="#example-cr3bp-equations-of-motion-jacobi-constant" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="solve-the-equations-of-motion-for-the-cr3bp">
-<h2>Solve the Equations of Motion for the CR3BP<a class="headerlink" href="#solve-the-equations-of-motion-for-the-cr3bp" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="example-cr3bp-equations-of-motion">
+<h1>Example: CR3BP Equations of Motion<a class="headerlink" href="#example-cr3bp-equations-of-motion" title="Permalink to this headline">¶</a></h1>
 <p>Recall that we developed three nondimensional scalar equations of motion for the CR3BP:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}\ddot{x}^* - 2\dot{y}^* - x^* &amp;= -\frac{1 - \pi_2}{\sigma^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\psi^3}\left(x^* - 1 + \pi_2\right) \\ \ddot{y}^* + 2\dot{x}^* - y^* &amp;= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\ \ddot{z}^* &amp;= -\frac{1 - \pi_2}{\sigma^3}z^* - \frac{\pi_2}{\psi^3}z^*\end{aligned}\end{split}\]</div>
@@ -489,6 +487,105 @@
 </div>
 <p>In the co-rotating reference frame, we can get some very interesting behavior of <span class="math notranslate nohighlight">\(m\)</span>. The behavior of <span class="math notranslate nohighlight">\(m\)</span> depends very strongly on the initial conditions that we set.</p>
 <p><strong>See what interesting patterns you can get, and post your efforts on Piazza!</strong></p>
+<div class="section" id="calculating-the-jacobi-constant">
+<h2>Calculating the Jacobi Constant<a class="headerlink" href="#calculating-the-jacobi-constant" title="Permalink to this headline">¶</a></h2>
+<p>In the nondimensional coordinates, the Jacobi constant can be calculated as:</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]\]</div>
+<p>This value should be constant over the entire trajectory of the tertiary mass.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">speed_sq</span> <span class="o">=</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">x</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will also calculate the initial value of the Jacobi constant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x_0</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z_0</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">psi_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x_0</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z_0</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">speed_sq_0</span> <span class="o">=</span> <span class="n">vx_0</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy_0</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vz_0</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">C_0</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq_0</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_0</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi_0</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma_0</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi_0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have calculated <span class="math notranslate nohighlight">\(C\)</span> as a function of time, let’s plot it! Hopefully it’s constant…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">C_0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f152a085190&gt;
+</pre></div>
+</div>
+<img alt="../_images/12b-Equations-of-Motion-CR3BP_13_1.png" src="../_images/12b-Equations-of-Motion-CR3BP_13_1.png" />
+</div>
+</div>
+<p>Oh dear. The Jacobi constant varies by about 0.008 (dimensionless) over the trajectory. Keep in mind that a change of <span class="math notranslate nohighlight">\(C\)</span> on the order of <span class="math notranslate nohighlight">\(10^{-2}\)</span> is the difference from the <span class="math notranslate nohighlight">\(L_1\)</span> and <span class="math notranslate nohighlight">\(L_2\)</span> points being accessible in the Earth-Moon system. So a change of <span class="math notranslate nohighlight">\(8\times 10^{-3}\)</span> is quite large on that scale.</p>
+<p>According to <a class="reference external" href="https://gereshes.com/2019/03/11/matlab-astrodynamics-library-cr3bp/">some sources</a>, the problem is the integrator we’re using, which doesn’t guarantee that the energy is conserved. We can try a more accurate integrator, and also change the precision requirements for the solver. The default is a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.RK45.html#scipy.integrate.RK45">5th order Runge-Kutta integrator</a>, with absolute and relative tolerances of <span class="math notranslate nohighlight">\(10^{-6}\)</span> and <span class="math notranslate nohighlight">\(10^{-3}\)</span>, respectively.</p>
+<p>There are <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">additional integrator methods</a> provided with the SciPy package. According to their documentation, the <code class="docutils literal notranslate"><span class="pre">&quot;DOP853&quot;</span></code> method is well-suited for high precision computations, which is an 8th order Runge-Kutta integrator. Let’s see how that does.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol_hp</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">nondim_cr3bp</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">Y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;DOP853&quot;</span><span class="p">)</span>
+<span class="n">Y_hp</span> <span class="o">=</span> <span class="n">sol_hp</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span>
+<span class="n">r_hp</span> <span class="o">=</span> <span class="n">Y_hp</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># nondimensional distance</span>
+<span class="n">v_hp</span> <span class="o">=</span> <span class="n">Y_hp</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>  <span class="c1"># nondimensional velocity</span>
+
+<span class="n">x_hp</span> <span class="o">=</span> <span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">y_hp</span> <span class="o">=</span> <span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">z_hp</span> <span class="o">=</span> <span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">speed_sq_hp</span> <span class="o">=</span> <span class="n">v_hp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">sigma_hp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">x_hp</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">psi_hp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">x_hp</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">z_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">C_hp</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq_hp</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_hp</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi_hp</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma_hp</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">C_hp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">C_0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f1529fee8e0&gt;
+</pre></div>
+</div>
+<img alt="../_images/12b-Equations-of-Motion-CR3BP_15_1.png" src="../_images/12b-Equations-of-Motion-CR3BP_15_1.png" />
+</div>
+</div>
+<p>Somewhat unexpectedly, the variation of <span class="math notranslate nohighlight">\(C\)</span> with respect to time is larger with this solver than with the other one! The other difference is that the variation is more-or-less periodic. This gives us a hint that the problem might also be related to the physical situation that the tertiary mass finds itself in. Let’s plot the distance from the larger mass (<span class="math notranslate nohighlight">\(m_1\)</span>), given by <span class="math notranslate nohighlight">\(\sigma\)</span>, on the same plot as the Jacobi constant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">C_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">C_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">C_hp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Jacobi Constant&quot;</span><span class="p">)</span>
+<span class="n">C_ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">C_0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Jacobi Constant&quot;</span><span class="p">)</span>
+<span class="n">r_ax</span> <span class="o">=</span> <span class="n">C_ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">r_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sigma_hp</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\sigma$&quot;</span><span class="p">)</span>
+<span class="n">r_ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">)</span>
+<span class="n">C_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12b-Equations-of-Motion-CR3BP_17_0.png" src="../_images/12b-Equations-of-Motion-CR3BP_17_0.png" />
+</div>
+</div>
+<p>As you can see, the error in the Jacobi constant spikes when the tertiary mass gets closer to the primary mass, <span class="math notranslate nohighlight">\(m_1\)</span>.  This makes a certain amount of sense, because the acceleration terms depend inversely on the cube of this value. As the value of <span class="math notranslate nohighlight">\(\sigma\)</span> gets smaller, the error grows.</p>
+<p>This error can be avoided by using a different class of numerical integrators, called <a class="reference external" href="https://en.wikipedia.org/wiki/Symplectic_integrator"><strong>symplectic integrators</strong></a>. We won’t have time to discuss those further right now, though. If you’re interested in taking a crack at an implementation, you can find sample code here: <a class="reference external" href="http://www.unige.ch/~hairer/software.html">http://www.unige.ch/~hairer/software.html</a>, and you will be interested in the <strong>Structure-Preserving Algorithms</strong>.</p>
 </div>
 </div>
 
