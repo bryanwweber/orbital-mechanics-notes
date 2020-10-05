@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 2.11 - The Lagrange Coefficients &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2.12 - Circular Restricted Three-Body Problem" href="12-circular-restricted-three-body-problem.html" />
+    <link rel="prev" title="Chapter 2.10 - Perifocal Frame" href="10-perifocal-frame.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hohmann.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/3-kinematics.html">
+   Chapter 1.3 - Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+   Chapter 1.6 - Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+   Chapter 1.7 - Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-the-energy-law.html">
+   Chapter 2.5 - The Energy Law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion &amp; Jacobi Constant
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter-2/11-the-lagrange-coefficients.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fchapter-2/11-the-lagrange-coefficients.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/chapter-2/11-the-lagrange-coefficients.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#position-velocity-and-angular-momentum">
+   Position, Velocity, and Angular Momentum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coefficients-in-terms-of-the-true-anomaly">
+   Coefficients in Terms of the True Anomaly
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relating-true-anamoly-to-time">
+   Relating True Anamoly to Time
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chapter-2-11-the-lagrange-coefficients">
+<h1>Chapter 2.11 - The Lagrange Coefficients<a class="headerlink" href="#chapter-2-11-the-lagrange-coefficients" title="Permalink to this headline">¶</a></h1>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Although, we can compute <span class="math notranslate nohighlight">\(e\)</span> from the initial position and velocity.</p>
+</div>
+<p>The Lagrange coefficients are a set of 4 scalar functions that allow us to determine the orbit given only the initial position and velocity. We do not need to know the shape of the orbit beforehand, because we will see that the Lagrange coefficients do not depend on the eccentricity.</p>
+<p>The position and velocity vectors at any time are linear combinations of the Lagrange coefficients and the initial conditions. This useful property allows us to introduce the variable to time back into our equations, which we previously replaced with <span class="math notranslate nohighlight">\(\theta\)</span>, the true anomaly. We will do this in Chapter 3.</p>
+<div class="section" id="position-velocity-and-angular-momentum">
+<h2>Position, Velocity, and Angular Momentum<a class="headerlink" href="#position-velocity-and-angular-momentum" title="Permalink to this headline">¶</a></h2>
+<p>We start by defining the initial conditions, subscripted with a <span class="math notranslate nohighlight">\(0\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-initial-conditions">
+<span class="eqno">(2)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
+<p>Then the angular momentum is found by taking the cross product:</p>
+<div class="math notranslate nohighlight">
+\[\vector{h} = \vector{r}_0 \cross\vector{v}_0 = \uvec{w}\left(\pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\right)\]</div>
+<p>From the definition of the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> unit vector, we can see that the magnitude of the angular momentum must be:</p>
+<div class="math notranslate nohighlight">
+\[h = \pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\]</div>
+<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(2)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}\uvec{p} &amp;= \frac{\dot{\pf{y}}_0}{h}\vector{r}_0 - \frac{\pf{y}_0}{h}\vector{v}_0 &amp; \uvec{q} &amp;= -\frac{\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{\pf{x}_0}{h}\vector{v}_0\end{aligned}\]</div>
+<p>Putting these two unit vectors back into the equations for the general position and velocity, and simplifying, we find:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>Note:</strong> The velocity equation in the book has a typo, it is missing the dot on the <span class="math notranslate nohighlight">\(\pf{x}_0\)</span> in the position term.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\vector{r} &amp;= \frac{\pf{x}\dot{\pf{y}}_0 - \pf{y}\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{-\pf{x}\pf{y}_0 + \pf{y}\pf{x}_0}{h}\vector{v}_0 \\ \vector{v} &amp;= \frac{\dot{\pf{x}}\dot{\pf{y}}_0 - \dot{\pf{y}}\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{-\dot{\pf{x}}\pf{y}_0 + \dot{\pf{y}}\pf{x}_0}{h}\vector{v}_0\end{aligned}\end{split}\]</div>
+<p>By inspecting these two equations, we can see that they are composed of a linear combination of <span class="math notranslate nohighlight">\(\vector{r}_0\)</span> and <span class="math notranslate nohighlight">\(\vector{v}_0\)</span>. In addition, the coefficients in front of the initial position and velocity are related. These are called the <strong>Lagrange coefficients</strong>, and given the symbols <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(\dot{f}\)</span>, and <span class="math notranslate nohighlight">\(\dot{g}\)</span>:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>Note:</strong> The equation for <span class="math notranslate nohighlight">\(\dot{f}\)</span> in the book is correct, although as mentioned before, its form in the equation for velocity is not.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}f &amp;= \frac{\pf{x}\dot{\pf{y}}_0 - \pf{y}\dot{\pf{x}}_0}{h} &amp; g &amp;= \frac{-\pf{x}\pf{y}_0 + \pf{y}\pf{x}_0}{h} \\ \dot{f} &amp;= \frac{\dot{\pf{x}}\dot{\pf{y}}_0 - \dot{\pf{y}}\dot{\pf{x}}_0}{h} &amp; \dot{g} &amp;= \frac{-\dot{\pf{x}}\pf{y}_0 + \dot{\pf{y}}\pf{x}_0}{h}\end{aligned}\end{split}\]</div>
+<p>Note that the time derivative coefficients, <span class="math notranslate nohighlight">\(\dot{f}\)</span> and <span class="math notranslate nohighlight">\(\dot{g}\)</span>, only take the time derivative of the time-varying components, that is, <span class="math notranslate nohighlight">\(\pf{x}\)</span> and <span class="math notranslate nohighlight">\(\pf{y}\)</span>. The initial conditions are constant, by definition.</p>
+<p>From the conservation of angular momentum, we know that</p>
+<div class="math notranslate nohighlight">
+\[\vector{h}_0 = \vector{r}_0 \cross\vector{v}_0 = \vector{h}\]</div>
+<p>since the angular momentum is constant. This imposes a condition on the relationship between the Lagrange coefficients:</p>
+<div class="math notranslate nohighlight">
+\[f\dot{g} - \dot{f}g = 1\]</div>
+<p>Thus, if any three of the Lagrange coefficients are known, the fourth can be determined from this constraint.</p>
+</div>
+<div class="section" id="coefficients-in-terms-of-the-true-anomaly">
+<h2>Coefficients in Terms of the True Anomaly<a class="headerlink" href="#coefficients-in-terms-of-the-true-anomaly" title="Permalink to this headline">¶</a></h2>
+<p>We can use a <em>lot</em> of algebra and trig to define the Lagrange coefficients in terms of the change of true anomaly:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}f &amp;= 1 - \frac{\mu r}{h^2}\left(1 - \cos\Delta\theta\right) &amp; g &amp;= \frac{rr_0}{h}\sin\Delta\theta \\ \dot{f} &amp;= \frac{\mu}{h}\frac{1 - \cos\Delta\theta}{\sin\Delta\theta}\left[\frac{\mu}{h^2}\left(1 - \cos\Delta\theta\right) - \frac{1}{r_0} - \frac{1}{r}\right] &amp; \dot{g} &amp;= 1 - \frac{\mu r_0}{h^2}\left(1 - \cos\Delta\theta\right)\end{aligned}\end{split}\]</div>
+<p>These equations allow us to determine the state vector, given the initial conditions <span class="math notranslate nohighlight">\(\vector{r}_0\)</span> and <span class="math notranslate nohighlight">\(\vector{v}_0\)</span>, and the desired change in true anomaly. Notice that we don’t require the type of orbit, since the eccentricity does not appear in any of these equations.</p>
+<p>One further equation that we need is the orbit equation in terms of the true anomaly:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{h^2}{\mu}\frac{1}{1 + \left(\frac{h^2}{\mu r_0} - 1\right) \cos\Delta\theta - \frac{h\left.v_r\right)_0}{\mu}\sin\Delta\theta}\]</div>
+<p>The disadvantage of these equations is that we cannot solve for periapsis and/or apoapsis distances, without first calculating the eccentricity and true anomaly of the initial point. Fortunately, these can be calculated as follows. First, obtain the specific angular momentum from:</p>
+<div class="math notranslate nohighlight">
+\[h = \mag{\vector{r}_0 \cross\vector{v}_0}\]</div>
+<p>Then, project the initial velocity into the radial direction by taking the dot product of the initial velocity with a unit vector pointing in the direction of <span class="math notranslate nohighlight">\(\vector{r}_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\left.v_r\right)_0 = \vector{v}_0\cdot\frac{\vector{r}_0}{r_0}\]</div>
+<p>Then, we can solve for the eccentricity and initial true anomaly from the orbit equation and its derivative:</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}r &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta_0} &amp; \left.v_r\right)_0 = \frac{\mu}{h}\sin\theta_0\end{aligned}\]</div>
+</div>
+<div class="section" id="relating-true-anamoly-to-time">
+<h2>Relating True Anamoly to Time<a class="headerlink" href="#relating-true-anamoly-to-time" title="Permalink to this headline">¶</a></h2>
+<p>Ideally, we would be able to solve this problem as a function of time, instead of true anomaly. Time is a much more natural variable for humans to deal with. To do so, we need a relationship between <span class="math notranslate nohighlight">\(\Delta\theta\)</span> and <span class="math notranslate nohighlight">\(\Delta t\)</span>. This is a complex problem, and we will deal with it in the next chapter.</p>
+<p>We can find series solutions of the Lagrange coefficients, which allow us to do these calculations. Since the series solutions are only valid for times around <span class="math notranslate nohighlight">\(t_0\)</span>, we will just wait to deal with the problem completely in the next chapter. Details are in the book if you’re interested.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter-2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="10-perifocal-frame.html" title="previous page">Chapter 2.10 - Perifocal Frame</a>
+    <a class='right-next' id="next-link" href="12-circular-restricted-three-body-problem.html" title="next page">Chapter 2.12 - Circular Restricted Three-Body Problem</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
+    
+  </body>
+</html>

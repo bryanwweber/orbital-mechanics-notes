@@ -177,7 +177,7 @@ The suffixes depend on the primary body in the orbit. For orbits around the Eart
 | Body    | Suffix  | Nearest point | Farthest Point |
 |---------|---------|---------------|----------------|
 | Earth   | -gee    | perigee       | apogee         |
-| Sun     | -helion | perihelion    | apohelion      |
+| Sun     | -helion | perihelion    | aphelion       |
 | Moon    | -lune   | perilune      | apolune        |
 | General | -apsis  | periapsis     | apoapsis       |
 

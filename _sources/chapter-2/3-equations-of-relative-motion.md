@@ -92,4 +92,5 @@ have the same form, differing only in the constants. The solutions to these equa
 
 ```{bibliography} ../references.bib
 :style: unsrt
+:filter: docname in docnames
 ```
