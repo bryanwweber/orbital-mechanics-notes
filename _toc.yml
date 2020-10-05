@@ -19,3 +19,7 @@
     - file: chapter-2/8-parabolic-trajectories
     - file: chapter-2/9-hyperbolic-trajectories
     - file: chapter-2/10-perifocal-frame
+    - file: chapter-2/11-the-lagrange-coefficients
+    - file: chapter-2/12-circular-restricted-three-body-problem
+    - file: chapter-2/12a-Lagrange-points-example
+    - file: chapter-2/12b-Equations-of-Motion-CR3BP
