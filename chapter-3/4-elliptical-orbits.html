@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 3.4 - Elliptical Orbits (\(e &lt; 1\)) &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example: Elliptical Orbit" href="4a-Elliptical-Orbit-Example.html" />
+    <link rel="prev" title="Chapter 3.3 - Circular Orbits (\(e = 0\))" href="3-circular-orbits.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hohmann.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/3-kinematics.html">
+   Chapter 1.3 - Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+   Chapter 1.6 - Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+   Chapter 1.7 - Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
+   Chapter 2.5 - The Energy Law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/chapter-3/4-elliptical-orbits.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter-3/4-elliptical-orbits.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fchapter-3/4-elliptical-orbits.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/chapter-3/4-elliptical-orbits.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/chapter-3/4-elliptical-orbits.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-anomaly">
+   Mean Anomaly
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-motion">
+   Mean Motion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eccentric-anomaly">
+   Eccentric Anomaly
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kepler-s-equation">
+   Kepler’s Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-averaged-radial-position">
+   Time-Averaged Radial Position
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infinite-series-solutions-of-kepler-s-equation">
+   Infinite Series Solutions of Kepler’s Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chapter-3-4-elliptical-orbits-e-1">
+<h1>Chapter 3.4 - Elliptical Orbits (<span class="math notranslate nohighlight">\(e &lt; 1\)</span>)<a class="headerlink" href="#chapter-3-4-elliptical-orbits-e-1" title="Permalink to this headline">¶</a></h1>
+<p>For an elliptical orbit, we use the first integral relationship:</p>
+<div class="math notranslate nohighlight">
+\[\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(a^2 - b^2\right)^{3/2}}\left[2a\tan^{-1}\left(\sqrt{\frac{a - b}{a + b}}\tan\frac{x}{2}\right)-\frac{b\sqrt{a^2 - b^2}\sin x}{a + b \cos x}\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(a = 1\)</span> and <span class="math notranslate nohighlight">\(b = e &lt; 1\)</span>. Thus, the equation becomes:</p>
+<div class="math notranslate nohighlight">
+\[\int\frac{d\theta}{\left(1 + e\cos \theta\right)^2} = \frac{1}{\left(1 - e^2\right)^{3/2}}\left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\theta}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \theta}{1 + e \cos \theta}\right]\]</div>
+<div class="section" id="mean-anomaly">
+<h2>Mean Anomaly<a class="headerlink" href="#mean-anomaly" title="Permalink to this headline">¶</a></h2>
+<p>We define the term in the square brackets to be the <strong>mean anomaly</strong>, <span class="math notranslate nohighlight">\(M_e\)</span>, where the subscript <span class="math notranslate nohighlight">\(e\)</span> indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.</p>
+<p>The mean anomaly is a monotonically increasing function of the true anomaly. This is good because it means that <span class="math notranslate nohighlight">\(M_e\)</span> can be used in place of <span class="math notranslate nohighlight">\(\theta\)</span> for all four quadrants on the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane. If <span class="math notranslate nohighlight">\(M_e\)</span> had a peak, we would have to be concerned about which quadrant we were in.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4-elliptical-orbits_1_0.png" src="../_images/4-elliptical-orbits_1_0.png" />
+</div>
+</div>
+<p>Notice that when <span class="math notranslate nohighlight">\(e = 0\)</span> (a circular orbit), the mean anomaly and true anomaly are equal.</p>
+<p>In terms of the mean anomaly, we can write:</p>
+<div class="math notranslate nohighlight">
+\[M_e = \frac{\mu^2}{h^3} t \left(1 - e^2\right)^{3/2}\]</div>
+<p>If we know the period of the elliptical orbit, we can simplify the equation for the mean anomaly:</p>
+<div class="math notranslate nohighlight">
+\[M_e = \frac{2\pi}{T}t\]</div>
+<p>which is the same as the equation for a circular orbit, except that we are using the mean anomaly instead of the true anomaly.</p>
+</div>
+<div class="section" id="mean-motion">
+<h2>Mean Motion<a class="headerlink" href="#mean-motion" title="Permalink to this headline">¶</a></h2>
+<p>By further defining a quantity called the <strong>mean motion</strong>, <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[n = \frac{2\pi}{T}\]</div>
+<p>we can simplify the equation of the mean anomaly more:</p>
+<div class="math notranslate nohighlight">
+\[M_e = n t\]</div>
+<p>In a real elliptical orbit, the angular velocity of the position vector is not constant. This is a consequence of Kepler’s Second Law, which says that equal areas are swept out in equal times. For this to hold, the object must have a larger angular velocity near periapsis and a smaller angular velocity near apoapsis.</p>
+<p>The mean motion, on the other hand, is the angular velocity that an orbiting mass would have, if it could have a constant angular velocity. The mean anomaly, then, is the azimuth position of this imaginary mass moving with constant angular velocity, as a function of time.</p>
+<p>Notice that near periapsis (<span class="math notranslate nohighlight">\(\theta = 0\)</span>), the mean anomaly changes very little while the true anomaly changes a lot. This is because the true angular velocity is much larger than the mean motion near periapsis. The inverse is true near apoapsis (<span class="math notranslate nohighlight">\(\theta = \pi\)</span>).</p>
+</div>
+<div class="section" id="eccentric-anomaly">
+<h2>Eccentric Anomaly<a class="headerlink" href="#eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
+<p>We can simplify the equation for <span class="math notranslate nohighlight">\(M_e\)</span> even further by using an auxiliary angle, <span class="math notranslate nohighlight">\(E\)</span>, called the eccentric anomaly. <span class="math notranslate nohighlight">\(E\)</span> is defined as the angle from the <span class="math notranslate nohighlight">\(x\)</span> axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> on the ellipse.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4-elliptical-orbits_3_0.png" src="../_images/4-elliptical-orbits_3_0.png" />
+</div>
+</div>
+<p>Since <span class="math notranslate nohighlight">\(M_e\)</span> is given in terms of <span class="math notranslate nohighlight">\(\theta\)</span>, we need to relate <span class="math notranslate nohighlight">\(E\)</span> to <span class="math notranslate nohighlight">\(\theta\)</span> to simplify. From the figure above, we can see that the distance from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(a\cos E\)</span> in terms of the eccentric anomaly, or <span class="math notranslate nohighlight">\(ae + r\cos\theta\)</span> in terms of the true anomaly, where <span class="math notranslate nohighlight">\(ae\)</span> is the distance from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(F\)</span>, and <span class="math notranslate nohighlight">\(\cos\theta\)</span> is negative for <span class="math notranslate nohighlight">\(\pi/2 &lt; \theta &lt; 3\pi/2\)</span>. Therefore,</p>
+<div class="math notranslate nohighlight">
+\[a\cos E = ae + r\cos\theta\]</div>
+<p>Replacing <span class="math notranslate nohighlight">\(r\)</span> with the orbit equation in terms of the semimajor axis and simplifying, we find:</p>
+<div class="math notranslate nohighlight">
+\[\cos E = \frac{e + \cos\theta}{1 + e\cos\theta}\]</div>
+<p>or, solving for <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\cos\theta = \frac{e - \cos E}{e\cos E - 1}\]</div>
+<p>These equations allow us to solve for <span class="math notranslate nohighlight">\(E\)</span> given <span class="math notranslate nohighlight">\(\theta\)</span>, provided that <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; \pi\)</span>. For <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; 2 \pi\)</span>, the equation is multivalued, and there are two values for <span class="math notranslate nohighlight">\(E\)</span>, one between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span>, and the other between <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span>. By applying some trigonometric transformations, we can write:</p>
+<div class="math notranslate nohighlight" id="equation-eccentric-anomaly-theta">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eccentric-anomaly-theta" title="Permalink to this equation">¶</a></span>\[E = 2 \tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\theta}{2}\right)\]</div>
+<p>The inverse tangent function is not multivalued for a given value of <span class="math notranslate nohighlight">\(\theta\)</span>, so this resolves the problem.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(7)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
+</div>
+</div>
+<div class="section" id="kepler-s-equation">
+<h2>Kepler’s Equation<a class="headerlink" href="#kepler-s-equation" title="Permalink to this headline">¶</a></h2>
+<p>Combining these equations yields <strong>Kepler’s Equation</strong>:</p>
+<div class="math notranslate nohighlight">
+\[M_e = E - e \sin E\]</div>
+<p>This gives the relationship between mean anomaly and eccentric anomaly. The value of <span class="math notranslate nohighlight">\(M_e\)</span> monotonically increases as a function of <span class="math notranslate nohighlight">\(E\)</span>, as shown in the figure below for several values of <span class="math notranslate nohighlight">\(e\)</span>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4-elliptical-orbits_5_0.png" src="../_images/4-elliptical-orbits_5_0.png" />
+</div>
+</div>
+<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(7)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{M_e}{2\pi} T\]</div>
+<p>If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we can solve the previous equation for <span class="math notranslate nohighlight">\(M_e\)</span>. Then, we need to solve Kepler’s equation. Unfortunately, this equation is transcendental in <span class="math notranslate nohighlight">\(E\)</span>, so it cannot be solved analytically. We need to use a numerical method, such as Newton’s method, to solve the equation.</p>
+<p>For Newton’s method, we seek the roots of a function, <span class="math notranslate nohighlight">\(f(E) = 0\)</span>. In this case, we can rearrange Kepler’s equation as:</p>
+<div class="math notranslate nohighlight">
+\[f(E) = E - e\sin E - M_e\]</div>
+<p>It is also convenient to supply the derivative, when it is available, since this improves the convergence rate of the algorithm. The derivative is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d f(E)}{d E} = f'(E) = 1 - e\cos E\]</div>
+<p>Finally, we can directly write the radial position in terms of the eccentric anomaly. By replacing <span class="math notranslate nohighlight">\(\cos\theta\)</span> in the orbit equation with the relationship in terms of <span class="math notranslate nohighlight">\(E\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{a\left(1 - e^2\right)}{1 + e\left(\frac{e - \cos E}{e\cos E - 1}\right)} = a\left(1 - e\cos E\right)\]</div>
+</div>
+<div class="section" id="time-averaged-radial-position">
+<h2>Time-Averaged Radial Position<a class="headerlink" href="#time-averaged-radial-position" title="Permalink to this headline">¶</a></h2>
+<p>In a previous section, we derived the true anomaly-averaged radial position, <span class="math notranslate nohighlight">\(\overline{r}_{\theta}\)</span>. Now that we have a relationship with time (via <span class="math notranslate nohighlight">\(E\)</span>), we can find the time-averaged radial position:</p>
+<div class="math notranslate nohighlight">
+\[\overline{r}_t = \frac{1}{T}\int_0^T r dt\]</div>
+<p>Replacing <span class="math notranslate nohighlight">\(M_e\)</span> with Kepler’s equation, and differentiating, we find:</p>
+<div class="math notranslate nohighlight">
+\[dt = \frac{T}{2\pi}\left(1 - e\cos E\right) dE\]</div>
+<p>Plugging this equation in for <span class="math notranslate nohighlight">\(dt\)</span> and changing the limits of integration to be in terms of <span class="math notranslate nohighlight">\(E\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[\overline{r}_t = a\left(1 + \frac{e^2}{2}\right)\]</div>
+<p>Finally, combining this with the equation for the true anomaly-averaged radial position, we find:</p>
+<div class="math notranslate nohighlight">
+\[\overline{r}_{\theta} = a\sqrt{3 - 2\frac{\overline{r}_t}{a}}\]</div>
+</div>
+<div class="section" id="infinite-series-solutions-of-kepler-s-equation">
+<h2>Infinite Series Solutions of Kepler’s Equation<a class="headerlink" href="#infinite-series-solutions-of-kepler-s-equation" title="Permalink to this headline">¶</a></h2>
+<p>Although there are no analytical solutions for Kepler’s equation, several people have developed infinite series solutions. The first was developed by Lagrange:</p>
+<div class="math notranslate nohighlight">
+\[E = M_e + \sum_{n = 1}^{\infty}a_n e^n\]</div>
+<p>where the coefficients <span class="math notranslate nohighlight">\(a_n\)</span> are given by:</p>
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{2^{n - 1}} \sum_{k=0}^{\mathrm{floor}(n/2)}(-1)^k\frac{1}{\left(n - k\right)!k!}\left(n - 2k\right)^{n - 1}\sin\left[\left(n - 2k\right)M_e\right]\]</div>
+<p>and where <span class="math notranslate nohighlight">\(\mathrm{floor}(x)\)</span> means to take the next lowest integer relative to the argument.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>Note:</strong> Sacchetti <a class="bibtex reference internal" href="#sacchetti2020" id="id1">[1]</a> states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series, not Laplace, who completed his work five years after Carlini. DRAMA!</p>
+</div>
+<p>This infinite series converges for <span class="math notranslate nohighlight">\(e &lt; 0.6627434193\)</span>, a limit that was proven by Laplace, and is therefore typically called the Laplace limit. For larger values of <span class="math notranslate nohighlight">\(e\)</span>, the series diverges.</p>
+<p>Another infinite series was developed by Bessel, which converges for all <span class="math notranslate nohighlight">\(e &lt; 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[E = M_e + \sum_{n=1}^{\infty}\frac{2}{n} J_n(ne)\sin nM_e\]</div>
+<p>where <span class="math notranslate nohighlight">\(J_n\)</span> are the Bessel functions of the first kind, defined by their own infinite series:</p>
+<div class="math notranslate nohighlight">
+\[J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n+ k}\]</div>
+<p>There are other feasible series solutions to Kepler’s equation, some of which are discussed by Colwell <a class="bibtex reference internal" href="#colwell1992" id="id2">[2]</a>.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-chapter-3/4-elliptical-orbits-0"><dl class="citation">
+<dt class="bibtex label" id="sacchetti2020"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Andrea Sacchetti. Francesco Carlini: Kepler’s equation and the asymptotic solution to singular differential equations. <em>Historia Mathematica</em>, pages S0315086020300446, July 2020. <a class="reference external" href="https://doi.org/10.1016/j.hm.2020.06.001">doi:10.1016/j.hm.2020.06.001</a>.</p>
+</dd>
+<dt class="bibtex label" id="colwell1992"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Peter Colwell. Bessel Functions and Kepler’s Equation. <em>The American Mathematical Monthly</em>, 99(1):45, January 1992. <a class="reference external" href="https://doi.org/10.2307/2324547">doi:10.2307/2324547</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter-3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="3-circular-orbits.html" title="previous page">Chapter 3.3 - Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)</a>
+    <a class='right-next' id="next-link" href="4a-Elliptical-Orbit-Example.html" title="next page">Example: Elliptical Orbit</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

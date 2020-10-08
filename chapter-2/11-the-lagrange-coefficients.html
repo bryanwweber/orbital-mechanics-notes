@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 2.11 - The Lagrange Coefficients &#8212; Notes on Orbital Mechanics for Engineering Students</title>
     
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -25,7 +25,7 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -228,6 +228,50 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -301,7 +345,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -354,14 +399,14 @@
 <h2>Position, Velocity, and Angular Momentum<a class="headerlink" href="#position-velocity-and-angular-momentum" title="Permalink to this headline">¶</a></h2>
 <p>We start by defining the initial conditions, subscripted with a <span class="math notranslate nohighlight">\(0\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-initial-conditions">
-<span class="eqno">(2)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
 <p>Then the angular momentum is found by taking the cross product:</p>
 <div class="math notranslate nohighlight">
 \[\vector{h} = \vector{r}_0 \cross\vector{v}_0 = \uvec{w}\left(\pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\right)\]</div>
 <p>From the definition of the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> unit vector, we can see that the magnitude of the angular momentum must be:</p>
 <div class="math notranslate nohighlight">
 \[h = \pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\]</div>
-<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(2)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
+<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(3)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}\uvec{p} &amp;= \frac{\dot{\pf{y}}_0}{h}\vector{r}_0 - \frac{\pf{y}_0}{h}\vector{v}_0 &amp; \uvec{q} &amp;= -\frac{\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{\pf{x}_0}{h}\vector{v}_0\end{aligned}\]</div>
 <p>Putting these two unit vectors back into the equations for the general position and velocity, and simplifying, we find:</p>
@@ -465,7 +510,7 @@
     </div>
 
     
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     
