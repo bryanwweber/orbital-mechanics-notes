@@ -23,3 +23,10 @@
     - file: chapter-2/12-circular-restricted-three-body-problem
     - file: chapter-2/12a-Lagrange-points-example
     - file: chapter-2/12b-Equations-of-Motion-CR3BP
+- part: Chapter 3
+  chapters:
+    - file: chapter-3/2-time-since-periapsis
+    - file: chapter-3/3-circular-orbits
+    - file: chapter-3/4-elliptical-orbits
+    - file: chapter-3/4a-Elliptical-Orbit-Example
+    - file: chapter-3/5-parabolic-trajectories

@@ -80,7 +80,7 @@ $$\frac{r_p}{r_a} = \frac{1 - e}{1 + e}$$
 
 Solving for the eccentricity:
 
-$$e = \frac{r_a - r_p}{r_a + r_p}$$
+$$e = \frac{r_a - r_p}{r_a + r_p}$$(ellipse-eccentricity-periapsis-apoapsis)
 
 ## Average Radial Distance
 
