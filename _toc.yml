@@ -30,3 +30,6 @@
     - file: chapter-3/4-elliptical-orbits
     - file: chapter-3/4a-Elliptical-Orbit-Example
     - file: chapter-3/5-parabolic-trajectories
+    - file: chapter-3/6-hyperbolic-trajectories
+    - file: chapter-3/6a-Hyperbolic-Trajectory-Example
+    - file: chapter-3/7-universal-variables
