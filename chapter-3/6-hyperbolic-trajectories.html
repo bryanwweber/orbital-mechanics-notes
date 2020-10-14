@@ -430,7 +430,7 @@
 <h1>Chapter 3.6 - Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)<a class="headerlink" href="#chapter-3-6-hyperbolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
 <p>For the hyperbola, we identify <span class="math notranslate nohighlight">\(a = 1\)</span> and <span class="math notranslate nohighlight">\(b = e &gt; 1\)</span>, so the appropriate integral is then the third one:</p>
 <div class="math notranslate nohighlight">
-\[\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + 1} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right]\]</div>
+\[\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + a} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right]\]</div>
 <div class="section" id="mean-anomaly">
 <h2>Mean Anomaly<a class="headerlink" href="#mean-anomaly" title="Permalink to this headline">¶</a></h2>
 <p>Defining the mean anomaly for the hyperbola as</p>
@@ -492,6 +492,12 @@
 <p>To aid in the numerical solution, the derivative of Kepler’s equation for the hyperbola is:</p>
 <div class="math notranslate nohighlight">
 \[f'(F) = e \cosh F - 1\]</div>
+<p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from the graph below, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value. Note that the <span class="math notranslate nohighlight">\(y\)</span>-axis plots the log base 10 of <span class="math notranslate nohighlight">\(M_h\)</span>. To use the graph, take the log base 10 of whatever value you calculate for <span class="math notranslate nohighlight">\(M_h\)</span> and find that on the graph.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6-hyperbolic-trajectories_5_0.png" src="../_images/6-hyperbolic-trajectories_5_0.png" />
+</div>
+</div>
 <p>Some more trigonometry and algebra lead us to a simpler relationship between <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, analogous to the equation for the ellipse:</p>
 <div class="math notranslate nohighlight">
 \[\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\theta}{2}\]</div>

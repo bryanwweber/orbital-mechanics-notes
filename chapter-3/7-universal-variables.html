@@ -329,7 +329,10 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/chapter-3/7-universal-variables.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/chapter-3/7-universal-variables.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -369,6 +372,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/chapter-3/7-universal-variables.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -387,6 +407,20 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stumpff-functions">
    Stumpff Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relation-of-chi-to-other-anomalies">
+   Relation of
+   <span class="math notranslate nohighlight">
+    \(\chi\)
+   </span>
+   to Other Anomalies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
   </a>
  </li>
 </ul>
@@ -482,6 +516,100 @@
 </div>
 <div class="math notranslate nohighlight">
 \[\begin{split}S(z) =\begin{cases}\displaystyle \frac{\sqrt{z} - \sin\sqrt{z}}{\left(\sqrt{z}\right)^3} &amp; \left(z &gt; 0\right)\\ \displaystyle \frac{\sinh\sqrt{-z} - \sqrt{-z}}{\left(\sqrt{-z}\right)^3} &amp; \left(z &lt; 0\right) \\ \displaystyle \frac{1}{6} &amp; \left(z = 0\right)\end{cases}\end{split}\]</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>Note:</strong> The equivalent Fig. 3.19 in the book has a typo in the last graph on the right, the curves for <span class="math notranslate nohighlight">\(C(z)\)</span> and <span class="math notranslate nohighlight">\(S(z)\)</span> are reversed.</p>
+</div>
+<p>The two Stumpff functions are plotted in the figure below. Notice that both <span class="math notranslate nohighlight">\(C(z)\)</span> and <span class="math notranslate nohighlight">\(S(z)\)</span> tend toward infinity as <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(-\infty\)</span>, and they approach zero as <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(+\infty\)</span>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/7-universal-variables_1_0.png" src="../_images/7-universal-variables_1_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="relation-of-chi-to-other-anomalies">
+<h2>Relation of <span class="math notranslate nohighlight">\(\chi\)</span> to Other Anomalies<a class="headerlink" href="#relation-of-chi-to-other-anomalies" title="Permalink to this headline">¶</a></h2>
+<p>We now seek to relate <span class="math notranslate nohighlight">\(\chi\)</span> back to the anomalies for elliptical, parabolic, and hyperbolic orbits. For demonstration, we will choose the following initial conditions:</p>
+<div class="math notranslate nohighlight">
+\[t_0 = 0\quad r_0 = r_p \quad \left.v_r\right)_0 = 0\]</div>
+<p>which is to say, the same initial conditions that we defined for the equations in terms of the true and eccentric anomalies. For the case of the parabola, <span class="math notranslate nohighlight">\(\alpha = 0\)</span> and we can show that:</p>
+<div class="math notranslate nohighlight">
+\[M_p = \frac{1}{6}\left(\frac{\chi\sqrt{\mu}}{h}\right)^3 + \frac{1}{2}\left(\frac{\sqrt{\mu}}{h}\chi\right)\]</div>
+<p>In the case of the ellipse, we know that <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, and we can show that:</p>
+<div class="math notranslate nohighlight">
+\[M_e = \frac{\chi}{\sqrt{a}} - e \sin\left(\frac{\chi}{\sqrt{a}}\right)\]</div>
+<p>Finally, for the hyperbola, <span class="math notranslate nohighlight">\(\alpha &lt; 0\)</span> and <span class="math notranslate nohighlight">\(a &lt; 0\)</span>, and we can show that:</p>
+<div class="math notranslate nohighlight">
+\[M_h = e\sinh\left(\frac{\chi}{\sqrt{-a}}\right) - \frac{\chi}{\sqrt{-a}}\]</div>
+<p>Summarizing these results, the universal anomaly <span class="math notranslate nohighlight">\(\chi\)</span> is related to our previously defined anomalies as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\chi =\begin{cases}\displaystyle\frac{h}{\sqrt{\mu}}\tan\frac{\theta}{2} &amp; \text{parabola} \\\displaystyle\sqrt{a}E &amp; \text{ellipse} \\\displaystyle \sqrt{-a}F &amp; \text{hyperbola}\end{cases}\end{split}\]</div>
+<p>Generalizing from this to the case where <span class="math notranslate nohighlight">\(t_0\neq 0\)</span>, and does not occur at periapse, we find:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\chi =\begin{cases}\displaystyle\frac{h}{\sqrt{\mu}}\left(\tan\frac{\theta}{2} - \tan\frac{\theta_0}{2}\right) &amp; \text{parabola} \\\displaystyle\sqrt{a}\left(E - E_0\right) &amp; \text{ellipse} \\\displaystyle \sqrt{-a}\left(F - F_0\right) &amp; \text{hyperbola}\end{cases}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta_0\)</span>, <span class="math notranslate nohighlight">\(E_0\)</span>, and <span class="math notranslate nohighlight">\(F_0\)</span> are the true anomaly and eccentric anomalies at the time <span class="math notranslate nohighlight">\(t_0\)</span>.</p>
+<p>Using these factors, we can relate the universal anomaly directly back to the true anomaly by:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\tan\frac{\theta - \theta_0}{2} = \frac{z}\\## Numerical Solution of Kepler's Equation in the Universal Anomaly\\To formulate the numerical solution of Kepler's equation in terms of the universal anomaly, we move everything over to one side of the equation, and seek the roots of:\\$$f(\chi) = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\end{aligned}\end{align} \]</div>
+<p>The derivative of this function is also useful:</p>
+<div class="math notranslate nohighlight" id="equation-universal-kepler-derivative">
+<span class="eqno">(9)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
+<p>where <span class="math notranslate nohighlight">\(z = \alpha\chi^2\)</span>, such that:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dz}{d\chi} = 2\alpha\chi\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\frac{d S(z)}{dz} &amp;= \frac{1}{2z}\left[C(z) - 3S(z)\right] \\\frac{d C(z)}{dz} &amp;= \frac{1}{2z}\left[1 - z S(z) - 2C(z)\right]\end{aligned}\end{split}\]</div>
+<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(9)</a> gives:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d f(\chi)}{d\chi} = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi\left[1 - \alpha\chi^2 S(z)\right] + \left(1 - \alpha r_0\right)\chi^2 C(z) + r_0\]</div>
+<p>The last thing we need for a solution using Newton’s algorithm is an initial guess. There are several methods suggested for this. In <a class="bibtex reference internal" href="#curtis2020" id="id1">[2]</a>, they suggest using:</p>
+<div class="math notranslate nohighlight">
+\[\chi_{i = 0} = \sqrt{\mu} \left\lvert\alpha\right\rvert \Delta t\]</div>
+<p>In <a class="bibtex reference internal" href="#prussing2013" id="id2">[1]</a>, they suggest a couple of different options. First, Prussing and Conway show that the solution lies in the interval:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\chi^{+} &amp;= \frac{\sqrt{\mu}\Delta t}{r^{-}}\\\chi^{-} &amp;= \frac{\sqrt{\mu}\Delta t}{r^{+}}\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r^{+}\)</span> and <span class="math notranslate nohighlight">\(r^{-}\)</span> are the largest and smallest values of the radius. The most conservative choice of <span class="math notranslate nohighlight">\(r^{-}\)</span> is the radius at periapsis for all the orbits:</p>
+<div class="math notranslate nohighlight">
+\[r^{-} = r_p\]</div>
+<p>For elliptical orbits, the most conservative choice of <span class="math notranslate nohighlight">\(r^{+}\)</span> is the radius at apoapse:</p>
+<div class="math notranslate nohighlight">
+\[r^{+}_{\text{ellipse}} = r_a\]</div>
+<p>For parabolas and hyperbolas, the most conservative choice is <span class="math notranslate nohighlight">\(r^{+} = \infty\)</span>, such that:</p>
+<div class="math notranslate nohighlight">
+\[\chi^{-}_{\text{parabola/hyperbola}} = 0\]</div>
+<p>With values of <span class="math notranslate nohighlight">\(\chi^{+}\)</span> and <span class="math notranslate nohighlight">\(\chi^{-}\)</span> computed, the initial guess is simply the average of the two:</p>
+<div class="math notranslate nohighlight">
+\[\chi_{i = 0} = \frac{\chi^{+} + \chi^{-}}{2}\]</div>
+<p>Alternatively, a more refined estimate can be determined using a secant estimate of the root of Kepler’s equation:</p>
+<div class="math notranslate nohighlight">
+\[\chi_{i = 0} = \frac{\mu\Delta t^2}{r_p \left[f(\chi^{+}) + \sqrt{\mu}\Delta t\right]}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(\chi^{+})\)</span> is the solution of Kepler’s equation with the <span class="math notranslate nohighlight">\(\chi^{+}\)</span> value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prussing and Conway <a class="bibtex reference internal" href="#prussing2013" id="id3">[1]</a>, citing Conway <a class="bibtex reference internal" href="#conway1986" id="id4">[3]</a> suggest that faster convergence in the solution of Kepler’s equation can be achieved by using the <strong>Laguerre algorithm</strong>, rather than Newton’s algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.</p>
+<p>The Laguerre algorithm can be implemented as:</p>
+<div class="math notranslate nohighlight">
+\[\chi_{i + 1} = \chi_{i} - \frac{n f(\chi_i)}{f'(\chi_i) \pm \left[\left(n - 1\right)^2 \left(f'(\chi_i\right)^2 - n\left(n - 1\right) f(\chi_i)f''(\chi_i)\right]}\]</div>
+<p>The sign ambiguity in the denominator is determined by taking the sign of the numerical value of <span class="math notranslate nohighlight">\(f'(\chi_i)\)</span>. In addition, the solution is relatively insensitive to the choice of the value of <span class="math notranslate nohighlight">\(n\)</span>, which is an integer constant. It seems as though <span class="math notranslate nohighlight">\(n = 5\)</span> is a reasonable value. Choosing <span class="math notranslate nohighlight">\(n = 1\)</span> gives the standard Newton’s algorithm.</p>
+<p>Derivation of <span class="math notranslate nohighlight">\(f''(\chi_i)\)</span> is left up to the reader.</p>
+<p>Although the Laguerre algorithm was originally intended for finding the roots of polynomial equations, it seems to work well in this application.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-chapter-3/7-universal-variables-0"><dl class="citation">
+<dt class="bibtex label" id="prussing2013"><span class="brackets">1</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>John E. Prussing and Bruce A. Conway. <em>Orbital Mechanics</em>. Oxford University Press, New York, second edition edition, 2013. ISBN 978-0-19-983770-0.</p>
+</dd>
+<dt class="bibtex label" id="curtis2020"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>Howard D Curtis. <em>Orbital Mechanics for Engineering Students</em>. Elsevier, fourth edition, 2020. ISBN 978-0-08-102133-0.</p>
+</dd>
+<dt class="bibtex label" id="conway1986"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>Bruce A. Conway. An improved algorithm due to Laguerre for the solution of Kepler’s equation. <em>Celestial Mechanics</em>, 39(2):199–211, June 1986. <a class="reference external" href="https://doi.org/10.1007/BF01230852">doi:10.1007/BF01230852</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
