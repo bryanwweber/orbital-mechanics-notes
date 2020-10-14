@@ -575,15 +575,15 @@
     <span class="sd">&quot;&quot;&quot;Kepler&#39;s equation, to be used in a Newton solver.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="n">F</span> <span class="o">-</span> <span class="n">M_h</span>
 
-<span class="k">def</span> <span class="nf">d_kepler_d_E</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">M_h</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">d_kepler_d_F</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">M_h</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The derivative of Kepler&#39;s equation, to be used in a Newton solver.</span>
 <span class="sd">    </span>
-<span class="sd">    Note that the argument M_e is unused, but must be present so the function</span>
+<span class="sd">    Note that the argument M_h is unused, but must be present so the function</span>
 <span class="sd">    arguments are consistent with the kepler function.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
-<span class="n">F_2</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">kepler</span><span class="p">,</span> <span class="n">fprime</span><span class="o">=</span><span class="n">d_kepler_d_E</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">M_h2</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+<span class="n">F_2</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">kepler</span><span class="p">,</span> <span class="n">fprime</span><span class="o">=</span><span class="n">d_kepler_d_F</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">M_h2</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">F_2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
