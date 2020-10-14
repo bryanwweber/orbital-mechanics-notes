@@ -15,7 +15,7 @@ execution:
 
 For the hyperbola, we identify $a = 1$ and $b = e > 1$, so the appropriate integral is then the third one:
 
-$$\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + 1} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right]$$
+$$\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + a} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right]$$
 
 ## Mean Anomaly
 
@@ -33,8 +33,9 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import (MultipleLocator, FuncFormatter,
                                AutoMinorLocator)
 import numpy as np
+plt.rc("font", size=20)
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12, 9))
 ax.set_ylabel("$M_h$")
 ax.set_xlabel(r"$\theta$")
 ax.set_xlim(0, np.pi)
@@ -66,7 +67,6 @@ Similar to the ellipse, we will define an auxiliary angle $F$ to simplify the eq
 
 fig, ax = plt.subplots(figsize=(12, 9))
 ax.set_aspect("auto")
-plt.rc("font", size=20)
 
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
@@ -171,6 +171,27 @@ As with the ellipse, Kepler's equation can be solved easily if $\theta$ is known
 To aid in the numerical solution, the derivative of Kepler's equation for the hyperbola is:
 
 $$f'(F) = e \cosh F - 1$$
+
+In addition, we can estimate an initial value for the guess of $F$ from the graph below, with a known $M_h$ value. Note that the $y$-axis plots the log base 10 of $M_h$. To use the graph, take the log base 10 of whatever value you calculate for $M_h$ and find that on the graph.
+
+```{code-cell}
+:tags: [remove-input]
+plt.rc("figure", dpi=600)
+fig, ax = plt.subplots(figsize=(12, 9))
+
+ax.set_ylabel(r"$\log\left(M_h\right)$")
+ax.set_xlabel("$F$")
+ax.set_xlim(0, 2 * np.pi)
+e_vals = [1.1, 1.5, 2.0, 3.0, 5.0]
+F = np.linspace(0.01, 2 * np.pi, 100)
+ax.xaxis.set_minor_locator(AutoMinorLocator(n=10))
+ax.yaxis.set_minor_locator(AutoMinorLocator(n=10))
+ax.grid(which="both")
+for e in e_vals:
+    M_h = np.log10(e * np.sinh(F) - F)
+    ax.plot(F, M_h, label=f"$e$ = {e}")
+ax.legend();
+```
 
 Some more trigonometry and algebra lead us to a simpler relationship between $F$ and $\theta$, analogous to the equation for the ellipse:
 
