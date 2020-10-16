@@ -33,3 +33,5 @@
     - file: chapter-3/6-hyperbolic-trajectories
     - file: chapter-3/6a-Hyperbolic-Trajectory-Example
     - file: chapter-3/7-universal-variables
+    - file: chapter-3/7a-Universal-Variables-Example
+    - file: chapter-3/7b-Universal-Lagrange-Coefficients-Example

@@ -164,15 +164,15 @@ $$\chi =\begin{cases}\displaystyle\frac{h}{\sqrt{\mu}}\left(\tan\frac{\theta}{2}
 
 where $\theta_0$, $E_0$, and $F_0$ are the true anomaly and eccentric anomalies at the time $t_0$.
 
-Using these factors, we can relate the universal anomaly directly back to the true anomaly by:
+<!-- Using these factors, we can relate the universal anomaly directly back to the true anomaly by:
 
-$$\tan\frac{\theta - \theta_0}{2} = \frac{z}
+$$\tan\frac{\theta - \theta_0}{2} = \frac{z}{z}$$ -->
 
 ## Numerical Solution of Kepler's Equation in the Universal Anomaly
 
 To formulate the numerical solution of Kepler's equation in terms of the universal anomaly, we move everything over to one side of the equation, and seek the roots of:
 
-$$f(\chi) = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)$$
+$$f(\chi) = 0 = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)$$
 
 The derivative of this function is also useful:
 
