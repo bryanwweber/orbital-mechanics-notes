@@ -57,6 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example: Universal Variables" href="7a-Universal-Variables-Example.html" />
     <link rel="prev" title="Example: Hyperbolic Trajectory" href="6a-Hyperbolic-Trajectory-Example.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -289,6 +290,16 @@
    Chapter 3.7 - Universal Variables
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -416,6 +427,11 @@
     \(\chi\)
    </span>
    to Other Anomalies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-solution-of-kepler-s-equation-in-the-universal-anomaly">
+   Numerical Solution of Kepler’s Equation in the Universal Anomaly
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -548,9 +564,15 @@
 <div class="math notranslate nohighlight">
 \[\begin{split}\chi =\begin{cases}\displaystyle\frac{h}{\sqrt{\mu}}\left(\tan\frac{\theta}{2} - \tan\frac{\theta_0}{2}\right) &amp; \text{parabola} \\\displaystyle\sqrt{a}\left(E - E_0\right) &amp; \text{ellipse} \\\displaystyle \sqrt{-a}\left(F - F_0\right) &amp; \text{hyperbola}\end{cases}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\theta_0\)</span>, <span class="math notranslate nohighlight">\(E_0\)</span>, and <span class="math notranslate nohighlight">\(F_0\)</span> are the true anomaly and eccentric anomalies at the time <span class="math notranslate nohighlight">\(t_0\)</span>.</p>
-<p>Using these factors, we can relate the universal anomaly directly back to the true anomaly by:</p>
+<!-- Using these factors, we can relate the universal anomaly directly back to the true anomaly by:
+
+$$\tan\frac{\theta - \theta_0}{2} = \frac{z}{z}$$ -->
+</div>
+<div class="section" id="numerical-solution-of-kepler-s-equation-in-the-universal-anomaly">
+<h2>Numerical Solution of Kepler’s Equation in the Universal Anomaly<a class="headerlink" href="#numerical-solution-of-kepler-s-equation-in-the-universal-anomaly" title="Permalink to this headline">¶</a></h2>
+<p>To formulate the numerical solution of Kepler’s equation in terms of the universal anomaly, we move everything over to one side of the equation, and seek the roots of:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\tan\frac{\theta - \theta_0}{2} = \frac{z}\\## Numerical Solution of Kepler's Equation in the Universal Anomaly\\To formulate the numerical solution of Kepler's equation in terms of the universal anomaly, we move everything over to one side of the equation, and seek the roots of:\\$$f(\chi) = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\end{aligned}\end{align} \]</div>
+\[f(\chi) = 0 = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\]</div>
 <p>The derivative of this function is also useful:</p>
 <div class="math notranslate nohighlight" id="equation-universal-kepler-derivative">
 <span class="eqno">(9)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
@@ -642,6 +664,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="6a-Hyperbolic-Trajectory-Example.html" title="previous page">Example: Hyperbolic Trajectory</a>
+    <a class='right-next' id="next-link" href="7a-Universal-Variables-Example.html" title="next page">Example: Universal Variables</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
