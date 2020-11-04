@@ -35,3 +35,11 @@
     - file: chapter-3/7-universal-variables
     - file: chapter-3/7a-Universal-Variables-Example
     - file: chapter-3/7b-Universal-Lagrange-Coefficients-Example
+- part: Chapter 4
+  chapters:
+    - file: chapter-4/2-geocentric-right-ascension-declination-frame
+    - file: chapter-4/3-state-vector-and-the-geocentric-equatorial-frame
+    - file: chapter-4/4-orbital-elements-and-the-state-vector
+    - file: chapter-4/5-coordinate-transformations
+    - file: chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames
+    - file: chapter-4/7-effects-of-the-earths-oblateness
