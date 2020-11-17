@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg" height="580" version="1.1" width="768" id="svg965">
+  <metadata id="metadata969">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>bi-elliptic_transfer</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title id="title920">bi-elliptic_transfer</title>
+  <desc id="desc922">bi-elliptic_transfer.svg
+https://commons.wikimedia.org/wiki/File:bi-elliptic_transfer.svg</desc>
+  <defs id="defs941">
+    <radialGradient cx="0.5" cy="0.5" gradientUnits="objectBoundingBox" id="grad" r="0.5">
+      <stop offset="0" stop-color="#dbf816" id="stop924" />
+      <stop offset="1" stop-color="#f89c16" id="stop926" />
+    </radialGradient>
+    <marker id="arrow1" markerHeight="18" markerWidth="18" orient="auto" refX="0" refY="0" viewBox="-1 -1 2 2">
+      <path d="M 0.3,0 L -0.8,0.5 Q -0.5,0 -0.8,-0.5 Z" fill="#0000c4" stroke="none" id="path929" />
+    </marker>
+    <marker id="arrow2" markerHeight="18" markerWidth="18" orient="auto" refX="0" refY="0" viewBox="-1 -1 2 2">
+      <path d="M 0.3,0 L -0.8,0.5 Q -0.5,0 -0.8,-0.5 Z" fill="#bc0d0d" stroke="none" id="path932" />
+    </marker>
+    <marker id="arrow3" markerHeight="8" markerWidth="8" orient="auto" refX="0" refY="0" viewBox="-1 -1 2 2">
+      <path d="M 0.3,0 L -0.8,0.5 Q -0.5,0 -0.8,-0.5 Z" fill="#197810" stroke="none" id="path935" />
+    </marker>
+    <marker id="arrow4" markerHeight="8" markerWidth="8" orient="auto" refX="0" refY="0" viewBox="-1 -1 2 2">
+      <path d="M 0.3,0 L -0.8,0.5 Q -0.5,0 -0.8,-0.5 Z" fill="#a42d0c" stroke="none" id="path938" />
+    </marker>
+  </defs>
+  <rect fill="white" height="580" id="background" stroke="none" width="768" x="0" y="0" />
+  <g fill="none" transform="translate(559.22, 290)" id="g963">
+    <g id="sun">
+      <polygon fill="#dbf816" points="13.8,0.0 6.954665949281292,1.8634971247381493 11.951150572225254,6.8999999999999995 5.091168824543143,5.091168824543142 6.900000000000002,11.951150572225254 1.8634971247381493,6.954665949281292 8.450062914116738e-16,13.8 -1.8634971247381487,6.954665949281292 -6.899999999999998,11.951150572225254 -5.091168824543142,5.091168824543143 -11.951150572225254,6.8999999999999995 -6.954665949281291,1.8634971247381513 -13.8,1.6900125828233475e-15 -6.954665949281292,-1.8634971247381498 -11.951150572225256,-6.899999999999997 -5.0911688245431455,-5.091168824543139 -6.900000000000007,-11.95115057222525 -1.8634971247381487,-6.954665949281292 -2.535018874235021e-15,-13.8 1.8634971247381462,-6.954665949281293 6.900000000000002,-11.951150572225254 5.091168824543141,-5.091168824543144 11.95115057222525,-6.900000000000007 6.95466594928129,-1.8634971247381553" stroke="#f89c16" stroke-width="1" id="polygon944" />
+      <circle cx="0" cy="0" fill="url(#grad)" r="8.2" stroke="#f89c16" stroke-width="1" id="circle946" />
+    </g>
+    <path d="M -109.6,0 A 109.6,109.6 0 0 0 109.6,0 A 109.6,109.6 0 0 0 -109.6,0" marker-end="url(#arrow1)" stroke="#0000c4" stroke-width="2.5" id="path949" />
+    <path d="M -146.4,0 A 146.4,146.4 0 0 0 146.4,0 A 146.4,146.4 0 0 0 -146.4,0" marker-end="url(#arrow2)" stroke="#bc0d0d" stroke-width="2.5" id="path951" />
+    <path d="M 109.6,0 A 323.45,242.66866299545148 0 0 0 -537.3,0" stroke="#00b996" stroke-width="5" id="path953" />
+    <path d="M -537.3,0 A 341.84999999999997,280.46518500519807 0 0 0 146.4,0" stroke="#ff991b" stroke-width="5" id="path955" />
+    <text fill="black" font-family="Bitstream Vera Sans" font-size="48px" stroke="none" text-anchor="middle" transform="translate(84, -10)" id="text957">1</text>
+    <text fill="black" font-family="Bitstream Vera Sans" font-size="48px" stroke="none" text-anchor="middle" transform="translate(-508, -10)" id="text959">2</text>
+    <text fill="black" font-family="Bitstream Vera Sans" font-size="48px" stroke="none" text-anchor="middle" transform="translate(181, -10)" id="text961">3</text>
+  </g>
+  <path style="fill:none;stroke:#000000;stroke-width:1.04265px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 721.77212,290 H -21.488835" id="path995" />
+</svg>
