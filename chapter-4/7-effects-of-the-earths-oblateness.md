@@ -110,7 +110,28 @@ If the earth did not rotate (and was therefore spherical), the ground track woul
 
 To calculate the ground track, we can imagine a pair of coordinate systems:
 
-1. Fixed in space
+1. Fixed in space, with its origin at the center of the earth—the geocentric equatorial coordinate system, $X$, $Y$, and $Z$
+2. Rotating at the same rate as the earth, with its origin at the center of the earth—the Earth-centered, Earth-fixed (ECEF) frame, $x'$, $y'$, and $z'$
+
+The ground track of the spacecraft is then found by calculating the right ascension and declination at any instant in the ECEF frame.
+
+The orbit of the spacecraft is defined in the geocentric equatorial frame by $\left\{r\right\}_{X}$ and $\left\{v\right\}_{X}$ or the classical orbital elements $h$, $e$, $\theta$, $i$, $\Omega$, and $\omega$, since we can transform between these sets of parameters.
+
+We can also represent the orbit of the spacecraft in the Earth-centered, Earth-fixed frame by $\left\{r\right\}_{x'}$ and $\left\{v\right\}_{x'}$, where the $x'$ subscript indicates the use of the ECEF frame. To do so, we need to transform from the geocentric equatorial frame to the ECEF frame.
+
+The transformation from the geocentric equatorial frame to the ECEF is given by the rotation matrix around the $Z$-$z'$ axis:
+
+$$\left[\mathbf{R}_{3}(\theta_E)\right] = \begin{bmatrix}\cos\theta_E & \sin\theta_E & 0\\-\sin\theta_E & \cos\theta_E & 0\\0 & 0 & 1\end{bmatrix}$$
+
+where
+
+$$\theta_E = \omega_E\left(t - t_0\right)$$
+
+Thus, the transformation can be accomplished by:
+
+$$\left\{r\right\}_{x'} = \left[\mathbf{R}_{3}(\theta_E)\right]\left\{r\right\}_{X}$$
+
+Then, once we know the coordinates in the ECEF, we can determine the right ascension and declination of the coordinates to determine the latitude and longitude.
 
 ## References
 

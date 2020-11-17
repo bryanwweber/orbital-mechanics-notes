@@ -43,3 +43,10 @@
     - file: chapter-4/5-coordinate-transformations
     - file: chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames
     - file: chapter-4/7-effects-of-the-earths-oblateness
+- part: Chapter 6
+  chapters:
+    - file: chapter-6/2-impulsive-maneuvers
+    - file: chapter-6/2a-single-impulse-example
+    - file: chapter-6/3-hohmann-transfer
+    - file: chapter-6/4-bielliptic-hohmann-transfer
+    - file: chapter-6/4a-comparison-of-bielliptic-and-hohmann

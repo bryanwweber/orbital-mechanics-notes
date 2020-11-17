@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="hohmann_transfer_orbit" version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1200">
+
+  <title>Hohmann transfer orbit.svg - illustration of a Hohmann transfer orbit</title>
+  <desc>
+     In orbital mechanics, the Hohmann transfer orbit is an orbital maneuver
+     using two engine impulses which, under standard assumptions, move a
+     spacecraft between two coplanar circular orbits. This maneuver was named
+     after Walter Hohmann, the German scientist who published a description of
+     it in 1925.
+
+     from Wikimedia Commons
+
+     about: http://commons.wikimedia.org/wiki/Image:Hohmann_transfer_orbit.svg
+     source: http://commons.wikimedia.org/
+     rights: GNU Free Documentation license,
+             Creative Commons Attribution ShareAlike license
+  </desc>
+
+  <defs>
+    <marker id="Arrow_red" style="fill:#d40000; stroke:none" refX="2.52" refY="2.25" markerUnits="strokeWidth" markerWidth="6" markerHeight="4.5" orient="auto">
+      <path d="M 1,2.25 L 0,4.5 L 6,2.25 L 0 0 z"/>
+    </marker>
+    <marker id="Arrow_green" style="fill:#009f68; stroke:none" refX="2.52" refY="2.25" markerUnits="strokeWidth" markerWidth="6" markerHeight="4.5" orient="auto">
+      <path d="M 1,2.25 L 0,4.5 L 6,2.25 L 0 0 z"/>
+    </marker>
+    <marker id="Arrow_yellow" style="fill:#ffdb00; stroke:none" refX="2.52" refY="2.25" markerUnits="strokeWidth" markerWidth="6" markerHeight="4.5" orient="auto">
+      <path d="M 1,2.25 L 0,4.5 L 6,2.25 L 0 0 z"/>
+    </marker>
+    <marker id="Arrow_black" style="fill:#000000; stroke:none" refX="2" refY="1.5" markerUnits="strokeWidth" markerWidth="4.5" markerHeight="3" orient="auto">
+      <path d="M 0,1.5 L 0,3 L 4.5,1.5 L 0 0 z"/>
+    </marker>
+    <marker id="Arrow_black1" style="fill:#000000; stroke:none" refX="1" refY="3" markerUnits="strokeWidth" markerWidth="3" markerHeight="6" orient="auto">
+      <path d="M 0,6 L 3,3 L 0-0 z"/>
+    </marker>
+    <marker id="Arrow_black2" style="fill:#000000; stroke:none" refX="2" refY="3" markerUnits="strokeWidth" markerWidth="3" markerHeight="6" orient="auto">
+      <path d="M 3,6 L 0,3 L 3,0 z"/>
+    </marker>
+  </defs>
+
+  <g id="drawing" transform="translate(578,630)" style="fill:none; stroke-width:8; stroke-linecap:butt">
+
+    <path id="start_orbit_dash" marker-end="url(#Arrow_green)" style="stroke:#009f68; stroke-width:4; stroke-dasharray:30,20" d="M 0,180 A 180,180 0 0,0 31.2567,-177.2654"/>
+
+    <path id="transfer_orbit_dash" style="stroke:#ffdb00; stroke-width:4; stroke-dasharray:30,20" d="M 0,-552 A 315.2142,366 0 0,0 0,180"/>
+
+    <path id="start_orbit" style="stroke:#009f68" d="M 0,-180 A 180,180 0 1,0 0,180"/>
+
+    <path id="destination_orbit" style="stroke:#d40000" marker-end="url(#Arrow_red)" d="M 0,-552 A 552,552 0 1,0 390.3229,390.3229"/>
+
+    <path id="transfer_orbit1" marker-end="url(#Arrow_yellow)" style="stroke:#ffdb00; stroke-width:10" d="M 0,180 A 315.2142,366 0 0,0 315.2142,-186"/>
+    <path id="transfer_orbit2" style="stroke:#ffdb00; stroke-width:10" d="M 315.2142,-186 A 315.2142,366 0 0,0 0,-552"/>
+    
+
+    <radialGradient cx="0" cy="0" r="75" fx="-23" fy="-27" id="LightSpot" gradientUnits="userSpaceOnUse">
+      <stop style="stop-color:#ffffff; stop-opacity:1" offset="0"/>
+      <stop style="stop-color:#f1f1f1; stop-opacity:1" offset="0.1312"/>
+      <stop style="stop-color:#cccccc; stop-opacity:1" offset="0.3796"/>
+      <stop style="stop-color:#909090; stop-opacity:1" offset="0.716"/>
+      <stop style="stop-color:#595959; stop-opacity:1" offset="1"/>
+    </radialGradient>
+    <circle id="planet" cx="0" cy="0" r="75" style="fill:url(#LightSpot); stroke:#000000; stroke-width:3"/>
+
+
+    <path id="delta_v1_arrow" marker-end="url(#Arrow_black)" style="stroke:#000000; stroke-width:8" d="M 0,180 H 213.9433"/>
+
+    <path id="delta_v2_arrow" marker-end="url(#Arrow_black)" style="stroke:#000000; stroke-width:8" d="M 0,-552 H -160"/>
+
+    <path id="R1_arrow" marker-end="url(#Arrow_black1)" marker-start="url(#Arrow_black2)" style="stroke:#000000; stroke-width:4" d="M 10,0 H 170"/>
+
+    <path id="R2arrow" marker-end="url(#Arrow_black1)" marker-start="url(#Arrow_black2)" style="stroke:#000000; stroke-width:4" d="M -10,0 H -542"/>
+
+
+    <g id="texts" style="fill:black; font-size:56px; font-style:normal; font-variant:normal; font-weight:normal; font-stretch:normal; line-height:125%; text-anchor:middle; font-family:Verdana">
+      <text>
+        <tspan x="-140" y="-145">1</tspan>
+      </text>
+      <text>
+        <tspan x="340" y="-300">2</tspan>
+      </text>
+      <text>
+        <tspan x="-480" y="-320">3</tspan>
+      </text>
+      <text>
+        <tspan x="0" y="56">O</tspan>
+      </text>
+      <text>
+        <tspan x="110" y="-16">R</tspan>
+      </text>
+      <text>
+        <tspan x="-276" y="-16">R'</tspan>
+      </text>
+      <text>
+        <tspan x="107" y="234">Δv</tspan>
+      </text>
+      <text>
+        <tspan x="-80" y="-568">Δv'</tspan>
+      </text>
+    </g>
+
+  </g>
+
+</svg>
