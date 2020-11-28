@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 6.7 - Apse Line Rotation" href="7-apse-line-rotation.html" />
+    <link rel="prev" title="Chapter 6.5 - Phasing Maneuvers" href="5-phasing-maneuvers.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hohmann.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapter 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/3-kinematics.html">
+   Chapter 1.3 - Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+   Chapter 1.6 - Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+   Chapter 1.7 - Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
+   Chapter 2.5 - The Energy Law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6-hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6a-Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7-universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapter 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
+   Chapter 4.2 - Geocentric Right Ascension-Declination Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/3-state-vector-and-the-geocentric-equatorial-frame.html">
+   Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/4-orbital-elements-and-the-state-vector.html">
+   Chapter 4.4 - Orbital Elements and the State Vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/5-coordinate-transformations.html">
+   Chapter 4.5 - Coordinate Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames.html">
+   Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/7-effects-of-the-earths-oblateness.html">
+   Chapter 4.7 - Effects of the Earth’s Oblateness
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Chapter 6
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-impulsive-maneuvers.html">
+   Chapter 6.2 - Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2a-single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-hohmann-transfer.html">
+   Chapter 6.3 - Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-bielliptic-hohmann-transfer.html">
+   Chapter 6.4 - Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4a-comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-phasing-maneuvers.html">
+   Chapter 6.5 - Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-apse-line-rotation.html">
+   Chapter 6.7 - Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8-chase-maneuvers.html">
+   Chapter 6.8 - Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9-plane-change-maneuvers.html">
+   Chapter 6.9 - Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9a-plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9a-plane-change-example.html#solution">
+   Solution
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapter-6/6-non-hohmann-transfers.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fchapter-6/6-non-hohmann-transfers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/chapter-6/6-non-hohmann-transfers.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculating-delta-v">
+   Calculating
+   <span class="math notranslate nohighlight">
+    \(\Delta v\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thrust-direction">
+   Thrust Direction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relation-to-specific-energy">
+   Relation to Specific Energy
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chapter-6-6-non-hohmann-transfers-with-a-common-apse-line">
+<h1>Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line<a class="headerlink" href="#chapter-6-6-non-hohmann-transfers-with-a-common-apse-line" title="Permalink to this headline">¶</a></h1>
+<p>The Hohmann transfer requires that the spacecraft have the thrust impulses applied at periapsis and apoapsis of the transfer orbit. However, this limits the possible timing of the transfer if we are trying to intercept another celestial body.</p>
+<p>Instead, it would be more convenient if we could transfer to or from any point in the initial or target orbit. This would require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than a Hohmann transfer, but gives more flexibility.</p>
+<p>For now, we will assume that the initial and target orbits have a common apse line. In addition, the two orbits will have the same focus. Assume that we want to leave the initial orbit at the true anomaly <span class="math notranslate nohighlight">\(\theta_A\)</span> and arrive at the target orbit at the true anomaly <span class="math notranslate nohighlight">\(\theta_B\)</span>.</p>
+<p>Since the two orbits have the same focus, the transfer orbit will also have the same focus. In addition, since the apse lines are in common, the departure and arrival true anomalies are the same in the transfer orbit.</p>
+<p>Therefore, we can apply the orbit equation at the departure and arrival points:</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}r_A &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta_A} &amp; r_B &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta_B}\end{aligned}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r_A\)</span> and <span class="math notranslate nohighlight">\(r_B\)</span> are the orbital radii at the departure and arrival points. Note that <span class="math notranslate nohighlight">\(h\)</span> is the specific orbital angular momentum for the transfer orbit.</p>
+<p>Now we have two equations and two unknowns for the transfer orbit, <span class="math notranslate nohighlight">\(e\)</span> and <span class="math notranslate nohighlight">\(h\)</span>. Solving for these two, we find:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}e &amp;= \frac{r_A - r_B}{r_A \cos\theta_A - r_B\cos\theta_B} \\ h &amp;= \sqrt{\mu r_A r_B}\sqrt{\frac{\cos\theta_A - \cos\theta_B}{r_A\cos\theta_A - r_B\cos\theta_B}}\end{aligned}\end{split}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Note:</strong> For the special case of a Hohmann transfer, <span class="math notranslate nohighlight">\(\theta_A\)</span> = 0° and <span class="math notranslate nohighlight">\(\theta_B\)</span> = 180°, such that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}e &amp;= \frac{r_A - r_B}{r_A + r_B} \\ h &amp;= \sqrt{2\mu}\sqrt{\frac{r_A r_B}{r_A - r_B}}\end{aligned}\end{split}\]</div>
+<p>There is a typo in this similar equation in the book for <span class="math notranslate nohighlight">\(e\)</span>.</p>
+</div>
+<div class="section" id="calculating-delta-v">
+<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">¶</a></h2>
+<p>For orbital transfers that do not take place on the apse line, we have to account for the change in direction of the velocity vector in addition to the change of magnitude. The difference in length of the velocity vectors is the change in speed and the change of flight path angle is the change of direction of the vector.</p>
+<p>It is very important that when we calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> for a maneuver, this is the magnitude of the change in velocity vector, not the change of magnitude of the velocity (speed). Since <span class="math notranslate nohighlight">\(\Delta\vector{v} = \vector{v}_2 - \vector{v}_1\)</span>, such that the magnitude is:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v = \mag{\Delta\vector{v}} = \sqrt{\left(\vector{v}_2 - \vector{v}_1\right)\cdot\left(\vector{v}_2 - \vector{v}_1\right)}\]</div>
+<p>Expanding the product and simplifying with the law of cosines, we find:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos\Delta\gamma}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta\gamma = \gamma_2 - \gamma_1\)</span> is the change of flight angle.</p>
+</div>
+<div class="section" id="thrust-direction">
+<h2>Thrust Direction<a class="headerlink" href="#thrust-direction" title="Permalink to this headline">¶</a></h2>
+<p>To achieve the new velocity, the thrust from the engine must be directed parallel to the direction of <span class="math notranslate nohighlight">\(\Delta\vector{v}\)</span>. Relative to the local horizon, the required angle <span class="math notranslate nohighlight">\(\phi\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\tan\phi = \frac{\Delta v_r}{\Delta v_{\perp}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta v_r\)</span> is the change in the radial component of velocity and <span class="math notranslate nohighlight">\(\Delta v_{\perp}\)</span> is the change in the perpendicular component of velocity.</p>
+</div>
+<div class="section" id="relation-to-specific-energy">
+<h2>Relation to Specific Energy<a class="headerlink" href="#relation-to-specific-energy" title="Permalink to this headline">¶</a></h2>
+<p>The <em>vis viva</em> equation determines the specific energy of the spacecraft due to its kinetic and potential energy:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon = \frac{\vector{v}\cdot\vector{v}}{2} - \frac{\mu}{r}\]</div>
+<p>The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:</p>
+<div class="math notranslate nohighlight">
+\[\Delta\varepsilon = \frac{\left(\vector{v} + \Delta\vector{v}\right)\cdot\left(\vector{v} + \Delta\vector{v}\right)}{2} - \frac{\vector{v}\cdot\vector{v}}{2}\]</div>
+<p>Simplifying, assuming that <span class="math notranslate nohighlight">\(\vector{v} = \vector{v}_1\)</span> and <span class="math notranslate nohighlight">\(\left(\vector{v} + \Delta\vector{v}\right) = \vector{v}_2\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[\Delta\varepsilon = v\Delta v \cos\Delta\gamma + \frac{1}{2}\Delta v^2\]</div>
+<p>From this equation, for a fixed <span class="math notranslate nohighlight">\(\Delta v\)</span> from the maneuver, we see that <span class="math notranslate nohighlight">\(\Delta\varepsilon\)</span> is maximized when <span class="math notranslate nohighlight">\(v\)</span> is largest and <span class="math notranslate nohighlight">\(\Delta\gamma\)</span>=0. In the sense that higher <span class="math notranslate nohighlight">\(\Delta\varepsilon\)</span> for a given <span class="math notranslate nohighlight">\(\Delta v\)</span> is more efficient, we can see that aligning the velocity vectors and maximizing <span class="math notranslate nohighlight">\(v\)</span> by providing the impulse at periapsis has the highest efficiency.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter-6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="5-phasing-maneuvers.html" title="previous page">Chapter 6.5 - Phasing Maneuvers</a>
+    <a class='right-next' id="next-link" href="7-apse-line-rotation.html" title="next page">Chapter 6.7 - Apse Line Rotation</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
