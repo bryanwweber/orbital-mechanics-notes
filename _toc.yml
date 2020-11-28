@@ -50,3 +50,9 @@
     - file: chapter-6/3-hohmann-transfer
     - file: chapter-6/4-bielliptic-hohmann-transfer
     - file: chapter-6/4a-comparison-of-bielliptic-and-hohmann
+    - file: chapter-6/5-phasing-maneuvers
+    - file: chapter-6/6-non-hohmann-transfers
+    - file: chapter-6/7-apse-line-rotation
+    - file: chapter-6/8-chase-maneuvers
+    - file: chapter-6/9-plane-change-maneuvers
+    - file: chapter-6/9a-plane-change-example
