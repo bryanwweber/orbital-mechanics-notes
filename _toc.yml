@@ -56,3 +56,5 @@
     - file: chapter-6/8-chase-maneuvers
     - file: chapter-6/9-plane-change-maneuvers
     - file: chapter-6/9a-plane-change-example
+    - file: chapter-6/10-nonimpulsive-orbital-maneuvers
+    - file: chapter-6/10a-nonimpulsive-maneuver-example
