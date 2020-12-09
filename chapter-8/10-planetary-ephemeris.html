@@ -671,13 +671,13 @@
     <span class="k">return</span> <span class="n">JDN</span>
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gregorian_to_julian_day_number</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459193
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459191
 </pre></div>
 </div>
 </div>
@@ -701,25 +701,27 @@
     <span class="k">return</span> <span class="n">JDT</span>
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gregorian_to_julian_date</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
-<span class="n">morning</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">evening</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">43</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">674805</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gregorian_to_julian_date</span><span class="p">(</span><span class="n">evening</span><span class="p">))</span>
+<span class="n">morning</span> <span class="o">=</span> <span class="n">evening</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gregorian_to_julian_date</span><span class="p">(</span><span class="n">morning</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evening</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459193.314428686
-2459192.75
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2459191.2588388287
+2459190.75
+2020-12-07 18:12:43.674805+00:00
 </pre></div>
 </div>
 </div>
 </div>
-<p>At the time the code was executed, it was approximately 8:00 PM UTC on December 7, 2020. Since this time is before noon on December 8, the Julian Day Number is still 2,459,191. The fraction of the day completed is about 0.36. If the time is replaced with 6:00 AM, then exactly 0.75 of the Julian Day has passed, but notice that the JDN is reduced by one, because 6:00 AM on December 7 is part of the Julian Day that began on December 6 at 12:00 PM (noon).</p>
-<p>Note that we passed the <code class="docutils literal notranslate"><span class="pre">timezone.utc</span></code> to the <code class="docutils literal notranslate"><span class="pre">datetime.now()</span></code> call. This assigns the UTC timezone to <code class="docutils literal notranslate"><span class="pre">now</span></code>, and automatically uses the computer’s clock to convert from your local time to the current UTC time.</p>
+<p>We first set the time to an evening time on December 7. Since this time is before noon on December 8, the Julian Day Number is still 2,459,191. The fraction of the day completed is about 0.26. If the time is replaced with 6:00 AM, then exactly 0.75 of the Julian Day has passed, but notice that the JDN is reduced by one, because 6:00 AM on December 7 is part of the Julian Day that began on December 6 at 12:00 PM (noon).</p>
+<p>Note that we passed the <code class="docutils literal notranslate"><span class="pre">timezone.utc</span></code> to the <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> call. This assigns the UTC timezone to <code class="docutils literal notranslate"><span class="pre">evening</span></code>.</p>
 <p>MATLAB has a function called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/datetime.juliandate.html"><code class="docutils literal notranslate"><span class="pre">juliandate</span></code></a>, which takes a <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> instance and does the conversion to the Julian Date automatically. Note that you should specify the local time zone if you use <code class="docutils literal notranslate"><span class="pre">datetime('now')</span></code> to ensure that the correct Julian Day Number is returned.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">format</span> <span class="n">longG</span>
-<span class="o">&gt;&gt;</span> <span class="n">t1</span> <span class="p">=</span> <span class="n">datetime</span><span class="p">(</span><span class="s">&#39;now&#39;</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span> <span class="n">t1</span> <span class="p">=</span> <span class="n">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">);</span>
 <span class="o">&gt;&gt;</span> <span class="n">t1</span><span class="p">.</span><span class="n">TimeZone</span> <span class="p">=</span> <span class="s">&#39;America/New_York&#39;</span><span class="p">;</span>
 <span class="o">&gt;&gt;</span> <span class="n">t1</span>
 
@@ -727,42 +729,42 @@
 
   <span class="n">datetime</span>
 
-   <span class="s">06-Dec-2020</span> <span class="s">22:25:28</span>
+   <span class="s">07-Dec-2020</span> <span class="s">18:12:43</span>
 
 <span class="o">&gt;&gt;</span> <span class="n">juliandate</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
 
 <span class="n">ans</span> <span class="p">=</span>
 
-          <span class="mf">2459190.64268566</span>
+          <span class="mf">2459191.46717216</span>
 </pre></div>
 </div>
-<p>Note that we assigned the <code class="docutils literal notranslate"><span class="pre">'America/New_York'</span></code> time zone to this <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, such that <code class="docutils literal notranslate"><span class="pre">juliandate()</span></code> internally converted the time to UTC before converting to the Julian Date. If no <code class="docutils literal notranslate"><span class="pre">TimeZone</span></code> is assigned, <code class="docutils literal notranslate"><span class="pre">juliandate()</span></code> will assume that the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> is in UTC, which may not be correct. For instance, this was run immediately after the previous code sample, but shows a different Julian Date:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">juliandate</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s">&#39;now&#39;</span><span class="p">))</span>
+<p>Note that we assigned the <code class="docutils literal notranslate"><span class="pre">'America/New_York'</span></code> time zone to this <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, such that <code class="docutils literal notranslate"><span class="pre">juliandate()</span></code> internally converted the time to UTC before converting to the Julian Date. This results in a different Julian Date than the Python code we executed earlier, which was in the UTC timezone. If no <code class="docutils literal notranslate"><span class="pre">TimeZone</span></code> is assigned, <code class="docutils literal notranslate"><span class="pre">juliandate()</span></code> will assume that the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> is in UTC:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">juliandate</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">))</span>
 
 <span class="n">ans</span> <span class="p">=</span>
 
-          <span class="mf">2459190.43363142</span>
+              <span class="mf">2459191.25883883</span>
 </pre></div>
 </div>
-<p>MATLAB also allows the reverse conversion, by using <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> with the Julian Date:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">jd1</span> <span class="p">=</span> <span class="n">juliandate</span><span class="p">(</span><span class="n">t1</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;juliandate&#39;</span><span class="p">)</span>
+<p>Note that this gives the same result as the Python code above. MATLAB also allows the reverse conversion, by using <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> with the Julian Date:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">jd1</span> <span class="p">=</span> <span class="n">juliandate</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">));</span>
+<span class="o">&gt;&gt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">)</span>
 
 <span class="n">ans</span> <span class="p">=</span> 
 
   <span class="n">datetime</span>
 
-   <span class="s">07-Dec-2020</span> <span class="s">03:25:28</span>
+   <span class="s">07-Dec-2020</span> <span class="s">18:12:43</span>
 </pre></div>
 </div>
 <p>Note that the default time zone is UTC, to convert to a different time zone, the <code class="docutils literal notranslate"><span class="pre">'TimeZone'</span></code> argument to <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> must be supplied:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;juliandate&#39;</span><span class="p">,</span><span class="s">&#39;TimeZone&#39;</span><span class="p">,</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">,</span><span class="s">&#39;TimeZone&#39;</span><span class="p">,</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span>
 
 <span class="n">ans</span> <span class="p">=</span> 
 
   <span class="n">datetime</span>
 
-   <span class="s">06-Dec-2020</span> <span class="s">22:25:28</span>
+   <span class="s">07-Dec-2020</span> <span class="s">13:12:43</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -791,16 +793,16 @@
                          <span class="s2">&quot;Python&#39;s date class cannot represent years before AD 1.&quot;</span><span class="p">)</span>
     <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">julian_day_number_to_gregorian</span><span class="p">(</span><span class="n">jdn</span><span class="p">)</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="p">(</span><span class="n">jd</span> <span class="o">%</span> <span class="mi">1</span><span class="p">),</span> <span class="n">hours</span><span class="o">=+</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="n">day</span><span class="p">),</span> <span class="n">time</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="n">day</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">offset</span>
 
-<span class="n">jd_now</span> <span class="o">=</span> <span class="n">gregorian_to_julian_date</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">julian_date_to_gregorian</span><span class="p">(</span><span class="n">jd_now</span><span class="p">),</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">jd_evening</span> <span class="o">=</span> <span class="n">gregorian_to_julian_date</span><span class="p">(</span><span class="n">evening</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">julian_date_to_gregorian</span><span class="p">(</span><span class="n">jd_evening</span><span class="p">),</span> <span class="n">evening</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-12-09 19:32:46.638485+00:00 2020-12-09 19:32:46.638497+00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-12-07 18:12:43.674796+00:00 2020-12-07 18:12:43.674805+00:00
 </pre></div>
 </div>
 </div>
@@ -974,6 +976,9 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
 𝛺 = 48.30°
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1068,9 +1073,6 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Planes.EARTH_ECLIPTIC
 𝑖 = 7.01 deg
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: AstropyDeprecationWarning: Transforming a frame instance to a frame class (as opposed to another frame instance) will not be supported in the future.  Either explicitly instantiate the target frame, or first convert the source frame instance to a `astropy.coordinates.SkyCoord` and use its `transform_to()` method. [astropy.coordinates.baseframe]
 </pre></div>
 </div>
 </div>
