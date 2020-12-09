@@ -2,6 +2,7 @@ jupyter-book>=0.8.1
 matplotlib
 numpy
 scipy
-poliastro
-astropy==4.1
+# Install poliastro master to support Astropy 4.2
+https://github.com/poliastro/poliastro/archive/master.zip
+astropy
 sympy
