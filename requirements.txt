@@ -3,3 +3,5 @@ matplotlib
 numpy
 scipy
 poliastro
+astropy==4.1
+sympy
