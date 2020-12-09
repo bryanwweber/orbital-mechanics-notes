@@ -58,3 +58,7 @@
     - file: chapter-6/9a-plane-change-example
     - file: chapter-6/10-nonimpulsive-orbital-maneuvers
     - file: chapter-6/10a-nonimpulsive-maneuver-example
+- part: Chapter 8
+  chapters:
+    - file: chapter-8/2-interplanetary-hohmann-transfers
+    - file: chapter-8/10-planetary-ephemeris
