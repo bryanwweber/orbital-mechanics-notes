@@ -3,6 +3,6 @@ matplotlib
 numpy
 scipy
 # Install poliastro master to support Astropy 4.2
-https://github.com/poliastro/poliastro/archive/master.zip
+https://github.com/bryanwweber/poliastro/archive/astropy-frame-deprecation.zip
 astropy
 sympy
