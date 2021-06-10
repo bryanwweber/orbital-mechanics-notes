@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 3.4 - Elliptical Orbits (\(e &lt; 1\)) &#8212; Notes on Orbital Mechanics for Engineering Students</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,20 +31,17 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,18 +49,20 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Example: Elliptical Orbit" href="4a-Elliptical-Orbit-Example.html" />
     <link rel="prev" title="Chapter 3.3 - Circular Orbits (\(e = 0\))" href="3-circular-orbits.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -75,64 +71,76 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/hohmann.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Notes on Orbital Mechanics for Engineering Students
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
-  Chapter 1
+  Review of Vectors and Newtonian Mechanics
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-1/3-kinematics.html">
-   Chapter 1.3 - Kinematics
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../chapter-1/intro.html">
+   Kinematics
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
-   Chapter 1.6 - Time Derivatives of Moving Vectors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-1/7-relative-motion.html">
-   Chapter 1.7 - Relative Motion
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter-1/3-kinematics.html">
+     Chapter 1.3 - Kinematics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
+     Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
+     Chapter 1.5 - Newton’s Laws
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
+     Chapter 1.6 - Time Derivatives of Moving Vectors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../chapter-1/7-relative-motion.html">
+     Chapter 1.7 - Relative Motion
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chapter 2
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
    Chapter 2.2 - Equations of Motion in an Inertial Frame
@@ -225,12 +233,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chapter 3
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2-time-since-periapsis.html">
    Chapter 3.2 - Time Since Periapsis
@@ -298,12 +306,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chapter 4
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
    Chapter 4.2 - Geocentric Right Ascension-Declination Frame
@@ -335,12 +343,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chapter 6
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-6/2-impulsive-maneuvers.html">
    Chapter 6.2 - Impulsive Maneuvers
@@ -406,13 +414,18 @@
    Example: Nonimpulsive Maneuvers
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Chapter 8
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-8/2-interplanetary-hohmann-transfers.html">
    Chapter 8.2 - Interplanetary Hohmann Transfers
@@ -424,7 +437,20 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -440,21 +466,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -475,7 +501,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -495,14 +521,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -521,16 +547,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mean-anomaly">
    Mean Anomaly
@@ -561,15 +587,10 @@
    Infinite Series Solutions of Kepler’s Equation
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -692,7 +713,7 @@
 <p>and where <span class="math notranslate nohighlight">\(\mathrm{floor}(x)\)</span> means to take the next lowest integer relative to the argument.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p><strong>Note:</strong> Sacchetti <a class="bibtex reference internal" href="#sacchetti2020" id="id1">[1]</a> states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series, not Laplace, who completed his work five years after Carlini. DRAMA!</p>
+<p><strong>Note:</strong> Sacchetti <span id="id1">[<a class="reference internal" href="../bibliography.html#id15">Sac20</a>]</span> states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series, not Laplace, who completed his work five years after Carlini. DRAMA!</p>
 </div>
 <p>This infinite series converges for <span class="math notranslate nohighlight">\(e &lt; 0.6627434193\)</span>, a limit that was proven by Laplace, and is therefore typically called the Laplace limit. For larger values of <span class="math notranslate nohighlight">\(e\)</span>, the series diverges.</p>
 <p>Another infinite series was developed by Bessel, which converges for all <span class="math notranslate nohighlight">\(e &lt; 1\)</span>:</p>
@@ -701,19 +722,7 @@
 <p>where <span class="math notranslate nohighlight">\(J_n\)</span> are the Bessel functions of the first kind, defined by their own infinite series:</p>
 <div class="math notranslate nohighlight">
 \[J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n+ k}\]</div>
-<p>There are other feasible series solutions to Kepler’s equation, some of which are discussed by Colwell <a class="bibtex reference internal" href="#colwell1992" id="id2">[2]</a>.</p>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-chapter-3/4-elliptical-orbits-0"><dl class="citation">
-<dt class="bibtex label" id="sacchetti2020"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Andrea Sacchetti. Francesco Carlini: Kepler’s equation and the asymptotic solution to singular differential equations. <em>Historia Mathematica</em>, pages S0315086020300446, July 2020. <a class="reference external" href="https://doi.org/10.1016/j.hm.2020.06.001">doi:10.1016/j.hm.2020.06.001</a>.</p>
-</dd>
-<dt class="bibtex label" id="colwell1992"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Peter Colwell. Bessel Functions and Kepler’s Equation. <em>The American Mathematical Monthly</em>, 99(1):45, January 1992. <a class="reference external" href="https://doi.org/10.2307/2324547">doi:10.2307/2324547</a>.</p>
-</dd>
-</dl>
-</p>
+<p>There are other feasible series solutions to Kepler’s equation, some of which are discussed by Colwell <span id="id2">[<a class="reference internal" href="../bibliography.html#id2">Col92</a>]</span>.</p>
 </div>
 </div>
 
@@ -739,15 +748,15 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="3-circular-orbits.html" title="previous page">Chapter 3.3 - Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)</a>
     <a class='right-next' id="next-link" href="4a-Elliptical-Orbit-Example.html" title="next page">Example: Elliptical Orbit</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -767,11 +776,9 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>

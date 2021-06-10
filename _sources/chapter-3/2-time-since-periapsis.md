@@ -35,10 +35,3 @@ The integral on the right-hand side can be found in standard tables of integrals
 $$\begin{aligned}\int\frac{dx}{\left(a + b\cos x\right)^2} &= \frac{1}{\left(a^2 - b^2\right)^{3/2}}\left[2a\tan^{-1}\left(\sqrt{\frac{a - b}{a + b}}\tan\frac{x}{2}\right)-\frac{b\sqrt{a^2 - b^2}\sin x}{a + b \cos x}\right] & \left(b < a\right)\\ \int\frac{dx}{\left(a + b\cos x\right)^2} &= \frac{1}{a^2}\left(\frac{1}{2}\tan \frac{x}{2}+\frac{1}{6}\tan^{3}\frac{x}{2}\right) & \left(b = a\right)\\ \int\frac{dx}{\left(a + b\cos x\right)^2} &= \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + a} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right] & \left(b > a\right)\end{aligned}$$
 
 From these equations, we can see that we will have 4 cases, depending on the value of $e$, one each for the circular, elliptical, parabolic, and hyperbolic orbits.
-
-## References
-
-```{bibliography} ../references.bib
-:style: unsrt
-:filter: docname in docnames
-```
