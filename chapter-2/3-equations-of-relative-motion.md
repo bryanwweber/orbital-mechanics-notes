@@ -87,10 +87,3 @@ Thus, we can see that all three equations of relative motion:
 3. $m_1$ relative to $G$
 
 have the same form, differing only in the constants. The solutions to these equations will all have the same shape! In other words, if $m_2$ is orbiting around $m_1$ in an ellipse, then $m_2$ and $m_1$ will orbit around $G$ in an ellipse!
-
-## References
-
-```{bibliography} ../references.bib
-:style: unsrt
-:filter: docname in docnames
-```

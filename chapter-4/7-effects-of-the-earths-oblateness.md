@@ -100,9 +100,9 @@ As a spacecraft orbits, we can project a line from the satellite to the center o
 
 The ground track is useful to know because it is related to what parts of the earth can see the spacecraft and vice versa. Since communication with spacecraft requires the transmitting antenna to be able to see the receiving antenna, knowing where above the earth the satellite is at any given moment is a useful piece of information.
 
-```{margin}
+:::{margin}
 The book calls the projection it uses the Mercator projection, but this is apparently a mistake, since the Mercator projection causes significant distortion in the high polar latitudes. Instead, the projection used in the book appears to be equirectangular, since all of the equally spaced lines of latitude and longitude form squares.
-```
+:::
 
 Unless the spacecraft is in a polar orbit, it passes through all of the degrees of longitude going around the earth. Similarly, unless the orbit is equatorial, the spacecraft will pass through several, although not all, of the degrees of latitude. This causes the ground track to appear sinusoidal when plotted on a rectangular projection of latitude and longitude, such as the [equirectangular projection](https://en.wikipedia.org/wiki/Equirectangular_projection).
 
@@ -132,10 +132,3 @@ Thus, the transformation can be accomplished by:
 $$\left\{r\right\}_{x'} = \left[\mathbf{R}_{3}(\theta_E)\right]\left\{r\right\}_{X}$$
 
 Then, once we know the coordinates in the ECEF, we can determine the right ascension and declination of the coordinates to determine the latitude and longitude.
-
-## References
-
-```{bibliography} ../references.bib
-:style: unsrt
-:filter: docname in docnames
-```

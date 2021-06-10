@@ -715,10 +715,3 @@ for (C, ax) in zip(C_values, axes.flatten()):
     cs = ax.contourf(X, Y, V, levels=[0, 0.5, 1], colors=('w', 'silver'))
     cs = ax.contour(X, Y, V, levels=[0, 0.5, 1], colors=('w', 'black'), linewidths=0.5)
 ```
-
-## References
-
-```{bibliography} ../references.bib
-:style: unsrt
-:filter: docname in docnames
-```

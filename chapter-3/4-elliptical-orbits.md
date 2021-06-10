@@ -263,10 +263,3 @@ where $J_n$ are the Bessel functions of the first kind, defined by their own inf
 $$J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n+ k}$$
 
 There are other feasible series solutions to Kepler's equation, some of which are discussed by Colwell {cite}`Colwell1992`.
-
-## References
-
-```{bibliography} ../references.bib
-:style: unsrt
-:filter: docname in docnames
-```

@@ -1,8 +1,9 @@
-jupyter-book>=0.8.1
+jupyter-book>=0.11.1
 matplotlib
 numpy
 scipy
-# Install poliastro master to support Astropy 4.2
-https://github.com/bryanwweber/poliastro/archive/astropy-frame-deprecation.zip
+poliastro
 astropy
 sympy
+https://github.com/bryanwweber/MyST-NB/archive/paste-bokeh-json.zip
+bokeh

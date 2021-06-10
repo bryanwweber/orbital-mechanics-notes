@@ -1,64 +1,74 @@
-- file: intro
-- part: Chapter 1
+format: jb-book
+root: intro
+options:
+  numbered: true
+parts:
+- caption: Review of Vectors and Newtonian Mechanics
   chapters:
-    - file: chapter-1/3-kinematics
-    - file: chapter-1/4-mass-force-and-newtons-law-of-gravitation
-    - file: chapter-1/5-newtons-laws
-    - file: chapter-1/6-time-derivatives-of-moving-vectors
-    - file: chapter-1/7-relative-motion
-- part: Chapter 2
+    - file: chapter-1/intro
+      sections:
+      - file: chapter-1/3-kinematics
+      - file: chapter-1/4-mass-force-and-newtons-law-of-gravitation
+      - file: chapter-1/5-newtons-laws
+      - file: chapter-1/6-time-derivatives-of-moving-vectors
+      - file: chapter-1/7-relative-motion
+- caption: Chapter 2
   chapters:
-    - file: chapter-2/2-equations-of-motion-in-an-inertial-frame
-    - file: chapter-2/2a-two-body-inertial-example
-    - file: chapter-2/3-equations-of-relative-motion
-    - file: chapter-2/3a-two-body-relative-motion-example
-    - file: chapter-2/4-angular-momentum-and-the-orbit-formulas
-    - file: chapter-2/5-the-energy-law
-    - file: chapter-2/6-circular-orbits
-    - file: chapter-2/7-elliptical-orbits
-    - file: chapter-2/8-parabolic-trajectories
-    - file: chapter-2/9-hyperbolic-trajectories
-    - file: chapter-2/10-perifocal-frame
-    - file: chapter-2/11-the-lagrange-coefficients
-    - file: chapter-2/12-circular-restricted-three-body-problem
-    - file: chapter-2/12a-Lagrange-points-example
-    - file: chapter-2/12b-Equations-of-Motion-CR3BP
-- part: Chapter 3
+  - file: chapter-2/2-equations-of-motion-in-an-inertial-frame
+  - file: chapter-2/2a-two-body-inertial-example
+  - file: chapter-2/3-equations-of-relative-motion
+  - file: chapter-2/3a-two-body-relative-motion-example
+  - file: chapter-2/4-angular-momentum-and-the-orbit-formulas
+  - file: chapter-2/5-the-energy-law
+  - file: chapter-2/6-circular-orbits
+  - file: chapter-2/7-elliptical-orbits
+  - file: chapter-2/8-parabolic-trajectories
+  - file: chapter-2/9-hyperbolic-trajectories
+  - file: chapter-2/10-perifocal-frame
+  - file: chapter-2/11-the-lagrange-coefficients
+  - file: chapter-2/12-circular-restricted-three-body-problem
+  - file: chapter-2/12a-Lagrange-points-example
+  - file: chapter-2/12b-Equations-of-Motion-CR3BP
+- caption: Chapter 3
   chapters:
-    - file: chapter-3/2-time-since-periapsis
-    - file: chapter-3/3-circular-orbits
-    - file: chapter-3/4-elliptical-orbits
-    - file: chapter-3/4a-Elliptical-Orbit-Example
-    - file: chapter-3/5-parabolic-trajectories
-    - file: chapter-3/6-hyperbolic-trajectories
-    - file: chapter-3/6a-Hyperbolic-Trajectory-Example
-    - file: chapter-3/7-universal-variables
-    - file: chapter-3/7a-Universal-Variables-Example
-    - file: chapter-3/7b-Universal-Lagrange-Coefficients-Example
-- part: Chapter 4
+  - file: chapter-3/2-time-since-periapsis
+  - file: chapter-3/3-circular-orbits
+  - file: chapter-3/4-elliptical-orbits
+  - file: chapter-3/4a-Elliptical-Orbit-Example
+  - file: chapter-3/5-parabolic-trajectories
+  - file: chapter-3/6-hyperbolic-trajectories
+  - file: chapter-3/6a-Hyperbolic-Trajectory-Example
+  - file: chapter-3/7-universal-variables
+  - file: chapter-3/7a-Universal-Variables-Example
+  - file: chapter-3/7b-Universal-Lagrange-Coefficients-Example
+- caption: Chapter 4
   chapters:
-    - file: chapter-4/2-geocentric-right-ascension-declination-frame
-    - file: chapter-4/3-state-vector-and-the-geocentric-equatorial-frame
-    - file: chapter-4/4-orbital-elements-and-the-state-vector
-    - file: chapter-4/5-coordinate-transformations
-    - file: chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames
-    - file: chapter-4/7-effects-of-the-earths-oblateness
-- part: Chapter 6
+  - file: chapter-4/2-geocentric-right-ascension-declination-frame
+  - file: chapter-4/3-state-vector-and-the-geocentric-equatorial-frame
+  - file: chapter-4/4-orbital-elements-and-the-state-vector
+  - file: chapter-4/5-coordinate-transformations
+  - file: chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames
+  - file: chapter-4/7-effects-of-the-earths-oblateness
+- caption: Chapter 6
   chapters:
-    - file: chapter-6/2-impulsive-maneuvers
-    - file: chapter-6/2a-single-impulse-example
-    - file: chapter-6/3-hohmann-transfer
-    - file: chapter-6/4-bielliptic-hohmann-transfer
-    - file: chapter-6/4a-comparison-of-bielliptic-and-hohmann
-    - file: chapter-6/5-phasing-maneuvers
-    - file: chapter-6/6-non-hohmann-transfers
-    - file: chapter-6/7-apse-line-rotation
-    - file: chapter-6/8-chase-maneuvers
-    - file: chapter-6/9-plane-change-maneuvers
-    - file: chapter-6/9a-plane-change-example
-    - file: chapter-6/10-nonimpulsive-orbital-maneuvers
-    - file: chapter-6/10a-nonimpulsive-maneuver-example
-- part: Chapter 8
+  - file: chapter-6/2-impulsive-maneuvers
+  - file: chapter-6/2a-single-impulse-example
+  - file: chapter-6/3-hohmann-transfer
+  - file: chapter-6/4-bielliptic-hohmann-transfer
+  - file: chapter-6/4a-comparison-of-bielliptic-and-hohmann
+  - file: chapter-6/5-phasing-maneuvers
+  - file: chapter-6/6-non-hohmann-transfers
+  - file: chapter-6/7-apse-line-rotation
+  - file: chapter-6/8-chase-maneuvers
+  - file: chapter-6/9-plane-change-maneuvers
+  - file: chapter-6/9a-plane-change-example
+  - file: chapter-6/10-nonimpulsive-orbital-maneuvers
+  - file: chapter-6/10a-nonimpulsive-maneuver-example
+  - file: chapter-6/kennedy-launch-angles
+- caption: Chapter 8
   chapters:
-    - file: chapter-8/2-interplanetary-hohmann-transfers
-    - file: chapter-8/10-planetary-ephemeris
+  - file: chapter-8/2-interplanetary-hohmann-transfers
+  - file: chapter-8/10-planetary-ephemeris
+- caption: Bibliography
+  chapters:
+  - file: bibliography

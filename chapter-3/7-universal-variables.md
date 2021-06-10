@@ -220,7 +220,7 @@ $$\chi_{i = 0} = \frac{\mu\Delta t^2}{r_p \left[f(\chi^{+}) + \sqrt{\mu}\Delta t
 
 where $f(\chi^{+})$ is the solution of Kepler's equation with the $\chi^{+}$ value.
 
-```{note}
+:::{note}
 Prussing and Conway {cite}`Prussing2013`, citing Conway {cite}`Conway1986` suggest that faster convergence in the solution of Kepler's equation can be achieved by using the **Laguerre algorithm**, rather than Newton's algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.
 
 The Laguerre algorithm can be implemented as:
@@ -232,11 +232,4 @@ The sign ambiguity in the denominator is determined by taking the sign of the nu
 Derivation of $f''(\chi_i)$ is left up to the reader.
 
 Although the Laguerre algorithm was originally intended for finding the roots of polynomial equations, it seems to work well in this application.
-```
-
-## References
-
-```{bibliography} ../references.bib
-:style: unsrt
-:filter: docname in docnames
-```
+:::
