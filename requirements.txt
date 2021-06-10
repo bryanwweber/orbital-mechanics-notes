@@ -1,4 +1,4 @@
-jupyter-book>=0.11.1
+https://github.com/bryanwweber/jupyter-book/archive/bump-deps.zip
 matplotlib
 numpy
 scipy
@@ -7,3 +7,4 @@ astropy
 sympy
 https://github.com/bryanwweber/MyST-NB/archive/paste-bokeh-json.zip
 bokeh
+markdown-it-py>=1.1.0
