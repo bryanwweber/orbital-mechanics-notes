@@ -8,3 +8,5 @@ sympy
 https://github.com/bryanwweber/MyST-NB/archive/paste-bokeh-json.zip
 bokeh
 markdown-it-py>=1.1.0
+sphinx>=4.0
+myst-parser==0.15.0

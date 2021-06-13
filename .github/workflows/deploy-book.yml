@@ -32,13 +32,13 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/freeze.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
 
     - name: Install dependencies
       run: |
-        python3 -m pip install -r requirements.txt
+        python3 -m pip install --no-deps -r freeze.txt
 
     # Build the book
     - name: Build the book
