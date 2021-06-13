@@ -9,8 +9,8 @@ latex:
   latex_documents:
     targetname: book.tex
 
-execute:
-  execute_notebooks: 'off'
+# execute:
+  # execute_notebooks: 'off'
 
 sphinx:
   config:
