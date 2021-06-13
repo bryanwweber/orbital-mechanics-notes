@@ -1,0 +1,36 @@
+.headerlink {
+    position: relative;
+}
+
+[data-tooltip]:before {
+    position : absolute;
+    content : attr(data-tooltip);
+    opacity : 0;
+    transition:.3s opacity;
+    /* vertically center */
+    top:50%;
+    transform:translateY(-50%);
+
+    /* move to right */
+    left:100%;
+    margin-left:4px; /* and add a small left margin */
+
+    /* font sizing */
+    font-size: x-small;
+
+    /* basic styles */
+    width: auto;
+    white-space: nowrap;
+    padding: 3px;
+    border-radius: 3px;
+    /* background: #000;
+    color: #fff; */
+    text-align: center;
+
+    /* display: none; */
+}
+
+[data-tooltip]:hover:before {
+    opacity : 1;
+    /* display: block; */
+}
