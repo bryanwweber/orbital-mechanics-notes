@@ -13,6 +13,8 @@ latex:
   # execute_notebooks: 'off'
 
 sphinx:
+  extra_extensions:
+  - myst_nb_bokeh
   config:
     html_show_copyright: false
     mathjax3_config:
