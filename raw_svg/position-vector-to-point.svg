@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="470.98624" height="470.5202" viewBox="0 0 470.98624 470.5202" version="1.1" id="svg5" xmlns="http://www.w3.org/2000/svg">
+  <defs id="defs2">
+    <marker style="overflow:visible" id="Arrow2Lstart" refX="0" refY="0" orient="auto">
+      <path transform="matrix(1.1,0,0,1.1,1.1,0)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round" id="path956"/>
+    </marker>
+    <marker id="Arrow2Lend" refX="0" refY="0" orient="auto" style="overflow:visible">
+      <path transform="matrix(-1.1,0,0,-1.1,-1.1,0)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="sfill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round" id="path959"/>
+    </marker>
+    <marker id="Arrow2LendRed" refX="0" refY="0" orient="auto" style="overflow:visible">
+      <path transform="matrix(-0.75,0,0,-0.75,-1.1,0)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="stroke:#ff0000;fill:#ff0000;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round" id="path959"/>
+    </marker>
+  </defs>
+  <path style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)" d="M 161.089733 306.504879 L 460.627533 306.504879" id="path1455"/>
+  <path id="path41" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart);marker-end:url(#Arrow2Lend)" d="M 161.089733 6.967079 L 160.858633 306.504879 L 11.896746 455.208559"/>
+  <path style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; paint-order: fill; stroke-dasharray: 8px; stroke-opacity: 0.5;" d="M 95.627533 371.504879 L 345.627533 371.504879" id="path135"/>
+  <path style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; paint-order: fill; stroke-dasharray: 8px; stroke-opacity: 0.5;" d="M 345.627533 176.504879 L 345.627533 371.504879" id="path137"/>
+  <path style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; paint-order: fill; stroke-dasharray: 8px; stroke-opacity: 0.5;" d="M 410.627533 306.504879 L 345.627533 371.504879 L 345.627533 371.504879" id="path191"/>
+  <text id="text2219" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="190.627533" y="386.504883">y(t)</text>
+  <text id="text4143" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="385.127533" y="346.004879">x(t)</text>
+  <text id="text5389" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="355.140533" y="261.141262">z(t)</text>
+  <circle style="stroke-width: 1.5; stroke-miterlimit: 4; stroke-dasharray: none;" id="path6560" cx="346.877533" cy="174.759029" r="6.249999"/>
+  <path style="fill:#ff0000;stroke:#ff0000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2LendRed)" d="M 160.627533 306.504879 L 345.627533 176.504879" id="path133"/>
+  <text id="text7485" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="223.627533" y="224.504883">\vec{r}(t)</text>
+  <text id="text10143" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="353.127533" y="159.004879">P</text>
+  <path style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)" d="M 160.627533 306.504879 L 259.615943 306.504879" id="path10423"/>
+  <path id="path10425" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart);marker-end:url(#Arrow2Lend)" d="M 160.627533 207.516469 L 160.551133 306.504879 L 111.323623 355.647059"/>
+  <text id="text12101" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="89.417136" y="346.006622">\hat{\imath}</text>
+  <text id="text12699" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="248.73024" y="283.495514">\hat{\jmath}</text>
+  <text id="text14125" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="136.613281" y="210.682877">\hat{k}</text>
+  <text id="text18538" class="math" style="font-size: 12px; font-family: sans-serif; white-space: pre;" x="164.541534" y="324.707424">O</text>
+</svg>

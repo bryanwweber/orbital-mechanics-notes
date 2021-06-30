@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="300"
+   height="300"
+   id="svg2">
+  <defs
+     id="defs4">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="TriangleInL"
+       style="overflow:visible">
+      <path
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         transform="scale(-0.8,-0.8)"
+         id="path3269"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="TriangleOutL"
+       style="overflow:visible">
+      <path
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         transform="scale(0.8,0.8)"
+         id="path3278"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <path
+       d="m 55,245 95,-95"
+       id="path3173"
+       style="fill:none;stroke:#008000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       d="m 285,150 a 135,135 0 1 1 -270,0 135,135 0 1 1 270,0 z"
+       id="path2168"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 8;stroke-dashoffset:0" />
+    <path
+       d="m 155,150 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+       transform="matrix(0.7,0,0,0.7,45,45)"
+       id="path3145"
+       style="fill:#4444ff;fill-opacity:1;fill-rule:evenodd;stroke:#4444ff;stroke-width:1.42857134;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       d="m 65,245 a 10,10 0 1 1 -20,0 10,10 0 1 1 20,0 z"
+       id="path3171"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="-45.444935"
+       y="229.84184"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"
+       id="text3383"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#008000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><tspan
+         x="-45.444935"
+         y="229.84184"
+         id="tspan3385"
+         style="font-size:14px;fill:#008000;fill-opacity:1">light string</tspan></text>
+    <g
+       id="g3393">
+      <path
+         d="m 55.34375,244.65625 -0.6875,0.6875 40,40 0.6875,-0.6875 -40,-40 z"
+         id="path3391"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <path
+         d="m 98.264005,288.264 -7.721606,-2.06475 5.656854,-5.65685 2.064752,7.7216 z"
+         id="path3399"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:0.8pt;marker-start:none" />
+    </g>
+    <text
+       x="53.53125"
+       y="286"
+       id="text3401"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><tspan
+         x="53.53125"
+         y="286"
+         id="tspan3403"
+         style="font-size:14px">Velocity</tspan></text>
+    <g
+       id="g3407">
+      <path
+         d="m 79.65625,219.65625 -25,25 0.6875,0.6875 25,-25 -0.6875,-0.6875 z"
+         id="path3405"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <path
+         d="m 83.264005,216.736 -2.064752,7.7216 -5.656854,-5.65685 7.721606,-2.06475 z"
+         id="path3413"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:0.8pt;marker-start:none" />
+    </g>
+    <text
+       x="140.82454"
+       y="238.33684"
+       id="text3415"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><tspan
+         x="140.82454"
+         y="238.33684"
+         id="tspan3803"
+         style="font-size:14px">Centripetal force,</tspan><tspan
+         x="140.82454"
+         y="255.83684"
+         id="tspan2839"
+         style="font-size:14px">acceleration</tspan></text>
+    <text
+       x="28.428572"
+       y="251.47363"
+       id="text3419"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><tspan
+         x="28.428572"
+         y="251.47363"
+         id="tspan3423"
+         style="font-size:14px">Ball</tspan></text>
+    <g
+       transform="matrix(-1,0,0,-1,203.57509,396.42492)"
+       id="g2841"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <path
+         d="m 79.65625,219.65625 -25,25 0.6875,0.6875 25,-25 -0.6875,-0.6875 z"
+         id="path2843"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <path
+         d="m 83.264005,216.736 -2.064752,7.7216 -5.656854,-5.65685 7.721606,-2.06475 z"
+         id="path2845"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;marker-start:none" />
+    </g>
+    <text
+       x="81.750984"
+       y="151.0634"
+       id="text2847"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><tspan
+         x="81.750984"
+         y="151.0634"
+         id="tspan3017"
+         style="font-size:14px">Centrifugal force,</tspan><tspan
+         x="81.750984"
+         y="168.5634"
+         id="tspan2851"
+         style="font-size:14px">reactive</tspan></text>
+    <text
+       x="210.48639"
+       y="129.19975"
+       id="text2853"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><tspan
+         x="210.48639"
+         y="129.19975"
+         id="tspan2861"
+         style="font-size:14px">Fixed post at</tspan><tspan
+         x="210.48639"
+         y="146.69975"
+         id="tspan3019"
+         style="font-size:14px">axis of rotation</tspan></text>
+    <text
+       x="-48.487324"
+       y="96.959343"
+       id="text2863"
+       xml:space="preserve"
+       style="font-size:40px;font-style:italic;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans;-inkscape-font-specification:Sans Italic"><tspan
+         x="-48.487324"
+         y="96.959343"
+         id="tspan2865" /></text>
+  </g>
+</svg>

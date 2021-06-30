@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" id="svg5" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs id="defs2">
+    <marker style="overflow:visible" id="Arrow2Lstart" refX="0.0" refY="0.0" orient="auto" bx:pinned="true">
+      <path transform="scale(1.1) translate(1,0)" d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z " style="fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round" id="path956"/>
+    </marker>
+    <marker style="overflow:visible;" id="Arrow2Lend" refX="0.0" refY="0.0" orient="auto" bx:pinned="true">
+      <path transform="scale(1.1) rotate(180) translate(1,0)" d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z " style="fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;" id="path959"/>
+    </marker>
+    <bx:grid x="0" y="0" width="5" height="5"/>
+  </defs>
+  <g id="layer1" style="" transform="matrix(1, 0, 0, 1, -57.769214630127, -7.962200164795)">
+    <path style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:;marker-end:url(#Arrow2Lend)" d="M 212.9622,337.5 H 512.5" id="path1455"/>
+    <path id="path41" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart);marker-end:url(#Arrow2Lend)" d="M 212.9622,37.9622 212.7311,337.5 63.769213,486.20368"/>
+  </g>
+  <g id="g-1" style="" transform="matrix(0.230848610401, 0, 0, 0.230848610401, 105.878967285156, 251.236480712891)">
+    <path style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1; marker-end: url(#Arrow2Lend); stroke-width: 4.33184px;" d="M 212.9622,337.5 H 512.5" id="path-1"/>
+    <path id="path-2" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1; marker-start: url(#Arrow2Lstart); marker-end: url(#Arrow2Lend); stroke-width: 4.33184px;" d="M 212.9622,37.9622 212.7311,337.5 63.769213,486.20368"/>
+  </g>
+  <text class="math" style="font-style: normal; fill: rgb(51, 51, 51); font-family: sans-serif; font-size: 12px; white-space: pre;" x="120.313" y="337.144">\hat{\imath}</text>
+  <text style="font-style: normal; fill: rgb(51, 51, 51); font-family: sans-serif; font-size: 12px; white-space: pre;" x="205.044495" y="316.851379" class="math">\hat{\jmath}</text>
+  <text class="math" style="font-style: normal; fill: rgb(51, 51, 51); font-family: sans-serif; font-size: 12px; white-space: pre;" x="105.698639" y="267.568878">\hat{k}</text>
+</svg>

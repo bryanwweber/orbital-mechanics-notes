@@ -3,7 +3,7 @@ title: Notes on Orbital Mechanics for Engineering Students
 author: Bryan Weber
 logo: hohmann.png
 
-exclude_patterns: [homework]
+exclude_patterns: [homework, raw_svg]
 
 latex:
   latex_documents:
@@ -27,10 +27,6 @@ sphinx:
           unit: ["#1~\\mathrm{#2}", 2]
           pf: ["\\overline{#1}", 1]  # This is for the perifocal frame
           mat: ["\\left[\\mathbf{#1}\\right]", 1]
-    # MathJax 3 + Sphinx cannot currently use custom macros as defined here
-    # See: https://github.com/executablebooks/jupyter-book/issues/963
-    # and: https://github.com/executablebooks/jupyter-book/issues/917
-    # mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 myst_enable_extensions:
 - colon_fence

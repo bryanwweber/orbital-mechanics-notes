@@ -146,3 +146,11 @@ homework/
 # VS Code
 .vscode
 
+# Doit
+.doit.db.db
+
+# Cache for SVG images
+raw_svg/mathjax_cache.json
+
+# macOS files
+.DS_Store
