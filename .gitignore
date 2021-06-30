@@ -142,3 +142,7 @@ _build/
 
 # Homework folder
 homework/
+
+# VS Code
+.vscode
+
