@@ -96,46 +96,19 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Review of Vectors and Newtonian Mechanics
+  Introduction
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../chapter-1/intro.html">
-   Kinematics
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/3-kinematics.html">
-     Chapter 1.3 - Kinematics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
-     Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
-     Chapter 1.5 - Newton’s Laws
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
-     Chapter 1.6 - Time Derivatives of Moving Vectors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/7-relative-motion.html">
-     Chapter 1.7 - Relative Motion
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/relative-motion.html">
+   Relative Motion
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -442,6 +415,33 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Bibliography
  </span>
 </p>
@@ -676,13 +676,13 @@
 <p>In other words, the Laplace vector and the angular momentum are perpendicular. Since the angular momentum is perpendicular to the orbital plane, <span class="math notranslate nohighlight">\(\vector{C}\)</span> must lie in the orbital plane.</p>
 <p>The Laplace vector has the same dimensions as <span class="math notranslate nohighlight">\(\mu\)</span>, so we can transform it into a dimensionless number by dividing the equation by <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-vector-orbit-equation">
-<span class="eqno">(1)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
+<span class="eqno">(17)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{e} = \vector{C}/\mu\)</span> and is called the <strong>eccentricity vector</strong>. Since <span class="math notranslate nohighlight">\(\vector{C}\)</span> lies in the orbital plane, <span class="math notranslate nohighlight">\(\vector{e}\)</span> also lies in the orbital plane. The line along <span class="math notranslate nohighlight">\(\vector{e}\)</span> is called the <strong>apse line</strong>.</p>
 <p>The eccentricity vector provides two more of the constants of integration that we need for the equation of motion. However, due to the fact that <span class="math notranslate nohighlight">\(\vector{e}\)</span> and <span class="math notranslate nohighlight">\(\vector{h}\)</span> are perpendicular, we know that:</p>
 <div class="math notranslate nohighlight">
 \[\vector{e}\cdot\vector{h} = 0\]</div>
 <p>such that only 5 of the components of these vectors are independent. The sixth is determined by the dot product above.</p>
-<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(1)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
+<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(17)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
 <p>To obtain a scalar equation, we take the dot product of this equation with <span class="math notranslate nohighlight">\(\vector{r}\)</span>. After some algebra, we end up at:</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta}\]</div>

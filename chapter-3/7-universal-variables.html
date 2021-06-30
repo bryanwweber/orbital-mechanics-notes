@@ -96,46 +96,19 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Review of Vectors and Newtonian Mechanics
+  Introduction
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../chapter-1/intro.html">
-   Kinematics
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/3-kinematics.html">
-     Chapter 1.3 - Kinematics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
-     Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
-     Chapter 1.5 - Newton’s Laws
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
-     Chapter 1.6 - Time Derivatives of Moving Vectors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/7-relative-motion.html">
-     Chapter 1.7 - Relative Motion
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/relative-motion.html">
+   Relative Motion
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -442,6 +415,33 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Bibliography
  </span>
 </p>
@@ -720,20 +720,20 @@ $$\tan\frac{\theta - \theta_0}{2} = \frac{z}{z}$$ -->
 \[f(\chi) = 0 = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\]</div>
 <p>The derivative of this function is also useful:</p>
 <div class="math notranslate nohighlight" id="equation-universal-kepler-derivative">
-<span class="eqno">(9)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
+<span class="eqno">(25)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
 <p>where <span class="math notranslate nohighlight">\(z = \alpha\chi^2\)</span>, such that:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dz}{d\chi} = 2\alpha\chi\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}\frac{d S(z)}{dz} &amp;= \frac{1}{2z}\left[C(z) - 3S(z)\right] \\\frac{d C(z)}{dz} &amp;= \frac{1}{2z}\left[1 - z S(z) - 2C(z)\right]\end{aligned}\end{split}\]</div>
-<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(9)</a> gives:</p>
+<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(25)</a> gives:</p>
 <div class="math notranslate nohighlight">
 \[\frac{d f(\chi)}{d\chi} = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi\left[1 - \alpha\chi^2 S(z)\right] + \left(1 - \alpha r_0\right)\chi^2 C(z) + r_0\]</div>
 <p>The last thing we need for a solution using Newton’s algorithm is an initial guess. There are several methods suggested for this. In <span id="id1">[<a class="reference internal" href="../bibliography.html#id5">Cur20</a>]</span>, they suggest using:</p>
 <div class="math notranslate nohighlight">
 \[\chi_{i = 0} = \sqrt{\mu} \left\lvert\alpha\right\rvert \Delta t\]</div>
-<p>In <span id="id2">[<a class="reference internal" href="../bibliography.html#id9">PC13</a>]</span>, they suggest a couple of different options. First, Prussing and Conway show that the solution lies in the interval:</p>
+<p>In <span id="id2">[<a class="reference internal" href="../bibliography.html#id11">PC13</a>]</span>, they suggest a couple of different options. First, Prussing and Conway show that the solution lies in the interval:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}\chi^{+} &amp;= \frac{\sqrt{\mu}\Delta t}{r^{-}}\\\chi^{-} &amp;= \frac{\sqrt{\mu}\Delta t}{r^{+}}\end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r^{+}\)</span> and <span class="math notranslate nohighlight">\(r^{-}\)</span> are the largest and smallest values of the radius. The most conservative choice of <span class="math notranslate nohighlight">\(r^{-}\)</span> is the radius at periapsis for all the orbits:</p>
@@ -754,7 +754,7 @@ $$\tan\frac{\theta - \theta_0}{2} = \frac{z}{z}$$ -->
 <p>where <span class="math notranslate nohighlight">\(f(\chi^{+})\)</span> is the solution of Kepler’s equation with the <span class="math notranslate nohighlight">\(\chi^{+}\)</span> value.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Prussing and Conway <span id="id3">[<a class="reference internal" href="../bibliography.html#id9">PC13</a>]</span>, citing Conway <span id="id4">[<a class="reference internal" href="../bibliography.html#id3">Con86</a>]</span> suggest that faster convergence in the solution of Kepler’s equation can be achieved by using the <strong>Laguerre algorithm</strong>, rather than Newton’s algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.</p>
+<p>Prussing and Conway <span id="id3">[<a class="reference internal" href="../bibliography.html#id11">PC13</a>]</span>, citing Conway <span id="id4">[<a class="reference internal" href="../bibliography.html#id3">Con86</a>]</span> suggest that faster convergence in the solution of Kepler’s equation can be achieved by using the <strong>Laguerre algorithm</strong>, rather than Newton’s algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.</p>
 <p>The Laguerre algorithm can be implemented as:</p>
 <div class="math notranslate nohighlight">
 \[\chi_{i + 1} = \chi_{i} - \frac{n f(\chi_i)}{f'(\chi_i) \pm \left[\left(n - 1\right)^2 \left(f'(\chi_i\right)^2 - n\left(n - 1\right) f(\chi_i)f''(\chi_i)\right]}\]</div>

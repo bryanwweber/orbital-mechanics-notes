@@ -56,7 +56,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-8/10-planetary-ephemeris.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="next" title="Kinematics" href="../review/kinematics.html" />
     <link rel="prev" title="Chapter 8.2 - Interplanetary Hohmann Transfers" href="2-interplanetary-hohmann-transfers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -96,46 +96,19 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Review of Vectors and Newtonian Mechanics
+  Introduction
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../chapter-1/intro.html">
-   Kinematics
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/3-kinematics.html">
-     Chapter 1.3 - Kinematics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/4-mass-force-and-newtons-law-of-gravitation.html">
-     Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/5-newtons-laws.html">
-     Chapter 1.5 - Newton’s Laws
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/6-time-derivatives-of-moving-vectors.html">
-     Chapter 1.6 - Time Derivatives of Moving Vectors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../chapter-1/7-relative-motion.html">
-     Chapter 1.7 - Relative Motion
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/relative-motion.html">
+   Relative Motion
+  </a>
  </li>
 </ul>
 <p class="caption">
@@ -437,6 +410,33 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Chapter 8.10 - Planetary Ephemeris
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
   </a>
  </li>
 </ul>
@@ -1165,10 +1165,10 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
 <h2>Using JPL HORIZONS Web Interface<a class="headerlink" href="#using-jpl-horizons-web-interface" title="Permalink to this headline">¶</a></h2>
 <p>JPL also maintains a web browser based interface to the HORIZONS database. This interface can be used to determine all the same information as the previous methods, with a similar level of accuracy as the SPICE-focused methods in the previous section. The web interface is located at:</p>
 <p><a class="reference external" href="https://ssd.jpl.nasa.gov/horizons.cgi">https://ssd.jpl.nasa.gov/horizons.cgi</a></p>
-<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#horizons-default"><span class="std std-numref">Fig. 2</span></a></p>
+<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#horizons-default"><span class="std std-numref">Fig. 3</span></a></p>
 <div class="figure align-default" id="horizons-default">
 <a class="reference internal image-reference" href="../_images/horizons-default.png"><img alt="Default interface for HORIZONS" src="../_images/horizons-default.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#horizons-default" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#horizons-default" title="Permalink to this image">¶</a></p>
 </div>
 <p>Each of the options can be changed by clicking the “Change” links. For our purposes, we can change the following:</p>
 <ol class="simple">
@@ -1179,17 +1179,17 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
 <li><p><em>Table Settings</em>: Here, we want to change the units to <em>km &amp; km/s</em>. Another useful option is the <em>reference plane</em>. The default of <em>ecliptic &amp; mean equinox</em> is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.</p></li>
 <li><p><em>Display/Output</em>: On this page, you can choose the output format of your data. We will use the formatted HTML output in this example</p></li>
 </ol>
-<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#horizons-mercury"><span class="std std-numref">Fig. 3</span></a>.</p>
+<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#horizons-mercury"><span class="std std-numref">Fig. 4</span></a>.</p>
 <div class="figure align-default" id="horizons-mercury">
 <a class="reference internal image-reference" href="../_images/horizons-mercury.png"><img alt="Settings for Mercury ephemeris in HORIZONS" src="../_images/horizons-mercury.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#horizons-mercury" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#horizons-mercury" title="Permalink to this image">¶</a></p>
 </div>
-<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 4</span></a>.</p>
+<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 5</span></a>.</p>
 <div class="figure align-default" id="mercury-output">
 <a class="reference internal image-reference" href="../_images/mercury-output.png"><img alt="Output for Mercury ephemeris from HORIZONS" src="../_images/mercury-output.png" style="width: 75%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#mercury-output" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#mercury-output" title="Permalink to this image">¶</a></p>
 </div>
-<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 4</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
+<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 5</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
 </div>
 </div>
 
@@ -1219,7 +1219,7 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="2-interplanetary-hohmann-transfers.html" title="previous page">Chapter 8.2 - Interplanetary Hohmann Transfers</a>
-    <a class='right-next' id="next-link" href="../bibliography.html" title="next page">Bibliography</a>
+    <a class='right-next' id="next-link" href="../review/kinematics.html" title="next page">Kinematics</a>
 
         </div>
         

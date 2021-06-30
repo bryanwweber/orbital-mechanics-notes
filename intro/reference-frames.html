@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference Frames &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <link rel="canonical" href="https://orbital-mechanics.space/intro/reference-frames.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Relative Motion" href="relative-motion.html" />
+    <link rel="prev" title="Notes on Orbital Mechanics for Engineering Students" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
+   Chapter 2.5 - The Energy Law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6-hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6a-Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7-universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
+   Chapter 4.2 - Geocentric Right Ascension-Declination Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/3-state-vector-and-the-geocentric-equatorial-frame.html">
+   Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/4-orbital-elements-and-the-state-vector.html">
+   Chapter 4.4 - Orbital Elements and the State Vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/5-coordinate-transformations.html">
+   Chapter 4.5 - Coordinate Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames.html">
+   Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/7-effects-of-the-earths-oblateness.html">
+   Chapter 4.7 - Effects of the Earth’s Oblateness
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2-impulsive-maneuvers.html">
+   Chapter 6.2 - Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2a-single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/3-hohmann-transfer.html">
+   Chapter 6.3 - Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4-bielliptic-hohmann-transfer.html">
+   Chapter 6.4 - Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4a-comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/5-phasing-maneuvers.html">
+   Chapter 6.5 - Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/6-non-hohmann-transfers.html">
+   Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/7-apse-line-rotation.html">
+   Chapter 6.7 - Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/8-chase-maneuvers.html">
+   Chapter 6.8 - Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9-plane-change-maneuvers.html">
+   Chapter 6.9 - Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9a-plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10-nonimpulsive-orbital-maneuvers.html">
+   Chapter 6.10 - Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10a-nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/2-interplanetary-hohmann-transfers.html">
+   Chapter 8.2 - Interplanetary Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/10-planetary-ephemeris.html">
+   Chapter 8.10 - Planetary Ephemeris
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
+   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/5-newtons-laws.html">
+   Chapter 1.5 - Newton’s Laws
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/intro/reference-frames.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fintro/reference-frames.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/intro/reference-frames.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-of-reference-frames">
+   Types of Reference Frames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inertial-reference-frame">
+     Inertial Reference Frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-inertial-reference-frame">
+     Non-Inertial Reference Frame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#earth-reference-frames">
+   Earth Reference Frames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earth-centered-inertial">
+     Earth-Centered Inertial
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earth-centered-earth-fixed">
+     Earth-Centered, Earth-Fixed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#topocentric-horizon">
+     Topocentric-Horizon
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="reference-frames">
+<h1>Reference Frames<a class="headerlink" href="#reference-frames" title="Permalink to this headline">¶</a></h1>
+<p>In orbital mechanics, we track the motion of particles through a <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_space">Euclidean space</a>. This means we need a <strong>frame of reference</strong>, also known as a reference frame, in which the motion is tracked. The frame of reference consists of a <strong>clock</strong> to count time and a non-rotating Cartesian coordinate system to track the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> position of the particle. We are going to assume that relativity is not important in this course, so a single universal clock is sufficient to specify the time for all Cartesian coordinate systems.</p>
+<div class="section" id="types-of-reference-frames">
+<h2>Types of Reference Frames<a class="headerlink" href="#types-of-reference-frames" title="Permalink to this headline">¶</a></h2>
+<p>The two types of reference frames are:</p>
+<ol class="simple">
+<li><p><strong>Inertial</strong> frames</p></li>
+<li><p><strong>Non-Inertial</strong> frames</p></li>
+</ol>
+<p>Profound.</p>
+<div class="section" id="inertial-reference-frame">
+<h3>Inertial Reference Frame<a class="headerlink" href="#inertial-reference-frame" title="Permalink to this headline">¶</a></h3>
+<p>An <strong>inertial</strong> reference frame is one that is not <em>accelerating</em>. It may be moving at constant velocity, but there can be absolutely no acceleration, <em>including rotation!</em></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>An object in motion tends to stay in motion unless acted upon by an external force.</p>
+</div>
+<p>Therefore, in an inertial reference frame, an object obeys Newton’s First Law of Motion and its velocity remains constant unless an external force acts on it. Inertial reference frames are always our first choice if possible, because the laws of mechanics tend to take their simplest form in this frame.</p>
+<p>In orbital mechanics, we usually define an inertial reference frame with respect to the <strong>fixed stars</strong>. Of course, the stars are not really fixed—our Sun orbits the center of the galaxy, as do other stars in the Milky Way, and other galaxies may be approaching or receding at some velocity.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>According to Graneau and Graneau <span id="id1">[<a class="reference internal" href="../bibliography.html#id8">GG06</a>]</span> (pg. 147), the centrifugal acceleration due to the sun’s orbit around the galactic center is about thirty million times less than that of the earth about the sun. The effect of the motion of other stars is presumably even smaller still.</p>
+</div>
+<p>However, on the scale of most orbital mechanics problems we have to deal with (on the order of a few days to a few years), assuming the stars are fixed is reasonable.</p>
+</div>
+<div class="section" id="non-inertial-reference-frame">
+<h3>Non-Inertial Reference Frame<a class="headerlink" href="#non-inertial-reference-frame" title="Permalink to this headline">¶</a></h3>
+<p>By contrast to the inertial reference frame, the <a class="reference external" href="https://en.wikipedia.org/wiki/Non-inertial_reference_frame"><strong>non-inertial</strong> reference frame</a> does accelerate. This gives rise to the so-called <strong>fictitious forces</strong>, such as the centrifugal force, Coriolis force, and others.</p>
+<p>One common example of an accelerating reference frame that you may have seen in Physics is the idea of a ball attached to a string rotating around a point—for instance, spinning a ball on a string above your head. In this case, a reference frame attached to a point which is not spinning would be considered inertial. On the other hand, a reference frame attached to the ball would be rotating and thus accelerating. It would be a non-inertial reference frame (specifically, a <a class="reference external" href="https://en.wikipedia.org/wiki/Rotating_reference_frame">rotating reference frame</a>) and would need to include a “fictitious” centrifugal force to satisfy the equations of motion.</p>
+<div class="figure align-default" id="fig-centripetal-force">
+<img alt="Centripetal force and reaction" src="../_images/Centripetal_force_and_reaction.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Centripetal force and reaction. Attributed to <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Centripetal_force_and_reaction.svg">Richard F. Lyon based on work of en:User:Cburnett</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-centripetal-force" title="Permalink to this image">¶</a></p>
+</div>
+<p>As another example, consider a ball moving on a frictionless, rotating plate. An observer in an inertial frame would see the ball move in a straight line, since the ball does not experience any forces. However, an observer rotating with the frame would see the ball follow a curved path, implying the existence of a force. Since the force is not present in the inertial frame, this is termed a <a class="reference external" href="https://en.wikipedia.org/wiki/Fictitious_force">fictitious force</a>.</p>
+<div class="figure align-default" id="fig-coriolis-force">
+<img alt="Coriolis force" src="../_images/Corioliskraftanimation.gif" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Demonstration of the Coriolis force. The observer is shown as the red dot. Attributed to <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Corioliskraftanimation.gif">Hubi</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-coriolis-force" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="earth-reference-frames">
+<h2>Earth Reference Frames<a class="headerlink" href="#earth-reference-frames" title="Permalink to this headline">¶</a></h2>
+<p>With respect to the Earth, we will define three separate reference frames. For now, we will assume that the Earth is a sphere.</p>
+<div class="section" id="earth-centered-inertial">
+<h3>Earth-Centered Inertial<a class="headerlink" href="#earth-centered-inertial" title="Permalink to this headline">¶</a></h3>
+<p>First is an inertial frame, with the origin fixed to the center of the Earth, <span class="math notranslate nohighlight">\(C\)</span>. This frame uses capital letters for the axes and unit vectors. The <span class="math notranslate nohighlight">\(Z\)</span> axis points towards the North pole. This is called the Earth-centered inertial (ECI) frame.</p>
+</div>
+<div class="section" id="earth-centered-earth-fixed">
+<h3>Earth-Centered, Earth-Fixed<a class="headerlink" href="#earth-centered-earth-fixed" title="Permalink to this headline">¶</a></h3>
+<p>Second is a non-inertial frame, but with the origin still fixed at the center of the Earth. In this case, the frame uses lower case, primed letters for the axes and unit vectors. This is the Earth-centered, Earth-fixed (ECEF) frame. The <span class="math notranslate nohighlight">\(z'\)</span> axis points towards the North pole, and the <span class="math notranslate nohighlight">\(x'\)</span> axis intersects the equator and the prime meridian.</p>
+<p>This frame of reference rotates with the Earth. The angular distance between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(x'\)</span> is <span class="math notranslate nohighlight">\(\theta_G\)</span>, and <span class="math notranslate nohighlight">\(\theta_G\)</span> increases at the rate <span class="math notranslate nohighlight">\(\Omega\)</span>, the rotation rate of the Earth such that there are 24 hours in the day.</p>
+</div>
+<div class="section" id="topocentric-horizon">
+<h3>Topocentric-Horizon<a class="headerlink" href="#topocentric-horizon" title="Permalink to this headline">¶</a></h3>
+<p>The final coordinate system determines the position of a particle <span class="math notranslate nohighlight">\(P\)</span> moving arbitrarily above the surface of the Earth. This could be a person, car, airplane, or spacecraft.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>I remember the difference between latitude and longitude by thinking of lines of latitude like a ladder that I would use to climb towards the North pole.</p>
+</div>
+<p>The origin, <span class="math notranslate nohighlight">\(O\)</span>, of this coordinate system is fixed to the particle. At a given instant, the position of this coordinate system can be determined relative to the ECEF frame by specifying the <strong>longitude</strong> angle (<span class="math notranslate nohighlight">\(\Lambda\)</span>) and the <strong>latitude</strong> angle (<span class="math notranslate nohighlight">\(\phi\)</span>), which are positive in the East and North directions respectively. These specify the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes of a <strong>topocentric-horizon</strong> coordinate system, respectively.</p>
+<p>The third direction, <span class="math notranslate nohighlight">\(z\)</span>, is directly up from the surface of the Earth and is called the <strong>zenith</strong>. Note that the direction of “up” changes as you move over the surface of the sphere.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Notes on Orbital Mechanics for Engineering Students</a>
+    <a class='right-next' id="next-link" href="relative-motion.html" title="next page">Relative Motion</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
