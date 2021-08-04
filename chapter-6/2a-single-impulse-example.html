@@ -442,6 +442,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Bibliography
  </span>
 </p>
@@ -569,9 +581,6 @@
 <p>Let’s consider a case where we want to deorbit a spacecraft from low Earth orbit. To deorbit a spacecraft, we need to place it in an orbit that will intersect the atmosphere. Once in the atmosphere, drag will take over and reduce the velocity to the terminal velocity. As a simplification, we will neglect the atmosphere. This means we will determine the true anomaly when the spacecraft reaches the surface of the earth, or when the orbital radius is equal to the earth’s radius.</p>
 <p>Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the <span class="math notranslate nohighlight">\(x\)</span> axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in the figure below.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/2a-single-impulse-example_1_0.png" src="../_images/2a-single-impulse-example_1_0.png" />
-</div>
 </div>
 <p>We are interested in calculating the <span class="math notranslate nohighlight">\(\Delta v\)</span> required to perform this maneuver. Since the impact orbit and the initial orbit intersect at one point, we can use a single impulse transfer to perform the maneuver. Therefore, the <span class="math notranslate nohighlight">\(\Delta v\)</span> is given by the difference in velocities at the impulse point. Since the velocity vectors are parallel for the initial and impact orbits at the impulse point, we can work entirely in magnitudes.</p>
 <p>To find <span class="math notranslate nohighlight">\(\Delta v\)</span>, we need to calculate two velocities:</p>
@@ -616,11 +625,6 @@
 
 <span class="n">Δv</span> <span class="o">=</span> <span class="n">v_2</span> <span class="o">-</span> <span class="n">v_1</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Δv</span><span class="si">=:</span><span class="s2">0.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Δv=-0.2976 km/s
 </pre></div>
 </div>
 </div>

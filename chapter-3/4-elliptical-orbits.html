@@ -442,6 +442,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Bibliography
  </span>
 </p>
@@ -614,9 +626,6 @@
 <p>We define the term in the square brackets to be the <strong>mean anomaly</strong>, <span class="math notranslate nohighlight">\(M_e\)</span>, where the subscript <span class="math notranslate nohighlight">\(e\)</span> indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.</p>
 <p>The mean anomaly is a monotonically increasing function of the true anomaly. This is good because it means that <span class="math notranslate nohighlight">\(M_e\)</span> can be used in place of <span class="math notranslate nohighlight">\(\theta\)</span> for all four quadrants on the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane. If <span class="math notranslate nohighlight">\(M_e\)</span> had a peak, we would have to be concerned about which quadrant we were in.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/4-elliptical-orbits_1_0.png" src="../_images/4-elliptical-orbits_1_0.png" />
-</div>
 </div>
 <p>Notice that when <span class="math notranslate nohighlight">\(e = 0\)</span> (a circular orbit), the mean anomaly and true anomaly are equal.</p>
 <p>In terms of the mean anomaly, we can write:</p>
@@ -643,9 +652,6 @@
 <h2>Eccentric Anomaly<a class="headerlink" href="#eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
 <p>We can simplify the equation for <span class="math notranslate nohighlight">\(M_e\)</span> even further by using an auxiliary angle, <span class="math notranslate nohighlight">\(E\)</span>, called the eccentric anomaly. <span class="math notranslate nohighlight">\(E\)</span> is defined as the angle from the <span class="math notranslate nohighlight">\(x\)</span> axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> on the ellipse.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/4-elliptical-orbits_3_0.png" src="../_images/4-elliptical-orbits_3_0.png" />
-</div>
 </div>
 <p>Since <span class="math notranslate nohighlight">\(M_e\)</span> is given in terms of <span class="math notranslate nohighlight">\(\theta\)</span>, we need to relate <span class="math notranslate nohighlight">\(E\)</span> to <span class="math notranslate nohighlight">\(\theta\)</span> to simplify. From the figure above, we can see that the distance from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(a\cos E\)</span> in terms of the eccentric anomaly, or <span class="math notranslate nohighlight">\(ae + r\cos\theta\)</span> in terms of the true anomaly, where <span class="math notranslate nohighlight">\(ae\)</span> is the distance from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(F\)</span>, and <span class="math notranslate nohighlight">\(\cos\theta\)</span> is negative for <span class="math notranslate nohighlight">\(\pi/2 &lt; \theta &lt; 3\pi/2\)</span>. Therefore,</p>
 <div class="math notranslate nohighlight">
@@ -672,9 +678,6 @@
 \[M_e = E - e \sin E\]</div>
 <p>This gives the relationship between mean anomaly and eccentric anomaly. The value of <span class="math notranslate nohighlight">\(M_e\)</span> monotonically increases as a function of <span class="math notranslate nohighlight">\(E\)</span>, as shown in the figure below for several values of <span class="math notranslate nohighlight">\(e\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/4-elliptical-orbits_5_0.png" src="../_images/4-elliptical-orbits_5_0.png" />
-</div>
 </div>
 <p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(23)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
 <div class="math notranslate nohighlight">

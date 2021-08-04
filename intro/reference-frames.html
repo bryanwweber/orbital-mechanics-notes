@@ -442,6 +442,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Bibliography
  </span>
 </p>
@@ -592,7 +604,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="reference-frames">
 <h1>Reference Frames<a class="headerlink" href="#reference-frames" title="Permalink to this headline">¶</a></h1>
-<p>In orbital mechanics, we track the motion of particles through a <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_space">Euclidean space</a>. This means we need a <strong>frame of reference</strong>, also known as a reference frame, in which the motion is tracked. The frame of reference consists of a <strong>clock</strong> to count time and a non-rotating Cartesian coordinate system to track the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> position of the particle. We are going to assume that relativity is not important in this course, so a single universal clock is sufficient to specify the time for all Cartesian coordinate systems.</p>
+<p>In orbital mechanics, we track the motion of particles through a <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_space">Euclidean space</a>. This means we need a <strong>frame of reference</strong>, also known as a reference frame, in which the motion is tracked. The frame of reference consists of a <strong>clock</strong> to count time and a <strong>non-rotating Cartesian coordinate system</strong> to track the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> position of the particle. We are going to assume that relativity is not important in this course, so a single universal clock is sufficient to specify the time for all Cartesian coordinate systems.</p>
 <div class="section" id="types-of-reference-frames">
 <h2>Types of Reference Frames<a class="headerlink" href="#types-of-reference-frames" title="Permalink to this headline">¶</a></h2>
 <p>The two types of reference frames are:</p>
@@ -632,18 +644,44 @@
 </div>
 <div class="section" id="earth-reference-frames">
 <h2>Earth Reference Frames<a class="headerlink" href="#earth-reference-frames" title="Permalink to this headline">¶</a></h2>
-<p>With respect to the Earth, we will define three separate reference frames. For now, we will assume that the Earth is a sphere.</p>
+<p>All reference frames are either inertial or non-inertial, and deciding which type of frame we want to work with is our first choice. The second choice we need to make is where the origin of the frame should be placed.</p>
+<p>With respect to the Earth, we will define three separate reference frames:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="#sec-earth-centered-inertial"><span class="std std-ref">Earth-Centered Inertial</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-earth-centered-earth-fixed"><span class="std std-ref">Earth-Centered, Earth-Fixed</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-topocentric-horizon"><span class="std std-ref">Topocentric-Horizon</span></a></p></li>
+</ol>
+<p>For now, we will assume that the Earth is a sphere. We use the Earth here since most human spaceflight takes place near the Earth.</p>
 <div class="section" id="earth-centered-inertial">
-<h3>Earth-Centered Inertial<a class="headerlink" href="#earth-centered-inertial" title="Permalink to this headline">¶</a></h3>
-<p>First is an inertial frame, with the origin fixed to the center of the Earth, <span class="math notranslate nohighlight">\(C\)</span>. This frame uses capital letters for the axes and unit vectors. The <span class="math notranslate nohighlight">\(Z\)</span> axis points towards the North pole. This is called the Earth-centered inertial (ECI) frame.</p>
+<span id="sec-earth-centered-inertial"></span><h3>Earth-Centered Inertial<a class="headerlink" href="#earth-centered-inertial" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Earth-centered_inertial"><strong>Earth-Centered Inertial</strong></a> (ECI) frame is an inertial frame with the origin fixed to the center of the Earth, <span class="math notranslate nohighlight">\(C\)</span>. This frame uses <strong>capital letters</strong> for the axes and unit vectors, as shown in <a class="reference internal" href="#fig-earth-centered-inertial-frame"><span class="std std-numref">Fig. 3</span></a>.</p>
+<p>In the ECI, the <span class="math notranslate nohighlight">\(Z\)</span> axis points towards the North pole and the <span class="math notranslate nohighlight">\(X\)</span>-<span class="math notranslate nohighlight">\(Y\)</span> plane is in the same plane as the equator. Since this is an inertial frame, it is fixed in place with respect to the <a class="reference external" href="https://en.wikipedia.org/wiki/Celestial_sphere"><strong>celestial sphere</strong></a>, the stars surrounding the earth.</p>
+<div class="figure align-default" id="fig-earth-centered-inertial-frame">
+<img alt="Earth Centered Inertial coordinate system with satellite demonstrating position in this frame." src="../_images/Earth_Centered_Inertial_Coordinate_System.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">The Earth Centered Inertial coordinate system has its origin at the center of the earth and is fixed with respect to the celestial sphere. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Earth_Centered_Inertial_Coordinate_System.png">U.S. Department of Transportation Federal Aviation Administration - Airway Facilities Division</a>, Public domain, via Wikimedia Commons.</span><a class="headerlink" href="#fig-earth-centered-inertial-frame" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the ECI, the <span class="math notranslate nohighlight">\(X\)</span> axis points towards the <strong>March equinox</strong>. The equinoxes are the points in space where the earth’s equatorial plane and its ecliptic plane intersect. The March equinox occurs when the sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the <strong>First point of Aries</strong>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>For more about the equinoxes, see the page about the <a class="reference internal" href="../reference/celestial-sphere.html"><span class="doc std std-doc">Celestial Sphere</span></a>.</p>
+</div>
 </div>
 <div class="section" id="earth-centered-earth-fixed">
-<h3>Earth-Centered, Earth-Fixed<a class="headerlink" href="#earth-centered-earth-fixed" title="Permalink to this headline">¶</a></h3>
-<p>Second is a non-inertial frame, but with the origin still fixed at the center of the Earth. In this case, the frame uses lower case, primed letters for the axes and unit vectors. This is the Earth-centered, Earth-fixed (ECEF) frame. The <span class="math notranslate nohighlight">\(z'\)</span> axis points towards the North pole, and the <span class="math notranslate nohighlight">\(x'\)</span> axis intersects the equator and the prime meridian.</p>
-<p>This frame of reference rotates with the Earth. The angular distance between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(x'\)</span> is <span class="math notranslate nohighlight">\(\theta_G\)</span>, and <span class="math notranslate nohighlight">\(\theta_G\)</span> increases at the rate <span class="math notranslate nohighlight">\(\Omega\)</span>, the rotation rate of the Earth such that there are 24 hours in the day.</p>
+<span id="sec-earth-centered-earth-fixed"></span><h3>Earth-Centered, Earth-Fixed<a class="headerlink" href="#earth-centered-earth-fixed" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Earth-centered, Earth-fixed</strong> (ECEF) frame is a <em>non-inertial frame</em>, but with the origin still fixed at the center of the Earth. The main difference from the ECI is that the axes in the ECEF <strong>rotate</strong> at the same rate as the surface of the earth.</p>
+<p>The ECEF uses lower case, primed letters for the axes and unit vectors. The <span class="math notranslate nohighlight">\(z'\)</span> axis points towards the North pole, and the <span class="math notranslate nohighlight">\(x'\)</span> axis intersects the equator and the prime meridian. Since the ECEF rotates with the earth, the <span class="math notranslate nohighlight">\(x'\)</span> axis <em>always</em> points through the equator and the prime meridian.</p>
+<div class="figure align-default" id="fig-earth-centered-earth-fixed">
+<a class="reference internal image-reference" href="../_images/earth-centered-earth-fixed.svg"><img alt="The Earth-centered, Earth-fixed coordinate system" src="../_images/earth-centered-earth-fixed.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The Earth-centered, Earth-fixed coordinate system is centered at the center of the earth and rotates with the same angular velocity, such that the <span class="math notranslate nohighlight">\(x'\)</span> axis always points through the intersection of the prime meridian and the equator.</span><a class="headerlink" href="#fig-earth-centered-earth-fixed" title="Permalink to this image">¶</a></p>
+</div>
+<p>Every 24 hours, the ECEF and ECI are aligned. Thus, the angular distance between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(x'\)</span> is <span class="math notranslate nohighlight">\(\theta_G\)</span>, and <span class="math notranslate nohighlight">\(\theta_G\)</span> increases at the rate <span class="math notranslate nohighlight">\(\Omega\)</span>, the rotation rate of the Earth such that there are 24 hours in the day.</p>
+<div class="figure align-default" id="fig-ecef-to-eci">
+<a class="reference internal image-reference" href="../_images/ecef-to-eci.svg"><img alt="Conversion between the ECEF and ECI coordinate systems." src="../_images/ecef-to-eci.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The angle between the <span class="math notranslate nohighlight">\(X\)</span> axis in the ECI and the <span class="math notranslate nohighlight">\(x'\)</span> axis in the ECEF is <span class="math notranslate nohighlight">\(\theta_G\)</span>.</span><a class="headerlink" href="#fig-ecef-to-eci" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="topocentric-horizon">
-<h3>Topocentric-Horizon<a class="headerlink" href="#topocentric-horizon" title="Permalink to this headline">¶</a></h3>
+<span id="sec-topocentric-horizon"></span><h3>Topocentric-Horizon<a class="headerlink" href="#topocentric-horizon" title="Permalink to this headline">¶</a></h3>
 <p>The final coordinate system determines the position of a particle <span class="math notranslate nohighlight">\(P\)</span> moving arbitrarily above the surface of the Earth. This could be a person, car, airplane, or spacecraft.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>

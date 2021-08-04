@@ -442,6 +442,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Bibliography
  </span>
 </p>
@@ -600,9 +612,6 @@
 <div class="math notranslate nohighlight" id="equation-mean-anomaly-hyperbola">
 <span class="eqno">(24)<a class="headerlink" href="#equation-mean-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\theta}{1 + e\cos\theta} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]\]</div>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/6-hyperbolic-trajectories_1_0.png" src="../_images/6-hyperbolic-trajectories_1_0.png" />
-</div>
 </div>
 <p>Notice that <span class="math notranslate nohighlight">\(\theta\)</span> cannot exceed <span class="math notranslate nohighlight">\(\theta_{\infty} = \cos^{-1}(-1 / e)\)</span>.</p>
 </div>
@@ -610,9 +619,6 @@
 <h2>Hyperbolic Eccentric Anomaly<a class="headerlink" href="#hyperbolic-eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
 <p>Similar to the ellipse, we will define an auxiliary angle <span class="math notranslate nohighlight">\(F\)</span> to simplify the equations. <span class="math notranslate nohighlight">\(F\)</span> is defined with reference to the hyperbola below.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/6-hyperbolic-trajectories_3_0.png" src="../_images/6-hyperbolic-trajectories_3_0.png" />
-</div>
 </div>
 <p>Now, let’s define the ratio <span class="math notranslate nohighlight">\(y/b\)</span> as the hyperbolic sine of the angle <span class="math notranslate nohighlight">\(F\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -654,9 +660,6 @@
 \[f'(F) = e \cosh F - 1\]</div>
 <p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from the graph below, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value. Note that the <span class="math notranslate nohighlight">\(y\)</span>-axis plots the log base 10 of <span class="math notranslate nohighlight">\(M_h\)</span>. To use the graph, take the log base 10 of whatever value you calculate for <span class="math notranslate nohighlight">\(M_h\)</span> and find that on the graph.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/6-hyperbolic-trajectories_5_0.png" src="../_images/6-hyperbolic-trajectories_5_0.png" />
-</div>
 </div>
 <p>Some more trigonometry and algebra lead us to a simpler relationship between <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, analogous to the equation for the ellipse:</p>
 <div class="math notranslate nohighlight">

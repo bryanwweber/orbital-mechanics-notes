@@ -1,6 +1,6 @@
 # Reference Frames
 
-In orbital mechanics, we track the motion of particles through a [Euclidean space](https://en.wikipedia.org/wiki/Euclidean_space). This means we need a **frame of reference**, also known as a reference frame, in which the motion is tracked. The frame of reference consists of a **clock** to count time and a non-rotating Cartesian coordinate system to track the $x$, $y$, and $z$ position of the particle. We are going to assume that relativity is not important in this course, so a single universal clock is sufficient to specify the time for all Cartesian coordinate systems.
+In orbital mechanics, we track the motion of particles through a [Euclidean space](https://en.wikipedia.org/wiki/Euclidean_space). This means we need a **frame of reference**, also known as a reference frame, in which the motion is tracked. The frame of reference consists of a **clock** to count time and a **non-rotating Cartesian coordinate system** to track the $x$, $y$, and $z$ position of the particle. We are going to assume that relativity is not important in this course, so a single universal clock is sufficient to specify the time for all Cartesian coordinate systems.
 
 ## Types of Reference Frames
 
@@ -53,17 +53,64 @@ Demonstration of the Coriolis force. The observer is shown as the red dot. Attri
 
 ## Earth Reference Frames
 
-With respect to the Earth, we will define three separate reference frames. For now, we will assume that the Earth is a sphere.
+All reference frames are either inertial or non-inertial, and deciding which type of frame we want to work with is our first choice. The second choice we need to make is where the origin of the frame should be placed.
+
+With respect to the Earth, we will define three separate reference frames:
+
+1. [](sec:earth-centered-inertial)
+2. [](sec:earth-centered-earth-fixed)
+3. [](sec:topocentric-horizon)
+
+For now, we will assume that the Earth is a sphere. We use the Earth here since most human spaceflight takes place near the Earth.
+
+(sec:earth-centered-inertial)=
 
 ### Earth-Centered Inertial
 
-First is an inertial frame, with the origin fixed to the center of the Earth, $C$. This frame uses capital letters for the axes and unit vectors. The $Z$ axis points towards the North pole. This is called the Earth-centered inertial (ECI) frame.
+The [**Earth-Centered Inertial**](https://en.wikipedia.org/wiki/Earth-centered_inertial) (ECI) frame is an inertial frame with the origin fixed to the center of the Earth, $C$. This frame uses **capital letters** for the axes and unit vectors, as shown in {numref}`fig-earth-centered-inertial-frame`.
+
+In the ECI, the $Z$ axis points towards the North pole and the $X$-$Y$ plane is in the same plane as the equator. Since this is an inertial frame, it is fixed in place with respect to the [**celestial sphere**](https://en.wikipedia.org/wiki/Celestial_sphere), the stars surrounding the earth.
+
+:::{figure} ../images/Earth_Centered_Inertial_Coordinate_System.png
+:name: fig-earth-centered-inertial-frame
+:alt: Earth Centered Inertial coordinate system with satellite demonstrating position in this frame.
+
+The Earth Centered Inertial coordinate system has its origin at the center of the earth and is fixed with respect to the celestial sphere. [U.S. Department of Transportation Federal Aviation Administration - Airway Facilities Division](https://commons.wikimedia.org/wiki/File:Earth_Centered_Inertial_Coordinate_System.png), Public domain, via Wikimedia Commons.
+:::
+
+In the ECI, the $X$ axis points towards the **March equinox**. The equinoxes are the points in space where the earth's equatorial plane and its ecliptic plane intersect. The March equinox occurs when the sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the **First point of Aries**.
+
+:::{margin}
+For more about the equinoxes, see the page about the [Celestial Sphere](../reference/celestial-sphere.md).
+:::
+
+(sec:earth-centered-earth-fixed)=
 
 ### Earth-Centered, Earth-Fixed
 
-Second is a non-inertial frame, but with the origin still fixed at the center of the Earth. In this case, the frame uses lower case, primed letters for the axes and unit vectors. This is the Earth-centered, Earth-fixed (ECEF) frame. The $z'$ axis points towards the North pole, and the $x'$ axis intersects the equator and the prime meridian.
+The **Earth-centered, Earth-fixed** (ECEF) frame is a _non-inertial frame_, but with the origin still fixed at the center of the Earth. The main difference from the ECI is that the axes in the ECEF **rotate** at the same rate as the surface of the earth.
 
-This frame of reference rotates with the Earth. The angular distance between $X$ and $x'$ is $\theta_G$, and $\theta_G$ increases at the rate $\Omega$, the rotation rate of the Earth such that there are 24 hours in the day.
+The ECEF uses lower case, primed letters for the axes and unit vectors. The $z'$ axis points towards the North pole, and the $x'$ axis intersects the equator and the prime meridian. Since the ECEF rotates with the earth, the $x'$ axis _always_ points through the equator and the prime meridian.
+
+:::{figure} ../images/earth-centered-earth-fixed.svg
+:name: fig:earth-centered-earth-fixed
+:alt: The Earth-centered, Earth-fixed coordinate system
+:width: 60%
+
+The Earth-centered, Earth-fixed coordinate system is centered at the center of the earth and rotates with the same angular velocity, such that the $x'$ axis always points through the intersection of the prime meridian and the equator.
+:::
+
+Every 24 hours, the ECEF and ECI are aligned. Thus, the angular distance between $X$ and $x'$ is $\theta_G$, and $\theta_G$ increases at the rate $\Omega$, the rotation rate of the Earth such that there are 24 hours in the day.
+
+:::{figure} ../images/ecef-to-eci.svg
+:name: fig:ecef-to-eci
+:alt: Conversion between the ECEF and ECI coordinate systems.
+:width: 60%
+
+The angle between the $X$ axis in the ECI and the $x'$ axis in the ECEF is $\theta_G$.
+:::
+
+(sec:topocentric-horizon)=
 
 ### Topocentric-Horizon
 
