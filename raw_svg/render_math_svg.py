@@ -6,12 +6,13 @@ import json
 from typing import Optional, Union, Dict
 import sys
 from datetime import datetime
+import re
 
 HERE = Path(__file__).parent
 OUTPUT = HERE.parent / "images"
 # HOST = "https://math.vercel.app"
 HOST = "http://localhost:3000"
-PARAMS: dict[str, Optional[Union[str, bytes]]] = {"inline": None}
+PARAMS: dict[str, Optional[Union[str, bytes]]] = {"from": None}
 CACHE = HERE / "mathjax_cache.json"
 CACHE_T = Dict[Optional[Union[str, bytes]], str]
 SESSION = requests.Session()
@@ -21,6 +22,9 @@ NAMESPACES = {
     "cc": "http://creativecommons.org/ns#",
     "dc": "http://purl.org/dc/elements/1.1/",
     "bx": "https://boxy-svg.com",
+    "inkscape": "http://www.inkscape.org/namespaces/inkscape",
+    "sodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+    "xlink": "http://www.w3.org/1999/xlink",
 }
 CC_META = """
 <root xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
@@ -57,6 +61,9 @@ CC_META = """
 </root>
 """
 
+# Match sizes from height and width attributes
+SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
+
 
 def load_cache() -> CACHE_T:
     if CACHE.exists():
@@ -74,7 +81,9 @@ def write_cache(cache: CACHE_T) -> None:
 def get_math_content(elem: ET.Element, cache: CACHE_T, s: requests.Session) -> str:
     value = elem.text
     if value is None:
-        raise ValueError("Text of node cannot be 'None'", elem)
+        value = elem[0].text
+        if value is None:
+            raise ValueError("Text of node cannot be 'None'", elem)
     if value in cache:
         content = cache[value]
     else:
@@ -156,19 +165,28 @@ def main(svg_file: Optional[Path] = None) -> None:
         y_loc = elem.get("y")
         if x_loc is None or y_loc is None:
             raise ValueError("Both x and y must be set")
+        scale = float(elem.get("renderscale", 0.0))
 
         math = ET.fromstring(content)
         width = math.get("width", "auto")
         height = math.get("height", "auto")
+        if scale:
+            width_size = SIZE_REGEX.match(width)
+            height_size = SIZE_REGEX.match(height)
+            if width_size is not None and width_size.group(1):
+                width = str(scale * float(width_size.group(1))) + width_size.group(2)
+            if height_size is not None and height_size.group(1):
+                height = str(scale * float(height_size.group(1))) + height_size.group(2)
         image_element = ET.Element(
             "image",
-            attrib=dict(
-                x=x_loc,
-                y=y_loc,
-                height=height,
-                width=width,
-                href=f"data:image/svg+xml;utf8,{ET.tostring(math, encoding='unicode', xml_declaration=False)}",
-            ),
+            attrib={
+                "x": x_loc,
+                "y": y_loc,
+                "height": height,
+                "width": width,
+                "object-fit": "contain",
+                "href": f"data:image/svg+xml;utf8,{ET.tostring(math, encoding='unicode', xml_declaration=False)}",
+            },
         )
         image_element.tail = "\n  "
         svg_element.append(image_element)

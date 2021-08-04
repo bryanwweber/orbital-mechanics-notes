@@ -1,0 +1,192 @@
+// core.clear();
+
+LabelMgr.deleteAllLabels();
+LandscapeMgr.setFlagLandscape(false);
+LandscapeMgr.setFlagAtmosphere(false);
+GridLinesMgr.setFlagEquatorJ2000Line(true);
+GridLinesMgr.setFlagEquatorJ2000Parts(true);
+GridLinesMgr.setFlagEquatorJ2000Labeled(true);
+GridLinesMgr.setFlagEclipticJ2000Line(true);
+core.setGuiVisible(false);
+
+SolarSystem.setFlagLabels(false);
+var labelSun = LabelMgr.labelObject("Sun", "Sun", true, 24, "#999999", "NE");
+
+var labelTime = LabelMgr.labelScreen("", 70, 90, false, 32, "#aa0000");
+LabelMgr.setLabelShow(labelTime, true);
+
+ConstellationMgr.setFlagLines(false);
+ConstellationMgr.setFlagLabels(false);
+ConstellationMgr.setArtIntensity(0.3);
+ConstellationMgr.setFlagArt(false);
+ConstellationMgr.setFlagBoundaries(false);
+ConstellationMgr.setConstellationLineThickness(3);
+ConstellationMgr.setFontSize(18);
+
+core.setMountMode("equatorial");
+core.setProjectionMode("perspective");
+StelMovementMgr.setFlagLockEquPos(true);
+StelMovementMgr.zoomTo(120, 1);
+core.setObserverLocation(0.0, 0.0, 0, 1, "Equator/Prime Meridian", "Earth");
+
+var daysPerMove = 3.0;
+
+function moveToNext() {
+  var oldRa = core.getViewRaJ2000Angle();
+  var newRa = oldRa + 90;
+  if (newRa > 360) {
+    newRa = newRa - 360;
+  }
+  var currRa = oldRa;
+  var nSplits = 20;
+  var deltaRa = Math.abs(newRa - oldRa) / nSplits;
+  for (i = 0; i < nSplits; i++) {
+    currRa = currRa + deltaRa;
+    core.moveToRaDecJ2000(currRa, 0.0, 0.2);
+    core.wait(1.0);
+    core.screenshot(
+      "frame_",
+      false,
+      "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+    );
+  }
+}
+
+// 0 Vernal Equinox 2459293.9018252720
+// 1 Summer Solstice 2459386.6481368192
+// 2 Autumnal Equinox 2459480.3071144866
+// 3 Winter Solstice 2459570.1669843392
+// 0 Vernal Equinox 2459659.1490056040
+
+core.setDate("2021-03-20T09:37:00");
+var julianDay = core.getJDay();
+core.moveToRaDecJ2000("0.0h", "0.0", 1.0);
+LabelMgr.setLabelText(labelTime, "March equinox");
+core.wait(1.0);
+core.screenshot(
+  "frame_",
+  false,
+  "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+);
+
+while (julianDay < 2459386) {
+  julianDay = julianDay + daysPerMove;
+  core.setJDay(julianDay);
+  if (julianDay >= 2459367) {
+    LabelMgr.setLabelText(labelTime, "June");
+  } else if (julianDay >= 2459336) {
+    LabelMgr.setLabelText(labelTime, "May");
+  } else if (julianDay >= 2459306) {
+    LabelMgr.setLabelText(labelTime, "April");
+  }
+  core.wait(0.3);
+  core.screenshot(
+    "frame_",
+    false,
+    "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+  );
+}
+
+core.setJDay(2459386.6481368192);
+julianDay = core.getJDay();
+LabelMgr.setLabelText(labelTime, "June solstice");
+moveToNext();
+core.moveToRaDecJ2000("6.0h", "0.0", 1.0);
+core.wait(1.0);
+core.screenshot(
+  "frame_",
+  false,
+  "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+);
+
+while (julianDay < 2459480) {
+  julianDay = julianDay + daysPerMove;
+  core.setJDay(julianDay);
+  if (julianDay >= 2459459) {
+    LabelMgr.setLabelText(labelTime, "September");
+  } else if (julianDay >= 2459428) {
+    LabelMgr.setLabelText(labelTime, "August");
+  } else if (julianDay >= 2459397) {
+    LabelMgr.setLabelText(labelTime, "July");
+  }
+  core.wait(0.3);
+  core.screenshot(
+    "frame_",
+    false,
+    "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+  );
+}
+
+core.setJDay(2459480.3071144866);
+julianDay = core.getJDay();
+LabelMgr.setLabelText(labelTime, "September equinox");
+moveToNext();
+core.moveToRaDecJ2000("12.0h", "0.0", 1.0);
+core.wait(1.0);
+core.screenshot(
+  "frame_",
+  false,
+  "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+);
+
+while (julianDay < 2459570) {
+  julianDay = julianDay + daysPerMove;
+  core.setJDay(julianDay);
+  if (julianDay >= 2459550) {
+    LabelMgr.setLabelText(labelTime, "December");
+  } else if (julianDay >= 2459520) {
+    LabelMgr.setLabelText(labelTime, "November");
+  } else if (julianDay >= 2459489) {
+    LabelMgr.setLabelText(labelTime, "October");
+  }
+  core.wait(0.3);
+  core.screenshot(
+    "frame_",
+    false,
+    "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+  );
+}
+
+core.setJDay(2459570.1669843392);
+julianDay = core.getJDay();
+LabelMgr.setLabelText(labelTime, "December solstice");
+moveToNext();
+core.moveToRaDecJ2000("18.0h", "0.0", 1.0);
+core.wait(1.0);
+core.screenshot(
+  "frame_",
+  false,
+  "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+);
+
+while (julianDay < 2459659) {
+  julianDay = julianDay + daysPerMove;
+  core.setJDay(julianDay);
+  if (julianDay >= 2459640) {
+    LabelMgr.setLabelText(labelTime, "March");
+  } else if (julianDay >= 2459612) {
+    LabelMgr.setLabelText(labelTime, "February");
+  } else if (julianDay >= 2459581) {
+    LabelMgr.setLabelText(labelTime, "January");
+  }
+  core.wait(0.3);
+  core.screenshot(
+    "frame_",
+    false,
+    "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+  );
+}
+
+core.setJDay(2459659.149005604);
+julianDay = core.getJDay();
+LabelMgr.setLabelText(labelTime, "March equinox");
+moveToNext();
+core.moveToRaDecJ2000("0.0h", "0.0", 1.0);
+core.wait(1.0);
+core.screenshot(
+  "frame_",
+  false,
+  "/Users/bryan/GitHub/orbital-mechanics/stellarium-scripts"
+);
+
+core.setGuiVisible(true);

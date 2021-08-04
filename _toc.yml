@@ -70,6 +70,9 @@ parts:
       - file: review/time-derivatives-of-moving-vectors
       - file: review/4-mass-force-and-newtons-law-of-gravitation
       - file: review/5-newtons-laws
+  - caption: Reference
+    chapters:
+      - file: reference/celestial-sphere
   - caption: Bibliography
     chapters:
       - file: bibliography

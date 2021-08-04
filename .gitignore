@@ -154,3 +154,7 @@ raw_svg/mathjax_cache.json
 
 # macOS files
 .DS_Store
+
+# Stellarium video files
+stellarium-scripts/*.png
+*.bsp
