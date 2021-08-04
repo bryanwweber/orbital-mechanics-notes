@@ -14,7 +14,7 @@ latex:
 
 sphinx:
   extra_extensions:
-  - myst_nb_bokeh
+    - myst_nb_bokeh
   config:
     html_show_copyright: false
     mathjax3_config:
@@ -25,11 +25,11 @@ sphinx:
           mag: ["\\lVert#1\\rVert", 1]
           cross: "\\times"
           unit: ["#1~\\mathrm{#2}", 2]
-          pf: ["\\overline{#1}", 1]  # This is for the perifocal frame
+          pf: ["\\overline{#1}", 1] # This is for the perifocal frame
           mat: ["\\left[\\mathbf{#1}\\right]", 1]
 
 myst_enable_extensions:
-- colon_fence
+  - colon_fence
 
 repository:
   url: https://github.com/bryanwweber/orbital-mechanics-notes
