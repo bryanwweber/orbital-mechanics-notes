@@ -61,9 +61,6 @@ CC_META = """
 </root>
 """
 
-# Match sizes from height and width attributes
-SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
-
 
 def load_cache() -> CACHE_T:
     if CACHE.exists():
@@ -156,6 +153,11 @@ def main(svg_file: Optional[Path] = None) -> None:
 
     svg_element.insert(1, CC_XML)
 
+    # Match sizes from height and width attributes
+    SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
+    # Match a scaling factor in the class attribute
+    SCALE_REGEX = re.compile(r"\bscale-(\d*)\b")
+
     for elem in svg_tree.findall("text", NAMESPACES):
         if "math" not in elem.get("class", ""):
             continue
@@ -166,6 +168,10 @@ def main(svg_file: Optional[Path] = None) -> None:
         if x_loc is None or y_loc is None:
             raise ValueError("Both x and y must be set")
         scale = float(elem.get("renderscale", 0.0))
+        if not scale:
+            scale_attr = SCALE_REGEX.search(elem.get("class", ""))
+            if scale_attr is not None:
+                scale = float(scale_attr.group(1))
 
         math = ET.fromstring(content)
         width = math.get("width", "auto")

@@ -123,3 +123,11 @@ I remember the difference between latitude and longitude by thinking of lines of
 The origin, $O$, of this coordinate system is fixed to the particle. At a given instant, the position of this coordinate system can be determined relative to the ECEF frame by specifying the **longitude** angle ($\Lambda$) and the **latitude** angle ($\phi$), which are positive in the East and North directions respectively. These specify the $x$ and $y$ axes of a **topocentric-horizon** coordinate system, respectively.
 
 The third direction, $z$, is directly up from the surface of the Earth and is called the **zenith**. Note that the direction of "up" changes as you move over the surface of the sphere.
+
+:::{figure} ../images/topocentric-horizon.svg
+:name: fig:topocentric-horizon
+:alt: The topocentric-horizon coordinate system
+:width: 60%
+
+The topocentric-horizon coordinate system is centered at the object. The $x$ axis points east, the $y$ axis points north, and the $z$ axis points up from the earth. Modified from [Original: Brews ohare This Version: CheChe](https://commons.wikimedia.org/wiki/File:Earth_coordinates.svg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons
+:::

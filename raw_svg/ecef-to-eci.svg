@@ -31,9 +31,9 @@
      fit-margin-right="10"
      fit-margin-bottom="50"
      lock-margins="true"
-     inkscape:zoom="0.59675453"
-     inkscape:cx="758.26822"
-     inkscape:cy="516.96298"
+     inkscape:zoom="0.529217"
+     inkscape:cx="6.6135441"
+     inkscape:cy="641.51378"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
      inkscape:window-x="0"
@@ -80,6 +80,18 @@
   </desc>
   <defs
      id="defs3902">
+    <linearGradient
+       inkscape:collect="always"
+       id="shadow-in-center">
+      <stop
+         style="stop-color:#cccccc;stop-opacity:1;"
+         offset="0"
+         id="stop21058" />
+      <stop
+         style="stop-color:#cccccc;stop-opacity:0;"
+         offset="1"
+         id="stop21060" />
+    </linearGradient>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="0 : -39.636369 : 1"
@@ -815,6 +827,17 @@
        inkscape:vp_y="0 : 0.90909091 : 0"
        inkscape:vp_x="0 : -39.999549 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#shadow-in-center"
+       id="radialGradient21064"
+       cx="553.6405"
+       cy="647.17432"
+       fx="553.6405"
+       fy="647.17432"
+       r="355.9801"
+       gradientTransform="matrix(0.71741385,0.18736848,-0.10172832,0.38950684,222.2871,279.80022)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      id="sphere"
@@ -1136,6 +1159,12 @@
      d="m 554.06682,271.36767 c 0.14314,-0.0477 -67.7193,7.10968 -139.89661,43.26299 -52.42792,26.26094 -106.86779,67.52391 -136.50979,98.58144 -29.642,31.05754 -54.35764,61.55714 -72.72562,92.76561 -20.01071,34.24767 -34.54995,80.10823 -49.87261,129.63612 0.568,7.18 8.01029,82.7682 62.32925,124.65271 18.859,14.54188 42.47344,34.56065 68.54153,49.03116 22.59621,12.54325 45.84251,22.38176 62.12374,28.15029 64.56239,22.32345 81.8431,24.93169 122.34052,30.20201 13.10423,1.70538 60.65234,5.10284 72.6267,5.25702 5.71169,0.0735 85.5596,0.76282 162.7651,-18.00703 84.65305,-20.58046 141.09232,-55.55879 159.66376,-71.76389 -0.807,-11.1801 4.02838,-35.53615 -3.06037,-78.92459 C 853.32074,648.68614 828.33378,567.90742 784.23494,494.1777 748.32161,434.13349 692.08431,372.29076 671.58293,352.61574 658.49927,340.05946 628.99933,314.34557 598.35306,294.49158 581.64642,283.66829 554.06682,271.36767 554.06682,271.36767 Z"
      style="opacity:0.990741;fill:#fefeef;fill-opacity:1;stroke:#000000;stroke-width:0.697794;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      inkscape:label="cutaway" />
+  <path
+     sodipodi:nodetypes="cszccsscssscssssc"
+     id="path20746"
+     d="m 554.06682,271.36767 c 0.14314,-0.0477 -67.7193,7.10968 -139.89661,43.26299 -52.42792,26.26094 -106.86779,67.52391 -136.50979,98.58144 -29.642,31.05754 -54.35764,61.55714 -72.72562,92.76561 -20.01071,34.24767 -34.54995,80.10823 -49.87261,129.63612 0.568,7.18 8.01029,82.7682 62.32925,124.65271 18.859,14.54188 42.47344,34.56065 68.54153,49.03116 22.59621,12.54325 45.84251,22.38176 62.12374,28.15029 64.56239,22.32345 81.8431,24.93169 122.34052,30.20201 13.10423,1.70538 60.65234,5.10284 72.6267,5.25702 5.71169,0.0735 85.5596,0.76282 162.7651,-18.00703 84.65305,-20.58046 141.09232,-55.55879 159.66376,-71.76389 -0.807,-11.1801 4.02838,-35.53615 -3.06037,-78.92459 C 853.32074,648.68614 828.33378,567.90742 784.23494,494.1777 748.32161,434.13349 692.08431,372.29076 671.58293,352.61574 658.49927,340.05946 628.99933,314.34557 598.35306,294.49158 581.64642,283.66829 554.06682,271.36767 554.06682,271.36767 Z"
+     style="opacity:0.990741;fill:url(#radialGradient21064);fill-opacity:1;stroke:#000000;stroke-width:0.697794;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     inkscape:label="cutaway-gradient" />
   <circle
      style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path506"
