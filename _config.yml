@@ -20,7 +20,7 @@ sphinx:
     mathjax3_config:
       tex:
         macros:
-          vector: ["\\vec{#1}", 1]
+          vector: ["\\boldsymbol{#1}", 1]
           uvec: ["\\hat{#1}", 1]
           mag: ["\\lVert#1\\rVert", 1]
           cross: "\\times"
