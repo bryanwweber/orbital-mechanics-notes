@@ -11,6 +11,7 @@ The two types of reference frames are:
 
 Profound.
 
+(sec:inertial-reference-frame)=
 ### Inertial Reference Frame
 
 An **inertial** reference frame is one that is not _accelerating_. It may be moving at constant velocity, but there can be absolutely no acceleration, _including rotation!_

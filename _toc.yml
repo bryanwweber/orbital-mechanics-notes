@@ -6,7 +6,8 @@ parts:
   - caption: Introduction
     chapters:
       - file: intro/reference-frames
-      - file: intro/relative-motion
+      - file: intro/mass-force-and-newtons-law-of-gravitation
+      - file: intro/force-acceleration-and-momentum
   - caption: Chapter 2
     chapters:
       - file: chapter-2/2-equations-of-motion-in-an-inertial-frame
@@ -68,11 +69,10 @@ parts:
     chapters:
       - file: review/kinematics
       - file: review/time-derivatives-of-moving-vectors
-      - file: review/4-mass-force-and-newtons-law-of-gravitation
-      - file: review/5-newtons-laws
   - caption: Reference
     chapters:
       - file: reference/celestial-sphere
+      - file: reference/relative-motion
   - caption: Bibliography
     chapters:
       - file: bibliography
