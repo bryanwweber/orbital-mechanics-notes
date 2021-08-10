@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relative Motion &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <link rel="canonical" href="https://orbital-mechanics.space/reference/relative-motion.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="prev" title="Celestial Sphere" href="celestial-sphere.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
+   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
+   Example: Two-Body Problem in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
+   Chapter 2.5 - The Energy Law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6-hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6a-Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7-universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
+   Chapter 4.2 - Geocentric Right Ascension-Declination Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/3-state-vector-and-the-geocentric-equatorial-frame.html">
+   Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/4-orbital-elements-and-the-state-vector.html">
+   Chapter 4.4 - Orbital Elements and the State Vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/5-coordinate-transformations.html">
+   Chapter 4.5 - Coordinate Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames.html">
+   Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/7-effects-of-the-earths-oblateness.html">
+   Chapter 4.7 - Effects of the Earth’s Oblateness
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2-impulsive-maneuvers.html">
+   Chapter 6.2 - Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2a-single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/3-hohmann-transfer.html">
+   Chapter 6.3 - Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4-bielliptic-hohmann-transfer.html">
+   Chapter 6.4 - Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4a-comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/5-phasing-maneuvers.html">
+   Chapter 6.5 - Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/6-non-hohmann-transfers.html">
+   Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/7-apse-line-rotation.html">
+   Chapter 6.7 - Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/8-chase-maneuvers.html">
+   Chapter 6.8 - Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9-plane-change-maneuvers.html">
+   Chapter 6.9 - Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9a-plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10-nonimpulsive-orbital-maneuvers.html">
+   Chapter 6.10 - Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10a-nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/2-interplanetary-hohmann-transfers.html">
+   Chapter 8.2 - Interplanetary Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/10-planetary-ephemeris.html">
+   Chapter 8.10 - Planetary Ephemeris
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/reference/relative-motion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Freference/relative-motion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/reference/relative-motion.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motion-relative-to-earth-frames">
+   Motion Relative to Earth Frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#absolute-motion">
+   Absolute Motion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="relative-motion">
+<h1>Relative Motion<a class="headerlink" href="#relative-motion" title="Permalink to this headline">¶</a></h1>
+<p>Now, let’s apply some of these vector properties to something more related to the real world. Let <span class="math notranslate nohighlight">\(P\)</span> be a particle in arbitrary motion. We define two reference frames, one inertial and one moving.</p>
+<p>The position of <span class="math notranslate nohighlight">\(P\)</span> relative to the inertial frame is given by <span class="math notranslate nohighlight">\(\vector{r}\)</span> and relative to the moving frame is <span class="math notranslate nohighlight">\(\vector{r}_{\text{rel}}\)</span>. The position of the origin <span class="math notranslate nohighlight">\(O\)</span> of the moving reference frame relative to the inertial frame is <span class="math notranslate nohighlight">\(\vector{r}_O\)</span>. It then follows that the relationship between these vectors is:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-0">
+<span class="eqno">(51)<a class="headerlink" href="#equation-reference-relative-motion-0" title="Permalink to this equation">¶</a></span>\[\vector{r} = \vector{r}_O + \vector{r}_{\text{rel}}\]</div>
+<p>Taking the time derivative of <span class="math notranslate nohighlight">\(\vector{r}\)</span> gives the absolute velocity:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-1">
+<span class="eqno">(52)<a class="headerlink" href="#equation-reference-relative-motion-1" title="Permalink to this equation">¶</a></span>\[\vector{v} = \vector{v}_O + \vector{\Omega}\cross\vector{r}_{\text{rel}} + \vector{v}_{\text{rel}}\]</div>
+<p>and taking the time derivative of <span class="math notranslate nohighlight">\(\vector{v}\)</span> gives the absolute acceleration:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-2">
+<span class="eqno">(53)<a class="headerlink" href="#equation-reference-relative-motion-2" title="Permalink to this equation">¶</a></span>\[\vector{a} = \vector{a}_O + \dot{\vector{\Omega}}\cross\vector{r}_{\text{rel}} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}_{\text{rel}}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}}\]</div>
+<p>The last cross-product term is known as the <strong>Coriolis acceleration</strong>.</p>
+<div class="section" id="motion-relative-to-earth-frames">
+<h2>Motion Relative to Earth Frames<a class="headerlink" href="#motion-relative-to-earth-frames" title="Permalink to this headline">¶</a></h2>
+<p>The relative position vector of <span class="math notranslate nohighlight">\(P\)</span> to the center of the Earth is:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-3">
+<span class="eqno">(54)<a class="headerlink" href="#equation-reference-relative-motion-3" title="Permalink to this equation">¶</a></span>\[\vector{r}_{\text{rel}} = \left(R_E + z\right)\uvec{k}\]</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><strong>Nonrotating Earth</strong> is a little weird… It means to assume that, for the purposes of these calculations, the Earth is not rotating. We’ll correct for the rotation in a minute.</p>
+</div>
+<p>where <span class="math notranslate nohighlight">\(R_E\)</span> is the radius of the Earth (assumed constant for now) and <span class="math notranslate nohighlight">\(z\)</span> is the height of <span class="math notranslate nohighlight">\(P\)</span> above the surface of the Earth. The velocity of <span class="math notranslate nohighlight">\(P\)</span> relative to the <strong>nonrotating Earth</strong> is:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-4">
+<span class="eqno">(55)<a class="headerlink" href="#equation-reference-relative-motion-4" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\text{rel}} = \dot{z}\uvec{k} + \left(R_E + z\right)\frac{d\uvec{k}}{dt}\]</div>
+<p>Now we have to calculate <span class="math notranslate nohighlight">\(d\uvec{k}/dt\)</span>. To do that, we need the angular velocity of the topopcentric-horizon coordinate system, <span class="math notranslate nohighlight">\(\vector{\omega}\)</span>, relative to the non-rotating Earth. This is found in terms of the rates of change of latitude (<span class="math notranslate nohighlight">\(\phi\)</span>) and longitude (<span class="math notranslate nohighlight">\(\Lambda\)</span>):</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>You can find a derivation of the equation for angular velocity in spherical coordiantes here: <a class="reference external" href="http://dynref.engr.illinois.edu/rvs.html">University of Illinois Online Dynamics Textbook</a>. Just watch out for the different symbols that the author uses.</p>
+</div>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-5">
+<span class="eqno">(56)<a class="headerlink" href="#equation-reference-relative-motion-5" title="Permalink to this equation">¶</a></span>\[\vector{\omega} = -\dot{\phi}\uvec{\imath} + \dot{\Lambda}\cos\phi\uvec{\jmath} + \dot{\Lambda}\sin\phi\uvec{k}\]</div>
+<p>Thus, including the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> directions for future reference:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-6">
+<span class="eqno">(57)<a class="headerlink" href="#equation-reference-relative-motion-6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\frac{d\uvec{\imath}}{dt} &amp;= \vector{\omega}\cross\uvec{\imath} = -\dot{\Lambda}\sin\phi\uvec{\jmath} - \dot{\Lambda}\cos\phi\uvec{k}\\ \frac{d\uvec{\jmath}}{dt} &amp;= \vector{\omega}\cross\uvec{\jmath} = -\dot{\Lambda}\sin\phi\uvec{\imath} - \dot{\phi}\uvec{k}\\ \frac{d\uvec{k}}{dt} &amp;= \vector{\omega}\cross\uvec{k} = \dot{\Lambda}\cos\phi\uvec{\imath} + \dot{\phi}\uvec{\jmath}\end{aligned}\end{split}\]</div>
+<p>The velocity of <span class="math notranslate nohighlight">\(P\)</span> in the nonrotating Earth frame, projected into the topocentric-horizon coordinates, is:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-7">
+<span class="eqno">(58)<a class="headerlink" href="#equation-reference-relative-motion-7" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\text{rel}} = \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-8">
+<span class="eqno">(59)<a class="headerlink" href="#equation-reference-relative-motion-8" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\dot{x} &amp;= \left(R_E + z\right) \dot{\Lambda}\cos\phi &amp; \dot{y} &amp;= \left(R_E + z\right)\dot{\phi}\end{aligned}\]</div>
+<p>are the components of the velocity along the topocentric-horizon axes. These can be rearranged to solve for the rate of change of latitude and longitude:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-9">
+<span class="eqno">(60)<a class="headerlink" href="#equation-reference-relative-motion-9" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\dot{\phi} &amp;= \frac{\dot{y}}{R_E + z} &amp; \dot{\Lambda} &amp;= \frac{\dot{x}}{\left(R_E + z\right)\cos\phi}\end{aligned}\]</div>
+<p>We can take the time derivative of <span class="math notranslate nohighlight">\(\vector{v}_{\text{rel}}\)</span> to find <span class="math notranslate nohighlight">\(\vector{a}_{\text{rel}}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-10">
+<span class="eqno">(61)<a class="headerlink" href="#equation-reference-relative-motion-10" title="Permalink to this equation">¶</a></span>\[\vector{a}_{\text{rel}} = \left[\ddot{x} + \frac{\dot{x}\left(\dot{z} - \dot{y}\tan\phi\right)}{R_E + z}\right]\uvec{\imath} + \left(\ddot{y} + \frac{\dot{y}\dot{z} + \dot{x}^2\tan\phi}{R_E + z}\right)\uvec{\jmath} + \left(\ddot{z} - \frac{\dot{x}^2 + \dot{y}^2}{R_E + z}\right)\uvec{k}\]</div>
+</div>
+<div class="section" id="absolute-motion">
+<h2>Absolute Motion<a class="headerlink" href="#absolute-motion" title="Permalink to this headline">¶</a></h2>
+<p>The absolute velocity, in the ECI frame, is:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-11">
+<span class="eqno">(62)<a class="headerlink" href="#equation-reference-relative-motion-11" title="Permalink to this equation">¶</a></span>\[\vector{v} = \vector{v}_C + \vector{\Omega}\cross\vector{r}_{\text{rel}} + \vector{v}_{\text{rel}}\]</div>
+<p>Geometrically, we find that <span class="math notranslate nohighlight">\(\uvec{K} = \cos\phi\uvec{\jmath} + \sin\phi\uvec{k}\)</span>, which we can use to determine the angular velocity of the Earth:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-12">
+<span class="eqno">(63)<a class="headerlink" href="#equation-reference-relative-motion-12" title="Permalink to this equation">¶</a></span>\[\vector{\Omega} = \Omega\uvec{K} = \Omega\cos\phi\uvec{\jmath} + \Omega\sin\phi\uvec{k}\]</div>
+<p>In the ECI, <span class="math notranslate nohighlight">\(\vector{v}_C = 0\)</span>, so we can find the absolute velocity of <span class="math notranslate nohighlight">\(P\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-13">
+<span class="eqno">(64)<a class="headerlink" href="#equation-reference-relative-motion-13" title="Permalink to this equation">¶</a></span>\[\vector{v} = \left[\dot{x} + \Omega\left(R_E + z\right)\cos\phi\right]\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k}\]</div>
+<p>Next, the absolute acceleration of <span class="math notranslate nohighlight">\(P\)</span> is given by:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-14">
+<span class="eqno">(65)<a class="headerlink" href="#equation-reference-relative-motion-14" title="Permalink to this equation">¶</a></span>\[\vector{a} = \vector{a}_C + \dot{\vector{\Omega}}\cross\vector{r}_{\text{rel}} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}_{\text{rel}}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}\]</div>
+<p>In this equation, <span class="math notranslate nohighlight">\(\vector{a}_C = 0\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{\Omega}} = 0\)</span> because the center of the Earth is not accelerating and the rate of rotation of the Earth is constant. With this, we can find the absolute acceleration in terms of the topographic-horizontal motion:</p>
+<div class="math notranslate nohighlight" id="equation-reference-relative-motion-15">
+<span class="eqno">(66)<a class="headerlink" href="#equation-reference-relative-motion-15" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{a} &amp;= \left[\ddot{x} + \frac{\dot{x}\left(\dot{z} - \dot{y}\tan\phi\right)}{R_E + z} + 2\Omega\left(\dot{z}\cos\phi - \dot{y}\sin\phi\right)\right]\uvec{\imath}\\ &amp;+ \left\{\ddot{y} + \frac{\dot{y}\dot{z} + \dot{x}^2\tan\phi}{R_E + z} + \Omega\sin\phi\left[\Omega\left(R_E + z\right)\cos\phi + 2\dot{x}\right]\right\}\uvec{\jmath}\\ &amp;+ \left\{\ddot{z} - \frac{\dot{x}^2 + \dot{y}^2}{R_E + z} - \Omega\cos\phi\left[\Omega\left(R_E + z\right)\cos\phi + 2\dot{x}\right]\right\}\uvec{k}\end{aligned}\end{split}\]</div>
+<div class="admonition-check-your-understanding admonition">
+<p class="admonition-title">Check your understanding</p>
+<p>At this point, the book provides a few simplified equations. Look at the equations for “Flight straight up” and “Stationary”. Convince yourself that these equations are physically correct.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./reference"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="celestial-sphere.html" title="previous page">Celestial Sphere</a>
+    <a class='right-next' id="next-link" href="../bibliography.html" title="next page">Bibliography</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-3/2-time-since-periapsis.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,8 +106,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/relative-motion.html">
-   Relative Motion
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
   </a>
  </li>
 </ul>
@@ -429,16 +434,6 @@
    Time Derivatives of Moving Vectors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -449,6 +444,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
   </a>
  </li>
 </ul>
@@ -588,8 +588,8 @@
 \[\frac{\mu^2}{h^3}\int_{t_p}^{t} dt = \int_{0}^{\theta}\frac{d\theta}{\left(1 + e\cos\theta\right)^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t_p\)</span> is defined as the time since periapsis, when <span class="math notranslate nohighlight">\(\theta = 0\)</span>. Typically, we will set <span class="math notranslate nohighlight">\(t_p = 0\)</span>, such that:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis">
-<span class="eqno">(22)<a class="headerlink" href="#equation-time-since-periapsis" title="Permalink to this equation">¶</a></span>\[\frac{\mu}{h^3}t = \int_{0}^{\theta}\frac{d\theta}{\left(1 + e\cos\theta\right)^2}\]</div>
-<p>The integral on the right-hand side can be found in standard tables of integrals <span id="id1">[<a class="reference internal" href="../bibliography.html#id7">GradshteuinRJ07</a>, <a class="reference internal" href="../bibliography.html#id21">Zwi03</a>]</span>. In <span id="id2">[<a class="reference internal" href="../bibliography.html#id7">GradshteuinRJ07</a>]</span> (available <a class="reference external" href="http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf">here</a>), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for the first and third equations. In <span id="id3">[<a class="reference internal" href="../bibliography.html#id21">Zwi03</a>]</span> (available <a class="reference external" href="https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&amp;gbpv=1&amp;pg=PA434&amp;printsec=frontcover">here</a>), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for the first and third equations. I couldn’t find the form for the middle equation.</p>
+<span class="eqno">(18)<a class="headerlink" href="#equation-time-since-periapsis" title="Permalink to this equation">¶</a></span>\[\frac{\mu}{h^3}t = \int_{0}^{\theta}\frac{d\theta}{\left(1 + e\cos\theta\right)^2}\]</div>
+<p>The integral on the right-hand side can be found in standard tables of integrals <span id="id1">[<a class="reference internal" href="../bibliography.html#id9">GradshteuinRJ07</a>, <a class="reference internal" href="../bibliography.html#id23">Zwi03</a>]</span>. In <span id="id2">[<a class="reference internal" href="../bibliography.html#id9">GradshteuinRJ07</a>]</span> (available <a class="reference external" href="http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf">here</a>), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for the first and third equations. In <span id="id3">[<a class="reference internal" href="../bibliography.html#id23">Zwi03</a>]</span> (available <a class="reference external" href="https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&amp;gbpv=1&amp;pg=PA434&amp;printsec=frontcover">here</a>), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for the first and third equations. I couldn’t find the form for the middle equation.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><strong>Note:</strong> There seems to be a typo in Eq. 3.3 and 3.5 in the book here, where the <span class="math notranslate nohighlight">\(\sin x\)</span> does not belong inside the square root.</p>

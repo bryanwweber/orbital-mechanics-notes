@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/12-circular-restricted-three-body-problem.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,8 +106,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/relative-motion.html">
-   Relative Motion
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
   </a>
  </li>
 </ul>
@@ -429,16 +434,6 @@
    Time Derivatives of Moving Vectors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -449,6 +444,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
   </a>
  </li>
 </ul>
@@ -712,8 +712,8 @@
 \[\vector{v}_{\text{rel}} = \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k}\]</div>
 <p>Then we can find the absolute acceleration of <span class="math notranslate nohighlight">\(m\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-five-term-acceleration">
-<span class="eqno">(20)<a class="headerlink" href="#equation-five-term-acceleration" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \vector{a}_G + \dot{\vector{\Omega}}\cross\vector{r} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}\]</div>
-<p>This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, <span class="math notranslate nohighlight">\(\vector{a}_G = 0\)</span>. In addition, the angular velocity is constant since the orbit is circular, so <span class="math notranslate nohighlight">\(\dot{\vector{\Omega}} = 0\)</span>. Then, Eq. <a class="reference internal" href="#equation-five-term-acceleration">(20)</a> can be simplified to:</p>
+<span class="eqno">(16)<a class="headerlink" href="#equation-five-term-acceleration" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \vector{a}_G + \dot{\vector{\Omega}}\cross\vector{r} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}\]</div>
+<p>This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, <span class="math notranslate nohighlight">\(\vector{a}_G = 0\)</span>. In addition, the angular velocity is constant since the orbit is circular, so <span class="math notranslate nohighlight">\(\dot{\vector{\Omega}} = 0\)</span>. Then, Eq. <a class="reference internal" href="#equation-five-term-acceleration">(16)</a> can be simplified to:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{\vector{r}} = \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}\]</div>
 <p>where</p>
@@ -751,7 +751,7 @@
 <h2>Nondimensional Equations of Motion<a class="headerlink" href="#nondimensional-equations-of-motion" title="Permalink to this headline">¶</a></h2>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>In a later section, the book also makes these equations nondimensional, since it aids the solution of some of the Lagrange points. This section is adapted from Rubinsztejn <span id="id1">[<a class="reference internal" href="../bibliography.html#id12">Rub18a</a>, <a class="reference internal" href="../bibliography.html#id13">Rub18b</a>, <a class="reference internal" href="../bibliography.html#id14">Rub18c</a>]</span>.</p>
+<p>In a later section, the book also makes these equations nondimensional, since it aids the solution of some of the Lagrange points. This section is adapted from Rubinsztejn <span id="id1">[<a class="reference internal" href="../bibliography.html#id14">Rub18a</a>, <a class="reference internal" href="../bibliography.html#id15">Rub18b</a>, <a class="reference internal" href="../bibliography.html#id16">Rub18c</a>]</span>.</p>
 </div>
 <p>Next, let’s make these equations nondimensional. This offers the advantage of being general for any system we want to study, and removing the dependence on the rate of rotation of the coordinate system. We start by defining a few characteristic parameters.</p>
 <p>First, the characteristic distance will be <span class="math notranslate nohighlight">\(r_{12}\)</span> and the characteristic mass will be <span class="math notranslate nohighlight">\(\pi_2\)</span>, for convenience. We could choose <span class="math notranslate nohighlight">\(\pi_1\)</span> without loss of generality. We will also define a characteristic time:</p>
@@ -771,7 +771,7 @@
 <p>Making the acceleration equation nondimensional involves replacing both the <span class="math notranslate nohighlight">\(\vector{r}\)</span> and the <span class="math notranslate nohighlight">\(t\)</span> terms in the <span class="math notranslate nohighlight">\(d^2\vector{r}/dt^2\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{\vector{\rho}} = \frac{d^2\vector{r}}{dt^2}\frac{\left(t^{*}\right)^2}{r_{12}} = \frac{d^2\vector{\rho}}{d\tau^2}\]</div>
-<p>Making the terms on the right hand side of Eq. <a class="reference internal" href="#equation-five-term-acceleration">(20)</a> nondimensional is also the result of multiplying by <span class="math notranslate nohighlight">\(\left(t^*\right)^2/r_{12}\)</span>. Note that the dimensions of <span class="math notranslate nohighlight">\(\Omega\)</span> are <span class="math notranslate nohighlight">\(t^{-1}\)</span>:</p>
+<p>Making the terms on the right hand side of Eq. <a class="reference internal" href="#equation-five-term-acceleration">(16)</a> nondimensional is also the result of multiplying by <span class="math notranslate nohighlight">\(\left(t^*\right)^2/r_{12}\)</span>. Note that the dimensions of <span class="math notranslate nohighlight">\(\Omega\)</span> are <span class="math notranslate nohighlight">\(t^{-1}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}\]</div>
 <p>Now we have the nondimensional inertial acceleration, and we need to make Newton’s second law nondimensional:</p>
@@ -884,7 +884,7 @@
 </div>
 <div class="section" id="lagrange-point-stability">
 <h2>Lagrange Point Stability<a class="headerlink" href="#lagrange-point-stability" title="Permalink to this headline">¶</a></h2>
-<p>As we discussed previously, gravity is a conservative force. As such, the force field can be defined in terms of a potential energy function. For the CR3BP, the pseudo-potential function in the rotating frame is given by <span id="id2">[<a class="reference internal" href="../bibliography.html#id9">KLMR11</a>]</span>:</p>
+<p>As we discussed previously, gravity is a conservative force. As such, the force field can be defined in terms of a potential energy function. For the CR3BP, the pseudo-potential function in the rotating frame is given by <span id="id2">[<a class="reference internal" href="../bibliography.html#id11">KLMR11</a>]</span>:</p>
 <div class="math notranslate nohighlight">
 \[U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]\]</div>
 <p>A plot of this function is shown below, including the positions of the five Lagrange points, for <span class="math notranslate nohighlight">\(\pi_2 = 0.3\)</span>:</p>
@@ -919,16 +919,16 @@
 \[\frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]\]</div>
 <p>Combining these equations, we find from conservation of energy:</p>
 <div class="math notranslate nohighlight" id="equation-jacobi-constant">
-<span class="eqno">(21)<a class="headerlink" href="#equation-jacobi-constant" title="Permalink to this equation">¶</a></span>\[\frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] = C\]</div>
+<span class="eqno">(17)<a class="headerlink" href="#equation-jacobi-constant" title="Permalink to this equation">¶</a></span>\[\frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] = C\]</div>
 <p>The constant <span class="math notranslate nohighlight">\(C\)</span> is called the Jacobi Constant, and represents the total energy of the tertiary mass relative to the rotating reference frame.</p>
 <p>Since <span class="math notranslate nohighlight">\(C\)</span> is a constant, the total energy of the tertiary mass is fixed. Consider the tertiary mass at some location <span class="math notranslate nohighlight">\(\left(x^*_1, y^*_1)\)</span> such that it has potential energy <span class="math notranslate nohighlight">\(U_1\)</span>. Assume first that the velocity is zero. Then, the Jacobi constant is just equal to <span class="math notranslate nohighlight">\(U_1\)</span>, and the mass cannot “climb” any higher out of the potential energy surface. Thus, there is a region of space where the mass cannot access because it doesn’t have enough energy!</p>
 <p>Assume now that the velocity of the mass is <span class="math notranslate nohighlight">\(v^*_1\)</span>. Then the Jacobi constant is equal to the sum of the kinetic and potential energies. If the mass wants to climb up the potential energy surface, it can trade kinetic energy for potential energy. Eventually, however, the kinetic energy and the velocity will go to zero, and the mass cannot climb any higher!</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Koon et al. <span id="id3">[<a class="reference internal" href="../bibliography.html#id9">KLMR11</a>]</span> also refer to the area where a particle cannot enter as the <strong>Hill’s region</strong>.</p>
+<p>Koon et al. <span id="id3">[<a class="reference internal" href="../bibliography.html#id11">KLMR11</a>]</span> also refer to the area where a particle cannot enter as the <strong>Hill’s region</strong>.</p>
 </div>
 <p>Now, let’s turn this problem around. We want to know, for a given value of <span class="math notranslate nohighlight">\(C\)</span>, what regions of space will be inaccessible. Consider the tertiary mass with a certain value of <span class="math notranslate nohighlight">\(C\)</span> and at a particular location. As the mass moves, it exchanges energy between kinetic energy (velocity) and potential energy. At some position, the <span class="math notranslate nohighlight">\(C\)</span> will be equal to <span class="math notranslate nohighlight">\(U\)</span>, and the velocity will be (by definition) zero. Thus, the mass cannot travel any further in that direction.</p>
-<p>For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting <span class="math notranslate nohighlight">\(v^* = 0\)</span> in Eq. <a class="reference internal" href="#equation-jacobi-constant">(21)</a>:</p>
+<p>For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting <span class="math notranslate nohighlight">\(v^* = 0\)</span> in Eq. <a class="reference internal" href="#equation-jacobi-constant">(17)</a>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{2 \left(1 - \pi_2\right)}{\sigma} + \frac{2 \pi_2}{\psi} + \left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] + 2C = 0\]</div>
 <p>Since the first three terms on the left are all positive, zero velocity curves correspond to negative values of the Jacobi constant. The figure below plots the forbidden regions, shown as shaded areas, for several values of <span class="math notranslate nohighlight">\(C\)</span>:</p>

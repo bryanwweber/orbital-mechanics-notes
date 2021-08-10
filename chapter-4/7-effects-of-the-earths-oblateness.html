@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-4/7-effects-of-the-earths-oblateness.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,8 +106,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/relative-motion.html">
-   Relative Motion
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
   </a>
  </li>
 </ul>
@@ -429,16 +434,6 @@
    Time Derivatives of Moving Vectors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -449,6 +444,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
   </a>
  </li>
 </ul>
@@ -644,13 +644,13 @@
 </div>
 <div class="section" id="effect-of-oblateness-on-orbits">
 <h2>Effect of Oblateness on Orbits<a class="headerlink" href="#effect-of-oblateness-on-orbits" title="Permalink to this headline">¶</a></h2>
-<p>The effect of planetary oblateness on orbits is captured in the dimensionless parameter called <span class="math notranslate nohighlight">\(J_2\)</span>, the <strong>second zonal harmonic</strong>. The zonal harmonics are values that depend on the particular planet. For Earth, <span class="math notranslate nohighlight">\(J_2 =\)</span> 1.08263×10<sup>-3</sup> <span id="id1">[<a class="reference internal" href="../bibliography.html#id20">VM13</a>]</span> (Page 1039).</p>
+<p>The effect of planetary oblateness on orbits is captured in the dimensionless parameter called <span class="math notranslate nohighlight">\(J_2\)</span>, the <strong>second zonal harmonic</strong>. The zonal harmonics are values that depend on the particular planet. For Earth, <span class="math notranslate nohighlight">\(J_2 =\)</span> 1.08263×10<sup>-3</sup> <span id="id1">[<a class="reference internal" href="../bibliography.html#id22">VM13</a>]</span> (Page 1039).</p>
 <p>The effect of oblateness is to cause the right ascension of the ascending node and the argument of the periapsis to change as a function of time. The average rate of change of these variables is:</p>
 <div class="math notranslate nohighlight" id="equation-regression-of-nodes">
-<span class="eqno">(26)<a class="headerlink" href="#equation-regression-of-nodes" title="Permalink to this equation">¶</a></span>\[\frac{d\Omega}{dt} = \dot{\Omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\cos i\]</div>
+<span class="eqno">(22)<a class="headerlink" href="#equation-regression-of-nodes" title="Permalink to this equation">¶</a></span>\[\frac{d\Omega}{dt} = \dot{\Omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\cos i\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-advance-of-perigee">
-<span class="eqno">(27)<a class="headerlink" href="#equation-advance-of-perigee" title="Permalink to this equation">¶</a></span>\[\frac{d\omega}{dt} = \dot{\omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\left(\frac{5}{2}\sin^2 i - 2\right)\]</div>
+<span class="eqno">(23)<a class="headerlink" href="#equation-advance-of-perigee" title="Permalink to this equation">¶</a></span>\[\frac{d\omega}{dt} = \dot{\omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\left(\frac{5}{2}\sin^2 i - 2\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is the planet’s equatorial radius and <span class="math notranslate nohighlight">\(i\)</span> is the orbital inclination.</p>
 <p>From these equations, we can see that when <span class="math notranslate nohighlight">\(0° \leq i &lt; 90°\)</span>, <span class="math notranslate nohighlight">\(\dot{\Omega}\)</span> is negative. This means that the node line will move westward over time, in the opposite of the direction of rotation of the earth. Thus, this phenomenon is called <strong>regression of the nodes</strong>. If <span class="math notranslate nohighlight">\(i = 90°\)</span>, the node line is fixed. Lastly, if <span class="math notranslate nohighlight">\(90° &lt; i \leq 180°\)</span>, the node line will move eastward in the inertial frame.</p>
 <p>For the argument of the perigee, if <span class="math notranslate nohighlight">\(0 \leq i &lt; 63.4°\)</span> or <span class="math notranslate nohighlight">\(116.6° &lt; i \leq 180°\)</span> then <span class="math notranslate nohighlight">\(\dot{\omega}\)</span> will be positive and the perigee will advance in the same direction as the orbit. In the in-between region, <span class="math notranslate nohighlight">\(63.4° &lt; i &lt; 116.6°\)</span>, perigee will move backwards around the orbit. For the two critical values, <span class="math notranslate nohighlight">\(i = 63.4°\)</span> and <span class="math notranslate nohighlight">\(i=116.6°\)</span>, the location of perigee will be fixed on the orbit.</p>
@@ -672,7 +672,7 @@
 <div class="math notranslate nohighlight">
 \[\dot{\Omega} = 0.9856°/\mathrm{day} = 1.991\times 10^{-7} rad/s\]</div>
 <p>Notice that the node line must move eastward, so the orbital inclination must be greater than 90°.</p>
-<p>Returning to Eq. <a class="reference internal" href="#equation-regression-of-nodes">(26)</a>, we can see that if <span class="math notranslate nohighlight">\(\dot{\Omega}\)</span> is specified, we have three free parameters: <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, and <span class="math notranslate nohighlight">\(i\)</span>. This allows some choice of perigee and period, and inclination can then be solved for.</p>
+<p>Returning to Eq. <a class="reference internal" href="#equation-regression-of-nodes">(22)</a>, we can see that if <span class="math notranslate nohighlight">\(\dot{\Omega}\)</span> is specified, we have three free parameters: <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, and <span class="math notranslate nohighlight">\(i\)</span>. This allows some choice of perigee and period, and inclination can then be solved for.</p>
 </div>
 <div class="section" id="high-latitude-observation">
 <h3>High-Latitude Observation<a class="headerlink" href="#high-latitude-observation" title="Permalink to this headline">¶</a></h3>

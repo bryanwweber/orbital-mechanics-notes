@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/11-the-lagrange-coefficients.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,8 +106,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/relative-motion.html">
-   Relative Motion
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
   </a>
  </li>
 </ul>
@@ -429,16 +434,6 @@
    Time Derivatives of Moving Vectors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -449,6 +444,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
   </a>
  </li>
 </ul>
@@ -590,14 +590,14 @@
 <h2>Position, Velocity, and Angular Momentum<a class="headerlink" href="#position-velocity-and-angular-momentum" title="Permalink to this headline">¶</a></h2>
 <p>We start by defining the initial conditions, subscripted with a <span class="math notranslate nohighlight">\(0\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-initial-conditions">
-<span class="eqno">(19)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
+<span class="eqno">(15)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
 <p>Then the angular momentum is found by taking the cross product:</p>
 <div class="math notranslate nohighlight">
 \[\vector{h} = \vector{r}_0 \cross\vector{v}_0 = \uvec{w}\left(\pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\right)\]</div>
 <p>From the definition of the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> unit vector, we can see that the magnitude of the angular momentum must be:</p>
 <div class="math notranslate nohighlight">
 \[h = \pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\]</div>
-<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(19)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
+<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(15)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}\uvec{p} &amp;= \frac{\dot{\pf{y}}_0}{h}\vector{r}_0 - \frac{\pf{y}_0}{h}\vector{v}_0 &amp; \uvec{q} &amp;= -\frac{\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{\pf{x}_0}{h}\vector{v}_0\end{aligned}\]</div>
 <p>Putting these two unit vectors back into the equations for the general position and velocity, and simplifying, we find:</p>

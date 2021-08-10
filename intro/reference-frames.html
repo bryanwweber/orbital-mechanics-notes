@@ -52,11 +52,11 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/intro/reference-frames.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Relative Motion" href="relative-motion.html" />
+    <link rel="next" title="Mass, Force, and Newton’s Law of Gravitation" href="mass-force-and-newtons-law-of-gravitation.html" />
     <link rel="prev" title="Notes on Orbital Mechanics for Engineering Students" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -106,8 +106,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="relative-motion.html">
-   Relative Motion
+  <a class="reference internal" href="mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
   </a>
  </li>
 </ul>
@@ -429,16 +434,6 @@
    Time Derivatives of Moving Vectors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -449,6 +444,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
   </a>
  </li>
 </ul>
@@ -614,7 +614,7 @@
 </ol>
 <p>Profound.</p>
 <div class="section" id="inertial-reference-frame">
-<h3>Inertial Reference Frame<a class="headerlink" href="#inertial-reference-frame" title="Permalink to this headline">¶</a></h3>
+<span id="sec-inertial-reference-frame"></span><h3>Inertial Reference Frame<a class="headerlink" href="#inertial-reference-frame" title="Permalink to this headline">¶</a></h3>
 <p>An <strong>inertial</strong> reference frame is one that is not <em>accelerating</em>. It may be moving at constant velocity, but there can be absolutely no acceleration, <em>including rotation!</em></p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -624,7 +624,7 @@
 <p>In orbital mechanics, we usually define an inertial reference frame with respect to the <strong>fixed stars</strong>. Of course, the stars are not really fixed—our Sun orbits the center of the galaxy, as do other stars in the Milky Way, and other galaxies may be approaching or receding at some velocity.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>According to Graneau and Graneau <span id="id1">[<a class="reference internal" href="../bibliography.html#id8">GG06</a>]</span> (pg. 147), the centrifugal acceleration due to the sun’s orbit around the galactic center is about thirty million times less than that of the earth about the sun. The effect of the motion of other stars is presumably even smaller still.</p>
+<p>According to Graneau and Graneau <span id="id1">[<a class="reference internal" href="../bibliography.html#id10">GG06</a>]</span> (pg. 147), the centrifugal acceleration due to the sun’s orbit around the galactic center is about thirty million times less than that of the earth about the sun. The effect of the motion of other stars is presumably even smaller still.</p>
 </div>
 <p>However, on the scale of most orbital mechanics problems we have to deal with (on the order of a few days to a few years), assuming the stars are fixed is reasonable.</p>
 </div>
@@ -689,6 +689,10 @@
 </div>
 <p>The origin, <span class="math notranslate nohighlight">\(O\)</span>, of this coordinate system is fixed to the particle. At a given instant, the position of this coordinate system can be determined relative to the ECEF frame by specifying the <strong>longitude</strong> angle (<span class="math notranslate nohighlight">\(\Lambda\)</span>) and the <strong>latitude</strong> angle (<span class="math notranslate nohighlight">\(\phi\)</span>), which are positive in the East and North directions respectively. These specify the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> axes of a <strong>topocentric-horizon</strong> coordinate system, respectively.</p>
 <p>The third direction, <span class="math notranslate nohighlight">\(z\)</span>, is directly up from the surface of the Earth and is called the <strong>zenith</strong>. Note that the direction of “up” changes as you move over the surface of the sphere.</p>
+<div class="figure align-default" id="fig-topocentric-horizon">
+<a class="reference internal image-reference" href="../_images/topocentric-horizon.svg"><img alt="The topocentric-horizon coordinate system" src="../_images/topocentric-horizon.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The topocentric-horizon coordinate system is centered at the object. The <span class="math notranslate nohighlight">\(x\)</span> axis points east, the <span class="math notranslate nohighlight">\(y\)</span> axis points north, and the <span class="math notranslate nohighlight">\(z\)</span> axis points up from the earth. Modified from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Earth_coordinates.svg">Original: Brews ohare This Version: CheChe</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-topocentric-horizon" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -719,7 +723,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Notes on Orbital Mechanics for Engineering Students</a>
-    <a class='right-next' id="next-link" href="relative-motion.html" title="next page">Relative Motion</a>
+    <a class='right-next' id="next-link" href="mass-force-and-newtons-law-of-gravitation.html" title="next page">Mass, Force, and Newton’s Law of Gravitation</a>
 
         </div>
         

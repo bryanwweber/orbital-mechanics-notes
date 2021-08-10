@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\vec{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-8/10-planetary-ephemeris.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,8 +106,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/relative-motion.html">
-   Relative Motion
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
   </a>
  </li>
 </ul>
@@ -429,16 +434,6 @@
    Time Derivatives of Moving Vectors
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/4-mass-force-and-newtons-law-of-gravitation.html">
-   Chapter 1.4 - Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/5-newtons-laws.html">
-   Chapter 1.5 - Newton’s Laws
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -449,6 +444,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
   </a>
  </li>
 </ul>
@@ -1114,10 +1114,10 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
 <h2>Using JPL HORIZONS Web Interface<a class="headerlink" href="#using-jpl-horizons-web-interface" title="Permalink to this headline">¶</a></h2>
 <p>JPL also maintains a web browser based interface to the HORIZONS database. This interface can be used to determine all the same information as the previous methods, with a similar level of accuracy as the SPICE-focused methods in the previous section. The web interface is located at:</p>
 <p><a class="reference external" href="https://ssd.jpl.nasa.gov/horizons.cgi">https://ssd.jpl.nasa.gov/horizons.cgi</a></p>
-<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#horizons-default"><span class="std std-numref">Fig. 6</span></a></p>
+<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#horizons-default"><span class="std std-numref">Fig. 8</span></a></p>
 <div class="figure align-default" id="horizons-default">
 <a class="reference internal image-reference" href="../_images/horizons-default.png"><img alt="Default interface for HORIZONS" src="../_images/horizons-default.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#horizons-default" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#horizons-default" title="Permalink to this image">¶</a></p>
 </div>
 <p>Each of the options can be changed by clicking the “Change” links. For our purposes, we can change the following:</p>
 <ol class="simple">
@@ -1128,17 +1128,17 @@ the JPL Solar System Dynamics web site (<a class="reference external" href="http
 <li><p><em>Table Settings</em>: Here, we want to change the units to <em>km &amp; km/s</em>. Another useful option is the <em>reference plane</em>. The default of <em>ecliptic &amp; mean equinox</em> is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.</p></li>
 <li><p><em>Display/Output</em>: On this page, you can choose the output format of your data. We will use the formatted HTML output in this example</p></li>
 </ol>
-<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#horizons-mercury"><span class="std std-numref">Fig. 7</span></a>.</p>
+<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#horizons-mercury"><span class="std std-numref">Fig. 9</span></a>.</p>
 <div class="figure align-default" id="horizons-mercury">
 <a class="reference internal image-reference" href="../_images/horizons-mercury.png"><img alt="Settings for Mercury ephemeris in HORIZONS" src="../_images/horizons-mercury.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#horizons-mercury" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#horizons-mercury" title="Permalink to this image">¶</a></p>
 </div>
-<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 8</span></a>.</p>
+<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 10</span></a>.</p>
 <div class="figure align-default" id="mercury-output">
 <a class="reference internal image-reference" href="../_images/mercury-output.png"><img alt="Output for Mercury ephemeris from HORIZONS" src="../_images/mercury-output.png" style="width: 75%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#mercury-output" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#mercury-output" title="Permalink to this image">¶</a></p>
 </div>
-<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 8</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
+<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#mercury-output"><span class="std std-numref">Fig. 10</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
 </div>
 </div>
 
