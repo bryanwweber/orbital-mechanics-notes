@@ -3,14 +3,18 @@ title: Notes on Orbital Mechanics for Engineering Students
 author: Bryan Weber
 logo: hohmann.png
 
-exclude_patterns: [homework, raw_svg]
+exclude_patterns:
+  - homework
+  - raw_svg
+  - drawing-scripts
+  - docker
 
 latex:
   latex_documents:
     targetname: book.tex
 
-execute:
-  execute_notebooks: "off"
+# execute:
+#   execute_notebooks: "off"
 
 sphinx:
   extra_extensions:
@@ -22,7 +26,7 @@ sphinx:
       tex:
         macros:
           vector: ["\\boldsymbol{#1}", 1]
-          uvec: ["\\hat{#1}", 1]
+          uvec: ["\\boldsymbol{\\hat{#1}}", 1]
           mag: ["\\lVert#1\\rVert", 1]
           cross: "\\times"
           unit: ["#1~\\mathrm{#2}", 2]

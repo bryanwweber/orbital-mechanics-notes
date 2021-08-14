@@ -8,10 +8,13 @@ parts:
       - file: intro/reference-frames
       - file: intro/mass-force-and-newtons-law-of-gravitation
       - file: intro/force-acceleration-and-momentum
+  - caption: The N-Body Problem
+    chapters:
+      - file: the-n-body-problem/two-body-inertial-motion
+      - file: the-n-body-problem/two-body-inertial-numerical-solution
+      - file: the-n-body-problem/motion-of-the-barycenter
   - caption: Chapter 2
     chapters:
-      - file: chapter-2/2-equations-of-motion-in-an-inertial-frame
-      - file: chapter-2/2a-two-body-inertial-example
       - file: chapter-2/3-equations-of-relative-motion
       - file: chapter-2/3a-two-body-relative-motion-example
       - file: chapter-2/4-angular-momentum-and-the-orbit-formulas
