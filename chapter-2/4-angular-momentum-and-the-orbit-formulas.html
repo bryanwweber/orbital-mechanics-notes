@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/4-angular-momentum-and-the-orbit-formulas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,20 +118,32 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Chapter 2
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="2-equations-of-motion-in-an-inertial-frame.html">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
@@ -688,13 +700,13 @@
 <p>In other words, the Laplace vector and the angular momentum are perpendicular. Since the angular momentum is perpendicular to the orbital plane, <span class="math notranslate nohighlight">\(\vector{C}\)</span> must lie in the orbital plane.</p>
 <p>The Laplace vector has the same dimensions as <span class="math notranslate nohighlight">\(\mu\)</span>, so we can transform it into a dimensionless number by dividing the equation by <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-vector-orbit-equation">
-<span class="eqno">(13)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
+<span class="eqno">(31)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{e} = \vector{C}/\mu\)</span> and is called the <strong>eccentricity vector</strong>. Since <span class="math notranslate nohighlight">\(\vector{C}\)</span> lies in the orbital plane, <span class="math notranslate nohighlight">\(\vector{e}\)</span> also lies in the orbital plane. The line along <span class="math notranslate nohighlight">\(\vector{e}\)</span> is called the <strong>apse line</strong>.</p>
 <p>The eccentricity vector provides two more of the constants of integration that we need for the equation of motion. However, due to the fact that <span class="math notranslate nohighlight">\(\vector{e}\)</span> and <span class="math notranslate nohighlight">\(\vector{h}\)</span> are perpendicular, we know that:</p>
 <div class="math notranslate nohighlight">
 \[\vector{e}\cdot\vector{h} = 0\]</div>
 <p>such that only 5 of the components of these vectors are independent. The sixth is determined by the dot product above.</p>
-<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(13)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
+<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(31)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
 <p>To obtain a scalar equation, we take the dot product of this equation with <span class="math notranslate nohighlight">\(\vector{r}\)</span>. After some algebra, we end up at:</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta}\]</div>

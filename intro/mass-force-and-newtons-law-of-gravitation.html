@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/intro/mass-force-and-newtons-law-of-gravitation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,20 +118,32 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Chapter 2
+  The N-Body Problem
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
@@ -578,6 +590,20 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="mass-force-and-newton-s-law-of-gravitation">
 <h1>Mass, Force, and Newton’s Law of Gravitation<a class="headerlink" href="#mass-force-and-newton-s-law-of-gravitation" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f2f67b802dae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pint&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>In Newtonian mechanics, a net force on an object causes the object to accelerate. Forces can be transmitted between objects by direct contact or without contact by a potential field.</p>
 <p>Examples of potential fields include:</p>

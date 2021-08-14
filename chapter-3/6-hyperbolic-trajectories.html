@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-3/6-hyperbolic-trajectories.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,20 +118,32 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Chapter 2
+  The N-Body Problem
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
@@ -610,8 +622,11 @@
 \[M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}\]</div>
 <p>we can write</p>
 <div class="math notranslate nohighlight" id="equation-mean-anomaly-hyperbola">
-<span class="eqno">(20)<a class="headerlink" href="#equation-mean-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\theta}{1 + e\cos\theta} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]\]</div>
+<span class="eqno">(38)<a class="headerlink" href="#equation-mean-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\theta}{1 + e\cos\theta} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]\]</div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6-hyperbolic-trajectories_1_0.png" src="../_images/6-hyperbolic-trajectories_1_0.png" />
+</div>
 </div>
 <p>Notice that <span class="math notranslate nohighlight">\(\theta\)</span> cannot exceed <span class="math notranslate nohighlight">\(\theta_{\infty} = \cos^{-1}(-1 / e)\)</span>.</p>
 </div>
@@ -619,6 +634,9 @@
 <h2>Hyperbolic Eccentric Anomaly<a class="headerlink" href="#hyperbolic-eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
 <p>Similar to the ellipse, we will define an auxiliary angle <span class="math notranslate nohighlight">\(F\)</span> to simplify the equations. <span class="math notranslate nohighlight">\(F\)</span> is defined with reference to the hyperbola below.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6-hyperbolic-trajectories_3_0.png" src="../_images/6-hyperbolic-trajectories_3_0.png" />
+</div>
 </div>
 <p>Now, let’s define the ratio <span class="math notranslate nohighlight">\(y/b\)</span> as the hyperbolic sine of the angle <span class="math notranslate nohighlight">\(F\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -651,7 +669,7 @@
 <p>After some more trigonometry and algebra, we find:</p>
 <div class="math notranslate nohighlight">
 \[F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]\]</div>
-<p>Substituting this back into Eq. <a class="reference internal" href="#equation-mean-anomaly-hyperbola">(20)</a>, we find <strong>Kepler’s equation for the hyperbola</strong>:</p>
+<p>Substituting this back into Eq. <a class="reference internal" href="#equation-mean-anomaly-hyperbola">(38)</a>, we find <strong>Kepler’s equation for the hyperbola</strong>:</p>
 <div class="math notranslate nohighlight">
 \[M_h = e\sinh F - F\]</div>
 <p>As with the ellipse, Kepler’s equation can be solved easily if <span class="math notranslate nohighlight">\(\theta\)</span> is known, to be able to find <span class="math notranslate nohighlight">\(F\)</span>. However, if time is the known quantity, then Kepler’s equation is transcendental and must be solved numerically.</p>
@@ -660,6 +678,9 @@
 \[f'(F) = e \cosh F - 1\]</div>
 <p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from the graph below, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value. Note that the <span class="math notranslate nohighlight">\(y\)</span>-axis plots the log base 10 of <span class="math notranslate nohighlight">\(M_h\)</span>. To use the graph, take the log base 10 of whatever value you calculate for <span class="math notranslate nohighlight">\(M_h\)</span> and find that on the graph.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/6-hyperbolic-trajectories_5_0.png" src="../_images/6-hyperbolic-trajectories_5_0.png" />
+</div>
 </div>
 <p>Some more trigonometry and algebra lead us to a simpler relationship between <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, analogous to the equation for the ellipse:</p>
 <div class="math notranslate nohighlight">

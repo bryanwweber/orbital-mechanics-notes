@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-3/4-elliptical-orbits.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,20 +118,32 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Chapter 2
+  The N-Body Problem
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
@@ -626,6 +638,9 @@
 <p>We define the term in the square brackets to be the <strong>mean anomaly</strong>, <span class="math notranslate nohighlight">\(M_e\)</span>, where the subscript <span class="math notranslate nohighlight">\(e\)</span> indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.</p>
 <p>The mean anomaly is a monotonically increasing function of the true anomaly. This is good because it means that <span class="math notranslate nohighlight">\(M_e\)</span> can be used in place of <span class="math notranslate nohighlight">\(\theta\)</span> for all four quadrants on the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane. If <span class="math notranslate nohighlight">\(M_e\)</span> had a peak, we would have to be concerned about which quadrant we were in.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4-elliptical-orbits_1_0.png" src="../_images/4-elliptical-orbits_1_0.png" />
+</div>
 </div>
 <p>Notice that when <span class="math notranslate nohighlight">\(e = 0\)</span> (a circular orbit), the mean anomaly and true anomaly are equal.</p>
 <p>In terms of the mean anomaly, we can write:</p>
@@ -652,6 +667,9 @@
 <h2>Eccentric Anomaly<a class="headerlink" href="#eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
 <p>We can simplify the equation for <span class="math notranslate nohighlight">\(M_e\)</span> even further by using an auxiliary angle, <span class="math notranslate nohighlight">\(E\)</span>, called the eccentric anomaly. <span class="math notranslate nohighlight">\(E\)</span> is defined as the angle from the <span class="math notranslate nohighlight">\(x\)</span> axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> on the ellipse.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4-elliptical-orbits_3_0.png" src="../_images/4-elliptical-orbits_3_0.png" />
+</div>
 </div>
 <p>Since <span class="math notranslate nohighlight">\(M_e\)</span> is given in terms of <span class="math notranslate nohighlight">\(\theta\)</span>, we need to relate <span class="math notranslate nohighlight">\(E\)</span> to <span class="math notranslate nohighlight">\(\theta\)</span> to simplify. From the figure above, we can see that the distance from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(a\cos E\)</span> in terms of the eccentric anomaly, or <span class="math notranslate nohighlight">\(ae + r\cos\theta\)</span> in terms of the true anomaly, where <span class="math notranslate nohighlight">\(ae\)</span> is the distance from <span class="math notranslate nohighlight">\(O\)</span> to <span class="math notranslate nohighlight">\(F\)</span>, and <span class="math notranslate nohighlight">\(\cos\theta\)</span> is negative for <span class="math notranslate nohighlight">\(\pi/2 &lt; \theta &lt; 3\pi/2\)</span>. Therefore,</p>
 <div class="math notranslate nohighlight">
@@ -664,11 +682,11 @@
 \[\cos\theta = \frac{e - \cos E}{e\cos E - 1}\]</div>
 <p>These equations allow us to solve for <span class="math notranslate nohighlight">\(E\)</span> given <span class="math notranslate nohighlight">\(\theta\)</span>, provided that <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; \pi\)</span>. For <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; 2 \pi\)</span>, the equation is multivalued, and there are two values for <span class="math notranslate nohighlight">\(E\)</span>, one between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span>, and the other between <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span>. By applying some trigonometric transformations, we can write:</p>
 <div class="math notranslate nohighlight" id="equation-eccentric-anomaly-theta">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eccentric-anomaly-theta" title="Permalink to this equation">¶</a></span>\[E = 2 \tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\theta}{2}\right)\]</div>
+<span class="eqno">(37)<a class="headerlink" href="#equation-eccentric-anomaly-theta" title="Permalink to this equation">¶</a></span>\[E = 2 \tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\theta}{2}\right)\]</div>
 <p>The inverse tangent function is not multivalued for a given value of <span class="math notranslate nohighlight">\(\theta\)</span>, so this resolves the problem.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(19)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
+<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(37)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
 </div>
 </div>
 <div class="section" id="kepler-s-equation">
@@ -678,8 +696,11 @@
 \[M_e = E - e \sin E\]</div>
 <p>This gives the relationship between mean anomaly and eccentric anomaly. The value of <span class="math notranslate nohighlight">\(M_e\)</span> monotonically increases as a function of <span class="math notranslate nohighlight">\(E\)</span>, as shown in the figure below for several values of <span class="math notranslate nohighlight">\(e\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/4-elliptical-orbits_5_0.png" src="../_images/4-elliptical-orbits_5_0.png" />
 </div>
-<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(19)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
+</div>
+<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(37)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
 <div class="math notranslate nohighlight">
 \[t = \frac{M_e}{2\pi} T\]</div>
 <p>If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we can solve the previous equation for <span class="math notranslate nohighlight">\(M_e\)</span>. Then, we need to solve Kepler’s equation. Unfortunately, this equation is transcendental in <span class="math notranslate nohighlight">\(E\)</span>, so it cannot be solved analytically. We need to use a numerical method, such as Newton’s method, to solve the equation.</p>

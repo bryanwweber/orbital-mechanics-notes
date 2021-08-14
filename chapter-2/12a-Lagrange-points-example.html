@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/12a-Lagrange-points-example.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,20 +118,32 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Chapter 2
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="2-equations-of-motion-in-an-inertial-frame.html">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
@@ -695,6 +707,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L_1 = 0.8369154703225321 L_2 = 1.1556818961296604 L_3 = -1.0050626166357435
+</pre></div>
+</div>
+</div>
 </div>
 <p>Remember, these are in nondimensional coordinates. We can then plot the Lagrange points relative to <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> in the rotating frame of reference.</p>
 <div class="cell docutils container">
@@ -722,6 +739,9 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12a-Lagrange-points-example_9_0.png" src="../_images/12a-Lagrange-points-example_9_0.png" />
 </div>
 </div>
 <p>In MATLAB, the function definition ends up being a little bit different, since we want to be able to have <span class="math notranslate nohighlight">\(\pi_2\)</span> as the parameter. First, we need to define a function that takes both <code class="docutils literal notranslate"><span class="pre">xstar</span></code> and <code class="docutils literal notranslate"><span class="pre">pi_2</span></code> as arguments:</p>

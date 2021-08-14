@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2.2 - Equations of Motion in an Inertial Frame &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    <title>Motion of the Barycenter &#8212; Notes on Orbital Mechanics for Engineering Students</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,12 +52,12 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
-    <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/2-equations-of-motion-in-an-inertial-frame.html" />
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/motion-of-the-barycenter.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example: Two-Body Problem in an Inertial Frame" href="2a-two-body-inertial-example.html" />
-    <link rel="prev" title="Force, Acceleration, and Momentum" href="../intro/force-acceleration-and-momentum.html" />
+    <link rel="next" title="Chapter 2.3 - Equations of Relative Motion" href="../chapter-2/3-equations-of-relative-motion.html" />
+    <link rel="prev" title="Two-Body Numerical Solution in an Inertial Frame" href="two-body-inertial-numerical-solution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -118,42 +118,54 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Chapter 2
+  The N-Body Problem
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
+   Motion of the Barycenter
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3-equations-of-relative-motion.html">
+  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="3a-two-body-relative-motion-example.html">
+  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
    Example: Two-Body Problem in the Co-Moving Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="4-angular-momentum-and-the-orbit-formulas.html">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="5-the-energy-law.html">
+  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
    Chapter 2.5 - The Energy Law
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="6-circular-orbits.html">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
    Chapter 2.6 - Circular Orbits (
    <span class="math notranslate nohighlight">
     \(e = 0\)
@@ -162,7 +174,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="7-elliptical-orbits.html">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
    Chapter 2.7 - Elliptical Orbits (
    <span class="math notranslate nohighlight">
     \(0 &lt; e &lt; 1\)
@@ -171,7 +183,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="8-parabolic-trajectories.html">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
    Chapter 2.8 - Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
@@ -180,7 +192,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="9-hyperbolic-trajectories.html">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
    Chapter 2.9 - Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
@@ -189,27 +201,27 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="10-perifocal-frame.html">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
    Chapter 2.10 - Perifocal Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="11-the-lagrange-coefficients.html">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
    Chapter 2.11 - The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="12-circular-restricted-three-body-problem.html">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
    Chapter 2.12 - Circular Restricted Three-Body Problem
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="12a-Lagrange-points-example.html">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
    Example: Lagrange Points
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="12b-Equations-of-Motion-CR3BP.html">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
    Example: CR3BP Equations of Motion
   </a>
  </li>
@@ -504,7 +516,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapter-2/2-equations-of-motion-in-an-inertial-frame.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/the-n-body-problem/motion-of-the-barycenter.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -524,10 +536,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fchapter-2/2-equations-of-motion-in-an-inertial-frame.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/motion-of-the-barycenter.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/chapter-2/2-equations-of-motion-in-an-inertial-frame.md"><button
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/motion-of-the-barycenter.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -553,21 +565,6 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motion-of-the-barycenter">
-   Motion of the Barycenter
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-the-equations-of-motion">
-   Finding the Equations of Motion
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numerical-solution-of-the-two-body-problem">
-   Numerical Solution of the Two-Body Problem
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#gravitational-potential-energy">
    Gravitational Potential Energy
   </a>
@@ -588,96 +585,45 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-2-equations-of-motion-in-an-inertial-frame">
-<h1>Chapter 2.2 - Equations of Motion in an Inertial Frame<a class="headerlink" href="#chapter-2-2-equations-of-motion-in-an-inertial-frame" title="Permalink to this headline">¶</a></h1>
-<p>In this section, we will develop the equations of motion for two masses each affected by the other’s gravitational pull. At first, we will assume an inertial reference frame, but we will relax this assumption later on.</p>
-<p>The origin <span class="math notranslate nohighlight">\(O\)</span> of any inertial reference frame may move with constant velocity, but it cannot rotate or accelerate (which are really saying the same thing).</p>
-<div class="section" id="motion-of-the-barycenter">
-<h2>Motion of the Barycenter<a class="headerlink" href="#motion-of-the-barycenter" title="Permalink to this headline">¶</a></h2>
-<p>Assume that we have an inertial reference frame and we will use capital letters to refer to coordinates in this reference frame, <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, and <span class="math notranslate nohighlight">\(Z\)</span> with unit vectors <span class="math notranslate nohighlight">\(\uvec{I}\)</span>, <span class="math notranslate nohighlight">\(\uvec{J}\)</span>, and <span class="math notranslate nohighlight">\(\uvec{K}\)</span>, respectively.</p>
-<p>The position vectors <span class="math notranslate nohighlight">\(\vector{R}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{R}_2\)</span> of two point masses in this reference frame are:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{R}_1 &amp;= X_1\uvec{I} + Y_1\uvec{J} + Z_1\uvec{K}\\\vector{R}_2 &amp;= X_2\uvec{I} + Y_2\uvec{J} + Z_2\uvec{K}\end{aligned}\end{split}\]</div>
-<p>Let <span class="math notranslate nohighlight">\(\vector{r}\)</span> be the vector pointing from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span>, which we also phrase as <strong><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span></strong>.</p>
-<p>Then:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{r} &amp;= \vector{R}_2 - \vector{R}_1\\\vector{r} &amp;= \left(X_2 - X_1\right)\uvec{I} + \left(Y_2 - Y_1\right)\uvec{J} + \left(Z_2 - Z_1\right)\uvec{K}\end{aligned}\end{split}\]</div>
-<p>We also define a <strong>unit vector</strong> pointing from <span class="math notranslate nohighlight">\(m_1\)</span> toward <span class="math notranslate nohighlight">\(m_2\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\uvec{u}_r = \frac{\vector{r}}{r}\]</div>
-<p>where <span class="math notranslate nohighlight">\(r\)</span> is the magnitude of <span class="math notranslate nohighlight">\(\vector{r}\)</span>.</p>
-<p>The two masses are acted upon only by their mutual gravitational pull. <span class="math notranslate nohighlight">\(\vector{F}_{12}\)</span> is the force exerted on <span class="math notranslate nohighlight">\(m_1\)</span> by <span class="math notranslate nohighlight">\(m_2\)</span> and <span class="math notranslate nohighlight">\(\vector{F}_{21}\)</span> is the force exerted on <span class="math notranslate nohighlight">\(m_2\)</span> by <span class="math notranslate nohighlight">\(m_1\)</span>. By Newton’s third law:</p>
-<div class="math notranslate nohighlight">
-\[\vector{F}_{12} = -\vector{F}_{21}\]</div>
-<p>Newton’s second law says that this force is equal to the mass times the acceleration:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{F}_{12} &amp;= m_1\ddot{\vector{R}}_1 \\\vector{F}_{21} &amp;= m_2\ddot{\vector{R}}_2\end{aligned}\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\ddot{\vector{R}}\)</span> is the <strong>absolute acceleration</strong> of the subscripted mass. Absolute means that the acceleration is taken relative to an inertial reference frame.</p>
-<p>We are going to combine Newton’s second law with Newton’s law of gravitation now:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{F}_{12} &amp;= \frac{G m_1 m_2}{r^2}\uvec{u}_r\\\vector{F}_{21} &amp;= -\frac{G m_1 m_2}{r^2}\uvec{u}_r\end{aligned}\end{split}\]</div>
-<p>Putting it all together:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}m_1 \ddot{\vector{R}}_1 &amp;= \frac{G m_1 m_2}{r^2}\uvec{u}_r\\m_2 \ddot{\vector{R}}_2 &amp;= -\frac{G m_1 m_2}{r^2}\uvec{u}_r\end{aligned}\end{split}\]</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="motion-of-the-barycenter">
+<h1>Motion of the Barycenter<a class="headerlink" href="#motion-of-the-barycenter" title="Permalink to this headline">¶</a></h1>
+<p>The first thing we will show is that we can actually define an inertial coordinate system attached to the <strong>center of gravity</strong>, or barycenter, of the two-mass system. This is a very important result, because it means that there actually <em>is</em> an inertial reference frame we can use.</p>
 <p>Now, adding these equations together, we find an extremely important result:</p>
-<div class="math notranslate nohighlight">
-\[m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2 = \vector{0}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-sum-of-accelerations">
+<span class="eqno">(25)<a class="headerlink" href="#equation-eq-sum-of-accelerations" title="Permalink to this equation">¶</a></span>\[m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2 = \vector{0}\]</div>
 <p>To see why this result is so important, we need to define one more quantity, the <strong>barycenter</strong> or center of mass for the two-body system. Using the absolute position vectors, we find that:</p>
-<div class="math notranslate nohighlight">
-\[\vector{R}_G = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}\]</div>
-<p>By taking derivatives of this relationship, we can find the absolute velocity and acceleration of the barycenter:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{v}_G &amp;= \dot{\vector{R}}_G = \frac{m_1 \dot{\vector{R}}_1 + m_2\dot{\vector{R}}_2}{m_1 + m_2}\\\vector{a}_G &amp;= \ddot{\vector{R}}_G = \frac{m_1 \ddot{\vector{R}}_1 + m_2\ddot{\vector{R}}_2}{m_1 + m_2}\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-barycenter-definition">
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-barycenter-definition" title="Permalink to this equation">¶</a></span>\[\vector{R}_G = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}\]</div>
+<p>By taking derivatives of <a class="reference internal" href="#equation-eq-barycenter-definition">(26)</a>, we can find the absolute velocity and acceleration of the barycenter:</p>
+<div class="math notranslate nohighlight" id="equation-eq-barycenter-velocity-and-acceleration">
+<span class="eqno">(27)<a class="headerlink" href="#equation-eq-barycenter-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \vector{v}_G &amp;= \dot{\vector{R}}_G = \frac{m_1 \dot{\vector{R}}_1 + m_2\dot{\vector{R}}_2}{m_1 + m_2}\\
+  \vector{a}_G &amp;= \ddot{\vector{R}}_G = \frac{m_1 \ddot{\vector{R}}_1 + m_2\ddot{\vector{R}}_2}{m_1 + m_2}
+\end{aligned}\end{split}\]</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Assuming that the only forces are the mutual gravitational attraction of the two masses.</p>
 </div>
 <p>Now go back to the result from Newton’s laws - it says that the top of the fraction in the acceleration of the barycenter is equal to zero. In other words, the center of gravity of the two-body system does not undergo any acceleration and moves at constant velocity in a straight line for all time!</p>
 <p>This is a hugely important result because it means that a coordinate system attached to the barycenter is an <strong>inertial reference frame</strong>. We can find the position, velocity, and acceleration of masses relative to a coordinate system attached to the barycenter, and they will be the absolute quantities.</p>
-</div>
-<div class="section" id="finding-the-equations-of-motion">
-<h2>Finding the Equations of Motion<a class="headerlink" href="#finding-the-equations-of-motion" title="Permalink to this headline">¶</a></h2>
-<p>Our goal is now to determine equations that will let us solve for the position, velocity, and acceleration of the two masses as a function of time. To do this, we will return to the combination of Newton’s laws, divide through by the masses, and substitute the definition of the unit vector <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\ddot{\vector{R}}_1 &amp;= G m_2 \frac{\vector{r}}{r^3}\\\ddot{\vector{R}}_2 &amp;= G m_1 \frac{\vector{r}}{r^3}\end{aligned}\end{split}\]</div>
-<p>We can split these into components to find the absolute acceleration:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\ddot{X}_1 &amp;= G m_2 \frac{X_2 - X_1}{r^3} &amp; \ddot{Y}_1 &amp;= G m_2 \frac{Y_2 - Y_1}{r^3} &amp; \ddot{Z}_1 &amp;= G m_2 \frac{Z_2 - Z_1}{r^3}\\\ddot{X}_2 &amp;= G m_1 \frac{X_1 - X_2}{r^3} &amp; \ddot{Y}_2 &amp;= G m_1 \frac{Y_1 - Y_2}{r^3} &amp; \ddot{Z}_2 &amp;= G m_1 \frac{Z_1 - Z_2}{r^3}\end{aligned}\end{split}\]</div>
-<p>The position vectors <span class="math notranslate nohighlight">\(\vector{R}\)</span> and velocity vectors <span class="math notranslate nohighlight">\(\vector{v}\)</span> are referred to as the <strong>state vector</strong> of the system. Given initial values for <span class="math notranslate nohighlight">\(\vector{R}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span>, we can use the acceleration equations to find the state of the system at any given time by integration. In practice, it is easiest to do this by solving the system of ordinary differential equations numerically.</p>
-</div>
-<div class="section" id="numerical-solution-of-the-two-body-problem">
-<h2>Numerical Solution of the Two-Body Problem<a class="headerlink" href="#numerical-solution-of-the-two-body-problem" title="Permalink to this headline">¶</a></h2>
-<p>The system of ordinary differential equations is represented mathematically in this way:</p>
-<div class="math notranslate nohighlight">
-\[\dot{\vector{y}} = f\left(t, \vector{y}\right)\]</div>
-<p>On the left side, we are taking the time derivative of the state vector. This time derivative is some unknown function of time, <span class="math notranslate nohighlight">\(t\)</span>, and the state vector itself. In the case of the two-body problem, the state vector is made of the 3 components of position and velocity for each of the two masses:</p>
-<div class="math notranslate nohighlight">
-\[\vector{y} = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
-<p>This gives a state vector of length 12 elements. We define this as the state vector because we are interested in the positions of the masses as a function of time (for example, the position of the Earth and Moon as a function of time). If we only included the positions in the state vector, the left side of the equation would be just the velocity. However, to solve the velocity we need to include the acceleration. Therefore, we include the velocities in the state vector as well, so that the left hand side will include the acceleration.</p>
-<p>The left hand side of the previous equation is:</p>
-<div class="math notranslate nohighlight">
-\[\dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]\]</div>
-<p>In other words, the first six elements of the left side are the velocities and the second six are the acceleration.</p>
-<p>Now, if specify initial values for <span class="math notranslate nohighlight">\(\vector{R}_{1}\)</span> and <span class="math notranslate nohighlight">\(\vector{R}_{2}\)</span>, we can calculate all of the acceleration terms. We also need to specify initial values for the velocities.</p>
-<p>Now choose a time-step size, let’s say <span class="math notranslate nohighlight">\(\Delta t =\)</span> 1 second. Since we have the initial values at <span class="math notranslate nohighlight">\(t = 0\)</span>, we can find the values at <span class="math notranslate nohighlight">\(t = 1\)</span> by multiplying <span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span> with <span class="math notranslate nohighlight">\(\Delta t\)</span> and adding them to the initial values. We can repeat that process until we reach a desired end time.</p>
-<p>However, it would be inefficient to do this by hand, and there are more accurate methods available. These are described in Chapter 1.8 of your textbook. I don’t see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you’re using.</p>
-<p>In SciPy, the function is called <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a>. In Matlab, the function is called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html"><code class="docutils literal notranslate"><span class="pre">ode45</span></code></a>. In the next page, we’ll demonstrate the example from the book using SciPy and plot the results.</p>
-</div>
 <div class="section" id="gravitational-potential-energy">
 <h2>Gravitational Potential Energy<a class="headerlink" href="#gravitational-potential-energy" title="Permalink to this headline">¶</a></h2>
 <p>The gravitational potential energy function for a spherically-symmetrical shape is:</p>
-<div class="math notranslate nohighlight">
-\[V = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{\left(X_2 - X_1\right)^2 + \left(Y_2 - Y_1\right)^2 + \left(Z_2 - Z_1\right)^2}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-gravitational-potential-energy-function">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eq-gravitational-potential-energy-function" title="Permalink to this equation">¶</a></span>\[V = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{\left(X_2 - X_1\right)^2 + \left(Y_2 - Y_1\right)^2 + \left(Z_2 - Z_1\right)^2}}\]</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Conservative forces allow infinite conversion of energy between forms. Non-conservative forces, such as friction and drag, result in a conversion of mechanical energy into heat.</p>
 </div>
 <p>Gravity is a <a class="reference external" href="https://en.wikipedia.org/wiki/Conservative_force"><strong>conservative force</strong></a>, which means that the force field can be determined from the gradient of the potential energy function:</p>
-<div class="math notranslate nohighlight">
-\[\vector{F} = - \vector{\nabla} V\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-gravity-force-field">
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V\]</div>
 <p>Thus, the attractive forces between the masses are given by:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{F}_{12} &amp;= -\left(\frac{\partial V}{\partial X_2}\uvec{\imath} + \frac{\partial V}{\partial Y_2}\uvec{\jmath} + \frac{\partial V}{\partial Z_2}\uvec{k}\right)\\\vector{F}_{21} &amp;= -\left(\frac{\partial V}{\partial X_1}\uvec{\imath} + \frac{\partial V}{\partial Y_1}\uvec{\jmath} + \frac{\partial V}{\partial Z_1}\uvec{k}\right)\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-force-from-potential-function">
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \vector{F}_{12} &amp;= -\left(\frac{\partial V}{\partial X_2}\uvec{\imath} + \frac{\partial V}{\partial Y_2}\uvec{\jmath} + \frac{\partial V}{\partial Z_2}\uvec{k}\right)\\
+  \vector{F}_{21} &amp;= -\left(\frac{\partial V}{\partial X_1}\uvec{\imath} + \frac{\partial V}{\partial Y_1}\uvec{\jmath} + \frac{\partial V}{\partial Z_1}\uvec{k}\right)
+\end{aligned}\end{split}\]</div>
 <p>In the book, they show that the gravitational potential energy field of a sphere is equivalent to the field of an equivalent point mass located at the center of the sphere. As long as the spheres don’t come into contact, we can substitute point masses for spheres with no difference in the equations!</p>
 </div>
 <div class="section" id="many-body-problems">
@@ -701,7 +647,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapter-2"
+            path: "./the-n-body-problem"
         },
         predefinedOutput: true
     }
@@ -713,8 +659,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../intro/force-acceleration-and-momentum.html" title="previous page">Force, Acceleration, and Momentum</a>
-    <a class='right-next' id="next-link" href="2a-two-body-inertial-example.html" title="next page">Example: Two-Body Problem in an Inertial Frame</a>
+    <a class='left-prev' id="prev-link" href="two-body-inertial-numerical-solution.html" title="previous page">Two-Body Numerical Solution in an Inertial Frame</a>
+    <a class='right-next' id="next-link" href="../chapter-2/3-equations-of-relative-motion.html" title="next page">Chapter 2.3 - Equations of Relative Motion</a>
 
         </div>
         

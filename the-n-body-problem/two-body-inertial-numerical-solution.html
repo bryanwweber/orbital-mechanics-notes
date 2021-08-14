@@ -1,0 +1,949 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two-Body Numerical Solution in an Inertial Frame &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-inertial-numerical-solution.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Motion of the Barycenter" href="motion-of-the-barycenter.html" />
+    <link rel="prev" title="Two-Body Equations of Motion in an Inertial Frame" href="two-body-inertial-motion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
+   Chapter 2.3 - Equations of Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
+   Example: Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
+   Chapter 2.5 - The Energy Law
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6-hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6a-Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7-universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
+   Chapter 4.2 - Geocentric Right Ascension-Declination Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/3-state-vector-and-the-geocentric-equatorial-frame.html">
+   Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/4-orbital-elements-and-the-state-vector.html">
+   Chapter 4.4 - Orbital Elements and the State Vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/5-coordinate-transformations.html">
+   Chapter 4.5 - Coordinate Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames.html">
+   Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/7-effects-of-the-earths-oblateness.html">
+   Chapter 4.7 - Effects of the Earth’s Oblateness
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2-impulsive-maneuvers.html">
+   Chapter 6.2 - Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2a-single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/3-hohmann-transfer.html">
+   Chapter 6.3 - Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4-bielliptic-hohmann-transfer.html">
+   Chapter 6.4 - Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4a-comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/5-phasing-maneuvers.html">
+   Chapter 6.5 - Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/6-non-hohmann-transfers.html">
+   Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/7-apse-line-rotation.html">
+   Chapter 6.7 - Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/8-chase-maneuvers.html">
+   Chapter 6.8 - Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9-plane-change-maneuvers.html">
+   Chapter 6.9 - Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9a-plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10-nonimpulsive-orbital-maneuvers.html">
+   Chapter 6.10 - Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10a-nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/2-interplanetary-hohmann-transfers.html">
+   Chapter 8.2 - Interplanetary Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/10-planetary-ephemeris.html">
+   Chapter 8.10 - Planetary Ephemeris
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/the-n-body-problem/two-body-inertial-numerical-solution.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/the-n-body-problem/two-body-inertial-numerical-solution.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/two-body-inertial-numerical-solution.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/two-body-inertial-numerical-solution.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/the-n-body-problem/two-body-inertial-numerical-solution.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-state-vector">
+   The State Vector
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transforming-the-system-of-ordinary-differential-equations">
+   Transforming the System of Ordinary Differential Equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-algorithm">
+   Solution Algorithm
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="two-body-numerical-solution-in-an-inertial-frame">
+<h1>Two-Body Numerical Solution in an Inertial Frame<a class="headerlink" href="#two-body-numerical-solution-in-an-inertial-frame" title="Permalink to this headline">¶</a></h1>
+<p>The equations of motion for the two-body problem in an inertial frame are given by <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>, repeated here:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \ddot{X}_1 &amp;= G m_2 \frac{X_2 - X_1}{r^3} &amp; \ddot{Y}_1 &amp;= G m_2 \frac{Y_2 - Y_1}{r^3} &amp; \ddot{Z}_1 &amp;= G m_2 \frac{Z_2 - Z_1}{r^3}\\
+  \ddot{X}_2 &amp;= G m_1 \frac{X_1 - X_2}{r^3} &amp; \ddot{Y}_2 &amp;= G m_1 \frac{Y_1 - Y_2}{r^3} &amp; \ddot{Z}_2 &amp;= G m_1 \frac{Z_1 - Z_2}{r^3}
+\end{aligned}\end{split}\]</div>
+<p>The initial positions of the masses are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \vector{R}_{1,0} &amp;= \left(0 \uvec{I} + 0 \uvec{J} + 0 \uvec{K}\right) \mathrm{km} \\
+  \vector{R}_{2,0} &amp;= \left(3000 \uvec{I} + 0 \uvec{J} + 0 \uvec{K}\right) \mathrm{km}
+\end{aligned}\end{split}\]</div>
+<p>and the initial velocities are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\vector{R}}_{1,0} &amp;= \left(10 \uvec{I} + 20 \uvec{J} + 30 \uvec{K}\right) \mathrm{km/s} \\
+  \dot{\vector{R}}_{2,0} &amp;= \left(0 \uvec{I} + 40 \uvec{J} + 0 \uvec{K}\right) \mathrm{km/s}
+\end{aligned}\end{split}\]</div>
+<p>where the subscript <span class="math notranslate nohighlight">\(0\)</span> indicates the <em>initial</em> position and velocity. These are the 12 components of the <em>initial state vector</em>, which we will give the symbol <span class="math notranslate nohighlight">\(y_0\)</span>.</p>
+<p>The two masses are equal, <span class="math notranslate nohighlight">\(m_1 = m_2 = 1.0\times 10^{26} \text{ kg}\)</span> and Newton’s gravitational constant, <span class="math notranslate nohighlight">\(G = 6.67430\times 10^{-2} \text{ km}^3 \text{ kg}^{-1} \text{ s}^{-2}\)</span>.</p>
+<div class="section" id="the-state-vector">
+<h2>The State Vector<a class="headerlink" href="#the-state-vector" title="Permalink to this headline">¶</a></h2>
+<p>In the numerical solution, the state vector is stored in an <strong>array</strong>. Arrays in programming are data structures that are optimized to store numbers. The order that the components appear in the state vector isn’t important, only that we keep track of the order and don’t forget it. For the sake of choosing something, we will set the positions followed by the velocities:</p>
+<div class="math notranslate nohighlight" id="equation-eq-state-vector-array">
+<span class="eqno">(22)<a class="headerlink" href="#equation-eq-state-vector-array" title="Permalink to this equation">¶</a></span>\[y = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z_1}\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
+<p>The array is indicated by using square brackets, <span class="math notranslate nohighlight">\([\dots]\)</span>, and lists all the components of the array inside the brackets. Depending on the programming language you’re using, there are different ways to create arrays.</p>
+<p>In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="21322e16-1609-4bd0-be6c-42d4a366b9fd" name="fb2d90f7-8fde-4937-88aa-96199260c61b" type="radio">
+</input><label class="tabbed-label" for="21322e16-1609-4bd0-be6c-42d4a366b9fd">
+Python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">R_1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># km</span>
+<span class="n">R_2_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># km</span>
+<span class="n">V_1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>  <span class="c1"># km/s</span>
+<span class="n">V_2_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># km/s</span>
+
+<span class="n">y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">R_1_0</span><span class="p">,</span> <span class="n">R_2_0</span><span class="p">,</span> <span class="n">V_1_0</span><span class="p">,</span> <span class="n">V_2_0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<input id="3de18e17-8358-4661-89b0-b950b4ec4e4c" name="fb2d90f7-8fde-4937-88aa-96199260c61b" type="radio">
+</input><label class="tabbed-label" for="3de18e17-8358-4661-89b0-b950b4ec4e4c">
+MATLAB</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span><span class="w"></span>
+<span class="n">R20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span><span class="w"></span>
+<span class="n">V10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span><span class="w"></span>
+<span class="n">V20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span><span class="w"></span>
+
+<span class="n">y_0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">R10</span><span class="w"> </span><span class="n">R20</span><span class="w"> </span><span class="n">V10</span><span class="w"> </span><span class="n">V20</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transforming-the-system-of-ordinary-differential-equations">
+<h2>Transforming the System of Ordinary Differential Equations<a class="headerlink" href="#transforming-the-system-of-ordinary-differential-equations" title="Permalink to this headline">¶</a></h2>
+<p>The system of ordinary differential equations (ODEs) in <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> or <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a> is a second order system. However, it can be transformed to a system of first-order ODEs by recognizing the acceleration as the first derivative of the velocity. Solving a first-order system is much simpler than solving a second-order system.</p>
+<p>We know that the system of equations requires the</p>
+<div class="math notranslate nohighlight" id="equation-eq-numerical-solution">
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-numerical-solution" title="Permalink to this equation">¶</a></span>\[\dot{\vector{y}} = f\left(t, \vector{y}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{y}\)</span> is the state vector, <span class="math notranslate nohighlight">\(t\)</span> is time, and <span class="math notranslate nohighlight">\(f\)</span> is a function that depends on the current time and the current state vector.</p>
+<p>The left hand side of <a class="reference internal" href="#equation-eq-numerical-solution">(23)</a> is the time-derivative of the state vector, which we find by taking the time derivative of each element of the state vector:</p>
+<div class="math notranslate nohighlight" id="equation-eq-state-vector-derivative">
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-state-vector-derivative" title="Permalink to this equation">¶</a></span>\[\dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]\]</div>
+<p>In words, the left side of <a class="reference internal" href="#equation-eq-numerical-solution">(23)</a> is another array, where the first six elements are the velocity components (the first derivative of position) and the second six are the acceleration (the first derivative of velocity).</p>
+</div>
+<div class="section" id="solution-algorithm">
+<h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>. This can be done for one direction at a time, as shown in the following code:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="60088ae7-62ac-4978-a9fa-521aa91626dc" name="7fff1093-c221-4541-a256-1cb81bb1f3b6" type="radio">
+</input><label class="tabbed-label" for="60088ae7-62ac-4978-a9fa-521aa91626dc">
+Python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430E-2</span>  <span class="c1"># km**3/(kg * s**2)</span>
+<span class="n">m_1</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">=</span> <span class="mf">1.0E26</span>
+
+<span class="n">X_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Z_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">X_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">Y_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">Z_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ddotX_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotY_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotZ_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotX_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotY_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotZ_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<input id="54c6d53e-f949-4fb5-be3a-a758ba95454d" name="7fff1093-c221-4541-a256-1cb81bb1f3b6" type="radio">
+</input><label class="tabbed-label" for="54c6d53e-f949-4fb5-be3a-a758ba95454d">
+Matlab</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430E-2</span><span class="p">;</span><span class="w">  </span><span class="c">% km**3/(kg * s**2)</span><span class="w"></span>
+<span class="n">m_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
+
+<span class="n">X_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">Y_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">Z_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="n">X_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="n">Y_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="n">Z_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">((</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">ddotX_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotY_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotZ_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotX_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotY_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotZ_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now choose a time-step size, let’s say <span class="math notranslate nohighlight">\(\Delta t =\)</span> 1 second. Since we have the initial values at <span class="math notranslate nohighlight">\(t = 0\)</span>, we can find the values at <span class="math notranslate nohighlight">\(t = 1\)</span> by multiplying <span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span> with <span class="math notranslate nohighlight">\(\Delta t\)</span> and adding them to the initial values. We can repeat that process until we reach a desired end time.</p>
+<p>However, it would be inefficient to do this by hand, and there are more accurate methods available. These are described in Chapter 1.8 of your textbook. I don’t see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you’re using.</p>
+<p>In SciPy, the function is called <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a>. In Matlab, the function is called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html"><code class="docutils literal notranslate"><span class="pre">ode45</span></code></a>. In the next page, we’ll demonstrate the example from the book using SciPy and plot the results.</p>
+<p>In this Notebook, we will solve the two-body problem and produce several plots of the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we set the initial values and the constants. The initial position is with <span class="math notranslate nohighlight">\(m_1\)</span> at the origin and <span class="math notranslate nohighlight">\(m_2\)</span> 3000 km to the right of the origin.</p>
+<p>In the function we will write, the state vector will be called <span class="math notranslate nohighlight">\(y\)</span>, so its initial value is <span class="math notranslate nohighlight">\(y_0\)</span>. Remember that the state vector includes 12 components, 6 positions and 6 velocities. These all need to be stored in one array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430E-11</span>  <span class="c1"># m**3/(kg * s**2)</span>
+<span class="n">m_1</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">=</span> <span class="mf">1.0E26</span>  <span class="c1"># kg</span>
+
+<span class="n">R1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m</span>
+<span class="n">R2_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m</span>
+<span class="n">V1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m/s</span>
+<span class="n">V2_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">*</span><span class="mi">1000</span>  <span class="c1"># m/s</span>
+
+<span class="n">y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">R1_0</span><span class="p">,</span> <span class="n">R2_0</span><span class="p">,</span> <span class="n">V1_0</span><span class="p">,</span> <span class="n">V2_0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[      0       0       0 3000000       0       0   10000   20000   30000
+       0   40000       0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
+<p>The function takes the time <span class="math notranslate nohighlight">\(t\)</span> and current value of the state vector <span class="math notranslate nohighlight">\(y\)</span> as inputs. Because of the way that we constructed the initial values, the first 3 values of the state vector are the coordinates of <span class="math notranslate nohighlight">\(m_1\)</span>, the next 3 values are the coordinates of <span class="math notranslate nohighlight">\(m_2\)</span>, the next 3 values are the velocity components of <span class="math notranslate nohighlight">\(m_1\)</span>, and the last three values are the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span>. However, if you construct your initial state vector in a different order, make sure you match that order in your function. It doesn’t matter what order you choose, as long as you’re consistent.</p>
+<p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">ydot</span></code> back to the solver.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolute_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system in an inertial reference frame.</span>
+<span class="sd">    </span>
+<span class="sd">    The state vector ``y`` should be in the order:</span>
+<span class="sd">    </span>
+<span class="sd">    1. Coordinates of $m_1$</span>
+<span class="sd">    2. Coordinates of $m_2$</span>
+<span class="sd">    3. Velocity components of $m_1$</span>
+<span class="sd">    4. Velocity components of $m_2$</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Get the six coordinates for m_1 and m_2 from the state vector</span>
+    <span class="n">X_1</span><span class="p">,</span> <span class="n">Y_1</span><span class="p">,</span> <span class="n">Z_1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">X_2</span><span class="p">,</span> <span class="n">Y_2</span><span class="p">,</span> <span class="n">Z_2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    
+    <span class="c1"># Fill the derivative vector with zeros</span>
+    <span class="n">ydot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    
+    <span class="c1"># Set the first 6 elements of the derivative equal to the last</span>
+    <span class="c1"># 6 elements of the state vector, which are the velocities</span>
+    <span class="n">ydot</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+    
+    <span class="c1"># Calculate the acceleration terms and fill them in to the rest</span>
+    <span class="c1"># of the derivative array</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Xddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">Yddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">Zddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xddot</span> <span class="o">*</span> <span class="n">m_2</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">Yddot</span> <span class="o">*</span> <span class="n">m_2</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="n">Zddot</span> <span class="o">*</span> <span class="n">m_2</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">Xddot</span> <span class="o">*</span> <span class="n">m_1</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">Yddot</span> <span class="o">*</span> <span class="n">m_1</span>
+    <span class="n">ydot</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">Zddot</span> <span class="o">*</span> <span class="n">m_1</span>
+    <span class="k">return</span> <span class="n">ydot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the function defined, we can call <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
+<p>Once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code>. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">y</span></code>. Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
+<span class="n">t_f</span> <span class="o">=</span> <span class="mi">480</span>  <span class="c1"># seconds</span>
+<span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">absolute_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">)</span>
+<span class="c1"># MATLAB: ode45(absolute_motion, [t_0, t_f], y_0)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span>
+<span class="n">R_1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c1"># km</span>
+<span class="n">R_2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c1"># km</span>
+<span class="n">V_1</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c1"># km/s</span>
+<span class="n">V_2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">9</span><span class="p">:]</span> <span class="o">/</span> <span class="mi">1000</span>  <span class="c1"># km/s</span>
+<span class="n">barycenter</span> <span class="o">=</span> <span class="p">(</span><span class="n">m_1</span> <span class="o">*</span> <span class="n">R_1</span> <span class="o">+</span> <span class="n">m_2</span> <span class="o">*</span> <span class="n">R_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">m_1</span> <span class="o">+</span> <span class="n">m_2</span><span class="p">)</span>  <span class="c1"># km</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we construct some plots of the situation. In this first plot, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. This is a key feature of the solution of this problem, as we discussed above.</p>
+<p>The two masses spiral around the barycenter. One way to imagine this system (to a first approximation) is as the Earth and the Moon viewed as though you were sitting on the Sun (but not rotating with the Sun). The Earth and Moon would move through space, and they would appear to be orbiting around each other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_2</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">barycenter</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">barycenter</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">barycenter</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CG&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/two-body-inertial-numerical-solution_9_0.png" src="../_images/two-body-inertial-numerical-solution_9_0.png" />
+</div>
+</div>
+<p>Another way to view this plot is by setting the barycenter to be the origin of the coordinate system, rather than an external inertial frame. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">R1_rel_G</span> <span class="o">=</span> <span class="n">R_1</span> <span class="o">-</span> <span class="n">barycenter</span>
+<span class="n">R2_rel_G</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">-</span> <span class="n">barycenter</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R1_rel_G</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R1_rel_G</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R1_rel_G</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R2_rel_G</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R2_rel_G</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R2_rel_G</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CG&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/two-body-inertial-numerical-solution_11_0.png" src="../_images/two-body-inertial-numerical-solution_11_0.png" />
+</div>
+</div>
+<p>The final plot here fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass (relatively speaking).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">R2_rel_R1</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span>
+<span class="n">G_rel_R1</span> <span class="o">=</span> <span class="n">barycenter</span> <span class="o">-</span> <span class="n">R_1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R2_rel_R1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R2_rel_R1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R2_rel_R1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">G_rel_R1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">G_rel_R1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">G_rel_R1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;CG&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/two-body-inertial-numerical-solution_13_0.png" src="../_images/two-body-inertial-numerical-solution_13_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./the-n-body-problem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="two-body-inertial-motion.html" title="previous page">Two-Body Equations of Motion in an Inertial Frame</a>
+    <a class='right-next' id="next-link" href="motion-of-the-barycenter.html" title="next page">Motion of the Barycenter</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

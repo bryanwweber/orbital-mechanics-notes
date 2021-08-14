@@ -52,7 +52,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\hat{#1}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-3/7-universal-variables.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -118,20 +118,32 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Chapter 2
+  The N-Body Problem
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2-equations-of-motion-in-an-inertial-frame.html">
-   Chapter 2.2 - Equations of Motion in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/2a-two-body-inertial-example.html">
-   Example: Two-Body Problem in an Inertial Frame
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
    Chapter 2.3 - Equations of Relative Motion
@@ -695,6 +707,9 @@
 </div>
 <p>The two Stumpff functions are plotted in the figure below. Notice that both <span class="math notranslate nohighlight">\(C(z)\)</span> and <span class="math notranslate nohighlight">\(S(z)\)</span> tend toward infinity as <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(-\infty\)</span>, and they approach zero as <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(+\infty\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/7-universal-variables_1_0.png" src="../_images/7-universal-variables_1_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="relation-of-chi-to-other-anomalies">
@@ -729,14 +744,14 @@ $$\tan\frac{\theta - \theta_0}{2} = \frac{z}{z}$$ -->
 \[f(\chi) = 0 = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\]</div>
 <p>The derivative of this function is also useful:</p>
 <div class="math notranslate nohighlight" id="equation-universal-kepler-derivative">
-<span class="eqno">(21)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
+<span class="eqno">(39)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
 <p>where <span class="math notranslate nohighlight">\(z = \alpha\chi^2\)</span>, such that:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dz}{d\chi} = 2\alpha\chi\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}\frac{d S(z)}{dz} &amp;= \frac{1}{2z}\left[C(z) - 3S(z)\right] \\\frac{d C(z)}{dz} &amp;= \frac{1}{2z}\left[1 - z S(z) - 2C(z)\right]\end{aligned}\end{split}\]</div>
-<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(21)</a> gives:</p>
+<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(39)</a> gives:</p>
 <div class="math notranslate nohighlight">
 \[\frac{d f(\chi)}{d\chi} = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi\left[1 - \alpha\chi^2 S(z)\right] + \left(1 - \alpha r_0\right)\chi^2 C(z) + r_0\]</div>
 <p>The last thing we need for a solution using Newton’s algorithm is an initial guess. There are several methods suggested for this. In <span id="id1">[<a class="reference internal" href="../bibliography.html#id7">Cur20</a>]</span>, they suggest using:</p>
