@@ -645,8 +645,8 @@
 <p>The array is indicated by using square brackets, <span class="math notranslate nohighlight">\([\dots]\)</span>, and lists all the components of the array inside the brackets. Depending on the programming language you’re using, there are different ways to create arrays.</p>
 <p>In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8eb9164d-45cd-4679-9108-79d1a0be8220" name="c789db29-b5cb-4743-ba30-686d77757563" type="radio">
-</input><label class="tabbed-label" for="8eb9164d-45cd-4679-9108-79d1a0be8220">
+<input checked="checked" id="19551302-469b-4891-b743-2c3dc3bc14ac" name="deb9bfef-2892-4038-8d5c-5a51e3587dc3" type="radio">
+</input><label class="tabbed-label" for="19551302-469b-4891-b743-2c3dc3bc14ac">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -663,18 +663,19 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="627d1928-c181-49da-b218-3463f6ef06ee" name="c789db29-b5cb-4743-ba30-686d77757563" type="radio">
-</input><label class="tabbed-label" for="627d1928-c181-49da-b218-3463f6ef06ee">
+<input id="e1f04e1f-c6e4-4acc-af2b-93374f76ae5d" name="deb9bfef-2892-4038-8d5c-5a51e3587dc3" type="radio">
+</input><label class="tabbed-label" for="e1f04e1f-c6e4-4acc-af2b-93374f76ae5d">
 MATLAB</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430E-2</span><span class="p">;</span><span class="w">  </span><span class="c">% km**3/(kg * s**2)</span><span class="w"></span>
-<span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430E-20</span><span class="p">;</span><span class="w">  </span><span class="c">% km^3/(kg * s^2)</span><span class="w"></span>
+<span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
+<span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
 
 <span class="n">R10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span><span class="w"></span>
 <span class="n">R20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span><span class="w"></span>
 <span class="n">dotR10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span><span class="w"></span>
 <span class="n">dotR20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span><span class="w"></span>
 
-<span class="n">y_0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">R10</span><span class="w"> </span><span class="n">R20</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="n">dotR20</span><span class="p">];</span><span class="w"></span>
+<span class="n">y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">R10</span><span class="w"> </span><span class="n">R20</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="n">dotR20</span><span class="p">];</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -697,8 +698,8 @@ MATLAB</label><div class="tabbed-content docutils">
 <h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>. This can be done for one direction at a time, as shown in the following code:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="26001503-2114-475b-8d84-2d96d2ba1ac0" name="b1155024-a8ac-46e3-b956-f1ef85350972" type="radio">
-</input><label class="tabbed-label" for="26001503-2114-475b-8d84-2d96d2ba1ac0">
+<input checked="checked" id="5c03ba25-477c-4a1e-be9f-3b4560d60ac2" name="a9e48c27-ddf2-408c-adac-9d6be011649b" type="radio">
+</input><label class="tabbed-label" for="5c03ba25-477c-4a1e-be9f-3b4560d60ac2">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">Y_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -719,24 +720,24 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7d8b5ba9-95fb-4770-a78b-b9967ad0c084" name="b1155024-a8ac-46e3-b956-f1ef85350972" type="radio">
-</input><label class="tabbed-label" for="7d8b5ba9-95fb-4770-a78b-b9967ad0c084">
+<input id="694e9792-5810-4ce4-8a92-38f688c0e723" name="a9e48c27-ddf2-408c-adac-9d6be011649b" type="radio">
+</input><label class="tabbed-label" for="694e9792-5810-4ce4-8a92-38f688c0e723">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="n">Y_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="n">Z_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="n">X_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="n">Y_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-<span class="n">Z_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">Y_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">Z_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="n">X_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="n">Y_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="n">Z_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
 
 <span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">((</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">ddotX_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotY_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotZ_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotX_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotY_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotZ_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m_1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotX_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotY_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotZ_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotX_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotY_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotZ_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -748,8 +749,8 @@ Matlab</label><div class="tabbed-content docutils">
 <p>This code first retrieves the position components from the state vector. Then it calculates each component of acceleration for the two masses.</p>
 <p>This code is pretty long, and we’ve created a bunch of variables to keep track of. Fortunately, there are simpler ways to approach this calculation. The next code samples show how to take advantage of the nature of array computations:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a9ab5f4b-0f54-4d2a-9553-754381e4b9cc" name="084dcbf0-d335-4c05-83c4-7b81ebae240f" type="radio">
-</input><label class="tabbed-label" for="a9ab5f4b-0f54-4d2a-9553-754381e4b9cc">
+<input checked="checked" id="2ae0f335-f932-4407-bedf-328f44413491" name="817a9f57-6e4b-4dd9-a945-9b16a477fa31" type="radio">
+</input><label class="tabbed-label" for="2ae0f335-f932-4407-bedf-328f44413491">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">R_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
@@ -762,11 +763,11 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ce1e1366-bab6-4777-996f-0516ad102617" name="084dcbf0-d335-4c05-83c4-7b81ebae240f" type="radio">
-</input><label class="tabbed-label" for="ce1e1366-bab6-4777-996f-0516ad102617">
+<input id="5ca9a248-bafe-4e83-babd-54f7c1df4fbb" name="817a9f57-6e4b-4dd9-a945-9b16a477fa31" type="radio">
+</input><label class="tabbed-label" for="5ca9a248-bafe-4e83-babd-54f7c1df4fbb">
 Matlab</label><div class="tabbed-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(:</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y_0</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
 
 <span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">);</span><span class="w"></span>
 <span class="n">ddot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
@@ -788,8 +789,8 @@ Matlab</label><div class="tabbed-content docutils">
 <p>Assuming that the acceleration and velocity are constant over some time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, the integrals simplify to the product of the term and <span class="math notranslate nohighlight">\(\Delta t\)</span>. The choice of <span class="math notranslate nohighlight">\(\Delta t\)</span> is up to you. Smaller values of <span class="math notranslate nohighlight">\(\Delta t\)</span> will be more accurate but take longer to compute.</p>
 <p>Let’s choose <span class="math notranslate nohighlight">\(\Delta t = 1\text{ s}\)</span>. Then, to compute the state vector at the next time step:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="6595371f-1e95-4034-9bdb-8029c3e4c231" name="f28140e7-9f1d-4fec-9a9b-789b45057d3b" type="radio">
-</input><label class="tabbed-label" for="6595371f-1e95-4034-9bdb-8029c3e4c231">
+<input checked="checked" id="9ccef2a2-7b24-4be3-9f01-ee190ba38497" name="47e64373-8f5d-4b56-b24a-003cbfce3426" type="radio">
+</input><label class="tabbed-label" for="9ccef2a2-7b24-4be3-9f01-ee190ba38497">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># s</span>
 <span class="n">dotR_1_1</span> <span class="o">=</span> <span class="n">ddotR_1_0</span> <span class="o">*</span> <span class="n">Delta_t</span> <span class="o">+</span> <span class="n">dotR_1_0</span>
@@ -801,28 +802,28 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="f86aecc8-22c7-49b5-a744-ca2ca0227f0f" name="f28140e7-9f1d-4fec-9a9b-789b45057d3b" type="radio">
-</input><label class="tabbed-label" for="f86aecc8-22c7-49b5-a744-ca2ca0227f0f">
+<input id="2e09b343-273e-43df-b343-111d1301f025" name="47e64373-8f5d-4b56-b24a-003cbfce3426" type="radio">
+</input><label class="tabbed-label" for="2e09b343-273e-43df-b343-111d1301f025">
 Matlab</label><div class="tabbed-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c">% s</span><span class="w"></span>
-<span class="n">dotR11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR10</span><span class="w"></span>
-<span class="n">dotR21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR20</span><span class="w"></span>
+<span class="n">dotR11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR10</span><span class="p">;</span><span class="w"></span>
+<span class="n">dotR21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR20</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">R11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R10</span><span class="w"></span>
-<span class="n">R21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R20</span><span class="w"></span>
+<span class="n">R11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R10</span><span class="p">;</span><span class="w"></span>
+<span class="n">R21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R20</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>However, it would be inefficient to do this by hand, and there are more accurate methods available. I don’t see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you’re using.</p>
+<p>However, it would be inefficient to do this by hand and there are more accurate methods available. I don’t see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you’re using.</p>
 </div>
 <div class="section" id="numerical-solution-using-pre-built-libraries">
 <h2>Numerical Solution Using Pre-Built Libraries<a class="headerlink" href="#numerical-solution-using-pre-built-libraries" title="Permalink to this headline">¶</a></h2>
 <p>In SciPy, the function is called <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a>. In Matlab, the function is called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html"><code class="docutils literal notranslate"><span class="pre">ode45</span></code></a>.</p>
-<p>First, you need to start by importing the appropriate Python libraries:</p>
+<p>First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="dae02696-f26c-4cac-8be6-1d66e9f15ce1" name="15cf81bc-57f6-422a-9447-d6730d0ecfb9" type="radio">
-</input><label class="tabbed-label" for="dae02696-f26c-4cac-8be6-1d66e9f15ce1">
+<input checked="checked" id="ce5cc8c9-58f7-4841-9c4f-792d0cc54e7d" name="a48042a7-c1ff-4a9b-a0ca-8df5d3bd956c" type="radio">
+</input><label class="tabbed-label" for="ce5cc8c9-58f7-4841-9c4f-792d0cc54e7d">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -832,19 +833,14 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="3d3ed03d-cc7a-4c75-8c50-7db31c4a6780" name="15cf81bc-57f6-422a-9447-d6730d0ecfb9" type="radio">
-</input><label class="tabbed-label" for="3d3ed03d-cc7a-4c75-8c50-7db31c4a6780">
-Matlab</label><div class="tabbed-content docutils">
-<p>TODO</p>
-</div>
 </div>
 <p>The two imports from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> will plot the solution of the problem.</p>
 <p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
 <p>The function takes the time <span class="math notranslate nohighlight">\(t\)</span> and current value of the state vector <span class="math notranslate nohighlight">\(y\)</span> as inputs. In this way, we can use the current state vector to compute the current acceleration.</p>
 <p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">ydot</span></code> back to the solver.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="28934d08-64d4-42c3-beeb-e374776d99eb" name="497122da-b937-4607-9c3f-274befebd16c" type="radio">
-</input><label class="tabbed-label" for="28934d08-64d4-42c3-beeb-e374776d99eb">
+<input checked="checked" id="3730e8f1-d6aa-428d-b164-f34569308141" name="9a938936-645a-4087-9ceb-397222e1f6b3" type="radio">
+</input><label class="tabbed-label" for="3730e8f1-d6aa-428d-b164-f34569308141">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolute_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system in an inertial reference frame.</span>
@@ -882,17 +878,44 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="146c5490-700b-4821-8b05-19fd94f5b377" name="497122da-b937-4607-9c3f-274befebd16c" type="radio">
-</input><label class="tabbed-label" for="146c5490-700b-4821-8b05-19fd94f5b377">
+<input id="13659374-2e31-4c1a-8e9f-e2938a455046" name="9a938936-645a-4087-9ceb-397222e1f6b3" type="radio">
+</input><label class="tabbed-label" for="13659374-2e31-4c1a-8e9f-e2938a455046">
 Matlab</label><div class="tabbed-content docutils">
-<p>TODO</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    function dydt = absolute_motion(~,y)
+        % Calculate the motion of a two-body system in an inertial reference frame.
+        %
+        % The state vector ``y`` should be in the order:
+        %
+        % 1. Coordinates of $m_1$
+        % 2. Coordinates of $m_2$
+        % 3. Velocity components of $m_1$
+        % 4. Velocity components of $m_2$
+
+        R1 = y(1:3);
+        R2 = y(4:6);
+
+        dotR1 = y(7:9);
+        dotR2 = y(10:12);
+
+        r = norm(R2 - R1);
+
+        ddotR1 = G .* m2 .* (R2 - R1) ./ r.^3;
+        ddotR2 = G .* m1 .* (R1 - R2) ./ r.^3;
+
+        dydt = [dotR1; dotR2; ddotR1; ddotR2];
+
+    end % absolute_motion
+
+</pre></div>
 </div>
 </div>
-<p>With the function defined, we can call <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
-<p>Once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code>. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">y</span></code>. Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).</p>
+</div>
+<p>With the function defined, we can call <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> or <code class="docutils literal notranslate"><span class="pre">ode45()</span></code>. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
+<p>Once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> in Python or just <code class="docutils literal notranslate"><span class="pre">y</span></code> in Matlab. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">y</span></code>. In Matlab, the solution already has each timestep in a row.</p>
+<p>Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="f274f6f2-833d-44fa-bb1b-630d52e8ede7" name="54422813-0382-4869-b505-061c96642633" type="radio">
-</input><label class="tabbed-label" for="f274f6f2-833d-44fa-bb1b-630d52e8ede7">
+<input checked="checked" id="685cbda8-a13f-462f-a474-8aba5767cc35" name="a417353e-0019-47b7-8ee5-3f297217abd1" type="radio">
+</input><label class="tabbed-label" for="685cbda8-a13f-462f-a474-8aba5767cc35">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
 <span class="n">t_f</span> <span class="o">=</span> <span class="mi">480</span>  <span class="c1"># seconds</span>
@@ -910,10 +933,18 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="2e0d52b1-313b-4bdb-ac48-40fc41582aca" name="54422813-0382-4869-b505-061c96642633" type="radio">
-</input><label class="tabbed-label" for="2e0d52b1-313b-4bdb-ac48-40fc41582aca">
+<input id="9fba6d7a-2657-4d03-b03f-c6168035dd10" name="a417353e-0019-47b7-8ee5-3f297217abd1" type="radio">
+</input><label class="tabbed-label" for="9fba6d7a-2657-4d03-b03f-c6168035dd10">
 Matlab</label><div class="tabbed-content docutils">
-<p>TODO</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">tf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">480</span><span class="p">;</span><span class="w"></span>
+<span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ode45</span><span class="p">(@</span><span class="n">absolute_motion</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">t0</span><span class="w"> </span><span class="n">tf</span><span class="p">],</span><span class="w"> </span><span class="n">y0</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c">% km</span><span class="w"></span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% km</span><span class="w"></span>
+<span class="n">barycenter</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">R2</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Finally, we construct some plots of the situation. In <a class="reference internal" href="#fig-two-body-inertial"><span class="std std-numref">Fig. 9</span></a>, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the next section. TODO: LINK HERE.</p>
@@ -1077,9 +1108,409 @@ function animate() {
 </div></div>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.</span><a class="headerlink" href="#fig-two-body-inertial" title="Permalink to this image">¶</a></p>
 </div>
-<p>Another way to view this plot is by setting the barycenter to be the origin of the coordinate system, rather than an external inertial frame. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.</p>
-<p>The final plot here fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass (relatively speaking).</p>
+<p>Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in <a class="reference internal" href="#fig-two-body-inertial-cg-relative"><span class="std std-numref">Fig. 10</span></a>. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-two-body-inertial-cg-relative">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="cg-relative-scene" style="width: 100%;"></div>
+<div id="cg-relative-scene-gui" style="width: 100%; position: relative; top: -400px; left: 0px"></div>
+<script type="module">
+import {
+  CanvasTexture,
+  MeshBasicMaterial,
+  Mesh,
+  PlaneGeometry,
+  Scene,
+  Color,
+  PerspectiveCamera,
+  AmbientLight,
+  WebGLRenderer,
+  Box3,
+  Vector3,
+  AnimationMixer,
+  Clock,
+  DoubleSide,
+} from '/js/three/build/three.module.js';
+import { GLTFLoader } from '/js/three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from '/js/three/examples/jsm/controls/OrbitControls.js';
+import { GUI } from '/js/three/examples/jsm/libs/dat.gui.module.js';
+
+let camera, scene, renderer, controls, gltfScene;
+let gltfClips = [];
+let mixer, clock, container, guiContainer, gui;
+const height = 400;
+let width;
+init();
+animate();
+function init() {
+  container = document.getElementById( 'cg-relative-scene' );
+
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  context.font = "40px sans-serif";
+  context.fillStyle = "rgba(255,255,255,1)";
+  context.textAlign = 'left';
+  context.fillText("m1    COG    m2", 0, 60);
+
+  // canvas contents will be used for a texture
+  const texture = new CanvasTexture(canvas);
+
+  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
+  material.transparent = true;
+
+  const mesh = new Mesh(
+      new PlaneGeometry(50, 20),
+      material
+  );
+
+  scene = new Scene();
+  // scene.background = new Color( 0xffffff );
+
+  width = container.clientWidth;
+  camera = new PerspectiveCamera( 60, width / height, 0.25, 1000 );
+  camera.position.set(22, -41, 104);
+  scene.add(camera)
+
+  scene.add( new AmbientLight( 0xffffff , 3) );
+
+  renderer = new WebGLRenderer({antialias: true});
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( width, height );
+  container.appendChild( renderer.domElement );
+
+  controls = new OrbitControls( camera, renderer.domElement );
+  controls.minDistance = 10;
+  controls.maxDistance = 1000;
+  controls.screenSpacePanning = true;
+
+  guiContainer = document.getElementById('cg-relative-scene-gui')
+  gui = new GUI({width: 320, autoPlace: false});
+  guiContainer.appendChild(gui.domElement);
+  gui.add( material, 'visible').name("Show label");
+
+  let loader = new Promise((resolve, reject) => {
+    const ldr = new GLTFLoader();
+    ldr.load( '/models/cg-relative-two-body.glb', function ( gltf ) {
+      // Call this here to make sure everything is loaded before rendering.
+      // This load function is async
+      resolve(gltf);
+    }, undefined, function ( error ) {
+      console.error( error );
+    });
+  });
+  loader.then((gltf) => {
+    gltfScene = gltf.scene;
+
+    const box = new Box3().setFromObject(gltfScene);
+    const size = box.getSize(new Vector3()).length();
+    const center = box.getCenter(new Vector3());
+
+    gltfScene.getObjectByName("Sphere002").add(mesh);
+
+    scene.add(gltfScene);
+
+    gltfScene.position.x += (gltfScene.position.x - center.x);
+    gltfScene.position.y += (gltfScene.position.y - center.y);
+    gltfScene.position.z += (gltfScene.position.z - center.z);
+    controls.maxDistance = size * 10;
+    camera.near = size / 100;
+    camera.far = size * 100;
+    camera.updateProjectionMatrix();
+
+    camera.position.copy(center);
+    camera.position.x += size / 2.0;
+    camera.position.y += size / 5.0;
+    camera.position.z += size / 2.0;
+    camera.lookAt(center);
+    controls.update()
+
+    mixer = new AnimationMixer( gltfScene );
+    gltf.animations.forEach((clip) => {
+      const clipAction = mixer.clipAction(clip);
+      clipAction.play();
+      gltfClips.push(clipAction);
+    });
+    mixer.timeScale = 2.5;
+    gui.add( mixer, 'timeScale', 0, 3 ).name("Animation Speed");
+
+    clock = new Clock();
+
+    animate();
+  }, undefined);
+  new ResizeObserver(() => handleResize()).observe(container);
+}
+
+function handleResize() {
+  width = container.clientWidth;
+  console.log(width);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+  animate();
+}
+
+function animate() {
+  requestAnimationFrame( animate );
+
+  // Check whether these are defined due to the async
+  // loading of the file
+  if ( mixer && clock ) {
+    mixer.update( clock.getDelta() * mixer.timeScale );
+  }
+  if ( scene && camera ) {
+    renderer.render( scene, camera );
+  }
+}
+</script>
+</div></div>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with the barycenter at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-cg-relative" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a> fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="figure align-default" id="fig-two-body-inertial-m1-relative">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="m1-relative-scene" style="width: 100%;"></div>
+<div id="m1-relative-scene-gui" style="width: 100%; position: relative; top: -400px; left: 0px"></div>
+<script type="module">
+import {
+  CanvasTexture,
+  MeshBasicMaterial,
+  Mesh,
+  PlaneGeometry,
+  Scene,
+  Color,
+  PerspectiveCamera,
+  AmbientLight,
+  WebGLRenderer,
+  Box3,
+  Vector3,
+  AnimationMixer,
+  Clock,
+  DoubleSide,
+} from '/js/three/build/three.module.js';
+import { GLTFLoader } from '/js/three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from '/js/three/examples/jsm/controls/OrbitControls.js';
+import { GUI } from '/js/three/examples/jsm/libs/dat.gui.module.js';
+
+let camera, scene, renderer, controls, gltfScene;
+let gltfClips = [];
+let mixer, clock, container, guiContainer, gui;
+const height = 400;
+let width;
+init();
+animate();
+function init() {
+  container = document.getElementById( 'm1-relative-scene' );
+
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  context.font = "40px sans-serif";
+  context.fillStyle = "rgba(255,255,255,1)";
+  context.textAlign = 'left';
+  context.fillText("m2    m1    COG", 0, 60);
+
+  // canvas contents will be used for a texture
+  const texture = new CanvasTexture(canvas);
+
+  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
+  material.transparent = true;
+
+  const mesh = new Mesh(
+      new PlaneGeometry(50, 20),
+      material
+  );
+
+  scene = new Scene();
+  // scene.background = new Color( 0xffffff );
+
+  width = container.clientWidth;
+  camera = new PerspectiveCamera( 60, width / height, 0.25, 1000 );
+  camera.position.set(22, -41, 104);
+  scene.add(camera)
+
+  scene.add( new AmbientLight( 0xffffff , 3) );
+
+  renderer = new WebGLRenderer({antialias: true});
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( width, height );
+  container.appendChild( renderer.domElement );
+
+  controls = new OrbitControls( camera, renderer.domElement );
+  controls.minDistance = 10;
+  controls.maxDistance = 1000;
+  controls.screenSpacePanning = true;
+
+  guiContainer = document.getElementById('m1-relative-scene-gui')
+  gui = new GUI({width: 320, autoPlace: false});
+  guiContainer.appendChild(gui.domElement);
+  gui.add( material, 'visible').name("Show label");
+
+  let loader = new Promise((resolve, reject) => {
+    const ldr = new GLTFLoader();
+    ldr.load( '/models/m1-relative-two-body.glb', function ( gltf ) {
+      // Call this here to make sure everything is loaded before rendering.
+      // This load function is async
+      resolve(gltf);
+    }, undefined, function ( error ) {
+      console.error( error );
+    });
+  });
+  loader.then((gltf) => {
+    gltfScene = gltf.scene;
+
+    const box = new Box3().setFromObject(gltfScene);
+    const size = box.getSize(new Vector3()).length();
+    const center = box.getCenter(new Vector3());
+
+    gltfScene.getObjectByName("Sphere").add(mesh);
+
+    scene.add(gltfScene);
+
+    gltfScene.position.x += (gltfScene.position.x - center.x);
+    gltfScene.position.y += (gltfScene.position.y - center.y);
+    gltfScene.position.z += (gltfScene.position.z - center.z);
+    controls.maxDistance = size * 10;
+    camera.near = size / 100;
+    camera.far = size * 100;
+    camera.updateProjectionMatrix();
+
+    camera.position.copy(center);
+    camera.position.x += size / 2.0;
+    camera.position.y += size / 5.0;
+    camera.position.z += size / 2.0;
+    camera.lookAt(center);
+    controls.update()
+
+    mixer = new AnimationMixer( gltfScene );
+    gltf.animations.forEach((clip) => {
+      const clipAction = mixer.clipAction(clip);
+      clipAction.play();
+      gltfClips.push(clipAction);
+    });
+    mixer.timeScale = 2.5;
+    gui.add( mixer, 'timeScale', 0, 3 ).name("Animation Speed");
+
+    clock = new Clock();
+
+    animate();
+  }, undefined);
+  new ResizeObserver(() => handleResize()).observe(container);
+}
+
+function handleResize() {
+  width = container.clientWidth;
+  console.log(width);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+  animate();
+}
+
+function animate() {
+  requestAnimationFrame( animate );
+
+  // Check whether these are defined due to the async
+  // loading of the file
+  if ( mixer && clock ) {
+    mixer.update( clock.getDelta() * mixer.timeScale );
+  }
+  if ( scene && camera ) {
+    renderer.render( scene, camera );
+  }
+}
+</script>
+</div></div>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the orbits of the barycenter and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with <span class="math notranslate nohighlight">\(m_1\)</span> at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-m1-relative" title="Permalink to this image">¶</a></p>
+</div>
+<p>Interestingly, the equations for this solution are symmetric. We can reverse the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_1\)</span> and have exactly the same plot as <a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a>. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!</p>
+<p>The code to generate the plots is shown below.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="86e915e1-f423-4ff4-8105-4a472e3af57f" name="279c002b-4f96-4130-ac0b-413a7e30d6bd" type="radio">
+</input><label class="tabbed-label" for="86e915e1-f423-4ff4-8105-4a472e3af57f">
+Python</label><div class="tabbed-content docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_2</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">barycenter</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">barycenter</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">barycenter</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;COG&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">R1_rel_COG</span> <span class="o">=</span> <span class="n">R_1</span> <span class="o">-</span> <span class="n">barycenter</span>
+<span class="n">R2_rel_COG</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">-</span> <span class="n">barycenter</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R1_rel_COG</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R1_rel_COG</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R1_rel_COG</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R2_rel_COG</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R2_rel_COG</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R2_rel_COG</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;COG&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">R2_rel_R1</span> <span class="o">=</span> <span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span>
+<span class="n">COG_rel_R1</span> <span class="o">=</span> <span class="n">barycenter</span> <span class="o">-</span> <span class="n">R_1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R2_rel_R1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R2_rel_R1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R2_rel_R1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">COG_rel_R1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">COG_rel_R1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">COG_rel_R1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;COG&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<input id="637fcdf2-a1c8-4bf8-b563-54702ea51455" name="279c002b-4f96-4130-ac0b-413a7e30d6bd" type="radio">
+</input><label class="tabbed-label" for="637fcdf2-a1c8-4bf8-b563-54702ea51455">
+Matlab</label><div class="tabbed-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="w"></span>
+
+<span class="s">return</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">output</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Plot the output in three graphs</span><span class="w"></span>
+<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of two masses in an inertial frame&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-g&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">axis_settings</span><span class="w"></span>
+
+<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of two masses relative to their barycenter&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">    </span><span class="n">R1_rel_COG</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">barycenter</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">R2_rel_COG</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">barycenter</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;og&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">axis_settings</span><span class="w"></span>
+
+<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of mass 2 relative to mass 1&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">    </span><span class="n">R2_rel_R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">COG_rel_R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">barycenter</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-g&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;or&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">axis_settings</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">axis_settings</span><span class="w"></span>
+<span class="w">        </span><span class="nb">view</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span><span class="w"></span>
+<span class="w">        </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">        </span><span class="nb">axis</span><span class="w"> </span><span class="n">equal</span><span class="w"></span>
+<span class="w">        </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;X (km)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Y (km)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">zlabel</span><span class="p">(</span><span class="s">&#39;Z (km)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="c">% axis_settings</span><span class="w"></span>
+
+<span class="k">end</span><span class="w"> </span><span class="c">% output</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
