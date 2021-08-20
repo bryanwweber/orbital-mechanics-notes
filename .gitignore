@@ -165,3 +165,6 @@ stellarium-scripts/*.png
 
 # Javascript files
 !assets/js/three/build/
+
+# Matlab autosave
+*.asv

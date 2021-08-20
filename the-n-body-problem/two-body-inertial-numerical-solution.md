@@ -64,21 +64,14 @@ In the following code samples we use arrays to store the initial positions and v
 :::
 ::::
 
-:::{tabbed} MATLAB
-
-```matlab
-G = 6.67430E-2;  % km**3/(kg * s**2)
-m1 = m2 = 1.0E26;  % kg
-
-R10 = [0 0 0];  % km
-R20 = [3000 0 0];  % km
-dotR10 = [10 20 30];  % km/s
-dotR20 = [0 40 0];  % km/s
-
-y_0 = [R10 R20 dotR10 dotR20];
-```
-
+::::{tabbed} MATLAB
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-1]"
+:end-before: "[section-2]"
+:language: matlab
+:dedent: 4
 :::
+::::
 
 These code samples first set the constants in the problem, $G$ and $m_1 = m_2$. Then, they create the initial position and velocity arrays. Finally, the arrays are stuck together into the initial state vector, `y_0`.
 
@@ -114,27 +107,13 @@ We now have enough information to start to solve the problem. The first step is 
 :end-before: "[section-3]"
 ::::
 
-:::{tabbed} Matlab
-
-``` matlab
-X_1 = y_0(1);
-Y_1 = y_0(2);
-Z_1 = y_0(3);
-X_2 = y_0(4);
-Y_2 = y_0(5);
-Z_2 = y_0(6);
-
-r = sqrt((X_2 - X_1).^2 + (Y_2 - Y_1).^2 + (Z_2 - Z_1).^2);
-
-ddotX_1 = G .* m_2 .* (X_2 - X_1) ./ r.^3;
-ddotY_1 = G .* m_2 .* (Y_2 - Y_1) ./ r.^3;
-ddotZ_1 = G .* m_2 .* (Z_2 - Z_1) ./ r.^3;
-ddotX_2 = -G .* m_1 .* (X_2 - X_1) ./ r.^3;
-ddotY_2 = -G .* m_1 .* (Y_2 - Y_1) ./ r.^3;
-ddotZ_2 = -G .* m_1 .* (Z_2 - Z_1) ./ r.^3;
-```
-
-:::
+::::{tabbed} Matlab
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-2]"
+:end-before: "[section-3]"
+:language: matlab
+:dedent: 4
+::::
 
 :::{margin}
 We'll see in a little bit why we're using the state vector to get positions rather than the position vectors.
@@ -151,18 +130,12 @@ This code is pretty long, and we've created a bunch of variables to keep track o
 ::::
 
 :::{tabbed} Matlab
-
-``` matlab
-R1 = y_0(:4);
-R2 = y_0(3:7);
-
-r = norm(R2 - R1);
-ddot = G .* (R2 - R1) ./ r.^3;
-ddotR10 = m2 .* ddot;
-ddotR20 = -m1 .* ddot;
-```
-
-:::
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-3]"
+:end-before: "[section-4]"
+:language: matlab
+:dedent: 4
+::::
 
 In this code, you retrieve the position of each mass as an array instead of into a single variable. Then, using array functions, you compute the distance and the accelerations.
 
@@ -189,25 +162,20 @@ Let's choose $\Delta t = 1\text{ s}$. Then, to compute the state vector at the n
 ::::
 
 :::{tabbed} Matlab
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-4]"
+:end-before: "[section-5]"
+:language: matlab
+:dedent: 4
+::::
 
-``` matlab
-Delta_t = 1;  % s
-dotR11 = ddotR10 .* Delta_t + dotR10
-dotR21 = ddotR20 .* Delta_t + dotR20
-
-R11 = dotR10 .* Delta_t + R10
-R21 = dotR20 .* Delta_t + R20
-```
-
-:::
-
-However, it would be inefficient to do this by hand, and there are more accurate methods available. I don't see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you're using.
+However, it would be inefficient to do this by hand and there are more accurate methods available. I don't see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you're using.
 
 ## Numerical Solution Using Pre-Built Libraries
 
 In SciPy, the function is called [`solve_ivp`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp). In Matlab, the function is called [`ode45`](https://www.mathworks.com/help/matlab/ref/ode45.html).
 
-First, you need to start by importing the appropriate Python libraries:
+First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.
 
 ::::{tabbed} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
@@ -215,10 +183,6 @@ First, you need to start by importing the appropriate Python libraries:
 :end-before: "[section-6]"
 :::
 ::::
-
-:::{tabbed} Matlab
-TODO
-:::
 
 The two imports from `matplotlib` will plot the solution of the problem.
 
@@ -235,13 +199,18 @@ Inside the function, we use the values in the state vector to fill the `ydot` ve
 :::
 ::::
 
-:::{tabbed} Matlab
-TODO
+::::{tabbed} Matlab
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-6]"
+:end-before: "[section-7]"
 :::
+::::
 
-With the function defined, we can call `solve_ivp()`. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.
+With the function defined, we can call `solve_ivp()` or `ode45()`. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.
 
-Once the solver finishes, the solution is stored in `sol.y`. Each column of `sol.y` corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define `y`. Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).
+Once the solver finishes, the solution is stored in `sol.y` in Python or just `y` in Matlab. Each column of `sol.y` corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define `y`. In Matlab, the solution already has each timestep in a row.
+
+Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).
 
 ::::{tabbed} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
@@ -250,9 +219,14 @@ Once the solver finishes, the solution is stored in `sol.y`. Each column of `sol
 :::
 ::::
 
-:::{tabbed} Matlab
-TODO
+::::{tabbed} Matlab
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-7]"
+:end-before: "[section-8]"
+:language: matlab
+:dedent: 4
 :::
+::::
 
 Finally, we construct some plots of the situation. In {numref}`fig:two-body-inertial`, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the next section. TODO: LINK HERE.
 
@@ -309,3 +283,20 @@ The motion of two bodies subject to mutual gravitational attraction, viewed from
 :::
 
 Interestingly, the equations for this solution are symmetric. We can reverse the roles of $m_1$ and $m_1$ and have exactly the same plot as {numref}`fig:two-body-inertial-m1-relative`. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!
+
+The code to generate the plots is shown below.
+
+::::{tabbed} Python
+:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
+:start-after: "[section-8]"
+:::
+::::
+
+::::{tabbed} Matlab
+:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:start-after: "[section-8]"
+:end-before: "[end-here]"
+:language: matlab
+:dedent: 4
+:::
+::::

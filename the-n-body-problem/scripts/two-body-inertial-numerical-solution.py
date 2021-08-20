@@ -99,35 +99,28 @@ V_1 = y[:, 6:9]  # km/s
 V_2 = y[:, 9:]  # km/s
 barycenter = (m_1 * R_1 + m_2 * R_2) / (m_1 + m_2)  # km
 
-# # [section-8]
-# fig = plt.figure()
-# ax = fig.add_subplot(111, projection="3d")
-# ax.plot(R_1[:, 0], R_1[:, 1], R_1[:, 2], label="m_1")
-# ax.plot(R_2[:, 0], R_2[:, 1], R_2[:, 2], label="m_2")
-# ax.plot(barycenter[:, 0], barycenter[:, 1], barycenter[:, 2], label="CG")
-# ax.legend()
+# [section-8]
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+ax.plot(R_1[:, 0], R_1[:, 1], R_1[:, 2], label="m_1")
+ax.plot(R_2[:, 0], R_2[:, 1], R_2[:, 2], label="m_2")
+ax.plot(barycenter[:, 0], barycenter[:, 1], barycenter[:, 2], label="COG")
+ax.legend()
 
-# # [section-9]
-# fig = plt.figure()
-# ax = fig.add_subplot(111, projection="3d")
-# R1_rel_G = R_1 - barycenter
-# R2_rel_G = R_2 - barycenter
-# ax.plot(R1_rel_G[:, 0], R1_rel_G[:, 1], R1_rel_G[:, 2], label="m_1")
-# ax.plot(R2_rel_G[:, 0], R2_rel_G[:, 1], R2_rel_G[:, 2], label="m_2")
-# ax.plot(0, 0, 0, "ro", label="CG")
-# ax.legend()
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+R1_rel_COG = R_1 - barycenter
+R2_rel_COG = R_2 - barycenter
+ax.plot(R1_rel_COG[:, 0], R1_rel_COG[:, 1], R1_rel_COG[:, 2], label="m_1")
+ax.plot(R2_rel_COG[:, 0], R2_rel_COG[:, 1], R2_rel_COG[:, 2], label="m_2")
+ax.plot(0, 0, 0, "ro", label="COG")
+ax.legend()
 
-# # [section-10]
-# fig = plt.figure()
-# ax = fig.add_subplot(111, projection="3d")
-# R2_rel_R1 = R_2 - R_1
-# G_rel_R1 = barycenter - R_1
-# ax.plot(R2_rel_R1[:, 0], R2_rel_R1[:, 1], R2_rel_R1[:, 2], label="m_2")
-# ax.plot(G_rel_R1[:, 0], G_rel_R1[:, 1], G_rel_R1[:, 2], label="CG")
-# ax.plot(0, 0, 0, "ro", label="m_1")
-# ax.legend()
-
-# from pathlib import Path  # noqa: E402
-
-# HERE = Path(__file__).parent
-# np.savez(HERE / "two-body-inertial", R_1=R_1, R_2=R_2, barycenter=barycenter)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+R2_rel_R1 = R_2 - R_1
+COG_rel_R1 = barycenter - R_1
+ax.plot(R2_rel_R1[:, 0], R2_rel_R1[:, 1], R2_rel_R1[:, 2], label="m_2")
+ax.plot(COG_rel_R1[:, 0], COG_rel_R1[:, 1], COG_rel_R1[:, 2], label="COG")
+ax.plot(0, 0, 0, "ro", label="m_1")
+ax.legend()
