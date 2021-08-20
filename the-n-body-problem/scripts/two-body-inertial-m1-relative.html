@@ -1,0 +1,150 @@
+<div id="m1-relative-scene" style="width: 100%;"></div>
+<div id="m1-relative-scene-gui" style="width: 100%; position: relative; top: -400px; left: 0px"></div>
+<script type="module">
+import {
+  CanvasTexture,
+  MeshBasicMaterial,
+  Mesh,
+  PlaneGeometry,
+  Scene,
+  Color,
+  PerspectiveCamera,
+  AmbientLight,
+  WebGLRenderer,
+  Box3,
+  Vector3,
+  AnimationMixer,
+  Clock,
+  DoubleSide,
+} from '/js/three/build/three.module.js';
+import { GLTFLoader } from '/js/three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from '/js/three/examples/jsm/controls/OrbitControls.js';
+import { GUI } from '/js/three/examples/jsm/libs/dat.gui.module.js';
+
+let camera, scene, renderer, controls, gltfScene;
+let gltfClips = [];
+let mixer, clock, container, guiContainer, gui;
+const height = 400;
+let width;
+init();
+animate();
+function init() {
+  container = document.getElementById( 'm1-relative-scene' );
+
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  context.font = "40px sans-serif";
+  context.fillStyle = "rgba(255,255,255,1)";
+  context.textAlign = 'left';
+  context.fillText("m2    m1    COG", 0, 60);
+
+  // canvas contents will be used for a texture
+  const texture = new CanvasTexture(canvas);
+
+  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
+  material.transparent = true;
+
+  const mesh = new Mesh(
+      new PlaneGeometry(50, 20),
+      material
+  );
+
+  scene = new Scene();
+  // scene.background = new Color( 0xffffff );
+
+  width = container.clientWidth;
+  camera = new PerspectiveCamera( 60, width / height, 0.25, 1000 );
+  camera.position.set(22, -41, 104);
+  scene.add(camera)
+
+  scene.add( new AmbientLight( 0xffffff , 3) );
+
+  renderer = new WebGLRenderer({antialias: true});
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( width, height );
+  container.appendChild( renderer.domElement );
+
+  controls = new OrbitControls( camera, renderer.domElement );
+  controls.minDistance = 10;
+  controls.maxDistance = 1000;
+  controls.screenSpacePanning = true;
+
+  guiContainer = document.getElementById('m1-relative-scene-gui')
+  gui = new GUI({width: 320, autoPlace: false});
+  guiContainer.appendChild(gui.domElement);
+  gui.add( material, 'visible').name("Show label");
+
+  let loader = new Promise((resolve, reject) => {
+    const ldr = new GLTFLoader();
+    ldr.load( '/models/m1-relative-two-body.glb', function ( gltf ) {
+      // Call this here to make sure everything is loaded before rendering.
+      // This load function is async
+      resolve(gltf);
+    }, undefined, function ( error ) {
+      console.error( error );
+    });
+  });
+  loader.then((gltf) => {
+    gltfScene = gltf.scene;
+
+    const box = new Box3().setFromObject(gltfScene);
+    const size = box.getSize(new Vector3()).length();
+    const center = box.getCenter(new Vector3());
+
+    gltfScene.getObjectByName("Sphere").add(mesh);
+
+    scene.add(gltfScene);
+
+    gltfScene.position.x += (gltfScene.position.x - center.x);
+    gltfScene.position.y += (gltfScene.position.y - center.y);
+    gltfScene.position.z += (gltfScene.position.z - center.z);
+    controls.maxDistance = size * 10;
+    camera.near = size / 100;
+    camera.far = size * 100;
+    camera.updateProjectionMatrix();
+
+    camera.position.copy(center);
+    camera.position.x += size / 2.0;
+    camera.position.y += size / 5.0;
+    camera.position.z += size / 2.0;
+    camera.lookAt(center);
+    controls.update()
+
+    mixer = new AnimationMixer( gltfScene );
+    gltf.animations.forEach((clip) => {
+      const clipAction = mixer.clipAction(clip);
+      clipAction.play();
+      gltfClips.push(clipAction);
+    });
+    mixer.timeScale = 2.5;
+    gui.add( mixer, 'timeScale', 0, 3 ).name("Animation Speed");
+
+    clock = new Clock();
+
+    animate();
+  }, undefined);
+  new ResizeObserver(() => handleResize()).observe(container);
+}
+
+function handleResize() {
+  width = container.clientWidth;
+  console.log(width);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+  animate();
+}
+
+function animate() {
+  requestAnimationFrame( animate );
+
+  // Check whether these are defined due to the async
+  // loading of the file
+  if ( mixer && clock ) {
+    mixer.update( clock.getDelta() * mixer.timeScale );
+  }
+  if ( scene && camera ) {
+    renderer.render( scene, camera );
+  }
+}
+</script>

@@ -274,11 +274,38 @@ glue("two_body_inertial", js, display=False)
 The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.
 :::
 
-Another way to view this plot is by setting the barycenter to be the origin of the coordinate system, rather than an external inertial frame. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.
+Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in {numref}`fig:two-body-inertial-cg-relative`. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.
 
-The final plot here fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass (relatively speaking).
-
-```{code-cell}
+```{code-cell} python
 :tags: ["remove-input"]
-:load: scripts/two-body-inertial-numerical-solution.py
+from IPython.display import display, HTML
+from myst_nb import glue
+
+js = HTML(filename="scripts/two-body-inertial-cg-relative.html")
+glue("two_body_inertial_cg_relative", js, display=False)
 ```
+
+:::{glue:figure} two_body_inertial_cg_relative
+:name: fig:two-body-inertial-cg-relative
+
+The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of $m_1$ and $m_2$ appear to be ellipses with the barycenter at one of the foci.
+:::
+
+{numref}`fig:two-body-inertial-m1-relative` fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.
+
+```{code-cell} python
+:tags: ["remove-input"]
+from IPython.display import display, HTML
+from myst_nb import glue
+
+js = HTML(filename="scripts/two-body-inertial-m1-relative.html")
+glue("two_body_inertial_m1_relative", js, display=False)
+```
+
+:::{glue:figure} two_body_inertial_m1_relative
+:name: fig:two-body-inertial-m1-relative
+
+The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to $m_1$. In this reference frame, the orbits of the barycenter and $m_2$ appear to be ellipses with $m_1$ at one of the foci.
+:::
+
+Interestingly, the equations for this solution are symmetric. We can reverse the roles of $m_1$ and $m_1$ and have exactly the same plot as {numref}`fig:two-body-inertial-m1-relative`. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!

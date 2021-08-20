@@ -8,7 +8,9 @@ exclude_patterns:
   - raw_svg
   - drawing-scripts
   - docker
-  - _static
+  - assets
+  - blender
+
 latex:
   latex_documents:
     targetname: book.tex
