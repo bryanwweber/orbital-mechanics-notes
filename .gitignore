@@ -162,3 +162,6 @@ stellarium-scripts/*.png
 # JupyterLab from Docker
 .jupyter/
 .local/
+
+# Javascript files
+!assets/js/three/build/

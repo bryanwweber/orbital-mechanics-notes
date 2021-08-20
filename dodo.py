@@ -31,3 +31,17 @@ def task_build_jb():
         "uptodate": [False],
         "verbosity": 2,
     }
+
+
+def task_clean_jb():
+    return {
+        "actions": [["jb", "clean", "."]],
+        "verbosity": 2,
+    }
+
+
+def task_clean_all():
+    return {
+        "actions": [["jb", "clean", "-a", "."]],
+        "verbosity": 2,
+    }

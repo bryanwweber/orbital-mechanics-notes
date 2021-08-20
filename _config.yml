@@ -8,13 +8,13 @@ exclude_patterns:
   - raw_svg
   - drawing-scripts
   - docker
-
+  - _static
 latex:
   latex_documents:
     targetname: book.tex
 
-# execute:
-#   execute_notebooks: "off"
+execute:
+  execute_notebooks: "cache"
 
 sphinx:
   extra_extensions:
