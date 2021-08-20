@@ -590,13 +590,13 @@
 <p>The first thing we will show is that we can actually define an inertial coordinate system attached to the <strong>center of gravity</strong>, or barycenter, of the two-mass system. This is a very important result, because it means that there actually <em>is</em> an inertial reference frame we can use.</p>
 <p>Now, adding these equations together, we find an extremely important result:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sum-of-accelerations">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-sum-of-accelerations" title="Permalink to this equation">¶</a></span>\[m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2 = \vector{0}\]</div>
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-sum-of-accelerations" title="Permalink to this equation">¶</a></span>\[m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2 = \vector{0}\]</div>
 <p>To see why this result is so important, we need to define one more quantity, the <strong>barycenter</strong> or center of mass for the two-body system. Using the absolute position vectors, we find that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-barycenter-definition">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eq-barycenter-definition" title="Permalink to this equation">¶</a></span>\[\vector{R}_G = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}\]</div>
-<p>By taking derivatives of <a class="reference internal" href="#equation-eq-barycenter-definition">(26)</a>, we can find the absolute velocity and acceleration of the barycenter:</p>
+<span class="eqno">(27)<a class="headerlink" href="#equation-eq-barycenter-definition" title="Permalink to this equation">¶</a></span>\[\vector{R}_G = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}\]</div>
+<p>By taking derivatives of <a class="reference internal" href="#equation-eq-barycenter-definition">(27)</a>, we can find the absolute velocity and acceleration of the barycenter:</p>
 <div class="math notranslate nohighlight" id="equation-eq-barycenter-velocity-and-acceleration">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eq-barycenter-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(28)<a class="headerlink" href="#equation-eq-barycenter-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   \vector{v}_G &amp;= \dot{\vector{R}}_G = \frac{m_1 \dot{\vector{R}}_1 + m_2\dot{\vector{R}}_2}{m_1 + m_2}\\
   \vector{a}_G &amp;= \ddot{\vector{R}}_G = \frac{m_1 \ddot{\vector{R}}_1 + m_2\ddot{\vector{R}}_2}{m_1 + m_2}
 \end{aligned}\end{split}\]</div>
@@ -610,17 +610,17 @@
 <h2>Gravitational Potential Energy<a class="headerlink" href="#gravitational-potential-energy" title="Permalink to this headline">¶</a></h2>
 <p>The gravitational potential energy function for a spherically-symmetrical shape is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravitational-potential-energy-function">
-<span class="eqno">(28)<a class="headerlink" href="#equation-eq-gravitational-potential-energy-function" title="Permalink to this equation">¶</a></span>\[V = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{\left(X_2 - X_1\right)^2 + \left(Y_2 - Y_1\right)^2 + \left(Z_2 - Z_1\right)^2}}\]</div>
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-gravitational-potential-energy-function" title="Permalink to this equation">¶</a></span>\[V = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{\left(X_2 - X_1\right)^2 + \left(Y_2 - Y_1\right)^2 + \left(Z_2 - Z_1\right)^2}}\]</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Conservative forces allow infinite conversion of energy between forms. Non-conservative forces, such as friction and drag, result in a conversion of mechanical energy into heat.</p>
 </div>
 <p>Gravity is a <a class="reference external" href="https://en.wikipedia.org/wiki/Conservative_force"><strong>conservative force</strong></a>, which means that the force field can be determined from the gradient of the potential energy function:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravity-force-field">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V\]</div>
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V\]</div>
 <p>Thus, the attractive forces between the masses are given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-force-from-potential-function">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(31)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   \vector{F}_{12} &amp;= -\left(\frac{\partial V}{\partial X_2}\uvec{\imath} + \frac{\partial V}{\partial Y_2}\uvec{\jmath} + \frac{\partial V}{\partial Z_2}\uvec{k}\right)\\
   \vector{F}_{21} &amp;= -\left(\frac{\partial V}{\partial X_1}\uvec{\imath} + \frac{\partial V}{\partial Y_1}\uvec{\jmath} + \frac{\partial V}{\partial Z_1}\uvec{k}\right)
 \end{aligned}\end{split}\]</div>
