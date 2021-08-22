@@ -57,14 +57,14 @@ The array is indicated by using square brackets, $[\dots]$, and lists all the co
 
 In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-1]"
 :end-before: "[section-2]"
 :::
 ::::
 
-::::{tabbed} MATLAB
+::::{tab} MATLAB
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-1]"
 :end-before: "[section-2]"
@@ -101,13 +101,13 @@ In words, the left side of {eq}`eq:numerical-solution` is another array, where t
 
 We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using {eq}`eq:two-body-inertial-components`. This can be done for one direction at a time, as shown in the following code:
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-2]"
 :end-before: "[section-3]"
 ::::
 
-::::{tabbed} Matlab
+::::{tab} Matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-2]"
 :end-before: "[section-3]"
@@ -123,13 +123,13 @@ This code first retrieves the position components from the state vector. Then it
 
 This code is pretty long, and we've created a bunch of variables to keep track of. Fortunately, there are simpler ways to approach this calculation. The next code samples show how to take advantage of the nature of array computations:
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-3]"
 :end-before: "[section-4]"
 ::::
 
-:::{tabbed} Matlab
+:::{tab} Matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-3]"
 :end-before: "[section-4]"
@@ -155,13 +155,13 @@ Assuming that the acceleration and velocity are constant over some time interval
 
 Let's choose $\Delta t = 1\text{ s}$. Then, to compute the state vector at the next time step:
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-4]"
 :end-before: "[section-5]"
 ::::
 
-:::{tabbed} Matlab
+:::{tab} Matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-4]"
 :end-before: "[section-5]"
@@ -177,7 +177,7 @@ In SciPy, the function is called [`solve_ivp`](https://docs.scipy.org/doc/scipy/
 
 First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-5]"
 :end-before: "[section-6]"
@@ -192,14 +192,14 @@ The function takes the time $t$ and current value of the state vector $y$ as inp
 
 Inside the function, we use the values in the state vector to fill the `ydot` vector. Then, we return `ydot` back to the solver.
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-6]"
 :end-before: "[section-7]"
 :::
 ::::
 
-::::{tabbed} Matlab
+::::{tab} Matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-6]"
 :end-before: "[section-7]"
@@ -212,14 +212,14 @@ Once the solver finishes, the solution is stored in `sol.y` in Python or just `y
 
 Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-7]"
 :end-before: "[section-8]"
 :::
 ::::
 
-::::{tabbed} Matlab
+::::{tab} Matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-7]"
 :end-before: "[section-8]"
@@ -286,13 +286,13 @@ Interestingly, the equations for this solution are symmetric. We can reverse the
 
 The code to generate the plots is shown below.
 
-::::{tabbed} Python
+::::{tab} Python
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
 :start-after: "[section-8]"
 :::
 ::::
 
-::::{tabbed} Matlab
+::::{tab} Matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
 :start-after: "[section-8]"
 :end-before: "[end-here]"

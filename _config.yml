@@ -16,11 +16,12 @@ latex:
     targetname: book.tex
 
 execute:
-  execute_notebooks: "cache"
+  execute_notebooks: "auto"
 
 sphinx:
   extra_extensions:
     - myst_nb_bokeh
+    - sphinx_inline_tabs
   config:
     html_show_copyright: false
     html_extra_path: ["assets"]
