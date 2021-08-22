@@ -133,7 +133,6 @@
 
   function handleResize() {
     width = container.clientWidth;
-    console.log(width);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
