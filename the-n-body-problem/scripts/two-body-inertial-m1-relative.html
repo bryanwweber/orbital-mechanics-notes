@@ -39,7 +39,7 @@
     context.font = "40px sans-serif";
     context.fillStyle = "rgba(255,255,255,1)";
     context.textAlign = "left";
-    context.fillText("m2    m1    COG", 0, 60);
+    context.fillText("m1  COG   m2", 0, 60);
 
     // canvas contents will be used for a texture
     const texture = new CanvasTexture(canvas);
@@ -48,6 +48,7 @@
     material.transparent = true;
 
     const mesh = new Mesh(new PlaneGeometry(50, 20), material);
+    mesh.position.set(25, 0, 0);
 
     scene = new Scene();
     // scene.background = new Color( 0xffffff );
