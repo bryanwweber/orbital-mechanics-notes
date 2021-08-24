@@ -1,0 +1,167 @@
+<div id="scene" style="width: 100%"></div>
+<div
+  id="scene-gui"
+  style="width: 100%; position: relative; top: -400px; left: 0px"
+></div>
+<script type="module">
+  import {
+    CanvasTexture,
+    MeshBasicMaterial,
+    Mesh,
+    PlaneGeometry,
+    Scene,
+    Color,
+    PerspectiveCamera,
+    AmbientLight,
+    WebGLRenderer,
+    Box3,
+    Vector3,
+    AnimationMixer,
+    Clock,
+    DoubleSide,
+    sRGBEncoding,
+  } from "/js/three/build/three.module.js";
+  import { GLTFLoader } from "/js/three/examples/jsm/loaders/GLTFLoader.js";
+  import { OrbitControls } from "/js/three/examples/jsm/controls/OrbitControls.js";
+  import { GUI } from "/js/three/examples/jsm/libs/dat.gui.module.js";
+
+  let camera, scene, renderer, controls, gltfScene;
+  let mixer, clock, container, guiContainer, gui;
+  const height = 400;
+  let width;
+  init();
+  animate();
+  function init() {
+    container = document.getElementById("scene");
+
+    scene = new Scene();
+    // scene.background = new Color(0xffffff);
+
+    width = container.clientWidth;
+    camera = new PerspectiveCamera(60, width / height, 0.25, 10000000);
+    scene.add(camera);
+
+    scene.add(new AmbientLight(0xffffff, 10));
+
+    renderer = new WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    renderer.outputEncoding = sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 100;
+    controls.maxDistance = 300;
+    controls.screenSpacePanning = true;
+
+    guiContainer = document.getElementById("scene-gui");
+    gui = new GUI({ width: 320, autoPlace: false });
+    guiContainer.appendChild(gui.domElement);
+
+    let properties = { labelsVisible: true };
+    let materials = [];
+    let labelController = gui.add(properties, "labelsVisible");
+    labelController.name("Show labels");
+    labelController.onChange(() => {
+      materials.forEach((mat) => {
+        mat.visible = properties.labelsVisible;
+      });
+    });
+    const loader = new Promise((resolve, reject) => {
+      const ldr = new GLTFLoader();
+      ldr.load(
+        "/models/two-body-relative.glb",
+        function (gltf) {
+          // Call this here to make sure everything is loaded before rendering.
+          // This load function is async
+          resolve(gltf);
+        },
+        undefined,
+        function (error) {
+          console.error(error);
+        }
+      );
+    });
+    loader.then((gltf) => {
+      gltfScene = gltf.scene;
+
+      const box = new Box3().setFromObject(gltfScene);
+      const size = box.getSize(new Vector3()).length();
+      const center = box.getCenter(new Vector3());
+
+      function getTextMesh(text) {
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        context.font = "40px sans-serif";
+        context.fillStyle = "rgba(255,255,255,1)";
+        context.textAlign = "left";
+        context.fillText(text, 0, 60);
+
+        // canvas contents will be used for a texture
+        const texture = new CanvasTexture(canvas);
+
+        const material = new MeshBasicMaterial({
+          map: texture,
+          side: DoubleSide,
+        });
+        material.transparent = true;
+        materials.push(material);
+
+        const mesh = new Mesh(new PlaneGeometry(200, 100), material);
+        return mesh;
+      }
+
+      const minAltitude = getTextMesh("Min. Altitude");
+      gltfScene.getObjectByName("min-altitude").add(minAltitude);
+      const maxAltitude = getTextMesh("Max. Altitude");
+      gltfScene.getObjectByName("max-altitude").add(maxAltitude);
+
+      scene.add(gltfScene);
+
+      gltfScene.position.x += gltfScene.position.x - center.x;
+      gltfScene.position.y += gltfScene.position.y - center.y;
+      gltfScene.position.z += gltfScene.position.z - center.z;
+      camera.near = size / 100;
+      camera.far = size * 100;
+      camera.updateProjectionMatrix();
+
+      camera.position.copy(center);
+      camera.position.x -= size / 5.0;
+      camera.position.y += size / 2.0;
+      camera.position.z += size;
+      camera.lookAt(center);
+      controls.update();
+
+      mixer = new AnimationMixer(gltfScene);
+      mixer.clipAction(gltf.animations[0]).play();
+      mixer.timeScale = 1.0;
+      gui.add(mixer, "timeScale", 0, 3).name("Animation Speed");
+
+      clock = new Clock();
+
+      animate();
+    }, undefined);
+    new ResizeObserver(() => handleResize()).observe(container);
+  }
+
+  function handleResize() {
+    width = container.clientWidth;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    animate();
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Check whether these are defined due to the async
+    // loading of the file
+    if (mixer && clock) {
+      mixer.update(clock.getDelta() * mixer.timeScale);
+    }
+    if (scene && camera) {
+      renderer.render(scene, camera);
+    }
+  }
+</script>

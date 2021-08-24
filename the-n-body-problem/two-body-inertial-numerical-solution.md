@@ -228,7 +228,7 @@ Then we extract the position and velocity of each mass as a function of time, an
 :::
 ::::
 
-Finally, we construct some plots of the situation. In {numref}`fig:two-body-inertial`, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the next section. TODO: LINK HERE.
+Finally, we construct some plots of the situation. In {numref}`fig:two-body-inertial`, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the [next section](./motion-of-the-barycenter.md).
 
 The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.
 

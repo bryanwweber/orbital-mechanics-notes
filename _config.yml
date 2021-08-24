@@ -35,6 +35,7 @@ sphinx:
           unit: ["#1~\\mathrm{#2}", 2]
           pf: ["\\overline{#1}", 1] # This is for the perifocal frame
           mat: ["\\left[\\mathbf{#1}\\right]", 1]
+          COG: "\\mathrm{COG}" # Center of gravity
 
 myst_enable_extensions:
   - colon_fence

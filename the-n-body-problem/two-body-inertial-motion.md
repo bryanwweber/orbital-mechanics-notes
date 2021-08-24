@@ -93,7 +93,7 @@ Finally, we divide through by the mass on the left side of each equation and rep
 :label: eq:two-body-inertial-equation-of-motion
 \begin{aligned}
   \ddot{\vector{R}}_1 &= G m_2 \frac{\vector{r}}{r^3}\\
-  \ddot{\vector{R}}_2 &= G m_1 \frac{\vector{r}}{r^3}
+  \ddot{\vector{R}}_2 &= -G m_1 \frac{\vector{r}}{r^3}
 \end{aligned}
 :::
 
