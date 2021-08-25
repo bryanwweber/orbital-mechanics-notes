@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -41,6 +42,7 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -52,11 +54,11 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/motion-of-the-barycenter.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 2.3 - Equations of Relative Motion" href="../chapter-2/3-equations-of-relative-motion.html" />
+    <link rel="next" title="Relative Motion in the Two-Body Problem" href="two-body-relative-motion.html" />
     <link rel="prev" title="Two-Body Numerical Solution in an Inertial Frame" href="two-body-inertial-numerical-solution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -137,6 +139,16 @@
    Motion of the Barycenter
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -144,16 +156,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
-   Chapter 2.3 - Equations of Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
-   Example: Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
@@ -454,6 +456,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
   </a>
@@ -587,25 +594,27 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="motion-of-the-barycenter">
 <h1>Motion of the Barycenter<a class="headerlink" href="#motion-of-the-barycenter" title="Permalink to this headline">¶</a></h1>
-<p>The first thing we will show is that we can actually define an inertial coordinate system attached to the <strong>center of gravity</strong>, or barycenter, of the two-mass system. This is a very important result, because it means that there actually <em>is</em> an inertial reference frame we can use.</p>
-<p>Now, adding these equations together, we find an extremely important result:</p>
-<div class="math notranslate nohighlight" id="equation-eq-sum-of-accelerations">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eq-sum-of-accelerations" title="Permalink to this equation">¶</a></span>\[m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2 = \vector{0}\]</div>
-<p>To see why this result is so important, we need to define one more quantity, the <strong>barycenter</strong> or center of mass for the two-body system. Using the absolute position vectors, we find that:</p>
+<p>We saw in the <a class="reference internal" href="two-body-inertial-numerical-solution.html"><span class="doc std std-doc">last section</span></a> that the center of gravity in the two-body problem moves in a straight line. In this section, we will show that the center of gravity also moves at constant velocity.</p>
+<p>Since the barycenter does not accelerate, we can define an inertial coordinate system with its origin at the barycenter and use that reference frame for further calculations.</p>
+<p>The <strong>barycenter</strong> or center of mass for the two-body system is found by using the absolute position vectors to our external inertial frame:</p>
 <div class="math notranslate nohighlight" id="equation-eq-barycenter-definition">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eq-barycenter-definition" title="Permalink to this equation">¶</a></span>\[\vector{R}_G = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}\]</div>
-<p>By taking derivatives of <a class="reference internal" href="#equation-eq-barycenter-definition">(27)</a>, we can find the absolute velocity and acceleration of the barycenter:</p>
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-barycenter-definition" title="Permalink to this equation">¶</a></span>\[\vector{R}_{\COG} = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}\]</div>
+<p>By taking derivatives of <a class="reference internal" href="#equation-eq-barycenter-definition">(26)</a>, we can find the absolute velocity and acceleration of the barycenter:</p>
 <div class="math notranslate nohighlight" id="equation-eq-barycenter-velocity-and-acceleration">
-<span class="eqno">(28)<a class="headerlink" href="#equation-eq-barycenter-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
-  \vector{v}_G &amp;= \dot{\vector{R}}_G = \frac{m_1 \dot{\vector{R}}_1 + m_2\dot{\vector{R}}_2}{m_1 + m_2}\\
-  \vector{a}_G &amp;= \ddot{\vector{R}}_G = \frac{m_1 \ddot{\vector{R}}_1 + m_2\ddot{\vector{R}}_2}{m_1 + m_2}
+<span class="eqno">(27)<a class="headerlink" href="#equation-eq-barycenter-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \vector{v}_{\COG} &amp;= \dot{\vector{R}}_{\COG} = \frac{m_1 \dot{\vector{R}}_1 + m_2\dot{\vector{R}}_2}{m_1 + m_2}\\
+  \vector{a}_{\COG} &amp;= \ddot{\vector{R}}_{\COG} = \frac{m_1 \ddot{\vector{R}}_1 + m_2\ddot{\vector{R}}_2}{m_1 + m_2}
 \end{aligned}\end{split}\]</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Assuming that the only forces are the mutual gravitational attraction of the two masses.</p>
 </div>
-<p>Now go back to the result from Newton’s laws - it says that the top of the fraction in the acceleration of the barycenter is equal to zero. In other words, the center of gravity of the two-body system does not undergo any acceleration and moves at constant velocity in a straight line for all time!</p>
+<p>The top of the acceleration fraction, <span class="math notranslate nohighlight">\(m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2\)</span>, can be found in Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-second-law-and-gravity-two-body">(19)</a>. In Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-second-law-and-gravity-two-body">(19)</a>, we saw that the two forces of <span class="math notranslate nohighlight">\(m_1\)</span> on <span class="math notranslate nohighlight">\(m_2\)</span> and vice versa, were equal and opposite. In other words, the acceleration of the two masses must sum to zero:</p>
+<div class="math notranslate nohighlight" id="equation-eq-sum-of-accelerations">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eq-sum-of-accelerations" title="Permalink to this equation">¶</a></span>\[m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2 = \vector{0}\]</div>
+<p>Therefore, the acceleration of the barycenter is zero and it must move with constant velocity.</p>
 <p>This is a hugely important result because it means that a coordinate system attached to the barycenter is an <strong>inertial reference frame</strong>. We can find the position, velocity, and acceleration of masses relative to a coordinate system attached to the barycenter, and they will be the absolute quantities.</p>
+<p>In the next section we will apply this useful result to verify simpler equations for the motion in the two-body system.</p>
 <div class="section" id="gravitational-potential-energy">
 <h2>Gravitational Potential Energy<a class="headerlink" href="#gravitational-potential-energy" title="Permalink to this headline">¶</a></h2>
 <p>The gravitational potential energy function for a spherically-symmetrical shape is:</p>
@@ -660,7 +669,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="two-body-inertial-numerical-solution.html" title="previous page">Two-Body Numerical Solution in an Inertial Frame</a>
-    <a class='right-next' id="next-link" href="../chapter-2/3-equations-of-relative-motion.html" title="next page">Chapter 2.3 - Equations of Relative Motion</a>
+    <a class='right-next' id="next-link" href="two-body-relative-motion.html" title="next page">Relative Motion in the Two-Body Problem</a>
 
         </div>
         

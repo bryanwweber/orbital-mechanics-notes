@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -41,6 +42,7 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -52,12 +54,12 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/4-angular-momentum-and-the-orbit-formulas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chapter 2.5 - The Energy Law" href="5-the-energy-law.html" />
-    <link rel="prev" title="Example: Two-Body Problem in the Co-Moving Frame" href="3a-two-body-relative-motion-example.html" />
+    <link rel="prev" title="Two-Body Problem in the Co-Moving Frame" href="../the-n-body-problem/two-body-relative-numerical-solution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -137,6 +139,16 @@
    Motion of the Barycenter
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -144,16 +156,6 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="3-equations-of-relative-motion.html">
-   Chapter 2.3 - Equations of Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3a-two-body-relative-motion-example.html">
-   Example: Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
@@ -454,6 +456,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
   </a>
@@ -700,13 +707,13 @@
 <p>In other words, the Laplace vector and the angular momentum are perpendicular. Since the angular momentum is perpendicular to the orbital plane, <span class="math notranslate nohighlight">\(\vector{C}\)</span> must lie in the orbital plane.</p>
 <p>The Laplace vector has the same dimensions as <span class="math notranslate nohighlight">\(\mu\)</span>, so we can transform it into a dimensionless number by dividing the equation by <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-vector-orbit-equation">
-<span class="eqno">(32)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
+<span class="eqno">(45)<a class="headerlink" href="#equation-vector-orbit-equation" title="Permalink to this equation">¶</a></span>\[\frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{e} = \vector{C}/\mu\)</span> and is called the <strong>eccentricity vector</strong>. Since <span class="math notranslate nohighlight">\(\vector{C}\)</span> lies in the orbital plane, <span class="math notranslate nohighlight">\(\vector{e}\)</span> also lies in the orbital plane. The line along <span class="math notranslate nohighlight">\(\vector{e}\)</span> is called the <strong>apse line</strong>.</p>
 <p>The eccentricity vector provides two more of the constants of integration that we need for the equation of motion. However, due to the fact that <span class="math notranslate nohighlight">\(\vector{e}\)</span> and <span class="math notranslate nohighlight">\(\vector{h}\)</span> are perpendicular, we know that:</p>
 <div class="math notranslate nohighlight">
 \[\vector{e}\cdot\vector{h} = 0\]</div>
 <p>such that only 5 of the components of these vectors are independent. The sixth is determined by the dot product above.</p>
-<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(32)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
+<p>We now want to transform Equation <a class="reference internal" href="#equation-vector-orbit-equation">(45)</a> to be in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, which is called the <strong>true anomaly</strong>, defined as the angle from the apse line to the satellite. This will result in a scalar equation, which is easier to work with than the vector equation.</p>
 <p>To obtain a scalar equation, we take the dot product of this equation with <span class="math notranslate nohighlight">\(\vector{r}\)</span>. After some algebra, we end up at:</p>
 <div class="math notranslate nohighlight">
 \[r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta}\]</div>
@@ -831,7 +838,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="3a-two-body-relative-motion-example.html" title="previous page">Example: Two-Body Problem in the Co-Moving Frame</a>
+    <a class='left-prev' id="prev-link" href="../the-n-body-problem/two-body-relative-numerical-solution.html" title="previous page">Two-Body Problem in the Co-Moving Frame</a>
     <a class='right-next' id="next-link" href="5-the-energy-law.html" title="next page">Chapter 2.5 - The Energy Law</a>
 
         </div>

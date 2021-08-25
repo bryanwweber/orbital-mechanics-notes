@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -41,6 +42,7 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -52,7 +54,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/intro/mass-force-and-newtons-law-of-gravitation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -137,6 +139,16 @@
    Motion of the Barycenter
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -144,16 +156,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
-   Chapter 2.3 - Equations of Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
-   Example: Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
@@ -454,6 +456,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
   </a>
@@ -590,6 +597,20 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="mass-force-and-newton-s-law-of-gravitation">
 <h1>Mass, Force, and Newton’s Law of Gravitation<a class="headerlink" href="#mass-force-and-newton-s-law-of-gravitation" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f2f67b802dae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pint&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>In Newtonian mechanics, a net force on an object causes the object to accelerate. Forces can be transmitted between objects by direct contact or without contact by a potential field.</p>
 <p>Examples of potential fields include:</p>
@@ -602,7 +623,7 @@
 <p>In a gravitational field, the sources are <strong>masses</strong>. Therefore, the magnitude of the force between two masses is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-newtons-law-of-gravitation">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-newtons-law-of-gravitation" title="Permalink to this equation">¶</a></span>\[F = G \frac{m_1 m_2}{r^2}\]</div>
-<p>where <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> are the two masses, <span class="math notranslate nohighlight">\(r\)</span> is the distance between them, and <span class="math notranslate nohighlight">\(G\)</span> is <strong>Newton’s gravitational constant</strong>. <a class="reference internal" href="#equation-eq-newtons-law-of-gravitation">(1)</a> is called <em>Newton’s law of gravitation</em>, first published by Isaac Newton in the 1680s <span id="id1">[<a class="reference internal" href="../bibliography.html#id2">BMW71</a>]</span>. In SI units, <span class="math notranslate nohighlight">\(G\)</span> has the value .</p>
+<p>where <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> are the two masses, <span class="math notranslate nohighlight">\(r\)</span> is the distance between them, and <span class="math notranslate nohighlight">\(G\)</span> is <strong>Newton’s gravitational constant</strong>. <a class="reference internal" href="#equation-eq-newtons-law-of-gravitation">(1)</a> is called <em>Newton’s law of gravitation</em>, first published by Isaac Newton in the 1680s <span id="id1">[<a class="reference internal" href="../bibliography.html#id3">BMW71</a>]</span>. In SI units, <span class="math notranslate nohighlight">\(G\)</span> has the value .</p>
 <p>Due to the extremely small size of <span class="math notranslate nohighlight">\(G\)</span>, masses either have to be very large or very close together to generate a significant gravitational force.</p>
 <p>When one of the masses is much larger than the other, we usually group the larger mass <span class="math notranslate nohighlight">\(M\)</span> with the <span class="math notranslate nohighlight">\(G\)</span> and <span class="math notranslate nohighlight">\(r^2\)</span> terms:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mod-nlog">

@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -41,6 +42,7 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
     <script src="_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -134,6 +136,16 @@
    Motion of the Barycenter
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -141,16 +153,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-2/3-equations-of-relative-motion.html">
-   Chapter 2.3 - Equations of Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter-2/3a-two-body-relative-motion-example.html">
-   Example: Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
@@ -451,6 +453,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="reference/celestial-sphere.html">
    Celestial Sphere
   </a>
@@ -567,46 +574,49 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="bibliography">
 <h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
 <p id="id1"><dl class="citation">
-<dt class="label" id="id10"><span class="brackets">GG06</span></dt>
+<dt class="label" id="id11"><span class="brackets">GG06</span></dt>
 <dd><p>Peter Graneau and Neal Graneau. <em>In the Grip of the Distant Universe: The Science of Inertia</em>. World Scientific, Hackensack, NJ, 2006. ISBN 978-981-256-754-3.</p>
 </dd>
-<dt class="label" id="id2"><span class="brackets">BMW71</span></dt>
+<dt class="label" id="id3"><span class="brackets">BMW71</span></dt>
 <dd><p>Roger R. Bate, Donald D. Mueller, and Jerry E. White. <em>Fundamentals of Astrodynamics</em>. Dover Publications, New York, 1971. ISBN 978-0-486-60061-1.</p>
 </dd>
-<dt class="label" id="id13"><span class="brackets">PC13</span></dt>
+<dt class="label" id="id17"><span class="brackets">PC13</span></dt>
 <dd><p>John E. Prussing and Bruce A. Conway. <em>Orbital Mechanics</em>. Oxford University Press, New York, second edition edition, 2013. ISBN 978-0-19-983770-0.</p>
 </dd>
-<dt class="label" id="id14"><span class="brackets">Rub18a</span></dt>
+<dt class="label" id="id15"><span class="brackets">PFWB21</span></dt>
+<dd><p>Ryan S. Park, William M. Folkner, James G. Williams, and Dale H. Boggs. The JPL Planetary and Lunar Ephemerides DE440 and DE441. <em>The Astronomical Journal</em>, 161(3):105, February 2021. <a class="reference external" href="https://doi.org/10.3847/1538-3881/abd414">doi:10.3847/1538-3881/abd414</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">Rub18a</span></dt>
 <dd><p>Ari Rubinsztejn. Dynamics of the 3-Body Problem. https://gereshes.com/2018/11/12/dynamics-of-the-3-body-problem/, November 2018.</p>
 </dd>
-<dt class="label" id="id15"><span class="brackets">Rub18b</span></dt>
+<dt class="label" id="id19"><span class="brackets">Rub18b</span></dt>
 <dd><p>Ari Rubinsztejn. Lagrange Points - The 3-Body Problem. https://gereshes.com/2018/12/03/an-introduction-to-lagrange-points-the-3-body-problem/, December 2018.</p>
 </dd>
-<dt class="label" id="id16"><span class="brackets">Rub18c</span></dt>
+<dt class="label" id="id20"><span class="brackets">Rub18c</span></dt>
 <dd><p>Ari Rubinsztejn. Stability of the Lagrange Points - Three Body Problem. https://gereshes.com/2018/12/17/stability-of-the-lagrange-points-three-body-problem/, December 2018.</p>
 </dd>
-<dt class="label" id="id11"><span class="brackets">KLMR11</span></dt>
+<dt class="label" id="id12"><span class="brackets">KLMR11</span></dt>
 <dd><p>Wang Sang Koon, Martin W. Lo, Jerrold E. Marsden, and Shane D. Ross. <em>Dynamical Systems, the Three-Body Problem, and Space Mission Design</em>. CalTech, 1.2 edition, April 2011.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets">GradshteuinRJ07</span></dt>
+<dt class="label" id="id10"><span class="brackets">GradshteuinRJ07</span></dt>
 <dd><p>I. S. Gradshteĭn, I. M. Ryzhik, and Alan Jeffrey. <em>Table of Integrals, Series, and Products</em>. Academic Press, Amsterdam ; Boston, 7th ed edition, 2007. ISBN 978-0-12-373637-6.</p>
 </dd>
-<dt class="label" id="id23"><span class="brackets">Zwi03</span></dt>
+<dt class="label" id="id28"><span class="brackets">Zwi03</span></dt>
 <dd><p>Daniel Zwillinger. <em>CRC Standard Mathematical Tables and Formulae</em>. Chapman &amp; Hall/CRC, Boca Raton, 2003. ISBN 978-1-4200-3534-6.</p>
 </dd>
-<dt class="label" id="id19"><span class="brackets">Sac20</span></dt>
+<dt class="label" id="id23"><span class="brackets">Sac20</span></dt>
 <dd><p>Andrea Sacchetti. Francesco Carlini: Kepler's equation and the asymptotic solution to singular differential equations. <em>Historia Mathematica</em>, pages S0315086020300446, July 2020. <a class="reference external" href="https://doi.org/10.1016/j.hm.2020.06.001">doi:10.1016/j.hm.2020.06.001</a>.</p>
 </dd>
-<dt class="label" id="id4"><span class="brackets">Col92</span></dt>
+<dt class="label" id="id5"><span class="brackets">Col92</span></dt>
 <dd><p>Peter Colwell. Bessel Functions and Kepler's Equation. <em>The American Mathematical Monthly</em>, 99(1):45, January 1992. <a class="reference external" href="https://doi.org/10.2307/2324547">doi:10.2307/2324547</a>.</p>
 </dd>
-<dt class="label" id="id7"><span class="brackets">Cur20</span></dt>
+<dt class="label" id="id8"><span class="brackets">Cur20</span></dt>
 <dd><p>Howard D Curtis. <em>Orbital Mechanics for Engineering Students</em>. Elsevier, fourth edition, 2020. ISBN 978-0-08-102133-0.</p>
 </dd>
-<dt class="label" id="id5"><span class="brackets">Con86</span></dt>
+<dt class="label" id="id6"><span class="brackets">Con86</span></dt>
 <dd><p>Bruce A. Conway. An improved algorithm due to Laguerre for the solution of Kepler's equation. <em>Celestial Mechanics</em>, 39(2):199–211, June 1986. <a class="reference external" href="https://doi.org/10.1007/BF01230852">doi:10.1007/BF01230852</a>.</p>
 </dd>
-<dt class="label" id="id22"><span class="brackets">VM13</span></dt>
+<dt class="label" id="id27"><span class="brackets">VM13</span></dt>
 <dd><p>David A. Vallado and Wayne D. McClain. <em>Fundamentals of Astrodynamics and Applications</em>. Number 21 in Space Technology Library. Microcosm Press, Hawthorne, Calif, 4. ed edition, 2013. ISBN 978-1-881883-18-0.</p>
 </dd>
 </dl>

@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -41,6 +42,7 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
@@ -52,7 +54,7 @@
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-inertial-numerical-solution.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -137,6 +139,16 @@
    Motion of the Barycenter
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -144,16 +156,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/3-equations-of-relative-motion.html">
-   Chapter 2.3 - Equations of Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/3a-two-body-relative-motion-example.html">
-   Example: Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
@@ -454,6 +456,11 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
   </a>
@@ -644,10 +651,8 @@
 <span class="eqno">(22)<a class="headerlink" href="#equation-eq-state-vector-array" title="Permalink to this equation">¶</a></span>\[y = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z_1}\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
 <p>The array is indicated by using square brackets, <span class="math notranslate nohighlight">\([\dots]\)</span>, and lists all the components of the array inside the brackets. Depending on the programming language you’re using, there are different ways to create arrays.</p>
 <p>In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="19551302-469b-4891-b743-2c3dc3bc14ac" name="deb9bfef-2892-4038-8d5c-5a51e3587dc3" type="radio">
-</input><label class="tabbed-label" for="19551302-469b-4891-b743-2c3dc3bc14ac">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-20</span>  <span class="c1"># km**3/(kg * s**2)</span>
@@ -663,9 +668,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e1f04e1f-c6e4-4acc-af2b-93374f76ae5d" name="deb9bfef-2892-4038-8d5c-5a51e3587dc3" type="radio">
-</input><label class="tabbed-label" for="e1f04e1f-c6e4-4acc-af2b-93374f76ae5d">
-MATLAB</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">MATLAB</label><div class="tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430E-20</span><span class="p">;</span><span class="w">  </span><span class="c">% km^3/(kg * s^2)</span><span class="w"></span>
 <span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
 <span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
@@ -697,10 +700,8 @@ MATLAB</label><div class="tabbed-content docutils">
 <div class="section" id="solution-algorithm">
 <h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>. This can be done for one direction at a time, as shown in the following code:</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="5c03ba25-477c-4a1e-be9f-3b4560d60ac2" name="a9e48c27-ddf2-408c-adac-9d6be011649b" type="radio">
-</input><label class="tabbed-label" for="5c03ba25-477c-4a1e-be9f-3b4560d60ac2">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">Y_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Z_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -720,9 +721,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="694e9792-5810-4ce4-8a92-38f688c0e723" name="a9e48c27-ddf2-408c-adac-9d6be011649b" type="radio">
-</input><label class="tabbed-label" for="694e9792-5810-4ce4-8a92-38f688c0e723">
-Matlab</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Matlab</label><div class="tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="n">Y_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 <span class="n">Z_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
@@ -748,10 +747,8 @@ Matlab</label><div class="tabbed-content docutils">
 </div>
 <p>This code first retrieves the position components from the state vector. Then it calculates each component of acceleration for the two masses.</p>
 <p>This code is pretty long, and we’ve created a bunch of variables to keep track of. Fortunately, there are simpler ways to approach this calculation. The next code samples show how to take advantage of the nature of array computations:</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="2ae0f335-f932-4407-bedf-328f44413491" name="817a9f57-6e4b-4dd9-a945-9b16a477fa31" type="radio">
-</input><label class="tabbed-label" for="2ae0f335-f932-4407-bedf-328f44413491">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">R_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 
@@ -763,9 +760,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5ca9a248-bafe-4e83-babd-54f7c1df4fbb" name="817a9f57-6e4b-4dd9-a945-9b16a477fa31" type="radio">
-</input><label class="tabbed-label" for="5ca9a248-bafe-4e83-babd-54f7c1df4fbb">
-Matlab</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Matlab</label><div class="tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
 <span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
 
@@ -788,10 +783,8 @@ Matlab</label><div class="tabbed-content docutils">
 \end{aligned}\end{split}\]</div>
 <p>Assuming that the acceleration and velocity are constant over some time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, the integrals simplify to the product of the term and <span class="math notranslate nohighlight">\(\Delta t\)</span>. The choice of <span class="math notranslate nohighlight">\(\Delta t\)</span> is up to you. Smaller values of <span class="math notranslate nohighlight">\(\Delta t\)</span> will be more accurate but take longer to compute.</p>
 <p>Let’s choose <span class="math notranslate nohighlight">\(\Delta t = 1\text{ s}\)</span>. Then, to compute the state vector at the next time step:</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="9ccef2a2-7b24-4be3-9f01-ee190ba38497" name="47e64373-8f5d-4b56-b24a-003cbfce3426" type="radio">
-</input><label class="tabbed-label" for="9ccef2a2-7b24-4be3-9f01-ee190ba38497">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># s</span>
 <span class="n">dotR_1_1</span> <span class="o">=</span> <span class="n">ddotR_1_0</span> <span class="o">*</span> <span class="n">Delta_t</span> <span class="o">+</span> <span class="n">dotR_1_0</span>
 <span class="n">dotR_2_1</span> <span class="o">=</span> <span class="n">ddotR_2_0</span> <span class="o">*</span> <span class="n">Delta_t</span> <span class="o">+</span> <span class="n">dotR_2_0</span>
@@ -802,9 +795,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="2e09b343-273e-43df-b343-111d1301f025" name="47e64373-8f5d-4b56-b24a-003cbfce3426" type="radio">
-</input><label class="tabbed-label" for="2e09b343-273e-43df-b343-111d1301f025">
-Matlab</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Matlab</label><div class="tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c">% s</span><span class="w"></span>
 <span class="n">dotR11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR10</span><span class="p">;</span><span class="w"></span>
 <span class="n">dotR21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR20</span><span class="p">;</span><span class="w"></span>
@@ -821,10 +812,8 @@ Matlab</label><div class="tabbed-content docutils">
 <h2>Numerical Solution Using Pre-Built Libraries<a class="headerlink" href="#numerical-solution-using-pre-built-libraries" title="Permalink to this headline">¶</a></h2>
 <p>In SciPy, the function is called <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a>. In Matlab, the function is called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html"><code class="docutils literal notranslate"><span class="pre">ode45</span></code></a>.</p>
 <p>First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="ce5cc8c9-58f7-4841-9c4f-792d0cc54e7d" name="a48042a7-c1ff-4a9b-a0ca-8df5d3bd956c" type="radio">
-</input><label class="tabbed-label" for="ce5cc8c9-58f7-4841-9c4f-792d0cc54e7d">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
@@ -838,10 +827,8 @@ Python</label><div class="tabbed-content docutils">
 <p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
 <p>The function takes the time <span class="math notranslate nohighlight">\(t\)</span> and current value of the state vector <span class="math notranslate nohighlight">\(y\)</span> as inputs. In this way, we can use the current state vector to compute the current acceleration.</p>
 <p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">ydot</span></code> back to the solver.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="3730e8f1-d6aa-428d-b164-f34569308141" name="9a938936-645a-4087-9ceb-397222e1f6b3" type="radio">
-</input><label class="tabbed-label" for="3730e8f1-d6aa-428d-b164-f34569308141">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolute_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system in an inertial reference frame.</span>
 
@@ -878,9 +865,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="13659374-2e31-4c1a-8e9f-e2938a455046" name="9a938936-645a-4087-9ceb-397222e1f6b3" type="radio">
-</input><label class="tabbed-label" for="13659374-2e31-4c1a-8e9f-e2938a455046">
-Matlab</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">Matlab</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    function dydt = absolute_motion(~,y)
         % Calculate the motion of a two-body system in an inertial reference frame.
         %
@@ -913,10 +898,8 @@ Matlab</label><div class="tabbed-content docutils">
 <p>With the function defined, we can call <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> or <code class="docutils literal notranslate"><span class="pre">ode45()</span></code>. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
 <p>Once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> in Python or just <code class="docutils literal notranslate"><span class="pre">y</span></code> in Matlab. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">y</span></code>. In Matlab, the solution already has each timestep in a row.</p>
 <p>Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="685cbda8-a13f-462f-a474-8aba5767cc35" name="a417353e-0019-47b7-8ee5-3f297217abd1" type="radio">
-</input><label class="tabbed-label" for="685cbda8-a13f-462f-a474-8aba5767cc35">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
 <span class="n">t_f</span> <span class="o">=</span> <span class="mi">480</span>  <span class="c1"># seconds</span>
 <span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -933,9 +916,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9fba6d7a-2657-4d03-b03f-c6168035dd10" name="a417353e-0019-47b7-8ee5-3f297217abd1" type="radio">
-</input><label class="tabbed-label" for="9fba6d7a-2657-4d03-b03f-c6168035dd10">
-Matlab</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Matlab</label><div class="tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="n">tf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">480</span><span class="p">;</span><span class="w"></span>
 <span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ode45</span><span class="p">(@</span><span class="n">absolute_motion</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">t0</span><span class="w"> </span><span class="n">tf</span><span class="p">],</span><span class="w"> </span><span class="n">y0</span><span class="p">);</span><span class="w"></span>
@@ -947,7 +928,7 @@ Matlab</label><div class="tabbed-content docutils">
 </div>
 </div>
 </div>
-<p>Finally, we construct some plots of the situation. In <a class="reference internal" href="#fig-two-body-inertial"><span class="std std-numref">Fig. 9</span></a>, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the next section. TODO: LINK HERE.</p>
+<p>Finally, we construct some plots of the situation. In <a class="reference internal" href="#fig-two-body-inertial"><span class="std std-numref">Fig. 9</span></a>, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="doc std std-doc">next section</span></a>.</p>
 <p>The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -955,155 +936,160 @@ Matlab</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-two-body-inertial">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="scene" style="width: 100%;"></div>
-<div id="scene-gui" style="width: 100%; position: relative; top: -400px; left: 0px"></div>
+<div class="output text_html"><div id="scene" style="width: 100%"></div>
+<div
+  id="scene-gui"
+  style="width: 100%; position: relative; top: -400px; left: 0px"
+></div>
 <script type="module">
-import {
-  CanvasTexture,
-  MeshBasicMaterial,
-  Mesh,
-  PlaneGeometry,
-  Scene,
-  Color,
-  PerspectiveCamera,
-  AmbientLight,
-  WebGLRenderer,
-  Box3,
-  Vector3,
-  AnimationMixer,
-  Clock,
-  DoubleSide,
-} from '/js/three/build/three.module.js';
-import { GLTFLoader } from '/js/three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from '/js/three/examples/jsm/controls/OrbitControls.js';
-import { GUI } from '/js/three/examples/jsm/libs/dat.gui.module.js';
+  import {
+    CanvasTexture,
+    MeshBasicMaterial,
+    Mesh,
+    PlaneGeometry,
+    Scene,
+    Color,
+    PerspectiveCamera,
+    AmbientLight,
+    WebGLRenderer,
+    Box3,
+    Vector3,
+    AnimationMixer,
+    Clock,
+    DoubleSide,
+  } from "/js/three/build/three.module.js";
+  import { GLTFLoader } from "/js/three/examples/jsm/loaders/GLTFLoader.js";
+  import { OrbitControls } from "/js/three/examples/jsm/controls/OrbitControls.js";
+  import { GUI } from "/js/three/examples/jsm/libs/dat.gui.module.js";
 
-let camera, scene, renderer, controls, gltfScene;
-let gltfClips = [];
-let mixer, clock, container, guiContainer, gui;
-const height = 400;
-let width;
-init();
-animate();
-function init() {
-  container = document.getElementById( 'scene' );
-
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  context.font = "40px sans-serif";
-  context.fillStyle = "rgba(255,255,255,1)";
-  context.textAlign = 'left';
-  context.fillText("m1    COG    m2", 0, 60);
-
-  // canvas contents will be used for a texture
-  const texture = new CanvasTexture(canvas);
-
-  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
-  material.transparent = true;
-
-  const mesh = new Mesh(
-      new PlaneGeometry(50, 20),
-      material
-  );
-
-  scene = new Scene();
-  // scene.background = new Color( 0xffffff );
-
-  width = container.clientWidth;
-  camera = new PerspectiveCamera( 60, width / height, 0.25, 1000 );
-  camera.position.set(22, -41, 104);
-  scene.add(camera)
-
-  scene.add( new AmbientLight( 0xffffff , 3) );
-
-  renderer = new WebGLRenderer({antialias: true});
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( width, height );
-  container.appendChild( renderer.domElement );
-
-  controls = new OrbitControls( camera, renderer.domElement );
-  controls.minDistance = 10;
-  controls.maxDistance = 1000;
-  controls.screenSpacePanning = true;
-
-  guiContainer = document.getElementById('scene-gui')
-  gui = new GUI({width: 320, autoPlace: false});
-  guiContainer.appendChild(gui.domElement);
-  gui.add( material, 'visible').name("Show label");
-
-  let loader = new Promise((resolve, reject) => {
-    const ldr = new GLTFLoader();
-    ldr.load( '/models/two-body-inertial.glb', function ( gltf ) {
-      // Call this here to make sure everything is loaded before rendering.
-      // This load function is async
-      resolve(gltf);
-    }, undefined, function ( error ) {
-      console.error( error );
-    });
-  });
-  loader.then((gltf) => {
-    gltfScene = gltf.scene;
-
-    const box = new Box3().setFromObject(gltfScene);
-    const size = box.getSize(new Vector3()).length();
-    const center = box.getCenter(new Vector3());
-
-    gltfScene.getObjectByName("Sphere002").add(mesh);
-
-    scene.add(gltfScene);
-
-    gltfScene.position.x += (gltfScene.position.x - center.x);
-    gltfScene.position.y += (gltfScene.position.y - center.y);
-    gltfScene.position.z += (gltfScene.position.z - center.z);
-    controls.maxDistance = size * 10;
-    camera.near = size / 100;
-    camera.far = size * 100;
-    camera.updateProjectionMatrix();
-
-    camera.position.copy(center);
-    camera.position.x += size / 2.0;
-    camera.position.y += size / 5.0;
-    camera.position.z += size / 2.0;
-    camera.lookAt(center);
-    controls.update()
-
-    mixer = new AnimationMixer( gltfScene );
-    gltf.animations.forEach((clip) => {
-      const clipAction = mixer.clipAction(clip);
-      clipAction.play();
-      gltfClips.push(clipAction);
-    });
-    mixer.timeScale = 2.5;
-    gui.add( mixer, 'timeScale', 0, 3 ).name("Animation Speed");
-
-    clock = new Clock();
-
-    animate();
-  }, undefined);
-  new ResizeObserver(() => handleResize()).observe(container);
-}
-
-function handleResize() {
-  width = container.clientWidth;
-  console.log(width);
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
+  let camera, scene, renderer, controls, gltfScene;
+  let gltfClips = [];
+  let mixer, clock, container, guiContainer, gui;
+  const height = 400;
+  let width;
+  init();
   animate();
-}
+  function init() {
+    container = document.getElementById("scene");
 
-function animate() {
-  requestAnimationFrame( animate );
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = "40px sans-serif";
+    context.fillStyle = "rgba(255,255,255,1)";
+    context.textAlign = "left";
+    context.fillText("m1    COG    m2", 0, 60);
 
-  // Check whether these are defined due to the async
-  // loading of the file
-  if ( mixer && clock ) {
-    mixer.update( clock.getDelta() * mixer.timeScale );
+    // canvas contents will be used for a texture
+    const texture = new CanvasTexture(canvas);
+
+    const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
+    material.transparent = true;
+
+    const mesh = new Mesh(new PlaneGeometry(50, 20), material);
+
+    scene = new Scene();
+    // scene.background = new Color( 0xffffff );
+
+    width = container.clientWidth;
+    camera = new PerspectiveCamera(60, width / height, 0.25, 1000);
+    camera.position.set(22, -41, 104);
+    scene.add(camera);
+
+    scene.add(new AmbientLight(0xffffff, 3));
+
+    renderer = new WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    renderer.outputEncoding = sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 10;
+    controls.maxDistance = 1000;
+    controls.screenSpacePanning = true;
+
+    guiContainer = document.getElementById("scene-gui");
+    gui = new GUI({ width: 320, autoPlace: false });
+    guiContainer.appendChild(gui.domElement);
+    gui.add(material, "visible").name("Show label");
+
+    let loader = new Promise((resolve, reject) => {
+      const ldr = new GLTFLoader();
+      ldr.load(
+        "/models/two-body-inertial.glb",
+        function (gltf) {
+          // Call this here to make sure everything is loaded before rendering.
+          // This load function is async
+          resolve(gltf);
+        },
+        undefined,
+        function (error) {
+          console.error(error);
+        }
+      );
+    });
+    loader.then((gltf) => {
+      gltfScene = gltf.scene;
+
+      const box = new Box3().setFromObject(gltfScene);
+      const size = box.getSize(new Vector3()).length();
+      const center = box.getCenter(new Vector3());
+
+      gltfScene.getObjectByName("Sphere002").add(mesh);
+
+      scene.add(gltfScene);
+
+      gltfScene.position.x += gltfScene.position.x - center.x;
+      gltfScene.position.y += gltfScene.position.y - center.y;
+      gltfScene.position.z += gltfScene.position.z - center.z;
+      controls.maxDistance = size * 10;
+      camera.near = size / 100;
+      camera.far = size * 100;
+      camera.updateProjectionMatrix();
+
+      camera.position.copy(center);
+      camera.position.x += size / 2.0;
+      camera.position.y += size / 5.0;
+      camera.position.z += size / 2.0;
+      camera.lookAt(center);
+      controls.update();
+
+      mixer = new AnimationMixer(gltfScene);
+      gltf.animations.forEach((clip) => {
+        const clipAction = mixer.clipAction(clip);
+        clipAction.play();
+        gltfClips.push(clipAction);
+      });
+      mixer.timeScale = 2.5;
+      gui.add(mixer, "timeScale", 0, 3).name("Animation Speed");
+
+      clock = new Clock();
+
+      animate();
+    }, undefined);
+    new ResizeObserver(() => handleResize()).observe(container);
   }
-  if ( scene && camera ) {
-    renderer.render( scene, camera );
+
+  function handleResize() {
+    width = container.clientWidth;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    animate();
   }
-}
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Check whether these are defined due to the async
+    // loading of the file
+    if (mixer && clock) {
+      mixer.update(clock.getDelta() * mixer.timeScale);
+    }
+    if (scene && camera) {
+      renderer.render(scene, camera);
+    }
+  }
 </script>
 </div></div>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.</span><a class="headerlink" href="#fig-two-body-inertial" title="Permalink to this image">¶</a></p>
@@ -1115,155 +1101,160 @@ function animate() {
 </div>
 <div class="figure align-default" id="fig-two-body-inertial-cg-relative">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="cg-relative-scene" style="width: 100%;"></div>
-<div id="cg-relative-scene-gui" style="width: 100%; position: relative; top: -400px; left: 0px"></div>
+<div class="output text_html"><div id="cg-relative-scene" style="width: 100%"></div>
+<div
+  id="cg-relative-scene-gui"
+  style="width: 100%; position: relative; top: -400px; left: 0px"
+></div>
 <script type="module">
-import {
-  CanvasTexture,
-  MeshBasicMaterial,
-  Mesh,
-  PlaneGeometry,
-  Scene,
-  Color,
-  PerspectiveCamera,
-  AmbientLight,
-  WebGLRenderer,
-  Box3,
-  Vector3,
-  AnimationMixer,
-  Clock,
-  DoubleSide,
-} from '/js/three/build/three.module.js';
-import { GLTFLoader } from '/js/three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from '/js/three/examples/jsm/controls/OrbitControls.js';
-import { GUI } from '/js/three/examples/jsm/libs/dat.gui.module.js';
+  import {
+    CanvasTexture,
+    MeshBasicMaterial,
+    Mesh,
+    PlaneGeometry,
+    Scene,
+    Color,
+    PerspectiveCamera,
+    AmbientLight,
+    WebGLRenderer,
+    Box3,
+    Vector3,
+    AnimationMixer,
+    Clock,
+    DoubleSide,
+  } from "/js/three/build/three.module.js";
+  import { GLTFLoader } from "/js/three/examples/jsm/loaders/GLTFLoader.js";
+  import { OrbitControls } from "/js/three/examples/jsm/controls/OrbitControls.js";
+  import { GUI } from "/js/three/examples/jsm/libs/dat.gui.module.js";
 
-let camera, scene, renderer, controls, gltfScene;
-let gltfClips = [];
-let mixer, clock, container, guiContainer, gui;
-const height = 400;
-let width;
-init();
-animate();
-function init() {
-  container = document.getElementById( 'cg-relative-scene' );
-
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  context.font = "40px sans-serif";
-  context.fillStyle = "rgba(255,255,255,1)";
-  context.textAlign = 'left';
-  context.fillText("m1    COG    m2", 0, 60);
-
-  // canvas contents will be used for a texture
-  const texture = new CanvasTexture(canvas);
-
-  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
-  material.transparent = true;
-
-  const mesh = new Mesh(
-      new PlaneGeometry(50, 20),
-      material
-  );
-
-  scene = new Scene();
-  // scene.background = new Color( 0xffffff );
-
-  width = container.clientWidth;
-  camera = new PerspectiveCamera( 60, width / height, 0.25, 1000 );
-  camera.position.set(22, -41, 104);
-  scene.add(camera)
-
-  scene.add( new AmbientLight( 0xffffff , 3) );
-
-  renderer = new WebGLRenderer({antialias: true});
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( width, height );
-  container.appendChild( renderer.domElement );
-
-  controls = new OrbitControls( camera, renderer.domElement );
-  controls.minDistance = 10;
-  controls.maxDistance = 1000;
-  controls.screenSpacePanning = true;
-
-  guiContainer = document.getElementById('cg-relative-scene-gui')
-  gui = new GUI({width: 320, autoPlace: false});
-  guiContainer.appendChild(gui.domElement);
-  gui.add( material, 'visible').name("Show label");
-
-  let loader = new Promise((resolve, reject) => {
-    const ldr = new GLTFLoader();
-    ldr.load( '/models/cg-relative-two-body.glb', function ( gltf ) {
-      // Call this here to make sure everything is loaded before rendering.
-      // This load function is async
-      resolve(gltf);
-    }, undefined, function ( error ) {
-      console.error( error );
-    });
-  });
-  loader.then((gltf) => {
-    gltfScene = gltf.scene;
-
-    const box = new Box3().setFromObject(gltfScene);
-    const size = box.getSize(new Vector3()).length();
-    const center = box.getCenter(new Vector3());
-
-    gltfScene.getObjectByName("Sphere002").add(mesh);
-
-    scene.add(gltfScene);
-
-    gltfScene.position.x += (gltfScene.position.x - center.x);
-    gltfScene.position.y += (gltfScene.position.y - center.y);
-    gltfScene.position.z += (gltfScene.position.z - center.z);
-    controls.maxDistance = size * 10;
-    camera.near = size / 100;
-    camera.far = size * 100;
-    camera.updateProjectionMatrix();
-
-    camera.position.copy(center);
-    camera.position.x += size / 2.0;
-    camera.position.y += size / 5.0;
-    camera.position.z += size / 2.0;
-    camera.lookAt(center);
-    controls.update()
-
-    mixer = new AnimationMixer( gltfScene );
-    gltf.animations.forEach((clip) => {
-      const clipAction = mixer.clipAction(clip);
-      clipAction.play();
-      gltfClips.push(clipAction);
-    });
-    mixer.timeScale = 2.5;
-    gui.add( mixer, 'timeScale', 0, 3 ).name("Animation Speed");
-
-    clock = new Clock();
-
-    animate();
-  }, undefined);
-  new ResizeObserver(() => handleResize()).observe(container);
-}
-
-function handleResize() {
-  width = container.clientWidth;
-  console.log(width);
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
+  let camera, scene, renderer, controls, gltfScene;
+  let gltfClips = [];
+  let mixer, clock, container, guiContainer, gui;
+  const height = 400;
+  let width;
+  init();
   animate();
-}
+  function init() {
+    container = document.getElementById("cg-relative-scene");
 
-function animate() {
-  requestAnimationFrame( animate );
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = "40px sans-serif";
+    context.fillStyle = "rgba(255,255,255,1)";
+    context.textAlign = "left";
+    context.fillText("m1    COG    m2", 0, 60);
 
-  // Check whether these are defined due to the async
-  // loading of the file
-  if ( mixer && clock ) {
-    mixer.update( clock.getDelta() * mixer.timeScale );
+    // canvas contents will be used for a texture
+    const texture = new CanvasTexture(canvas);
+
+    const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
+    material.transparent = true;
+
+    const mesh = new Mesh(new PlaneGeometry(50, 20), material);
+
+    scene = new Scene();
+    // scene.background = new Color( 0xffffff );
+
+    width = container.clientWidth;
+    camera = new PerspectiveCamera(60, width / height, 0.25, 1000);
+    camera.position.set(22, -41, 104);
+    scene.add(camera);
+
+    scene.add(new AmbientLight(0xffffff, 3));
+
+    renderer = new WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    renderer.outputEncoding = sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 10;
+    controls.maxDistance = 1000;
+    controls.screenSpacePanning = true;
+
+    guiContainer = document.getElementById("cg-relative-scene-gui");
+    gui = new GUI({ width: 320, autoPlace: false });
+    guiContainer.appendChild(gui.domElement);
+    gui.add(material, "visible").name("Show label");
+
+    let loader = new Promise((resolve, reject) => {
+      const ldr = new GLTFLoader();
+      ldr.load(
+        "/models/cg-relative-two-body.glb",
+        function (gltf) {
+          // Call this here to make sure everything is loaded before rendering.
+          // This load function is async
+          resolve(gltf);
+        },
+        undefined,
+        function (error) {
+          console.error(error);
+        }
+      );
+    });
+    loader.then((gltf) => {
+      gltfScene = gltf.scene;
+
+      const box = new Box3().setFromObject(gltfScene);
+      const size = box.getSize(new Vector3()).length();
+      const center = box.getCenter(new Vector3());
+
+      gltfScene.getObjectByName("Sphere002").add(mesh);
+
+      scene.add(gltfScene);
+
+      gltfScene.position.x += gltfScene.position.x - center.x;
+      gltfScene.position.y += gltfScene.position.y - center.y;
+      gltfScene.position.z += gltfScene.position.z - center.z;
+      controls.maxDistance = size * 10;
+      camera.near = size / 100;
+      camera.far = size * 100;
+      camera.updateProjectionMatrix();
+
+      camera.position.copy(center);
+      camera.position.x += size / 2.0;
+      camera.position.y += size / 5.0;
+      camera.position.z += size / 2.0;
+      camera.lookAt(center);
+      controls.update();
+
+      mixer = new AnimationMixer(gltfScene);
+      gltf.animations.forEach((clip) => {
+        const clipAction = mixer.clipAction(clip);
+        clipAction.play();
+        gltfClips.push(clipAction);
+      });
+      mixer.timeScale = 2.5;
+      gui.add(mixer, "timeScale", 0, 3).name("Animation Speed");
+
+      clock = new Clock();
+
+      animate();
+    }, undefined);
+    new ResizeObserver(() => handleResize()).observe(container);
   }
-  if ( scene && camera ) {
-    renderer.render( scene, camera );
+
+  function handleResize() {
+    width = container.clientWidth;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    animate();
   }
-}
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Check whether these are defined due to the async
+    // loading of the file
+    if (mixer && clock) {
+      mixer.update(clock.getDelta() * mixer.timeScale);
+    }
+    if (scene && camera) {
+      renderer.render(scene, camera);
+    }
+  }
 </script>
 </div></div>
 <p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with the barycenter at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-cg-relative" title="Permalink to this image">¶</a></p>
@@ -1275,165 +1266,169 @@ function animate() {
 </div>
 <div class="figure align-default" id="fig-two-body-inertial-m1-relative">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="m1-relative-scene" style="width: 100%;"></div>
-<div id="m1-relative-scene-gui" style="width: 100%; position: relative; top: -400px; left: 0px"></div>
+<div class="output text_html"><div id="m1-relative-scene" style="width: 100%"></div>
+<div
+  id="m1-relative-scene-gui"
+  style="width: 100%; position: relative; top: -400px; left: 0px"
+></div>
 <script type="module">
-import {
-  CanvasTexture,
-  MeshBasicMaterial,
-  Mesh,
-  PlaneGeometry,
-  Scene,
-  Color,
-  PerspectiveCamera,
-  AmbientLight,
-  WebGLRenderer,
-  Box3,
-  Vector3,
-  AnimationMixer,
-  Clock,
-  DoubleSide,
-} from '/js/three/build/three.module.js';
-import { GLTFLoader } from '/js/three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from '/js/three/examples/jsm/controls/OrbitControls.js';
-import { GUI } from '/js/three/examples/jsm/libs/dat.gui.module.js';
+  import {
+    CanvasTexture,
+    MeshBasicMaterial,
+    Mesh,
+    PlaneGeometry,
+    Scene,
+    Color,
+    PerspectiveCamera,
+    AmbientLight,
+    WebGLRenderer,
+    Box3,
+    Vector3,
+    AnimationMixer,
+    Clock,
+    DoubleSide,
+  } from "/js/three/build/three.module.js";
+  import { GLTFLoader } from "/js/three/examples/jsm/loaders/GLTFLoader.js";
+  import { OrbitControls } from "/js/three/examples/jsm/controls/OrbitControls.js";
+  import { GUI } from "/js/three/examples/jsm/libs/dat.gui.module.js";
 
-let camera, scene, renderer, controls, gltfScene;
-let gltfClips = [];
-let mixer, clock, container, guiContainer, gui;
-const height = 400;
-let width;
-init();
-animate();
-function init() {
-  container = document.getElementById( 'm1-relative-scene' );
-
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  context.font = "40px sans-serif";
-  context.fillStyle = "rgba(255,255,255,1)";
-  context.textAlign = 'left';
-  context.fillText("m2    m1    COG", 0, 60);
-
-  // canvas contents will be used for a texture
-  const texture = new CanvasTexture(canvas);
-
-  const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
-  material.transparent = true;
-
-  const mesh = new Mesh(
-      new PlaneGeometry(50, 20),
-      material
-  );
-
-  scene = new Scene();
-  // scene.background = new Color( 0xffffff );
-
-  width = container.clientWidth;
-  camera = new PerspectiveCamera( 60, width / height, 0.25, 1000 );
-  camera.position.set(22, -41, 104);
-  scene.add(camera)
-
-  scene.add( new AmbientLight( 0xffffff , 3) );
-
-  renderer = new WebGLRenderer({antialias: true});
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( width, height );
-  container.appendChild( renderer.domElement );
-
-  controls = new OrbitControls( camera, renderer.domElement );
-  controls.minDistance = 10;
-  controls.maxDistance = 1000;
-  controls.screenSpacePanning = true;
-
-  guiContainer = document.getElementById('m1-relative-scene-gui')
-  gui = new GUI({width: 320, autoPlace: false});
-  guiContainer.appendChild(gui.domElement);
-  gui.add( material, 'visible').name("Show label");
-
-  let loader = new Promise((resolve, reject) => {
-    const ldr = new GLTFLoader();
-    ldr.load( '/models/m1-relative-two-body.glb', function ( gltf ) {
-      // Call this here to make sure everything is loaded before rendering.
-      // This load function is async
-      resolve(gltf);
-    }, undefined, function ( error ) {
-      console.error( error );
-    });
-  });
-  loader.then((gltf) => {
-    gltfScene = gltf.scene;
-
-    const box = new Box3().setFromObject(gltfScene);
-    const size = box.getSize(new Vector3()).length();
-    const center = box.getCenter(new Vector3());
-
-    gltfScene.getObjectByName("Sphere").add(mesh);
-
-    scene.add(gltfScene);
-
-    gltfScene.position.x += (gltfScene.position.x - center.x);
-    gltfScene.position.y += (gltfScene.position.y - center.y);
-    gltfScene.position.z += (gltfScene.position.z - center.z);
-    controls.maxDistance = size * 10;
-    camera.near = size / 100;
-    camera.far = size * 100;
-    camera.updateProjectionMatrix();
-
-    camera.position.copy(center);
-    camera.position.x += size / 2.0;
-    camera.position.y += size / 5.0;
-    camera.position.z += size / 2.0;
-    camera.lookAt(center);
-    controls.update()
-
-    mixer = new AnimationMixer( gltfScene );
-    gltf.animations.forEach((clip) => {
-      const clipAction = mixer.clipAction(clip);
-      clipAction.play();
-      gltfClips.push(clipAction);
-    });
-    mixer.timeScale = 2.5;
-    gui.add( mixer, 'timeScale', 0, 3 ).name("Animation Speed");
-
-    clock = new Clock();
-
-    animate();
-  }, undefined);
-  new ResizeObserver(() => handleResize()).observe(container);
-}
-
-function handleResize() {
-  width = container.clientWidth;
-  console.log(width);
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  renderer.setSize(width, height);
+  let camera, scene, renderer, controls, gltfScene;
+  let gltfClips = [];
+  let mixer, clock, container, guiContainer, gui;
+  const height = 400;
+  let width;
+  init();
   animate();
-}
+  function init() {
+    container = document.getElementById("m1-relative-scene");
 
-function animate() {
-  requestAnimationFrame( animate );
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    context.font = "40px sans-serif";
+    context.fillStyle = "rgba(255,255,255,1)";
+    context.textAlign = "left";
+    context.fillText("m1  COG   m2", 0, 60);
 
-  // Check whether these are defined due to the async
-  // loading of the file
-  if ( mixer && clock ) {
-    mixer.update( clock.getDelta() * mixer.timeScale );
+    // canvas contents will be used for a texture
+    const texture = new CanvasTexture(canvas);
+
+    const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
+    material.transparent = true;
+
+    const mesh = new Mesh(new PlaneGeometry(50, 20), material);
+    mesh.position.set(25, 0, 0);
+
+    scene = new Scene();
+    // scene.background = new Color( 0xffffff );
+
+    width = container.clientWidth;
+    camera = new PerspectiveCamera(60, width / height, 0.25, 1000);
+    camera.position.set(22, -41, 104);
+    scene.add(camera);
+
+    scene.add(new AmbientLight(0xffffff, 3));
+
+    renderer = new WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    renderer.outputEncoding = sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 10;
+    controls.maxDistance = 1000;
+    controls.screenSpacePanning = true;
+
+    guiContainer = document.getElementById("m1-relative-scene-gui");
+    gui = new GUI({ width: 320, autoPlace: false });
+    guiContainer.appendChild(gui.domElement);
+    gui.add(material, "visible").name("Show label");
+
+    let loader = new Promise((resolve, reject) => {
+      const ldr = new GLTFLoader();
+      ldr.load(
+        "/models/m1-relative-two-body.glb",
+        function (gltf) {
+          // Call this here to make sure everything is loaded before rendering.
+          // This load function is async
+          resolve(gltf);
+        },
+        undefined,
+        function (error) {
+          console.error(error);
+        }
+      );
+    });
+    loader.then((gltf) => {
+      gltfScene = gltf.scene;
+
+      const box = new Box3().setFromObject(gltfScene);
+      const size = box.getSize(new Vector3()).length();
+      const center = box.getCenter(new Vector3());
+
+      gltfScene.getObjectByName("Sphere").add(mesh);
+
+      scene.add(gltfScene);
+
+      gltfScene.position.x += gltfScene.position.x - center.x;
+      gltfScene.position.y += gltfScene.position.y - center.y;
+      gltfScene.position.z += gltfScene.position.z - center.z;
+      controls.maxDistance = size * 10;
+      camera.near = size / 100;
+      camera.far = size * 100;
+      camera.updateProjectionMatrix();
+
+      camera.position.copy(center);
+      camera.position.x += size / 2.0;
+      camera.position.y += size / 5.0;
+      camera.position.z += size / 2.0;
+      camera.lookAt(center);
+      controls.update();
+
+      mixer = new AnimationMixer(gltfScene);
+      gltf.animations.forEach((clip) => {
+        const clipAction = mixer.clipAction(clip);
+        clipAction.play();
+        gltfClips.push(clipAction);
+      });
+      mixer.timeScale = 2.5;
+      gui.add(mixer, "timeScale", 0, 3).name("Animation Speed");
+
+      clock = new Clock();
+
+      animate();
+    }, undefined);
+    new ResizeObserver(() => handleResize()).observe(container);
   }
-  if ( scene && camera ) {
-    renderer.render( scene, camera );
+
+  function handleResize() {
+    width = container.clientWidth;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    animate();
   }
-}
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Check whether these are defined due to the async
+    // loading of the file
+    if (mixer && clock) {
+      mixer.update(clock.getDelta() * mixer.timeScale);
+    }
+    if (scene && camera) {
+      renderer.render(scene, camera);
+    }
+  }
 </script>
 </div></div>
 <p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the orbits of the barycenter and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with <span class="math notranslate nohighlight">\(m_1\)</span> at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-m1-relative" title="Permalink to this image">¶</a></p>
 </div>
 <p>Interestingly, the equations for this solution are symmetric. We can reverse the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_1\)</span> and have exactly the same plot as <a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a>. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!</p>
 <p>The code to generate the plots is shown below.</p>
-<div class="tabbed-set docutils">
-<input checked="checked" id="86e915e1-f423-4ff4-8105-4a472e3af57f" name="279c002b-4f96-4130-ac0b-413a7e30d6bd" type="radio">
-</input><label class="tabbed-label" for="86e915e1-f423-4ff4-8105-4a472e3af57f">
-Python</label><div class="tabbed-content docutils">
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Python</label><div class="tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
@@ -1461,9 +1456,7 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="637fcdf2-a1c8-4bf8-b563-54702ea51455" name="279c002b-4f96-4130-ac0b-413a7e30d6bd" type="radio">
-</input><label class="tabbed-label" for="637fcdf2-a1c8-4bf8-b563-54702ea51455">
-Matlab</label><div class="tabbed-content docutils">
+<input class="tab-input" id="tab-set--7-input--2" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--2">Matlab</label><div class="tab-content docutils">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="w"></span>
 
 <span class="s">return</span><span class="w"></span>
