@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energy Is Conserved In Orbital Motion &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Angular Momentum Is Conserved In Orbital Motion" href="angular-momentum-is-conserved.html" />
+    <link rel="prev" title="Many-Body Problems" href="../the-n-body-problem/many-body-problems.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6-hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6a-Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7-universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
+   Chapter 4.2 - Geocentric Right Ascension-Declination Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/3-state-vector-and-the-geocentric-equatorial-frame.html">
+   Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/4-orbital-elements-and-the-state-vector.html">
+   Chapter 4.4 - Orbital Elements and the State Vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/5-coordinate-transformations.html">
+   Chapter 4.5 - Coordinate Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames.html">
+   Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/7-effects-of-the-earths-oblateness.html">
+   Chapter 4.7 - Effects of the Earth’s Oblateness
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2-impulsive-maneuvers.html">
+   Chapter 6.2 - Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2a-single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/3-hohmann-transfer.html">
+   Chapter 6.3 - Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4-bielliptic-hohmann-transfer.html">
+   Chapter 6.4 - Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4a-comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/5-phasing-maneuvers.html">
+   Chapter 6.5 - Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/6-non-hohmann-transfers.html">
+   Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/7-apse-line-rotation.html">
+   Chapter 6.7 - Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/8-chase-maneuvers.html">
+   Chapter 6.8 - Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9-plane-change-maneuvers.html">
+   Chapter 6.9 - Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9a-plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10-nonimpulsive-orbital-maneuvers.html">
+   Chapter 6.10 - Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10a-nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/2-interplanetary-hohmann-transfers.html">
+   Chapter 8.2 - Interplanetary Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/10-planetary-ephemeris.html">
+   Chapter 8.10 - Planetary Ephemeris
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fconstants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-intuitive-understanding-of-energy">
+   An Intuitive Understanding of Energy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conservation-of-energy">
+   Conservation of Energy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gravitational-potential-energy">
+     Gravitational Potential Energy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kinetic-energy">
+     Kinetic Energy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-to-two-body-relative-motion">
+   Application to Two-Body Relative Motion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-vis-viva-equation">
+   The
+   <em>
+    vis viva
+   </em>
+   Equation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="energy-is-conserved-in-orbital-motion">
+<span id="sec-conservation-of-energy"></span><h1>Energy Is Conserved In Orbital Motion<a class="headerlink" href="#energy-is-conserved-in-orbital-motion" title="Permalink to this headline">¶</a></h1>
+<p>The two masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> in the two-body problem form a <em>system</em>, so they must follow all of the conservation laws:</p>
+<ol class="simple">
+<li><p>Conservation of mass</p></li>
+<li><p>Conservation of energy</p></li>
+<li><p>Conservation of momentum</p></li>
+</ol>
+<p>Mass is trivially conserved in this system, since neither body is changing mass. In this section, we will prove that the two-body equation of motion satisfies conservation of energy.</p>
+<p>In the rest of this section, we will assume the coordinate system is the co-moving system attached to <span class="math notranslate nohighlight">\(m_1\)</span>, so we are working with the <span class="xref myst">two-body problem in relative motion</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Takeaway Message</p>
+There are two important results in this section:
+<ol class="simple">
+<li><p>The two-body equation of motion <em>does</em> satisfy conservation of energy, that is, total energy is constant</p></li>
+<li><p>The <em>vis viva</em> equation gives the proportions of kinetic and potential energy that make up the total energy at any location on the orbit:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-eq-vis-viva-equation">
+<span class="eqno">(42)<a class="headerlink" href="#equation-eq-vis-viva-equation" title="Permalink to this equation">¶</a></span>\[E = \frac{v^2}{2} - \frac{mu}{r}\]</div>
+</div>
+<div class="section" id="an-intuitive-understanding-of-energy">
+<h2>An Intuitive Understanding of Energy<a class="headerlink" href="#an-intuitive-understanding-of-energy" title="Permalink to this headline">¶</a></h2>
+<p>In the context of orbital mechanics, we care about two forms of energy:</p>
+<ol class="simple">
+<li><p>Kinetic energy, <span class="math notranslate nohighlight">\(\KE\)</span></p></li>
+<li><p>Potential energy, <span class="math notranslate nohighlight">\(\PE\)</span></p></li>
+</ol>
+<p>These forms of mechanical energy are the only forms in this system, so the total energy must satisfy the law of conservation of energy:</p>
+<div class="math notranslate nohighlight" id="equation-eq-conservation-of-mechanical-energy">
+<span class="eqno">(43)<a class="headerlink" href="#equation-eq-conservation-of-mechanical-energy" title="Permalink to this equation">¶</a></span>\[\KE + \PE = E\]</div>
+<p>where <span class="math notranslate nohighlight">\(E\)</span> is the total mechanical energy of the system and must be a constant.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Conservative forces allow infinite conversion of energy between forms. Non-conservative forces, such as friction and drag, result in a conversion of mechanical energy into heat.</p>
+</div>
+<p>The potential energy is due to the location of <span class="math notranslate nohighlight">\(m_2\)</span> in the gravitational field of <span class="math notranslate nohighlight">\(m_1\)</span>, while the kinetic energy is due to the velocity of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. Gravity is a <a class="reference external" href="https://en.wikipedia.org/wiki/Conservative_force"><strong>conservative force</strong></a>, which means that any change of kinetic energy is associated with an equal and opposite equal change of potential energy.</p>
+<p>As kinetic energy increases and the speed of <span class="math notranslate nohighlight">\(m_2\)</span> increases, the potential energy must decrease and <span class="math notranslate nohighlight">\(m_2\)</span> gets closer to <span class="math notranslate nohighlight">\(m_1\)</span>. The point of highest speed is at the point of closest approach. Likewise, the point of lowest speed is at the farthest point on the orbit. You can examine the results from <span class="xref myst"></span> to verify this is correct.</p>
+<p>Now, let’s define each of the forms of mechanical energy a little more rigorously.</p>
+</div>
+<div class="section" id="conservation-of-energy">
+<h2>Conservation of Energy<a class="headerlink" href="#conservation-of-energy" title="Permalink to this headline">¶</a></h2>
+<p>Since the total mechanical energy, <span class="math notranslate nohighlight">\(E\)</span>, is a constant, its derivative with respect to time must be equal to zero:</p>
+<div class="math notranslate nohighlight" id="equation-eq-derivative-of-energy-equation">
+<span class="eqno">(44)<a class="headerlink" href="#equation-eq-derivative-of-energy-equation" title="Permalink to this equation">¶</a></span>\[\frac{dE}{dt} = 0 = \frac{d\KE}{dt} + \frac{d\PE}{dt}\]</div>
+<div class="section" id="gravitational-potential-energy">
+<h3>Gravitational Potential Energy<a class="headerlink" href="#gravitational-potential-energy" title="Permalink to this headline">¶</a></h3>
+<p>The gravitational potential energy function for a spherically-symmetrical shape is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-gravitational-potential-energy-function">
+<span class="eqno">(45)<a class="headerlink" href="#equation-eq-gravitational-potential-energy-function" title="Permalink to this equation">¶</a></span>\[\PE = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{x^2 + y^2 + z^2}}\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-gravitational-potential-energy-function">(45)</a>, the coordinates <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> are functions of time. This mildly complicates taking the derivative <span class="math notranslate nohighlight">\(d\PE/dt\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-derivative-of-gpe">
+<span class="eqno">(46)<a class="headerlink" href="#equation-eq-derivative-of-gpe" title="Permalink to this equation">¶</a></span>\[\frac{d\PE}{dt} = -\frac{G m_1 m_2}{\left(x^2 + y^2 + z^2\right)^{3/2}} \left(-x v_x - y v_y - z v_z\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, and <span class="math notranslate nohighlight">\(v_z\)</span> are the components of velocity in those directions. Substituting the definition of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-eq-derivative-of-gpe-simplified">
+<span class="eqno">(47)<a class="headerlink" href="#equation-eq-derivative-of-gpe-simplified" title="Permalink to this equation">¶</a></span>\[\frac{d\PE}{dt} = m_2 \frac{\mu}{r^3}\left(x v_x + y v_y + z v_z\right)\]</div>
+</div>
+<div class="section" id="kinetic-energy">
+<h3>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this headline">¶</a></h3>
+<p>The kinetic energy of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-kinetic-energy-function">
+<span class="eqno">(48)<a class="headerlink" href="#equation-eq-kinetic-energy-function" title="Permalink to this equation">¶</a></span>\[\KE = \frac{1}{2} m_2 v^2 = \frac{1}{2} m_2 \left(v_x^2 + v_y^2 + v_z^2\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(v = \mag{\vector{v}}\)</span> is the magnitude of the velocity. As with the potential energy, the components of the velocity are functions of time. Thus, the derivative of the kinetic energy with respect to time is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-derivative-of-ke">
+<span class="eqno">(49)<a class="headerlink" href="#equation-eq-derivative-of-ke" title="Permalink to this equation">¶</a></span>\[\frac{d\KE}{dt} = \frac{1}{2}m_2\frac{d\left(v^2\right)}{dt} = m_2\left(v_x a_x + v_y a_y + v_z a_z\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_x\)</span>, <span class="math notranslate nohighlight">\(a_y\)</span>, and <span class="math notranslate nohighlight">\(a_z\)</span> are the relative acceleration components.</p>
+</div>
+</div>
+<div class="section" id="application-to-two-body-relative-motion">
+<h2>Application to Two-Body Relative Motion<a class="headerlink" href="#application-to-two-body-relative-motion" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we are going to prove that the two-body equation of motion, Eq. <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html#equation-eq-two-body-relative-motion">(33)</a>, satisfies conservation of energy. Eq. <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html#equation-eq-two-body-relative-motion">(33)</a> is a <em>vector</em> equation, while energy is a <strong>scalar quantity</strong>. This means that energy is represented by a single number, it has a magnitude but no direction.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>This is why the dot product is also called the scalar product.</p>
+</div>
+<p>To convert between vectors and scalars mathematically, we have to use the vector dot product. We are going to take the dot product of Eq. <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html#equation-eq-two-body-relative-motion">(33)</a> with something, and now we have to decide what that something is.</p>
+<p>As <span class="math notranslate nohighlight">\(m_2\)</span> orbits around <span class="math notranslate nohighlight">\(m_1\)</span>, the conversion between kinetic and potential energy is done by work. The rate at which work is done is the power, and is in turn equal to the rate of change of the energy, <span class="math notranslate nohighlight">\(dE/dt\)</span>. We already saw <span class="math notranslate nohighlight">\(dE/dt\)</span> in Eq. <a class="reference internal" href="#equation-eq-derivative-of-energy-equation">(44)</a>, so that is probably a good place to start.</p>
+<p>Finally, the power is calculated by taking the dot product of the force and velocity vectors. So, we will take the dot product of the <em>velocity</em> vector and Eq. <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html#equation-eq-two-body-relative-motion">(33)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-dot-product-velocity-two-body-eom">
+<span class="eqno">(50)<a class="headerlink" href="#equation-eq-dot-product-velocity-two-body-eom" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \ddot{\vector{r}} \cdot \vector{v} + \frac{\mu}{r^3} \vector{r} \cdot \vector{v} &amp;= 0 \\
+  \left(v_x a_x + v_y a_y + v_z a_z\right) + \frac{\mu}{r^3} \left(x v_x + y v_y + z v_z\right) &amp;= 0
+\end{aligned}\end{split}\]</div>
+<p>Now, if we multiply through by <span class="math notranslate nohighlight">\(m_2\)</span> (which doesn’t change anything), we see two things:</p>
+<ol class="simple">
+<li><p>The first term on the left is identical to <span class="math notranslate nohighlight">\(d\KE/dt\)</span>, Eq. <a class="reference internal" href="#equation-eq-derivative-of-ke">(49)</a></p></li>
+<li><p>The second term on the left is identical to <span class="math notranslate nohighlight">\(d\PE/dt\)</span>, Eq. <a class="reference internal" href="#equation-eq-derivative-of-gpe-simplified">(47)</a></p></li>
+</ol>
+<p>Therefore, Eq. <a class="reference internal" href="#equation-eq-dot-product-velocity-two-body-eom">(50)</a> shows that the two-body equation of motion can be converted into power, and the sum of the power is zero. This precisely satisfies the condition in Eq. <a class="reference internal" href="#equation-eq-derivative-of-energy-equation">(44)</a>!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I’m not sure I’ve given this result enough oomph. What we have here is a proof that the two-body equation of motion satisfies the law of conservation of energy!</p>
+</div>
+</div>
+<div class="section" id="the-vis-viva-equation">
+<h2>The <em>vis viva</em> Equation<a class="headerlink" href="#the-vis-viva-equation" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have proven that the two-body equation of motion satisfies conservation of energy, we can use the conservation law to derive another useful equation. Starting from Eq. <a class="reference internal" href="#equation-eq-derivative-of-energy-equation">(44)</a>, let’s integrate with respect to time:</p>
+<div class="math notranslate nohighlight" id="equation-eq-integrate-energy-equation">
+<span class="eqno">(51)<a class="headerlink" href="#equation-eq-integrate-energy-equation" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \int 0 dt &amp;= \int \frac{d}{dt} \left(\frac{v^2}{2}\right) dt - \int \frac{d}{dt}\left(\frac{\mu}{r}\right) dt \\
+  E &amp;= \frac{v^2}{2} + \left(C - \frac{mu}{r}\right)
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> is an arbitrary constant of integration. By choosing a value for <span class="math notranslate nohighlight">\(C\)</span>, we are setting the <strong>reference point</strong> for the potential energy. For instance, we could choose the reference point at <span class="math notranslate nohighlight">\(r = R_E\)</span>, the radius of the earth, which would give some finite value for <span class="math notranslate nohighlight">\(C\)</span>. However, it is most convenient to choose <span class="math notranslate nohighlight">\(C=0\)</span>, corresponding to a reference point at infinite radius.</p>
+<p>Equation <a class="reference internal" href="#equation-eq-integrate-energy-equation">(51)</a> is a statement of the conservation of energy of the system. It is called the <em>vis viva</em> equation, which translates as the <em>living force</em> equation due to its central role in understanding how objects orbit each other.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./constants-of-orbital-motion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../the-n-body-problem/many-body-problems.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Many-Body Problems</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="angular-momentum-is-conserved.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Angular Momentum Is Conserved In Orbital Motion</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

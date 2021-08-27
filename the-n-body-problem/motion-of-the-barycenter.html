@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -46,15 +46,15 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/motion-of-the-barycenter.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -87,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -96,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -118,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   The N-Body Problem
  </span>
@@ -149,8 +149,35 @@
    Two-Body Problem in the Co-Moving Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 2
  </span>
@@ -159,11 +186,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
-   Chapter 2.5 - The Energy Law
   </a>
  </li>
  <li class="toctree-l1">
@@ -228,7 +250,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 3
  </span>
@@ -301,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 4
  </span>
@@ -338,7 +360,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 6
  </span>
@@ -415,7 +437,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 8
  </span>
@@ -432,7 +454,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Review of Vectors, Kinematics, and Newtonian Mechanics
  </span>
@@ -449,17 +471,12 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
@@ -470,8 +487,18 @@
    Relative Motion
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Bibliography
  </span>
@@ -566,24 +593,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gravitational-potential-energy">
-   Gravitational Potential Energy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#many-body-problems">
-   Many-Body Problems
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -615,32 +624,6 @@
 <p>Therefore, the acceleration of the barycenter is zero and it must move with constant velocity.</p>
 <p>This is a hugely important result because it means that a coordinate system attached to the barycenter is an <strong>inertial reference frame</strong>. We can find the position, velocity, and acceleration of masses relative to a coordinate system attached to the barycenter, and they will be the absolute quantities.</p>
 <p>In the next section we will apply this useful result to verify simpler equations for the motion in the two-body system.</p>
-<div class="section" id="gravitational-potential-energy">
-<h2>Gravitational Potential Energy<a class="headerlink" href="#gravitational-potential-energy" title="Permalink to this headline">¶</a></h2>
-<p>The gravitational potential energy function for a spherically-symmetrical shape is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-gravitational-potential-energy-function">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eq-gravitational-potential-energy-function" title="Permalink to this equation">¶</a></span>\[V = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{\left(X_2 - X_1\right)^2 + \left(Y_2 - Y_1\right)^2 + \left(Z_2 - Z_1\right)^2}}\]</div>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Conservative forces allow infinite conversion of energy between forms. Non-conservative forces, such as friction and drag, result in a conversion of mechanical energy into heat.</p>
-</div>
-<p>Gravity is a <a class="reference external" href="https://en.wikipedia.org/wiki/Conservative_force"><strong>conservative force</strong></a>, which means that the force field can be determined from the gradient of the potential energy function:</p>
-<div class="math notranslate nohighlight" id="equation-eq-gravity-force-field">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V\]</div>
-<p>Thus, the attractive forces between the masses are given by:</p>
-<div class="math notranslate nohighlight" id="equation-eq-force-from-potential-function">
-<span class="eqno">(31)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
-  \vector{F}_{12} &amp;= -\left(\frac{\partial V}{\partial X_2}\uvec{\imath} + \frac{\partial V}{\partial Y_2}\uvec{\jmath} + \frac{\partial V}{\partial Z_2}\uvec{k}\right)\\
-  \vector{F}_{21} &amp;= -\left(\frac{\partial V}{\partial X_1}\uvec{\imath} + \frac{\partial V}{\partial Y_1}\uvec{\jmath} + \frac{\partial V}{\partial Z_1}\uvec{k}\right)
-\end{aligned}\end{split}\]</div>
-<p>In the book, they show that the gravitational potential energy field of a sphere is equivalent to the field of an equivalent point mass located at the center of the sphere. As long as the spheres don’t come into contact, we can substitute point masses for spheres with no difference in the equations!</p>
-</div>
-<div class="section" id="many-body-problems">
-<h2>Many-Body Problems<a class="headerlink" href="#many-body-problems" title="Permalink to this headline">¶</a></h2>
-<p>Since we have developed the equations for the two-body problem, the question naturally arises about having three or more masses in the system. Unfortunately, there are no general closed form solutions for the <span class="math notranslate nohighlight">\(n\)</span>-body problem when <span class="math notranslate nohighlight">\(n &gt; 2\)</span>. The system can still be solved numerically, but it is highly chaotic and complex.</p>
-<p>Given this is the case, the next question that arises is, how useful is the two-body solution, really? It turns out that the easiest way to solve the many-body problem for systems of engineering interest is to solve the two-body problem and treat other gravitational influences as perturbations of the two-body problem.</p>
-<p>For example, consider a satellite orbiting Earth. The dominant gravitational force on the satellite is from the Earth. There will also be influences from the Sun, Moon, and other planets. However, those effects can be treated as perturbations on the solution of the two-body problem involving the Earth and the satellite.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -666,12 +649,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="two-body-inertial-numerical-solution.html" title="previous page">Two-Body Numerical Solution in an Inertial Frame</a>
-    <a class='right-next' id="next-link" href="two-body-relative-motion.html" title="next page">Relative Motion in the Two-Body Problem</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="two-body-inertial-numerical-solution.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Two-Body Numerical Solution in an Inertial Frame</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="two-body-relative-motion.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Relative Motion in the Two-Body Problem</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

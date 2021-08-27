@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2.5 - The Energy Law &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    <title>Angular Momentum Is Conserved In Orbital Motion &#8212; Notes on Orbital Mechanics for Engineering Students</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -46,20 +46,20 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
-    <link rel="canonical" href="https://orbital-mechanics.space/chapter-2/5-the-energy-law.html" />
+    <link rel="canonical" href="https://orbital-mechanics.space/constants-of-orbital-motion/angular-momentum-is-conserved.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 2.6 - Circular Orbits (\(e = 0\))" href="6-circular-orbits.html" />
-    <link rel="prev" title="Chapter 2.4 - Angular Momentum and the Orbit Formulas" href="4-angular-momentum-and-the-orbit-formulas.html" />
+    <link rel="next" title="Orbital Plane and Kepler’s Second Law" href="orbital-plane-and-keplers-second-law.html" />
+    <link rel="prev" title="Energy Is Conserved In Orbital Motion" href="energy-is-conserved-in-orbital-motion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -87,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -96,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -118,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   The N-Body Problem
  </span>
@@ -149,25 +149,47 @@
    Two-Body Problem in the Co-Moving Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
-  Chapter 2
+  Constants of Orbital Motion
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="4-angular-momentum-and-the-orbit-formulas.html">
-   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  <a class="reference internal" href="energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 2.5 - The Energy Law
+   Angular Momentum Is Conserved In Orbital Motion
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="6-circular-orbits.html">
+  <a class="reference internal" href="orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
+   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
    Chapter 2.6 - Circular Orbits (
    <span class="math notranslate nohighlight">
     \(e = 0\)
@@ -176,7 +198,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="7-elliptical-orbits.html">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
    Chapter 2.7 - Elliptical Orbits (
    <span class="math notranslate nohighlight">
     \(0 &lt; e &lt; 1\)
@@ -185,7 +207,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="8-parabolic-trajectories.html">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
    Chapter 2.8 - Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
@@ -194,7 +216,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="9-hyperbolic-trajectories.html">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
    Chapter 2.9 - Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
@@ -203,32 +225,32 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="10-perifocal-frame.html">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
    Chapter 2.10 - Perifocal Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="11-the-lagrange-coefficients.html">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
    Chapter 2.11 - The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="12-circular-restricted-three-body-problem.html">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
    Chapter 2.12 - Circular Restricted Three-Body Problem
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="12a-Lagrange-points-example.html">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
    Example: Lagrange Points
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="12b-Equations-of-Motion-CR3BP.html">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
    Example: CR3BP Equations of Motion
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 3
  </span>
@@ -301,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 4
  </span>
@@ -338,7 +360,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 6
  </span>
@@ -415,7 +437,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 8
  </span>
@@ -432,7 +454,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Review of Vectors, Kinematics, and Newtonian Mechanics
  </span>
@@ -449,17 +471,12 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
@@ -470,8 +487,18 @@
    Relative Motion
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Bibliography
  </span>
@@ -523,7 +550,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/chapter-2/5-the-energy-law.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/constants-of-orbital-motion/angular-momentum-is-conserved.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -543,10 +570,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fchapter-2/5-the-energy-law.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fconstants-of-orbital-motion/angular-momentum-is-conserved.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/chapter-2/5-the-energy-law.md"><button
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/constants-of-orbital-motion/angular-momentum-is-conserved.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -566,6 +593,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-intuitive-understanding-of-angular-momentum">
+   An Intuitive Understanding of Angular Momentum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conservation-of-angular-momentum">
+   Conservation of Angular Momentum
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -574,34 +619,66 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-5-the-energy-law">
-<h1>Chapter 2.5 - The Energy Law<a class="headerlink" href="#chapter-2-5-the-energy-law" title="Permalink to this headline">¶</a></h1>
-<p>We previously defined the gravitational force in terms of the potential energy field:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="angular-momentum-is-conserved-in-orbital-motion">
+<span id="sec-conservation-of-angular-momentum"></span><h1>Angular Momentum Is Conserved In Orbital Motion<a class="headerlink" href="#angular-momentum-is-conserved-in-orbital-motion" title="Permalink to this headline">¶</a></h1>
+<p>The two masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> in the two-body problem form a <em>system</em>, so they must follow all of the conservation laws:</p>
+<ol class="simple">
+<li><p>Conservation of mass</p></li>
+<li><p>Conservation of energy</p></li>
+<li><p>Conservation of momentum</p></li>
+</ol>
+<p>Mass is trivially conserved in this system, since neither body is changing mass. In this section, we will prove that the two-body equation of motion satisfies conservation of angular momentum.</p>
+<p>In the rest of this section, we will assume the coordinate system is the co-moving system attached to <span class="math notranslate nohighlight">\(m_1\)</span>, so we are working with the <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html"><span class="doc std std-doc">two-body problem in relative motion</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Takeaway Message</p>
+There are three important results in this section:
+<ol class="simple">
+<li><p>The angular momentum vector is normal to a plane defined by the relative position and velocity vectors</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_2\)</span> always orbits in the same plane, defined by the direction of the angular momentum vector, in the two-body system</p></li>
+<li><p>The magnitude of the angular momentum is a constant for a given orbit</p></li>
+</ol>
+</div>
+<div class="section" id="an-intuitive-understanding-of-angular-momentum">
+<h2>An Intuitive Understanding of Angular Momentum<a class="headerlink" href="#an-intuitive-understanding-of-angular-momentum" title="Permalink to this headline">¶</a></h2>
+<p>For a given object, there are two parts of the total <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Angular_momentum">angular momentum</a></strong>:</p>
+<ol class="simple">
+<li><p>The <strong>spin</strong> angular momentum, measured about the center of mass of the object</p></li>
+<li><p>The <strong>orbital</strong> angular momentum, measured about a center of rotation</p></li>
+</ol>
+<p>We are concerned with the orbital angular momentum for the two-body system. The spin angular momentum is important in the <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Attitude_control">attitude control</a></strong> of spacecraft, which we are not dealing with here.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note that we are neglecting the ability of a spacecraft to provide <strong>thrust</strong>, which would be another force to consider in the system.</p>
+</div>
+<p>To change the orbital angular momentum of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>, we must apply a force perpendicular to the relative position vector, <span class="math notranslate nohighlight">\(\vector{r}\)</span>. However, the only force in the two-body system (gravity) is always parallel to the relative position vector and so cannot affect the angular momentum. Therefore, the angular momentum of the system must be constant.</p>
+</div>
+<div class="section" id="conservation-of-angular-momentum">
+<h2>Conservation of Angular Momentum<a class="headerlink" href="#conservation-of-angular-momentum" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>We’ll shorten <em>orbital angular momentum</em> to just <em>angular momentum</em> from here on out.</p>
+</div>
+<p>The orbital angular momentum of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span> is found by taking the cross, or vector, product of the relative position vector and the relative velocity vector:</p>
+<div class="math notranslate nohighlight" id="equation-eq-definition-of-angular-momentum">
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-definition-of-angular-momentum" title="Permalink to this equation">¶</a></span>\[\vector{h} = \vector{r} \cross \dot{\vector{r}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{h}\)</span> is the specific angular momentum. Note that the angular momentum is a vector. As such, it has both a magnitude and a direction. When we say that the angular momentum is constant, this requires <em>both</em> the magnitude <em>and</em> direction to remain constant.</p>
+<p>The relative position and velocity vectors lie in the same plane, because any two lines form a plane. Because it is defined by a cross product, the specific angular momentum is perpendicular to both <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{r}}\)</span>, as shown in <a class="reference internal" href="#fig-orbital-angular-momentum"><span class="std std-numref">Fig. 14</span></a>.</p>
+<div class="figure align-default" id="fig-orbital-angular-momentum">
+<img alt="../_images/orbital-angular-momentum.svg" src="../_images/orbital-angular-momentum.svg" /><p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">The orbital angular momentum is perpendicular to the position and velocity vectors.</span><a class="headerlink" href="#fig-orbital-angular-momentum" title="Permalink to this image">¶</a></p>
+</div>
+<p>Since the direction of the specific angular momentum is constant, the orbit in a two-body system always remains in the same plane!</p>
+<p>For the angular momentum to be constant, its time derivative must be zero:</p>
+<div class="math notranslate nohighlight" id="equation-eq-derivative-of-angular-momentum">
+<span class="eqno">(53)<a class="headerlink" href="#equation-eq-derivative-of-angular-momentum" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{h}}{dt} = \dot{\vector{r}}\cross\dot{\vector{r}} + \vector{r}\cross\ddot{\vector{r}}\]</div>
+<p>The first term in Eq. <a class="reference internal" href="#equation-eq-derivative-of-angular-momentum">(53)</a> is zero by the definition of the cross product. In the second term, we can replace <span class="math notranslate nohighlight">\(\ddot{\vector{r}}\)</span> using the two-body equation of motion, Eq. <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html#equation-eq-two-body-relative-motion">(33)</a>:</p>
 <div class="math notranslate nohighlight">
-\[\vector{F} = -\frac{\partial V}{\partial \vector{r}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(V\)</span> is the gravitational potential energy. Plugging this into Newton’s second law, we find:</p>
-<div class="math notranslate nohighlight">
-\[m_2 \ddot{\vector{r}} = -\frac{\partial V}{\partial \vector{r}}\]</div>
-<p>Taking the dot product of this equation with the velocity, we find that the right hand side is:</p>
-<div class="math notranslate nohighlight">
-\[-\frac{\partial V}{\partial x}\cdot\frac{dx}{dt} -\frac{\partial V}{\partial y}\cdot\frac{dy}{dt} -\frac{\partial V}{\partial z}\cdot\frac{dz}{dt} = -\frac{dV}{dt}\]</div>
-<p>The left-hand side is:</p>
-<div class="math notranslate nohighlight">
-\[m_2 \ddot{\vector{r}}\cdot\dot{\vector{r}} = \frac{m_2}{2}\frac{d(v^2)}{dt} = \frac{d \mathrm{KE}}{dt}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathrm{KE}\)</span> is the kinetic energy of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. Combining these \mathrm{KE}ogether, we find:</p>
-<div class="math notranslate nohighlight">
-\[\frac{d\mathrm{KE}}{dt} + \frac{dV}{dt} = 0\]</div>
-<p>This equation can be integrated to find:</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{KE} + V = E \left(\text{constant}\right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(E\)</span> is the total mechanical energy of the system. This equation shows that the total energy of the system is constant. Since gravity is a conservative force, the energy of the system can be converted between kinetic and potential energy with no losses.</p>
-<p>Dividing through by the mass, this can be represented as the mass-specific kinetic and potential energies:</p>
-<div class="math notranslate nohighlight">
-\[\frac{v^2}{2} - \frac{\mu}{r} = \varepsilon \left(\text{constant}\right)\]</div>
-<p>This is also known as the <em>vis viva</em> equation, meaning the living force equation.</p>
-<p>Since the energy is constant, we can find it at any point in the orbit and use that value throughout the orbit. It is convenient to find the energy at periapsis:</p>
-<div class="math notranslate nohighlight">
-\[\varepsilon = \varepsilon_p = \frac{1}{2}\frac{h^2}{r_p^2} - \frac{\mu}{r_p} = -\frac{1}{2}\frac{\mu^2}{h^2}\left(1 - e^2\right)\]</div>
+\[\frac{d\vector{h}}{dt} = \vector{0} - \frac{\mu}{r^3}\left(\vector{r}\cross\vector{r}\right) = \vector{0}\]</div>
+<p>Thus, the system satisfies conservation of angular momentum.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also verify this by taking the cross product of the relative position vector with Eq. <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html#equation-eq-two-body-relative-motion">(33)</a>.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -617,7 +694,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapter-2"
+            path: "./constants-of-orbital-motion"
         },
         predefinedOutput: true
     }
@@ -627,12 +704,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="4-angular-momentum-and-the-orbit-formulas.html" title="previous page">Chapter 2.4 - Angular Momentum and the Orbit Formulas</a>
-    <a class='right-next' id="next-link" href="6-circular-orbits.html" title="next page">Chapter 2.6 - Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="energy-is-conserved-in-orbital-motion.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Energy Is Conserved In Orbital Motion</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="orbital-plane-and-keplers-second-law.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Orbital Plane and Kepler’s Second Law</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

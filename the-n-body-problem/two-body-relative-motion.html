@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -46,15 +46,15 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-relative-motion.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -87,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -96,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -118,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   The N-Body Problem
  </span>
@@ -149,8 +149,35 @@
    Two-Body Problem in the Co-Moving Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 2
  </span>
@@ -159,11 +186,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
-   Chapter 2.5 - The Energy Law
   </a>
  </li>
  <li class="toctree-l1">
@@ -228,7 +250,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 3
  </span>
@@ -301,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 4
  </span>
@@ -338,7 +360,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 6
  </span>
@@ -415,7 +437,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 8
  </span>
@@ -432,7 +454,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Review of Vectors, Kinematics, and Newtonian Mechanics
  </span>
@@ -449,17 +471,12 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
@@ -470,8 +487,18 @@
    Relative Motion
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Bibliography
  </span>
@@ -569,7 +596,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#equation-of-relative-motion">
@@ -619,21 +646,21 @@
 <p>where lowercase <span class="math notranslate nohighlight">\(\vector{r}\)</span> indicates that the vector is relative and uppercase <span class="math notranslate nohighlight">\(\vector{R}\)</span> indicates that the vector is absolute.</p>
 <p>The equation of motion is derived from <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-relative-position-vector">(14)</a> by differentiating twice:</p>
 <div class="math notranslate nohighlight" id="equation-eq-relative-acceleration-vector">
-<span class="eqno">(32)<a class="headerlink" href="#equation-eq-relative-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \ddot{\vector{R}}_2 - \ddot{\vector{R}}_1\]</div>
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-relative-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \ddot{\vector{R}}_2 - \ddot{\vector{R}}_1\]</div>
 <p>The absolute acceleration is found from Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a>. Plugging in the results for the two absolute acceleration vectors:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{\vector{r}} = -G m_1 \frac{\vector{r}}{r^3} - G m_2 \frac{\vector{r}}{r^3}\]</div>
 <p>This simplifies to:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-relative-motion-literal">
-<span class="eqno">(33)<a class="headerlink" href="#equation-eq-two-body-relative-motion-literal" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = -G\left(m_1 + m_2\right)\frac{\vector{r}}{r^3}\]</div>
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-two-body-relative-motion-literal" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = -G\left(m_1 + m_2\right)\frac{\vector{r}}{r^3}\]</div>
 <p>We now define a parameter, <span class="math notranslate nohighlight">\(\mu\)</span>, called the <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_gravitational_parameter"><strong>standard gravitational parameter</strong></a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-literal-definition-of-mu">
-<span class="eqno">(34)<a class="headerlink" href="#equation-eq-literal-definition-of-mu" title="Permalink to this equation">¶</a></span>\[\mu = G\left(m_1 + m_2\right)\]</div>
+<span class="eqno">(31)<a class="headerlink" href="#equation-eq-literal-definition-of-mu" title="Permalink to this equation">¶</a></span>\[\mu = G\left(m_1 + m_2\right)\]</div>
 <p>The utility of this parameter is mostly for the case where <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span>. Fortunately, this is the case for many practical problems. For instance, human-built devices orbiting around a planet have a much smaller mass than the planet. Thus, if <span class="math notranslate nohighlight">\(m_2\)</span> is the mass of the device and <span class="math notranslate nohighlight">\(m_1\)</span> is the mass of the planet, then <span class="math notranslate nohighlight">\(m_1 + m_2 \approx m_1\)</span> and we can set:</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-of-mu">
-<span class="eqno">(35)<a class="headerlink" href="#equation-eq-definition-of-mu" title="Permalink to this equation">¶</a></span>\[\mu \approx G m_1\]</div>
+<span class="eqno">(32)<a class="headerlink" href="#equation-eq-definition-of-mu" title="Permalink to this equation">¶</a></span>\[\mu \approx G m_1\]</div>
 <p>Therefore, we can tabulate values of <span class="math notranslate nohighlight">\(\mu\)</span> for various celestial bodies, as shown in <a class="reference internal" href="#tab-standard-gravitational-parameter"><span class="std std-numref">Table 1</span></a>. To use any of the values here in your code, replace the <code class="docutils literal notranslate"><span class="pre">×</span> <span class="pre">10^{&lt;number&gt;}</span></code> with <code class="docutils literal notranslate"><span class="pre">E&lt;number&gt;</span></code>, so <code class="docutils literal notranslate"><span class="pre">1.32712</span> <span class="pre">×</span> <span class="pre">10^{11}</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1.32712E11</span></code>.</p>
-<p>Notice that the smallest object in <a class="reference internal" href="#tab-standard-gravitational-parameter"><span class="std std-numref">Table 1</span></a> is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in Eq. <a class="reference internal" href="#equation-eq-definition-of-mu">(35)</a>.</p>
+<p>Notice that the smallest object in <a class="reference internal" href="#tab-standard-gravitational-parameter"><span class="std std-numref">Table 1</span></a> is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in Eq. <a class="reference internal" href="#equation-eq-definition-of-mu">(32)</a>.</p>
 <table class="table" id="tab-standard-gravitational-parameter">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">The standard gravitational parameter (<span class="math notranslate nohighlight">\(\mu\)</span>) and the mass for major celestial objects in the Solar System. See also: <a class="reference internal" href="../reference/planetary-parameters.html#sec-planetary-parameters"><span class="std std-ref">Planetary Parameters</span></a> and <span id="id2">[<a class="reference internal" href="../bibliography.html#id15">PFWB21</a>]</span></span><a class="headerlink" href="#tab-standard-gravitational-parameter" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -694,13 +721,13 @@
 </tr>
 </tbody>
 </table>
-<p>Returning to Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion-literal">(33)</a> and substituting <span class="math notranslate nohighlight">\(\mu\)</span>, we find:</p>
+<p>Returning to Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion-literal">(30)</a> and substituting <span class="math notranslate nohighlight">\(\mu\)</span>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-relative-motion">
-<span class="eqno">(36)<a class="headerlink" href="#equation-eq-two-body-relative-motion" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = -\frac{\mu}{r^3}\vector{r}\]</div>
+<span class="eqno">(33)<a class="headerlink" href="#equation-eq-two-body-relative-motion" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = -\frac{\mu}{r^3}\vector{r}\]</div>
 <p>This is a nonlinear, second-order ordinary differential equation. It can be solved analytically, if we can find the constants of integration. There are two vector constants of integration, each of which have three scalar components. Thus, there are six constants of integration that must be determined from the initial conditions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Interestingly, the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> can be interchanged by multiplying Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(36)</a> by -1. Thus, the motion of <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(m_2\)</span> has the same shape as the reverse. In other words, if you were standing on the Moon, the Earth would appear to be orbiting you!</p>
+<p>Interestingly, the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> can be interchanged by multiplying Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a> by -1. Thus, the motion of <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(m_2\)</span> has the same shape as the reverse. In other words, if you were standing on the Moon, the Earth would appear to be orbiting you!</p>
 </div>
 </div>
 <div class="section" id="motion-relative-to-the-center-of-mass">
@@ -708,21 +735,21 @@
 <p>Now, referring to the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="doc std std-doc">Motion of the Barycenter</span></a>, we will find the motion of the masses relative to the center of mass, <span class="math notranslate nohighlight">\(\COG\)</span>, of the system. Let <span class="math notranslate nohighlight">\(\vector{r}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{r}_2\)</span> be the position vectors of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> relative to the center of mass, respectively. We also note that, in this definition, <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> points in the same direction as <span class="math notranslate nohighlight">\(\vector{r}_2\)</span>.</p>
 <p>Skipping all the algebra, it turns out that the equation of motion for <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(G\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-motion-of-m-2-relative-to-cog">
-<span class="eqno">(37)<a class="headerlink" href="#equation-eq-motion-of-m-2-relative-to-cog" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}}_2 = - \frac{\mu'}{r_2^3}\vector{r}_2\]</div>
+<span class="eqno">(34)<a class="headerlink" href="#equation-eq-motion-of-m-2-relative-to-cog" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}}_2 = - \frac{\mu'}{r_2^3}\vector{r}_2\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-of-mu-prime">
-<span class="eqno">(38)<a class="headerlink" href="#equation-eq-definition-of-mu-prime" title="Permalink to this equation">¶</a></span>\[\mu' = \left(\frac{m_1}{m_1 + m_2}\right)^3\mu\]</div>
+<span class="eqno">(35)<a class="headerlink" href="#equation-eq-definition-of-mu-prime" title="Permalink to this equation">¶</a></span>\[\mu' = \left(\frac{m_1}{m_1 + m_2}\right)^3\mu\]</div>
 <p>and <span class="math notranslate nohighlight">\(\mu\)</span> is as given previously. Similarly, the equation of motion for <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(\COG\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-motion-of-m-1-relative-to-cog">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eq-motion-of-m-1-relative-to-cog" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}}_1 = - \frac{\mu''}{r_1^3}\vector{r}_1\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-eq-motion-of-m-1-relative-to-cog" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}}_1 = - \frac{\mu''}{r_1^3}\vector{r}_1\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-of-mu-double-prime">
-<span class="eqno">(40)<a class="headerlink" href="#equation-eq-definition-of-mu-double-prime" title="Permalink to this equation">¶</a></span>\[\mu'' = \left(\frac{m_2}{m_1 + m_2}\right)^3\mu\]</div>
+<span class="eqno">(37)<a class="headerlink" href="#equation-eq-definition-of-mu-double-prime" title="Permalink to this equation">¶</a></span>\[\mu'' = \left(\frac{m_2}{m_1 + m_2}\right)^3\mu\]</div>
 <p>Thus, we can see that all three equations of relative motion:</p>
 <ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(36)</a></p></li>
-<li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(\COG\)</span>, Eq. <a class="reference internal" href="#equation-eq-motion-of-m-2-relative-to-cog">(37)</a></p></li>
-<li><p><span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(\COG\)</span>, Eq. <a class="reference internal" href="#equation-eq-motion-of-m-1-relative-to-cog">(39)</a></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(\COG\)</span>, Eq. <a class="reference internal" href="#equation-eq-motion-of-m-2-relative-to-cog">(34)</a></p></li>
+<li><p><span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(\COG\)</span>, Eq. <a class="reference internal" href="#equation-eq-motion-of-m-1-relative-to-cog">(36)</a></p></li>
 </ol>
 <p>have the same form, differing only in the constants. The solutions to these equations will all have the same shape! This means that if we find the solution in one reference frame, the solution will be the same shape in any other reference frame.</p>
 </div>
@@ -732,7 +759,7 @@
 <p>In most of the problems that we work with, it is convenient to treat <span class="math notranslate nohighlight">\(m_1\)</span> as the origin of the coordinate system. For example, in solving the motion of a satellite around Earth, we are most interested in where the satellite is relative to Earth. So a reference frame attached to the center of the Earth and moving with the Earth is quite convenient.</p>
 <p>A reference frame attached to, and moving with, <span class="math notranslate nohighlight">\(m_1\)</span> is shown in <a class="reference internal" href="#fig-coordinate-relative-to-m1"><span class="std std-numref">Fig. 12</span></a>. In this reference frame, the components of <span class="math notranslate nohighlight">\(\vector{r}\)</span> are:</p>
 <div class="math notranslate nohighlight" id="equation-eq-position-vector-in-comoving-frame">
-<span class="eqno">(41)<a class="headerlink" href="#equation-eq-position-vector-in-comoving-frame" title="Permalink to this equation">¶</a></span>\[\vector{r} = x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
+<span class="eqno">(38)<a class="headerlink" href="#equation-eq-position-vector-in-comoving-frame" title="Permalink to this equation">¶</a></span>\[\vector{r} = x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><em>relative</em> here means relative to the moving reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span></p>
@@ -743,18 +770,18 @@
 </div>
 <p>We can find the relative velocity and acceleration:</p>
 <div class="math notranslate nohighlight" id="equation-eq-relative-velocity-and-acceleration">
-<span class="eqno">(42)<a class="headerlink" href="#equation-eq-relative-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(39)<a class="headerlink" href="#equation-eq-relative-velocity-and-acceleration" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   \dot{\vector{r}}_{\text{rel}} &amp;= \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k} &amp; \ddot{\vector{r}}_{\text{rel}} &amp;= \ddot{x}\uvec{\imath} + \ddot{y}\uvec{\jmath} + \ddot{z}\uvec{k}
 \end{aligned}\]</div>
 <p>The absolute acceleration is equal to the relative acceleration only in the case where <span class="math notranslate nohighlight">\(\vector{\Omega}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{\Omega}}\)</span>, the angular velocity and angular acceleration respectively, of the moving reference frame, are zero. Therefore, this reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span> cannot be rotating.</p>
-<p>Using the definition of <span class="math notranslate nohighlight">\(\vector{r}\)</span> from Eq. <a class="reference internal" href="#equation-eq-position-vector-in-comoving-frame">(41)</a> and <span class="math notranslate nohighlight">\(\ddot{\vector{r}}\)</span> from Eq. <a class="reference internal" href="#equation-eq-relative-velocity-and-acceleration">(42)</a>, we can rewrite the equation of relative motion, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(36)</a>:</p>
+<p>Using the definition of <span class="math notranslate nohighlight">\(\vector{r}\)</span> from Eq. <a class="reference internal" href="#equation-eq-position-vector-in-comoving-frame">(38)</a> and <span class="math notranslate nohighlight">\(\ddot{\vector{r}}\)</span> from Eq. <a class="reference internal" href="#equation-eq-relative-velocity-and-acceleration">(39)</a>, we can rewrite the equation of relative motion, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-relative-motion-components">
-<span class="eqno">(43)<a class="headerlink" href="#equation-eq-two-body-relative-motion-components" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(40)<a class="headerlink" href="#equation-eq-two-body-relative-motion-components" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   \ddot{x} &amp;= -\mu \frac{x}{r^3} \\
   \ddot{y} &amp;= -\mu \frac{y}{r^3} \\
   \ddot{z} &amp;= -\mu \frac{z}{r^3}
 \end{aligned}\end{split}\]</div>
-<p>In the reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(36)</a> can be solved numerically in exactly the same way as Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> from <a class="reference internal" href="two-body-inertial-motion.html"><span class="doc std std-doc">Two-Body Equations of Motion in an Inertial Frame</span></a>. Since the relative position, velocity, and acceleration vectors only have three components (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, etc.) the state vector will have 6 components instead of 12.</p>
+<p>In the reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a> can be solved numerically in exactly the same way as Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> from <a class="reference internal" href="two-body-inertial-motion.html"><span class="doc std std-doc">Two-Body Equations of Motion in an Inertial Frame</span></a>. Since the relative position, velocity, and acceleration vectors only have three components (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, etc.) the state vector will have 6 components instead of 12.</p>
 </div>
 </div>
 
@@ -781,12 +808,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="motion-of-the-barycenter.html" title="previous page">Motion of the Barycenter</a>
-    <a class='right-next' id="next-link" href="two-body-relative-numerical-solution.html" title="next page">Two-Body Problem in the Co-Moving Frame</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="motion-of-the-barycenter.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Motion of the Barycenter</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="two-body-relative-numerical-solution.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Two-Body Problem in the Co-Moving Frame</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

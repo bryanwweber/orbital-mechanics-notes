@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -46,15 +46,15 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/chapter-4/7-effects-of-the-earths-oblateness.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -87,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -96,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -118,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   The N-Body Problem
  </span>
@@ -149,8 +149,35 @@
    Two-Body Problem in the Co-Moving Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 2
  </span>
@@ -159,11 +186,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
-   Chapter 2.5 - The Energy Law
   </a>
  </li>
  <li class="toctree-l1">
@@ -228,7 +250,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 3
  </span>
@@ -301,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 4
  </span>
@@ -338,7 +360,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 6
  </span>
@@ -415,7 +437,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 8
  </span>
@@ -432,7 +454,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Review of Vectors, Kinematics, and Newtonian Mechanics
  </span>
@@ -449,17 +471,12 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
@@ -470,8 +487,18 @@
    Relative Motion
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Bibliography
  </span>
@@ -569,7 +596,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#earth-s-oblateness-and-wgs84">
@@ -666,10 +693,10 @@
 <p>The effect of planetary oblateness on orbits is captured in the dimensionless parameter called <span class="math notranslate nohighlight">\(J_2\)</span>, the <strong>second zonal harmonic</strong>. The zonal harmonics are values that depend on the particular planet. For Earth, <span class="math notranslate nohighlight">\(J_2 =\)</span> 1.08263×10<sup>-3</sup> <span id="id1">[<a class="reference internal" href="../bibliography.html#id27">VM13</a>]</span> (Page 1039).</p>
 <p>The effect of oblateness is to cause the right ascension of the ascending node and the argument of the periapsis to change as a function of time. The average rate of change of these variables is:</p>
 <div class="math notranslate nohighlight" id="equation-regression-of-nodes">
-<span class="eqno">(54)<a class="headerlink" href="#equation-regression-of-nodes" title="Permalink to this equation">¶</a></span>\[\frac{d\Omega}{dt} = \dot{\Omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\cos i\]</div>
+<span class="eqno">(68)<a class="headerlink" href="#equation-regression-of-nodes" title="Permalink to this equation">¶</a></span>\[\frac{d\Omega}{dt} = \dot{\Omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\cos i\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-advance-of-perigee">
-<span class="eqno">(55)<a class="headerlink" href="#equation-advance-of-perigee" title="Permalink to this equation">¶</a></span>\[\frac{d\omega}{dt} = \dot{\omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\left(\frac{5}{2}\sin^2 i - 2\right)\]</div>
+<span class="eqno">(69)<a class="headerlink" href="#equation-advance-of-perigee" title="Permalink to this equation">¶</a></span>\[\frac{d\omega}{dt} = \dot{\omega} = -\left[\frac{3}{2}\frac{\sqrt{\mu}J_2 R^2}{\left(1 - e^2\right)^2 a^{7/2}}\right]\left(\frac{5}{2}\sin^2 i - 2\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is the planet’s equatorial radius and <span class="math notranslate nohighlight">\(i\)</span> is the orbital inclination.</p>
 <p>From these equations, we can see that when <span class="math notranslate nohighlight">\(0° \leq i &lt; 90°\)</span>, <span class="math notranslate nohighlight">\(\dot{\Omega}\)</span> is negative. This means that the node line will move westward over time, in the opposite of the direction of rotation of the earth. Thus, this phenomenon is called <strong>regression of the nodes</strong>. If <span class="math notranslate nohighlight">\(i = 90°\)</span>, the node line is fixed. Lastly, if <span class="math notranslate nohighlight">\(90° &lt; i \leq 180°\)</span>, the node line will move eastward in the inertial frame.</p>
 <p>For the argument of the perigee, if <span class="math notranslate nohighlight">\(0 \leq i &lt; 63.4°\)</span> or <span class="math notranslate nohighlight">\(116.6° &lt; i \leq 180°\)</span> then <span class="math notranslate nohighlight">\(\dot{\omega}\)</span> will be positive and the perigee will advance in the same direction as the orbit. In the in-between region, <span class="math notranslate nohighlight">\(63.4° &lt; i &lt; 116.6°\)</span>, perigee will move backwards around the orbit. For the two critical values, <span class="math notranslate nohighlight">\(i = 63.4°\)</span> and <span class="math notranslate nohighlight">\(i=116.6°\)</span>, the location of perigee will be fixed on the orbit.</p>
@@ -691,7 +718,7 @@
 <div class="math notranslate nohighlight">
 \[\dot{\Omega} = 0.9856°/\mathrm{day} = 1.991\times 10^{-7} rad/s\]</div>
 <p>Notice that the node line must move eastward, so the orbital inclination must be greater than 90°.</p>
-<p>Returning to Eq. <a class="reference internal" href="#equation-regression-of-nodes">(54)</a>, we can see that if <span class="math notranslate nohighlight">\(\dot{\Omega}\)</span> is specified, we have three free parameters: <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, and <span class="math notranslate nohighlight">\(i\)</span>. This allows some choice of perigee and period, and inclination can then be solved for.</p>
+<p>Returning to Eq. <a class="reference internal" href="#equation-regression-of-nodes">(68)</a>, we can see that if <span class="math notranslate nohighlight">\(\dot{\Omega}\)</span> is specified, we have three free parameters: <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, and <span class="math notranslate nohighlight">\(i\)</span>. This allows some choice of perigee and period, and inclination can then be solved for.</p>
 </div>
 <div class="section" id="high-latitude-observation">
 <h3>High-Latitude Observation<a class="headerlink" href="#high-latitude-observation" title="Permalink to this headline">¶</a></h3>
@@ -753,12 +780,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="6-transformation-between-geocentric-equatorial-and-perifocal-frames.html" title="previous page">Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames</a>
-    <a class='right-next' id="next-link" href="../chapter-6/2-impulsive-maneuvers.html" title="next page">Chapter 6.2 - Impulsive Maneuvers</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="6-transformation-between-geocentric-equatorial-and-perifocal-frames.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../chapter-6/2-impulsive-maneuvers.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chapter 6.2 - Impulsive Maneuvers</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>

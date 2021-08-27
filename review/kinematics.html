@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -46,15 +46,15 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math"}}</script>
     <link rel="canonical" href="https://orbital-mechanics.space/review/kinematics.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -87,7 +87,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -96,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -118,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   The N-Body Problem
  </span>
@@ -149,8 +149,35 @@
    Two-Body Problem in the Co-Moving Frame
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 2
  </span>
@@ -159,11 +186,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
    Chapter 2.4 - Angular Momentum and the Orbit Formulas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/5-the-energy-law.html">
-   Chapter 2.5 - The Energy Law
   </a>
  </li>
  <li class="toctree-l1">
@@ -228,7 +250,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 3
  </span>
@@ -301,7 +323,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 4
  </span>
@@ -338,7 +360,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 6
  </span>
@@ -415,7 +437,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Chapter 8
  </span>
@@ -432,7 +454,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Review of Vectors, Kinematics, and Newtonian Mechanics
  </span>
@@ -449,17 +471,12 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../reference/celestial-sphere.html">
    Celestial Sphere
@@ -470,8 +487,18 @@
    Relative Motion
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Bibliography
  </span>
@@ -569,7 +596,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#position-and-velocity">
@@ -604,67 +631,67 @@
 <h2>Position and Velocity<a class="headerlink" href="#position-and-velocity" title="Permalink to this headline">¶</a></h2>
 <p>Given a <a class="reference internal" href="../intro/reference-frames.html"><span class="doc std std-doc">frame of reference</span></a>, we can specify the position of any particle <span class="math notranslate nohighlight">\(P\)</span> with reference to the origin <span class="math notranslate nohighlight">\(O\)</span> of the the coordinate system:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-position-vector">
-<span class="eqno">(56)<a class="headerlink" href="#equation-eq-cartesian-position-vector" title="Permalink to this equation">¶</a></span>\[\vector{r}(t) = x(t)\uvec{\imath} + y(t)\uvec{\jmath} + z(t)\uvec{k}\]</div>
+<span class="eqno">(70)<a class="headerlink" href="#equation-eq-cartesian-position-vector" title="Permalink to this equation">¶</a></span>\[\vector{r}(t) = x(t)\uvec{\imath} + y(t)\uvec{\jmath} + z(t)\uvec{k}\]</div>
 <div class="figure align-default" id="fig-cartesian-position-vector">
-<img alt="The position of particle P in a Cartesian coordinate system" src="../_images/position-vector-to-point.svg" /><p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The position vector <span class="math notranslate nohighlight">\(\vec{r}(t)\)</span> specifies the position of <span class="math notranslate nohighlight">\(P\)</span> relative to <span class="math notranslate nohighlight">\(O\)</span>.</span><a class="headerlink" href="#fig-cartesian-position-vector" title="Permalink to this image">¶</a></p>
+<img alt="The position of particle P in a Cartesian coordinate system" src="../_images/position-vector-to-point.svg" /><p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The position vector <span class="math notranslate nohighlight">\(\vec{r}(t)\)</span> specifies the position of <span class="math notranslate nohighlight">\(P\)</span> relative to <span class="math notranslate nohighlight">\(O\)</span>.</span><a class="headerlink" href="#fig-cartesian-position-vector" title="Permalink to this image">¶</a></p>
 </div>
 <p>The distance of <span class="math notranslate nohighlight">\(P\)</span> from the origin is the magnitude of its position vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-distance">
-<span class="eqno">(57)<a class="headerlink" href="#equation-eq-cartesian-distance" title="Permalink to this equation">¶</a></span>\[\mag{\vector{r}} = r(t) = \sqrt{x^2 + y^2 + z^2} = \sqrt{\vector{r}\cdot\vector{r}}\]</div>
+<span class="eqno">(71)<a class="headerlink" href="#equation-eq-cartesian-distance" title="Permalink to this equation">¶</a></span>\[\mag{\vector{r}} = r(t) = \sqrt{x^2 + y^2 + z^2} = \sqrt{\vector{r}\cdot\vector{r}}\]</div>
 <p>Recalling that <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> are functions of time, we can define the velocity vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-velocity-vector">
-<span class="eqno">(58)<a class="headerlink" href="#equation-eq-cartesian-velocity-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{v}(t) &amp;= \frac{dx(t)}{dt}\uvec{\imath} + \frac{dy(t)}{dt}\uvec{\jmath} + \frac{dz(t)}{dt}\uvec{k} \\ &amp;= v_x\uvec{\imath} + v_y\uvec{\jmath} + v_z\uvec{k} \\ &amp;= \dot{\vector{r}}\end{aligned}\end{split}\]</div>
+<span class="eqno">(72)<a class="headerlink" href="#equation-eq-cartesian-velocity-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{v}(t) &amp;= \frac{dx(t)}{dt}\uvec{\imath} + \frac{dy(t)}{dt}\uvec{\jmath} + \frac{dz(t)}{dt}\uvec{k} \\ &amp;= v_x\uvec{\imath} + v_y\uvec{\jmath} + v_z\uvec{k} \\ &amp;= \dot{\vector{r}}\end{aligned}\end{split}\]</div>
 <p>and the acceleration vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-acceleration-vector">
-<span class="eqno">(59)<a class="headerlink" href="#equation-eq-cartesian-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{a}(t) &amp;= \frac{dv_x(t)}{dt}\uvec{\imath} + \frac{dv_y(t)}{dt}\uvec{\jmath} + \frac{dv_z(t)}{dt}\uvec{k} \\ &amp;= a_x\uvec{\imath} + a_y\uvec{\jmath} + a_z\uvec{k} \\ &amp;= \dot{\vector{v}} = \ddot{\vector{r}}\end{aligned}\end{split}\]</div>
+<span class="eqno">(73)<a class="headerlink" href="#equation-eq-cartesian-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{a}(t) &amp;= \frac{dv_x(t)}{dt}\uvec{\imath} + \frac{dv_y(t)}{dt}\uvec{\jmath} + \frac{dv_z(t)}{dt}\uvec{k} \\ &amp;= a_x\uvec{\imath} + a_y\uvec{\jmath} + a_z\uvec{k} \\ &amp;= \dot{\vector{v}} = \ddot{\vector{r}}\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="particle-path">
 <h2>Particle Path<a class="headerlink" href="#particle-path" title="Permalink to this headline">¶</a></h2>
 <p>The locus of points <span class="math notranslate nohighlight">\(\vector{r}\)</span> that a particle passes through is called its <strong>path</strong>. If the path is straight, the motion is called <strong>rectilinear</strong>. Otherwise, the motion is <strong>curvilinear</strong>.</p>
 <p>By definition, the velocity vector <span class="math notranslate nohighlight">\(\vector{v}\)</span> is tangent to the path. If <span class="math notranslate nohighlight">\(\uvec{u}_{t}\)</span> is the unit vector tangent to the path, then the velocity can also be specified as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-velocity-vector">
-<span class="eqno">(60)<a class="headerlink" href="#equation-eq-lagrange-velocity-vector" title="Permalink to this equation">¶</a></span>\[\vector{v} = v \uvec{u}_{t}\]</div>
+<span class="eqno">(74)<a class="headerlink" href="#equation-eq-lagrange-velocity-vector" title="Permalink to this equation">¶</a></span>\[\vector{v} = v \uvec{u}_{t}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v\)</span> is the magnitude of the velocity, which can be determined from:</p>
 <div class="math notranslate nohighlight" id="equation-eq-eulerian-velocity-magnitude">
-<span class="eqno">(61)<a class="headerlink" href="#equation-eq-eulerian-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \mag{\vector{v}} = \sqrt{v_x^2 + v_y^2 + v_z^2}\]</div>
+<span class="eqno">(75)<a class="headerlink" href="#equation-eq-eulerian-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \mag{\vector{v}} = \sqrt{v_x^2 + v_y^2 + v_z^2}\]</div>
 <p>if <span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, and <span class="math notranslate nohighlight">\(v_z\)</span> are known. The velocity magnitude can also be found by differentiating the particle’s distance along the path as a function of time:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-velocity-magnitude">
-<span class="eqno">(62)<a class="headerlink" href="#equation-eq-lagrange-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \frac{ds}{dt} = \dot{s}\]</div>
+<span class="eqno">(76)<a class="headerlink" href="#equation-eq-lagrange-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \frac{ds}{dt} = \dot{s}\]</div>
 <p>where <span class="math notranslate nohighlight">\(s\)</span> is the distance that the particle travels along its path.</p>
 <p>Note that, in general, the magnitude of the velocity <span class="math notranslate nohighlight">\(v\)</span> is not equal to the time derivative of the magnitude of the position vector <span class="math notranslate nohighlight">\(\dot{r}\)</span>. In other words, the magnitude of the derivative of <span class="math notranslate nohighlight">\(\vector{r}\)</span> does not equal the derivative of the magnitude of <span class="math notranslate nohighlight">\(\vector{r}\)</span>.</p>
 <p>The acceleration has a component that is tangent to the path and a component that is perpendicular to the path:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-acceleration-vector">
-<span class="eqno">(63)<a class="headerlink" href="#equation-eq-lagrange-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\vector{a} = a*t \uvec{u}*{t} + a*n \uvec{u}*{n}\]</div>
+<span class="eqno">(77)<a class="headerlink" href="#equation-eq-lagrange-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\vector{a} = a*t \uvec{u}*{t} + a*n \uvec{u}*{n}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a_t\)</span> and <span class="math notranslate nohighlight">\(a_n\)</span> are the magnitudes of the acceleration in the tangent and normal directions, and <span class="math notranslate nohighlight">\(\uvec{u}_{n}\)</span> is the unit vector normal to the path. The tangential acceleration causes the particle to move faster along its path, while the normal component causes the path of the particle to change, to curve the path.</p>
 <p>The components of the acceleration are given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-acceleration-components">
-<span class="eqno">(64)<a class="headerlink" href="#equation-eq-lagrange-acceleration-components" title="Permalink to this equation">¶</a></span>\[\begin{aligned}a_t &amp;= \dot{v} = \ddot{s} &amp; a_n &amp;= \frac{v^2}{\rho}\end{aligned}\]</div>
+<span class="eqno">(78)<a class="headerlink" href="#equation-eq-lagrange-acceleration-components" title="Permalink to this equation">¶</a></span>\[\begin{aligned}a_t &amp;= \dot{v} = \ddot{s} &amp; a_n &amp;= \frac{v^2}{\rho}\end{aligned}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the <strong>radius of curvature</strong>. This is the distance from the particle <span class="math notranslate nohighlight">\(P\)</span> to the center of curvature <span class="math notranslate nohighlight">\(C\)</span> of the path at that point.</p>
 <p>The normal unit vector is perpendicular to the tangent unit vector and points towards the center of curvature. The position of <span class="math notranslate nohighlight">\(C\)</span> relative to <span class="math notranslate nohighlight">\(P\)</span> is given by the vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-center-of-curvature">
-<span class="eqno">(65)<a class="headerlink" href="#equation-eq-center-of-curvature" title="Permalink to this equation">¶</a></span>\[\vector{r}_{C/P} = \rho \uvec{u}_{n}\]</div>
+<span class="eqno">(79)<a class="headerlink" href="#equation-eq-center-of-curvature" title="Permalink to this equation">¶</a></span>\[\vector{r}_{C/P} = \rho \uvec{u}_{n}\]</div>
 <div class="figure align-default" id="fig-center-of-curvature">
-<img alt="../_images/center-of-curvature.svg" src="../_images/center-of-curvature.svg" /><p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The center of curvature of a path <span class="math notranslate nohighlight">\(s\)</span> is a distance <span class="math notranslate nohighlight">\(\rho\)</span> from the particle.</span><a class="headerlink" href="#fig-center-of-curvature" title="Permalink to this image">¶</a></p>
+<img alt="../_images/center-of-curvature.svg" src="../_images/center-of-curvature.svg" /><p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">The center of curvature of a path <span class="math notranslate nohighlight">\(s\)</span> is a distance <span class="math notranslate nohighlight">\(\rho\)</span> from the particle.</span><a class="headerlink" href="#fig-center-of-curvature" title="Permalink to this image">¶</a></p>
 </div>
-<p>Since the particle is pivoting around the center of curvature, it sweeps out areas on a plane as it moves. In a small time <span class="math notranslate nohighlight">\(dt\)</span>, the particle moves a distance <span class="math notranslate nohighlight">\(ds\)</span>. This motion is associated with a small swept angle <span class="math notranslate nohighlight">\(d\phi\)</span>, as shown in <a class="reference internal" href="#fig-swept-angle"><span class="std std-numref">Fig. 19</span></a>:</p>
+<p>Since the particle is pivoting around the center of curvature, it sweeps out areas on a plane as it moves. In a small time <span class="math notranslate nohighlight">\(dt\)</span>, the particle moves a distance <span class="math notranslate nohighlight">\(ds\)</span>. This motion is associated with a small swept angle <span class="math notranslate nohighlight">\(d\phi\)</span>, as shown in <a class="reference internal" href="#fig-swept-angle"><span class="std std-numref">Fig. 21</span></a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-path-length">
-<span class="eqno">(66)<a class="headerlink" href="#equation-eq-differential-path-length" title="Permalink to this equation">¶</a></span>\[ds = \rho d\phi\]</div>
+<span class="eqno">(80)<a class="headerlink" href="#equation-eq-differential-path-length" title="Permalink to this equation">¶</a></span>\[ds = \rho d\phi\]</div>
 <div class="figure align-default" id="fig-swept-angle">
-<img alt="../_images/swept-angle.svg" src="../_images/swept-angle.svg" /><p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The angle swept during a differential movement of the particle <span class="math notranslate nohighlight">\(P\)</span> is <span class="math notranslate nohighlight">\(d\phi\)</span>.</span><a class="headerlink" href="#fig-swept-angle" title="Permalink to this image">¶</a></p>
+<img alt="../_images/swept-angle.svg" src="../_images/swept-angle.svg" /><p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">The angle swept during a differential movement of the particle <span class="math notranslate nohighlight">\(P\)</span> is <span class="math notranslate nohighlight">\(d\phi\)</span>.</span><a class="headerlink" href="#fig-swept-angle" title="Permalink to this image">¶</a></p>
 </div>
 <p>The time rate change of <span class="math notranslate nohighlight">\(\phi\)</span> is then given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-angular-velocity">
-<span class="eqno">(67)<a class="headerlink" href="#equation-eq-angular-velocity" title="Permalink to this equation">¶</a></span>\[\frac{d\phi}{dt} = \frac{ds}{dt}\frac{1}{\rho} = \frac{v}{\rho}\]</div>
+<span class="eqno">(81)<a class="headerlink" href="#equation-eq-angular-velocity" title="Permalink to this equation">¶</a></span>\[\frac{d\phi}{dt} = \frac{ds}{dt}\frac{1}{\rho} = \frac{v}{\rho}\]</div>
 </div>
 <div class="section" id="osculating-plane">
 <h2>Osculating Plane<a class="headerlink" href="#osculating-plane" title="Permalink to this headline">¶</a></h2>
 <p>By definition, two vectors can be used to form a plane. In the case of <span class="math notranslate nohighlight">\(\uvec{u}_{t}\)</span> and <span class="math notranslate nohighlight">\(\uvec{u}_{n}\)</span>, the plane they form is called the <strong>osculating plane</strong>. By construction, the center of curvature lies on the osculating plane and this is the plane where the angle <span class="math notranslate nohighlight">\(\phi\)</span> is swept.</p>
 <p>The unit vector normal to the osculating plane is called the <strong>binormal vector</strong>, <span class="math notranslate nohighlight">\(\uvec{u_b}\)</span>. If the tangent and normal path vectors are known, the binormal vector can be found from the cross product:</p>
 <div class="math notranslate nohighlight" id="equation-eq-binormal-vector">
-<span class="eqno">(68)<a class="headerlink" href="#equation-eq-binormal-vector" title="Permalink to this equation">¶</a></span>\[\uvec{u}_{b} = \uvec{u}_{t}\cross\uvec{u}\_{n}\]</div>
+<span class="eqno">(82)<a class="headerlink" href="#equation-eq-binormal-vector" title="Permalink to this equation">¶</a></span>\[\uvec{u}_{b} = \uvec{u}_{t}\cross\uvec{u}\_{n}\]</div>
 <p>However, we are more likely to know the velocity and acceleration vectors of the particle. We can show algebraically that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-binormal-from-acceleration">
-<span class="eqno">(69)<a class="headerlink" href="#equation-eq-binormal-from-acceleration" title="Permalink to this equation">¶</a></span>\[\uvec{u}\_{b} = \frac{\vector{v}\cross\vector{a}}{\mag{\vector{v}\cross\vector{a}}}\]</div>
+<span class="eqno">(83)<a class="headerlink" href="#equation-eq-binormal-from-acceleration" title="Permalink to this equation">¶</a></span>\[\uvec{u}\_{b} = \frac{\vector{v}\cross\vector{a}}{\mag{\vector{v}\cross\vector{a}}}\]</div>
 <p>which is usually a more convenient way of calculating the binormal unit vector.</p>
 </div>
 </div>
@@ -692,12 +719,32 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../chapter-8/10-planetary-ephemeris.html" title="previous page">Chapter 8.10 - Planetary Ephemeris</a>
-    <a class='right-next' id="next-link" href="time-derivatives-of-moving-vectors.html" title="next page">Time Derivatives of Moving Vectors</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../chapter-8/10-planetary-ephemeris.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Chapter 8.10 - Planetary Ephemeris</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="time-derivatives-of-moving-vectors.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Time Derivatives of Moving Vectors</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
