@@ -163,4 +163,4 @@ USER ${NB_UID}
 
 WORKDIR "${HOME}"
 
-RUN julia -e 'using Pkg; Pkg.add.(["Luxor", "IJulia", "Thebes", "LightXML"]); Pkg.precompile()'
+RUN julia -e 'using Pkg; Pkg.add.(["Luxor", "IJulia", "Thebes", "LightXML", "NLsolve"]); Pkg.precompile()'

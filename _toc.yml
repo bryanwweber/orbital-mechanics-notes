@@ -15,10 +15,15 @@ parts:
       - file: the-n-body-problem/motion-of-the-barycenter
       - file: the-n-body-problem/two-body-relative-motion
       - file: the-n-body-problem/two-body-relative-numerical-solution
+      - file: the-n-body-problem/many-body-problems
+  - caption: Constants of Orbital Motion
+    chapters:
+      - file: constants-of-orbital-motion/energy-is-conserved-in-orbital-motion
+      - file: constants-of-orbital-motion/angular-momentum-is-conserved
+      - file: constants-of-orbital-motion/orbital-plane-and-keplers-second-law
   - caption: Chapter 2
     chapters:
       - file: chapter-2/4-angular-momentum-and-the-orbit-formulas
-      - file: chapter-2/5-the-energy-law
       - file: chapter-2/6-circular-orbits
       - file: chapter-2/7-elliptical-orbits
       - file: chapter-2/8-parabolic-trajectories
@@ -74,9 +79,10 @@ parts:
       - file: review/time-derivatives-of-moving-vectors
   - caption: Reference
     chapters:
-      - file: reference/planetary-parameters
       - file: reference/celestial-sphere
       - file: reference/relative-motion
+      - file: reference/planetary-parameters
+      - file: reference/gravity-and-spherical-symmetry
   - caption: Bibliography
     chapters:
       - file: bibliography
