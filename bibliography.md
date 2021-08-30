@@ -1,5 +1,5 @@
 # Bibliography
 
 :::{bibliography}
-:style: unsrtalpha
+:style: alpha
 :::

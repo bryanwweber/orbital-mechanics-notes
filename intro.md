@@ -1,14 +1,22 @@
-Notes on Orbital Mechanics for Engineering Students
-===================================================
+# Orbital Mechanics & Astrodynamics
 
-This is a book of notes following the textbook for ME 3295: Orbital Mechanics, taught at the University of Connecticut in the Fall 2020 semester.
+This reference material covers orbital mechanics and astrodynamics, with a focus on Mechanical or Aerospace engineering undergraduate students.
 
-The primary textbook is
+The reference textbooks for the associated course at the University of Connecticut are (in no particular order):
 
-> Orbital Mechanics for Engineering Students, 4th edition, by Howard D. Curtis
+:::{bibliography}
+:filter: False
+:list: enumerated
 
-As a secondary reference, especially for historical information, I used
+Bate2020
+Bate1971
+Prussing2013
+Curtis2020
+Vallado2013
+Tewari2007
+Meyer2017
+Hintz2015
+:::
 
-> Orbital Mechanics, 2nd edition, by John E. Prussing and Bruce A. Conway
 
 The logo for these notes is licensed under the Creative Commons BY-SA 3.0 license. It was created by MenteMagica and hosted on Wikipedia: <https://en.wikipedia.org/wiki/File:Orbital_Hohmann_Transfer.svg>.
