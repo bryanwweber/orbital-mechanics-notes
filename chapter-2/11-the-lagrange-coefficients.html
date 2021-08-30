@@ -179,15 +179,27 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
   Chapter 2
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="4-angular-momentum-and-the-orbit-formulas.html">
-   Chapter 2.4 - Angular Momentum and the Orbit Formulas
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="6-circular-orbits.html">
    Chapter 2.6 - Circular Orbits (
@@ -636,14 +648,14 @@
 <h2>Position, Velocity, and Angular Momentum<a class="headerlink" href="#position-velocity-and-angular-momentum" title="Permalink to this headline">¶</a></h2>
 <p>We start by defining the initial conditions, subscripted with a <span class="math notranslate nohighlight">\(0\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-initial-conditions">
-<span class="eqno">(61)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
+<span class="eqno">(72)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
 <p>Then the angular momentum is found by taking the cross product:</p>
 <div class="math notranslate nohighlight">
 \[\vector{h} = \vector{r}_0 \cross\vector{v}_0 = \uvec{w}\left(\pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\right)\]</div>
 <p>From the definition of the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> unit vector, we can see that the magnitude of the angular momentum must be:</p>
 <div class="math notranslate nohighlight">
 \[h = \pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\]</div>
-<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(61)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
+<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(72)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}\uvec{p} &amp;= \frac{\dot{\pf{y}}_0}{h}\vector{r}_0 - \frac{\pf{y}_0}{h}\vector{v}_0 &amp; \uvec{q} &amp;= -\frac{\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{\pf{x}_0}{h}\vector{v}_0\end{aligned}\]</div>
 <p>Putting these two unit vectors back into the equations for the general position and velocity, and simplifying, we find:</p>

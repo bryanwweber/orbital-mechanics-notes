@@ -179,15 +179,27 @@
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
-  Chapter 2
+  The Orbit Equation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../chapter-2/4-angular-momentum-and-the-orbit-formulas.html">
-   Chapter 2.4 - Angular Momentum and the Orbit Formulas
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
    Chapter 2.6 - Circular Orbits (
@@ -716,11 +728,11 @@
 \[\cos\theta = \frac{e - \cos E}{e\cos E - 1}\]</div>
 <p>These equations allow us to solve for <span class="math notranslate nohighlight">\(E\)</span> given <span class="math notranslate nohighlight">\(\theta\)</span>, provided that <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; \pi\)</span>. For <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; 2 \pi\)</span>, the equation is multivalued, and there are two values for <span class="math notranslate nohighlight">\(E\)</span>, one between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span>, and the other between <span class="math notranslate nohighlight">\(\pi\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span>. By applying some trigonometric transformations, we can write:</p>
 <div class="math notranslate nohighlight" id="equation-eccentric-anomaly-theta">
-<span class="eqno">(65)<a class="headerlink" href="#equation-eccentric-anomaly-theta" title="Permalink to this equation">¶</a></span>\[E = 2 \tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\theta}{2}\right)\]</div>
+<span class="eqno">(76)<a class="headerlink" href="#equation-eccentric-anomaly-theta" title="Permalink to this equation">¶</a></span>\[E = 2 \tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\theta}{2}\right)\]</div>
 <p>The inverse tangent function is not multivalued for a given value of <span class="math notranslate nohighlight">\(\theta\)</span>, so this resolves the problem.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(65)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
+<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(76)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
 </div>
 </div>
 <div class="section" id="kepler-s-equation">
@@ -734,7 +746,7 @@
 <img alt="../_images/4-elliptical-orbits_5_0.png" src="../_images/4-elliptical-orbits_5_0.png" />
 </div>
 </div>
-<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(65)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
+<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eccentric-anomaly-theta">(76)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
 <div class="math notranslate nohighlight">
 \[t = \frac{M_e}{2\pi} T\]</div>
 <p>If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we can solve the previous equation for <span class="math notranslate nohighlight">\(M_e\)</span>. Then, we need to solve Kepler’s equation. Unfortunately, this equation is transcendental in <span class="math notranslate nohighlight">\(E\)</span>, so it cannot be solved analytically. We need to use a numerical method, such as Newton’s method, to solve the equation.</p>

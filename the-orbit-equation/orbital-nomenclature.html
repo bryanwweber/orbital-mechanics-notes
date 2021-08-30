@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbital Nomenclature &#8212; Notes on Orbital Mechanics for Engineering Students</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/the-orbit-equation/orbital-nomenclature.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2.6 - Circular Orbits (\(e = 0\))" href="../chapter-2/6-circular-orbits.html" />
+    <link rel="prev" title="The Orbit Equation" href="the-orbit-equation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Notes on Orbital Mechanics for Engineering Students</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Notes on Orbital Mechanics for Engineering Students
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Orbital Nomenclature
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/6-circular-orbits.html">
+   Chapter 2.6 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/7-elliptical-orbits.html">
+   Chapter 2.7 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/8-parabolic-trajectories.html">
+   Chapter 2.8 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/9-hyperbolic-trajectories.html">
+   Chapter 2.9 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/10-perifocal-frame.html">
+   Chapter 2.10 - Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/11-the-lagrange-coefficients.html">
+   Chapter 2.11 - The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12-circular-restricted-three-body-problem.html">
+   Chapter 2.12 - Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12a-Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-2/12b-Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/2-time-since-periapsis.html">
+   Chapter 3.2 - Time Since Periapsis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/3-circular-orbits.html">
+   Chapter 3.3 - Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4-elliptical-orbits.html">
+   Chapter 3.4 - Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/4a-Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/5-parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6-hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/6a-Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7-universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7a-Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-3/7b-Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/2-geocentric-right-ascension-declination-frame.html">
+   Chapter 4.2 - Geocentric Right Ascension-Declination Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/3-state-vector-and-the-geocentric-equatorial-frame.html">
+   Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/4-orbital-elements-and-the-state-vector.html">
+   Chapter 4.4 - Orbital Elements and the State Vector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/5-coordinate-transformations.html">
+   Chapter 4.5 - Coordinate Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames.html">
+   Chapter 4.6 - Transformation Between Geocentric Equatorial and Perifocal Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-4/7-effects-of-the-earths-oblateness.html">
+   Chapter 4.7 - Effects of the Earth’s Oblateness
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2-impulsive-maneuvers.html">
+   Chapter 6.2 - Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/2a-single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/3-hohmann-transfer.html">
+   Chapter 6.3 - Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4-bielliptic-hohmann-transfer.html">
+   Chapter 6.4 - Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/4a-comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/5-phasing-maneuvers.html">
+   Chapter 6.5 - Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/6-non-hohmann-transfers.html">
+   Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/7-apse-line-rotation.html">
+   Chapter 6.7 - Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/8-chase-maneuvers.html">
+   Chapter 6.8 - Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9-plane-change-maneuvers.html">
+   Chapter 6.9 - Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/9a-plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10-nonimpulsive-orbital-maneuvers.html">
+   Chapter 6.10 - Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/10a-nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-6/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Chapter 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/2-interplanetary-hohmann-transfers.html">
+   Chapter 8.2 - Interplanetary Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chapter-8/10-planetary-ephemeris.html">
+   Chapter 8.10 - Planetary Ephemeris
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/the-orbit-equation/orbital-nomenclature.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-orbit-equation/orbital-nomenclature.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-orbit-equation/orbital-nomenclature.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#periapsis-and-apoapsis">
+   Periapsis and Apoapsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flight-path-angle">
+   Flight Path Angle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#latus-rectum">
+   Latus Rectum
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="orbital-nomenclature">
+<h1>Orbital Nomenclature<a class="headerlink" href="#orbital-nomenclature" title="Permalink to this headline">¶</a></h1>
+<p>It is convenient to have direct formulas to compute the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. The component of velocity normal to the position vector is:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-0">
+<span class="eqno">(63)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-0" title="Permalink to this equation">¶</a></span>\[v_{\perp} = r\dot{\nu}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{\nu}\)</span> is the angular velocity of the position vector, or the rate of change of the true anomaly. From the magnitude of the specific angular momentum, <span class="math notranslate nohighlight">\(h = r v_{\perp}\)</span>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-1">
+<span class="eqno">(64)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-1" title="Permalink to this equation">¶</a></span>\[h = r^2 \dot{\nu}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-2">
+<span class="eqno">(65)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-2" title="Permalink to this equation">¶</a></span>\[v_{\perp} = \frac{h}{r} = \frac{\mu}{h}\left(1 + e \cos\nu\right)\]</div>
+<p>The component of velocity along the position vector is <span class="math notranslate nohighlight">\(v_r\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-3">
+<span class="eqno">(66)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-3" title="Permalink to this equation">¶</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin\nu\]</div>
+<div class="section" id="periapsis-and-apoapsis">
+<h2>Periapsis and Apoapsis<a class="headerlink" href="#periapsis-and-apoapsis" title="Permalink to this headline">¶</a></h2>
+<p>Recalling that the true anomaly is defined with <span class="math notranslate nohighlight">\(\theta=0\)</span> pointing along the apse line, or the eccentricity vector, we can see that the distance, <span class="math notranslate nohighlight">\(r\)</span>, from <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> is the smallest when <span class="math notranslate nohighlight">\(\theta = 0\)</span> and largest when <span class="math notranslate nohighlight">\(\theta = \pi\)</span>. The exception is when <span class="math notranslate nohighlight">\(e = 0\)</span>, in which case the orbital radius is constant, and the orbit is a circle.</p>
+<p>The points of closest and farthest approach of <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> are called <strong>periapsis</strong> and <strong>apoapsis</strong> respectively. Both of them occur along the apse line. However, when <span class="math notranslate nohighlight">\(e\geq 1\)</span>, apoapsis occurs at an infinitely far distance from <span class="math notranslate nohighlight">\(m_1\)</span>, as we will see.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The terms <strong>periapsis</strong> and <strong>apoapsis</strong> are composed of two parts - a prefix indicating the distance from the primary object, and a suffix indicating which astronomical body is the primary. The prefixes are <strong>peri-</strong>, which comes from a Greek root meaning <em>near</em>, and <strong>apo-</strong>, which comes from a Greek root meaning <em>away from</em>.</p>
+<p>The suffixes depend on the primary body in the orbit. For orbits around the Earth, the suffix is <strong>-gee</strong>. So the closest point in an Earth orbit is <strong>perigee</strong> and the farthest point is <strong>apogee</strong>. Some other common suffixes are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Body</p></th>
+<th class="head"><p>Suffix</p></th>
+<th class="head"><p>Nearest point</p></th>
+<th class="head"><p>Farthest Point</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Earth</p></td>
+<td><p>-gee</p></td>
+<td><p>perigee</p></td>
+<td><p>apogee</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sun</p></td>
+<td><p>-helion</p></td>
+<td><p>perihelion</p></td>
+<td><p>aphelion</p></td>
+</tr>
+<tr class="row-even"><td><p>Moon</p></td>
+<td><p>-lune</p></td>
+<td><p>perilune</p></td>
+<td><p>apolune</p></td>
+</tr>
+<tr class="row-odd"><td><p>General</p></td>
+<td><p>-apsis</p></td>
+<td><p>periapsis</p></td>
+<td><p>apoapsis</p></td>
+</tr>
+</tbody>
+</table>
+<p>Check out <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">Wikipedia</a> for more.</p>
+</div>
+<p>The distance to periapsis is given by setting <span class="math notranslate nohighlight">\(\theta = 0\)</span> in the orbit equation:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-4">
+<span class="eqno">(67)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-4" title="Permalink to this equation">¶</a></span>\[r_p = \frac{h^2}{\mu}\frac{1}{1 + e}\]</div>
+<p>At periapsis, the radial velocity component is zero. For <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; \pi\)</span>, the radial velocity is positive and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis.</p>
+<p>At <span class="math notranslate nohighlight">\(\theta = \pi\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span> reaches apoapsis and the radial component of velocity is again zero. The distance to apoapsis is:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-5">
+<span class="eqno">(68)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-5" title="Permalink to this equation">¶</a></span>\[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
+<p>After apoapsis, the radial velocity is negative, which means <span class="math notranslate nohighlight">\(m_2\)</span> is moving towards periapsis.</p>
+</div>
+<div class="section" id="flight-path-angle">
+<h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>flight path angle</strong> is the angle that the velocity vector makes with the normal to the position vector. The normal to the position vector points in the same direction as <span class="math notranslate nohighlight">\(\vector{v}_{\perp}\)</span> by definition, so the flight path angle is zero at periapsis and apoapsis. The direction of the normal vector to the position is called the <strong>local horizon</strong>.</p>
+<p>By forming a right triangle with the velocity components, we can determine the flight path angle:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-6">
+<span class="eqno">(69)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-6" title="Permalink to this equation">¶</a></span>\[\tan \gamma = \frac{v_r}{v_{\perp}} = \frac{e\sin\theta}{1 + e\cos\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma\)</span> is the flight path angle.</p>
+<p>The flight path angle is positive when <span class="math notranslate nohighlight">\(v_r\)</span> is positive and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis, and vice versa when <span class="math notranslate nohighlight">\(v_r\)</span> is negative.</p>
+</div>
+<div class="section" id="latus-rectum">
+<h2>Latus Rectum<a class="headerlink" href="#latus-rectum" title="Permalink to this headline">¶</a></h2>
+<p>The trajectory of <span class="math notranslate nohighlight">\(m_2\)</span> around <span class="math notranslate nohighlight">\(m_1\)</span> is symmetrical about the apse line. A chord of the orbit that intersects <span class="math notranslate nohighlight">\(m_1\)</span> at the apse line is called the <strong>latus rectum</strong>. The apse line divides the latus rectum into two halves, each of length <span class="math notranslate nohighlight">\(p\)</span>, called the <strong>semilatus rectum</strong> or the <strong>parameter of the orbit</strong>. The semilatus rectum can be calculated by:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-7">
+<span class="eqno">(70)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-7" title="Permalink to this equation">¶</a></span>\[p = \frac{h^2}{\mu}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./the-orbit-equation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="the-orbit-equation.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">The Orbit Equation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../chapter-2/6-circular-orbits.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chapter 2.6 - Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://bryanwweber.github.io/orbital-mechanics-notes">Notes on Orbital Mechanics for Engineering Students</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
