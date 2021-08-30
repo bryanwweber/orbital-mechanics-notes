@@ -28,7 +28,7 @@ The component of velocity along the position vector is $v_r$:
 v_r = \dot{r} = \frac{\mu}{h} e \sin\nu
 :::
 
-### Periapsis and Apoapsis
+## Periapsis and Apoapsis
 
 Recalling that the true anomaly is defined with $\theta=0$ pointing along the apse line, or the eccentricity vector, we can see that the distance, $r$, from $m_2$ to $m_1$ is the smallest when $\theta = 0$ and largest when $\theta = \pi$. The exception is when $e = 0$, in which case the orbital radius is constant, and the orbit is a circle.
 
@@ -67,7 +67,7 @@ r_a = \frac{h^2}{\mu}\frac{1}{1 - e}
 
 After apoapsis, the radial velocity is negative, which means $m_2$ is moving towards periapsis.
 
-### Flight Path Angle
+## Flight Path Angle
 
 The **flight path angle** is the angle that the velocity vector makes with the normal to the position vector. The normal to the position vector points in the same direction as $\vector{v}_{\perp}$ by definition, so the flight path angle is zero at periapsis and apoapsis. The direction of the normal vector to the position is called the **local horizon**.
 
@@ -82,7 +82,7 @@ where $\gamma$ is the flight path angle.
 
 The flight path angle is positive when $v_r$ is positive and $m_2$ is moving away from periapsis, and vice versa when $v_r$ is negative.
 
-### Latus Rectum
+## Latus Rectum
 
 The trajectory of $m_2$ around $m_1$ is symmetrical about the apse line. A chord of the orbit that intersects $m_1$ at the apse line is called the **latus rectum**. The apse line divides the latus rectum into two halves, each of length $p$, called the **semilatus rectum** or the **parameter of the orbit**. The semilatus rectum can be calculated by:
 

@@ -9,7 +9,7 @@ The two masses $m_1$ and $m_2$ in the two-body problem form a _system_, so they 
 
 Mass is trivially conserved in this system, since neither body is changing mass. In this section, we will prove that the two-body equation of motion satisfies conservation of energy.
 
-In the rest of this section, we will assume the coordinate system is the co-moving system attached to $m_1$, so we are working with the [two-body problem in relative motion](./two-body-relative-motion.md).
+In the rest of this section, we will assume the coordinate system is the co-moving system attached to $m_1$, so we are working with the [two-body problem in relative motion](../the-n-body-problem/two-body-relative-motion.md).
 
 <div class="admonition important">
 <p class="admonition-title">Takeaway Message</p>
@@ -47,7 +47,7 @@ Conservative forces allow infinite conversion of energy between forms. Non-conse
 
 The potential energy is due to the location of $m_2$ in the gravitational field of $m_1$, while the kinetic energy is due to the velocity of $m_2$ relative to $m_1$. Gravity is a [**conservative force**](https://en.wikipedia.org/wiki/Conservative_force), which means that any change of kinetic energy is associated with an equal and opposite equal change of potential energy.
 
-As kinetic energy increases and the speed of $m_2$ increases, the potential energy must decrease and $m_2$ gets closer to $m_1$. The point of highest speed is at the point of closest approach. Likewise, the point of lowest speed is at the farthest point on the orbit. You can examine the results from [](./two-body-relative-numerical-solution.md) to verify this is correct.
+As kinetic energy increases and the speed of $m_2$ increases, the potential energy must decrease and $m_2$ gets closer to $m_1$. The point of highest speed is at the point of closest approach. Likewise, the point of lowest speed is at the farthest point on the orbit. You can examine the results from [](../the-n-body-problem/two-body-relative-numerical-solution.md) to verify this is correct.
 
 Now, let's define each of the forms of mechanical energy a little more rigorously.
 
