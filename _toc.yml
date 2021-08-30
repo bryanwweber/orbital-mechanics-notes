@@ -21,9 +21,12 @@ parts:
       - file: constants-of-orbital-motion/energy-is-conserved-in-orbital-motion
       - file: constants-of-orbital-motion/angular-momentum-is-conserved
       - file: constants-of-orbital-motion/orbital-plane-and-keplers-second-law
+  - caption: The Orbit Equation
+    chapters:
+      - file: the-orbit-equation/the-orbit-equation
+      - file: the-orbit-equation/orbital-nomenclature
   - caption: Chapter 2
     chapters:
-      - file: chapter-2/4-angular-momentum-and-the-orbit-formulas
       - file: chapter-2/6-circular-orbits
       - file: chapter-2/7-elliptical-orbits
       - file: chapter-2/8-parabolic-trajectories
