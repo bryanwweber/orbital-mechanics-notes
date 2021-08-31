@@ -79,6 +79,7 @@ parso==0.8.2
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==8.2.0
+Pint==0.17
 plotly==4.14.3
 poliastro==0.15.0
 prometheus-client==0.11.0
