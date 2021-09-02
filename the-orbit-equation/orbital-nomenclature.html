@@ -616,6 +616,16 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#velocity-components">
+   Velocity Components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distance-to-periapsis-and-apoapsis">
+   Distance to Periapsis and Apoapsis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#flight-path-angle">
    Flight Path Angle
   </a>
@@ -638,26 +648,49 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="orbital-nomenclature">
 <h1>Orbital Nomenclature<a class="headerlink" href="#orbital-nomenclature" title="Permalink to this headline">¶</a></h1>
-<p>It is convenient to have direct formulas to compute the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. The component of velocity normal to the position vector is:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-0">
-<span class="eqno">(63)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-0" title="Permalink to this equation">¶</a></span>\[v_{\perp} = r\dot{\nu}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\dot{\nu}\)</span> is the angular velocity of the position vector, or the rate of change of the true anomaly. From the magnitude of the specific angular momentum, <span class="math notranslate nohighlight">\(h = r v_{\perp}\)</span>, we find:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-1">
-<span class="eqno">(64)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-1" title="Permalink to this equation">¶</a></span>\[h = r^2 \dot{\nu}\]</div>
-<p>and</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-2">
-<span class="eqno">(65)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-2" title="Permalink to this equation">¶</a></span>\[v_{\perp} = \frac{h}{r} = \frac{\mu}{h}\left(1 + e \cos\nu\right)\]</div>
-<p>The component of velocity along the position vector is <span class="math notranslate nohighlight">\(v_r\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-3">
-<span class="eqno">(66)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-3" title="Permalink to this equation">¶</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin\nu\]</div>
+<p>In this section, we will introduce some common nomenclature for orbits that are conical sections. <a class="reference internal" href="#fig-periapsis-and-apoapsis-ellipse"><span class="std std-numref">Fig. 18</span></a>, <a class="reference internal" href="#fig-periapsis-and-apoapsis-circle"><span class="std std-numref">Fig. 19</span></a>, and  show the four possible types of conical orbits. All conical sections have two <strong>foci</strong> (singular: <strong>focus</strong>). For all the orbits, one of the foci is <em>occupied</em> by the primary mass <span class="math notranslate nohighlight">\(m_1\)</span> and the other is <em>unoccupied</em>.</p>
 <div class="section" id="periapsis-and-apoapsis">
 <h2>Periapsis and Apoapsis<a class="headerlink" href="#periapsis-and-apoapsis" title="Permalink to this headline">¶</a></h2>
-<p>Recalling that the true anomaly is defined with <span class="math notranslate nohighlight">\(\theta=0\)</span> pointing along the apse line, or the eccentricity vector, we can see that the distance, <span class="math notranslate nohighlight">\(r\)</span>, from <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> is the smallest when <span class="math notranslate nohighlight">\(\theta = 0\)</span> and largest when <span class="math notranslate nohighlight">\(\theta = \pi\)</span>. The exception is when <span class="math notranslate nohighlight">\(e = 0\)</span>, in which case the orbital radius is constant, and the orbit is a circle.</p>
-<p>The points of closest and farthest approach of <span class="math notranslate nohighlight">\(m_2\)</span> to <span class="math notranslate nohighlight">\(m_1\)</span> are called <strong>periapsis</strong> and <strong>apoapsis</strong> respectively. Both of them occur along the apse line. However, when <span class="math notranslate nohighlight">\(e\geq 1\)</span>, apoapsis occurs at an infinitely far distance from <span class="math notranslate nohighlight">\(m_1\)</span>, as we will see.</p>
+<p>For the four conical orbits, the true anomaly is defined with <span class="math notranslate nohighlight">\(\nu=0\)</span> pointing along the apse line, or the eccentricity vector.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Ellipse</label><div class="tab-content docutils">
+<div class="figure align-default" id="fig-periapsis-and-apoapsis-ellipse">
+<img alt="../_images/periapsis-and-apoapsis-ellipse.svg" src="../_images/periapsis-and-apoapsis-ellipse.svg" /><p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">An elliptical orbit, <span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span></span><a class="headerlink" href="#fig-periapsis-and-apoapsis-ellipse" title="Permalink to this image">¶</a></p>
+</div>
+<p>The elliptical orbit has two foci. We choose the right focus to be occupied by convention. This means that the point of closest approach to the primary mass in the occupied focus occurs at <span class="math notranslate nohighlight">\(\nu =\)</span> 0°. The point of closest approach in an orbit is called <strong>periapsis</strong>.</p>
+<p>The location in the orbit that is farthest from the primary mass is located at <span class="math notranslate nohighlight">\(\nu =\)</span> 180°. This point is called <strong>apoapsis</strong>.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Circle</label><div class="tab-content docutils">
+<div class="figure align-default" id="fig-periapsis-and-apoapsis-circle">
+<a class="reference internal image-reference" href="../_images/periapsis-and-apoapsis-circle.svg"><img alt="../_images/periapsis-and-apoapsis-circle.svg" src="../_images/periapsis-and-apoapsis-circle.svg" width="75%" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">A circular orbit, <span class="math notranslate nohighlight">\(e = 0\)</span></span><a class="headerlink" href="#fig-periapsis-and-apoapsis-circle" title="Permalink to this image">¶</a></p>
+</div>
+<p>The circular orbit has eccentricity <span class="math notranslate nohighlight">\(e = 0\)</span>. In the circular orbit, there is no periapsis or apoapsis. This is because every point on the orbit is at the same radius from the primary mass. Similarly, the two foci are coincident at the origin in the circular orbit.</p>
+<p>For circular orbits, we usually pick the apse line to be along the <span class="math notranslate nohighlight">\(x\)</span>-axis and start counting the true anomaly from there. However, the choice is arbitrary and any point would give an equivalent result.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Parabola</label><div class="tab-content docutils">
+<div class="figure align-default" id="fig-periapsis-and-apoapsis-parabola">
+<a class="reference internal image-reference" href="../_images/periapsis-and-apoapsis-parabola.svg"><img alt="../_images/periapsis-and-apoapsis-parabola.svg" src="../_images/periapsis-and-apoapsis-parabola.svg" width="75%" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">A parabolic trajectory, <span class="math notranslate nohighlight">\(e = 1\)</span></span><a class="headerlink" href="#fig-periapsis-and-apoapsis-parabola" title="Permalink to this image">¶</a></p>
+</div>
+<p>The parabolic trajectory has eccentricity <span class="math notranslate nohighlight">\(e = 1\)</span>. The parabolic trajectory extends to infinity towards the left of the domain. It is the limiting case where an object on a parabolic trajectory will never return to the primary mass. Thus, it is called a <em>trajectory</em> rather than <em>orbit</em> since it is not periodic.</p>
+<p>The parabolic trajectory has a periapsis, a point of closest approach, but no apoapsis, since the trajectory extends to infinity.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">Hyperbola</label><div class="tab-content docutils">
+<div class="figure align-default" id="fig-periapsis-and-apoapsis-hyperbola">
+<a class="reference internal image-reference" href="../_images/periapsis-and-apoapsis-hyperbola.svg"><img alt="../_images/periapsis-and-apoapsis-hyperbola.svg" src="../_images/periapsis-and-apoapsis-hyperbola.svg" width="75%" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">A hyperbolic trajectory, <span class="math notranslate nohighlight">\(e &gt; 1\)</span></span><a class="headerlink" href="#fig-periapsis-and-apoapsis-hyperbola" title="Permalink to this image">¶</a></p>
+</div>
+<p>The hyperbolic trajectory has eccentricity <span class="math notranslate nohighlight">\(e &gt; 1\)</span>. The hyperbolic trajectory extends to infinity towards the left of the domain and the right of the domain. Like the ellipse, the hyperbola has two foci. By convention, we choose the left focus as the occupied focus where the primary mass is located. The trajectory on the left is then the occupied, or real, trajectory.</p>
+<p>The curve on the right is unoccupied and is a virtual path. For a mass to occupy this trajectory would require a repulsive gravitational force.</p>
+<p>The hyperbolic trajectory has a periapsis, a point of closest approach, on the occupied trajectory. Mathematically, the apoapsis occurs on the virtual path, but no object can ever be there.</p>
+<p>The wings of the hyperbola approach the asymptote lines as <span class="math notranslate nohighlight">\(x\)</span> goes to infinity.</p>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The terms <strong>periapsis</strong> and <strong>apoapsis</strong> are composed of two parts - a prefix indicating the distance from the primary object, and a suffix indicating which astronomical body is the primary. The prefixes are <strong>peri-</strong>, which comes from a Greek root meaning <em>near</em>, and <strong>apo-</strong>, which comes from a Greek root meaning <em>away from</em>.</p>
-<p>The suffixes depend on the primary body in the orbit. For orbits around the Earth, the suffix is <strong>-gee</strong>. So the closest point in an Earth orbit is <strong>perigee</strong> and the farthest point is <strong>apogee</strong>. Some other common suffixes are:</p>
+<p>The terms <em>periapsis</em> and <em>apoapsis</em> are composed of two parts - a prefix indicating the distance from the primary object, and a suffix indicating which astronomical body is the primary. The prefixes are <em>peri-</em>, which comes from a Greek root meaning <em>near</em>, and <em>apo-</em>, which comes from a Greek root meaning <em>away from</em>.</p>
+<p>The suffixes depend on the primary body in the orbit. For orbits around the Earth, the suffix is <em>-gee</em>. So the closest point in an Earth orbit is <em>perigee</em> and the farthest point is <em>apogee</em>. Some other common suffixes are:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Body</p></th>
@@ -691,29 +724,42 @@
 </table>
 <p>Check out <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">Wikipedia</a> for more.</p>
 </div>
-<p>The distance to periapsis is given by setting <span class="math notranslate nohighlight">\(\theta = 0\)</span> in the orbit equation:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-4">
-<span class="eqno">(67)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-4" title="Permalink to this equation">¶</a></span>\[r_p = \frac{h^2}{\mu}\frac{1}{1 + e}\]</div>
-<p>At periapsis, the radial velocity component is zero. For <span class="math notranslate nohighlight">\(0 &lt; \theta &lt; \pi\)</span>, the radial velocity is positive and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis.</p>
-<p>At <span class="math notranslate nohighlight">\(\theta = \pi\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span> reaches apoapsis and the radial component of velocity is again zero. The distance to apoapsis is:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-5">
-<span class="eqno">(68)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-5" title="Permalink to this equation">¶</a></span>\[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
+</div>
+<div class="section" id="velocity-components">
+<h2>Velocity Components<a class="headerlink" href="#velocity-components" title="Permalink to this headline">¶</a></h2>
+<p>It is convenient to have direct formulas to compute the velocity components of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>. The component of velocity normal to the position vector is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-perpendicular-velocity-component">
+<span class="eqno">(63)<a class="headerlink" href="#equation-eq-perpendicular-velocity-component" title="Permalink to this equation">¶</a></span>\[v_{\perp} = \frac{h}{r} = \frac{\mu}{h}\left(1 + e \cos\nu\right)\]</div>
+<p>The component of velocity along the position vector is <span class="math notranslate nohighlight">\(v_r\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-parallel-velocity-component">
+<span class="eqno">(64)<a class="headerlink" href="#equation-eq-parallel-velocity-component" title="Permalink to this equation">¶</a></span>\[v_r = \dot{r} = \frac{\mu}{h} e \sin\nu\]</div>
+</div>
+<div class="section" id="distance-to-periapsis-and-apoapsis">
+<h2>Distance to Periapsis and Apoapsis<a class="headerlink" href="#distance-to-periapsis-and-apoapsis" title="Permalink to this headline">¶</a></h2>
+<p>The distance to periapsis is given by setting <span class="math notranslate nohighlight">\(\nu = 0\)</span> in the orbit equation, Eq. <a class="reference internal" href="the-orbit-equation.html#equation-eq-scalar-orbit-equation">(62)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-distance-to-periapsis">
+<span class="eqno">(65)<a class="headerlink" href="#equation-eq-distance-to-periapsis" title="Permalink to this equation">¶</a></span>\[r_p = \frac{h^2}{\mu}\frac{1}{1 + e}\]</div>
+<p>Notice that <span class="math notranslate nohighlight">\(\cos 0 = 1\)</span>. This gives the largest value in the bottom of the fraction in Eq. <a class="reference internal" href="the-orbit-equation.html#equation-eq-scalar-orbit-equation">(62)</a>, which results in the shortest distance.</p>
+<p>At periapsis, the radial velocity component from Eq. <a class="reference internal" href="#equation-eq-parallel-velocity-component">(64)</a> is zero, since <span class="math notranslate nohighlight">\(\sin 0 = 0\)</span>. For <span class="math notranslate nohighlight">\(0 &lt; \nu &lt; \pi\)</span>, the radial velocity is positive. This means the position vector is getting longer and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis.</p>
+<p>Notice that only the circle and ellipse have apoapsis positions that can be occupied by <span class="math notranslate nohighlight">\(m_2\)</span>. We will discuss apoapsis more thoroughly in the context of each conical orbit type. For now, we note that apoapsis occurs at <span class="math notranslate nohighlight">\(\nu = \pi\)</span>, such that:</p>
+<div class="math notranslate nohighlight" id="equation-eq-distance-to-apoapsis">
+<span class="eqno">(66)<a class="headerlink" href="#equation-eq-distance-to-apoapsis" title="Permalink to this equation">¶</a></span>\[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
 <p>After apoapsis, the radial velocity is negative, which means <span class="math notranslate nohighlight">\(m_2\)</span> is moving towards periapsis.</p>
 </div>
 <div class="section" id="flight-path-angle">
 <h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>flight path angle</strong> is the angle that the velocity vector makes with the normal to the position vector. The normal to the position vector points in the same direction as <span class="math notranslate nohighlight">\(\vector{v}_{\perp}\)</span> by definition, so the flight path angle is zero at periapsis and apoapsis. The direction of the normal vector to the position is called the <strong>local horizon</strong>.</p>
 <p>By forming a right triangle with the velocity components, we can determine the flight path angle:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-6">
-<span class="eqno">(69)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-6" title="Permalink to this equation">¶</a></span>\[\tan \gamma = \frac{v_r}{v_{\perp}} = \frac{e\sin\theta}{1 + e\cos\theta}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-0">
+<span class="eqno">(67)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-0" title="Permalink to this equation">¶</a></span>\[\tan \gamma = \frac{v_r}{v_{\perp}} = \frac{e\sin\nu}{1 + e\cos\nu}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\gamma\)</span> is the flight path angle.</p>
 <p>The flight path angle is positive when <span class="math notranslate nohighlight">\(v_r\)</span> is positive and <span class="math notranslate nohighlight">\(m_2\)</span> is moving away from periapsis, and vice versa when <span class="math notranslate nohighlight">\(v_r\)</span> is negative.</p>
 </div>
 <div class="section" id="latus-rectum">
 <h2>Latus Rectum<a class="headerlink" href="#latus-rectum" title="Permalink to this headline">¶</a></h2>
 <p>The trajectory of <span class="math notranslate nohighlight">\(m_2\)</span> around <span class="math notranslate nohighlight">\(m_1\)</span> is symmetrical about the apse line. A chord of the orbit that intersects <span class="math notranslate nohighlight">\(m_1\)</span> at the apse line is called the <strong>latus rectum</strong>. The apse line divides the latus rectum into two halves, each of length <span class="math notranslate nohighlight">\(p\)</span>, called the <strong>semilatus rectum</strong> or the <strong>parameter of the orbit</strong>. The semilatus rectum can be calculated by:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-7">
-<span class="eqno">(70)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-7" title="Permalink to this equation">¶</a></span>\[p = \frac{h^2}{\mu}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-orbital-nomenclature-1">
+<span class="eqno">(68)<a class="headerlink" href="#equation-the-orbit-equation-orbital-nomenclature-1" title="Permalink to this equation">¶</a></span>\[p = \frac{h^2}{\mu}\]</div>
 </div>
 </div>
 
