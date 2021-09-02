@@ -86,15 +86,16 @@ Put a big star next to Eq. {eq}`eq:scalar-orbit-equation`. We are going to use i
 **Conic sections** are the curve formed by the intersection of a plane and a cone.
 ```
 
-The orbit equation describes [**conic sections**](https://en.wikipedia.org/wiki/Conic_section), meaning that all orbits are one of four types:
+The orbit equation describes [**conic sections**](https://en.wikipedia.org/wiki/Conic_section), meaning that all orbits are one of four types, as shown in {numref}`fig:TypesOfConicSections`. The particular type of orbit is determined by the magnitude of the eccentricity:
 
-1. Circles
-2. Ellipses
-3. Parabolas
-4. Hyperbolas
+1. Circles: $e = 0$
+2. Ellipses: $0 < e < 1$
+3. Parabolas: $e = 1$
+4. Hyperbolas $e > 1$
 
 :::{figure} ../images/TypesOfConicSections.jpg
 :width: 75%
+:name: fig:TypesOfConicSections
 
 The 4 types of conic section: 1. [Circle](https://en.wikipedia.org/wiki/Circle); 2. [Ellipse](https://en.wikipedia.org/wiki/Ellipse); 3. [Parabola](https://en.wikipedia.org/wiki/Parabola); 4. [Hyperbola](https://en.wikipedia.org/wiki/Hyperbola). [JensVyff](https://commons.wikimedia.org/wiki/File:TypesOfConicSections.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons
 :::
