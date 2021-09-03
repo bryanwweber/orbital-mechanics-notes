@@ -1,4 +1,4 @@
-https://github.com/bryanwweber/MyST-NB/archive/fix_cell_output_renderer.zip
+https://github.com/bryanwweber/MyST-NB/archive/orbital-mechanics.zip
 https://github.com/bryanwweber/jupyter-book/archive/bump-deps.zip
 alabaster==0.7.12
 anyio==3.1.0
