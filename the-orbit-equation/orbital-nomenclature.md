@@ -116,16 +116,25 @@ After apoapsis, the radial velocity is negative, which means $m_2$ is moving tow
 
 ## Flight Path Angle
 
-The **flight path angle** is the angle that the velocity vector makes with the normal to the position vector. The normal to the position vector points in the same direction as $\vector{v}_{\perp}$ by definition, so the flight path angle is zero at periapsis and apoapsis. The direction of the normal vector to the position is called the **local horizon**.
+The **flight path angle** is the angle that the velocity vector makes with the normal to the position vector, as shown in {numref}`fig:flight-path-angle`.
+
+:::{figure} ../images/flight-path-angle.svg
+:width: 50%
+:name: fig:flight-path-angle
+
+Definition of the flight path angle.
+:::
+
+The normal to the position vector points in the same direction as $\vector{v}_{\perp}$ by definition, so the flight path angle is zero at periapsis and apoapsis. The direction of the normal vector to the position is called the **local horizon**.
 
 By forming a right triangle with the velocity components, we can determine the flight path angle:
 
 :::{math}
-:label: 
-\tan \gamma = \frac{v_r}{v_{\perp}} = \frac{e\sin\nu}{1 + e\cos\nu}
+:label: eq:flight-path-angle
+\tan \phi = \frac{v_r}{v_{\perp}} = \frac{e\sin\nu}{1 + e\cos\nu}
 :::
 
-where $\gamma$ is the flight path angle.
+where $\phi$ is the flight path angle.
 
 The flight path angle is positive when $v_r$ is positive and $m_2$ is moving away from periapsis, and vice versa when $v_r$ is negative.
 
@@ -134,6 +143,6 @@ The flight path angle is positive when $v_r$ is positive and $m_2$ is moving awa
 The trajectory of $m_2$ around $m_1$ is symmetrical about the apse line. A chord of the orbit that intersects $m_1$ at the apse line is called the **latus rectum**. The apse line divides the latus rectum into two halves, each of length $p$, called the **semilatus rectum** or the **parameter of the orbit**. The semilatus rectum can be calculated by:
 
 :::{math}
-:label: 
+:label: eq:semi-latus-rectum
 p = \frac{h^2}{\mu}
 :::

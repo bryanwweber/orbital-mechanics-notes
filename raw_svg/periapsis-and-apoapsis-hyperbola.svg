@@ -112,8 +112,7 @@
   <path d="M 5 5 L 204 5 L 204 345 L 5 345 Z M 5 5 "/>
 </clipPath>
 </defs>
-<g id="surface501">
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 5 5 L 445 5 L 445 345 L 5 345 Z M 5 5 "/>
+<g id="surface1">
 <g clip-path="url(#clip1)" clip-rule="nonzero">
 <path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-dasharray:4,4;stroke-miterlimit:10;" d="M 450 175 L 0 175 "/>
 </g>
