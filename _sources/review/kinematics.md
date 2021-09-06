@@ -72,7 +72,7 @@ The acceleration has a component that is tangent to the path and a component tha
 
 :::{math}
 :label: eq:lagrange-acceleration-vector
-\vector{a} = a*t \uvec{u}*{t} + a*n \uvec{u}*{n}
+\vector{a} = a_t \uvec{u}_{t} + a_n \uvec{u}_{n}
 :::
 
 where $a_t$ and $a_n$ are the magnitudes of the acceleration in the tangent and normal directions, and $\uvec{u}_{n}$ is the unit vector normal to the path. The tangential acceleration causes the particle to move faster along its path, while the normal component causes the path of the particle to change, to curve the path.
@@ -81,7 +81,10 @@ The components of the acceleration are given by:
 
 :::{math}
 :label: eq:lagrange-acceleration-components
-\begin{aligned}a_t &= \dot{v} = \ddot{s} & a_n &= \frac{v^2}{\rho}\end{aligned}
+\begin{aligned}
+  a_t &= \dot{v} = \ddot{s} \\
+  a_n &= \frac{v^2}{\rho}
+\end{aligned}
 :::
 
 where $\rho$ is the **radius of curvature**. This is the distance from the particle $P$ to the center of curvature $C$ of the path at that point.

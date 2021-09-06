@@ -1,6 +1,6 @@
 # Orbital Nomenclature
 
-In this section, we will introduce some common nomenclature for orbits that are conical sections. {numref}`fig:periapsis-and-apoapsis-ellipse`, {numref}`fig:periapsis-and-apoapsis-circle`, and  show the four possible types of conical orbits. All conical sections have two **foci** (singular: **focus**). For all the orbits, one of the foci is _occupied_ by the primary mass $m_1$ and the other is _unoccupied_.
+In this section, we will introduce some common nomenclature for orbits that are conical sections. {numref}`fig:periapsis-and-apoapsis-ellipse`, {numref}`fig:periapsis-and-apoapsis-circle`, {numref}`fig:periapsis-and-apoapsis-parabola`, and {numref}`fig:periapsis-and-apoapsis-hyperbola` show the four possible types of conical orbits. All conical sections have two **foci** (singular: **focus**). For all the orbits, one of the foci is *occupied* by the primary mass $m_1$ and the other is *unoccupied*.
 
 ## Periapsis and Apoapsis
 
