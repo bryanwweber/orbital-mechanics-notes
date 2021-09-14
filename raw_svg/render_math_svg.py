@@ -25,6 +25,7 @@ NAMESPACES = {
     "inkscape": "http://www.inkscape.org/namespaces/inkscape",
     "sodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
     "xlink": "http://www.w3.org/1999/xlink",
+    "{http://www.w3.org/XML/1998/namespace}space": "preserve",
 }
 CC_META = """
 <root xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
@@ -158,7 +159,12 @@ def main(svg_file: Optional[Path] = None) -> None:
     # Match a scaling factor in the class attribute
     SCALE_REGEX = re.compile(r"\bscale-(\d*)\b")
 
-    for elem in svg_tree.findall("text", NAMESPACES):
+    g_elem = svg_element.find("g", NAMESPACES)
+    if g_elem is not None:
+        search_elem = g_elem
+    else:
+        search_elem = svg_element
+    for elem in search_elem.findall("text", NAMESPACES):
         if "math" not in elem.get("class", ""):
             continue
         content = get_math_content(elem, cache, SESSION)
@@ -195,8 +201,8 @@ def main(svg_file: Optional[Path] = None) -> None:
             },
         )
         image_element.tail = "\n  "
-        svg_element.append(image_element)
-        svg_element.remove(elem)
+        search_elem.append(image_element)
+        search_elem.remove(elem)
 
     svg_tree.write(
         OUTPUT.joinpath(svg_file.name), encoding="unicode", xml_declaration=True

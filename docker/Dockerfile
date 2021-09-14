@@ -24,7 +24,7 @@ USER root
 # Conda version
 ARG conda_version="4.10.3"
 # Miniforge installer patch version
-ARG miniforge_patch_number="3"
+ARG miniforge_patch_number="5"
 # Package Manager and Python implementation to use (https://github.com/conda-forge/miniforge)
 # - conda only: either Miniforge3 to use Python or Miniforge-pypy3 to use PyPy
 # - conda + mamba: either Mambaforge to use Python or Mambaforge-pypy3 to use PyPy
@@ -44,7 +44,7 @@ RUN apt-get update --yes && \
     sudo \
     locales \
     fonts-liberation \
-    julia \
+    # julia \
     run-one && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -52,6 +52,7 @@ RUN apt-get update --yes && \
 
 # Configure environment
 ENV CONDA_DIR=/opt/conda \
+    JULIA_DIR=/opt/julia \
     SHELL=/bin/bash \
     NB_USER="${NB_USER}" \
     NB_UID=${NB_UID} \
@@ -59,9 +60,10 @@ ENV CONDA_DIR=/opt/conda \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
-ENV PATH="${CONDA_DIR}/bin:${PATH}" \
+ENV PATH="${JULIA_DIR}/bin:${CONDA_DIR}/bin:${PATH}" \
     HOME="/home/${NB_USER}" \
     CONDA_VERSION="${conda_version}" \
+    JULIA_VERSION="1.6.2" \
     MINIFORGE_VERSION="${miniforge_version}"
 
 # Copy a script that we will use to correct permissions after running certain commands
@@ -81,10 +83,13 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
     sed -i.bak -e 's/^%sudo/#%sudo/' /etc/sudoers && \
     useradd -l -m -s /bin/bash -N -u "${NB_UID}" "${NB_USER}" && \
     mkdir -p "${CONDA_DIR}" && \
+    mkdir -p "${JULIA_DIR}" && \
     chown "${NB_USER}:${NB_GID}" "${CONDA_DIR}" && \
+    chown "${NB_USER}:${NB_GID}" "${JULIA_DIR}" && \
     chmod g+w /etc/passwd && \
     fix-permissions "${HOME}" && \
-    fix-permissions "${CONDA_DIR}"
+    fix-permissions "${CONDA_DIR}" && \
+    fix-permissions "${JULIA_DIR}"
 
 USER ${NB_UID}
 ARG PYTHON_VERSION=default
@@ -123,6 +128,12 @@ RUN set -x && \
     rm -rf "/home/${NB_USER}/.cache/yarn" && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
+
+# Install Julia official latest version
+RUN wget --quiet "https://julialang-s3.julialang.org/bin/linux/aarch64/1.6/julia-1.6.2-linux-aarch64.tar.gz" && \
+    tar -xf julia-1.6.2-linux-aarch64.tar.gz && \
+    rm julia-1.6.2-linux-aarch64.tar.gz && \
+    mv julia-1.6.2/* "${JULIA_DIR}/"
 
 # Install Jupyter Notebook, Lab, and Hub
 # Generate a notebook server config
@@ -163,4 +174,5 @@ USER ${NB_UID}
 
 WORKDIR "${HOME}"
 
-RUN julia -e 'using Pkg; Pkg.add.(["Luxor", "IJulia", "Thebes", "LightXML", "NLsolve"]); Pkg.precompile()'
+RUN julia -e \
+    'using Pkg; Pkg.add.(["Luxor", "IJulia", "Thebes", "LightXML", "NLsolve", "DifferentialEquations", "Plots"]); Pkg.precompile()'

@@ -15,6 +15,10 @@ parts:
       - file: the-n-body-problem/motion-of-the-barycenter
       - file: the-n-body-problem/two-body-relative-motion
       - file: the-n-body-problem/two-body-relative-numerical-solution
+      - file: the-n-body-problem/circular-restricted-three-body-problem
+      - file: the-n-body-problem/lagrange-points
+      - file: the-n-body-problem/Lagrange-points-example
+      - file: the-n-body-problem/Equations-of-Motion-CR3BP
       - file: the-n-body-problem/many-body-problems
   - caption: Constants of Orbital Motion
     chapters:
@@ -33,9 +37,6 @@ parts:
   #     - file: chapter-2/9-hyperbolic-trajectories
   #     - file: chapter-2/10-perifocal-frame
   #     - file: chapter-2/11-the-lagrange-coefficients
-  #     - file: chapter-2/12-circular-restricted-three-body-problem
-  #     - file: chapter-2/12a-Lagrange-points-example
-  #     - file: chapter-2/12b-Equations-of-Motion-CR3BP
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
