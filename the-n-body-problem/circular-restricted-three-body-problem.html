@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Restricted Three-Body Problem &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/circular-restricted-three-body-problem.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Application of the CR3BP: Lagrange Points" href="lagrange-points.html" />
+    <link rel="prev" title="Two-Body Problem in the Co-Moving Frame" href="two-body-relative-numerical-solution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Orbital Mechanics &amp; Astrodynamics
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lagrange-points.html">
+   Application of the CR3BP: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lagrange-points-example.html">
+   Example: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/the-n-body-problem/circular-restricted-three-body-problem.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/circular-restricted-three-body-problem.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/circular-restricted-three-body-problem.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orbit-of-primary-masses">
+   Orbit of Primary Masses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orbit-of-the-tertiary-mass">
+   Orbit of the Tertiary Mass
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#position-velocity-and-acceleration">
+     Position, Velocity, and Acceleration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-s-second-law">
+     Newton’s Second Law
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-dimensional-equations-of-motion">
+   Non-dimensional Equations of Motion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="circular-restricted-three-body-problem">
+<h1>Circular Restricted Three-Body Problem<a class="headerlink" href="#circular-restricted-three-body-problem" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we solve the three-body problem, subject to some restrictions. In particular:</p>
+<ol class="simple">
+<li><p>There are two primary masses, and the mass of the tertiary object is extremely small in comparison to <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span></p></li>
+<li><p>The mass of <span class="math notranslate nohighlight">\(m_1\)</span> is larger than <span class="math notranslate nohighlight">\(m_2\)</span></p></li>
+<li><p>The two primary objects orbit in a circle around their center of mass</p></li>
+</ol>
+<p>Although these assumptions seem fairly restrictive, they actually represent several very important physical situations: the Earth-Moon system, as well as the orbits of many of the planets around the sun, with a man-made object as the third mass! This is called the <em>Circular Restricted Three-Body Problem</em> (CRTBP or CR3BP), because the orbits are restricted to circles and the mass of the third body is restricted to be much smaller than the other two.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>We’ll see in a later section that the eccentricity of an orbit determines how close to a circle the orbit is. An eccentricity of 0 gives the equation for a circle, while vales up to 1.0 are ellipses.</p>
+</div>
+<p>The orbit of the moon around the earth is approximately circular, with a mean eccentricity of 0.054, and semimajor and semiminor axes of 384,400 km and 383,800 km, respectively. The center of mass of the system occurs at a distance of 4,600 km from the Earth’s center, about 72% of the radius of the Earth. This data comes from <a class="reference external" href="https://en.wikipedia.org/wiki/Orbit_of_the_Moon">Wikipedia</a>.</p>
+<p>Similarly, the orbits of Venus, Earth, Jupiter, Saturn, Neptune, and Uranus around the sun all have eccentricities less than 0.06, according to the <a class="reference external" href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">NASA Planetary Fact Sheet</a>.</p>
+<p>Unlike the two-body problem, there is no general closed-form solution to this problem. Closed-form means an analytical equation we can solve. But we can construct the equations of motion to find some interesting parameters of the orbits.</p>
+<div class="section" id="orbit-of-primary-masses">
+<h2>Orbit of Primary Masses<a class="headerlink" href="#orbit-of-primary-masses" title="Permalink to this headline">¶</a></h2>
+<p>We first attach a <em>non-inertial</em> coordinate system to the barycenter of the system of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, such that the <span class="math notranslate nohighlight">\(x\)</span>-axis of this coordinate system points towards <span class="math notranslate nohighlight">\(m_2\)</span>. The distance from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span> is <span class="math notranslate nohighlight">\(r_{12}\)</span>, which is also the radius of the circular orbit, as shown in <a class="reference internal" href="#fig-circular-restricted-three-body-problem"><span class="std std-numref">Fig. 14</span></a>.</p>
+<div class="figure align-default" id="fig-circular-restricted-three-body-problem">
+<a class="reference internal image-reference" href="../_images/circular-restricted-three-body-problem.svg"><img alt="../_images/circular-restricted-three-body-problem.svg" src="../_images/circular-restricted-three-body-problem.svg" width="50%" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">The system of masses for the circular restricted three body problem.</span><a class="headerlink" href="#fig-circular-restricted-three-body-problem" title="Permalink to this image">¶</a></p>
+</div>
+<p>The <span class="math notranslate nohighlight">\(y\)</span>-axis of this coordinate system is in the orbital plane, and the <span class="math notranslate nohighlight">\(z\)</span>-axis is perpendicular to the orbital plane, in the same direction as the angular momentum vector. In the rotating reference frame, <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be stationary.</p>
+<p>The inertial angular velocity of the reference frame is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-angular-velocity-cr3bp">
+<span class="eqno">(42)<a class="headerlink" href="#equation-eq-angular-velocity-cr3bp" title="Permalink to this equation">¶</a></span>\[\vector{\Omega} = \varOmega\uvec{k}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-angular-velocity-magnitude-cr3bp">
+<span class="eqno">(43)<a class="headerlink" href="#equation-eq-angular-velocity-magnitude-cr3bp" title="Permalink to this equation">¶</a></span>\[\varOmega = \frac{2\pi}{T}\]</div>
+<p><span class="math notranslate nohighlight">\(T\)</span> is the period of the orbit, and the orbital period for a circular orbit is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-circular-orbit-period-cr3bp">
+<span class="eqno">(44)<a class="headerlink" href="#equation-eq-circular-orbit-period-cr3bp" title="Permalink to this equation">¶</a></span>\[T = \frac{2\pi}{\sqrt{\mu}}r_{12}^{3/2}\]</div>
+<p>Plugging this in for <span class="math notranslate nohighlight">\(\varOmega\)</span>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-eq-angular-velocity-period-cr3bp">
+<span class="eqno">(45)<a class="headerlink" href="#equation-eq-angular-velocity-period-cr3bp" title="Permalink to this equation">¶</a></span>\[\varOmega = \sqrt{\frac{\mu}{r_{12}^3}}\]</div>
+<p>where the gravitational parameter is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-gravitational-parameter-cr3bp">
+<span class="eqno">(46)<a class="headerlink" href="#equation-eq-gravitational-parameter-cr3bp" title="Permalink to this equation">¶</a></span>\[\mu = GM = G\left(m_1 + m_2\right)\]</div>
+<p>Next, we want to find the positions of the two masses relative to the barycenter. By definition, the two masses lie in the orbital plane, so their <span class="math notranslate nohighlight">\(z\)</span>-coordinate is going to be zero. Since the line that connects <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> goes through the barycenter, then their <span class="math notranslate nohighlight">\(y\)</span>-coordinates must be zero as well.</p>
+<p>In that case, we only need to find the <span class="math notranslate nohighlight">\(x\)</span>-coordinates, which we can do from the equation for the center of mass:</p>
+<div class="math notranslate nohighlight" id="equation-eq-center-of-mass-cr3bp">
+<span class="eqno">(47)<a class="headerlink" href="#equation-eq-center-of-mass-cr3bp" title="Permalink to this equation">¶</a></span>\[m_1 x_1 + m_2 x_2 = 0\]</div>
+<p>We need a second independent equation to solve for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>. Fortunately, we know the distance between the masses is <span class="math notranslate nohighlight">\(r_{12}\)</span>. Solving for <span class="math notranslate nohighlight">\(x_2\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-position-of-m2-cr3bp">
+<span class="eqno">(48)<a class="headerlink" href="#equation-eq-position-of-m2-cr3bp" title="Permalink to this equation">¶</a></span>\[x_2 = x_1 + r_{12}\]</div>
+<p>To solve this set of equations, it’s convenient to define two dimensionless ratios:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>You might be able to remember these by noting that <span class="math notranslate nohighlight">\(\pi_1\)</span> has <span class="math notranslate nohighlight">\(m_1\)</span> in the numerator, and <span class="math notranslate nohighlight">\(\pi_2\)</span> has <span class="math notranslate nohighlight">\(m_2\)</span> in the numerator.</p>
+</div>
+<div class="math notranslate nohighlight" id="equation-eq-non-dimensional-masses-cr3bp">
+<span class="eqno">(49)<a class="headerlink" href="#equation-eq-non-dimensional-masses-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  \pi_1 &amp;= \frac{m_1}{m_1 + m_2} &amp; \pi_2 &amp;= \frac{m_2}{m_1 + m_2}
+\end{aligned}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\pi_2 = 1 - \pi_1\)</span>. Now we can solve for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> in terms of these:</p>
+<div class="math notranslate nohighlight" id="equation-eq-positions-of-masses-cr3bp">
+<span class="eqno">(50)<a class="headerlink" href="#equation-eq-positions-of-masses-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  x_1 &amp;= -\pi_2 r_{12} &amp; x_2 &amp;= \pi_1 r_{12}
+\end{aligned}\]</div>
+</div>
+<div class="section" id="orbit-of-the-tertiary-mass">
+<h2>Orbit of the Tertiary Mass<a class="headerlink" href="#orbit-of-the-tertiary-mass" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s add the much smaller, tertiary mass into the system. We’ll use the symbol <span class="math notranslate nohighlight">\(m\)</span> for this mass, without a subscript. We want the equation of motion, that is, Newton’s second law. For that we need the acceleration, which we will derive from the position.</p>
+<div class="section" id="position-velocity-and-acceleration">
+<h3>Position, Velocity, and Acceleration<a class="headerlink" href="#position-velocity-and-acceleration" title="Permalink to this headline">¶</a></h3>
+<p>The position of the tertiary mass relative to the barycenter is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-position-tertiary-cog-cr3bp">
+<span class="eqno">(51)<a class="headerlink" href="#equation-eq-position-tertiary-cog-cr3bp" title="Permalink to this equation">¶</a></span>\[\vector{r} = x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
+<p>The position of the tertiary mass relative to <span class="math notranslate nohighlight">\(m_1\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-position-tertiary-m1-cr3bp">
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-position-tertiary-m1-cr3bp" title="Permalink to this equation">¶</a></span>\[\vector{r}_1 = \left(x - x_1\right)\uvec{\imath} + y\uvec{\jmath} + z\uvec{k} = \left(x + \pi_2 r_{12}\right)\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
+<p>and finally, the position of <span class="math notranslate nohighlight">\(m\)</span> relative to <span class="math notranslate nohighlight">\(m_2\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-position-tertiary-m2-cr3bp">
+<span class="eqno">(53)<a class="headerlink" href="#equation-eq-position-tertiary-m2-cr3bp" title="Permalink to this equation">¶</a></span>\[\vector{r}_2 = \left(x - \pi_1 r_{12}\right)\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
+<p>Newton’s second law requires the <em>inertial</em> acceleration. To find that, we first find the <em>inertial</em> velocity of <span class="math notranslate nohighlight">\(m\)</span>. We need to account for the rotating frame of reference. This means that the velocity and acceleration need to include the rotation of the coordinate system:</p>
+<div class="math notranslate nohighlight" id="equation-eq-inertial-velocity-cr3bp">
+<span class="eqno">(54)<a class="headerlink" href="#equation-eq-inertial-velocity-cr3bp" title="Permalink to this equation">¶</a></span>\[\dot{\vector{r}} = \vector{v}_G + \vector{\Omega}\cross\vector{r} + \vector{v}_{\text{rel}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{v}_G\)</span> is the absolute velocity of the barycenter and <span class="math notranslate nohighlight">\(\vector{v}_{\text{rel}}\)</span> is the velocity calculated in the moving coordinate system:</p>
+<div class="math notranslate nohighlight" id="equation-eq-relative-velocity-cr3bp">
+<span class="eqno">(55)<a class="headerlink" href="#equation-eq-relative-velocity-cr3bp" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\text{rel}} = \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k}\]</div>
+<p>Then we can find the absolute acceleration of <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-five-term-acceleration-cr3bp">
+<span class="eqno">(56)<a class="headerlink" href="#equation-eq-five-term-acceleration-cr3bp" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}\ddot{\vector{r}} = \vector{a}_G + \dot{\vector{\Omega}}\cross\vector{r} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}
+:::(five-term-acceleration)\\This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, $\vector{a}_G = 0$. In addition, the angular velocity is constant since the orbit is circular, so $\dot{\vector{\Omega}} = 0$. Then, Eq. {eq}`eq:five-term-acceleration-cr3bp` can be simplified to:\\:::{math}
+:label: eq:three-term-acceleration-cr3bp
+\ddot{\vector{r}} = \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}\end{aligned}\end{align} \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-relative-acceleration-cr3bp">
+<span class="eqno">(57)<a class="headerlink" href="#equation-eq-relative-acceleration-cr3bp" title="Permalink to this equation">¶</a></span>\[\vector{a}_{\text{rel}} = \ddot{x}\uvec{\imath} + \ddot{y}\uvec{\jmath} + \ddot{z}\uvec{k}\]</div>
+<p>Plugging everything in and simplifying:</p>
+<div class="math notranslate nohighlight" id="equation-eq-inertial-acceleration-cr3bp">
+<span class="eqno">(58)<a class="headerlink" href="#equation-eq-inertial-acceleration-cr3bp" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \left(\ddot{x} - 2\varOmega\dot{y} - \varOmega^2 x\right)\uvec{\imath} + \left(\ddot{y} + 2\varOmega\dot{x} - \varOmega^2 y\right)\uvec{\jmath} + \ddot{z}\uvec{k}\]</div>
+</div>
+<div class="section" id="newton-s-second-law">
+<h3>Newton’s Second Law<a class="headerlink" href="#newton-s-second-law" title="Permalink to this headline">¶</a></h3>
+<p>For the tertiary body, the forces are due to both of the other masses:</p>
+<div class="math notranslate nohighlight" id="equation-eq-net-force-cr3bp">
+<span class="eqno">(59)<a class="headerlink" href="#equation-eq-net-force-cr3bp" title="Permalink to this equation">¶</a></span>\[m \ddot{\vector{r}} = \vector{F}_1 + \vector{F}_2\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{F}_1\)</span> is the force from <span class="math notranslate nohighlight">\(m_1\)</span> on <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(\vector{F}_2\)</span> is the force from <span class="math notranslate nohighlight">\(m_2\)</span> on <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>The two forces are found by Newton’s law of gravitation:</p>
+<div class="math notranslate nohighlight" id="equation-eq-nlog-cr3bp">
+<span class="eqno">(60)<a class="headerlink" href="#equation-eq-nlog-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \vector{F}_1 &amp;= -G\frac{m_1 m}{r_1^2} \left.\uvec{u}_r\right)_1 = -\frac{\mu_1 m}{r_1^3}\vector{r}_1 \\
+  \vector{F}_2 &amp;= -G\frac{m_2 m}{r_2^2}\left.\uvec{u}_r\right)_2 = -\frac{\mu_2 m}{r_2^3}\vector{r}_2
+\end{aligned}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-mu-definition-cr3bp">
+<span class="eqno">(61)<a class="headerlink" href="#equation-eq-mu-definition-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  \mu_1 &amp;= G m_1 &amp; \mu_2 &amp;= G m_2
+\end{aligned}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-eq-ur-vector-cr3bp">
+<span class="eqno">(62)<a class="headerlink" href="#equation-eq-ur-vector-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  \left.\uvec{u}_r\right)_1 &amp;= \frac{\vector{r}_1}{r_1} &amp; \left.\uvec{u}_r\right)_2 &amp;= \frac{\vector{r}_2}{r_2}
+\end{aligned}\]</div>
+<p>Combining Eq. <a class="reference internal" href="#equation-eq-net-force-cr3bp">(59)</a> and Eq. <a class="reference internal" href="#equation-eq-nlog-cr3bp">(60)</a>, and dividing through by <span class="math notranslate nohighlight">\(m\)</span>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-eq-vector-eom-cr3bp">
+<span class="eqno">(63)<a class="headerlink" href="#equation-eq-vector-eom-cr3bp" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = -\frac{\mu_1}{r_1^3}\vector{r}_1 - \frac{\mu_2}{r_2^3}\vector{r}_2\]</div>
+<p>Now we substitute for <span class="math notranslate nohighlight">\(\ddot{\vector{r}}\)</span> from Eq. <a class="reference internal" href="#equation-eq-inertial-acceleration-cr3bp">(58)</a> and split out by components to have three scalar equations of motion for the CR3BP:</p>
+<div class="math notranslate nohighlight" id="equation-eq-components-eom-cr3bp">
+<span class="eqno">(64)<a class="headerlink" href="#equation-eq-components-eom-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \ddot{x} - 2\varOmega\dot{y} - \varOmega^2 x &amp;= -\frac{\mu_1}{r_1^3}\left(x + \pi_2 r_{12}\right) - \frac{\mu_2}{r_2^3}\left(x - \pi_1 r_{12}\right) \\
+  \ddot{y} + 2\varOmega\dot{x} - \varOmega^2 y &amp;= -\frac{\mu_1}{r_1^3}y - \frac{\mu_2}{r_2^3}y \\
+  \ddot{z} &amp;= -\frac{\mu_1}{r_1^3}z - \frac{\mu_2}{r_2^3}z
+\end{aligned}\end{split}\]</div>
+<p>There are a few things we can note from these equations. First, the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> equations are coupled; the <span class="math notranslate nohighlight">\(x\)</span> equation depends on <span class="math notranslate nohighlight">\(y\)</span>, and the <span class="math notranslate nohighlight">\(y\)</span> equation depends on <span class="math notranslate nohighlight">\(x\)</span>. However, the <span class="math notranslate nohighlight">\(z\)</span> equation is decoupled from the other two, so if <span class="math notranslate nohighlight">\(m\)</span> starts in planar motion, it will remain there.</p>
+</div>
+</div>
+<div class="section" id="non-dimensional-equations-of-motion">
+<h2>Non-dimensional Equations of Motion<a class="headerlink" href="#non-dimensional-equations-of-motion" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>This section is adapted from Rubinsztejn <span id="id1">[<a class="reference internal" href="../bibliography.html#id20" title="Ari Rubinsztejn. Dynamics of the 3-Body Problem. https://gereshes.com/2018/11/12/dynamics-of-the-3-body-problem/, November 2018.">Rub18a</a>, <a class="reference internal" href="../bibliography.html#id21" title="Ari Rubinsztejn. Lagrange Points - The 3-Body Problem. https://gereshes.com/2018/12/03/an-introduction-to-lagrange-points-the-3-body-problem/, December 2018.">Rub18b</a>, <a class="reference internal" href="../bibliography.html#id22" title="Ari Rubinsztejn. Stability of the Lagrange Points - Three Body Problem. https://gereshes.com/2018/12/17/stability-of-the-lagrange-points-three-body-problem/, December 2018.">Rub18c</a>]</span>.</p>
+</div>
+<p>Next, let’s make these equations non-dimensional. This offers the advantage of being general for any system we want to study and removing the dependence on the rate of rotation of the coordinate system.</p>
+<p>To make the equations of motion non-dimensional, we need to define characteristic parameters for all of the dimensions in our problem. Typically, the characteristic parameters are chosen so that they are representative of some physical quantity in the system. We need the same number of characteristic parameters as dimensions in the problem.</p>
+<p>In this problem, we have 3 dimensions:</p>
+<ol class="simple">
+<li><p>Mass</p></li>
+<li><p>Length</p></li>
+<li><p>Time</p></li>
+</ol>
+<p>The characteristic mass is the sum of the primary and secondary masses, <span class="math notranslate nohighlight">\(m_1 + m_2\)</span>. To create the non-dimensional masses, we divide <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> by the characteristic mass, which gives the definitions of <span class="math notranslate nohighlight">\(\pi_1\)</span> and <span class="math notranslate nohighlight">\(\pi_2\)</span> from Eq. <a class="reference internal" href="#equation-eq-non-dimensional-masses-cr3bp">(49)</a>.</p>
+<p>The characteristic length is the circular orbit radius, <span class="math notranslate nohighlight">\(r_{12}\)</span>. Using this, we define the non-dimensional position vectors by dividing the dimensional position vectors, <span class="math notranslate nohighlight">\(\vector{r}_1\)</span>, <span class="math notranslate nohighlight">\(\vector{r}_2\)</span>, and <span class="math notranslate nohighlight">\(\vector{r}\)</span> by <span class="math notranslate nohighlight">\(r_{12}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-non-dim-r-vectors-cr3bp">
+<span class="eqno">(65)<a class="headerlink" href="#equation-eq-non-dim-r-vectors-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \vector{\rho} &amp;= \frac{\vector{r}}{r_{12}} = x^*\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k} \\
+  \vector{\sigma} &amp;= \frac{\vector{r}_1}{r_{12}} = \left(x^* + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k} \\
+  \vector{\psi} &amp;= \frac{\vector{r}_2}{r_{12}} = \left(x^* - 1 + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x^* = x/r_{12}\)</span>, and similar for <span class="math notranslate nohighlight">\(y^*\)</span> and <span class="math notranslate nohighlight">\(z^*\)</span>.</p>
+<p>The natural unit of time in this problem is the period of the circular orbit, Eq. <a class="reference internal" href="#equation-eq-circular-orbit-period-cr3bp">(44)</a>. We will ignore the constant factor of <span class="math notranslate nohighlight">\(2\pi\)</span> because it doesn’t change the dimensions available in the equation. Therefore, the characteristic time is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-characteristic-time-cr3bp">
+<span class="eqno">(66)<a class="headerlink" href="#equation-eq-characteristic-time-cr3bp" title="Permalink to this equation">¶</a></span>\[t_C = \sqrt{\frac{r_{12}^3}{\mu}}\]</div>
+<p>To make Eq. <a class="reference internal" href="#equation-eq-five-term-acceleration-cr3bp">(56)</a> non-dimensional, we need to multiply both sides of the equation by <span class="math notranslate nohighlight">\(t_C^2/r_{12}\)</span>. For the left side of Eq. <a class="reference internal" href="#equation-eq-five-term-acceleration-cr3bp">(56)</a>, this makes:</p>
+<div class="math notranslate nohighlight" id="equation-eq-non-dimensional-acceleration-cr3bp">
+<span class="eqno">(67)<a class="headerlink" href="#equation-eq-non-dimensional-acceleration-cr3bp" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{\rho}} = \frac{d^2\vector{r}}{dt^2}\frac{t_C^2}{r_{12}} = \frac{d^2\vector{\rho}}{d\tau^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tau = t/t_C\)</span>. Making the terms on the right hand side of Eq. <a class="reference internal" href="#equation-eq-five-term-acceleration-cr3bp">(56)</a> non-dimensional is also the result of multiplying by <span class="math notranslate nohighlight">\(t_C^2/r_{12}\)</span>. Note that the dimensions of <span class="math notranslate nohighlight">\(\varOmega\)</span> are <span class="math notranslate nohighlight">\(t^{-1}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-non-dim-five-term-accel-cr3bp">
+<span class="eqno">(68)<a class="headerlink" href="#equation-eq-non-dim-five-term-accel-cr3bp" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}\]</div>
+<p>Now we have the non-dimensional inertial acceleration, we need to make Eq. <a class="reference internal" href="#equation-eq-vector-eom-cr3bp">(63)</a>, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:</p>
+<div class="math notranslate nohighlight" id="equation-eq-non-dim-vector-eom-cr3bp">
+<span class="eqno">(69)<a class="headerlink" href="#equation-eq-non-dim-vector-eom-cr3bp" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{\rho}} = -\frac{1 - \pi_2}{\sigma^3}\vector{\sigma} - \frac{\pi_2}{\psi^3}\vector{\psi}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma = \mag{\vector{\sigma}}\)</span> and <span class="math notranslate nohighlight">\(\psi = \mag{\vector{\psi}}\)</span>. Now we can break this into the three scalar components as before:</p>
+<div class="math notranslate nohighlight" id="equation-eq-non-dim-scalar-eom-cr3bp">
+<span class="eqno">(70)<a class="headerlink" href="#equation-eq-non-dim-scalar-eom-cr3bp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \ddot{x}^* - 2\dot{y}^* - x^* &amp;= -\frac{1 - \pi_2}{\sigma^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\psi^3}\left(x^* - 1 + \pi_2\right) \\ \ddot{y}^* + 2\dot{x}^* - y^* &amp;= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\ \ddot{z}^* &amp;= -\frac{1 - \pi_2}{\sigma^3}z^* - \frac{\pi_2}{\psi^3}z^*
+\end{aligned}\end{split}\]</div>
+<p>There are three main advantages of this formulation of the equations of motion:</p>
+<ol class="simple">
+<li><p>The equations are independent of the two masses <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, depending only on their relative sizes via <span class="math notranslate nohighlight">\(\pi_2 = m_2 / (m_1 + m_2)\)</span></p></li>
+<li><p>The equations are independent of the rate of rotation of the reference frame, <span class="math notranslate nohighlight">\(\varOmega\)</span></p></li>
+<li><p>The equations are independent of the separation distance between <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, <span class="math notranslate nohighlight">\(r_{12}\)</span>, so can be used to represent any system</p></li>
+</ol>
+<p>With the equations of motion, we can determine solutions by integrating them in time. As we will see, this can be a little bit tricky, depending on the situation. We also cannot solve the equations analytically, either in the dimensional or non-dimensional case.</p>
+<p>Nonetheless, this system represents a number of physical systems, as mentioned previously, so we will continue to analyze its properties with these non-dimensional equations.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./the-n-body-problem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="two-body-relative-numerical-solution.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Two-Body Problem in the Co-Moving Frame</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="lagrange-points.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Application of the CR3BP: Lagrange Points</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

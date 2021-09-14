@@ -53,7 +53,7 @@ In a gravitational field, the sources are **masses**. Therefore, the magnitude o
 F = G \frac{m_1 m_2}{r^2}
 :::
 
-where $m_1$ and $m_2$ are the two masses, $r$ is the distance between them, and $G$ is **Newton's gravitational constant**. {eq}`eq:newtons-law-of-gravitation` is called _Newton's law of gravitation_, first published by Isaac Newton in the 1680s {cite}`Bate1971`. In SI units, $G$ has the value {glue:}`G`.
+where $m_1$ and $m_2$ are the two masses, $r$ is the distance between them, and $G$ is **Newton's gravitational constant**. Eq. {eq}`eq:newtons-law-of-gravitation` is called _Newton's law of gravitation_, first published by Isaac Newton in the 1680s {cite}`Bate1971`. In SI units, $G$ has the value {glue:}`G`.
 
 Due to the extremely small size of $G$, masses either have to be very large or very close together to generate a significant gravitational force.
 
