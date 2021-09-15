@@ -36,8 +36,8 @@ A 1000 kg satellite is in orbit around Earth. The initial position and velocity 
 
 :::{math}
 \begin{aligned}
-  \vector{r} &= \left(8000 \uvec{\imath} + 6000 \uvec{k}\right)\ \mathrm{km} \\
-  \dot{\vector{r}} &= 7.0 \uvec{\jmath}\ \mathrm{km/s}
+  \vector{r}_0 &= \left(8000 \uvec{\imath} + 6000 \uvec{k}\right)\ \mathrm{km} \\
+  \dot{\vector{r}}_0 &= 7.0 \uvec{\jmath}\ \mathrm{km/s}
 \end{aligned}
 :::
 
