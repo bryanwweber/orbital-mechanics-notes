@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example: Lagrange Points &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Example: Plotting Lagrange Points &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/Lagrange-points-example.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example: CR3BP Equations of Motion" href="Equations-of-Motion-CR3BP.html" />
+    <link rel="next" title="The Jacobi Constant" href="jacobi-constant.html" />
     <link rel="prev" title="Application of the CR3BP: Lagrange Points" href="lagrange-points.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -161,7 +161,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Example: Lagrange Points
+   Example: Plotting Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jacobi-constant.html">
+   The Jacobi Constant
   </a>
  </li>
  <li class="toctree-l1">
@@ -376,8 +381,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-the-lagrange-points">
-   Plotting the Lagrange Points
+  <a class="reference internal nav-link" href="#python">
+   Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matlab">
+   Matlab
   </a>
  </li>
 </ul>
@@ -391,20 +401,26 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="example-lagrange-points">
-<h1>Example: Lagrange Points<a class="headerlink" href="#example-lagrange-points" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="example-plotting-lagrange-points">
+<h1>Example: Plotting Lagrange Points<a class="headerlink" href="#example-plotting-lagrange-points" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we will plot the Lagrange points for the system as a function of <span class="math notranslate nohighlight">\(\pi_2\)</span>.</p>
-<div class="section" id="plotting-the-lagrange-points">
-<h2>Plotting the Lagrange Points<a class="headerlink" href="#plotting-the-lagrange-points" title="Permalink to this headline">¶</a></h2>
-<p>In the nondimensional coordinates, we know that <span class="math notranslate nohighlight">\(L_4\)</span> and <span class="math notranslate nohighlight">\(L_5\)</span> have analytical solutions:</p>
+<p>In the nondimensional coordinates, we know that <span class="math notranslate nohighlight">\(L_4\)</span> and <span class="math notranslate nohighlight">\(L_5\)</span> have analytical solutions from Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-equilateral-lagrange-points">(82)</a> and repeated here for reference:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}&amp;L_4: &amp; x^* &amp;= \frac{1}{2} - \pi_2 &amp; y^* &amp;= \frac{\sqrt{3}}{2}\\&amp;L_5: &amp; x^* &amp;= \frac{1}{2} - \pi_2 &amp; y^* &amp;= -\frac{\sqrt{3}}{2}\end{aligned}\end{split}\]</div>
+\[\begin{split}\begin{aligned}
+  &amp;L_4: &amp; x^* &amp;= \frac{1}{2} - \pi_2 &amp; y^* &amp;= \frac{\sqrt{3}}{2} \\
+  &amp;L_5: &amp; x^* &amp;= \frac{1}{2} - \pi_2 &amp; y^* &amp;= -\frac{\sqrt{3}}{2}
+\end{aligned}\end{split}\]</div>
 <p>However, the collinear Lagrange points do not have an analytical solution, and must be approximated numerically. To do so, we will use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code></a> in Python and <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/fzero.html"><code class="docutils literal notranslate"><span class="pre">fzero</span></code></a> in Matlab.</p>
-<p>The formula for the nondimensional position of the collinear Lagrange points is:</p>
+<p>The formula for the nondimensional position of the collinear Lagrange points is given by Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-collinear-lagrange-solution">(85)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[0 = x^* - \frac{1 - \pi_2}{\left\lvert x^* + \pi_2\right\rvert ^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\left\lvert x^* - 1 + \pi_2\right\rvert ^3}\left(x^* - 1 + \pi_2\right)\]</div>
-<p>Here, we have <span class="math notranslate nohighlight">\(f(x^*, \pi_2)\)</span>, which for a given value of <span class="math notranslate nohighlight">\(\pi_2\)</span> has three roots for <span class="math notranslate nohighlight">\(x^*\)</span>. Remember from the S-curve graph that <span class="math notranslate nohighlight">\(L_2\)</span> has positive values, between <span class="math notranslate nohighlight">\(x^* =\)</span> 1 and about 1.25, <span class="math notranslate nohighlight">\(L_1\)</span> is in the middle, with <span class="math notranslate nohighlight">\(x^*\)</span> ranging from 1 to -1, and for <span class="math notranslate nohighlight">\(L_3\)</span>, the values of <span class="math notranslate nohighlight">\(x^*\)</span> are below <span class="math notranslate nohighlight">\(-1\)</span>.</p>
-<p>Both <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton</span></code> and <code class="docutils literal notranslate"><span class="pre">fzero</span></code> depend on having a good guess of the initial point to get to the right Lagrange point. My suggestion is to use the following initial guess range for both functions, depending on which Lagrange point you’re looking for:</p>
+<p>Here, we have a function <span class="math notranslate nohighlight">\(f(x^*, \pi_2)\)</span>, which for a given value of <span class="math notranslate nohighlight">\(\pi_2\)</span> has three roots for <span class="math notranslate nohighlight">\(x^*\)</span>, one for each of the collinear Lagrange points. From <a class="reference internal" href="lagrange-points.html#fig-collinear-lagrange-solution"><span class="std std-numref">Fig. 15</span></a>, we can determine the range of <span class="math notranslate nohighlight">\(x^*\)</span> values associated with each point.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L_2\)</span>: <span class="math notranslate nohighlight">\(1 &lt; x^* &lt; 1.25\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L_1\)</span>: <span class="math notranslate nohighlight">\(-1 &lt; x^* &lt; 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L_3\)</span>: <span class="math notranslate nohighlight">\(-1.25 &lt; x^* &lt; -1\)</span></p></li>
+</ul>
+<p>Both <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton</span></code> and <code class="docutils literal notranslate"><span class="pre">fzero</span></code> depend on having a good initial guess to get to the right Lagrange point. My suggestion is to use the following initial guess range for both functions, depending on which Lagrange point you’re looking for:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(L_2\)</span>:</p>
 <ul>
@@ -426,6 +442,9 @@
 </li>
 </ul>
 <p>For some reason, the <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> in MATLAB seems much more sensitive to the initial guess value, and if you only provide a single value for the initial guess, it chooses a positive value as the second part of the interval. Thus, if the root is below your initial guess the MATLAB solver will not be able to find it.</p>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>First, we will demonstrate the Python solver. Like for the <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> function, we need to define a function that returns a value given the single input <code class="docutils literal notranslate"><span class="pre">xstar</span></code>. Python is flexible enough to allow us to define <code class="docutils literal notranslate"><span class="pre">pi_2</span></code> as another parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib notebook</span>
@@ -457,6 +476,7 @@
 <span class="n">m_1</span> <span class="o">=</span> <span class="mf">5.974E24</span>  <span class="c1"># kg</span>
 <span class="n">m_2</span> <span class="o">=</span> <span class="mf">7.348E22</span> <span class="c1"># kg</span>
 <span class="n">pi_2</span> <span class="o">=</span> <span class="n">m_2</span><span class="o">/</span><span class="p">(</span><span class="n">m_1</span> <span class="o">+</span> <span class="n">m_2</span><span class="p">)</span>
+
 <span class="c1"># These give us the coordinates of the orbits of m_2 and m_1</span>
 <span class="n">x_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">y_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
@@ -466,21 +486,20 @@
 </div>
 </div>
 </div>
-<p>First, we will demonstrate the Python solver. Like for the <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> function, we need to define a function that returns a value given the single input <code class="docutils literal notranslate"><span class="pre">xstar</span></code>. Python is flexible enough to allow us to define <code class="docutils literal notranslate"><span class="pre">pi_2</span></code> as another parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">collinear_lagrange</span><span class="p">(</span><span class="n">xstar</span><span class="p">,</span> <span class="n">pi_2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Calculate the resultant of the collinear Lagrange point equation.</span>
-<span class="sd">    </span>
+
 <span class="sd">    This is a function f(xstar, pi_2), where xstar is the nondimensional x coordinate</span>
 <span class="sd">    and pi_2 is the nondimensional mass ratio. The function should be passed to</span>
 <span class="sd">    scipy.optimize.newton (or another Newton solver) to find a value for xstar</span>
 <span class="sd">    that satsifies the equation, for a given value of pi_2.</span>
-<span class="sd">    </span>
+
 <span class="sd">    The solver will try different values of xstar until the return value is equal to zero.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">first_term</span> <span class="o">=</span> <span class="n">xstar</span>
-    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xstar</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">xstar</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span>
+    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xstar</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">xstar</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span>
     <span class="n">third_term</span> <span class="o">=</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xstar</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">xstar</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">first_term</span> <span class="o">-</span> <span class="n">second_term</span> <span class="o">-</span> <span class="n">third_term</span>
 </pre></div>
@@ -497,20 +516,20 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L_2</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">collinear_lagrange</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">pi_2</span><span class="p">,))</span>
 <span class="n">L_1</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">collinear_lagrange</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">pi_2</span><span class="p">,))</span>
 <span class="n">L_3</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">collinear_lagrange</span><span class="p">,</span> <span class="n">x0</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">pi_2</span><span class="p">,))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L_1 =&quot;</span><span class="p">,</span> <span class="n">L_1</span><span class="p">,</span> <span class="s2">&quot;L_2 =&quot;</span><span class="p">,</span> <span class="n">L_2</span><span class="p">,</span> <span class="s2">&quot;L_3 =&quot;</span><span class="p">,</span> <span class="n">L_3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">L_1</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">L_2</span><span class="si">=}</span><span class="s2">, </span><span class="si">{</span><span class="n">L_3</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L_1 = 0.8369154703225321 L_2 = 1.1556818961296604 L_3 = -1.0050626166357435
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L_1=0.8369154703225321, L_2=1.1556818961296604, L_3=-1.0050626166357435
 </pre></div>
 </div>
 </div>
 </div>
 <p>Remember, these are in nondimensional coordinates. We can then plot the Lagrange points relative to <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> in the rotating frame of reference.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x^*$&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y^*$&quot;</span><span class="p">)</span>
 
@@ -534,39 +553,69 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/Lagrange-points-example_9_0.png" src="../_images/Lagrange-points-example_9_0.png" />
 </div>
 </div>
-<p>In MATLAB, the function definition ends up being a little bit different, since we want to be able to have <span class="math notranslate nohighlight">\(\pi_2\)</span> as the parameter. First, we need to define a function that takes both <code class="docutils literal notranslate"><span class="pre">xstar</span></code> and <code class="docutils literal notranslate"><span class="pre">pi_2</span></code> as arguments:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">collinear_lagrange</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="n">xstar</span><span class="p">,</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="w"> </span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="o">.^</span><span class="mi">3</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="o">.^</span><span class="mi">3</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">);</span><span class="w"></span>
-</pre></div>
+<div class="figure align-default" id="fig-lagrange-points-earth-moon">
+<div class="cell_output docutils container">
+<img alt="../_images/Lagrange-points-example_11_0.png" src="../_images/Lagrange-points-example_11_0.png" />
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">&#64;(xstar,</span> <span class="pre">pi_2)</span></code> tells MATLAB this is an anonymous function. We could also put this into a <code class="docutils literal notranslate"><span class="pre">.m</span></code> file as something like (Note: I didn’t test this):</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">collinear_lagrange</span><span class="p">(</span>xstar, pi_2<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="o">.^</span><span class="mi">3</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi_2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">)</span><span class="o">.^</span><span class="mi">3</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi_2</span><span class="p">);</span><span class="w"></span>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">The location of the Lagrange points in the Earth-Moon system, shown in non-dimensional coordinates.</span><a class="headerlink" href="#fig-lagrange-points-earth-moon" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="matlab">
+<h2>Matlab<a class="headerlink" href="#matlab" title="Permalink to this headline">¶</a></h2>
+<p>In MATLAB, we are using <code class="docutils literal notranslate"><span class="pre">fzero</span></code> as the solver. The code below produces the same output as the Python code above.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">lagrange_points_example</span><span class="w"></span>
+<span class="w">    </span><span class="c">% These masses represent the Earth-Moon system</span><span class="w"></span>
+<span class="w">    </span><span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">5.974E24</span><span class="p">;</span><span class="w"> </span><span class="c">% kg</span><span class="w"></span>
+<span class="w">    </span><span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">7.348E22</span><span class="p">;</span><span class="w"> </span><span class="c">% kg</span><span class="w"></span>
+<span class="w">    </span><span class="n">pi2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m2</span><span class="o">/</span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">collinear_lagrange</span><span class="p">(</span>xstar<span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">firstterm</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xstar</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">secondterm</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pi2</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi2</span><span class="p">)</span><span class="o">.^</span><span class="mi">3</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">thirdterm</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pi2</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi2</span><span class="p">)</span><span class="o">.^</span><span class="mi">3</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">xstar</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pi2</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">firstterm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">secondterm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">thirdterm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">options</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">optimset</span><span class="p">(</span><span class="s">&#39;Display&#39;</span><span class="p">,</span><span class="s">&#39;iter&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">L_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fzero</span><span class="p">(@</span><span class="n">collinear_lagrange</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">],</span><span class="n">options</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">L_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fzero</span><span class="p">(@</span><span class="n">collinear_lagrange</span><span class="p">,[</span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="mf">0.97</span><span class="p">],</span><span class="n">options</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">L_3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fzero</span><span class="p">(@</span><span class="n">collinear_lagrange</span><span class="p">,[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.5</span><span class="p">],</span><span class="n">options</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;L_1=%f, L_2=%f, L_3=%f\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">L_1</span><span class="p">,</span><span class="w"> </span><span class="n">L_2</span><span class="p">,</span><span class="w"> </span><span class="n">L_3</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">output</span><span class="w"></span>
+<span class="w">        </span><span class="nb">figure</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;The Lagrange Points in the Earth-Moon System&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">        </span><span class="nb">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span><span class="w"></span>
+<span class="w">        </span><span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span><span class="w"></span>
+<span class="w">        </span><span class="nb">axis</span><span class="w"> </span><span class="n">square</span><span class="w"></span>
+<span class="w">        </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x^*&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y^*&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;g&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="n">L_1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;rv&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="n">L_2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;r^&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="n">L_3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;rp&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="mf">0.5</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;rX&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">(</span><span class="mf">0.5</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="o">-</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s">&#39;rs&#39;</span><span class="p">,</span><span class="s">&#39;MarkerFaceColor&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">([</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="mf">0.5</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="mf">0.5</span><span class="o">-</span><span class="n">pi2</span><span class="p">,</span><span class="o">-</span><span class="n">pi2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;--k&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nb">yline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;k&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">coords</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">pi2</span><span class="p">)</span><span class="o">.*</span><span class="nb">cos</span><span class="p">(</span><span class="n">coords</span><span class="p">),(</span><span class="mi">1</span><span class="o">-</span><span class="n">pi2</span><span class="p">)</span><span class="o">.*</span><span class="nb">sin</span><span class="p">(</span><span class="n">coords</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="nb">hold</span><span class="w"> </span><span class="nb">all</span><span class="w"></span>
+<span class="w">        </span><span class="nb">plot</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">pi2</span><span class="p">)</span><span class="o">.*</span><span class="nb">cos</span><span class="p">(</span><span class="n">coords</span><span class="p">),</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">pi2</span><span class="p">)</span><span class="o">.*</span><span class="nb">sin</span><span class="p">(</span><span class="n">coords</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;$m_1$&#39;</span><span class="p">,</span><span class="s">&#39;$m_2$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$L_1$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$L_2$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$L_3$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$L_4$&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;$L_5$&#39;</span><span class="p">,</span><span class="s">&#39;Interpreter&#39;</span><span class="p">,</span><span class="s">&#39;latex&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="n">output</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Then, we need to define a second function which calls the first for a defined value of <code class="docutils literal notranslate"><span class="pre">pi_2</span></code>:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">pi_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3e-6</span><span class="p">;</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">fun</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">collinear_lagrange</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">pi_2</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>If you change the value of <code class="docutils literal notranslate"><span class="pre">pi_2</span></code>, I’m pretty sure you’ll have to redefine <code class="docutils literal notranslate"><span class="pre">fun</span></code> by running the second line again. I wouldn’t swear to that, and it depends on how MATLAB defines functions. But better safe than sorry!</p>
-<p>After that, we can call <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> with the second function to find the roots of the collinear Lagrange point equation. The signature of <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> is:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">fzero</span><span class="p">(</span><span class="k">function</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The first argument is the function to solve, the second argument is an array that gives the range for the initial guess, and the third argument specifies options to the solver. I’d suggest setting:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">optimset</span><span class="p">(</span><span class="s">&#39;Display&#39;</span><span class="p">,</span><span class="s">&#39;iter&#39;</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>and passing that to <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> so you can see what the solver is doing internally and make sure it’s finding the values you expect. Calling <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> looks like:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fzero</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-<p>For the parameters we’ve set up here, this call will actually give an error that it can’t find a root in the given range. MATLAB seems much more sensitive to the choice of initial values than Python, I’m not sure why. You’ll need to experiment to find appropriate initial guesses, based on the S-curve graph. However, once a solution is found, it should be nearly identical to the solution found in Python.</p>
+<p>Notice that to find <span class="math notranslate nohighlight">\(L_1\)</span> in Matlab, we had to use the initial guess range from 0.01 to 0.97. Matlab is more sensitive to the initial guess, so you need to make sure that the root is within the initial guess you choose. The <code class="docutils literal notranslate"><span class="pre">collinear_lagrange</span></code> function is discontinuous around 0 and 1.0, so you need to choose your limits carefully.</p>
+<p>It may help to plot the function for a given problem. To do so, within the script, add the line <code class="docutils literal notranslate"><span class="pre">fplot(collinear_lagrange)</span></code> to show a plot of the function.</p>
 </div>
 </div>
 
@@ -609,10 +658,10 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="Equations-of-Motion-CR3BP.html" title="next page">
+        <a class="right-next" href="jacobi-constant.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Example: CR3BP Equations of Motion</p>
+                <p class="prevnext-title">The Jacobi Constant</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

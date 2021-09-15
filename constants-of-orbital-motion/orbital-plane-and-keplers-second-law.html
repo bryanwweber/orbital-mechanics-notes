@@ -161,7 +161,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
-   Example: Lagrange Points
+   Example: Plotting Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
+   The Jacobi Constant
   </a>
  </li>
  <li class="toctree-l1">
@@ -378,38 +383,38 @@
 <h1>Orbital Plane and Kepler’s Second Law<a class="headerlink" href="#orbital-plane-and-kepler-s-second-law" title="Permalink to this headline">¶</a></h1>
 <p>The two vectors <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{r}}\)</span> define a plane called the <strong>orbital plane</strong>. The angular momentum vector is perpendicular to this plane. The unit vector normal to the plane is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-plane-unit-vector">
-<span class="eqno">(104)<a class="headerlink" href="#equation-eq-orbital-plane-unit-vector" title="Permalink to this equation">¶</a></span>\[\uvec{h} = \frac{\vector{h}}{h}\]</div>
+<span class="eqno">(103)<a class="headerlink" href="#equation-eq-orbital-plane-unit-vector" title="Permalink to this equation">¶</a></span>\[\uvec{h} = \frac{\vector{h}}{h}\]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the magnitude of the specific angular momentum.</p>
 <p>Since the angular momentum is constant for all time, it cannot change direction and it cannot change magnitude. Therefore, the unit vector perpendicular to the plane is constant for all time. This means that <span class="math notranslate nohighlight">\(m_2\)</span> always orbits in the same plane around <span class="math notranslate nohighlight">\(m_1\)</span>.</p>
-<p>In this situation, it is convenient to observe the plane looking in the same direction as <span class="math notranslate nohighlight">\(-\uvec{h}\)</span>, that is, looking down onto the orbit. This is shown in <a class="reference internal" href="#fig-definition-of-vr-vp"><span class="std std-numref">Fig. 20</span></a>.</p>
+<p>In this situation, it is convenient to observe the plane looking in the same direction as <span class="math notranslate nohighlight">\(-\uvec{h}\)</span>, that is, looking down onto the orbit. This is shown in <a class="reference internal" href="#fig-definition-of-vr-vp"><span class="std std-numref">Fig. 23</span></a>.</p>
 <div class="figure align-default" id="fig-definition-of-vr-vp">
-<img alt="../_images/definition-of-vr-vp.svg" src="../_images/definition-of-vr-vp.svg" /><p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">The orbital plane viewed from above. The angular momentum vector is coming out of the screen towards you.</span><a class="headerlink" href="#fig-definition-of-vr-vp" title="Permalink to this image">¶</a></p>
+<img alt="../_images/definition-of-vr-vp.svg" src="../_images/definition-of-vr-vp.svg" /><p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">The orbital plane viewed from above. The angular momentum vector is coming out of the screen towards you.</span><a class="headerlink" href="#fig-definition-of-vr-vp" title="Permalink to this image">¶</a></p>
 </div>
 <p>We will resolve the relative velocity into two components, one parallel and one perpendicular to <span class="math notranslate nohighlight">\(\vector{r}\)</span>. The unit vectors in these directions are <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> and <span class="math notranslate nohighlight">\(\uvec{u}_{\perp}\)</span>, respectively. Therefore:</p>
 <div class="math notranslate nohighlight" id="equation-eq-velocity-in-orbital-components">
-<span class="eqno">(105)<a class="headerlink" href="#equation-eq-velocity-in-orbital-components" title="Permalink to this equation">¶</a></span>\[\vector{v} = v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\]</div>
+<span class="eqno">(104)<a class="headerlink" href="#equation-eq-velocity-in-orbital-components" title="Permalink to this equation">¶</a></span>\[\vector{v} = v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\]</div>
 <p>The angular momentum can then be defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-angular-momentum-in-orbital-components">
-<span class="eqno">(106)<a class="headerlink" href="#equation-eq-angular-momentum-in-orbital-components" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(105)<a class="headerlink" href="#equation-eq-angular-momentum-in-orbital-components" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   \vector{h} &amp;= \vector{r}\cross\vector{v} = r\uvec{u}_r \cross\left(v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\right)\\ 
              &amp;= r v_r\left(\uvec{u}_r\cross\uvec{u}_r\right) + r v_{\perp}\left(\uvec{u}_r\cross\uvec{u}_{\perp}\right)\\
              &amp;= r v_{\perp}\uvec{h}
 \end{aligned}\end{split}\]</div>
 <p>where the last result comes from the definition of <span class="math notranslate nohighlight">\(\uvec{h}\)</span> as perpendicular to the orbital plane. This means that the magnitude of the angular momentum is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-magnitude-of-angular-momentum">
-<span class="eqno">(107)<a class="headerlink" href="#equation-eq-magnitude-of-angular-momentum" title="Permalink to this equation">¶</a></span>\[h = r v_{\perp}\]</div>
+<span class="eqno">(106)<a class="headerlink" href="#equation-eq-magnitude-of-angular-momentum" title="Permalink to this equation">¶</a></span>\[h = r v_{\perp}\]</div>
 <p>Since the angular momentum is constant, there is an inverse relationship between the radius of the orbit and the perpendicular velocity at any instant. As one increases, the other must decrease.</p>
 <div class="section" id="kepler-s-second-law">
 <h2>Kepler’s Second Law<a class="headerlink" href="#kepler-s-second-law" title="Permalink to this headline">¶</a></h2>
 <p>Now consider <span class="math notranslate nohighlight">\(m_2\)</span> in orbit around <span class="math notranslate nohighlight">\(m_1\)</span>. As <span class="math notranslate nohighlight">\(m_2\)</span> moves, the position vector <span class="math notranslate nohighlight">\(\vector{r}\)</span> sweeps out an area inside the orbit. Over one whole orbit, the entire area inside the orbit will be swept. During a differential time interval <span class="math notranslate nohighlight">\(dt\)</span>, a differential area <span class="math notranslate nohighlight">\(dA\)</span> is swept. The rate of change of this area is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-areal-velocity-definition">
-<span class="eqno">(108)<a class="headerlink" href="#equation-eq-areal-velocity-definition" title="Permalink to this equation">¶</a></span>\[\frac{dA}{dt} = \frac{h}{2}\]</div>
+<span class="eqno">(107)<a class="headerlink" href="#equation-eq-areal-velocity-definition" title="Permalink to this equation">¶</a></span>\[\frac{dA}{dt} = \frac{h}{2}\]</div>
 <p>This is called the <strong>areal velocity</strong>. Since <span class="math notranslate nohighlight">\(h\)</span> is constant, because of conservation of angular momentum, <span class="math notranslate nohighlight">\(dA/dt\)</span> is also constant. This is Kepler’s Second Law:</p>
 <div class="admonition-kepler-s-second-law admonition">
 <p class="admonition-title"><strong>Kepler’s Second Law</strong></p>
 <p>Equal areas are swept out in equal times</p>
 </div>
-<p>This can be shown by integrating Eq. <a class="reference internal" href="#equation-eq-areal-velocity-definition">(108)</a>:</p>
+<p>This can be shown by integrating Eq. <a class="reference internal" href="#equation-eq-areal-velocity-definition">(107)</a>:</p>
 <div class="math notranslate nohighlight">
 \[A_2 - A_1 = \int_{t_1}^{t_2} \frac{h}{2} dt = \frac{h}{2}\left(t_2 - t_1\right)\]</div>
 <p>since <span class="math notranslate nohighlight">\(h\)</span> is constant. Assuming that <span class="math notranslate nohighlight">\(\Delta t\)</span> is the same, the swept area will be the same.</p>
