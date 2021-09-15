@@ -1,0 +1,21 @@
+services:
+  jupyter:
+    image: bryanwweber/orbital-mechanics-book:20210915.1
+    ports: ["10000:10000"]
+    # Mount into 'work' to avoid overwriting files
+    # installed into jovyan's home directory
+    volumes:
+      - ..:/home/jovyan/work
+    container_name: jupyter
+  math-api:
+    image: bryanwweber/math-api:latest
+    ports: ["3000:3000"]
+    container_name: math-api
+  http-server:
+    image: python:3.9-alpine
+    ports: ["8080:8080"]
+    command: python3 -m http.server 8080 -d /html
+    volumes:
+      - ../_build/html:/html
+    working_dir: /html
+    container_name: http-server

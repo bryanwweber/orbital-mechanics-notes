@@ -142,7 +142,10 @@ RUN wget --quiet "https://julialang-s3.julialang.org/bin/linux/aarch64/1.6/julia
 # Do all this in a single RUN command to avoid duplicating all of the
 # files across image layers when the permissions change
 RUN mamba install --quiet --yes \
-    'jupyterlab' && \
+    'jupyterlab' \
+    'matplotlib' \
+    'scipy' \
+    'numpy' && \
     conda clean --all -f -y && \
     jupyter lab --generate-config && \
     jupyter lab clean && \
