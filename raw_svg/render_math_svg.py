@@ -61,6 +61,10 @@ CC_META = """
 </metadata>
 </root>
 """
+# Match sizes from height and width attributes
+SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
+# Match a scaling factor in the class attribute
+SCALE_REGEX = re.compile(r"\bscale-(\d*)\b")
 
 
 def load_cache() -> CACHE_T:
@@ -96,6 +100,52 @@ def get_math_content(elem: ET.Element, cache: CACHE_T, s: requests.Session) -> s
 def clean_cache() -> None:
     if CACHE.exists():
         CACHE.unlink()
+
+
+def replace_text(search_elem: ET.Element, cache: CACHE_T) -> None:
+    for elem in search_elem.findall("text", NAMESPACES):
+        if "math" not in elem.get("class", ""):
+            continue
+        content = get_math_content(elem, cache, SESSION)
+
+        x_loc = elem.get("x")
+        y_loc = elem.get("y")
+        if x_loc is None or y_loc is None:
+            raise ValueError("Both x and y must be set")
+        scale = float(elem.get("renderscale", 0.0))
+        if not scale:
+            scale_attr = SCALE_REGEX.search(elem.get("class", ""))
+            if scale_attr is not None:
+                scale = float(scale_attr.group(1))
+
+        math = ET.fromstring(content)
+        width = math.get("width", "auto")
+        height = math.get("height", "auto")
+        if scale:
+            width_size = SIZE_REGEX.match(width)
+            height_size = SIZE_REGEX.match(height)
+            if width_size is not None and width_size.group(1):
+                width = str(scale * float(width_size.group(1))) + width_size.group(2)
+            if height_size is not None and height_size.group(1):
+                height = str(scale * float(height_size.group(1))) + height_size.group(2)
+        href = (
+            "data:image/svg+xml;utf8,"
+            f"{ET.tostring(math, encoding='unicode', xml_declaration=False)}"
+        )
+        image_element = ET.Element(
+            "image",
+            attrib={
+                "x": x_loc,
+                "y": y_loc,
+                "height": height,
+                "width": width,
+                "object-fit": "contain",
+                "href": href,
+            },
+        )
+        image_element.tail = "\n  "
+        search_elem.append(image_element)
+        search_elem.remove(elem)
 
 
 def main(svg_file: Optional[Path] = None) -> None:
@@ -154,56 +204,13 @@ def main(svg_file: Optional[Path] = None) -> None:
 
     svg_element.insert(1, CC_XML)
 
-    # Match sizes from height and width attributes
-    SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
-    # Match a scaling factor in the class attribute
-    SCALE_REGEX = re.compile(r"\bscale-(\d*)\b")
-
+    search_elements = [svg_element]
     g_elem = svg_element.find("g", NAMESPACES)
     if g_elem is not None:
-        search_elem = g_elem
-    else:
-        search_elem = svg_element
-    for elem in search_elem.findall("text", NAMESPACES):
-        if "math" not in elem.get("class", ""):
-            continue
-        content = get_math_content(elem, cache, SESSION)
+        search_elements.append(g_elem)
 
-        x_loc = elem.get("x")
-        y_loc = elem.get("y")
-        if x_loc is None or y_loc is None:
-            raise ValueError("Both x and y must be set")
-        scale = float(elem.get("renderscale", 0.0))
-        if not scale:
-            scale_attr = SCALE_REGEX.search(elem.get("class", ""))
-            if scale_attr is not None:
-                scale = float(scale_attr.group(1))
-
-        math = ET.fromstring(content)
-        width = math.get("width", "auto")
-        height = math.get("height", "auto")
-        if scale:
-            width_size = SIZE_REGEX.match(width)
-            height_size = SIZE_REGEX.match(height)
-            if width_size is not None and width_size.group(1):
-                width = str(scale * float(width_size.group(1))) + width_size.group(2)
-            if height_size is not None and height_size.group(1):
-                height = str(scale * float(height_size.group(1))) + height_size.group(2)
-        image_element = ET.Element(
-            "image",
-            attrib={
-                "x": x_loc,
-                "y": y_loc,
-                "height": height,
-                "width": width,
-                "object-fit": "contain",
-                "href": f"data:image/svg+xml;utf8,{ET.tostring(math, encoding='unicode', xml_declaration=False)}",
-            },
-        )
-        image_element.tail = "\n  "
-        search_elem.append(image_element)
-        search_elem.remove(elem)
-
+    for elem in search_elements:
+        replace_text(elem, cache)
     svg_tree.write(
         OUTPUT.joinpath(svg_file.name), encoding="unicode", xml_declaration=True
     )
