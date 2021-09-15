@@ -120,7 +120,7 @@ where we have also used the fact that $z^* = 0$ for the Lagrange points. Using t
 :label: eq:x-star-y-star-equilateral-lagrange
 \begin{aligned}
   x^{*} &= \frac{1}{2} - \pi_2 \\
-  y^* = \pm \frac{\sqrt{3}}{2}
+  y^* &= \pm \frac{\sqrt{3}}{2}
 \end{aligned}
 :::
 
@@ -136,9 +136,9 @@ The equilateral Lagrange points are given the symbols $L_4$ and $L_5$, for the p
 
 To convert these to dimensional $x$ and $y$ coordinates, you should multiply by $r_{12}$.
 
-### Collinear Lagrange Points
+## Collinear Lagrange Points
 
-For the collinear Lagrange points, we set $y = z = y^{*} = z^* = 0$ in the equations of motion, Eq. {eq}`eq:non-dim-scalar-eom-cr3bp`. We make this choice by inspection, seeing that setting $y = y^* = 0$ is one possible solution (the other case, $y\neq 0$ we just handled).
+For the collinear Lagrange points, we set $y = z = y^{*} = z^* = 0$ in the equations of motion, Eq. {eq}`eq:non-dim-scalar-eom-cr3bp`. We make this choice by inspection, seeing that setting $y = y^{*} = 0$ is one possible solution (the other case, $y^*\neq 0$ we just handled).
 
 This leaves only the $x^*$ equation of motion, since the other two are trivially $0=0$. For $x^*$, we have from Eq. {eq}`eq:non-dim-equilibrium-eom-lagrange`:
 
@@ -173,7 +173,7 @@ We cannot cancel any of the terms because we don't know the sign of the cubic te
 
 This equation is cubic in $x^*$, so it will have three separate values of $x^*$ that solve the equation, as long as $0 < \pi_2 < 1$. In the cases where $\pi_2 = 0$ or $\pi_2 = 1$, either $m_2$ or $m_1$ must be zero, which aren't very interesting.
 
-There is no analytical solution to this equation, it must be solved numerically. There are many methods to solve the equation numerically, my suggestions are to use [`scipy.optimize.newton()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html) in Python and [`fzero`](https://www.mathworks.com/help/matlab/ref/fzero.html) in Matlab. We will see how to use these functions in the next example.
+There is no analytical solution to this equation, it must be solved numerically. There are many methods to solve the equation numerically, my suggestions are to use [`scipy.optimize.newton()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html) in Python and [`fzero`](https://www.mathworks.com/help/matlab/ref/fzero.html) in Matlab. We will see how to use these functions in the [next example](./Lagrange-points-example.ipynb).
 
 In the meantime, {numref}`fig:collinear-lagrange-solution` shows the solution of Eq. {eq}`eq:collinear-lagrange-solution`:
 
@@ -344,7 +344,7 @@ As we discussed previously, gravity is a conservative force. As such, the force 
 U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]
 :::
 
-A plot of this function is shown in {numref}`fig:pseudo-potential-energy-cr3bp`, including the positions of the five Lagrange points, for $\pi_2 =$ 0.3:
+A plot of this function is shown in {numref}`fig:pseudo-potential-energy-cr3bp`, including the positions of the five Lagrange points, for $\pi_2 =$ 0.3.
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -410,7 +410,13 @@ glue("pseudo-potential-energy-cr3bp", fig, display=False)
 The pseudo-potential energy function in the rotation reference frame used for the CR3BP, with $\pi_2 =$ 0.3. The five Lagrange points for this system are labeled on the figure.
 :::
 
-Using this figure, we can get a qualitative sense of the stability of the Lagrange points. Imagine that we turn the potential function upside-down, and put a marble on each of the Lagrange points. We can see that $L_4$ and $L_5$ are at the bottom of a bowl. Slight displacements of the marble will cause it to return to the initial position, so these points are considered **stable** Lagrange points.
+Using this figure, we can get a qualitative sense of the stability of the Lagrange points. Imagine that we turn the potential function upside-down, and put a marble on each of the Lagrange points.
+
+We can see that $L_4$ and $L_5$ are at the bottom of a bowl. Slight displacements of the marble will cause it to return to the initial position, so these points are considered **stable** Lagrange points.
+
+On the other hand, $L_1$, $L_2$, and $L_3$ are saddle points on the potential energy surface. This means that slight displacements will cause the object's position to diverge from the equilibrium point over time.
+
+### The Equilateral Lagrange Points
 
 Since the equilateral Lagrange points are stable, objects placed in a small orbit, usually called a **halo orbit**, around those points will tend to remain there. The criterion for stability is:
 
@@ -423,9 +429,9 @@ Since the equilateral Lagrange points are stable, objects placed in a small orbi
 Note that {numref}`fig:pseudo-potential-energy-cr3bp` shows the potential surface for $\pi_2 = 0.3$, which does not satisfy the numerical stability criteria here for $L_4$ and $L_5$ from Eq. {eq}`eq:lagrange-point-stability-criterion`. We're plotting $\pi_2 = 0.3$ to exaggerate the shape of the potential function for clarity.
 :::
 
-which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Earth-Moon system, that ratio is $m_1/m_2 \approx 81.3$. However, in the Earth-Moon system, the $L_4$ and $L_5$ points are slightly destabilized by the influence of the sun. Nonetheless, there are clouds of dust which have collected at these points because they are relatively stable.
+which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Earth-Moon system, that ratio is $m_1/m_2 \approx 81.3$, so $L_4$ and $L_5$ are nominally stable. However, the $L_4$ and $L_5$ points for the Earth-Moon system are slightly destabilized by the influence of the sun and they aren't completely stable. Nonetheless, there are clouds of dust which have collected at these points because they are kinda stable.
 
-However, other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points, in particular, the orbit of Jupiter around the sun. There are groups of asteroids, called **trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in {numref}`fig:trojan-asteroids-jupiter`.
+Other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points. In particular, the orbit of Jupiter around the sun has stable equilateral Lagrange points. There are groups of asteroids, called **Trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in {numref}`fig:trojan-asteroids-jupiter`.
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -478,160 +484,27 @@ x_arc_G = 3*r_J/4 * np.cos(theta_J - arc) + 300
 y_arc_G = 3*r_J/4 * np.sin(theta_J - arc) + 300
 ax.plot(x_arc_G, y_arc_G, lw=3, color="r")
 ax.annotate("60°", xy=(7*r_J/8*np.cos(theta_J - np.pi/6) + 300, 7*r_J/8*np.sin(theta_J - np.pi/6) + 300), fontsize=30, color='r', ha="center", va="center")
-glue("trojan-asteroids-jupyter", fig, display=False)
+glue("trojan-asteroids-jupiter", fig, display=False)
 ```
 
-:::{glue:figure} trojan-asteroids-jupyter
+:::{glue:figure} trojan-asteroids-jupiter
 :name: fig:trojan-asteroids-jupiter
 
 The Trojan and the Greek asteroids are clusters of asteroids that have collected at the stable $L_4$ and $L_5$ Lagrange points in the Sun-Jupiter system.
 :::
 
-On the other hand, $L_1$, $L_2$, and $L_3$ are all **saddle points** in {numref}`fig:pseudo-potential-energy-cr3bp`, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
+### The Collinear Lagrange Points
+
+The collinear Lagrange points, $L_1$, $L_2$, and $L_3$ are all **saddle points** in {numref}`fig:pseudo-potential-energy-cr3bp`, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
 
 Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope is planned to launch to the $L_2$ of the Earth-Sun system sometime ~this year~ in 2022.
 
+These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in {numref}`fig:wmap-trajectory`.
+
+:::{figure} ../images/wmap-trajectory.gif
+:name: fig:wmap-trajectory
+
+The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
+:::
+
 $L_1$ and $L_2$ in the Earth-Sun system are about 1.5 million km towards the Sun and away from the Sun, starting at the Earth, respectively. $L_3$ lies on the other side of the Sun, and has long been the predicted location of a hidden planet, since it could not be observed from Earth prior to the advent of satellite observation. Now, of course, we know there is no planet at that location.
-
-## The Jacobi Constant
-
-Let's return now to the graph of the potential function. The potential function represents the potential energy that the tertiary mass will have if it is located at a given $x$-$y$ point in the orbital plane. The tertiary mass will also have some velocity, $v$, with a corresponding kinetic energy.
-
-From the law of conservation of energy, we know that the sum of the kinetic and potential energies of the tertiary mass will be constant. The potential energy (repeated here from above) is:
-
-:::{math}
-:label: 
-U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]
-:::
-
-The first two terms in this equation are the gravitational potential energy due to the position of the tertiary mass relative to $m_1$ and $m_2$. The third term is the potential energy of the centrifugal force induced by the rotation of the coordinate system.
-
-In non-dimensional coordinates, the mass-specific kinetic energy is:
-
-:::{math}
-:label: 
-\frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]
-:::
-
-Combining these equations, we find from conservation of energy:
-
-:::{math}
-:label: eq:jacobi-constant-cr3bp
-\frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] = C
-:::
-
-The constant $C$ is called the Jacobi Constant, and represents the total energy of the tertiary mass relative to the rotating reference frame.
-
-Since $C$ is a constant, the total energy of the tertiary mass is fixed. Consider the tertiary mass at some location $\left(x^*_1, y^*_1\right)$ such that it has potential energy $U_1$. Assume first that the velocity is zero. Then, the Jacobi constant is just equal to $U_1$, and the mass cannot "climb" any higher out of the potential energy surface. Thus, there is a region of space where the mass cannot access because it doesn't have enough energy!
-
-Assume now that the velocity of the mass is $v^*_1$. Then the Jacobi constant is equal to the sum of the kinetic and potential energies. If the mass wants to climb up the potential energy surface, it can trade kinetic energy for potential energy. Eventually, however, the kinetic energy and the velocity will go to zero, and the mass cannot climb any higher!
-
-:::{margin}
-Koon et al. {cite}`Koon2011` also refer to the area where a particle cannot enter as the **Hill's region**.
-:::
-
-Now, let's turn this problem around. We want to know, for a given value of $C$, what regions of space will be inaccessible. Consider the tertiary mass with a certain value of $C$ and at a particular location. As the mass moves, it exchanges energy between kinetic energy (velocity) and potential energy. At some position, the $C$ will be equal to $U$, and the velocity will be (by definition) zero. Thus, the mass cannot travel any further in that direction.
-
-For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting $v^* = 0$ in Eq. {eq}`eq:jacobi-constant-cr3bp`:
-
-:::{math}
-:label: 
-\frac{2 \left(1 - \pi_2\right)}{\sigma} + \frac{2 \pi_2}{\psi} + \left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] + 2C = 0
-:::
-
-Since the first three terms on the left are all positive, zero velocity curves correspond to negative values of the Jacobi constant. The figure below plots the forbidden regions, shown as shaded areas, for several values of $C$:
-
-```{code-cell}
-:tags: [remove-input]
-from scipy.optimize import newton
-import numpy as np
-import matplotlib.pyplot as plt
-
-# These masses represent the Earth-Moon system
-m_1 = 5.974E24  # kg
-m_2 = 7.348E22 # kg
-pi_2 = m_2/(m_1 + m_2)
-
-x_1, y_1 = -pi_2 + 0.01, 0
-x_2, y_2 = 1 - pi_2 + 0.01, 0
-
-sigma_m1 = np.sqrt((x_1 + pi_2)**2 + y_1**2)
-psi_m1 = np.sqrt((x_1 - 1 + pi_2)**2 + y_1**2)
-C_m1 = -(1 - pi_2) / sigma_m1 - pi_2 / psi_m1 - ((1 - pi_2) * sigma_m1**2 + pi_2 * psi_m1**2) / 2
-
-sigma_m2 = np.sqrt((x_2 + pi_2)**2 + y_2**2)
-psi_m2 = np.sqrt((x_2 - 1 + pi_2)**2 + y_2**2)
-C_m2 = -(1 - pi_2) / sigma_m2 - pi_2 / psi_m2 - ((1 - pi_2) * sigma_m2**2 + pi_2 * psi_m2**2) / 2
-
-x_L4, y_L4 = 0.5 - pi_2, np.sqrt(3)/2
-
-sigma_L4 = np.sqrt((x_L4 + pi_2)**2 + y_L4**2)
-psi_L4 = np.sqrt((x_L4 - 1 + pi_2)**2 + y_L4**2)
-C_4 = -(1 - pi_2) / sigma_L4 - pi_2 / psi_L4 - ((1 - pi_2) * sigma_L4**2 + pi_2 * psi_L4**2) / 2
-
-
-def collinear_lagrange(xstar, pi_2):
-    return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
-
-y_L1 = y_L2 = y_L3 = 0
-x_L1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
-x_L2 = newton(func=collinear_lagrange, x0=1, args=(pi_2,))
-x_L3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
-
-sigma_L1 = np.sqrt((x_L1 + pi_2)**2 + y_L1**2)
-psi_L1 = np.sqrt((x_L1 - 1 + pi_2)**2 + y_L1**2)
-C_1 = -(1 - pi_2) / sigma_L1 - pi_2 / psi_L1 - ((1 - pi_2) * sigma_L1**2 + pi_2 * psi_L1**2) / 2
-
-sigma_L2 = np.sqrt((x_L2 + pi_2)**2 + y_L2**2)
-psi_L2 = np.sqrt((x_L2 - 1 + pi_2)**2 + y_L2**2)
-C_2 = -(1 - pi_2) / sigma_L2 - pi_2 / psi_L2 - ((1 - pi_2) * sigma_L2**2 + pi_2 * psi_L2**2) / 2
-
-sigma_L3 = np.sqrt((x_L3 + pi_2)**2 + y_L3**2)
-psi_L3 = np.sqrt((x_L3 - 1 + pi_2)**2 + y_L3**2)
-C_3 = -(1 - pi_2) / sigma_L3 - pi_2 / psi_L3 - ((1 - pi_2) * sigma_L3**2 + pi_2 * psi_L3**2) / 2
-
-fixed_points = ((x_1, x_2, x_L1, x_L2, x_L3, x_L4, x_L4), (y_1, y_2, y_L1, y_L2, y_L3, y_L4, -y_L4))
-fixed_labels = ("Earth", "Moon", "$L_1$", "$L_2$", "$L_3$", "$L_4$", "$L_5$")
-
-x_min, x_max = -1.25, 1.25
-y_min, y_max = -1.25, 1.25
-
-n_samples = 1000
-x = np.linspace(x_min, x_max, n_samples)
-y = np.linspace(y_min, y_max, int(n_samples / 2))
-X, Y = np.meshgrid(x, y)
-sigma = np.sqrt((X + pi_2)**2 + Y**2)
-psi = np.sqrt((X - 1 + pi_2)**2 + Y**2)
-
-C_values = (C_m2 + 0.9, C_1, C_2, C_3, (C_3 + C_4) / 2, C_4-1e-6)
-
-fig, axes = plt.subplots(nrows=3, ncols=2, figsize=(9, 12))
-for (C, ax) in zip(C_values, axes.flatten()):
-    ax.set_aspect("equal")
-    ax.set_ylim(y_min, y_max)
-    ax.set_xlim(x_min, x_max)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.xaxis.set_tick_params(bottom=False, top=False, which="both", labelbottom=False)
-    ax.yaxis.set_tick_params(left=False, right=False, which="both", labelleft=False)
-
-    # Move remaining spines to the center
-    ax.spines["bottom"].set_position("zero")  # spine for xaxis
-    ax.spines["left"].set_position("zero")  # spine for yaxis
-
-    for (x, y, label) in zip(fixed_points[0], fixed_points[1], fixed_labels):
-        va = "bottom"
-        if label == "Moon":
-            va = "top"
-            y -= 0.05
-        ax.annotate(label, xy=(x, y), ha="center", va=va)
-
-    ax.set_title(f"$C$ = {C:.5F}")
-    ax.plot(fixed_points[0], fixed_points[1], 'ko', markersize=1)
-    U = 2*(1 - pi_2) / sigma + 2* pi_2 / psi + ((1 - pi_2) * sigma**2 + pi_2 * psi**2) + 2*C
-    V = np.zeros((int(n_samples / 2), n_samples))
-    V[U < 0] = 1
-
-    cs = ax.contourf(X, Y, V, levels=[0, 0.5, 1], colors=('w', 'silver'))
-    cs = ax.contour(X, Y, V, levels=[0, 0.5, 1], colors=('w', 'black'), linewidths=0.5)
-```

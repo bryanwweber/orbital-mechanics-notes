@@ -18,6 +18,7 @@ parts:
       - file: the-n-body-problem/circular-restricted-three-body-problem
       - file: the-n-body-problem/lagrange-points
       - file: the-n-body-problem/Lagrange-points-example
+      - file: the-n-body-problem/jacobi-constant
       - file: the-n-body-problem/Equations-of-Motion-CR3BP
       - file: the-n-body-problem/many-body-problems
   - caption: Constants of Orbital Motion
