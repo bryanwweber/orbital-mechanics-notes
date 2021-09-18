@@ -158,7 +158,7 @@ The speed at the minimum altitude is: 7.00 km/s
 The time at minimum altitude is: 0.00 s
 The maximum altitude during the orbit is: 9431.85 km
 The velocity at the maximum altitude is: 4.4353 km/s
-The time at minimum altitude is: 7288.57 s
+The time at maximum altitude is: 7288.57 s
 ```
 
 Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let's plot the orbit. The central sphere is representative of the earth.
