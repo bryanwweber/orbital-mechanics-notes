@@ -77,7 +77,7 @@ The speed at the minimum altitude is: {speed_at_min_alt:.2F} km/s
 The time at minimum altitude is: {time_at_min_alt:.2F} s
 The maximum altitude during the orbit is: {max_altitude:.2F} km
 The velocity at the maximum altitude is: {speed_at_max_alt:.4F} km/s
-The time at minimum altitude is: {time_at_max_alt:.2F} s
+The time at maximum altitude is: {time_at_max_alt:.2F} s
 """
 )
 
