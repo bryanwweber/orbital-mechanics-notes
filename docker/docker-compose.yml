@@ -1,6 +1,6 @@
 services:
   jupyter:
-    image: bryanwweber/orbital-mechanics-book:20210915.1
+    image: bryanwweber/orbital-mechanics-book:20210916.1
     ports: ["10000:10000"]
     # Mount into 'work' to avoid overwriting files
     # installed into jovyan's home directory

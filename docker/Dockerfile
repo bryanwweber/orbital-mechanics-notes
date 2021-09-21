@@ -145,7 +145,8 @@ RUN mamba install --quiet --yes \
     'jupyterlab' \
     'matplotlib' \
     'scipy' \
-    'numpy' && \
+    'numpy' \
+    'ipympl' && \
     conda clean --all -f -y && \
     jupyter lab --generate-config && \
     jupyter lab clean && \
