@@ -404,14 +404,14 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="example-plotting-lagrange-points">
 <h1>Example: Plotting Lagrange Points<a class="headerlink" href="#example-plotting-lagrange-points" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we will plot the Lagrange points for the system as a function of <span class="math notranslate nohighlight">\(\pi_2\)</span>.</p>
-<p>In the nondimensional coordinates, we know that <span class="math notranslate nohighlight">\(L_4\)</span> and <span class="math notranslate nohighlight">\(L_5\)</span> have analytical solutions from Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-equilateral-lagrange-points">(82)</a> and repeated here for reference:</p>
+<p>In the nondimensional coordinates, we know that <span class="math notranslate nohighlight">\(L_4\)</span> and <span class="math notranslate nohighlight">\(L_5\)</span> have analytical solutions from Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-equilateral-lagrange-points">(83)</a> and repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   &amp;L_4: &amp; x^* &amp;= \frac{1}{2} - \pi_2 &amp; y^* &amp;= \frac{\sqrt{3}}{2} \\
   &amp;L_5: &amp; x^* &amp;= \frac{1}{2} - \pi_2 &amp; y^* &amp;= -\frac{\sqrt{3}}{2}
 \end{aligned}\end{split}\]</div>
 <p>However, the collinear Lagrange points do not have an analytical solution, and must be approximated numerically. To do so, we will use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code></a> in Python and <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/fzero.html"><code class="docutils literal notranslate"><span class="pre">fzero</span></code></a> in Matlab.</p>
-<p>The formula for the nondimensional position of the collinear Lagrange points is given by Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-collinear-lagrange-solution">(85)</a>, repeated here for reference:</p>
+<p>The formula for the nondimensional position of the collinear Lagrange points is given by Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-collinear-lagrange-solution">(86)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[0 = x^* - \frac{1 - \pi_2}{\left\lvert x^* + \pi_2\right\rvert ^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\left\lvert x^* - 1 + \pi_2\right\rvert ^3}\left(x^* - 1 + \pi_2\right)\]</div>
 <p>Here, we have a function <span class="math notranslate nohighlight">\(f(x^*, \pi_2)\)</span>, which for a given value of <span class="math notranslate nohighlight">\(\pi_2\)</span> has three roots for <span class="math notranslate nohighlight">\(x^*\)</span>, one for each of the collinear Lagrange points. From <a class="reference internal" href="lagrange-points.html#fig-collinear-lagrange-solution"><span class="std std-numref">Fig. 15</span></a>, we can determine the range of <span class="math notranslate nohighlight">\(x^*\)</span> values associated with each point.</p>
