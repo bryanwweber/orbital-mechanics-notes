@@ -135,10 +135,10 @@ Newton's second law requires the _inertial_ acceleration. To find that, we first
 
 :::{math}
 :label: eq:inertial-velocity-cr3bp
-\dot{\vector{r}} = \vector{v}_G + \vector{\Omega}\cross\vector{r} + \vector{v}_{\text{rel}}
+\dot{\vector{r}} = \vector{v}_{\COG} + \vector{\Omega}\cross\vector{r} + \vector{v}_{\text{rel}}
 :::
 
-where $\vector{v}_G$ is the absolute velocity of the barycenter and $\vector{v}_{\text{rel}}$ is the velocity calculated in the moving coordinate system:
+where $\vector{v}_{\COG}$ is the absolute velocity of the barycenter and $\vector{v}_{\text{rel}}$ is the velocity calculated in the moving coordinate system:
 
 :::{math}
 :label: eq:relative-velocity-cr3bp
@@ -149,10 +149,10 @@ Then we can find the absolute acceleration of $m$:
 
 :::{math}
 :label: eq:five-term-acceleration-cr3bp
-\ddot{\vector{r}} = \vector{a}_G + \dot{\vector{\Omega}}\cross\vector{r} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}
-:::(five-term-acceleration)
+\ddot{\vector{r}} = \vector{a}_{\COG} + \dot{\vector{\Omega}}\cross\vector{r} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}
+:::
 
-This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, $\vector{a}_G = 0$. In addition, the angular velocity is constant since the orbit is circular, so $\dot{\vector{\Omega}} = 0$. Then, Eq. {eq}`eq:five-term-acceleration-cr3bp` can be simplified to:
+This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, $\vector{a}_{\COG} = 0$. In addition, the angular velocity is constant since the orbit is circular, so $\dot{\vector{\Omega}} = 0$. Then, Eq. {eq}`eq:five-term-acceleration-cr3bp` can be simplified to:
 
 :::{math}
 :label: eq:three-term-acceleration-cr3bp
@@ -296,7 +296,9 @@ where $\sigma = \mag{\vector{\sigma}}$ and $\psi = \mag{\vector{\psi}}$. Now we 
 :::{math}
 :label: eq:non-dim-scalar-eom-cr3bp
 \begin{aligned}
-  \ddot{x}^* - 2\dot{y}^* - x^* &= -\frac{1 - \pi_2}{\sigma^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\psi^3}\left(x^* - 1 + \pi_2\right) \\ \ddot{y}^* + 2\dot{x}^* - y^* &= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\ \ddot{z}^* &= -\frac{1 - \pi_2}{\sigma^3}z^* - \frac{\pi_2}{\psi^3}z^*
+  \ddot{x}^* - 2\dot{y}^* - x^* &= -\frac{1 - \pi_2}{\sigma^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\psi^3}\left(x^* - 1 + \pi_2\right) \\
+  \ddot{y}^* + 2\dot{x}^* - y^* &= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\
+  \ddot{z}^* &= -\frac{1 - \pi_2}{\sigma^3}z^* - \frac{\pi_2}{\psi^3}z^*
 \end{aligned}
 :::
 

@@ -34,7 +34,9 @@ and likewise for the dimensional coordinates as well. Plugging these conditions 
 :::{math}
 :label: eq:non-dim-equilibrium-eom-lagrange
 \begin{aligned}
-  -x^* &= -\frac{1 - \pi_2}{\sigma^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\psi^3}\left(x^* - 1 + \pi_2\right) \\-y^* &= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\ 0 &= \left(-\frac{1 - \pi_2}{\sigma^3} - \frac{\pi_2}{\psi^3}\right)z^*
+  -x^* &= -\frac{1 - \pi_2}{\sigma^3}\left(x^* + \pi_2\right) - \frac{\pi_2}{\psi^3}\left(x^* - 1 + \pi_2\right) \\
+  -y^* &= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\
+  0 &= \left(-\frac{1 - \pi_2}{\sigma^3} - \frac{\pi_2}{\psi^3}\right)z^*
 \end{aligned}
 :::
 

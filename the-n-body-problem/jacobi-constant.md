@@ -50,6 +50,8 @@ Combining Eqs. {eq}`eq:pseudo-potential-energy-cr3bp` and {eq}`eq:mass-specific-
 
 The constant $J$ is called the [**Jacobi Constant**](https://en.wikipedia.org/wiki/Jacobi_integral), and represents the total energy of the tertiary mass relative to the rotating reference frame.
 
+## Interpreting the Jacobi Constant
+
 Since $J$ is a constant, the total energy of the tertiary mass is fixed. The tertiary mass can trade kinetic energy for potential energy, and vice versa, but the total energy cannot change. This leads to two conclusions.
 
 :::{margin}
@@ -58,6 +60,8 @@ Remember, this is the velocity relative to the rotating coordinate system, not t
 Consider the tertiary mass at some location $\left(x^*_1, y^*_1\right)$ such that it has potential energy $U_1$. Also assume that the velocity is zero, $v^*_1 =$ 0. Then, the Jacobi constant is just equal to $U_1$, and the mass cannot "climb" any higher out of the potential energy surface. Thus, there is a region of space where the mass cannot access because it doesn't have enough energy!
 
 Assume now that the velocity of the mass is $v^*_2$ and the position is $\left(x^*_2, y^*_2\right)$ so that the potential energy is $U_2$. Then the Jacobi constant is equal to the sum of the kinetic and potential energies. If the mass wants to climb up the potential energy surface, it can trade kinetic energy for potential energy. Eventually, however, the kinetic energy and the velocity will go to zero, and the mass cannot climb any higher!
+
+## Forbidden Regions
 
 :::{margin}
 Koon et al. {cite}`Koon2011` also refer to the area where a particle cannot enter as the **Hill's region**.
@@ -79,7 +83,7 @@ Since the first three terms on the left are all positive, zero velocity curves c
 {numref}`fig:jacobi-forbidden-regions` plots the forbidden regions, shown as shaded areas, for several values of $J$.
 
 ```{code-cell}
-:tags: [remove-input]
+:tags: [remove-cell]
 from scipy.optimize import newton
 import numpy as np
 import matplotlib.pyplot as plt
@@ -181,9 +185,9 @@ glue("jacobi-forbidden-regions", fig, display=False)
 The forbidden regions in the Earth-Moon system, for varying values of the Jacobi constant, $J$.
 :::
 
-At a given instant, assume that the position and and velocity of the satellite are known, such that $J$ can be calculated. {numref}`fig:jacobi-forbidden-regions` tells us what regions of space the satellite can access purely by exchanging kinetic and potential energy.
+At a given instant, assume that the position and and velocity of the satellite are known, such that $J$ can be calculated. {numref}`fig:jacobi-forbidden-regions` tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.
 
-One example of this is to determine whether or not a spacecraft can complete a [**free return trajectory**](https://en.wikipedia.org/wiki/Free-return_trajectory) from the moon back to Earth. A free return trajectory requires no additional propulsion. Depending on the exact trajectory, the return can result in the spacecraft entering Earth's atmosphere for a safe landing, as was done in the _Apollo 13_ mission.
+One example of a use for these data is to determine whether or not a spacecraft can complete a [**free return trajectory**](https://en.wikipedia.org/wiki/Free-return_trajectory) from the moon back to Earth. A free return trajectory requires no additional propulsion. Depending on the exact trajectory, the return can result in the spacecraft entering Earth's atmosphere for a safe landing, as was done in the _Apollo 13_ mission.
 
 Imagine a spacecraft in orbit around the moon. The spacecraft has $J =$ -1.797, corresponding to the upper left axis in {numref}`fig:jacobi-forbidden-regions`. With this value of $J$, the spacecraft cannot leave orbit around the moon, because it does not have enough energy to enter any of the gray areas.
 
