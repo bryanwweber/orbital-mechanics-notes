@@ -22,7 +22,7 @@ To make this easy to integrate, we want both sides to be $d/dt(\ldots)$. Let's t
 \frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \ddot{\vector{r}}\cross\vector{h} + \dot{\vector{r}}\cross\dot{\vector{h}}
 :::
 
-But the angular momentum is constant, so its derivative $\dot{\vector{h}} = \vector{0]$ and the second term in Eq. {eq}`eq:relative-motion-cross-h-lhs` is zero. Therefore:
+But the angular momentum is constant, so its derivative $\dot{\vector{h}} = \vector{0}$ and the second term in Eq. {eq}`eq:relative-motion-cross-h-lhs` is zero. Therefore:
 
 :::{math}
 \frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \ddot{\vector{r}}\cross\vector{h} = -\left(\frac{\mu}{r^3}\right)\vector{r}\cross\vector{h}
