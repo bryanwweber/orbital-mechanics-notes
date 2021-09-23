@@ -142,7 +142,7 @@ Now that we have proven that the two-body equation of motion satisfies conservat
 :label: eq:integrate-energy-equation
 \begin{aligned}
   \int 0 dt &= \int \frac{d}{dt} \left(\frac{v^2}{2}\right) dt - \int \frac{d}{dt}\left(\frac{\mu}{r}\right) dt \\
-  E &= \frac{v^2}{2} + \left(C - \frac{mu}{r}\right)
+  E &= \frac{v^2}{2} + \left(C - \frac{\mu}{r}\right)
 \end{aligned}
 :::
 
