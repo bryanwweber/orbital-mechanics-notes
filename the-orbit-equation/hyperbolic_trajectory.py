@@ -45,7 +45,7 @@ def plot_figure():
     (point,) = ax.plot([], [], "ko")
 
     ann_4 = ax.annotate(
-        r"$\theta_{\infty}$" f" = {np.degrees(theta_inf):.2F}°\n$e$ = {e}\n$a$ = {a}",
+        r"$\nu_{\infty}$" f" = {np.degrees(theta_inf):.2F}°\n$e$ = {e}\n$a$ = {a}",
         xy=(-0.8, 0.75),
         ha="center",
         va="center",
@@ -60,7 +60,7 @@ def plot_figure():
     def animate(t):
         r = a * (e ** 2 - 1) / (1 + e * np.cos(t))
         point.set_data(-a - r_p + r * np.cos(t), r * np.sin(t))
-        ann.set_text(rf"$\theta$ = {np.degrees(t):.2F}°")
+        ann.set_text(rf"$\nu$ = {np.degrees(t):.2F}°")
         return (point, ann)
 
     f_1 = np.linspace(-theta_inf + 1.0e-6, theta_inf - 1.0e-6, 100)
