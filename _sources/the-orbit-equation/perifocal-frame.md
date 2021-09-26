@@ -1,4 +1,4 @@
-# Chapter 2.10 - Perifocal Frame
+# Perifocal Frame
 
 In this section, we define the **perifocal reference frame**, a convenient reference frame for describing the planar orbits that we've been discussing. This will also serve as a prelude to the 3-D orbits to be discussed in the next chapter. This reference frame is essentially the one we've been using in this chapter.
 

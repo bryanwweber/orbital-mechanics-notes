@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2.7 - Elliptical Orbits (\(0 &lt; e &lt; 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Elliptical Orbits (\(0 &lt; e &lt; 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/the-orbit-equation/elliptical-orbits.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 2.8 - Parabolic Trajectories (\(e = 1\))" href="parabolic-trajectories.html" />
+    <link rel="next" title="Parabolic Trajectories (\(e = 1\))" href="parabolic-trajectories.html" />
     <link rel="prev" title="Circular Orbits (\(e = 0\))" href="circular-orbits.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -229,7 +229,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 2.7 - Elliptical Orbits (
+   Elliptical Orbits (
    <span class="math notranslate nohighlight">
     \(0 &lt; e &lt; 1\)
    </span>
@@ -238,7 +238,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parabolic-trajectories.html">
-   Chapter 2.8 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -247,7 +247,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="hyperbolic-trajectories.html">
-   Chapter 2.9 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -256,12 +256,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="perifocal-frame.html">
-   Chapter 2.10 - Perifocal Frame
+   Perifocal Frame
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="the-lagrange-coefficients.html">
-   Chapter 2.11 - The Lagrange Coefficients
+   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -429,11 +429,6 @@
    Eccentricity
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#average-radial-distance">
-   Average Radial Distance
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -445,60 +440,60 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-7-elliptical-orbits-0-e-1">
-<h1>Chapter 2.7 - Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)<a class="headerlink" href="#chapter-2-7-elliptical-orbits-0-e-1" title="Permalink to this headline">¶</a></h1>
-<p>If the eccentricity is between 0 and 1, then the radius of the orbit varies with the true anomaly. However, the magnitude of the product <span class="math notranslate nohighlight">\(e \cos\theta\)</span> is never greater than one. This means that the bottom of the fraction in the orbit equation:</p>
-<div class="math notranslate nohighlight">
-\[r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta}\]</div>
-<p>never crosses zero and the orbit is an elliptical shape. The minimum value of <span class="math notranslate nohighlight">\(r\)</span> occurs at periapsis and <span class="math notranslate nohighlight">\(\theta = 0\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[r_p = \frac{h^2}{\mu}\frac{1}{1 + e}\]</div>
-<p>and the maximum value of <span class="math notranslate nohighlight">\(r\)</span> is at apoapsis and <span class="math notranslate nohighlight">\(\theta = \pi\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="elliptical-orbits-0-e-1">
+<h1>Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)<a class="headerlink" href="#elliptical-orbits-0-e-1" title="Permalink to this headline">¶</a></h1>
+<p>If the eccentricity is between 0 and 1, then the radius of the orbit varies with the true anomaly. However, the magnitude of the product <span class="math notranslate nohighlight">\(e \cos\nu\)</span> is never greater than one. This means that the bottom of the fraction in the orbit equation:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-0">
+<span class="eqno">(128)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-0" title="Permalink to this equation">¶</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu}\]</div>
+<p>never crosses zero and the orbit is an elliptical shape. The minimum value of <span class="math notranslate nohighlight">\(r\)</span> occurs at periapsis and <span class="math notranslate nohighlight">\(\nu = 0\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-1">
+<span class="eqno">(129)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-1" title="Permalink to this equation">¶</a></span>\[r_p = \frac{h^2}{\mu}\frac{1}{1 + e}\]</div>
+<p>and the maximum value of <span class="math notranslate nohighlight">\(r\)</span> is at apoapsis and <span class="math notranslate nohighlight">\(\nu = \pi\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-2">
+<span class="eqno">(130)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-2" title="Permalink to this equation">¶</a></span>\[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
 <div class="section" id="major-and-minor-axes">
 <h2>Major and Minor Axes<a class="headerlink" href="#major-and-minor-axes" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(2a\)</span> denote the total distance from periapsis to apoapsis along the apse line. Then:</p>
-<div class="math notranslate nohighlight">
-\[a = \frac{h^2}{\mu} \frac{1}{1 - e^2}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-3">
+<span class="eqno">(131)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-3" title="Permalink to this equation">¶</a></span>\[a = \frac{h^2}{\mu} \frac{1}{1 - e^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> is the <strong>semi-major axis</strong> of the ellipse. We can then write the orbit equation in terms of the semimajor axis:</p>
-<div class="math notranslate nohighlight">
-\[r = a\frac{1 - e^2}{1 + e\cos\theta}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-4">
+<span class="eqno">(132)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-4" title="Permalink to this equation">¶</a></span>\[r = a\frac{1 - e^2}{1 + e\cos\nu}\]</div>
 <p>Then, the distance to periapsis, in terms of the semimajor axis is:</p>
-<div class="math notranslate nohighlight">
-\[r_p = a\left(1 - e\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-5">
+<span class="eqno">(133)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-5" title="Permalink to this equation">¶</a></span>\[r_p = a\left(1 - e\right)\]</div>
 <p>and the distance from <span class="math notranslate nohighlight">\(m_1\)</span> to the center of the ellipse is:</p>
-<div class="math notranslate nohighlight">
-\[CF = ae\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-6">
+<span class="eqno">(134)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-6" title="Permalink to this equation">¶</a></span>\[CF = ae\]</div>
 <p>where <span class="math notranslate nohighlight">\(C\)</span> is the coordinate of the center of the ellipse and <span class="math notranslate nohighlight">\(F\)</span> is the coordinate at <span class="math notranslate nohighlight">\(m_1\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(B\)</span> is the point on the orbit directly above <span class="math notranslate nohighlight">\(C\)</span>, then <span class="math notranslate nohighlight">\(b\)</span> is the distance of the <strong>semiminor axis</strong>. We can show that the radial distance from <span class="math notranslate nohighlight">\(F\)</span> to <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(r_B\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[r_B = a\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-7">
+<span class="eqno">(135)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-7" title="Permalink to this equation">¶</a></span>\[r_B = a\]</div>
 <p>In addition, the semiminor axis can then be found in terms of the semimajor axis and the eccentricity:</p>
-<div class="math notranslate nohighlight">
-\[b = a\sqrt{1 - e^2}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-8">
+<span class="eqno">(136)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-8" title="Permalink to this equation">¶</a></span>\[b = a\sqrt{1 - e^2}\]</div>
 </div>
 <div class="section" id="specific-energy">
 <h2>Specific Energy<a class="headerlink" href="#specific-energy" title="Permalink to this headline">¶</a></h2>
 <p>The specific energy of the orbit is found in terms of the semimajor axis as:</p>
-<div class="math notranslate nohighlight">
-\[\varepsilon = -\frac{\mu}{2a}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-9">
+<span class="eqno">(137)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-9" title="Permalink to this equation">¶</a></span>\[\varepsilon = -\frac{\mu}{2a}\]</div>
 <p>which is the same formula as the circular orbit, with the radius equal to the semimajor axis. In addition, the specific energy depends only on the semimajor axis, and is independent of the eccentricity.</p>
 </div>
 <div class="section" id="period">
 <h2>Period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h2>
 <p>The period of the elliptical orbit can be found in terms of the semimajor and semiminor axes. The area of an ellipse is given by:</p>
-<div class="math notranslate nohighlight">
-\[A = \pi a b\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-10">
+<span class="eqno">(138)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-10" title="Permalink to this equation">¶</a></span>\[A = \pi a b\]</div>
 <p>From Kepler’s second law, we find:</p>
-<div class="math notranslate nohighlight">
-\[\Delta A = \frac{h}{2} \Delta t\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-11">
+<span class="eqno">(139)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-11" title="Permalink to this equation">¶</a></span>\[\Delta A = \frac{h}{2} \Delta t\]</div>
 <p>If <span class="math notranslate nohighlight">\(\Delta A\)</span> is the complete area of the ellipse, then <span class="math notranslate nohighlight">\(\Delta t\)</span> is the period <span class="math notranslate nohighlight">\(T\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[T = \frac{2\pi ab}{h}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-12">
+<span class="eqno">(140)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-12" title="Permalink to this equation">¶</a></span>\[T = \frac{2\pi ab}{h}\]</div>
 <p>Subbing the expressions for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, we find:</p>
-<div class="math notranslate nohighlight">
-\[T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-13">
+<span class="eqno">(141)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-13" title="Permalink to this equation">¶</a></span>\[T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}\]</div>
 <p>which is also the same formula as a circle, with the semimajor axis in the role of the radius. Note that this formula is also independent of the eccentricity. This equation represents Kepler’s third law:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -508,18 +503,15 @@
 <div class="section" id="eccentricity">
 <h2>Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this headline">¶</a></h2>
 <p>The eccentricity of the orbit can be determined if the distances to periapsis and apoapsis are known. By dividing the equations for <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>, we find:</p>
-<div class="math notranslate nohighlight">
-\[\frac{r_p}{r_a} = \frac{1 - e}{1 + e}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-14">
+<span class="eqno">(142)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-14" title="Permalink to this equation">¶</a></span>\[\frac{r_p}{r_a} = \frac{1 - e}{1 + e}\]</div>
 <p>Solving for the eccentricity:</p>
-<div class="math notranslate nohighlight" id="equation-ellipse-eccentricity-periapsis-apoapsis">
-<span class="eqno">(128)<a class="headerlink" href="#equation-ellipse-eccentricity-periapsis-apoapsis" title="Permalink to this equation">¶</a></span>\[e = \frac{r_a - r_p}{r_a + r_p}\]</div>
-</div>
-<div class="section" id="average-radial-distance">
-<h2>Average Radial Distance<a class="headerlink" href="#average-radial-distance" title="Permalink to this headline">¶</a></h2>
-<p>One final interesting parameter of the orbit is the average distance from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span> over the orbit. This is:</p>
-<div class="math notranslate nohighlight">
-\[\overline{r}_{\theta} = a\sqrt{1 - e^2} = \sqrt{r_p r_a}\]</div>
-<p>where the <span class="math notranslate nohighlight">\(\theta\)</span> subscript indicates that this average is performed over all the values of the true anomaly. Thus, we can see that the average orbital radius is equal to the semiminor axis, or the square root of the product of the periapsis and apoapsis.</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-elliptical-orbits-15">
+<span class="eqno">(143)<a class="headerlink" href="#equation-the-orbit-equation-elliptical-orbits-15" title="Permalink to this equation">¶</a></span>\[ \begin{align}\begin{aligned}e = \frac{r_a - r_p}{r_a + r_p}
+:::(ellipse-eccentricity-periapsis-apoapsis)\\## Average Radial Distance\\One final interesting parameter of the orbit is the average distance from $m_1$ to $m_2$ over the orbit. This is:\\:::{math}
+:label: 
+\overline{r}_{\nu} = a\sqrt{1 - e^2} = \sqrt{r_p r_a}\end{aligned}\end{align} \]</div>
+<p>where the <span class="math notranslate nohighlight">\(\nu\)</span> subscript indicates that this average is performed over all the values of the true anomaly. Thus, we can see that the average orbital radius is equal to the semiminor axis, or the square root of the product of the periapsis and apoapsis.</p>
 </div>
 </div>
 
@@ -565,7 +557,7 @@
         <a class="right-next" href="parabolic-trajectories.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 2.8 - Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</p>
+                <p class="prevnext-title">Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

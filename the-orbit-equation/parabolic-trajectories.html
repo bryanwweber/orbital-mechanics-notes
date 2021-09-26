@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 2.8 - Parabolic Trajectories (\(e = 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Parabolic Trajectories (\(e = 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -58,8 +58,8 @@
     <link rel="canonical" href="https://orbital-mechanics.space/the-orbit-equation/parabolic-trajectories.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 2.9 - Hyperbolic Trajectories (\(e &gt; 1\))" href="hyperbolic-trajectories.html" />
-    <link rel="prev" title="Chapter 2.7 - Elliptical Orbits (\(0 &lt; e &lt; 1\))" href="elliptical-orbits.html" />
+    <link rel="next" title="Hyperbolic Trajectories (\(e &gt; 1\))" href="hyperbolic-trajectories.html" />
+    <link rel="prev" title="Elliptical Orbits (\(0 &lt; e &lt; 1\))" href="elliptical-orbits.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -229,7 +229,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="elliptical-orbits.html">
-   Chapter 2.7 - Elliptical Orbits (
+   Elliptical Orbits (
    <span class="math notranslate nohighlight">
     \(0 &lt; e &lt; 1\)
    </span>
@@ -238,7 +238,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 2.8 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -247,7 +247,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="hyperbolic-trajectories.html">
-   Chapter 2.9 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -256,12 +256,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="perifocal-frame.html">
-   Chapter 2.10 - Perifocal Frame
+   Perifocal Frame
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="the-lagrange-coefficients.html">
-   Chapter 2.11 - The Lagrange Coefficients
+   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -430,18 +430,18 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2-8-parabolic-trajectories-e-1">
-<h1>Chapter 2.8 - Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#chapter-2-8-parabolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="parabolic-trajectories-e-1">
+<h1>Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#parabolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
 <p>For the case of <span class="math notranslate nohighlight">\(e = 1\)</span>, the orbit formula is simplified:</p>
-<div class="math notranslate nohighlight">
-\[r = \frac{h^2}{\mu}\frac{1}{1 + \cos\theta}\]</div>
-<p>For <span class="math notranslate nohighlight">\(\theta\rightarrow\pi\)</span>, then <span class="math notranslate nohighlight">\(\cos\theta\rightarrow -1\)</span> and the bottom of that fraction goes to zero. Therefore, as <span class="math notranslate nohighlight">\(\theta\rightarrow\pi\)</span>, <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>!</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-0">
+<span class="eqno">(144)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-0" title="Permalink to this equation">¶</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}\]</div>
+<p>For <span class="math notranslate nohighlight">\(\nu\rightarrow\pi\)</span>, then <span class="math notranslate nohighlight">\(\cos\nu\rightarrow -1\)</span> and the bottom of that fraction goes to zero. Therefore, as <span class="math notranslate nohighlight">\(\nu\rightarrow\pi\)</span>, <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>!</p>
 <p>From the <em>vis viva</em> equation, conservation of energy, we find for <span class="math notranslate nohighlight">\(e = 1\)</span> that <span class="math notranslate nohighlight">\(\varepsilon=0\)</span> and:</p>
-<div class="math notranslate nohighlight">
-\[\frac{v^2}{2} - \frac{\mu}{r} = 0\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-1">
+<span class="eqno">(145)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-1" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2} - \frac{\mu}{r} = 0\]</div>
 <p>Then the velocity anywhere on the trajectory can be found by:</p>
-<div class="math notranslate nohighlight">
-\[v = \sqrt{\frac{2\mu}{r}}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-2">
+<span class="eqno">(146)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-2" title="Permalink to this equation">¶</a></span>\[v = \sqrt{\frac{2\mu}{r}}\]</div>
 <p>As <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>, then <span class="math notranslate nohighlight">\(v\rightarrow 0\)</span>! Basically, <span class="math notranslate nohighlight">\(m_2\)</span> will coast out to infinity and will have exactly zero velocity when it reaches infinity.</p>
 <p>Since the path leads out and never comes back, the trajectory with <span class="math notranslate nohighlight">\(e = 1\)</span> is also called an <strong>escape trajectory</strong>. The velocity necessary to escape from <span class="math notranslate nohighlight">\(m_1\)</span> on a parabolic trajectory can then be found from the previous equation based on the current orbital radius of <span class="math notranslate nohighlight">\(m_2\)</span>.</p>
 <p>For a circular orbit of radius <span class="math notranslate nohighlight">\(r\)</span>, we can show that:</p>
@@ -449,38 +449,38 @@
 <p class="sidebar-title"></p>
 <p><strong>Note:</strong> There’s a typo in the book for this equation</p>
 </div>
-<div class="math notranslate nohighlight">
-\[v_{\text{esc}} = \sqrt{2} v_{\text{circular}}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-3">
+<span class="eqno">(147)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-3" title="Permalink to this equation">¶</a></span>\[v_{\text{esc}} = \sqrt{2} v_{\text{circular}}\]</div>
 <p>An object that is launched from Earth on an escape trajectory will not actually make it out to infinity, because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth, with no other velocity boosts.</p>
 <div class="section" id="flight-path-angle">
 <h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this headline">¶</a></h2>
 <p>We can show that for parabolic trajectories, the flight path angle is:</p>
-<div class="math notranslate nohighlight">
-\[\gamma = \frac{\theta}{2}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-4">
+<span class="eqno">(148)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-4" title="Permalink to this equation">¶</a></span>\[\gamma = \frac{\nu}{2}\]</div>
 </div>
 <div class="section" id="orbital-parameter">
 <h2>Orbital Parameter<a class="headerlink" href="#orbital-parameter" title="Permalink to this headline">¶</a></h2>
 <p>The orbital parameter <span class="math notranslate nohighlight">\(p\)</span>, also called the semilatus rectum, can be written in terms of a Cartesian coordinate system centered on the focus of the parabola. The equation of this parabola is given by:</p>
-<div class="math notranslate nohighlight">
-\[x = \ell (h - y)^2 + k\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-5">
+<span class="eqno">(149)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-5" title="Permalink to this equation">¶</a></span>\[x = \ell (h - y)^2 + k\]</div>
 <p>where <span class="math notranslate nohighlight">\(\ell\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are constants we need to solve for. We have 2 unknowns, so we need two equations. The first equation is that the focus of the parabola is at the origin. The coordinates of the focus are:</p>
-<div class="math notranslate nohighlight">
-\[\left(h, k + \frac{1}{4\ell}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-6">
+<span class="eqno">(150)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-6" title="Permalink to this equation">¶</a></span>\[\left(h, k + \frac{1}{4\ell}\right)\]</div>
 <p>To be at the origin, we must have <span class="math notranslate nohighlight">\(h = 0\)</span> and</p>
-<div class="math notranslate nohighlight">
-\[k + \frac{1}{4\ell} = 0\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-7">
+<span class="eqno">(151)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-7" title="Permalink to this equation">¶</a></span>\[k + \frac{1}{4\ell} = 0\]</div>
 <p>The second equation comes from the fact that at <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(y = \pm p\)</span>. For simplicity, we take the positive case:</p>
-<div class="math notranslate nohighlight">
-\[0 = -\ell\left(p\right)^2 + k\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-8">
+<span class="eqno">(152)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-8" title="Permalink to this equation">¶</a></span>\[0 = -\ell\left(p\right)^2 + k\]</div>
 <p>Solving these equations simultaneously, we find:</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}\ell &amp;= -\frac{1}{2p} &amp; k &amp;= \frac{p}{2}\end{aligned}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-9">
+<span class="eqno">(153)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-9" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\ell &amp;= -\frac{1}{2p} &amp; k &amp;= \frac{p}{2}\end{aligned}\]</div>
 <p>The coordinates of the vertex, the bottom point, of the parabola are <span class="math notranslate nohighlight">\((h, k)\)</span>. Thus, the vertex is located at:</p>
-<div class="math notranslate nohighlight">
-\[\left(0, \frac{p}{2}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-10">
+<span class="eqno">(154)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-10" title="Permalink to this equation">¶</a></span>\[\left(0, \frac{p}{2}\right)\]</div>
 <p>Then, we can fill in the equation for the parabola:</p>
-<div class="math notranslate nohighlight">
-\[x = \frac{p}{2} - \frac{y^2}{2p}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-11">
+<span class="eqno">(155)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-11" title="Permalink to this equation">¶</a></span>\[x = \frac{p}{2} - \frac{y^2}{2p}\]</div>
 </div>
 </div>
 
@@ -518,7 +518,7 @@
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 2.7 - Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)</p>
+                <p class="prevnext-title">Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)</p>
             </div>
         </a>
     </div>
@@ -526,7 +526,7 @@
         <a class="right-next" href="hyperbolic-trajectories.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 2.9 - Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</p>
+                <p class="prevnext-title">Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

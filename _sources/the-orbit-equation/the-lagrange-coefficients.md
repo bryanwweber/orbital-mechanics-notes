@@ -1,4 +1,4 @@
-# Chapter 2.11 - The Lagrange Coefficients
+# The Lagrange Coefficients
 
 ```{margin}
 Although, we can compute $e$ from the initial position and velocity.
