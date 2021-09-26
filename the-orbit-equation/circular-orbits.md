@@ -1,20 +1,32 @@
-# Chapter 2.6 - Circular Orbits ($e = 0$)
+# Circular Orbits ($e = 0$)
 
 Setting $e = 0$ in the orbit equation yields:
 
-$$r = \frac{h^2}{\mu}$$
+:::{math}
+:label: eq:circular-orbit-equation
+r = \frac{h^2}{\mu}
+:::
 
-The radius of an orbit with $e = 0$ is thus constant, so the orbit is a circle. The velocity is also constant:
+The radius of an orbit with $e = 0$ is constant, so the orbit is a circle. The velocity is also constant:
 
-$$v_{\text{circular}} = \sqrt{\frac{\mu}{r}}$$
+:::{math}
+:label: eq:circular-orbit-velocity
+v_{\text{circular}} = \sqrt{\frac{\mu}{r}}
+:::
 
 The time required to complete one orbit is known as the **orbital period**. Because the speed of a circular orbit is constant, the period is simply the circumference divided by the velocity:
 
-$$T = \frac{2\pi r}{\sqrt{\mu/r}} = \frac{2\pi}{\sqrt{\mu}}r^{3/2}$$
+:::{math}
+:label: 
+T = \frac{2\pi r}{\sqrt{\mu/r}} = \frac{2\pi}{\sqrt{\mu}}r^{3/2}
+:::
 
 The specific energy of a circular orbit is:
 
-$$\varepsilon_{\text{circular}} = -\frac{\mu}{2r}$$
+:::{math}
+:label: 
+E_{\text{circular}} = -\frac{\mu}{2r}
+:::
 
 The specific energy of the circular orbit is negative. As the orbit radius goes up, the energy increases and gets closer to zero. Thus, a given launch vehicle with a certain amount of fuel can launch a large payload to an orbit with a small radius, or a small payload to an orbit with a large radius.
 
@@ -22,7 +34,12 @@ The specific energy of the circular orbit is negative. As the orbit radius goes 
 
 Many manned spacecraft and unpopulated satellites occupy ideally circular orbits around the Earth. These orbits typically fall between altitudes of 150 km (100 miles) and 2000 km (1200 miles). These orbits are called **low earth orbits**, or LEO. The lower of these altitudes is substantially above the bulk of the drag-inducing atmosphere. The higher altitude is less than the altitude of the [Van Allen radiation belts](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt), a dangerous region of space extending from about 1000 km outwards.
 
-[![Comparison of several satellite navigation system orbits](../images/Comparison_satellite_navigation_orbits.svg)](../images/Comparison_satellite_navigation_orbits.svg)
+:::{figure} ../images/Comparison_satellite_navigation_orbits.svg
+:name: fig:Comparison_satellite_navigation_orbits
+:width: 50%
+
+A comparison of satellite navigation orbits. [cmglee](https://commons.wikimedia.org/wiki/File:Comparison_satellite_navigation_orbits.svg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons
+:::
 
 ## Geostationary Equatorial Orbit
 
@@ -34,16 +51,28 @@ However, for GEO, we are interested in the time it takes for the Earth to comple
 
 The sidereal day is approximately 23.93 hours, giving an inertial angular velocity of the Earth of:
 
-$$\omega_E = \unit{72.9218\times 10^{-6}}{rad/s}$$
+:::{math}
+:label: 
+\omega_E = \unit{72.9218\times 10^{-6}}{rad/s}
+:::
 
 The radius of GEO is
 
-$$r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}$$
+:::{math}
+:label: 
+r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}
+:::
 
 The altitude is then:
 
-$$z_{\text{GEO}} = \unit{35,768}{km} = \unit{22,241}{mi}$$
+:::{math}
+:label: 
+z_{\text{GEO}} = \unit{35,768}{km} = \unit{22,241}{mi}
+:::
 
 The speed at GEO is:
 
-$$v_{\text{GEO}} = \unit{3.075}{km/s}$$
+:::{math}
+:label: 
+v_{\text{GEO}} = \unit{3.075}{km/s}
+:::

@@ -30,14 +30,12 @@ parts:
     chapters:
       - file: the-orbit-equation/the-orbit-equation
       - file: the-orbit-equation/orbital-nomenclature
-  # - caption: Chapter 2
-  #   chapters:
-  #     - file: chapter-2/6-circular-orbits
-  #     - file: chapter-2/7-elliptical-orbits
-  #     - file: chapter-2/8-parabolic-trajectories
-  #     - file: chapter-2/9-hyperbolic-trajectories
-  #     - file: chapter-2/10-perifocal-frame
-  #     - file: chapter-2/11-the-lagrange-coefficients
+      - file: the-orbit-equation/circular-orbits
+      - file: the-orbit-equation/elliptical-orbits
+      - file: the-orbit-equation/parabolic-trajectories
+      - file: the-orbit-equation/hyperbolic-trajectories
+      - file: the-orbit-equation/perifocal-frame
+      - file: the-orbit-equation/the-lagrange-coefficients
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
