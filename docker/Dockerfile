@@ -32,6 +32,9 @@ ARG miniforge_python="Mambaforge"
 # Miniforge archive to install
 ARG miniforge_version="${conda_version}-${miniforge_patch_number}"
 
+# Julia version to install
+ARG julia_version="1.6.3"
+
 
 # Install all OS dependencies for notebook server that starts but lacks all
 # features (e.g., download as all possible file formats)
@@ -44,7 +47,6 @@ RUN apt-get update --yes && \
     sudo \
     locales \
     fonts-liberation \
-    # julia \
     run-one && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -63,7 +65,7 @@ ENV CONDA_DIR=/opt/conda \
 ENV PATH="${JULIA_DIR}/bin:${CONDA_DIR}/bin:${PATH}" \
     HOME="/home/${NB_USER}" \
     CONDA_VERSION="${conda_version}" \
-    JULIA_VERSION="1.6.2" \
+    JULIA_VERSION="${julia_version}" \
     MINIFORGE_VERSION="${miniforge_version}"
 
 # Copy a script that we will use to correct permissions after running certain commands
@@ -73,8 +75,8 @@ RUN chmod a+rx /usr/local/bin/fix-permissions
 # Enable prompt color in the skeleton .bashrc before creating the default NB_USER
 # hadolint ignore=SC2016
 RUN sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' /etc/skel/.bashrc && \
-   # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
-   echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc
+    # Add call to conda init script see https://stackoverflow.com/a/58081608/4413446
+    echo 'eval "$(command conda shell.bash hook 2> /dev/null)"' >> /etc/skel/.bashrc
 
 # Create NB_USER with name jovyan user with UID=1000 and in the 'users' group
 # and make sure these dirs are writable by the `users` group.
@@ -130,10 +132,25 @@ RUN set -x && \
     fix-permissions "/home/${NB_USER}"
 
 # Install Julia official latest version
-RUN wget --quiet "https://julialang-s3.julialang.org/bin/linux/aarch64/1.6/julia-1.6.2-linux-aarch64.tar.gz" && \
-    tar -xf julia-1.6.2-linux-aarch64.tar.gz && \
-    rm julia-1.6.2-linux-aarch64.tar.gz && \
-    mv julia-1.6.2/* "${JULIA_DIR}/"
+RUN set -x && \
+    julia_arch=$(uname -m) && \
+    export julia_arch && \
+    if [ "$julia_arch" == "aarm64" ]; then \
+      julia_arch="aarch64"; \
+    fi; \
+    julia_installer="julia-${julia_version}-linux-${julia_arch}.tar.gz" && \
+    export julia_installer && \
+    wget --quiet "https://julialang-s3.julialang.org/bin/linux/${julia_arch}/${JULIA_VERSION:0:3}/${julia_installer}" && \
+    tar -xf "${julia_installer}" && \
+    rm "${julia_installer}" && \
+    mv julia-${julia_version}/* "${JULIA_DIR}/" && \
+    fix-permissions "${JULIA_DIR}"
+
+COPY startup.jl /tmp/
+COPY packages.jl /tmp/
+
+RUN julia "/tmp/packages.jl" && \
+    fix-permissions "/home/${NB_USER}/.julia"
 
 # Install Jupyter Notebook, Lab, and Hub
 # Generate a notebook server config
@@ -176,7 +193,11 @@ RUN fix-permissions /etc/jupyter/
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}
 
-WORKDIR "${HOME}"
+# The startup.jl file sets the LD_PRELOAD environment variable to avoid problems with
+# TLS memory access when using Luxor (I think it's Luxor anyways)
+# Setup work directory for backward-compatibility
+RUN mkdir -p "/home/${NB_USER}/.julia/config" && \
+    cp "/tmp/startup.jl" "${HOME}/.julia/config" && \
+    fix-permissions "/home/${NB_USER}/.julia"
 
-RUN julia -e \
-    'using Pkg; Pkg.add.(["Luxor", "IJulia", "Thebes", "LightXML", "NLsolve", "DifferentialEquations", "Plots"]); Pkg.precompile()'
+WORKDIR "${HOME}"
