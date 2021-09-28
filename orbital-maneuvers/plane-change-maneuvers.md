@@ -12,7 +12,7 @@ execution:
   timeout: 100
 ---
 
-# Chapter 6.9 - Plane Change Maneuvers
+# Plane Change Maneuvers
 
 So far, all the orbital maneuvers we have considered have been coplanar—the initial and final orbits shared the same inclination relative to the orbital focus. However, this need not be the case, and we will relax that assumption in this section.
 

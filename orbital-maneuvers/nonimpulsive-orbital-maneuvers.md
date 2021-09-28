@@ -1,4 +1,4 @@
-# Chapter 6.10 - Nonimpulsive Orbital Maneuvers
+# Nonimpulsive Orbital Maneuvers
 
 Up to now, all the maneuvers we have considered have been impulsive. This means that they happen extremely quickly relative to the time scale of the overall maneuver or trajectory. Practically, this means that the position vector is constant during the impulse.
 

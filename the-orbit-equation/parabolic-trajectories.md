@@ -3,23 +3,23 @@
 For the case of $e = 1$, the orbit formula is simplified:
 
 :::{math}
-:label: 
+:label: eq:parabola-orbit-equation
 r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}
 :::
 
 For $\nu\rightarrow\pi$, then $\cos\nu\rightarrow -1$ and the bottom of that fraction goes to zero. Therefore, as $\nu\rightarrow\pi$, $r\rightarrow\infty$!
 
-From the _vis viva_ equation, conservation of energy, we find for $e = 1$ that $\varepsilon=0$ and:
+From the _vis viva_ equation, conservation of energy, we find for $e = 1$ that $E=0$ and:
 
 :::{math}
-:label: 
+:label: eq:parabola-vis-viva
 \frac{v^2}{2} - \frac{\mu}{r} = 0
 :::
 
 Then the velocity anywhere on the trajectory can be found by:
 
 :::{math}
-:label: 
+:label: eq:parabola-velocity-magnitude
 v = \sqrt{\frac{2\mu}{r}}
 :::
 
@@ -27,22 +27,18 @@ As $r\rightarrow\infty$, then $v\rightarrow 0$! Basically, $m_2$ will coast out 
 
 Since the path leads out and never comes back, the trajectory with $e = 1$ is also called an **escape trajectory**. The velocity necessary to escape from $m_1$ on a parabolic trajectory can then be found from the previous equation based on the current orbital radius of $m_2$.
 
-For a circular orbit of radius $r$, we can show that:
-
-```{margin}
-**Note:** There's a typo in the book for this equation
-```
+Let's start with a circular orbit with a radius $r$. The velocity is given by Eq. {eq}`eq:circular-orbit-velocity`. Assuming that we can instantaneously boost the spacecraft velocity to a parabolic trajectory, the velocity on the parabolic trajectory at the point where it is tangent to the circle is:
 
 :::{math}
-:label: 
+:label: eq:parabola-velocity-relative-to-circle
 v_{\text{esc}} = \sqrt{2} v_{\text{circular}}
 :::
 
-An object that is launched from Earth on an escape trajectory will not actually make it out to infinity, because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth, with no other velocity boosts.
+In practice, an object that is launched from Earth on an escape trajectory will not actually make it out to infinity. This is because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth if it doesn't have any other velocity boosts.
 
 ## Flight Path Angle
 
-We can show that for parabolic trajectories, the flight path angle is:
+We can show that for parabolic trajectories, the flight path angle is a simple function of the true anomaly:
 
 :::{math}
 :label: 
@@ -51,7 +47,7 @@ We can show that for parabolic trajectories, the flight path angle is:
 
 ## Orbital Parameter
 
-The orbital parameter $p$, also called the semilatus rectum, can be written in terms of a Cartesian coordinate system centered on the focus of the parabola. The equation of this parabola is given by:
+The orbital parameter $p$, also called the semi-latus rectum, can be written in terms of a Cartesian coordinate system centered on the focus of the parabola. The equation of this parabola is given by:
 
 :::{math}
 :label: 

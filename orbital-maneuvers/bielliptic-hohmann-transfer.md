@@ -1,4 +1,4 @@
-# Chapter 6.4 - Bielliptic Hohmann transfer
+# Bielliptic Hohmann transfer
 
 Hohmann showed that the Hohmann transfer is the most efficient _two_ impulse maneuver. However, for some cases, adding an additional impulse reduces the total $\Delta v$ requirement for an orbital transfer.
 

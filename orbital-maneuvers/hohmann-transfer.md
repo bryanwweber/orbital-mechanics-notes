@@ -1,4 +1,4 @@
-# Chapter 6.3 - Hohmann Transfer
+# Hohmann Transfer
 
 We will now analyze several impulsive maneuvers that allow a spacecraft to change orbital parameters such as $h$, $e$, $i$, and $\omega$. In all cases, we will assume that the initial orbit and final, desired, orbit have the same focus. Initially, we will also assume the orbits are coplanar.
 

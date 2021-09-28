@@ -34,8 +34,25 @@ parts:
       - file: the-orbit-equation/elliptical-orbits
       - file: the-orbit-equation/parabolic-trajectories
       - file: the-orbit-equation/hyperbolic-trajectories
-      - file: the-orbit-equation/perifocal-frame
-      - file: the-orbit-equation/the-lagrange-coefficients
+      - file: the-orbit-equation/classical-orbital-elements
+      # - file: the-orbit-equation/the-lagrange-coefficients
+  - caption: Orbital Maneuvers
+    chapters:
+      - file: orbital-maneuvers/perifocal-frame
+      - file: orbital-maneuvers/impulsive-maneuvers
+      - file: orbital-maneuvers/single-impulse-example
+      - file: orbital-maneuvers/hohmann-transfer
+      - file: orbital-maneuvers/bielliptic-hohmann-transfer
+      - file: orbital-maneuvers/comparison-of-bielliptic-and-hohmann
+      - file: orbital-maneuvers/phasing-maneuvers
+      - file: orbital-maneuvers/non-hohmann-transfers
+      - file: orbital-maneuvers/apse-line-rotation
+      - file: orbital-maneuvers/chase-maneuvers
+      - file: orbital-maneuvers/plane-change-maneuvers
+      - file: orbital-maneuvers/plane-change-example
+      - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
+      - file: orbital-maneuvers/nonimpulsive-maneuver-example
+      - file: orbital-maneuvers/kennedy-launch-angles
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
@@ -56,22 +73,6 @@ parts:
   #     - file: chapter-4/5-coordinate-transformations
   #     - file: chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames
   #     - file: chapter-4/7-effects-of-the-earths-oblateness
-  # - caption: Chapter 6
-  #   chapters:
-  #     - file: chapter-6/2-impulsive-maneuvers
-  #     - file: chapter-6/2a-single-impulse-example
-  #     - file: chapter-6/3-hohmann-transfer
-  #     - file: chapter-6/4-bielliptic-hohmann-transfer
-  #     - file: chapter-6/4a-comparison-of-bielliptic-and-hohmann
-  #     - file: chapter-6/5-phasing-maneuvers
-  #     - file: chapter-6/6-non-hohmann-transfers
-  #     - file: chapter-6/7-apse-line-rotation
-  #     - file: chapter-6/8-chase-maneuvers
-  #     - file: chapter-6/9-plane-change-maneuvers
-  #     - file: chapter-6/9a-plane-change-example
-  #     - file: chapter-6/10-nonimpulsive-orbital-maneuvers
-  #     - file: chapter-6/10a-nonimpulsive-maneuver-example
-  #     - file: chapter-6/kennedy-launch-angles
   # - caption: Chapter 8
   #   chapters:
   #     - file: chapter-8/2-interplanetary-hohmann-transfers

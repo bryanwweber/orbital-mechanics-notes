@@ -1,4 +1,4 @@
-# Chapter 6.6 - Non-Hohmann Transfers with a Common Apse Line
+# Non-Hohmann Transfers with a Common Apse Line
 
 The Hohmann transfer requires that the spacecraft have the thrust impulses applied at periapsis and apoapsis of the transfer orbit. However, this limits the possible timing of the transfer if we are trying to intercept another celestial body.
 

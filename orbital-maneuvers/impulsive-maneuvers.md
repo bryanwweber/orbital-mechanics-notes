@@ -1,4 +1,4 @@
-# Chapter 6.2 - Impulsive Maneuvers
+# Impulsive Maneuvers
 
 In this chapter, we will consider general maneuvers that can change the orbit of a spacecraft. All orbital changes require application of an external force to modify one or more of the orbital elements. This external force most commonly comes from an on-board propulsion system, although it can also come from gravitational interactions with other celestial bodies (so-called slingshot maneuvers).
 
@@ -22,10 +22,6 @@ We will now focus on impulsive maneuvers. For impulsive maneuvers, the relevant 
 The on-board propulsion system is nearly always a reaction engine, operating on Newton's Third Law. That is, the propulsion system accelerates some mass to a high velocity and ejects it away from the spacecraft. The resulting momentum transfer causes a reaction force on the spacecraft, changing its momentum.
 
 The magnitude of the velocity change is related to the consumed propellent by the ideal rocket equation:
-
-```{margin}
-**Note:** There is a typo in Eq. 6.1 here, missing the negative sign in the exponent.
-```
 
 $$\frac{\Delta m}{m} = 1 - e^{\frac{-\Delta v}{I_{sp}g_0}}$$
 

@@ -10,6 +10,9 @@ exclude_patterns:
   - docker
   - assets
   - blender
+  - chapter-3
+  - chapter-4
+  - chapter-8
 
 latex:
   latex_documents:
