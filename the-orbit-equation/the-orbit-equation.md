@@ -83,7 +83,7 @@ Put a big star next to Eq. {eq}`eq:scalar-orbit-equation`. We are going to use i
 :::
 
 ```{margin}
-**Conic sections** are the curve formed by the intersection of a plane and a cone.
+**Conic sections** are the curve formed by the intersection of a plane and a cone. 3Blue1Brown has an awesome [video](https://youtu.be/pQa_tWZmlGs) covering why ellipses are formed from the intersection of a cone and a plane.
 ```
 
 The orbit equation describes [**conic sections**](https://en.wikipedia.org/wiki/Conic_section), meaning that all orbits are one of four types, as shown in {numref}`fig:TypesOfConicSections`. The particular type of orbit is determined by the magnitude of the eccentricity:
