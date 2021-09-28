@@ -432,18 +432,18 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="circular-orbits-e-0">
 <h1>Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)<a class="headerlink" href="#circular-orbits-e-0" title="Permalink to this headline">¶</a></h1>
-<p>Setting <span class="math notranslate nohighlight">\(e = 0\)</span> in the orbit equation yields:</p>
+<p>Setting <span class="math notranslate nohighlight">\(e = 0\)</span> in the orbit equation, Eq. <a class="reference internal" href="the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> yields:</p>
 <div class="math notranslate nohighlight" id="equation-eq-circular-orbit-equation">
 <span class="eqno">(120)<a class="headerlink" href="#equation-eq-circular-orbit-equation" title="Permalink to this equation">¶</a></span>\[r = \frac{h^2}{\mu}\]</div>
 <p>The radius of an orbit with <span class="math notranslate nohighlight">\(e = 0\)</span> is constant, so the orbit is a circle. The velocity is also constant:</p>
 <div class="math notranslate nohighlight" id="equation-eq-circular-orbit-velocity">
 <span class="eqno">(121)<a class="headerlink" href="#equation-eq-circular-orbit-velocity" title="Permalink to this equation">¶</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
 <p>The time required to complete one orbit is known as the <strong>orbital period</strong>. Because the speed of a circular orbit is constant, the period is simply the circumference divided by the velocity:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-circular-orbits-0">
-<span class="eqno">(122)<a class="headerlink" href="#equation-the-orbit-equation-circular-orbits-0" title="Permalink to this equation">¶</a></span>\[T = \frac{2\pi r}{\sqrt{\mu/r}} = \frac{2\pi}{\sqrt{\mu}}r^{3/2}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-circular-orbit-period">
+<span class="eqno">(122)<a class="headerlink" href="#equation-eq-circular-orbit-period" title="Permalink to this equation">¶</a></span>\[T = \frac{2\pi r}{\sqrt{\mu/r}} = \frac{2\pi}{\sqrt{\mu}}r^{3/2}\]</div>
 <p>The specific energy of a circular orbit is:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-circular-orbits-1">
-<span class="eqno">(123)<a class="headerlink" href="#equation-the-orbit-equation-circular-orbits-1" title="Permalink to this equation">¶</a></span>\[E_{\text{circular}} = -\frac{\mu}{2r}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-circular-orbit-energy">
+<span class="eqno">(123)<a class="headerlink" href="#equation-eq-circular-orbit-energy" title="Permalink to this equation">¶</a></span>\[E_{\text{circular}} = -\frac{\mu}{2r}\]</div>
 <p>The specific energy of the circular orbit is negative. As the orbit radius goes up, the energy increases and gets closer to zero. Thus, a given launch vehicle with a certain amount of fuel can launch a large payload to an orbit with a small radius, or a small payload to an orbit with a large radius.</p>
 <div class="section" id="low-earth-orbit">
 <h2>Low Earth Orbit<a class="headerlink" href="#low-earth-orbit" title="Permalink to this headline">¶</a></h2>
@@ -455,21 +455,21 @@
 </div>
 <div class="section" id="geostationary-equatorial-orbit">
 <h2>Geostationary Equatorial Orbit<a class="headerlink" href="#geostationary-equatorial-orbit" title="Permalink to this headline">¶</a></h2>
-<p>If a satellite remains at a constant location above the Earth’s equator, then the orbit is a circle <strong>geostationary equatorial orbit</strong>, or GEO. For GEO, the radial vector from the center of the Earth to the satellite must have the same angular velocity as the Earth itself.</p>
-<p>The angular velocity of the Earth is calculated by dividing the complete revolution, <span class="math notranslate nohighlight">\(2\pi\)</span> radians by the length of the <a class="reference external" href="https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day"><strong>sidereal day</strong></a>. The familiar, 24-hour, day is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Synodic_day"><strong>synodic day</strong></a> or <strong>solar day</strong>. The solar day is the time that it takes for the Sun to apparently make one revolution around the Earth.</p>
+<p>If a satellite remains at a constant location above the earth’s equator, then the orbit is a circular <strong>geostationary equatorial orbit</strong>, or GEO. For GEO, the radial vector from the center of the earth to the satellite must have the same angular velocity as the surface of the earth.</p>
+<p>The angular velocity of the earth is calculated by dividing the complete revolution, <span class="math notranslate nohighlight">\(2\pi\)</span> radians by the length of the <a class="reference external" href="https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day"><strong>sidereal day</strong></a>. The familiar, 24-hour, day is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Synodic_day"><strong>synodic day</strong></a> or <strong>solar day</strong>. The solar day is the time that it takes for the Sun to apparently make one revolution around the Earth.</p>
 <p>However, for GEO, we are interested in the time it takes for the Earth to complete one rotation around its axis. This is slightly shorter than the synodic day, because the Earth is also moving around the sun as it rotates. If the Earth were fixed in space, the synodic and sidereal days would be equal length.</p>
 <p>The sidereal day is approximately 23.93 hours, giving an inertial angular velocity of the Earth of:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-circular-orbits-2">
-<span class="eqno">(124)<a class="headerlink" href="#equation-the-orbit-equation-circular-orbits-2" title="Permalink to this equation">¶</a></span>\[\omega_E = \unit{72.9218\times 10^{-6}}{rad/s}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-earth-angular-velocity">
+<span class="eqno">(124)<a class="headerlink" href="#equation-eq-earth-angular-velocity" title="Permalink to this equation">¶</a></span>\[\omega_E = \unit{72.9218\times 10^{-6}}{rad/s}\]</div>
 <p>The radius of GEO is</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-circular-orbits-3">
-<span class="eqno">(125)<a class="headerlink" href="#equation-the-orbit-equation-circular-orbits-3" title="Permalink to this equation">¶</a></span>\[r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-geo-radius">
+<span class="eqno">(125)<a class="headerlink" href="#equation-eq-geo-radius" title="Permalink to this equation">¶</a></span>\[r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}\]</div>
 <p>The altitude is then:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-circular-orbits-4">
-<span class="eqno">(126)<a class="headerlink" href="#equation-the-orbit-equation-circular-orbits-4" title="Permalink to this equation">¶</a></span>\[z_{\text{GEO}} = \unit{35,768}{km} = \unit{22,241}{mi}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-geo-altitude">
+<span class="eqno">(126)<a class="headerlink" href="#equation-eq-geo-altitude" title="Permalink to this equation">¶</a></span>\[z_{\text{GEO}} = \unit{35,768}{km} = \unit{22,241}{mi}\]</div>
 <p>The speed at GEO is:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-circular-orbits-5">
-<span class="eqno">(127)<a class="headerlink" href="#equation-the-orbit-equation-circular-orbits-5" title="Permalink to this equation">¶</a></span>\[v_{\text{GEO}} = \unit{3.075}{km/s}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-geo-speed">
+<span class="eqno">(127)<a class="headerlink" href="#equation-eq-geo-speed" title="Permalink to this equation">¶</a></span>\[v_{\text{GEO}} = \unit{3.075}{km/s}\]</div>
 </div>
 </div>
 

@@ -140,9 +140,11 @@ The flight path angle is positive when $v_r$ is positive and $m_2$ is moving awa
 
 ## Latus Rectum
 
-The trajectory of $m_2$ around $m_1$ is symmetrical about the apse line. A chord of the orbit that intersects $m_1$ at the apse line is called the **latus rectum**. The apse line divides the latus rectum into two halves, each of length $p$, called the **semilatus rectum** or the **parameter of the orbit**. The semilatus rectum can be calculated by:
+The trajectory of $m_2$ around $m_1$ is symmetrical about the apse line. A chord of the orbit that intersects $m_1$ and is perpendicular to the apse line is called the **latus rectum**. The apse line divides the latus rectum into two halves, each of length $p$, called the **semi-latus rectum** or the **parameter of the orbit**. The semilatus rectum can be calculated by:
 
 :::{math}
 :label: eq:semi-latus-rectum
 p = \frac{h^2}{\mu}
 :::
+
+This gives a hint why the semi-latus rectum is called the parameter of the orbit. The semi-latus rectum is the numerator of Eq. {eq}`eq:scalar-orbit-equation`.
