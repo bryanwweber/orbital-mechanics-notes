@@ -255,13 +255,90 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="perifocal-frame.html">
+  <a class="reference internal" href="classical-orbital-elements.html">
+   Classical Orbital Elements
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Orbital Maneuvers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/perifocal-frame.html">
    Perifocal Frame
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="the-lagrange-coefficients.html">
-   The Lagrange Coefficients
+  <a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">
+   Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html">
+   Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/bielliptic-hohmann-transfer.html">
+   Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/phasing-maneuvers.html">
+   Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html">
+   Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/apse-line-rotation.html">
+   Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/chase-maneuvers.html">
+   Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-maneuvers.html">
+   Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/kennedy-launch-angles.html">
+   Kennedy Launch Angles
   </a>
  </li>
 </ul>
@@ -433,54 +510,50 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="parabolic-trajectories-e-1">
 <h1>Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#parabolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
 <p>For the case of <span class="math notranslate nohighlight">\(e = 1\)</span>, the orbit formula is simplified:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-0">
-<span class="eqno">(142)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-0" title="Permalink to this equation">¶</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-parabola-orbit-equation">
+<span class="eqno">(142)<a class="headerlink" href="#equation-eq-parabola-orbit-equation" title="Permalink to this equation">¶</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}\]</div>
 <p>For <span class="math notranslate nohighlight">\(\nu\rightarrow\pi\)</span>, then <span class="math notranslate nohighlight">\(\cos\nu\rightarrow -1\)</span> and the bottom of that fraction goes to zero. Therefore, as <span class="math notranslate nohighlight">\(\nu\rightarrow\pi\)</span>, <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>!</p>
-<p>From the <em>vis viva</em> equation, conservation of energy, we find for <span class="math notranslate nohighlight">\(e = 1\)</span> that <span class="math notranslate nohighlight">\(\varepsilon=0\)</span> and:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-1">
-<span class="eqno">(143)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-1" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2} - \frac{\mu}{r} = 0\]</div>
+<p>From the <em>vis viva</em> equation, conservation of energy, we find for <span class="math notranslate nohighlight">\(e = 1\)</span> that <span class="math notranslate nohighlight">\(E=0\)</span> and:</p>
+<div class="math notranslate nohighlight" id="equation-eq-parabola-vis-viva">
+<span class="eqno">(143)<a class="headerlink" href="#equation-eq-parabola-vis-viva" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2} - \frac{\mu}{r} = 0\]</div>
 <p>Then the velocity anywhere on the trajectory can be found by:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-2">
-<span class="eqno">(144)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-2" title="Permalink to this equation">¶</a></span>\[v = \sqrt{\frac{2\mu}{r}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-parabola-velocity-magnitude">
+<span class="eqno">(144)<a class="headerlink" href="#equation-eq-parabola-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \sqrt{\frac{2\mu}{r}}\]</div>
 <p>As <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>, then <span class="math notranslate nohighlight">\(v\rightarrow 0\)</span>! Basically, <span class="math notranslate nohighlight">\(m_2\)</span> will coast out to infinity and will have exactly zero velocity when it reaches infinity.</p>
 <p>Since the path leads out and never comes back, the trajectory with <span class="math notranslate nohighlight">\(e = 1\)</span> is also called an <strong>escape trajectory</strong>. The velocity necessary to escape from <span class="math notranslate nohighlight">\(m_1\)</span> on a parabolic trajectory can then be found from the previous equation based on the current orbital radius of <span class="math notranslate nohighlight">\(m_2\)</span>.</p>
-<p>For a circular orbit of radius <span class="math notranslate nohighlight">\(r\)</span>, we can show that:</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><strong>Note:</strong> There’s a typo in the book for this equation</p>
-</div>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-3">
-<span class="eqno">(145)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-3" title="Permalink to this equation">¶</a></span>\[v_{\text{esc}} = \sqrt{2} v_{\text{circular}}\]</div>
-<p>An object that is launched from Earth on an escape trajectory will not actually make it out to infinity, because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth, with no other velocity boosts.</p>
+<p>Let’s start with a circular orbit with a radius <span class="math notranslate nohighlight">\(r\)</span>. The velocity is given by Eq. <a class="reference internal" href="circular-orbits.html#equation-eq-circular-orbit-velocity">(121)</a>. Assuming that we can instantaneously boost the spacecraft velocity to a parabolic trajectory, the velocity on the parabolic trajectory at the point where it is tangent to the circle is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-parabola-velocity-relative-to-circle">
+<span class="eqno">(145)<a class="headerlink" href="#equation-eq-parabola-velocity-relative-to-circle" title="Permalink to this equation">¶</a></span>\[v_{\text{esc}} = \sqrt{2} v_{\text{circular}}\]</div>
+<p>In practice, an object that is launched from Earth on an escape trajectory will not actually make it out to infinity. This is because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth if it doesn’t have any other velocity boosts.</p>
 <div class="section" id="flight-path-angle">
 <h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this headline">¶</a></h2>
-<p>We can show that for parabolic trajectories, the flight path angle is:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-4">
-<span class="eqno">(146)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-4" title="Permalink to this equation">¶</a></span>\[\gamma = \frac{\nu}{2}\]</div>
+<p>We can show that for parabolic trajectories, the flight path angle is a simple function of the true anomaly:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-0">
+<span class="eqno">(146)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-0" title="Permalink to this equation">¶</a></span>\[\gamma = \frac{\nu}{2}\]</div>
 </div>
 <div class="section" id="orbital-parameter">
 <h2>Orbital Parameter<a class="headerlink" href="#orbital-parameter" title="Permalink to this headline">¶</a></h2>
-<p>The orbital parameter <span class="math notranslate nohighlight">\(p\)</span>, also called the semilatus rectum, can be written in terms of a Cartesian coordinate system centered on the focus of the parabola. The equation of this parabola is given by:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-5">
-<span class="eqno">(147)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-5" title="Permalink to this equation">¶</a></span>\[x = \ell (h - y)^2 + k\]</div>
+<p>The orbital parameter <span class="math notranslate nohighlight">\(p\)</span>, also called the semi-latus rectum, can be written in terms of a Cartesian coordinate system centered on the focus of the parabola. The equation of this parabola is given by:</p>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-1">
+<span class="eqno">(147)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-1" title="Permalink to this equation">¶</a></span>\[x = \ell (h - y)^2 + k\]</div>
 <p>where <span class="math notranslate nohighlight">\(\ell\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are constants we need to solve for. We have 2 unknowns, so we need two equations. The first equation is that the focus of the parabola is at the origin. The coordinates of the focus are:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-6">
-<span class="eqno">(148)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-6" title="Permalink to this equation">¶</a></span>\[\left(h, k + \frac{1}{4\ell}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-2">
+<span class="eqno">(148)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-2" title="Permalink to this equation">¶</a></span>\[\left(h, k + \frac{1}{4\ell}\right)\]</div>
 <p>To be at the origin, we must have <span class="math notranslate nohighlight">\(h = 0\)</span> and</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-7">
-<span class="eqno">(149)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-7" title="Permalink to this equation">¶</a></span>\[k + \frac{1}{4\ell} = 0\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-3">
+<span class="eqno">(149)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-3" title="Permalink to this equation">¶</a></span>\[k + \frac{1}{4\ell} = 0\]</div>
 <p>The second equation comes from the fact that at <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(y = \pm p\)</span>. For simplicity, we take the positive case:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-8">
-<span class="eqno">(150)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-8" title="Permalink to this equation">¶</a></span>\[0 = -\ell\left(p\right)^2 + k\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-4">
+<span class="eqno">(150)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-4" title="Permalink to this equation">¶</a></span>\[0 = -\ell\left(p\right)^2 + k\]</div>
 <p>Solving these equations simultaneously, we find:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-9">
-<span class="eqno">(151)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-9" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\ell &amp;= -\frac{1}{2p} &amp; k &amp;= \frac{p}{2}\end{aligned}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-5">
+<span class="eqno">(151)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-5" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\ell &amp;= -\frac{1}{2p} &amp; k &amp;= \frac{p}{2}\end{aligned}\]</div>
 <p>The coordinates of the vertex, the bottom point, of the parabola are <span class="math notranslate nohighlight">\((h, k)\)</span>. Thus, the vertex is located at:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-10">
-<span class="eqno">(152)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-10" title="Permalink to this equation">¶</a></span>\[\left(0, \frac{p}{2}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-6">
+<span class="eqno">(152)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-6" title="Permalink to this equation">¶</a></span>\[\left(0, \frac{p}{2}\right)\]</div>
 <p>Then, we can fill in the equation for the parabola:</p>
-<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-11">
-<span class="eqno">(153)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-11" title="Permalink to this equation">¶</a></span>\[x = \frac{p}{2} - \frac{y^2}{2p}\]</div>
+<div class="math notranslate nohighlight" id="equation-the-orbit-equation-parabolic-trajectories-7">
+<span class="eqno">(153)<a class="headerlink" href="#equation-the-orbit-equation-parabolic-trajectories-7" title="Permalink to this equation">¶</a></span>\[x = \frac{p}{2} - \frac{y^2}{2p}\]</div>
 </div>
 </div>
 

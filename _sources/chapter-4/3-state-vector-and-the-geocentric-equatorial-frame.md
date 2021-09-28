@@ -1,3 +1,0 @@
-# Chapter 4.3 - State Vector and the Geocentric Equatorial Frame
-
-Coming soon...

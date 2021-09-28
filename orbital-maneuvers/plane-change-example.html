@@ -1,0 +1,771 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example: Plane Change Maneuver &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/plane-change-example.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Nonimpulsive Orbital Maneuvers" href="nonimpulsive-orbital-maneuvers.html" />
+    <link rel="prev" title="Plane Change Maneuvers" href="plane-change-maneuvers.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Orbital Mechanics &amp; Astrodynamics
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">
+   Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/lagrange-points.html">
+   Application of the CR3BP: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
+   Example: Plotting Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
+   The Jacobi Constant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/circular-orbits.html">
+   Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">
+   Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">
+   Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">
+   Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/classical-orbital-elements.html">
+   Classical Orbital Elements
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Orbital Maneuvers
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="perifocal-frame.html">
+   Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="impulsive-maneuvers.html">
+   Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hohmann-transfer.html">
+   Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bielliptic-hohmann-transfer.html">
+   Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="phasing-maneuvers.html">
+   Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="non-hohmann-transfers.html">
+   Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="apse-line-rotation.html">
+   Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chase-maneuvers.html">
+   Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plane-change-maneuvers.html">
+   Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/plane-change-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Forbital-maneuvers/plane-change-example.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/plane-change-example.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/plane-change-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="example-plane-change-maneuver">
+<h1>Example: Plane Change Maneuver<a class="headerlink" href="#example-plane-change-maneuver" title="Permalink to this headline">¶</a></h1>
+<p>Find the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for an orbital transfer from a 300 km circular LEO at 28.6° inclination to geostationary equatorial orbit. Assume a Hohmann transfer. Compare the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for 2 cases:</p>
+<ol class="simple">
+<li><p>The Hohmann trajectory has an inclination of 28.6° (plane change at altitude)</p></li>
+<li><p>The Hohmann trajectory has an inclination of 0° (plane change at LEO)</p></li>
+</ol>
+<p>Also compare to the case where the satellite starts in an equatorial orbit (no plane change required).</p>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p>From our analysis of the plane change <span class="math notranslate nohighlight">\(\Delta v\)</span> equations, we expect that plane changes at altitude will be more efficient than in LEO because the speed decreases for higher altitude orbits. Likewise, we expect that the maneuvers that require a plane change will require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than the one that doesn’t.</p>
+<p>To start, we need to define the various radii, angular momenta, and speeds of the initial and final orbits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_E</span> <span class="o">=</span> <span class="mi">6378</span>  <span class="c1"># km</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">3.986E5</span>  <span class="c1"># km**3/s**2</span>
+<span class="n">delta_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">28.6</span><span class="p">)</span>
+
+<span class="n">r_1</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="n">R_E</span>  <span class="c1"># km</span>
+<span class="n">v_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_1</span><span class="p">)</span>  <span class="c1"># km/s</span>
+<span class="n">h_1</span> <span class="o">=</span> <span class="n">r_1</span> <span class="o">*</span> <span class="n">v_1</span>  <span class="c1"># km**2/s</span>
+
+<span class="n">r_2</span> <span class="o">=</span> <span class="mi">42_164</span>  <span class="c1"># km</span>
+<span class="n">v_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_2</span><span class="p">)</span>  <span class="c1"># km/s</span>
+<span class="n">h_2</span> <span class="o">=</span> <span class="n">r_2</span> <span class="o">*</span> <span class="n">v_2</span>  <span class="c1"># km**2/s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we can calculate the properties of the Hohmann transfer orbit. Interestingly, the angular momentum is independent of the inclination, since it depends only on the apogee and perigee radii:</p>
+<div class="math notranslate nohighlight">
+\[h_t = \sqrt{2\mu}\sqrt{\frac{r_1 r_2}{r_1 + r_2}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">*</span> <span class="n">r_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_2</span><span class="p">))</span>
+<span class="n">v_t1</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_1</span>
+<span class="n">v_t2</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the case of the plane change at altitude (Case 1), the total <span class="math notranslate nohighlight">\(\Delta v\)</span> is the speed increase to transfer onto the Hohmann <span class="math notranslate nohighlight">\(v_{t1} - v_1\)</span> plus the speed change to get onto the GEO, plus the plane change at GEO, where the last two steps occur in one maneuver. Thus, the equation is:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v = v_{t1} - v_1 + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\Delta i}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta i\)</span> = 28.6°.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="n">v_t1</span> <span class="o">-</span> <span class="n">v_1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Delta_v</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta_v=4.2583 km/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the case of the plane change in LEO (Case 2), the plane change is added to the first velocity increment:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + v_2 - v_{t2}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span> <span class="o">+</span> <span class="n">v_2</span> <span class="o">-</span> <span class="n">v_t2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Delta_v</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta_v=6.4692 km/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>As expected, doing the plane change in LEO required a larger <span class="math notranslate nohighlight">\(\Delta v\)</span>, because the speed of the spacecraft is higher in LEO than GEO. Comparing to the case with no plane change:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="n">v_t1</span> <span class="o">-</span> <span class="n">v_1</span> <span class="o">+</span> <span class="n">v_2</span> <span class="o">-</span> <span class="n">v_t2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Delta_v</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta_v=3.8926 km/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the plane change adds 0.37 km/s of <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement.</p>
+<p>Interestingly, splitting the plane change so part happens on departure from LEO and part happens on arrival at GEO turns out to be more efficient than doing the entire plane change at GEO. If we assume that some plane change <span class="math notranslate nohighlight">\(\Delta i\)</span> happens on departure from LEO into the Hohmann transfer, and the remainder (<span class="math notranslate nohighlight">\(28.6° - \Delta i\)</span>) happens on arrival to GEO, then we can write the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the maneuvers:</p>
+<div class="math notranslate nohighlight">
+\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">total_inclination_change</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">28.6</span><span class="p">)</span>
+<span class="n">delta_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_inclination_change</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">delta_v_total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_i</span><span class="p">),</span> <span class="n">delta_v_total</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta i$, degrees&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta v$, km/s&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plane-change-example_13_0.png" src="../_images/plane-change-example_13_0.png" />
+</div>
+</div>
+<p>In this graph, <span class="math notranslate nohighlight">\(\Delta i\)</span> = 0° shows Case 1 (plane change at altitude) and the right side of the graph shows Case 2 (plane change in LEO). We can see that there appears to be a minimum in the <span class="math notranslate nohighlight">\(\Delta v\)</span> around <span class="math notranslate nohighlight">\(\Delta i\)</span> = 2.5°. This means that about 2.5° of plane change should happen when transferring into the Hohmann trajectory, and the remainder should happen at altitude. We can determine the value of this optimium by taking the derivative with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> and setting it equal to zero:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
+<p>This equation must be solved numerically, but we can plot it to verify the behavior:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_v_d_i</span> <span class="o">=</span> <span class="n">v_1</span><span class="o">*</span><span class="n">v_t1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">v_1</span><span class="o">*</span><span class="n">v_t1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">)))</span>
+<span class="n">d_v_d_i</span> <span class="o">-=</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">v_2</span><span class="o">*</span><span class="n">v_t2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">)))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_i</span><span class="p">),</span> <span class="n">d_v_d_i</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta i$, degrees&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$d\Delta v/d \Delta i$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/plane-change-example_15_0.png" src="../_images/plane-change-example_15_0.png" />
+</div>
+</div>
+<p>As expected, there is a single zero crossing of this function. We can use the Newton solver to find the optimum value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">delta_i</span><span class="p">,</span> <span class="n">v_1</span><span class="p">,</span> <span class="n">v_t1</span><span class="p">,</span> <span class="n">v_2</span><span class="p">,</span> <span class="n">v_t2</span><span class="p">):</span>
+    <span class="n">d_v_d_i</span> <span class="o">=</span> <span class="n">v_1</span><span class="o">*</span><span class="n">v_t1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">v_1</span><span class="o">*</span><span class="n">v_t1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">)))</span>
+    <span class="n">d_v_d_i</span> <span class="o">-=</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">total_inclination_change</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">v_2</span><span class="o">*</span><span class="n">v_t2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">total_inclination_change</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">d_v_d_i</span>
+
+<span class="n">delta_i_opt</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">2.5</span><span class="p">),</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">v_1</span><span class="p">,</span> <span class="n">v_t1</span><span class="p">,</span> <span class="n">v_2</span><span class="p">,</span> <span class="n">v_t2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_i_opt</span><span class="p">)</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.degrees(delta_i_opt)=2.2051°
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_opt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i_opt</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">total_inclination_change</span> <span class="o">-</span> <span class="n">delta_i_opt</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">delta_v_opt</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>delta_v_opt=4.2335 km/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result with the entire plane change at altitude was 4.2583 km/s, so the optimized value is less than 1% different from the value we calculated previously.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./orbital-maneuvers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="plane-change-maneuvers.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Plane Change Maneuvers</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="nonimpulsive-orbital-maneuvers.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Nonimpulsive Orbital Maneuvers</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
