@@ -9,6 +9,15 @@ r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}
 
 For $\nu\rightarrow\pi$, then $\cos\nu\rightarrow -1$ and the bottom of that fraction goes to zero. Therefore, as $\nu\rightarrow\pi$, $r\rightarrow\infty$!
 
+When $e = 1$, the trajectory is a parabolic shape. By convention, the apse line lies along the $x$-axis and the parabola opens to the left, as shown in {numref}`fig:parabolic-orbit-definitions`.
+
+:::{figure} ../images/parabolic-orbit-definitions.svg
+:name: fig:parabolic-orbit-definitions
+:height: 450px
+
+Definition of distances in the parabolic trajectory. $p$ is the orbital parameter.
+:::
+
 From the _vis viva_ equation, conservation of energy, we find for $e = 1$ that $E=0$ and:
 
 :::{math}
@@ -38,60 +47,35 @@ In practice, an object that is launched from Earth on an escape trajectory will 
 
 ## Flight Path Angle
 
-We can show that for parabolic trajectories, the flight path angle is a simple function of the true anomaly:
+For parabolic trajectories, the radial and azimuthal velocity components are:
 
 :::{math}
-:label: 
-\gamma = \frac{\nu}{2}
+:label: eq:parabolic-velocity-components
+\begin{aligned}
+  v_r &= \frac{\mu}{h}\sin\nu \\
+  v_{\perp} &= \frac{\mu}{h}\left(1 + \cos\nu\right)
+\end{aligned}
+:::
+
+These equations can be combined and simplified to find that the flight path angle is a simple function of the true anomaly:
+
+:::{math}
+:label: eq:parabolic-flight-path-angle
+\phi = \frac{\nu}{2}
 :::
 
 ## Orbital Parameter
 
-The orbital parameter $p$, also called the semi-latus rectum, can be written in terms of a Cartesian coordinate system centered on the focus of the parabola. The equation of this parabola is given by:
+The orbital parameter $p$, also called the semi-latus rectum, is the distance perpendicular to the apse line from the focus to the trajectory. The value is given by Eq. {eq}`eq:semi-latus-rectum`. Plugging in $e = 1$ to the equation for the periapsis distance, Eq. {eq}`eq:distance-to-periapsis`, we find:
 
 :::{math}
-:label: 
-x = \ell (h - y)^2 + k
+:label: eq:parabolic-periapsis-distance
+r_p = \frac{p}{2}
 :::
 
-where $\ell$ and $k$ are constants we need to solve for. We have 2 unknowns, so we need two equations. The first equation is that the focus of the parabola is at the origin. The coordinates of the focus are:
+For a Cartesian coordinate system centered on the focus, periapsis is then at the point $(p/2, 0)$. Thus, we can write a Cartesian equation for the parabola:
 
 :::{math}
-:label: 
-\left(h, k + \frac{1}{4\ell}\right)
-:::
-
-To be at the origin, we must have $h = 0$ and
-
-:::{math}
-:label: 
-k + \frac{1}{4\ell} = 0
-:::
-
-The second equation comes from the fact that at $x = 0$, $y = \pm p$. For simplicity, we take the positive case:
-
-:::{math}
-:label: 
-0 = -\ell\left(p\right)^2 + k
-:::
-
-Solving these equations simultaneously, we find:
-
-:::{math}
-:label: 
-\begin{aligned}\ell &= -\frac{1}{2p} & k &= \frac{p}{2}\end{aligned}
-:::
-
-The coordinates of the vertex, the bottom point, of the parabola are $(h, k)$. Thus, the vertex is located at:
-
-:::{math}
-:label: 
-\left(0, \frac{p}{2}\right)
-:::
-
-Then, we can fill in the equation for the parabola:
-
-:::{math}
-:label: 
+:label: eq:parabolic-cartesian-equation
 x = \frac{p}{2} - \frac{y^2}{2p}
 :::
