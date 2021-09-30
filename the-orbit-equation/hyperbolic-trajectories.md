@@ -15,47 +15,42 @@ kernelspec:
 
 When $e > 1$, the geometry of the trajectory is a hyperbola. The shape of a hyperbola is two symmetric, disconnected curves. The body following the trajectory occupies one of the curves. The other is an empty, imaginary orbit present only due to the mathematics.
 
-From the orbit equation:
+All interplanetary bodies such as comets or asteroids that approach the earth, or any spacecraft we want to send to other planets, must be on a hyperbolic trajectory. Whereas a parabolic trajectory has zero velocity at infinite radius, the hyperbolic trajectory has some non-zero velocity.
+
+From the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, we see that the denominator goes to zero when $1 + e\cos\nu$ goes to zero. The true anomaly when this happens is called the **true anomaly of the asymptote**:
 
 :::{math}
-:label: 
-r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu}
-:::
-
-we see that the denominator goes to zero when $1 + e\cos\nu$ goes to zero. The true anomaly when this happens is called the true anomaly of the asymptote:
-
-:::{math}
-:label: 
+:label: eq:hyperbolic-true-anomaly-asymptote
 \nu_{\infty} = \cos^{-1}\left(-1/e\right)
 :::
 
 As the true anomaly approaches $\nu_{\infty}$, $r$ approaches infinity. $\nu_{\infty}$ is restricted to be between 90° and 180°.
 
-For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory shown on the animation below. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory on the figure below. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
+For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory shown on the left in {numref}`fig:hyperbolic-trajectory-animation`. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory on the figure below. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
 
 ```{code-cell} ipython3
-:tags: [remove-input]
+:tags: [remove-cell]
 
 from IPython.display import HTML
 from hyperbolic_trajectory import plot_figure
+from myst_nb import glue
 anim = plot_figure()
-HTML(anim.to_jshtml())
+glue("hyperbolic-trajectory-animation", HTML(anim.to_jshtml()), display=False)
 ```
+
+:::{glue:figure} hyperbolic-trajectory-animation
+:name: fig:hyperbolic-trajectory-animation
+
+Animation showing the hyperbolic trajectory and the value of the true anomaly for various positions on the occupied and virtual trajectories.
+:::
 
 Periapsis lies on the apse line, as usual, of the occupied trajectory. Interestingly, apoapsis lies on the virtual trajectory. Halfway between periapsis and apoapsis lies the center of a Cartesian coordinate system.
 
-As the hyperbolas go out to infinity, they approach asymptotes. The angle that the asymptotes make with the horizontal axis is $\beta$, and is found by:
+The asymptotes intersect at the origin of the Cartesian coordinate system. The angle between the asymptotes is called the **turn angle**, $\delta$, because it is the angle through which $m_2$ turns as it goes around $m_1$. The turn angle is found from the geometry of the hyperbola, by:
 
 :::{math}
-:label: 
-\beta = 180° - \nu_{\infty} = \cos^{-1}\left(1/e\right)
-:::
-
-The asymptotes intersect at the origin of the Cartesian coordinate system. The angle between the asymptotes is called the **turn angle**, $\delta$, because it is the angle through which $m_2$ turns as it goes around $m_1$. The turn angle is found by:
-
-:::{math}
-:label: 
-\delta = 180° - 2\beta = 2\sin^{-1}\left(1/e\right)
+:label: eq:hyperbolic-turn-angle
+\delta = 2\sin^{-1}\left(1/e\right)
 :::
 
 ## Orbital Parameters
@@ -63,70 +58,47 @@ The asymptotes intersect at the origin of the Cartesian coordinate system. The a
 The distance to periapsis is:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-periapsis-distance
 r_p = \frac{h^2}{\mu}\frac{1}{1 + e}
 :::
 
 and the distance to apoapsis is:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-apoapsis-distance
 r_a = \frac{h^2}{\mu}\frac{1}{1 - e}
 :::
 
 Notice that the distance to apoapsis is negative, since $e > 1$. This is how we determine that the apoapsis lies on the virtual trajectory, to the right of the occupied trajectory.
 
-We can determine the semimajor axis of the orbit by inspection from a drawing:
+We can determine the semi-major axis of the orbit by inspection from a drawing:
 
 :::{math}
-:label: 
-a = \frac{-r_a - r_p}{2}
+:label: eq:hyperbolic-semi-major-axis
+a = \frac{-r_a - r_p}{2} = \frac{h^2}{\mu}\frac{1}{e^2 - 1}
 :::
 
-Plugging in for $r_a$ and $r_p$, we find:
+Note that since $a$ is a distance, it is positive even though $r_a$ is negative. Then, we can rearrange the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, to find:
 
 :::{math}
-:label: 
-a = \frac{h^2}{\mu}\frac{1}{e^2 - 1}
-:::
-
-Then, we can rearrange the orbit equation to find:
-
-:::{math}
-:label: 
+:label: eq:hyperbolic-orbit-equation
 r = a\frac{e^2 - 1}{1 + e\cos\nu}
 :::
 
 and we can rearrange the periapsis and apoapsis equations to find:
 
 :::{math}
-:label: 
-\begin{aligned}r_p &= a\left(e - 1\right) & r_a &= -a\left(e + 1\right)\end{aligned}
+:label: eq:hyperbolic-periapsis-apoapsis
+\begin{aligned}
+  r_p &= a\left(e - 1\right) & r_a &= -a\left(e + 1\right)
+\end{aligned}
 :::
 
-The semiminor axis is defined as the distance from periapsis to one of the asymptote lines:
+The semi-minor axis is defined as the distance from periapsis to one of the asymptote lines:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-semi-minor-axis
 b = a\sqrt{e^2 - 1}
-:::
-
-One other parameter that we will find useful is the **aiming radius** or **impact parameter**:
-
-:::{math}
-:label: 
-\Delta = a\sqrt{e^2 - 1} = b
-:::
-
-This parameter determines whether or not a body approaching from infinity will impact $m_1$.
-
-## Cartesian Coordinates
-
-We can express the coordinates of $m_2$ relative to the center of the Cartesian coordinate system as well:
-
-:::{math}
-:label: 
-\begin{aligned}x &= -a -r_p + r\cos\nu & y &= r \sin\nu\end{aligned}
 :::
 
 ## Energy Conservation
@@ -134,35 +106,35 @@ We can express the coordinates of $m_2$ relative to the center of the Cartesian 
 The specific energy of a hyperbolic trajectory is:
 
 :::{math}
-:label: 
-\varepsilon = \frac{\mu}{2a}
+:label: eq:hyperbolic-specific-energy
+E = \frac{\mu}{2a}
 :::
 
-Plugging this in to the conservation of energy equation, we find:
+Note tha the specific energy is positive. Plugging this in to Eq. {eq}`eq:integrate-energy-equation`, we find:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-energy-equation
 \frac{v^2}{2} - \frac{\mu}{r} = \frac{\mu}{2a}
 :::
 
-If we denote $v_{\infty}$ as the speed of an object at infinity, then this can be determined from conservation of energy:
+If we denote $v_{\infty}$ as the speed of an object as $r\rightarrow\infty$, then this can be determined from conservation of energy:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-excess-speed
 v_{\infty} = \sqrt{\frac{\mu}{a}}
 :::
 
-$v_{\infty}$ is called the **hyperbolic excess speed** and is the excess speed over the escape velocity:
+$v_{\infty}$ is called the **hyperbolic excess speed**. By putting Eq. {eq}`eq:integrate-energy-equation` in terms of $v_{\infty}$, we find that the excess speed is the kinetic energy in excess of that required to simply escape the gravity well of the primary mass:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-velocity-excess-escape
 v^2 = v_{\text{esc}}^2 + v_{\infty}^2
 :::
 
 The hyperbolic excess speed is also known as the **characteristic energy**:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-characteristic-energy
 C_3 = v_{\infty}^2
 :::
 
@@ -171,6 +143,6 @@ $C_3$ is a measure of the energy required to perform an interplanetary mission, 
 Finally, note that the hyperbolic excess speed can also be found by:
 
 :::{math}
-:label: 
+:label: eq:hyperbolic-excess-speed-nu
 v_{\infty} = \frac{\mu}{h}e\sin\nu_{\infty} = \frac{\mu}{h}\sqrt{e^2 - 1}
 :::
