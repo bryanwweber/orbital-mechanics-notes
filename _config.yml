@@ -36,7 +36,7 @@ sphinx:
           mag: ["\\lVert#1\\rVert", 1]
           cross: "\\times"
           unit: ["#1~\\mathrm{#2}", 2]
-          pf: ["\\overline{#1}", 1] # This is for the perifocal frame
+          pf: ["{#1}_{\\omega}", 1] # This is for the perifocal frame
           mat: ["\\left[\\mathbf{#1}\\right]", 1] # A matrix
           COG: "\\mathrm{COG}" # Center of gravity
           KE: "\\mathrm{KE}" # Kinetic energy

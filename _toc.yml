@@ -34,11 +34,14 @@ parts:
       - file: the-orbit-equation/elliptical-orbits
       - file: the-orbit-equation/parabolic-trajectories
       - file: the-orbit-equation/hyperbolic-trajectories
-      - file: the-orbit-equation/classical-orbital-elements
       # - file: the-orbit-equation/the-lagrange-coefficients
+  - caption: The Classical Orbital Elements
+    chapters:
+      - file: classical-orbital-elements/perifocal-frame
+      - file: classical-orbital-elements/right-ascension-declination
+      - file: classical-orbital-elements/classical-orbital-elements
   - caption: Orbital Maneuvers
     chapters:
-      - file: orbital-maneuvers/perifocal-frame
       - file: orbital-maneuvers/impulsive-maneuvers
       - file: orbital-maneuvers/single-impulse-example
       - file: orbital-maneuvers/hohmann-transfer
