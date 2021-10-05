@@ -177,7 +177,7 @@ EXPOSE 10000
 
 # Configure container startup
 ENTRYPOINT ["tini", "-g", "--"]
-CMD ["start-notebook.sh"]
+CMD ["start-notebook.sh", "--NotebookApp.password=''", "--NotebookApp.token=''"]
 
 # Copy local files as late as possible to avoid cache busting
 COPY start.sh start-notebook.sh /usr/local/bin/

@@ -8,6 +8,8 @@ dependencies = [
     "NLsolve",
     "DifferentialEquations",
     "Plots",
+    "Colors",
+    "Rotations",
 ]
 
 Pkg.add(dependencies)
