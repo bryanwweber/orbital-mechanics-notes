@@ -1,0 +1,79 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import plotly.io as pio
+pio.renderers.default = "notebook_connected"
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-0ca51fcfe732>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mplotly[0m[0;34m.[0m[0mio[0m [0;32mas[0m [0mpio[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mpio[0m[0;34m.[0m[0mrenderers[0m[0;34m.[0m[0mdefault[0m [0;34m=[0m [0;34m"notebook_connected"[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/_plotly_utils/importers.py[0m in [0;36m__getattr__[0;34m(import_name)[0m
+[1;32m     34[0m             [0mrel_module[0m [0;34m=[0m [0;34m"."[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mrel_path_parts[0m[0;34m[[0m[0;34m:[0m[0;34m-[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     35[0m             [0mclass_name[0m [0;34m=[0m [0mimport_name[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 36[0;31m             [0mclass_module[0m [0;34m=[0m [0mimportlib[0m[0;34m.[0m[0mimport_module[0m[0;34m([0m[0mrel_module[0m[0;34m,[0m [0mparent_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     37[0m             [0;32mreturn[0m [0mgetattr[0m[0;34m([0m[0mclass_module[0m[0;34m,[0m [0mclass_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     38[0m [0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/__init__.py[0m in [0;36mimport_module[0;34m(name, package)[0m
+[1;32m    125[0m                 [0;32mbreak[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    126[0m             [0mlevel[0m [0;34m+=[0m [0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 127[0;31m     [0;32mreturn[0m [0m_bootstrap[0m[0;34m.[0m[0m_gcd_import[0m[0;34m([0m[0mname[0m[0;34m[[0m[0mlevel[0m[0;34m:[0m[0;34m][0m[0;34m,[0m [0mpackage[0m[0;34m,[0m [0mlevel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    128[0m [0;34m[0m[0m
+[1;32m    129[0m [0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/_bootstrap.py[0m in [0;36m_gcd_import[0;34m(name, package, level)[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/_bootstrap.py[0m in [0;36m_find_and_load[0;34m(name, import_)[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/_bootstrap.py[0m in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/_bootstrap.py[0m in [0;36m_load_unlocked[0;34m(spec)[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/_bootstrap_external.py[0m in [0;36mexec_module[0;34m(self, module)[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/importlib/_bootstrap.py[0m in [0;36m_call_with_frames_removed[0;34m(f, *args, **kwds)[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/plotly/io/_renderers.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mplotly[0m [0;32mimport[0m [0moptional_imports[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[0;32m---> 12[0;31m from plotly.io._base_renderers import (
+[0m[1;32m     13[0m     [0mMimetypeRenderer[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m     [0mExternalRenderer[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/plotly/io/_base_renderers.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;32mfrom[0m [0mplotly[0m [0;32mimport[0m [0mutils[0m[0;34m,[0m [0moptional_imports[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     11[0m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0mio[0m [0;32mimport[0m [0mto_json[0m[0;34m,[0m [0mto_image[0m[0;34m,[0m [0mwrite_image[0m[0;34m,[0m [0mwrite_html[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0m_orca[0m [0;32mimport[0m [0mensure_server[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0mio[0m[0;34m.[0m[0m_utils[0m [0;32mimport[0m [0mplotly_cdn_url[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mfrom[0m [0mplotly[0m[0;34m.[0m[0moffline[0m[0;34m.[0m[0moffline[0m [0;32mimport[0m [0m_get_jconfig[0m[0;34m,[0m [0mget_plotlyjs[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/plotly/io/_orca.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     13[0m [0;32mfrom[0m [0mpathlib[0m [0;32mimport[0m [0mPath[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0;34m[0m[0m
+[0;32m---> 15[0;31m [0;32mimport[0m [0mtenacity[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     16[0m [0;32mfrom[0m [0msix[0m [0;32mimport[0m [0mstring_types[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     17[0m [0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'tenacity'
+ModuleNotFoundError: No module named 'tenacity'
+
