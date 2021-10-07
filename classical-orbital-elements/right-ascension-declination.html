@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Right Ascension and Declination Coordinates &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/classical-orbital-elements/right-ascension-declination.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Classical Orbital Elements" href="classical-orbital-elements.html" />
+    <link rel="prev" title="Perifocal Frame" href="perifocal-frame.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Orbital Mechanics &amp; Astrodynamics
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">
+   Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/lagrange-points.html">
+   Application of the CR3BP: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
+   Example: Plotting Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
+   The Jacobi Constant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/circular-orbits.html">
+   Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">
+   Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">
+   Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">
+   Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Classical Orbital Elements
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="perifocal-frame.html">
+   Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Right Ascension and Declination Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="classical-orbital-elements.html">
+   Classical Orbital Elements
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Orbital Maneuvers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">
+   Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/single-impulse-example.html">
+   Example: Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html">
+   Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/bielliptic-hohmann-transfer.html">
+   Bielliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bielliptic and Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/phasing-maneuvers.html">
+   Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html">
+   Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/apse-line-rotation.html">
+   Apse Line Rotation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/chase-maneuvers.html">
+   Chase Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-maneuvers.html">
+   Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/kennedy-launch-angles.html">
+   Kennedy Launch Angles
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/classical-orbital-elements/right-ascension-declination.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fclassical-orbital-elements/right-ascension-declination.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/classical-orbital-elements/right-ascension-declination.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#celestial-coordinate-system">
+   Celestial Coordinate System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecliptic">
+   Ecliptic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stars">
+   Stars
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effects-of-precession">
+   Effects of Precession
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="right-ascension-and-declination-coordinates">
+<h1>Right Ascension and Declination Coordinates<a class="headerlink" href="#right-ascension-and-declination-coordinates" title="Permalink to this headline">¶</a></h1>
+<p>To the human eye, from the surface of the earth, stars and other objects in the night sky appear as points on a sphere surrounding the earth. This sphere is called the <a class="reference internal" href="../reference/celestial-sphere.html"><span class="doc std std-doc">celestial sphere</span></a>. The points on the celestial sphere appear in the same location at the same time of night throughout the year, even as the earth orbits the sun. This is because most stars are so far away that the scale of motion in the solar system is not enough to change our perspective on them, so they appear to be fixed to the sphere.</p>
+<p>Since the stars are fixed, we can identify their positions on the celestial sphere and use them as reference points to determine orbital parameters. The reference frame used to describe these positions is similar to the <a class="reference internal" href="../intro/reference-frames.html#sec-earth-centered-inertial"><span class="std std-ref">Earth-Centered Inertial</span></a> frame. However, the celestial sphere uses spherical coordinates rather than Cartesian. Due to the huge distances to the visible stars, the radial distance is not important, and we only care about the angular position.</p>
+<div class="section" id="celestial-coordinate-system">
+<h2>Celestial Coordinate System<a class="headerlink" href="#celestial-coordinate-system" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="fig-ra-and-dec-on-celestial-sphere">
+<a class="reference internal image-reference" href="../_images/Ra_and_dec_on_celestial_sphere.png"><img alt="../_images/Ra_and_dec_on_celestial_sphere.png" src="../_images/Ra_and_dec_on_celestial_sphere.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">The coordinate system on the celestial sphere. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Ra_and_dec_on_celestial_sphere.png">Tfr000 (talk) 15:34, 15 June 2012 (UTC)</a></a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-ra-and-dec-on-celestial-sphere" title="Permalink to this image">¶</a></p>
+</div>
+<p>The celestial sphere is shown in <a class="reference internal" href="#fig-ra-and-dec-on-celestial-sphere"><span class="std std-numref">Fig. 42</span></a>. The fundamental plane in this coordinate system is the earth’s equatorial plane. The intersection of the earth’s equatorial plane and the celestial sphere is the <strong>celestial equator</strong>. The coordinates are similar to latitude and longitude on the earth, but projected out onto the celestial sphere.</p>
+<p>The celestial north and south poles are aligned with the earth’s north and south poles. The angle from the equator to the poles is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Declination"><strong>declination</strong></a>. Like latitude, declination is 0° at the celestial equator and ±90° at the poles. Declination is usually abbreviated DEC.</p>
+<p>The other coordinate is called <a class="reference external" href="https://en.wikipedia.org/wiki/Right_ascension"><strong>right ascension</strong></a>, abbreviated RA. The zero point of right ascension is at the March, or vernal, equinox and increases going eastward. It takes the earth about 1 hour to rotate through 15° of right ascension, so lines of right ascension are also called hour lines.</p>
+</div>
+<div class="section" id="ecliptic">
+<h2>Ecliptic<a class="headerlink" href="#ecliptic" title="Permalink to this headline">¶</a></h2>
+<p>Also shown on <a class="reference internal" href="#fig-ra-and-dec-on-celestial-sphere"><span class="std std-numref">Fig. 42</span></a> is a line representing the ecliptic. This is the apparent path that the sun follows through the sky if we measured the right ascension and declination of the sun at the same time every day. The ecliptic is also the plane of the earth’s orbit around the sun. The reason that the sun does not follow the celestial equator is because the earth’s rotation axis is tilted by 23.4°.</p>
+<p>Another way to view the equinox is as the line generated by the intersection of the equatorial plane and the ecliptic plane.</p>
+</div>
+<div class="section" id="stars">
+<h2>Stars<a class="headerlink" href="#stars" title="Permalink to this headline">¶</a></h2>
+<p>As seen from the Northern Hemisphere on Earth, any objects with a declination of approximately 90° - <span class="math notranslate nohighlight">\(\phi\)</span>, where <span class="math notranslate nohighlight">\(\phi\)</span> is the observers latitude, will remain above the horizon all the time. These objects will appear to trace circles around the north celestial pole. The closer an object’s declination is to +90°, the smaller the circle it traces. The star Polaris is currently quite close to the north celestial pole and is known as the North Star. Likewise, the constellation Usra Minor (the Little Dipper) never sets.</p>
+<p>Other constellations, such as Orion (and the stars Belegeuse and Rigel) have declinations of only about +7.5°, so from New England they appear to rise and set each night.</p>
+<p>Finally, stars with declinations below about -90° + <span class="math notranslate nohighlight">\(\phi\)</span> do not rise at all.</p>
+</div>
+<div class="section" id="effects-of-precession">
+<h2>Effects of Precession<a class="headerlink" href="#effects-of-precession" title="Permalink to this headline">¶</a></h2>
+<p>As of the year 2021, the March equinox points in the direction of the constellation Pisces. In antiquity, when the first astronomical observations were recorded, the March equinox was in the constellation of Aries. Thus, the March equinox is also sometimes called the first point of Aries.</p>
+<p>This change has occurred due to a phenomenon called <a class="reference external" href="https://en.wikipedia.org/wiki/Axial_precession"><strong>axial precession</strong></a>. Over time, the rotation vector of the earth changes direction due to the combined pull of the moon and the sun on the earth. Axial precession occurs in a cycle that is approximately 25,700 years long.</p>
+<p>This means that we need to define where point of 0° right ascension occurs based on the time of the observation. This defines the <a class="reference external" href="https://en.wikipedia.org/wiki/Epoch_(astronomy)"><strong>epoch</strong></a> for the observation. The most common epoch in use today is called the <strong>J2000</strong> epoch.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Since the time of Aristotle, astronomical days start at 12:00 PM (noon) and end at 11:59 AM on the next civil day. This is so that all observations from a single night occur on the same astronomical day, which makes calculations much easier.</p>
+</div>
+<p>The J2000 epoch references all coordinates to January 1, 2000 at 12:00 PM (noon). The “J” in J2000 refers to the <a class="reference external" href="https://en.wikipedia.org/wiki/Julian_day"><strong>Julian day</strong></a>, a method of counting time as a continuous number of days, rather than years and months. The zero point for Julian days is in 4731 BCE. Thus, J2000 refers to the Julian day of 2,451,545.0.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./classical-orbital-elements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="perifocal-frame.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Perifocal Frame</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="classical-orbital-elements.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Classical Orbital Elements</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

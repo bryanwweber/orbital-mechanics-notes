@@ -20,7 +20,7 @@ There are two important results in this section:
 
 :::{math}
 :label: eq:vis-viva-equation
-E = \frac{v^2}{2} - \frac{mu}{r}
+E = \frac{v^2}{2} - \frac{\mu}{r}
 :::
 
 </div>

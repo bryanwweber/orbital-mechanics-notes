@@ -82,7 +82,7 @@ The Earth Centered Inertial coordinate system has its origin at the center of th
 In the ECI, the $X$ axis points towards the **March equinox**. The equinoxes are the points in space where the earth's equatorial plane and its ecliptic plane intersect. The March equinox occurs when the sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the **First point of Aries**.
 
 :::{margin}
-For more about the equinoxes, see the page about the [Celestial Sphere](../reference/celestial-sphere.md).
+For more about the equinoxes, see the page about the [](../reference/celestial-sphere.md) and [](../classical-orbital-elements/right-ascension-declination.md).
 :::
 
 (sec:earth-centered-earth-fixed)=

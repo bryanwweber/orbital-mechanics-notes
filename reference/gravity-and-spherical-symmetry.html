@@ -47,7 +47,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["\\overline{#1}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -254,8 +254,25 @@
    )
   </a>
  </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Classical Orbital Elements
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/classical-orbital-elements.html">
+  <a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">
+   Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">
+   Right Ascension and Declination Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">
    Classical Orbital Elements
   </a>
  </li>
@@ -266,11 +283,6 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/perifocal-frame.html">
-   Perifocal Frame
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">
    Impulsive Maneuvers
@@ -509,10 +521,10 @@
 <h2>Conservative Forces Are Related to Potential Energy<a class="headerlink" href="#conservative-forces-are-related-to-potential-energy" title="Permalink to this headline">¶</a></h2>
 <p>The force field of a conservative force can be determined from the gradient of the potential energy function:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravity-force-field">
-<span class="eqno">(207)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V = - \left(\frac{\partial V}{\partial x}\uvec{\imath} + \frac{\partial V}{\partial y}\uvec{\jmath} + \frac{\partial V}{\partial z}\uvec{k}\right)\]</div>
+<span class="eqno">(215)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V = - \left(\frac{\partial V}{\partial x}\uvec{\imath} + \frac{\partial V}{\partial y}\uvec{\jmath} + \frac{\partial V}{\partial z}\uvec{k}\right)\]</div>
 <p>Thus, the attractive force between <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-force-from-potential-function">
-<span class="eqno">(208)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\vector{F} = \frac{V \vector{r}}{r^2}\]</div>
+<span class="eqno">(216)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\vector{F} = \frac{V \vector{r}}{r^2}\]</div>
 <p>By plugging in the definition of <span class="math notranslate nohighlight">\(V\)</span>, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-gravitational-potential-energy-function">(96)</a>, we recover the two-body relative equation of motion.</p>
 <p>In the book, they show that the gravitational potential energy field of a sphere is equivalent to the field of an equivalent point mass located at the center of the sphere. As long as the spheres don’t come into contact, we can substitute point masses for spheres with no difference in the equations!</p>
 <p>TODO: Add this proof following Appendix E in <span id="id1">[<a class="reference internal" href="../bibliography.html#id8" title="Howard D Curtis. Orbital Mechanics for Engineering Students. Elsevier, fourth edition, 2020. ISBN 978-0-08-102133-0.">Cur20</a>]</span>.</p>
