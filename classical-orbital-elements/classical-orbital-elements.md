@@ -1,3 +1,15 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.3-dev
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 # Classical Orbital Elements
 
 We know that the solution to the 3-D vector orbit equation requires six independent elements to find a solution. So far, we have worked with $\vector{r}$ and $\vector{v}$ and their scalar components when determining orbits. In this section, we introduce the six classical orbital elements, which can also be used as a set of independent components of the orbit.
@@ -19,6 +31,8 @@ The semi-major axis determines the size of the conic section. For a circle, it i
 
 The semi-latus rectum may specified instead of the semi-major axis, since with $a$ and $e$, $p$ can be calculated. This is convenient for parabolic trajectories where the semi-major axis is not as meaningful.
 
+Finally, the specific angular momentum, $h$, can also be used in place of the semi-major axis.
+
 ## $e$, the Eccentricity
 
 The eccentricity describes the deviation of the trajectory from a circle. When $e=0$, the orbit is circular; for values of $e < 1$, the orbit is elliptical. When $e = 1$, the trajectory is parabolic and for $e > 1$, the trajectory is hyperbolic.
@@ -27,9 +41,17 @@ The eccentricity describes the deviation of the trajectory from a circle. When $
 
 The [inclination](https://en.wikipedia.org/wiki/Orbital_inclination) is the angle from the $\uvec{K}$ axis in the reference frame to the angular momentum vector, $\vector{h}$, as shown in {numref}`fig:definition-of-inclination`. The inclination ranges from 0° to 180°.
 
-:::{figure}
+```{code-cell} python
+:tags: ["remove-input"]
+from IPython.display import HTML
+from scripts import definition_of_inclination
+from myst_nb import glue
+
+glue("definition_of_inclination", HTML(definition_of_inclination.html), display=False)
+```
+
+:::{glue:figure} definition_of_inclination
 :name: fig:definition-of-inclination
-:width: 75%
 
 The inclination of a planar orbit with respect to a reference plane.
 :::
