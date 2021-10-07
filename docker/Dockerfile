@@ -165,7 +165,8 @@ RUN mamba install --quiet --yes \
     'numpy' \
     'ipympl' \
     'poliastro' \
-    'skyfield' && \
+    'skyfield' \
+    'plotly' && \
     conda clean --all -f -y && \
     jupyter lab --generate-config && \
     jupyter lab clean && \
