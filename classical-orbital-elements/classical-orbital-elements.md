@@ -66,6 +66,21 @@ Orbits from 90° to 180° are called **retrograde** orbits because they rotate c
 
 Consider an orbit inclined at angle $i$ to the reference plane of the coordinate system, as shown in {numref}`fig:definition-of-raan`. The spacecraft spends part of its time above the reference plane and part of the time below the reference plane.
 
+```{code-cell} python
+:tags: ["remove-input"]
+from IPython.display import HTML
+from scripts import definition_of_raan
+from myst_nb import glue
+
+glue("definition_of_raan", HTML(definition_of_raan.html), display=False)
+```
+
+:::{glue:figure} definition_of_raan
+:name: fig:definition-of-raan
+
+The right ascension of the ascending node is the angle from the $X$ axis to the ascending node.
+:::
+
 The intersection of these two planes is a line, called the **node line**. This line will appear in calculations later. Since the orbit follows the perimeter of th orbital plane, this implies there are two crossing points:
 
 1. The **descending node**: The point when the spacecraft goes from above to below the reference plane
@@ -80,6 +95,22 @@ If the orbit has an inclination of 0° or 180°, the right ascension of the asce
 ## $\omega$, the Argument of Periapsis
 
 In the [perifocal reference frame](./perifocal-frame.md), periapsis occurs at a true anomaly of 0°. The argument of periapsis determines how far around the orbit you have to go, starting at the ascending node, before you get to periapsis. This definition is shown in {numref}`fig:definition-of-argument-of-periapsis`.
+
+```{code-cell} python
+:tags: ["remove-input"]
+from IPython.display import HTML
+from scripts import definition_of_argument_of_periapsis
+from myst_nb import glue
+# Comment
+
+glue("definition_of_argument_of_periapsis", HTML(definition_of_argument_of_periapsis.html), display=False)
+```
+
+:::{glue:figure} definition_of_argument_of_periapsis
+:name: fig:definition-of-argument-of-periapsis
+
+The right ascension of the ascending node is the angle from the $X$ axis to the ascending node.
+:::
 
 Alternatively, the right ascension of periapsis (abbreviated RAP or $\Pi$) may be specified. In this case, the angle given is the sum of the right ascension of the ascending node and the argument of periapsis:
 
