@@ -72,7 +72,7 @@ ax.annotate(f"{np.degrees(np.pi - theta):.0F}°", xy=(1250 * np.cos(ann), 1250*n
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1794/1806926473.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1835/1806926473.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      2[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mpatches[0m [0;32mimport[0m [0mCircle[0m[0;34m,[0m [0mArc[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 4[0;31m [0;32mfrom[0m [0msympy[0m [0;32mimport[0m [0msymbols[0m[0;34m,[0m [0mEq[0m[0;34m,[0m [0msolve[0m[0;34m[0m[0;34m[0m[0m
