@@ -46,7 +46,7 @@ and we can subsequently find the azimuthal velocity by the Pythagorean theorem:
 
 :::{math}
 :label: orbital-elements-perpendicular-velocity
-v\_{\perp} = \sqrt{v^2 - v_r^2}
+v_{\perp} = \sqrt{v^2 - v_r^2}
 :::
 
 ::::{tab} Python
