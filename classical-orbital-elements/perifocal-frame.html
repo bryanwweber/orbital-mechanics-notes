@@ -280,6 +280,11 @@
    Classical Orbital Elements
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="orbital-elements-and-the-state-vector.html">
+   Classical Orbital Elements and the State Vector
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -547,7 +552,7 @@
 <p><span class="math notranslate nohighlight">\(\pf{x}\)</span> and <span class="math notranslate nohighlight">\(\pf{y}\)</span> can be transformed into the radial-true anomaly polar coordinate system by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-perifocal-polar-conversion">
 <span class="eqno">(166)<a class="headerlink" href="#equation-eq-perifocal-polar-conversion" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
-  \pf{x} &amp;= r\cos\nu &amp; \pf{y} &amp;= r\sin\nu
+\pf{x} &amp;= r\cos\nu &amp; \pf{y} &amp;= r\sin\nu
 \end{aligned}\]</div>
 <p>By plugging in the orbit equation, Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a>, <span class="math notranslate nohighlight">\(\vector{r}\)</span> can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-perifocal-vector-orbit-equation">
@@ -561,8 +566,8 @@
 <p>Then we need to apply the product rule, because both <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> are functions of time:</p>
 <div class="math notranslate nohighlight" id="equation-eq-perifocal-dot-products">
 <span class="eqno">(169)<a class="headerlink" href="#equation-eq-perifocal-dot-products" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
-  \dot{\pf{x}} &amp;= \dot{r}\cos\nu - r\dot{\nu}\sin\nu \\
-  \dot{\pf{y}} &amp;= \dot{r}\sin\nu + r\dot{\nu}\cos\nu
+\pf{\dot{x}} &amp;= \dot{r}\cos\nu - r\dot{\nu}\sin\nu \\
+\pf{\dot{y}} &amp;= \dot{r}\sin\nu + r\dot{\nu}\cos\nu
 \end{aligned}\end{split}\]</div>
 <p>Substituting some of the relationships from previously, we can simplify the velocity vector as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-perifocal-simplified-velocity-vector">

@@ -280,6 +280,11 @@
    Classical Orbital Elements
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
+   Classical Orbital Elements and the State Vector
+  </a>
+ </li>
 </ul>
 <p class="caption" role="heading">
  <span class="caption-text">
@@ -535,70 +540,70 @@
 <h2>Position and Velocity<a class="headerlink" href="#position-and-velocity" title="Permalink to this headline">¶</a></h2>
 <p>Given a <a class="reference internal" href="../intro/reference-frames.html"><span class="doc std std-doc">frame of reference</span></a>, we can specify the position of any particle <span class="math notranslate nohighlight">\(P\)</span> with reference to the origin <span class="math notranslate nohighlight">\(O\)</span> of the the coordinate system:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-position-vector">
-<span class="eqno">(172)<a class="headerlink" href="#equation-eq-cartesian-position-vector" title="Permalink to this equation">¶</a></span>\[\vector{r}(t) = x(t)\uvec{\imath} + y(t)\uvec{\jmath} + z(t)\uvec{k}\]</div>
+<span class="eqno">(185)<a class="headerlink" href="#equation-eq-cartesian-position-vector" title="Permalink to this equation">¶</a></span>\[\vector{r}(t) = x(t)\uvec{\imath} + y(t)\uvec{\jmath} + z(t)\uvec{k}\]</div>
 <div class="figure align-default" id="fig-cartesian-position-vector">
-<img alt="The position of particle P in a Cartesian coordinate system" src="../_images/position-vector-to-point.svg" /><p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">The position vector <span class="math notranslate nohighlight">\(\vec{r}(t)\)</span> specifies the position of <span class="math notranslate nohighlight">\(P\)</span> relative to <span class="math notranslate nohighlight">\(O\)</span>.</span><a class="headerlink" href="#fig-cartesian-position-vector" title="Permalink to this image">¶</a></p>
+<img alt="The position of particle P in a Cartesian coordinate system" src="../_images/position-vector-to-point.svg" /><p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">The position vector <span class="math notranslate nohighlight">\(\vec{r}(t)\)</span> specifies the position of <span class="math notranslate nohighlight">\(P\)</span> relative to <span class="math notranslate nohighlight">\(O\)</span>.</span><a class="headerlink" href="#fig-cartesian-position-vector" title="Permalink to this image">¶</a></p>
 </div>
 <p>The distance of <span class="math notranslate nohighlight">\(P\)</span> from the origin is the magnitude of its position vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-distance">
-<span class="eqno">(173)<a class="headerlink" href="#equation-eq-cartesian-distance" title="Permalink to this equation">¶</a></span>\[\mag{\vector{r}} = r(t) = \sqrt{x^2 + y^2 + z^2} = \sqrt{\vector{r}\cdot\vector{r}}\]</div>
+<span class="eqno">(186)<a class="headerlink" href="#equation-eq-cartesian-distance" title="Permalink to this equation">¶</a></span>\[\mag{\vector{r}} = r(t) = \sqrt{x^2 + y^2 + z^2} = \sqrt{\vector{r}\cdot\vector{r}}\]</div>
 <p>Recalling that <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> are functions of time, we can define the velocity vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-velocity-vector">
-<span class="eqno">(174)<a class="headerlink" href="#equation-eq-cartesian-velocity-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{v}(t) &amp;= \frac{dx(t)}{dt}\uvec{\imath} + \frac{dy(t)}{dt}\uvec{\jmath} + \frac{dz(t)}{dt}\uvec{k} \\ &amp;= v_x\uvec{\imath} + v_y\uvec{\jmath} + v_z\uvec{k} \\ &amp;= \dot{\vector{r}}\end{aligned}\end{split}\]</div>
+<span class="eqno">(187)<a class="headerlink" href="#equation-eq-cartesian-velocity-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{v}(t) &amp;= \frac{dx(t)}{dt}\uvec{\imath} + \frac{dy(t)}{dt}\uvec{\jmath} + \frac{dz(t)}{dt}\uvec{k} \\ &amp;= v_x\uvec{\imath} + v_y\uvec{\jmath} + v_z\uvec{k} \\ &amp;= \dot{\vector{r}}\end{aligned}\end{split}\]</div>
 <p>and the acceleration vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cartesian-acceleration-vector">
-<span class="eqno">(175)<a class="headerlink" href="#equation-eq-cartesian-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{a}(t) &amp;= \frac{dv_x(t)}{dt}\uvec{\imath} + \frac{dv_y(t)}{dt}\uvec{\jmath} + \frac{dv_z(t)}{dt}\uvec{k} \\ &amp;= a_x\uvec{\imath} + a_y\uvec{\jmath} + a_z\uvec{k} \\ &amp;= \dot{\vector{v}} = \ddot{\vector{r}}\end{aligned}\end{split}\]</div>
+<span class="eqno">(188)<a class="headerlink" href="#equation-eq-cartesian-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{a}(t) &amp;= \frac{dv_x(t)}{dt}\uvec{\imath} + \frac{dv_y(t)}{dt}\uvec{\jmath} + \frac{dv_z(t)}{dt}\uvec{k} \\ &amp;= a_x\uvec{\imath} + a_y\uvec{\jmath} + a_z\uvec{k} \\ &amp;= \dot{\vector{v}} = \ddot{\vector{r}}\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="particle-path">
 <h2>Particle Path<a class="headerlink" href="#particle-path" title="Permalink to this headline">¶</a></h2>
 <p>The locus of points <span class="math notranslate nohighlight">\(\vector{r}\)</span> that a particle passes through is called its <strong>path</strong>. If the path is straight, the motion is called <strong>rectilinear</strong>. Otherwise, the motion is <strong>curvilinear</strong>.</p>
 <p>By definition, the velocity vector <span class="math notranslate nohighlight">\(\vector{v}\)</span> is tangent to the path. If <span class="math notranslate nohighlight">\(\uvec{u}_{t}\)</span> is the unit vector tangent to the path, then the velocity can also be specified as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-velocity-vector">
-<span class="eqno">(176)<a class="headerlink" href="#equation-eq-lagrange-velocity-vector" title="Permalink to this equation">¶</a></span>\[\vector{v} = v \uvec{u}_{t}\]</div>
+<span class="eqno">(189)<a class="headerlink" href="#equation-eq-lagrange-velocity-vector" title="Permalink to this equation">¶</a></span>\[\vector{v} = v \uvec{u}_{t}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v\)</span> is the magnitude of the velocity, which can be determined from:</p>
 <div class="math notranslate nohighlight" id="equation-eq-eulerian-velocity-magnitude">
-<span class="eqno">(177)<a class="headerlink" href="#equation-eq-eulerian-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \mag{\vector{v}} = \sqrt{v_x^2 + v_y^2 + v_z^2}\]</div>
+<span class="eqno">(190)<a class="headerlink" href="#equation-eq-eulerian-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \mag{\vector{v}} = \sqrt{v_x^2 + v_y^2 + v_z^2}\]</div>
 <p>if <span class="math notranslate nohighlight">\(v_x\)</span>, <span class="math notranslate nohighlight">\(v_y\)</span>, and <span class="math notranslate nohighlight">\(v_z\)</span> are known. The velocity magnitude can also be found by differentiating the particle’s distance along the path as a function of time:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-velocity-magnitude">
-<span class="eqno">(178)<a class="headerlink" href="#equation-eq-lagrange-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \frac{ds}{dt} = \dot{s}\]</div>
+<span class="eqno">(191)<a class="headerlink" href="#equation-eq-lagrange-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v = \frac{ds}{dt} = \dot{s}\]</div>
 <p>where <span class="math notranslate nohighlight">\(s\)</span> is the distance that the particle travels along its path.</p>
 <p>Note that, in general, the magnitude of the velocity <span class="math notranslate nohighlight">\(v\)</span> is not equal to the time derivative of the magnitude of the position vector <span class="math notranslate nohighlight">\(\dot{r}\)</span>. In other words, the magnitude of the derivative of <span class="math notranslate nohighlight">\(\vector{r}\)</span> does not equal the derivative of the magnitude of <span class="math notranslate nohighlight">\(\vector{r}\)</span>.</p>
 <p>The acceleration has a component that is tangent to the path and a component that is perpendicular to the path:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-acceleration-vector">
-<span class="eqno">(179)<a class="headerlink" href="#equation-eq-lagrange-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\vector{a} = a_t \uvec{u}_{t} + a_n \uvec{u}_{n}\]</div>
+<span class="eqno">(192)<a class="headerlink" href="#equation-eq-lagrange-acceleration-vector" title="Permalink to this equation">¶</a></span>\[\vector{a} = a_t \uvec{u}_{t} + a_n \uvec{u}_{n}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a_t\)</span> and <span class="math notranslate nohighlight">\(a_n\)</span> are the magnitudes of the acceleration in the tangent and normal directions, and <span class="math notranslate nohighlight">\(\uvec{u}_{n}\)</span> is the unit vector normal to the path. The tangential acceleration causes the particle to move faster along its path, while the normal component causes the path of the particle to change, to curve the path.</p>
 <p>The components of the acceleration are given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-acceleration-components">
-<span class="eqno">(180)<a class="headerlink" href="#equation-eq-lagrange-acceleration-components" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(193)<a class="headerlink" href="#equation-eq-lagrange-acceleration-components" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   a_t &amp;= \dot{v} = \ddot{s} \\
   a_n &amp;= \frac{v^2}{\rho}
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the <strong>radius of curvature</strong>. This is the distance from the particle <span class="math notranslate nohighlight">\(P\)</span> to the center of curvature <span class="math notranslate nohighlight">\(C\)</span> of the path at that point.</p>
 <p>The normal unit vector is perpendicular to the tangent unit vector and points towards the center of curvature. The position of <span class="math notranslate nohighlight">\(C\)</span> relative to <span class="math notranslate nohighlight">\(P\)</span> is given by the vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-center-of-curvature">
-<span class="eqno">(181)<a class="headerlink" href="#equation-eq-center-of-curvature" title="Permalink to this equation">¶</a></span>\[\vector{r}_{C/P} = \rho \uvec{u}_{n}\]</div>
+<span class="eqno">(194)<a class="headerlink" href="#equation-eq-center-of-curvature" title="Permalink to this equation">¶</a></span>\[\vector{r}_{C/P} = \rho \uvec{u}_{n}\]</div>
 <div class="figure align-default" id="fig-center-of-curvature">
-<img alt="../_images/center-of-curvature.svg" src="../_images/center-of-curvature.svg" /><p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">The center of curvature of a path <span class="math notranslate nohighlight">\(s\)</span> is a distance <span class="math notranslate nohighlight">\(\rho\)</span> from the particle.</span><a class="headerlink" href="#fig-center-of-curvature" title="Permalink to this image">¶</a></p>
+<img alt="../_images/center-of-curvature.svg" src="../_images/center-of-curvature.svg" /><p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">The center of curvature of a path <span class="math notranslate nohighlight">\(s\)</span> is a distance <span class="math notranslate nohighlight">\(\rho\)</span> from the particle.</span><a class="headerlink" href="#fig-center-of-curvature" title="Permalink to this image">¶</a></p>
 </div>
-<p>Since the particle is pivoting around the center of curvature, it sweeps out areas on a plane as it moves. In a small time <span class="math notranslate nohighlight">\(dt\)</span>, the particle moves a distance <span class="math notranslate nohighlight">\(ds\)</span>. This motion is associated with a small swept angle <span class="math notranslate nohighlight">\(d\phi\)</span>, as shown in <a class="reference internal" href="#fig-swept-angle"><span class="std std-numref">Fig. 48</span></a>:</p>
+<p>Since the particle is pivoting around the center of curvature, it sweeps out areas on a plane as it moves. In a small time <span class="math notranslate nohighlight">\(dt\)</span>, the particle moves a distance <span class="math notranslate nohighlight">\(ds\)</span>. This motion is associated with a small swept angle <span class="math notranslate nohighlight">\(d\phi\)</span>, as shown in <a class="reference internal" href="#fig-swept-angle"><span class="std std-numref">Fig. 49</span></a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-path-length">
-<span class="eqno">(182)<a class="headerlink" href="#equation-eq-differential-path-length" title="Permalink to this equation">¶</a></span>\[ds = \rho d\phi\]</div>
+<span class="eqno">(195)<a class="headerlink" href="#equation-eq-differential-path-length" title="Permalink to this equation">¶</a></span>\[ds = \rho d\phi\]</div>
 <div class="figure align-default" id="fig-swept-angle">
-<img alt="../_images/swept-angle.svg" src="../_images/swept-angle.svg" /><p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">The angle swept during a differential movement of the particle <span class="math notranslate nohighlight">\(P\)</span> is <span class="math notranslate nohighlight">\(d\phi\)</span>.</span><a class="headerlink" href="#fig-swept-angle" title="Permalink to this image">¶</a></p>
+<img alt="../_images/swept-angle.svg" src="../_images/swept-angle.svg" /><p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">The angle swept during a differential movement of the particle <span class="math notranslate nohighlight">\(P\)</span> is <span class="math notranslate nohighlight">\(d\phi\)</span>.</span><a class="headerlink" href="#fig-swept-angle" title="Permalink to this image">¶</a></p>
 </div>
 <p>The time rate change of <span class="math notranslate nohighlight">\(\phi\)</span> is then given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-angular-velocity">
-<span class="eqno">(183)<a class="headerlink" href="#equation-eq-angular-velocity" title="Permalink to this equation">¶</a></span>\[\frac{d\phi}{dt} = \frac{ds}{dt}\frac{1}{\rho} = \frac{v}{\rho}\]</div>
+<span class="eqno">(196)<a class="headerlink" href="#equation-eq-angular-velocity" title="Permalink to this equation">¶</a></span>\[\frac{d\phi}{dt} = \frac{ds}{dt}\frac{1}{\rho} = \frac{v}{\rho}\]</div>
 </div>
 <div class="section" id="osculating-plane">
 <h2>Osculating Plane<a class="headerlink" href="#osculating-plane" title="Permalink to this headline">¶</a></h2>
 <p>By definition, two vectors can be used to form a plane. In the case of <span class="math notranslate nohighlight">\(\uvec{u}_{t}\)</span> and <span class="math notranslate nohighlight">\(\uvec{u}_{n}\)</span>, the plane they form is called the <strong>osculating plane</strong>. By construction, the center of curvature lies on the osculating plane and this is the plane where the angle <span class="math notranslate nohighlight">\(\phi\)</span> is swept.</p>
 <p>The unit vector normal to the osculating plane is called the <strong>binormal vector</strong>, <span class="math notranslate nohighlight">\(\uvec{u_b}\)</span>. If the tangent and normal path vectors are known, the binormal vector can be found from the cross product:</p>
 <div class="math notranslate nohighlight" id="equation-eq-binormal-vector">
-<span class="eqno">(184)<a class="headerlink" href="#equation-eq-binormal-vector" title="Permalink to this equation">¶</a></span>\[\uvec{u}_{b} = \uvec{u}_{t}\cross\uvec{u}\_{n}\]</div>
+<span class="eqno">(197)<a class="headerlink" href="#equation-eq-binormal-vector" title="Permalink to this equation">¶</a></span>\[\uvec{u}_{b} = \uvec{u}_{t}\cross\uvec{u}\_{n}\]</div>
 <p>However, we are more likely to know the velocity and acceleration vectors of the particle. We can show algebraically that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-binormal-from-acceleration">
-<span class="eqno">(185)<a class="headerlink" href="#equation-eq-binormal-from-acceleration" title="Permalink to this equation">¶</a></span>\[\uvec{u}\_{b} = \frac{\vector{v}\cross\vector{a}}{\mag{\vector{v}\cross\vector{a}}}\]</div>
+<span class="eqno">(198)<a class="headerlink" href="#equation-eq-binormal-from-acceleration" title="Permalink to this equation">¶</a></span>\[\uvec{u}\_{b} = \frac{\vector{v}\cross\vector{a}}{\mag{\vector{v}\cross\vector{a}}}\]</div>
 <p>which is usually a more convenient way of calculating the binormal unit vector.</p>
 </div>
 </div>

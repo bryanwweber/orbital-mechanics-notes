@@ -36,7 +36,7 @@ $\pf{x}$ and $\pf{y}$ can be transformed into the radial-true anomaly polar coor
 :::{math}
 :label: eq:perifocal-polar-conversion
 \begin{aligned}
-  \pf{x} &= r\cos\nu & \pf{y} &= r\sin\nu
+\pf{x} &= r\cos\nu & \pf{y} &= r\sin\nu
 \end{aligned}
 :::
 
@@ -61,8 +61,8 @@ Then we need to apply the product rule, because both $r$ and $\nu$ are functions
 :::{math}
 :label: eq:perifocal-dot-products
 \begin{aligned}
-  \dot{\pf{x}} &= \dot{r}\cos\nu - r\dot{\nu}\sin\nu \\
-  \dot{\pf{y}} &= \dot{r}\sin\nu + r\dot{\nu}\cos\nu
+\pf{\dot{x}} &= \dot{r}\cos\nu - r\dot{\nu}\sin\nu \\
+\pf{\dot{y}} &= \dot{r}\sin\nu + r\dot{\nu}\cos\nu
 \end{aligned}
 :::
 
