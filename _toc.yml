@@ -40,6 +40,7 @@ parts:
       - file: classical-orbital-elements/perifocal-frame
       - file: classical-orbital-elements/right-ascension-declination
       - file: classical-orbital-elements/classical-orbital-elements
+      - file: classical-orbital-elements/orbital-elements-and-the-state-vector
   - caption: Orbital Maneuvers
     chapters:
       - file: orbital-maneuvers/impulsive-maneuvers
