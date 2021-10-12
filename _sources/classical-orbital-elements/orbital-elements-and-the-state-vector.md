@@ -288,7 +288,7 @@ If $v_r \geq 0$, then $\vector{r}$ is increasing in length and the spacecraft mu
 :::
 ::::
 
-For this problem, we find $v_r =$ {glue:text}`orbital-elements-v_r:.4F` km/s, so the argument of periapsis is in the third or fourth quadrant. Then, we find $\nu =$ {glue:text}`orbital-elements-true-anomaly:.2F`°. The true anomaly is the sixth and final orbital element.
+For this problem, we find $v_r =$ {glue:text}`orbital-elements-v_r:.4F` km/s, so the argument of periapsis is in the first or second quadrant. Then, we find $\nu =$ {glue:text}`orbital-elements-true-anomaly:.2F`°. The true anomaly is the sixth and final orbital element.
 
 ## Orbital Elements → State Vector
 

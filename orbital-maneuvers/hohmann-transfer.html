@@ -554,18 +554,21 @@
 <div class="section" id="intersecting-orbits">
 <h2>Intersecting Orbits<a class="headerlink" href="#intersecting-orbits" title="Permalink to this headline">¶</a></h2>
 <p>The simplest case is when the two orbits intersect at some point. In this case, there is only one impulse necessary. The change in velocity is given by the difference in velocity vectors at the intersection point:</p>
-<div class="math notranslate nohighlight">
-\[\Delta \vector{v} = \vector{v}_2 - \vector{v}_1\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-0">
+<span class="eqno">(187)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\Delta \vector{v} = \vector{v}\_2 - \vector{v}\_1\]</div>
 <p>An example of this type of maneuver is <strong>circularizing</strong> an elliptical orbit. Assume that the apoapsis distance of the initial orbit is the desired radius of the final, circular, orbit. Then, the velocity vectors at apoapsis of the initial orbit and the circular orbit are parallel. Thus, the <span class="math notranslate nohighlight">\(\Delta v\)</span> required is the difference in velocity magnitude of the two orbits:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v = v_{2} - v_{1,a} = \sqrt{\frac{\mu}{r_a}} - \frac{h}{r_a} = \sqrt{\frac{\mu}{r_a}}\left(1 - \sqrt{1 - e_1}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-1">
+<span class="eqno">(188)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-1" title="Permalink to this equation">¶</a></span>\[\Delta v = v*{2} - v*{1,a} = \sqrt{\frac{\mu}{r_a}} - \frac{h}{r_a} = \sqrt{\frac{\mu}{r_a}}\left(1 - \sqrt{1 - e_1}\right)\]</div>
 <p>More complicated cases can be envisioned, but they all follow the same procedure.</p>
 </div>
 <div class="section" id="two-impulse-transfers">
 <h2>Two Impulse Transfers<a class="headerlink" href="#two-impulse-transfers" title="Permalink to this headline">¶</a></h2>
 <p>If the initial orbit and final orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit"><strong>Hohmann transfer</strong></a>.</p>
-<p><img alt="Hohmann transfer orbit. Source Wikipedia" src="../_images/hohmann-transfer-orbit.svg" /></p>
-<p>In this figure, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. Note that <span class="math notranslate nohighlight">\(\mathsf{R}' &gt; \mathsf{R}\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. The periapsis distance of this transfer orbit is equal to <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and the apoapsis distance is <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>.</p>
+<div class="figure align-default" id="fig-hohmann-transfer">
+<a class="reference internal image-reference" href="../_images/hohmann-transfer-orbit.svg"><img alt="../_images/hohmann-transfer-orbit.svg" src="../_images/hohmann-transfer-orbit.svg" width="75%" /></a>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">The Hohmann transfer orbit. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg">Leafnode</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-hohmann-transfer" title="Permalink to this image">¶</a></p>
+</div>
+<p>In {numref}`fig:hohmann-transfer, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. Note that <span class="math notranslate nohighlight">\(\mathsf{R}' &gt; \mathsf{R}\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. The periapsis distance of this transfer orbit is equal to <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and the apoapsis distance is <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>.</p>
 <p>Thus, at the locations where orbit 2 intersects with orbits 1 and 3, the velocity vectors are parallel, and we can work entirely with velocity magnitudes. The reason this is the most efficient two-impulse maneuver is because only the magnitude of the velocity needs to change, not its direction as well. This means that the minimum propellant is used to achieve the necessary <span class="math notranslate nohighlight">\(\Delta v\)</span>.</p>
 <p>For multiple-impulse maneuvers, we are interested in determining the <strong>total</strong> <span class="math notranslate nohighlight">\(\Delta v\)</span>. Since a maneuver to decrease the spacecraft velocity consumes the same amount of propellant as one that increases the velocity we are concerned with the magnitude of all of the necessary velocity changes.</p>
 <p>For the case of increasing the orbit altitude, the first impulse is an increase in velocity in the direction of flight. This impulse increases the apoapsis altitude of the orbit to match the radius of the target orbit. The second impulse is again in the direction of flight to increase the velocity again to match the velocity of the target orbit.</p>
@@ -573,30 +576,30 @@
 <div class="section" id="calculating-delta-v">
 <h3>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">¶</a></h3>
 <p>For each impulse, we need to calculate the difference in velocity magnitude between the circular orbit and the transfer orbit. Since the impulses occur at periapsis and apoapsis of the transfer orbit, the velocity is given by:</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}v_{t,p} &amp;= \frac{h_t}{r_p} &amp; v_{t,a} &amp;= \frac{h_t}{r_a}\end{aligned}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-2">
+<span class="eqno">(189)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-2" title="Permalink to this equation">¶</a></span>\[\begin{aligned}v*{t,p} &amp;= \frac{h_t}{r_p} &amp; v*{t,a} &amp;= \frac{h_t}{r_a}\end{aligned}\]</div>
 <p>where the subscript <span class="math notranslate nohighlight">\(t\)</span> indicates the quantity is for the transfer orbit. That is, <span class="math notranslate nohighlight">\(h_t\)</span> is the specific orbital angular momentum of the elliptical transfer orbit. The <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(p\)</span> subscripts stand for apoapsis and periapsis, respectively. Note that the periapsis and apoapsis radii are given by the radii of the initial and target orbits, depending on which direction the transfer is going.</p>
 <p>From the equations for elliptical orbits, we can solve for the specific angular momentum in terms of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>, which are generally known:</p>
-<div class="math notranslate nohighlight">
-\[h_t = \sqrt{2\mu}\sqrt{\frac{r_a r_p}{r_a + r_p}}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-3">
+<span class="eqno">(190)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-3" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu}\sqrt{\frac{r_a r_p}{r_a + r_p}}\]</div>
 <p>The velocities of the circular orbits are given by:</p>
-<div class="math notranslate nohighlight">
-\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-4">
+<span class="eqno">(191)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-4" title="Permalink to this equation">¶</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
 </div>
 <div class="section" id="transit-time">
 <h3>Transit Time<a class="headerlink" href="#transit-time" title="Permalink to this headline">¶</a></h3>
 <p>Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit:</p>
-<div class="math notranslate nohighlight">
-\[t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-5">
+<span class="eqno">(192)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-5" title="Permalink to this equation">¶</a></span>\[t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the transfer time and <span class="math notranslate nohighlight">\(a_t\)</span> is the semimajor axis of the transfer orbit. There are many ways to determine the semimajor axis, including from the definition of the semimajor axis:</p>
-<div class="math notranslate nohighlight">
-\[a = \frac{r_a + r_p}{2}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-6">
+<span class="eqno">(193)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-6" title="Permalink to this equation">¶</a></span>\[a = \frac{r_a + r_p}{2}\]</div>
 <p>or the specific angular momentum and eccentricity:</p>
-<div class="math notranslate nohighlight">
-\[a = \frac{h_t^2}{\mu}\frac{1}{1 - e_t^2}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-7">
+<span class="eqno">(194)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-7" title="Permalink to this equation">¶</a></span>\[a = \frac{h_t^2}{\mu}\frac{1}{1 - e_t^2}\]</div>
 <p>or the energy equation:</p>
-<div class="math notranslate nohighlight">
-\[a = \frac{r_p \mu}{2 \mu - r_p v_{t,p}^2} = \frac{r_a \mu}{2 \mu - r_a v_{t,a}^2}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-8">
+<span class="eqno">(195)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-8" title="Permalink to this equation">¶</a></span>\[a = \frac{r^{*} p \mu}{2 \mu - r_p v*{t,p}^2} = \frac{r*a \mu}{2 \mu - r_a v*{t,a}^2}\]</div>
 </div>
 </div>
 <div class="section" id="elliptical-initial-or-target-orbits">
@@ -613,34 +616,52 @@
 </ol>
 <p>It is not clear which transfer orbit is more efficient in terms of the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement to achieve the transfer. We can analyze each transfer orbit in terms of the energy equation to determine which transfer is more efficient.</p>
 <p>We can calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> in each case to determine which is more efficient. We will approach this calculation using the energy equation:</p>
-<div class="math notranslate nohighlight">
-\[\frac{v^2}{2\mu} - \frac{1}{r} = -\frac{1}{2a}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-9">
+<span class="eqno">(196)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-9" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2\mu} - \frac{1}{r} = -\frac{1}{2a}\]</div>
 <p>Without loss of generality, we will assume that the initial orbit has a smaller semimajor axis than the target orbit. Therefore, the target orbit has a higher energy (closer to zero) than the initial orbit.</p>
 <!-- Let the subscripts $A$, $B$, and $t$ denote the initial, target, and transfer orbits, respectively. In addition, let the subscripts $a$ and $p$ denote apoapsis and periapsis of the initial and target orbits.
 
 The $\Delta v$ for the first case is given by:
 
-$$\Delta v_1 = \Delta v_{A\rightarrow t} + \Delta v_{t\rightarrow B}$$
+:::{math}
+:label:
+\Delta v_1 = \Delta v_{A\rightarrow t} + \Delta v_{t\rightarrow B}
+:::
 
 where the two $\Delta v$ terms are given by:
 
-$$\begin{aligned}\Delta v_{A\rightarrow t} &= v_{t,p} - v_{A,p} = \frac{h_t}{r_{A,p}} - \frac{h_A}{r_{A,p}} & \Delta v_{t\rightarrow B} &= v_{B,a} - v_{t,a} = \frac{h_B}{r_{B,a}} - \frac{h_t}{r_{B,a}}\end{aligned}$$
+:::{math}
+:label:
+\begin{aligned}\Delta v_{A\rightarrow t} &= v_{t,p} - v_{A,p} = \frac{h_t}{r_{A,p}} - \frac{h_A}{r_{A,p}} & \Delta v_{t\rightarrow B} &= v_{B,a} - v_{t,a} = \frac{h_B}{r_{B,a}} - \frac{h_t}{r_{B,a}}\end{aligned}
+:::
 
 The specific angular momentum terms are given by:
 
-$$\begin{aligned}h_A &= \sqrt{2 \mu}\sqrt{\frac{r_{A,p}r_{A,a}}{r_{A,a} + r_{A,p}}} & h_B &= \sqrt{2 \mu}\sqrt{\frac{r_{B,p}r_{B,a}}{r_{B,a} + r_{B,p}}} & h_t &= \sqrt{2 \mu}\sqrt{\frac{r_{A,p}r_{B,a}}{r_{B,a} + r_{A,p}}}\end{aligned}$$
+:::{math}
+:label:
+\begin{aligned}h_A &= \sqrt{2 \mu}\sqrt{\frac{r_{A,p}r_{A,a}}{r_{A,a} + r_{A,p}}} & h_B &= \sqrt{2 \mu}\sqrt{\frac{r_{B,p}r_{B,a}}{r_{B,a} + r_{B,p}}} & h_t &= \sqrt{2 \mu}\sqrt{\frac{r_{A,p}r_{B,a}}{r_{B,a} + r_{A,p}}}\end{aligned}
+:::
 
 The $\Delta v$ for the second case is given by:
 
-$$\Delta v_2 = \Delta v_{A\rightarrow t} + \Delta v_{t\rightarrow B}$$
+:::{math}
+:label:
+\Delta v_2 = \Delta v_{A\rightarrow t} + \Delta v_{t\rightarrow B}
+:::
 
 where the two $\Delta v$ terms are given by:
 
-$$\begin{aligned}\Delta v_{A\rightarrow t} &= v_{t,p} - v_{A,a} = \frac{h_t}{r_{A,a}} - \frac{h_A}{r_{A,a}} & \Delta v_{t\rightarrow B} &= v_{B,p} - v_{t,a} = \frac{h_B}{r_{B,p}} - \frac{h_t}{r_{B,p}}\end{aligned}$$
+:::{math}
+:label:
+\begin{aligned}\Delta v_{A\rightarrow t} &= v_{t,p} - v_{A,a} = \frac{h_t}{r_{A,a}} - \frac{h_A}{r_{A,a}} & \Delta v_{t\rightarrow B} &= v_{B,p} - v_{t,a} = \frac{h_B}{r_{B,p}} - \frac{h_t}{r_{B,p}}\end{aligned}
+:::
 
 The specific angular momentum terms for $A$ and $B$ are the same; the transfer orbit specific angular momentum is:
 
-$$h_t = \sqrt{2 \mu}\sqrt{\frac{r_{A,a}r_{B,p}}{r_{B,p} + r_{A,a}}}$$
+:::{math}
+:label:
+h_t = \sqrt{2 \mu}\sqrt{\frac{r_{A,a}r_{B,p}}{r_{B,p} + r_{A,a}}}
+:::
 
 Conveniently, if we take the ratio $\Delta v_2 / \Delta v_1$, the $\sqrt{2\mu}$ term cancels out and the result is only dependent on the ratios $r_{A,a}/r_{A,p}$, $r_{B,a}/r_{B,p}$, and $r_{B,p}/r_{A,p}$. -->
 </div>

@@ -457,11 +457,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/single-impulse-example.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="../_sources/orbital-maneuvers/single-impulse-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/single-impulse-example.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -482,7 +485,7 @@
             href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Forbital-maneuvers/single-impulse-example.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/single-impulse-example.ipynb"><button
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/single-impulse-example.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -502,7 +505,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/single-impulse-example.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/single-impulse-example.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -534,22 +537,12 @@
 \[\Delta \vector{v} = \vector{v}_2 - \vector{v}_1\]</div>
 <p>where the two velocities are determined at the point of intersection of the two orbits. The equation can be simplified to involve only velocity magnitudes when the velocity vectors are parallel at the point of intersection.</p>
 <p>Let’s consider a case where we want to deorbit a spacecraft from low Earth orbit. To deorbit a spacecraft, we need to place it in an orbit that will intersect the atmosphere. Once in the atmosphere, drag will take over and reduce the velocity to the terminal velocity. As a simplification, we will neglect the atmosphere. This means we will determine the true anomaly when the spacecraft reaches the surface of the earth, or when the orbital radius is equal to the earth’s radius.</p>
-<p>Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the <span class="math notranslate nohighlight">\(x\)</span> axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in the figure below.</p>
-<div class="cell tag_remove-input docutils container">
+<p>Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the <span class="math notranslate nohighlight">\(x\)</span> axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in <a class="reference internal" href="#fig-single-impulse-example-orbit"><span class="std std-numref">Fig. 47</span></a>.</p>
+<div class="figure align-default" id="fig-single-impulse-example-orbit">
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1945</span><span class="o">/</span><span class="mf">1806926473.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Arc</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">solve</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">h</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;h,e&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
+<img alt="../_images/single-impulse-example_1_0.png" src="../_images/single-impulse-example_1_0.png" />
 </div>
-</div>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">A deorbit maneuver conducted by a providing a single impulse to the spacecraft.</span><a class="headerlink" href="#fig-single-impulse-example-orbit" title="Permalink to this image">¶</a></p>
 </div>
 <p>We are interested in calculating the <span class="math notranslate nohighlight">\(\Delta v\)</span> required to perform this maneuver. Since the impact orbit and the initial orbit intersect at one point, we can use a single impulse transfer to perform the maneuver. Therefore, the <span class="math notranslate nohighlight">\(\Delta v\)</span> is given by the difference in velocities at the impulse point. Since the velocity vectors are parallel for the initial and impact orbits at the impulse point, we can work entirely in magnitudes.</p>
 <p>To find <span class="math notranslate nohighlight">\(\Delta v\)</span>, we need to calculate two velocities:</p>
@@ -561,12 +554,12 @@
 <div class="math notranslate nohighlight">
 \[v_2 = v_a = \frac{h}{r_a}\]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the specific orbital angular momentum and <span class="math notranslate nohighlight">\(r_a\)</span> is the radius of the earth plus the initial orbital altitude. Therefore this problem reduces to finding the specific orbital angular momentum of the impact orbit.</p>
-<p>To find the specific angular momentum, we can use the equations for an elliptical orbit. We know at apogee, <span class="math notranslate nohighlight">\(\theta =\)</span> 180°, such that the orbit equation is:</p>
+<p>To find the specific angular momentum, we can use the equations for an elliptical orbit. We know at apogee, <span class="math notranslate nohighlight">\(\nu =\)</span> 180°, such that the orbit equation is:</p>
 <div class="math notranslate nohighlight">
 \[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
-<p>In addition, we know that at the impact point, <span class="math notranslate nohighlight">\(\theta =\)</span> 180° - 145° and <span class="math notranslate nohighlight">\(r = R_E\)</span>. Thus:</p>
+<p>In addition, we know that at the impact point, <span class="math notranslate nohighlight">\(\nu =\)</span> 180° - 145° and <span class="math notranslate nohighlight">\(r = R_E\)</span>. Thus:</p>
 <div class="math notranslate nohighlight">
-\[R_E = \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta}\]</div>
+\[R_E = \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu}\]</div>
 <p>Now we have two equations and two unknowns, <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(e\)</span>. Solving these equations simultaneously, we can find <span class="math notranslate nohighlight">\(h\)</span>.</p>
 <p>Finally, the velocity of the spacecraft on the circular orbit is:</p>
 <div class="math notranslate nohighlight">
@@ -580,25 +573,24 @@
 
 <span class="n">altitude</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># km</span>
 <span class="n">impact_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">145</span><span class="p">)</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">impact_point</span>
+<span class="n">nu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">impact_point</span>
 
 <span class="n">r_a</span> <span class="o">=</span> <span class="n">R_E</span> <span class="o">+</span> <span class="n">altitude</span>
 
 <span class="n">v_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_a</span><span class="p">)</span>
 
 <span class="c1"># It turns out to be easier to solve for e first and then for h</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">altitude</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_E</span> <span class="o">+</span> <span class="n">altitude</span> <span class="o">+</span> <span class="n">R_E</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">R_E</span> <span class="o">+</span> <span class="n">altitude</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">altitude</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_a</span> <span class="o">+</span> <span class="n">R_E</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">))</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">r_a</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span>
 
-<span class="n">v_2</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_E</span> <span class="o">+</span> <span class="n">altitude</span><span class="p">)</span>
+<span class="n">v_2</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_a</span><span class="p">)</span>
 
 <span class="n">Δv</span> <span class="o">=</span> <span class="n">v_2</span> <span class="o">-</span> <span class="n">v_1</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Δv</span><span class="si">=:</span><span class="s2">0.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The required velocity change is -0.2976 km/s, meaning the spacecraft must slow down by that amount to transfer to the impact orbit.</p>
+<p>The required velocity change is <span class="math notranslate nohighlight">\(\Delta v =\)</span> <span class="pasted-text">-0.2976</span> km/s, meaning the spacecraft must slow down by that amount to transfer to the impact orbit.</p>
 </div>
 
     <script type="text/x-thebe-config">
