@@ -56,7 +56,7 @@ parts:
       - file: orbital-maneuvers/plane-change-example
       - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
       - file: orbital-maneuvers/nonimpulsive-maneuver-example
-      - file: orbital-maneuvers/kennedy-launch-angles
+      # - file: orbital-maneuvers/kennedy-launch-angles
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
