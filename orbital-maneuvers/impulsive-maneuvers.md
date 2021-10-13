@@ -42,3 +42,22 @@ I_{sp} = \frac{\text{Thrust}}{\text{Sea-level weight rate of fuel consumption}}
 Therefore, $I_{sp}$ has units of seconds. Higher values of $I_{sp}$ are better, because it means we are either getting more thrust per unit fuel consumed per unit time (the top gets bigger and the bottom is constant) or we are getting the same thrust at a lower fuel consumption rate (the top is constant and the bottom gets bigger).
 
 Although $I_{sp}$ is a measure of the efficiency of the engine in converting fuel chemical energy into thrust, it is not the only performance metric of interest for rocket engines. In practice, engines with high specific impulse tend to have very low thrust. This makes them poorly suited for applications that require a large acceleration, such lift-off from the surface of the earth.
+
+## Total Velocity Change
+
+As suggested by Eq. {eq}`eq:rocket-thrust-equation`, the required propellant mass when using an engine with a given $I_{sp}$ is exponentially proportional to the change of velocity. The $\Delta v$ in Eq. {eq}`eq:rocket-thrust-equation` must be the magnitude of the *total* velocity change for the maneuver.
+
+Some maneuvers require multiple impulse events to accomplish the goal. The total $\Delta v$ is the sum of the absolute value of the change in velocity required for each impulse event. This means that speeding up or slowing down or changing the direction of the spacecraft all required some $\Delta v$ and some propellant to accomplish.
+
+For a single impulse, the change in velocity is given by the vector difference between the velocity before the impulse and after the impulse:
+
+:::{math}
+:label: eq:single-impulse-delta-v
+\Delta \vector{v} = \vector{v}_2 - \vector{v}_1
+:::
+
+where $\vector{v}_2$ is the velocity after the impulse and $\vector{v}_1$ is the velocity before the impulse.
+
+If multiple impulses are required to achieve a particular orbital change, then the magnitude of $\Delta \vector{v}$ from each impulse, computed by Eq. {eq}`eq:single-impulse-delta-v`, must be added together for use in Eq. {eq}`eq:rocket-thrust-equation`.
+
+Due to the direct relationship between the required velocity change to perform a maneuver and the required propellant, maneuvers are often quoted by their $\Delta v$. All other things being equal, smaller $\Delta v$ is better.
