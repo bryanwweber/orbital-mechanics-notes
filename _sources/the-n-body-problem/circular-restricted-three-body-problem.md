@@ -12,7 +12,7 @@ Although these assumptions seem fairly restrictive, they actually represent seve
 We'll see in a later section that the eccentricity of an orbit determines how close to a circle the orbit is. An eccentricity of 0 gives the equation for a circle, while vales up to 1.0 are ellipses.
 :::
 
-The orbit of the moon around the earth is approximately circular, with a mean eccentricity of 0.054, and semimajor and semiminor axes of 384,400 km and 383,800 km, respectively. The center of mass of the system occurs at a distance of 4,600 km from the Earth's center, about 72% of the radius of the Earth. This data comes from [Wikipedia](https://en.wikipedia.org/wiki/Orbit_of_the_Moon).
+The orbit of the moon around the earth is approximately circular, with a mean eccentricity of 0.054, and semi-major and semi-minor axes of 384,400 km and 383,800 km, respectively. The center of mass of the system occurs at a distance of 4,600 km from the Earth's center, about 72% of the radius of the Earth. This data comes from [Wikipedia](https://en.wikipedia.org/wiki/Orbit_of_the_Moon).
 
 Similarly, the orbits of Venus, Earth, Jupiter, Saturn, Neptune, and Uranus around the sun all have eccentricities less than 0.06, according to the [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/).
 

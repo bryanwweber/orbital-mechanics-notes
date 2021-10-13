@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/impulsive-maneuvers.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example: Single Impulse Orbital Change" href="single-impulse-example.html" />
+    <link rel="next" title="Single Impulse Orbital Change" href="single-impulse-example.html" />
     <link rel="prev" title="Classical Orbital Elements and the State Vector" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -299,7 +299,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="single-impulse-example.html">
-   Example: Single Impulse Orbital Change
+   Single Impulse Orbital Change
   </a>
  </li>
  <li class="toctree-l1">
@@ -514,6 +514,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#total-velocity-change">
+   Total Velocity Change
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -553,6 +558,17 @@
 <p>Therefore, <span class="math notranslate nohighlight">\(I_{sp}\)</span> has units of seconds. Higher values of <span class="math notranslate nohighlight">\(I_{sp}\)</span> are better, because it means we are either getting more thrust per unit fuel consumed per unit time (the top gets bigger and the bottom is constant) or we are getting the same thrust at a lower fuel consumption rate (the top is constant and the bottom gets bigger).</p>
 <p>Although <span class="math notranslate nohighlight">\(I_{sp}\)</span> is a measure of the efficiency of the engine in converting fuel chemical energy into thrust, it is not the only performance metric of interest for rocket engines. In practice, engines with high specific impulse tend to have very low thrust. This makes them poorly suited for applications that require a large acceleration, such lift-off from the surface of the earth.</p>
 </div>
+</div>
+<div class="section" id="total-velocity-change">
+<h2>Total Velocity Change<a class="headerlink" href="#total-velocity-change" title="Permalink to this headline">¶</a></h2>
+<p>As suggested by Eq. <a class="reference internal" href="#equation-eq-rocket-thrust-equation">(185)</a>, the required propellant mass when using an engine with a given <span class="math notranslate nohighlight">\(I_{sp}\)</span> is exponentially proportional to the change of velocity. The <span class="math notranslate nohighlight">\(\Delta v\)</span> in Eq. <a class="reference internal" href="#equation-eq-rocket-thrust-equation">(185)</a> must be the magnitude of the <em>total</em> velocity change for the maneuver.</p>
+<p>Some maneuvers require multiple impulse events to accomplish the goal. The total <span class="math notranslate nohighlight">\(\Delta v\)</span> is the sum of the absolute value of the change in velocity required for each impulse event. This means that speeding up or slowing down or changing the direction of the spacecraft all required some <span class="math notranslate nohighlight">\(\Delta v\)</span> and some propellant to accomplish.</p>
+<p>For a single impulse, the change in velocity is given by the vector difference between the velocity before the impulse and after the impulse:</p>
+<div class="math notranslate nohighlight" id="equation-eq-single-impulse-delta-v">
+<span class="eqno">(187)<a class="headerlink" href="#equation-eq-single-impulse-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta \vector{v} = \vector{v}_2 - \vector{v}_1\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{v}_2\)</span> is the velocity after the impulse and <span class="math notranslate nohighlight">\(\vector{v}_1\)</span> is the velocity before the impulse.</p>
+<p>If multiple impulses are required to achieve a particular orbital change, then the magnitude of <span class="math notranslate nohighlight">\(\Delta \vector{v}\)</span> from each impulse, computed by Eq. <a class="reference internal" href="#equation-eq-single-impulse-delta-v">(187)</a>, must be added together for use in Eq. <a class="reference internal" href="#equation-eq-rocket-thrust-equation">(185)</a>.</p>
+<p>Due to the direct relationship between the required velocity change to perform a maneuver and the required propellant, maneuvers are often quoted by their <span class="math notranslate nohighlight">\(\Delta v\)</span>. All other things being equal, smaller <span class="math notranslate nohighlight">\(\Delta v\)</span> is better.</p>
 </div>
 </div>
 
@@ -598,7 +614,7 @@
         <a class="right-next" href="single-impulse-example.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Example: Single Impulse Orbital Change</p>
+                <p class="prevnext-title">Single Impulse Orbital Change</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

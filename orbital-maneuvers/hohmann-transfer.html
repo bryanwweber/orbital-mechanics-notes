@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bielliptic Hohmann transfer" href="bielliptic-hohmann-transfer.html" />
-    <link rel="prev" title="Example: Single Impulse Orbital Change" href="single-impulse-example.html" />
+    <link rel="prev" title="Single Impulse Orbital Change" href="single-impulse-example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -299,7 +299,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="single-impulse-example.html">
-   Example: Single Impulse Orbital Change
+   Single Impulse Orbital Change
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -550,10 +550,10 @@
 <h2>Intersecting Orbits<a class="headerlink" href="#intersecting-orbits" title="Permalink to this headline">¶</a></h2>
 <p>The simplest case is when the two orbits intersect at some point. In this case, there is only one impulse necessary. The change in velocity is given by the difference in velocity vectors at the intersection point:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-0">
-<span class="eqno">(187)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\Delta \vector{v} = \vector{v}\_2 - \vector{v}\_1\]</div>
+<span class="eqno">(189)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\Delta \vector{v} = \vector{v}\_2 - \vector{v}\_1\]</div>
 <p>An example of this type of maneuver is <strong>circularizing</strong> an elliptical orbit. Assume that the apoapsis distance of the initial orbit is the desired radius of the final, circular, orbit. Then, the velocity vectors at apoapsis of the initial orbit and the circular orbit are parallel. Thus, the <span class="math notranslate nohighlight">\(\Delta v\)</span> required is the difference in velocity magnitude of the two orbits:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-1">
-<span class="eqno">(188)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-1" title="Permalink to this equation">¶</a></span>\[\Delta v = v*{2} - v*{1,a} = \sqrt{\frac{\mu}{r_a}} - \frac{h}{r_a} = \sqrt{\frac{\mu}{r_a}}\left(1 - \sqrt{1 - e_1}\right)\]</div>
+<span class="eqno">(190)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-1" title="Permalink to this equation">¶</a></span>\[\Delta v = v*{2} - v*{1,a} = \sqrt{\frac{\mu}{r_a}} - \frac{h}{r_a} = \sqrt{\frac{\mu}{r_a}}\left(1 - \sqrt{1 - e_1}\right)\]</div>
 <p>More complicated cases can be envisioned, but they all follow the same procedure.</p>
 </div>
 <div class="section" id="two-impulse-transfers">
@@ -572,29 +572,29 @@
 <h3>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">¶</a></h3>
 <p>For each impulse, we need to calculate the difference in velocity magnitude between the circular orbit and the transfer orbit. Since the impulses occur at periapsis and apoapsis of the transfer orbit, the velocity is given by:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-2">
-<span class="eqno">(189)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-2" title="Permalink to this equation">¶</a></span>\[\begin{aligned}v*{t,p} &amp;= \frac{h_t}{r_p} &amp; v*{t,a} &amp;= \frac{h_t}{r_a}\end{aligned}\]</div>
+<span class="eqno">(191)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-2" title="Permalink to this equation">¶</a></span>\[\begin{aligned}v*{t,p} &amp;= \frac{h_t}{r_p} &amp; v*{t,a} &amp;= \frac{h_t}{r_a}\end{aligned}\]</div>
 <p>where the subscript <span class="math notranslate nohighlight">\(t\)</span> indicates the quantity is for the transfer orbit. That is, <span class="math notranslate nohighlight">\(h_t\)</span> is the specific orbital angular momentum of the elliptical transfer orbit. The <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(p\)</span> subscripts stand for apoapsis and periapsis, respectively. Note that the periapsis and apoapsis radii are given by the radii of the initial and target orbits, depending on which direction the transfer is going.</p>
 <p>From the equations for elliptical orbits, we can solve for the specific angular momentum in terms of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>, which are generally known:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-3">
-<span class="eqno">(190)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-3" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu}\sqrt{\frac{r_a r_p}{r_a + r_p}}\]</div>
+<span class="eqno">(192)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-3" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu}\sqrt{\frac{r_a r_p}{r_a + r_p}}\]</div>
 <p>The velocities of the circular orbits are given by:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-4">
-<span class="eqno">(191)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-4" title="Permalink to this equation">¶</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
+<span class="eqno">(193)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-4" title="Permalink to this equation">¶</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
 </div>
 <div class="section" id="transit-time">
 <h3>Transit Time<a class="headerlink" href="#transit-time" title="Permalink to this headline">¶</a></h3>
 <p>Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-5">
-<span class="eqno">(192)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-5" title="Permalink to this equation">¶</a></span>\[t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
+<span class="eqno">(194)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-5" title="Permalink to this equation">¶</a></span>\[t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the transfer time and <span class="math notranslate nohighlight">\(a_t\)</span> is the semimajor axis of the transfer orbit. There are many ways to determine the semimajor axis, including from the definition of the semimajor axis:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-6">
-<span class="eqno">(193)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-6" title="Permalink to this equation">¶</a></span>\[a = \frac{r_a + r_p}{2}\]</div>
+<span class="eqno">(195)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-6" title="Permalink to this equation">¶</a></span>\[a = \frac{r_a + r_p}{2}\]</div>
 <p>or the specific angular momentum and eccentricity:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-7">
-<span class="eqno">(194)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-7" title="Permalink to this equation">¶</a></span>\[a = \frac{h_t^2}{\mu}\frac{1}{1 - e_t^2}\]</div>
+<span class="eqno">(196)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-7" title="Permalink to this equation">¶</a></span>\[a = \frac{h_t^2}{\mu}\frac{1}{1 - e_t^2}\]</div>
 <p>or the energy equation:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-8">
-<span class="eqno">(195)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-8" title="Permalink to this equation">¶</a></span>\[a = \frac{r^{*} p \mu}{2 \mu - r_p v*{t,p}^2} = \frac{r*a \mu}{2 \mu - r_a v*{t,a}^2}\]</div>
+<span class="eqno">(197)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-8" title="Permalink to this equation">¶</a></span>\[a = \frac{r^{*} p \mu}{2 \mu - r_p v*{t,p}^2} = \frac{r*a \mu}{2 \mu - r_a v*{t,a}^2}\]</div>
 </div>
 </div>
 <div class="section" id="elliptical-initial-or-target-orbits">
@@ -612,7 +612,7 @@
 <p>It is not clear which transfer orbit is more efficient in terms of the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement to achieve the transfer. We can analyze each transfer orbit in terms of the energy equation to determine which transfer is more efficient.</p>
 <p>We can calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> in each case to determine which is more efficient. We will approach this calculation using the energy equation:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-9">
-<span class="eqno">(196)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-9" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2\mu} - \frac{1}{r} = -\frac{1}{2a}\]</div>
+<span class="eqno">(198)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-9" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2\mu} - \frac{1}{r} = -\frac{1}{2a}\]</div>
 <p>Without loss of generality, we will assume that the initial orbit has a smaller semimajor axis than the target orbit. Therefore, the target orbit has a higher energy (closer to zero) than the initial orbit.</p>
 <!-- Let the subscripts $A$, $B$, and $t$ denote the initial, target, and transfer orbits, respectively. In addition, let the subscripts $a$ and $p$ denote apoapsis and periapsis of the initial and target orbits.
 
@@ -696,7 +696,7 @@ Conveniently, if we take the ratio $\Delta v_2 / \Delta v_1$, the $\sqrt{2\mu}$ 
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Example: Single Impulse Orbital Change</p>
+                <p class="prevnext-title">Single Impulse Orbital Change</p>
             </div>
         </a>
     </div>
