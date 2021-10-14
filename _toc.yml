@@ -46,6 +46,7 @@ parts:
       - file: orbital-maneuvers/impulsive-maneuvers
       - file: orbital-maneuvers/single-impulse-example
       - file: orbital-maneuvers/hohmann-transfer
+      - file: orbital-maneuvers/hohmann-transfer-example
       - file: orbital-maneuvers/bielliptic-hohmann-transfer
       - file: orbital-maneuvers/comparison-of-bielliptic-and-hohmann
       - file: orbital-maneuvers/phasing-maneuvers
