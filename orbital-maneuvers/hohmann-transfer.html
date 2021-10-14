@@ -503,23 +503,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intersecting-orbits">
-   Intersecting Orbits
+  <a class="reference internal nav-link" href="#energy-considerations">
+   Energy Considerations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#two-impulse-transfers">
-   Two Impulse Transfers
+  <a class="reference internal nav-link" href="#calculating-delta-v">
+   Calculating
+   <span class="math notranslate nohighlight">
+    \(\Delta v\)
+   </span>
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculating-delta-v">
-     Calculating
-     <span class="math notranslate nohighlight">
-      \(\Delta v\)
-     </span>
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transit-time">
      Transit Time
@@ -545,121 +540,119 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="hohmann-transfer">
 <h1>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Permalink to this headline">¶</a></h1>
-<p>We will now analyze several impulsive maneuvers that allow a spacecraft to change orbital parameters such as <span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(\omega\)</span>. In all cases, we will assume that the initial orbit and final, desired, orbit have the same focus. Initially, we will also assume the orbits are coplanar.</p>
-<div class="section" id="intersecting-orbits">
-<h2>Intersecting Orbits<a class="headerlink" href="#intersecting-orbits" title="Permalink to this headline">¶</a></h2>
-<p>The simplest case is when the two orbits intersect at some point. In this case, there is only one impulse necessary. The change in velocity is given by the difference in velocity vectors at the intersection point:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-0">
-<span class="eqno">(189)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\Delta \vector{v} = \vector{v}\_2 - \vector{v}\_1\]</div>
-<p>An example of this type of maneuver is <strong>circularizing</strong> an elliptical orbit. Assume that the apoapsis distance of the initial orbit is the desired radius of the final, circular, orbit. Then, the velocity vectors at apoapsis of the initial orbit and the circular orbit are parallel. Thus, the <span class="math notranslate nohighlight">\(\Delta v\)</span> required is the difference in velocity magnitude of the two orbits:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-1">
-<span class="eqno">(190)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-1" title="Permalink to this equation">¶</a></span>\[\Delta v = v*{2} - v*{1,a} = \sqrt{\frac{\mu}{r_a}} - \frac{h}{r_a} = \sqrt{\frac{\mu}{r_a}}\left(1 - \sqrt{1 - e_1}\right)\]</div>
-<p>More complicated cases can be envisioned, but they all follow the same procedure.</p>
-</div>
-<div class="section" id="two-impulse-transfers">
-<h2>Two Impulse Transfers<a class="headerlink" href="#two-impulse-transfers" title="Permalink to this headline">¶</a></h2>
-<p>If the initial orbit and final orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit"><strong>Hohmann transfer</strong></a>.</p>
+<p>If the initial orbit and final, or target, orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann <span id="id1">[<a class="reference internal" href="../bibliography.html#id13" title="Walter Hohmann. The Attainability of Heavenly Bodies. NASA, 1960.">Hoh60</a>]</span> showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit"><strong>Hohmann transfer</strong></a>.</p>
 <div class="figure align-default" id="fig-hohmann-transfer">
-<a class="reference internal image-reference" href="../_images/hohmann-transfer-orbit.svg"><img alt="../_images/hohmann-transfer-orbit.svg" src="../_images/hohmann-transfer-orbit.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/hohmann-transfer-orbit.svg"><img alt="../_images/hohmann-transfer-orbit.svg" src="../_images/hohmann-transfer-orbit.svg" width="50%" /></a>
 <p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">The Hohmann transfer orbit. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg">Leafnode</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-hohmann-transfer" title="Permalink to this image">¶</a></p>
 </div>
-<p>In {numref}`fig:hohmann-transfer, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. Note that <span class="math notranslate nohighlight">\(\mathsf{R}' &gt; \mathsf{R}\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. The periapsis distance of this transfer orbit is equal to <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and the apoapsis distance is <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>.</p>
-<p>Thus, at the locations where orbit 2 intersects with orbits 1 and 3, the velocity vectors are parallel, and we can work entirely with velocity magnitudes. The reason this is the most efficient two-impulse maneuver is because only the magnitude of the velocity needs to change, not its direction as well. This means that the minimum propellant is used to achieve the necessary <span class="math notranslate nohighlight">\(\Delta v\)</span>.</p>
-<p>For multiple-impulse maneuvers, we are interested in determining the <strong>total</strong> <span class="math notranslate nohighlight">\(\Delta v\)</span>. Since a maneuver to decrease the spacecraft velocity consumes the same amount of propellant as one that increases the velocity we are concerned with the magnitude of all of the necessary velocity changes.</p>
-<p>For the case of increasing the orbit altitude, the first impulse is an increase in velocity in the direction of flight. This impulse increases the apoapsis altitude of the orbit to match the radius of the target orbit. The second impulse is again in the direction of flight to increase the velocity again to match the velocity of the target orbit.</p>
-<p>For the case of decreasing the orbit altitude, the first impulse is a decrease in the velocity, antiparallel to the direction of flight (called a <strong>retrofire</strong>). This impulse decreases the perigee altitude to match the target orbit. The second impulse is again antiparallel to the flight direction and reduces the velocity to match the target orbit velocity. In this case, the spacecraft traverses the dashed yellow line on the figure above.</p>
-<div class="section" id="calculating-delta-v">
-<h3>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">¶</a></h3>
-<p>For each impulse, we need to calculate the difference in velocity magnitude between the circular orbit and the transfer orbit. Since the impulses occur at periapsis and apoapsis of the transfer orbit, the velocity is given by:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-2">
-<span class="eqno">(191)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-2" title="Permalink to this equation">¶</a></span>\[\begin{aligned}v*{t,p} &amp;= \frac{h_t}{r_p} &amp; v*{t,a} &amp;= \frac{h_t}{r_a}\end{aligned}\]</div>
-<p>where the subscript <span class="math notranslate nohighlight">\(t\)</span> indicates the quantity is for the transfer orbit. That is, <span class="math notranslate nohighlight">\(h_t\)</span> is the specific orbital angular momentum of the elliptical transfer orbit. The <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(p\)</span> subscripts stand for apoapsis and periapsis, respectively. Note that the periapsis and apoapsis radii are given by the radii of the initial and target orbits, depending on which direction the transfer is going.</p>
-<p>From the equations for elliptical orbits, we can solve for the specific angular momentum in terms of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>, which are generally known:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-3">
-<span class="eqno">(192)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-3" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu}\sqrt{\frac{r_a r_p}{r_a + r_p}}\]</div>
-<p>The velocities of the circular orbits are given by:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-4">
-<span class="eqno">(193)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-4" title="Permalink to this equation">¶</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
+<p>In <a class="reference internal" href="#fig-hohmann-transfer"><span class="std std-numref">Fig. 48</span></a>, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. When the spacecraft arrives at the far side of the ellipse, it boosts its velocity again to move into orbit 3.</p>
+<p>The periapsis distance of this <strong>transfer orbit</strong> is equal to <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and the apoapsis distance is <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. This means that the transfer orbit intersects both orbits 1 and 3. By providing impulses at both intersection points, it is possible to move from orbit 1 to orbit 3.</p>
+<div class="section" id="energy-considerations">
+<h2>Energy Considerations<a class="headerlink" href="#energy-considerations" title="Permalink to this headline">¶</a></h2>
+<p>The specific energy of the initial and final orbits are given by Eq. <a class="reference internal" href="../the-orbit-equation/circular-orbits.html#equation-eq-circular-orbit-energy">(123)</a>, repeated here for reference:</p>
+<div class="math notranslate nohighlight">
+\[E = -\frac{\mu}{2r}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the radius of the circular orbit. Let subscripts <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(f\)</span> represent the initial and final orbits, respectively. Then, if <span class="math notranslate nohighlight">\(r_i &lt; r_f\)</span>, the specific energy increases (gets closer to zero) as a result of the transfer. On the other hand, if <span class="math notranslate nohighlight">\(r_i &gt; r_f\)</span>, the specific energy decreases (gets more negative).</p>
+<p>The specific energy of the elliptical transfer orbit is given by Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-specific-energy">(134)</a>, repeated here for reference:</p>
+<div class="math notranslate nohighlight">
+\[E = -\frac{\mu}{2a}\]</div>
+<p>For the Hohmann transfer, the semi-major axis of the transfer orbit is between the radii of the initial and final orbits. Therefore, the specific energy of the elliptical transfer orbit is also between the values for the initial and final orbits. We will use the subscript <span class="math notranslate nohighlight">\(t\)</span> for quantities associated with the transfer orbit.</p>
+<details class="sphinx-bs dropdown card mb-3" open="open">
+<summary class="summary-title card-header">
+<span class="math notranslate nohighlight">\(r_i &lt; a_t &lt; r_f\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">In this case, the semi-major axis of the transfer orbit is larger than the initial radius. Therefore, the specific energy of the transfer orbit is also larger, <span class="math notranslate nohighlight">\(E_i &lt; E_t\)</span>.</p>
+<p class="card-text">The intersection between the initial and transfer orbits is at the <em>periapsis</em> of the transfer orbit. Since the orbits intersect, their radius must be the same, <span class="math notranslate nohighlight">\(r_i = r_{t,p}\)</span>. For the energy of the elliptical orbit to be larger at the intersection point, its velocity must be higher, according to the <em>vis viva</em> equation, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>.</p>
+<p class="card-text">Therefore, the spacecraft conducts an impulsive burn to increase its speed from <span class="math notranslate nohighlight">\(v_i\)</span> to <span class="math notranslate nohighlight">\(v_{t,p}\)</span>. In doing so, the apoapsis of the orbit increases from <span class="math notranslate nohighlight">\(r_i\)</span> to <span class="math notranslate nohighlight">\(r_{t,a}\)</span>. This kind of impulse is referred to as <strong>raising the apoapsis</strong> of the orbit. Since the velocity is increasing, the spacecraft must have its engine pointing anti-parallel to the direction of the velocity vector.</p>
+<p class="card-text">After coasting on the transfer orbit for half of the ellipse, the spacecraft reaches apoapsis. At this point, the spacecraft still has the specific energy <span class="math notranslate nohighlight">\(E_t\)</span>, because specific energy is constant for a given orbit.</p>
+<p class="card-text">At apoapsis, the transfer orbit intersects with the final orbit, so that <span class="math notranslate nohighlight">\(r_f = r_{t,a}\)</span>. Since the specific energy of the transfer orbit is less than that of the final orbit, <span class="math notranslate nohighlight">\(E_t &lt; E_f\)</span>, the <em>vis viva</em> equation shows us that we need another velocity increase to change from the transfer orbit into the final orbit.</p>
+<p class="card-text">Once again, the spacecraft conducts an impulsive burn to increase its speed from <span class="math notranslate nohighlight">\(v_{t,a}\)</span> to <span class="math notranslate nohighlight">\(v_f\)</span>. In doing so, it turns the elliptical transfer orbit into the circular final orbit. This kind of impulse is referred to as <strong>circularizing the orbit</strong>.</p>
 </div>
+</details><details class="sphinx-bs dropdown card mb-3" open="open">
+<summary class="summary-title card-header">
+<span class="math notranslate nohighlight">\(r_f &lt; a_t &lt; r_i\)</span><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">In this case, the semi-major axis of the transfer orbit is smaller than the initial radius. Therefore, the specific energy of the transfer orbit is also smaller, <span class="math notranslate nohighlight">\(E_t &lt; E_i\)</span>.</p>
+<p class="card-text">The intersection between the initial and transfer orbits is at the <em>apoapsis</em> of the transfer orbit. Since the orbits intersect, their radius must be the same, <span class="math notranslate nohighlight">\(r_i = r_{t,a}\)</span>. For the energy of the elliptical orbit to be smaller at the intersection point, its velocity must be smaller, according to the <em>vis viva</em> equation, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>.</p>
+<p class="card-text">Therefore, the spacecraft conducts an impulsive burn to decrease its speed from <span class="math notranslate nohighlight">\(v_i\)</span> to <span class="math notranslate nohighlight">\(v_{t,a}\)</span>. In doing so, the periapsis of the orbit decreases from <span class="math notranslate nohighlight">\(r_i\)</span> to <span class="math notranslate nohighlight">\(r_{t,p}\)</span>. This kind of impulse is referred to as <strong>lowering the periapsis</strong> of the orbit. Since the velocity is decreasing, the spacecraft must have its engine pointing in the direction of the velocity vector, and this is called a <strong>retrofire</strong>.</p>
+<p class="card-text">After coasting on the transfer orbit for half of the ellipse, the spacecraft reaches periapsis. At this point, the spacecraft still has the specific energy <span class="math notranslate nohighlight">\(E_t\)</span>, because specific energy is constant for a given orbit.</p>
+<p class="card-text">At periapsis, the transfer orbit intersects with the final orbit, so that <span class="math notranslate nohighlight">\(r_f = r_{t,p}\)</span>. Since the specific energy of the transfer orbit is larger than that of the final orbit, <span class="math notranslate nohighlight">\(E_f &lt; E_t\)</span>, the <em>vis viva</em> equation shows us that we need another velocity decrease to change from the transfer orbit into the final orbit.</p>
+<p class="card-text">Once again, the spacecraft conducts an impulsive burn to decrease its speed from <span class="math notranslate nohighlight">\(v_{t,p}\)</span> to <span class="math notranslate nohighlight">\(v_f\)</span>. In doing so, it turns the elliptical transfer orbit into the circular final orbit. This kind of impulse is referred to as <strong>circularizing the orbit</strong>.</p>
+</div>
+</details></div>
+<div class="section" id="calculating-delta-v">
+<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">¶</a></h2>
+<p>At the locations where orbit 2 intersects with orbits 1 and 3, the velocity vectors are parallel. The reason the Hohmann transfer is the most efficient two-impulse maneuver is because only the magnitude of the velocity needs to change, not its direction as well. This means that the minimum propellant is used to achieve the necessary <span class="math notranslate nohighlight">\(\Delta \vector{v}\)</span>.</p>
+<p>For multiple-impulse maneuvers, we are interested in determining the <strong>total</strong> <span class="math notranslate nohighlight">\(\Delta v\)</span>. Since a maneuver to decrease the spacecraft velocity consumes the same amount of propellant as one that increases the velocity we are concerned with the magnitude of all of the necessary velocity changes.</p>
+<p>For each impulse, we need to calculate the difference in velocity between the circular orbits and the transfer orbit. Since the velocity vectors are parallel at both impulse locations we can work entirely with velocity magnitudes.</p>
+<p>The velocity on the circular orbits is given by Eq. <a class="reference internal" href="../the-orbit-equation/circular-orbits.html#equation-eq-circular-orbit-velocity">(121)</a>:</p>
+<div class="math notranslate nohighlight">
+\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
+<p>Since the impulses occur at periapsis and apoapsis of the transfer orbit, the transfer orbit velocity is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-orbit-velocities">
+<span class="eqno">(189)<a class="headerlink" href="#equation-eq-hohmann-transfer-orbit-velocities" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  v_{t,p} &amp;= \frac{h_t}{r_p} &amp; v_{t,a} &amp;= \frac{h_t}{r_a}
+\end{aligned}\]</div>
+<p>From the equations for elliptical orbits, we can solve for the specific angular momentum in terms of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-ellipse-specific-angular-momentum">
+<span class="eqno">(190)<a class="headerlink" href="#equation-eq-ellipse-specific-angular-momentum" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu \frac{r_a r_p}{r_a + r_p}}\]</div>
+<p>Alternatively, we can use the <em>vis viva</em> equation, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>, to find the velocity on the transfer orbit</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-0">
+<span class="eqno">(191)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  v_{t,p} &amp;= \sqrt{\mu\left(\frac{2}{r_{t,p}} - \frac{1}{a_t}\right)} &amp; v_{t,a} &amp;= \sqrt{\mu\left(\frac{2}{r_{t,a}} - \frac{1}{a_t}\right)}
+\end{aligned}\]</div>
+<p>where the semi-major axis of the elliptical transfer orbit is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-semi-major-axis">
+<span class="eqno">(192)<a class="headerlink" href="#equation-eq-hohmann-transfer-semi-major-axis" title="Permalink to this equation">¶</a></span>\[a_t = \frac{r_{t,a} + r_{t,p}}{2}\]</div>
+<p>Finally, the total <span class="math notranslate nohighlight">\(\Delta v\)</span> required for the Hohmann transfer is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-delta-v">
+<span class="eqno">(193)<a class="headerlink" href="#equation-eq-hohmann-transfer-delta-v" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  \Delta v &amp;= \lvert v_f - v_{t,a}\rvert + \lvert v_i - v_{t,p}\rvert &amp; \text{If $r_i &lt; r_f$} \\
+  \Delta v &amp;= \lvert v_f - v_{t,p}\rvert + \lvert v_i - v_{t,a}\rvert &amp; \text{If $r_f &lt; r_i$}
+\end{aligned}\end{split}\]</div>
 <div class="section" id="transit-time">
 <h3>Transit Time<a class="headerlink" href="#transit-time" title="Permalink to this headline">¶</a></h3>
-<p>Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-5">
-<span class="eqno">(194)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-5" title="Permalink to this equation">¶</a></span>\[t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(t\)</span> is the transfer time and <span class="math notranslate nohighlight">\(a_t\)</span> is the semimajor axis of the transfer orbit. There are many ways to determine the semimajor axis, including from the definition of the semimajor axis:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-6">
-<span class="eqno">(195)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-6" title="Permalink to this equation">¶</a></span>\[a = \frac{r_a + r_p}{2}\]</div>
-<p>or the specific angular momentum and eccentricity:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-7">
-<span class="eqno">(196)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-7" title="Permalink to this equation">¶</a></span>\[a = \frac{h_t^2}{\mu}\frac{1}{1 - e_t^2}\]</div>
-<p>or the energy equation:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-8">
-<span class="eqno">(197)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-8" title="Permalink to this equation">¶</a></span>\[a = \frac{r^{*} p \mu}{2 \mu - r_p v*{t,p}^2} = \frac{r*a \mu}{2 \mu - r_a v*{t,a}^2}\]</div>
+<p>Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit from Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-period-useful">(138)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-1">
+<span class="eqno">(194)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-1" title="Permalink to this equation">¶</a></span>\[t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is the transfer time and <span class="math notranslate nohighlight">\(a_t\)</span> is the semi-major axis of the transfer orbit.</p>
 </div>
 </div>
 <div class="section" id="elliptical-initial-or-target-orbits">
 <h2>Elliptical Initial or Target Orbits<a class="headerlink" href="#elliptical-initial-or-target-orbits" title="Permalink to this headline">¶</a></h2>
-<p>The idea of a Hohmann transfer can be extended to the case where one or both of the initial and target orbits are ellipses. Recalling that the Hohmann transfer traverses half of the ellipse, the departure and arrival points on the initial and target orbits will be on opposite sides of the attracting body. In addition, the definition of the Hohmann transfer is that the transfer orbit at the departure and arrival points should be tangent to the initial and target orbits, respectively.</p>
+<p>The idea of a Hohmann transfer can be extended to the case where one or both of the initial and final orbits are ellipses. Recalling that the Hohmann transfer traverses half of the elliptical transfer orbit, the departure and arrival points on the initial and final orbits will be on opposite sides of the attracting body. In addition, the definition of the Hohmann transfer is that the transfer orbit at the departure and arrival points should be tangent to the initial and final orbits, respectively.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>We will deal with rotations of the apse line in a later section.</p>
 </div>
-<p>To start, let’s assume that both the initial and target orbits are ellipses. The orbits have a common focus and their eccentricity vectors point in the same direction. For the transfer orbit to be tangent to the initial and target orbits, we have two choices:</p>
+<p>To start, let’s assume that both the initial and final orbits are ellipses. The orbits have a common focus and their eccentricity vectors point in the same direction. For the transfer orbit to be tangent to the initial and final orbits, we have two choices:</p>
 <ol class="simple">
-<li><p>Depart at periapsis, arriving at apoapsis of the target orbit</p></li>
-<li><p>Depart at apoapsis, arriving at periapsis of the target orbit</p></li>
+<li><p>Depart at periapsis of the initial orbit, arriving at apoapsis of the final orbit</p></li>
+<li><p>Depart at apoapsis of the initial orbit, arriving at periapsis of the final orbit</p></li>
 </ol>
 <p>It is not clear which transfer orbit is more efficient in terms of the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement to achieve the transfer. We can analyze each transfer orbit in terms of the energy equation to determine which transfer is more efficient.</p>
-<p>We can calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> in each case to determine which is more efficient. We will approach this calculation using the energy equation:</p>
-<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-9">
-<span class="eqno">(198)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-9" title="Permalink to this equation">¶</a></span>\[\frac{v^2}{2\mu} - \frac{1}{r} = -\frac{1}{2a}\]</div>
-<p>Without loss of generality, we will assume that the initial orbit has a smaller semimajor axis than the target orbit. Therefore, the target orbit has a higher energy (closer to zero) than the initial orbit.</p>
-<!-- Let the subscripts $A$, $B$, and $t$ denote the initial, target, and transfer orbits, respectively. In addition, let the subscripts $a$ and $p$ denote apoapsis and periapsis of the initial and target orbits.
-
-The $\Delta v$ for the first case is given by:
-
-:::{math}
-:label:
-\Delta v_1 = \Delta v_{A\rightarrow t} + \Delta v_{t\rightarrow B}
-:::
-
-where the two $\Delta v$ terms are given by:
-
-:::{math}
-:label:
-\begin{aligned}\Delta v_{A\rightarrow t} &= v_{t,p} - v_{A,p} = \frac{h_t}{r_{A,p}} - \frac{h_A}{r_{A,p}} & \Delta v_{t\rightarrow B} &= v_{B,a} - v_{t,a} = \frac{h_B}{r_{B,a}} - \frac{h_t}{r_{B,a}}\end{aligned}
-:::
-
-The specific angular momentum terms are given by:
-
-:::{math}
-:label:
-\begin{aligned}h_A &= \sqrt{2 \mu}\sqrt{\frac{r_{A,p}r_{A,a}}{r_{A,a} + r_{A,p}}} & h_B &= \sqrt{2 \mu}\sqrt{\frac{r_{B,p}r_{B,a}}{r_{B,a} + r_{B,p}}} & h_t &= \sqrt{2 \mu}\sqrt{\frac{r_{A,p}r_{B,a}}{r_{B,a} + r_{A,p}}}\end{aligned}
-:::
-
-The $\Delta v$ for the second case is given by:
-
-:::{math}
-:label:
-\Delta v_2 = \Delta v_{A\rightarrow t} + \Delta v_{t\rightarrow B}
-:::
-
-where the two $\Delta v$ terms are given by:
-
-:::{math}
-:label:
-\begin{aligned}\Delta v_{A\rightarrow t} &= v_{t,p} - v_{A,a} = \frac{h_t}{r_{A,a}} - \frac{h_A}{r_{A,a}} & \Delta v_{t\rightarrow B} &= v_{B,p} - v_{t,a} = \frac{h_B}{r_{B,p}} - \frac{h_t}{r_{B,p}}\end{aligned}
-:::
-
-The specific angular momentum terms for $A$ and $B$ are the same; the transfer orbit specific angular momentum is:
-
-:::{math}
-:label:
-h_t = \sqrt{2 \mu}\sqrt{\frac{r_{A,a}r_{B,p}}{r_{B,p} + r_{A,a}}}
-:::
-
-Conveniently, if we take the ratio $\Delta v_2 / \Delta v_1$, the $\sqrt{2\mu}$ term cancels out and the result is only dependent on the ratios $r_{A,a}/r_{A,p}$, $r_{B,a}/r_{B,p}$, and $r_{B,p}/r_{A,p}$. -->
+<p>First, we will assume that the initial orbit has a smaller semi-major axis than the final orbit. Therefore, the final orbit has a higher energy (closer to zero) than the initial orbit. Likewise, the transfer orbit will have a higher energy than the initial orbit and a smaller energy than the final orbit.</p>
+<p>To change from the initial orbit to the transfer orbit, the kinetic energy of the spacecraft must increase. The point on the initial orbit where the kinetic energy is closest to the transfer orbit is when the velocity of the initial orbit is highest: at periapsis.</p>
+<p>To change from the transfer orbit to the final orbit, the kinetic energy must increase again. The point on the final orbit where the kinetic energy is closest to the transfer orbit is when the velocity of the final orbit is lowest: at apoapsis.</p>
+<p>Therefore, we see that <strong>option 1</strong> is the case that provides the lowest energy transfer. Although we conducted this analysis for the case of <span class="math notranslate nohighlight">\(a_i &lt; a_f\)</span>, the same type of reasoning will apply. See if you can decide which option is best for the case of <span class="math notranslate nohighlight">\(a_i &gt; a_f\)</span> before you open the answer below.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Which option requires lower <span class="math notranslate nohighlight">\(\Delta v\)</span> for <span class="math notranslate nohighlight">\(a_f &lt; a_i\)</span>?<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><strong>Option 2</strong> has the lower <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement.</p>
+<p class="card-text">If we are decreasing the size of the semi-major axis, then <span class="math notranslate nohighlight">\(a_i &gt; a_t &gt; a_f\)</span> and the specific energies have the same relationship, <span class="math notranslate nohighlight">\(E_i &gt; E_t &gt; E_f\)</span>. Therefore, going from the initial orbit to the transfer orbit requires a decrease in kinetic energy. The point with the smallest kinetic energy on the initial orbit is apoapsis.</p>
+<p class="card-text">Likewise, the kinetic energy of the final orbit is less than the kinetic energy of the transfer orbit where they intersect. The point on the final orbit with the highest kinetic energy is periapsis.</p>
 </div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
