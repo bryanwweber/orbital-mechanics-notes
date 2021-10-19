@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/hohmann-transfer-example.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bielliptic Hohmann transfer" href="bielliptic-hohmann-transfer.html" />
+    <link rel="next" title="Bi-elliptic Hohmann transfer" href="bielliptic-hohmann-transfer.html" />
     <link rel="prev" title="Hohmann Transfer" href="hohmann-transfer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -314,12 +314,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bielliptic-hohmann-transfer.html">
-   Bielliptic Hohmann transfer
+   Bi-elliptic Hohmann transfer
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="comparison-of-bielliptic-and-hohmann.html">
-   Example: Comparison of Bielliptic and Hohmann Transfers
+   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
   </a>
  </li>
  <li class="toctree-l1">
@@ -534,6 +534,66 @@
 <h1>Example: Hohmann Transfer<a class="headerlink" href="#example-hohmann-transfer" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Geostationary_Operational_Environmental_Satellite">Geostationary Operational Environmental Satellite</a> system encompasses a set of spacecraft to perform imaging of the earth from GEO. The most recently launched satellite is <a class="reference external" href="https://en.wikipedia.org/wiki/GOES-17">GOES-17</a>, which had a launch mass of 5,192 kg.</p>
 <p>Assume that the launch vehicle placed GOES-17 into a circular LEO with an altitude of 250 km. Determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> and propellant mass required for a Hohmann transfer orbit to GEO.</p>
+<p>The total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement is the sum of the change required to go from LEO onto the transfer orbit, and the change required to go from the transfer orbit to GEO. First, let’s calculate the velocity on the circular orbit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">3.986E5</span>  <span class="c1"># km**3/s**2</span>
+<span class="n">R_E</span> <span class="o">=</span> <span class="mi">6378</span>  <span class="c1"># km</span>
+<span class="n">r_leo</span> <span class="o">=</span> <span class="mi">250</span> <span class="o">+</span> <span class="n">R_E</span>  <span class="c1"># km</span>
+
+<span class="n">v_leo</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_leo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The LEO velocity is <span class="math notranslate nohighlight">\(v_{\text{LEO}} =\)</span> <span class="pasted-text">7.755</span> km/s. Next, let’s calculate GEO altitude and velocity. We know for GEO that the satellite must be orbiting with the same angular velocity as the surface of Earth.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sidereal_day</span> <span class="o">=</span> <span class="mf">86164.0905</span>  <span class="c1"># s</span>
+<span class="n">r_cubed</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">sidereal_day</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">r_geo</span> <span class="o">=</span> <span class="n">r_cubed</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v_geo</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_geo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The GEO radius is <span class="math notranslate nohighlight">\(r_{\text{GEO}} =\)</span> <span class="pasted-text">42164.154</span> km and the velocity is <span class="math notranslate nohighlight">\(v_{\text{GEO}} =\)</span> <span class="pasted-text">3.075</span> km/s.</p>
+<p>The transfer ellipse will have a semi-major axis length, <span class="math notranslate nohighlight">\(a\)</span>, equal to half the total distance between the two circular orbits. In addition, the perigee radius of the transfer orbit will be equal to <span class="math notranslate nohighlight">\(r_{\text{LEO}}\)</span> and the apogee radius will be equal to <span class="math notranslate nohighlight">\(r_{\text{GEO}}\)</span>. Using this information we can calculate the orbital angular momentum and the velocities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_p</span> <span class="o">=</span> <span class="n">r_leo</span>
+<span class="n">r_a</span> <span class="o">=</span> <span class="n">r_geo</span>
+<span class="n">h_t</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">r_a</span> <span class="o">*</span> <span class="n">r_p</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_a</span> <span class="o">+</span> <span class="n">r_p</span><span class="p">))</span>
+<span class="n">v_tp</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_p</span>
+<span class="n">v_ta</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This gives a transfer orbit perigee velocity of <span class="math notranslate nohighlight">\(v_{t,p} =\)</span> <span class="pasted-text">10.195</span> km/s and apogee velocity of <span class="math notranslate nohighlight">\(v_{t,a} =\)</span> <span class="pasted-text">1.603</span> km/s. Finally, we can calculate the <span class="math notranslate nohighlight">\(\Delta v\)</span> and the propellant mass <span class="math notranslate nohighlight">\(\Delta m\)</span>. The <a class="reference external" href="https://en.wikipedia.org/wiki/Centaur_(rocket_stage)">Centaur</a> rocket stage that served as the second stage for the GOES-17 mission has an <span class="math notranslate nohighlight">\(I_{sp}\)</span> of 450.5 s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_geo</span> <span class="o">-</span> <span class="n">v_ta</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_tp</span> <span class="o">-</span> <span class="n">v_leo</span><span class="p">)</span>
+<span class="n">I_sp</span> <span class="o">=</span> <span class="mf">450.5</span>
+<span class="n">goes_mass</span> <span class="o">=</span> <span class="mi">5_192</span>  <span class="c1"># kg</span>
+<span class="n">Delta_m</span> <span class="o">=</span> <span class="n">goes_mass</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Delta_v</span> <span class="o">/</span> <span class="p">(</span><span class="n">I_sp</span> <span class="o">*</span> <span class="mf">9.81E-3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">glue</span><span class="p">(</span><span class="s2">&quot;Delta_v&quot;</span><span class="p">,</span> <span class="n">Delta_v</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;Delta_m&quot;</span><span class="p">,</span> <span class="n">Delta_m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Finally, the transfer velocity change is <span class="math notranslate nohighlight">\(\Delta v =\)</span> <span class="pasted-text">3.912</span> km/s and the propellant mass is <span class="math notranslate nohighlight">\(\Delta m =\)</span> <span class="pasted-text">3049.671</span> kg.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -578,7 +638,7 @@
         <a class="right-next" href="bielliptic-hohmann-transfer.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Bielliptic Hohmann transfer</p>
+                <p class="prevnext-title">Bi-elliptic Hohmann transfer</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

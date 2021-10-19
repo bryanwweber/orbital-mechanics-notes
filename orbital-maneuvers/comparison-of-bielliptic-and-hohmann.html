@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example: Comparison of Bielliptic and Hohmann Transfers &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Phasing Maneuvers" href="phasing-maneuvers.html" />
-    <link rel="prev" title="Bielliptic Hohmann transfer" href="bielliptic-hohmann-transfer.html" />
+    <link rel="prev" title="Bi-elliptic Hohmann transfer" href="bielliptic-hohmann-transfer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -314,12 +314,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bielliptic-hohmann-transfer.html">
-   Bielliptic Hohmann transfer
+   Bi-elliptic Hohmann transfer
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Example: Comparison of Bielliptic and Hohmann Transfers
+   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
   </a>
  </li>
  <li class="toctree-l1">
@@ -457,11 +457,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="../_sources/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -482,7 +485,7 @@
             href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Forbital-maneuvers/comparison-of-bielliptic-and-hohmann.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.ipynb"><button
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -502,7 +505,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -527,166 +530,115 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="example-comparison-of-bielliptic-and-hohmann-transfers">
-<h1>Example: Comparison of Bielliptic and Hohmann Transfers<a class="headerlink" href="#example-comparison-of-bielliptic-and-hohmann-transfers" title="Permalink to this headline">¶</a></h1>
-<p>As we discussed, bielliptic transfers can save <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement when the initial and target orbits have very different radii. When the target orbit radius is more than about 15.5 times larger than the initial radius (or vice versa), the bielliptic transfer is more energy efficient than the standard Hohmann transfer.</p>
-<p>In this example, we will explore this with some numbers, and also discuss the tradeoff of a bielliptic transfer.</p>
-<p>Let’s start the initial orbit in LEO orbit of 500 km altitude and transfer to an orbit at the radius of the moon, at 385,000 km. Assuming both orbits are circular, we can find the initial and target orbital velocities:</p>
-<div class="math notranslate nohighlight">
-\[v = \sqrt{\frac{\mu}{r}}\]</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="example-comparison-of-bi-elliptic-and-two-impulse-hohmann-transfers">
+<h1>Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers<a class="headerlink" href="#example-comparison-of-bi-elliptic-and-two-impulse-hohmann-transfers" title="Permalink to this headline">¶</a></h1>
+<p>As we discussed, bi-elliptic transfers can save <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement when the initial and target orbits have very different radii. When the target orbit radius is more than about 15.5 times larger than the initial radius (or vice versa), the bi-elliptic transfer is more energy efficient than the standard, two-impulse, Hohmann transfer.</p>
+<p>In this example, we will explore this with some numbers, and also discuss the tradeoffs of a bielliptic transfer.</p>
+<p>Let’s start the initial orbit at the radius of the moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using Eq. <a class="reference internal" href="../the-orbit-equation/circular-orbits.html#equation-eq-circular-orbit-velocity">(121)</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">398_600.4418</span>  <span class="c1"># km**3/s**2</span>
 <span class="n">R_E</span> <span class="o">=</span> <span class="mi">6378</span>  <span class="c1"># km</span>
-<span class="n">r_1</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">+</span> <span class="n">R_E</span>  <span class="c1"># km</span>
+<span class="n">r_1</span> <span class="o">=</span> <span class="mi">385_000</span>  <span class="c1"># km</span>
 
-<span class="n">v_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_1</span><span class="p">)</span>
+<span class="n">v_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_1</span><span class="p">)</span>  <span class="c1"># km/s</span>
 
-<span class="n">r_3</span> <span class="o">=</span> <span class="mi">385_000</span>
-<span class="n">v_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_3</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_1</span><span class="si">=:</span><span class="s2">.3F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_3</span><span class="si">=:</span><span class="s2">.3F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v_1=7.613 km/s v_3=1.018 km/s
+<span class="n">r_3</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">+</span> <span class="n">R_E</span>  <span class="c1"># km</span>
+<span class="n">v_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_3</span><span class="p">)</span>  <span class="c1"># km/s</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>This gives velocities of <span class="math notranslate nohighlight">\(v_1 =\)</span> <span class="pasted-text">1.018</span> km/s and <span class="math notranslate nohighlight">\(v_3 =\)</span> <span class="pasted-text">7.613</span> km/s.</p>
 <p>Now we will calculate the standard two-impulse Hohmann transfer. The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the transfer is the sum of the <span class="math notranslate nohighlight">\(\Delta v\)</span> from the initial orbit onto the transfer orbit at perigee of the transfer, and the <span class="math notranslate nohighlight">\(\Delta v\)</span> from the transfer orbit onto the target orbit at the apogee of the transfer.</p>
 <p>First, we calculate the eccentricity, specific orbital angular momentum, and semimajor axis of the transfer orbit:</p>
 <div class="math notranslate nohighlight">
-\[e = \frac{r_3 - r_1}{r_3 + r_1}\]</div>
+\[e_t = \frac{r_1 - r_3}{r_3 + r_1}\]</div>
 <div class="math notranslate nohighlight">
-\[h = \sqrt{\mu r_3 (1 - e)} = \sqrt{\mu r_1 (1 + e)}\]</div>
+\[h_t = \sqrt{\mu r_1 (1 - e)} = \sqrt{\mu r_3 (1 + e)}\]</div>
 <div class="math notranslate nohighlight">
-\[a = \frac{r_3 + r_1}{2}\]</div>
+\[a_t = \frac{r_3 + r_1}{2}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e_h</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_3</span> <span class="o">-</span> <span class="n">r_1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_3</span><span class="p">)</span>
-<span class="n">h_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_h</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span>
-<span class="n">a_h</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_3</span> <span class="o">+</span> <span class="n">r_1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">e_h</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">h_h</span><span class="si">=:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km**2/s&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a_h</span><span class="si">=:</span><span class="s2">.0F</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e_h=0.9649 h_h=73395.58 km**2/s a_h=195939 km
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">-</span> <span class="n">r_3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_3</span><span class="p">)</span>
+<span class="n">h_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_t</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span>
+<span class="n">a_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_3</span> <span class="o">+</span> <span class="n">r_1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, the velocity at the perigee and apogee of the transfer orbit are determined from the specific orbital angular momentum.</p>
+<p>This gives <span class="math notranslate nohighlight">\(e_t =\)</span> <span class="pasted-text">0.9649</span>, <span class="math notranslate nohighlight">\(h_t =\)</span> <span class="pasted-text">73395.578</span> km<sup>2</sup>/s, and <span class="math notranslate nohighlight">\(a_t =\)</span> <span class="pasted-text">1.959e+05</span> km. Now, the velocity at the perigee and apogee of the transfer orbit are determined from the specific orbital angular momentum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_p_h</span> <span class="o">=</span> <span class="n">h_h</span> <span class="o">/</span> <span class="n">r_1</span>
-<span class="n">v_a_h</span> <span class="o">=</span> <span class="n">h_h</span> <span class="o">/</span> <span class="n">r_3</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_p_h</span><span class="si">=:</span><span class="s2">.3F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_a_h</span><span class="si">=:</span><span class="s2">.3F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v_p_h=10.671 km/s v_a_h=0.191 km/s
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_p_t</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_3</span>
+<span class="n">v_a_t</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_1</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice that the velocity at the apogee of the transfer orbit is only about 190 m/s, but the orbital velocity at the moon’s orbit is over 1,000 m/s. Now, let’s calculate <span class="math notranslate nohighlight">\(\Delta v\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v_h = v_{p,h} - v_1 + v_3 - v_{a,h}\]</div>
+<p>The velocity at the apogee of the transfer orbit is <span class="math notranslate nohighlight">\(v_{a,t} =\)</span> <span class="pasted-text">0.191</span> km/s, but the orbital velocity at the moon’s orbit is over 1 km/s, a factor of nearly five. Now, let’s calculate <span class="math notranslate nohighlight">\(\Delta v\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_h</span> <span class="o">=</span> <span class="n">v_p_h</span> <span class="o">-</span> <span class="n">v_1</span> <span class="o">+</span> <span class="n">v_3</span> <span class="o">-</span> <span class="n">v_a_h</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">delta_v_h</span><span class="si">=:</span><span class="s2">.3F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>delta_v_h=3.885 km/s
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_t</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_p_t</span> <span class="o">-</span> <span class="n">v_3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_1</span> <span class="o">-</span> <span class="n">v_a_t</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>So <span class="math notranslate nohighlight">\(\Delta v\)</span> for the Hohmann transfer is about 3.885 km/s. Next, let’s do the bielliptic transfer. We (somewhat arbitrarily) pick <span class="math notranslate nohighlight">\(r_2 =\)</span> 800,000 km, that is, apogee of the transfer orbit is 800,000 km from the center of the Earth. Now, we can calculate the eccentricity, specific orbital angular momentum, and velocities for the two transfer ellipses.</p>
+<p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> for the two-impulse Hohmann transfer is <span class="math notranslate nohighlight">\(\Delta v =\)</span> <span class="pasted-text">3.885</span> km/s.</p>
+<p>Next, let’s do the bielliptic transfer. We pick <span class="math notranslate nohighlight">\(r_2 =\)</span> 770,000 km, that is, apogee of the transfer orbit is 770,000 km from the center of the Earth. Now, we can calculate the eccentricity, specific orbital angular momentum, and velocities for the two transfer ellipses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_2</span> <span class="o">=</span> <span class="mi">800_000</span>
-<span class="n">e_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_2</span> <span class="o">-</span> <span class="n">r_1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_2</span><span class="p">)</span>
-<span class="n">h_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_1</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span>
-<span class="n">v_p_1</span> <span class="o">=</span> <span class="n">h_1</span> <span class="o">/</span> <span class="n">r_1</span>
-<span class="n">v_a_1</span> <span class="o">=</span> <span class="n">h_1</span> <span class="o">/</span> <span class="n">r_2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_2</span> <span class="o">=</span> <span class="mi">770_000</span>  <span class="c1"># km</span>
+<span class="n">e_t1</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_2</span> <span class="o">-</span> <span class="n">r_1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_2</span><span class="p">)</span>
+<span class="n">h_t1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_t1</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span>
+<span class="n">v_p_t1</span> <span class="o">=</span> <span class="n">h_t1</span> <span class="o">/</span> <span class="n">r_1</span>
+<span class="n">v_a_t1</span> <span class="o">=</span> <span class="n">h_t1</span> <span class="o">/</span> <span class="n">r_2</span>
 
-<span class="n">e_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_2</span> <span class="o">-</span> <span class="n">r_3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_3</span> <span class="o">+</span> <span class="n">r_2</span><span class="p">)</span>
-<span class="n">h_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span>
-<span class="n">v_p_2</span> <span class="o">=</span> <span class="n">h_2</span> <span class="o">/</span> <span class="n">r_3</span>
-<span class="n">v_a_2</span> <span class="o">=</span> <span class="n">h_2</span> <span class="o">/</span> <span class="n">r_2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_a_1</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_a_2</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v_p_2</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v_a_1=0.0922 km/s v_a_2=0.5690 km/s v_p_2=1.1823 km/s
+<span class="n">e_t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_2</span> <span class="o">-</span> <span class="n">r_3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_3</span> <span class="o">+</span> <span class="n">r_2</span><span class="p">)</span>
+<span class="n">h_t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_t2</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span>
+<span class="n">v_p_t2</span> <span class="o">=</span> <span class="n">h_t2</span> <span class="o">/</span> <span class="n">r_3</span>
+<span class="n">v_a_t2</span> <span class="o">=</span> <span class="n">h_t2</span> <span class="o">/</span> <span class="n">r_2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The difference in apogee velocities between the two transfer orbits is about 0.4 km/s, and now the insertion velocity to the lunar radius orbit (<span class="math notranslate nohighlight">\(v_{p,2}\)</span>) is about 1.18 km/s, much closer to the lunar orbit speed. The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for these three impulses is:</p>
+<p>These velocities are <span class="math notranslate nohighlight">\(v_{p,t1} =\)</span> <span class="pasted-text">1.175</span> km/s, <span class="math notranslate nohighlight">\(v_{a,t1} =\)</span> <span class="pasted-text">0.587</span> km/s, <span class="math notranslate nohighlight">\(v_{p,t2} =\)</span> <span class="pasted-text">10.718</span> km/s, and <span class="math notranslate nohighlight">\(v_{a,t2} =\)</span> <span class="pasted-text">0.096</span> km/s.</p>
+<p>The difference in apogee velocities between the two transfer orbits is about 0.5 km/s, and now the velocity difference at lunar orbit is only about 0.18 km/s, much lower than before. The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for these three impulses is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_2</span> <span class="o">=</span> <span class="n">v_p_1</span> <span class="o">-</span> <span class="n">v_1</span> <span class="o">+</span> <span class="n">v_a_2</span> <span class="o">-</span> <span class="n">v_a_1</span> <span class="o">+</span> <span class="n">v_p_2</span> <span class="o">-</span> <span class="n">v_3</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">delta_v_2</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>delta_v_2=3.7489 km/s
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_b</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_p_t1</span> <span class="o">-</span> <span class="n">v_1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_a_t2</span> <span class="o">-</span> <span class="n">v_a_t1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_p_t2</span> <span class="o">-</span> <span class="n">v_3</span><span class="p">)</span>
+<span class="n">delta_v_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">delta_v_t</span> <span class="o">-</span> <span class="n">delta_v_b</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>  <span class="c1"># m/s</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>For the bielliptic transfer, <span class="math notranslate nohighlight">\(\Delta v\)</span> is about 3.75 km/s, about 130 m/s less than the straight Hohmann transfer. Assuming a 1000 kg spacecraft, this results in a savings of propellant of:</p>
+<p>For the bi-elliptic transfer, <span class="math notranslate nohighlight">\(\Delta v =\)</span> <span class="pasted-text">3.755</span> km/s, about <span class="pasted-text">131</span> m/s, or <span class="pasted-text">3.36</span>% less than the two-impulse Hohmann transfer.</p>
+<p>Assuming a 1000 kg spacecraft with an <span class="math notranslate nohighlight">\(I_{sp}\)</span> of 300 s, this results in a savings of propellant of:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_m_h</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">delta_v_h</span> <span class="o">/</span> <span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="mf">9.81E-3</span><span class="p">)))</span>
-<span class="n">delta_m_be</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">delta_v_2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="mf">9.81E-3</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">delta_m_h</span><span class="si">=:</span><span class="s2">.0F</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">delta_m_be</span><span class="si">=:</span><span class="s2">.0F</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>delta_m_h=733 kg delta_m_be=720 kg
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_m_t</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">delta_v_t</span> <span class="o">/</span> <span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="mf">9.81E-3</span><span class="p">)))</span>
+<span class="n">delta_m_b</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">delta_v_b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">300</span> <span class="o">*</span> <span class="mf">9.81E-3</span><span class="p">)))</span>
+<span class="n">delta_m_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">delta_m_t</span> <span class="o">-</span> <span class="n">delta_m_b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The difference is 13 kg per 1000 kg of spacecraft mass. For the Falcon 9, the <a class="reference external" href="https://en.wikipedia.org/wiki/Falcon_9_Full_Thrust">Full Thrust</a> variant has a mass of 549,000 kg. The savings from the bielliptic transfer means that about 7,000 kg of fuel can be diverted to another use. The total payload capacity to Low Earth Orbit is about <a class="reference external" href="https://www.spacex.com/vehicles/falcon-9/">23,000 kg</a>, so this is a significant savings. Although this is a simplistic model of the rocket, we can at least see the order of magnitude of savings that are possible.</p>
-<p>On the other hand, the downside of the bielliptic transfer is the transit time. The period of an ellipse is:</p>
-<div class="math notranslate nohighlight">
-\[T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}\]</div>
+<p>The difference is <span class="pasted-text">12.1</span> kg per 1000 kg of spacecraft mass.</p>
+<p>Although those numbers seem small, let’s put them in context. For the Falcon 9, the <a class="reference external" href="https://en.wikipedia.org/wiki/Falcon_9_Full_Thrust">Full Thrust</a> variant has a mass of 549,000 kg. The savings from the bi-elliptic transfer means that about 7,000 kg of fuel can be diverted to another use. The total payload capacity to Low Earth Orbit is about <a class="reference external" href="https://www.spacex.com/vehicles/falcon-9/">23,000 kg</a>, so this is a significant savings. Although this is a simplistic model of the rocket, we can at least see the order of magnitude of savings that are possible.</p>
+<p>On the other hand, the downside of the bielliptic transfer is the transit time. The period of an ellipse is given by Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-period-useful">(138)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_h</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">t_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">a_h</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">a_t</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">a_be_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_2</span> <span class="o">+</span> <span class="n">r_1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">a_be_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_2</span> <span class="o">+</span> <span class="n">r_3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">t_be</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">a_be_1</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">a_be_2</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">t_h</span><span class="p">),</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">t_be</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 days, 23:53:00.998726 41 days, 0:35:23.331550
 </pre></div>
 </div>
 </div>
 </div>
-<p>The transfer time is over 8x longer for the bielliptic transfer, going from 5 days to almost 1.5 months.</p>
+<p>The transfer time for the two-impulse Hohmann transfer is <span class="math notranslate nohighlight">\(t_h =\)</span> <span class="pasted-text">4.995</span> days, and for the bi-elliptic transfer it is <span class="math notranslate nohighlight">\(t_{be} =\)</span> <span class="pasted-text">39.218</span> days. The transfer time is almost <span class="pasted-text">8</span>x longer for the bielliptic transfer!</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -723,7 +675,7 @@
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Bielliptic Hohmann transfer</p>
+                <p class="prevnext-title">Bi-elliptic Hohmann transfer</p>
             </div>
         </a>
     </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bielliptic Hohmann transfer &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Bi-elliptic Hohmann transfer &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/bielliptic-hohmann-transfer.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example: Comparison of Bielliptic and Hohmann Transfers" href="comparison-of-bielliptic-and-hohmann.html" />
+    <link rel="next" title="Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers" href="comparison-of-bielliptic-and-hohmann.html" />
     <link rel="prev" title="Example: Hohmann Transfer" href="hohmann-transfer-example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -314,12 +314,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Bielliptic Hohmann transfer
+   Bi-elliptic Hohmann transfer
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="comparison-of-bielliptic-and-hohmann.html">
-   Example: Comparison of Bielliptic and Hohmann Transfers
+   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
   </a>
  </li>
  <li class="toctree-l1">
@@ -523,24 +523,29 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="bielliptic-hohmann-transfer">
-<h1>Bielliptic Hohmann transfer<a class="headerlink" href="#bielliptic-hohmann-transfer" title="Permalink to this headline">¶</a></h1>
-<p>Hohmann showed that the Hohmann transfer is the most efficient <em>two</em> impulse maneuver. However, for some cases, adding an additional impulse reduces the total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for an orbital transfer.</p>
-<p>Assume that the initial and target orbits are circular. A bielliptic Hohmann transfer starts by departing the initial orbit onto an elliptical transfer orbit whose apoapsis is at a <em>higher altitude</em> than the target orbit. Upon reaching apoapsis of the first transfer orbit, the velocity is boosted again onto a second transfer orbit. This second transfer orbit has the same apoapsis altitude as the target orbit.</p>
-<p>This situation is shown in the figure below. The upper, green, transfer orbit is the first ellipse. Point 2 is at a higher altitude than the target, red, orbit. The lower, orange, transfer orbit has the same periapsis altitude as the target orbit.</p>
-<p><img alt="Bielliptic Hohmann transfer orbit. Source Wikipedia" src="../_images/Bi-elliptic_transfer.svg" /></p>
-<p>The reason this type of transfer can be more efficient than the two-impulse Hohmann transfer is because the velocity change required to change the periapsis altitude at point 2 is very small.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="bi-elliptic-hohmann-transfer">
+<h1>Bi-elliptic Hohmann transfer<a class="headerlink" href="#bi-elliptic-hohmann-transfer" title="Permalink to this headline">¶</a></h1>
+<p>Hohmann <span id="id1">[<a class="reference internal" href="../bibliography.html#id13" title="Walter Hohmann. The Attainability of Heavenly Bodies. NASA, 1960.">Hoh60</a>]</span> showed that the Hohmann transfer is the most efficient <em>two</em> impulse maneuver. However, for some cases, adding an additional impulse reduces the total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for an orbital transfer.</p>
+<p>Assume that the initial and target orbits are circular. A <a class="reference external" href="https://en.wikipedia.org/wiki/Bi-elliptic_transfer">Bi-elliptic Hohmann transfer</a> starts by departing the initial orbit onto an elliptical transfer orbit whose apoapsis is at a <em>higher altitude</em> than the target orbit. Upon reaching apoapsis of the first transfer orbit, the velocity is boosted again onto a second transfer orbit. This second transfer orbit has the same periapsis altitude as the target orbit.</p>
+<p>This situation is shown in <a class="reference internal" href="#fig-bi-elliptic-hohmann-transfer"><span class="std std-numref">Fig. 49</span></a>. The upper, green, transfer orbit is the first ellipse. Point 2 is at a higher altitude than the target, red, orbit. The lower, orange, transfer orbit has the same periapsis altitude as the target orbit.</p>
+<div class="figure align-default" id="fig-bi-elliptic-hohmann-transfer">
+<a class="reference internal image-reference" href="../_images/Bi-elliptic_transfer.svg"><img alt="../_images/Bi-elliptic_transfer.svg" src="../_images/Bi-elliptic_transfer.svg" width="50%" /></a>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">The bi-elliptic Hohmann transfer. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bi-elliptic_transfer.svg">AndrewBuck</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-bi-elliptic-hohmann-transfer" title="Permalink to this image">¶</a></p>
+</div>
+<p>The reason this type of transfer can be more efficient than the two-impulse Hohmann transfer is because the velocity change required to change the periapsis altitude of the second transfer orbit at point 2 is very small.</p>
 <p>One way to imagine this intuitively is as a lever. The farther point 2 is from the center of attraction, the less velocity change is required to change the perigee altitude. In the limit where point 2 goes to infinity, the required change in velocity is zero! By moving point 2 farther away, we are increasing the “leverage” that the propellent has to change the periapsis altitude.</p>
 <p>This effect is particularly powerful if we need to accomplish a plane change maneuver in addition to a change of periapsis altitude. As we will see, plane changes can be very expensive in terms of propellent, so it is helpful to be able to reduce that need.</p>
 <div class="section" id="comparison-of-regular-and-bielliptic-hohmann-transfer">
 <h2>Comparison of Regular and Bielliptic Hohmann Transfer<a class="headerlink" href="#comparison-of-regular-and-bielliptic-hohmann-transfer" title="Permalink to this headline">¶</a></h2>
-<p>The bielliptic Hohmann transfer will be more efficient when the total <span class="math notranslate nohighlight">\(\Delta v\)</span> required for the three impulses is less than the total <span class="math notranslate nohighlight">\(\Delta v\)</span> that the regular Hohmann transfer requires. In terms of the ratios of the orbital radii <span class="math notranslate nohighlight">\(r_1\)</span>, <span class="math notranslate nohighlight">\(r_2\)</span>, and <span class="math notranslate nohighlight">\(r_3\)</span>, we find that when the ratio</p>
-<div class="math notranslate nohighlight">
-\[\frac{r_3}{r_1} &lt; 11.94\]</div>
-<p>the regular Hohmann transfer is more efficient. On the other hand if the ratio</p>
-<div class="math notranslate nohighlight">
-\[\frac{r_3}{r_1} &gt; 15.58\]</div>
-<p>then the bielliptic transfer is more efficient. In the intermediate range, the higher efficiency transfer depends on the ratio <span class="math notranslate nohighlight">\(r_2/r_1\)</span>. For a given value of <span class="math notranslate nohighlight">\(r_3/r_1\)</span> between 11.94 and 15.58, higher values of <span class="math notranslate nohighlight">\(r_2/r_1\)</span> (moving point 2 farther away) tend to make the bielliptic transfer preferred.</p>
+<p>The bi-elliptic Hohmann transfer will be more efficient when the total <span class="math notranslate nohighlight">\(\Delta v\)</span> required for the three impulses is less than the total <span class="math notranslate nohighlight">\(\Delta v\)</span> that the regular Hohmann transfer requires. In terms of the orbital radii <span class="math notranslate nohighlight">\(r_1\)</span> (initial orbit), <span class="math notranslate nohighlight">\(r_2\)</span> (apoapsis of the transfer), and <span class="math notranslate nohighlight">\(r_3\)</span> (target orbit), we find for:</p>
+<div class="math notranslate nohighlight" id="equation-eq-hohmann-more-efficient">
+<span class="eqno">(195)<a class="headerlink" href="#equation-eq-hohmann-more-efficient" title="Permalink to this equation">¶</a></span>\[\frac{r_3}{r_1} &lt; 11.94\]</div>
+<p>the regular Hohmann transfer is more efficient. Thus, smaller orbital radius changes will be more efficient using a two-impulse Hohmann transfer.</p>
+<p>On the other hand if the target orbit to initial orbit ratio is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-bi-elliptic-more-efficient">
+<span class="eqno">(196)<a class="headerlink" href="#equation-eq-bi-elliptic-more-efficient" title="Permalink to this equation">¶</a></span>\[\frac{r_3}{r_1} &gt; 15.58\]</div>
+<p>then the bi-elliptic transfer is more efficient. This happens because the bi-elliptic transfer uses more of its <span class="math notranslate nohighlight">\(\Delta v\)</span> when the velocity of the spacecraft is higher. Due to the <a class="reference external" href="https://en.wikipedia.org/wiki/Oberth_effect">Oberth effect</a>, this results in a higher kinetic energy that can be used for other purposes.</p>
+<p>In the intermediate range, the higher efficiency transfer depends on the ratio <span class="math notranslate nohighlight">\(r_2/r_1\)</span>. For a given value of <span class="math notranslate nohighlight">\(r_3/r_1\)</span> between 11.94 and 15.58, higher values of <span class="math notranslate nohighlight">\(r_2/r_1\)</span> (moving point 2 farther away) tend to make the bielliptic transfer preferred.</p>
 <p>On the other hand, the bielliptic transfer has a much longer flight time than the standard Hohmann transfer. This is because the bielliptic transfer must traverse 360° of true anomaly on two very large ellipses.</p>
 </div>
 </div>
@@ -587,7 +592,7 @@
         <a class="right-next" href="comparison-of-bielliptic-and-hohmann.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Example: Comparison of Bielliptic and Hohmann Transfers</p>
+                <p class="prevnext-title">Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
