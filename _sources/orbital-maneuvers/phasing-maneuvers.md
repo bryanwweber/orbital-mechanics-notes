@@ -72,11 +72,11 @@ Since $a_1 > a_2$, the period of Orbit 2 is smaller. Therefore, while the interc
 
 Although we've treated phasing maneuvers as useful to rendezvous two spacecraft, they can also be used to change the longitude above which a satellite orbits. Assume a satellite is in GEO above the prime meridian, a longitude of 0°E. The target longitude is 137.2°W. Determine the $\Delta v$ requirement if the phasing maneuver takes 1, 2, and 5 rotations of Earth.
 
-{numref}`fig:phasing-maneuver-example` shows the impulse point and the target longitude at the inital state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth's rotation.
+{numref}`fig:phasing-maneuver-example` shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth's rotation.
 
 :::{figure} ../images/phasing-maneuver-example.svg
 :name: fig:phasing-maneuver-example
-:width: 60%
+:width: 70%
 
 The initial conditions for the phasing maneuver to 137.2°W longitude. Not to scale.
 :::
