@@ -80,6 +80,7 @@ Delta_m = goes_mass * (1 - m.exp(-Delta_v / (I_sp * 9.81E-3)))
 ```
 
 ```{code-cell} ipython3
+:tags: [remove-cell]
 glue("Delta_v", Delta_v)
 glue("Delta_m", Delta_m)
 ```

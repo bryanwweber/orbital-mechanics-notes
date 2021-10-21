@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="600"
+   height="600"
+   viewBox="0 0 600 600"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   sodipodi:docname="phasing-orbit-increase-period.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     showborder="true"
+     borderlayer="false"
+     inkscape:showpageshadow="false"
+     inkscape:zoom="1.3805078"
+     inkscape:cx="380.65702"
+     inkscape:cy="263.3089"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-others="true"
+     inkscape:snap-grids="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid823"
+       spacingx="5"
+       spacingy="5" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path20866" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:none;stroke:#8da0cb;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path847"
+       cx="300"
+       cy="298.85156"
+       rx="275"
+       ry="225" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path951"
+       cx="460"
+       cy="300"
+       r="10" />
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path1121"
+       cx="337.5"
+       cy="300"
+       rx="237.5"
+       ry="205.00002" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 345,90 v 10 l -10,-5 10,-5"
+       id="path1334" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 95,295 h 10 l -5,10 -5,-10"
+       id="path1468" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 334.38197,500 v 10 l 10,-5 -10,-5"
+       id="path1658" />
+    <path
+       style="fill:#8da0cb;fill-opacity:1;stroke:#8da0cb;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 305,68.833808 v 10 l -10,-5 10,-5"
+       id="path1660" />
+    <path
+       style="fill:#8da0cb;fill-opacity:1;stroke:#8da0cb;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 20.026115,295.08873 h 10 l -5,10 -5,-10"
+       id="path1806" />
+    <path
+       style="fill:#8da0cb;fill-opacity:1;stroke:#8da0cb;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 297.05637,528.6691 v -10 l 10,5 -10,5"
+       id="path1808" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1936"
+       cx="575"
+       cy="300"
+       r="5" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
+       x="147.44141"
+       y="205.95703"
+       id="text4682"><tspan
+         sodipodi:role="line"
+         id="tspan4680"
+         x="147.44141"
+         y="205.95703">Orbit 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
+       x="22.109375"
+       y="130.95703"
+       id="text6248"><tspan
+         sodipodi:role="line"
+         id="tspan6246"
+         x="22.109375"
+         y="130.95703"
+         style="fill:#8da0cb;fill-opacity:1">Orbit 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;text-align:end;text-anchor:end"
+       x="566.97656"
+       y="295.95703"
+       id="text17632"><tspan
+         sodipodi:role="line"
+         id="tspan17630"
+         x="566.97656"
+         y="295.95703">Impulse</tspan><tspan
+         sodipodi:role="line"
+         x="566.97656"
+         y="315.95703"
+         id="tspan17634">Point</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.00001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 585,300.00001 c 0,-110 0,-110 0,-110"
+       id="path20861" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 590,190 h -10 l 5,-10 5,10"
+       id="path21211" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;text-anchor:middle;text-align:center"
+       x="559.36328"
+       y="145.95703"
+       id="text22227"><tspan
+         sodipodi:role="line"
+         id="tspan22225"
+         x="524.14062"
+         y="145.95703">Δv</tspan><tspan
+         sodipodi:role="line"
+         x="524.14062"
+         y="165.95703"
+         id="tspan22229">Direction</tspan></text>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="circle75489"
+       cx="390"
+       cy="500"
+       r="5" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
+       x="302.23438"
+       y="454.50781"
+       id="text76835"><tspan
+         sodipodi:role="line"
+         id="tspan76833"
+         x="302.23438"
+         y="454.50781">Target spacecraft</tspan><tspan
+         sodipodi:role="line"
+         x="302.23438"
+         y="474.50781"
+         id="tspan76837">at time of impulse</tspan></text>
+  </g>
+  <metadata
+     id="metadata2427">
+    <rdf:RDF />
+  </metadata>
+</svg>
