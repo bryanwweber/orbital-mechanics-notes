@@ -539,53 +539,62 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="non-hohmann-transfers-with-a-common-apse-line">
 <h1>Non-Hohmann Transfers with a Common Apse Line<a class="headerlink" href="#non-hohmann-transfers-with-a-common-apse-line" title="Permalink to this headline">¶</a></h1>
 <p>The Hohmann transfer requires that the spacecraft have the thrust impulses applied at periapsis and apoapsis of the transfer orbit. However, this limits the possible timing of the transfer if we are trying to intercept another celestial body.</p>
-<p>Instead, it would be more convenient if we could transfer to or from any point in the initial or target orbit. This would require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than a Hohmann transfer, but gives more flexibility.</p>
-<p>For now, we will assume that the initial and target orbits have a common apse line. In addition, the two orbits will have the same focus. Assume that we want to leave the initial orbit at the true anomaly <span class="math notranslate nohighlight">\(\theta_A\)</span> and arrive at the target orbit at the true anomaly <span class="math notranslate nohighlight">\(\theta_B\)</span>.</p>
-<p>Since the two orbits have the same focus, the transfer orbit will also have the same focus. In addition, since the apse lines are in common, the departure and arrival true anomalies are the same in the transfer orbit.</p>
+<p>Instead, it would be more convenient if we could transfer to or from any point in the initial or target orbit. This would require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than a Hohmann transfer, but gives more flexibility. The only required condition is that the transfer orbit must intersect both the initial and final orbits.</p>
+<p>For now, we will assume that the initial and target orbits have a common apse line. In addition, the two orbits will have the same focus. Assume that we want to leave the initial orbit at the true anomaly <span class="math notranslate nohighlight">\(\nu_A\)</span> and arrive at the target orbit at the true anomaly <span class="math notranslate nohighlight">\(\nu_B\)</span>.</p>
+<p>Since the two orbits have the same focus, the transfer orbit will also have the same focus. In addition, since the apse lines are in common, the departure and arrival true anomalies are the same in the transfer orbit. This situation is shown in <a class="reference internal" href="#fig-common-apse-line-transfer"><span class="std std-numref">Fig. 53</span></a>.</p>
+<div class="figure align-default" id="fig-common-apse-line-transfer">
+<a class="reference internal image-reference" href="../_images/common-apse-line-transfer.svg"><img alt="../_images/common-apse-line-transfer.svg" src="../_images/common-apse-line-transfer.svg" width="75%" /></a>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">The setup for the common apse line transfer orbit. The initial and final orbits are shown in black, while the transfer orbit is shown in blue. The solid section of the transfer orbit is the portion actually traversed by the spacecraft.</span><a class="headerlink" href="#fig-common-apse-line-transfer" title="Permalink to this image">¶</a></p>
+</div>
 <p>Therefore, we can apply the orbit equation at the departure and arrival points:</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}r_A &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta_A} &amp; r_B &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta_B}\end{aligned}\]</div>
-<p>where <span class="math notranslate nohighlight">\(r_A\)</span> and <span class="math notranslate nohighlight">\(r_B\)</span> are the orbital radii at the departure and arrival points. Note that <span class="math notranslate nohighlight">\(h\)</span> is the specific orbital angular momentum for the transfer orbit.</p>
-<p>Now we have two equations and two unknowns for the transfer orbit, <span class="math notranslate nohighlight">\(e\)</span> and <span class="math notranslate nohighlight">\(h\)</span>. Solving for these two, we find:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}e &amp;= \frac{r_A - r_B}{r_A \cos\theta_A - r_B\cos\theta_B} \\ h &amp;= \sqrt{\mu r_A r_B}\sqrt{\frac{\cos\theta_A - \cos\theta_B}{r_A\cos\theta_A - r_B\cos\theta_B}}\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-0">
+<span class="eqno">(202)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-0" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+  r_A &amp;= \frac{p_t}{1 + e_t\cos\nu_A} &amp; r_B &amp;= \frac{p_t}{1 + e_t\cos\nu_B}
+\end{aligned}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r_A\)</span> and <span class="math notranslate nohighlight">\(r_B\)</span> are the orbital radii at the departure and arrival points. Note that <span class="math notranslate nohighlight">\(p_t\)</span> is the orbital parameter for the transfer orbit, and <span class="math notranslate nohighlight">\(p = h^2/\mu\)</span>.</p>
+<p>Now we have two equations and two unknowns for the transfer orbit, <span class="math notranslate nohighlight">\(e_t\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>. Solving for these two, we find:</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-1">
+<span class="eqno">(203)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+  e_t &amp;= \frac{r_B - r_A}{r_A \cos\nu_A - r_B\cos\nu_B} \\
+  p_t &amp;= r_A r_B\frac{\cos\nu_A - \cos\nu_B}{r_A\cos\nu_A - r_B\cos\nu_B}
+\end{aligned}\end{split}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Note:</strong> For the special case of a Hohmann transfer, <span class="math notranslate nohighlight">\(\theta_A\)</span> = 0° and <span class="math notranslate nohighlight">\(\theta_B\)</span> = 180°, such that:</p>
+<p><strong>Note:</strong> For the special case of a Hohmann transfer, <span class="math notranslate nohighlight">\(\nu_A\)</span> = 0° and <span class="math notranslate nohighlight">\(\nu_B\)</span> = 180°, such that:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}e &amp;= \frac{r_A - r_B}{r_A + r_B} \\ h &amp;= \sqrt{2\mu}\sqrt{\frac{r_A r_B}{r_A - r_B}}\end{aligned}\end{split}\]</div>
-<p>There is a typo in this similar equation in the book for <span class="math notranslate nohighlight">\(e\)</span>.</p>
+\[\begin{split}\begin{aligned}
+  e_t &amp;= \frac{r_B - r_A}{r_A + r_B} \\
+  p_t &amp;= \frac{2 r_A r_B}{r_A - r_B}
+\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="calculating-delta-v">
 <h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">¶</a></h2>
 <p>For orbital transfers that do not take place on the apse line, we have to account for the change in direction of the velocity vector in addition to the change of magnitude. The difference in length of the velocity vectors is the change in speed and the change of flight path angle is the change of direction of the vector.</p>
-<p>It is very important that when we calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> for a maneuver, this is the magnitude of the change in velocity vector, not the change of magnitude of the velocity (speed). Since <span class="math notranslate nohighlight">\(\Delta\vector{v} = \vector{v}_2 - \vector{v}_1\)</span>, such that the magnitude is:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v = \mag{\Delta\vector{v}} = \sqrt{\left(\vector{v}_2 - \vector{v}_1\right)\cdot\left(\vector{v}_2 - \vector{v}_1\right)}\]</div>
+<p>It is very important that when we calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> for a maneuver, this is the magnitude of the change in velocity vector, not the change of magnitude of the velocity (speed). Since <span class="math notranslate nohighlight">\(\Delta\vector{v} = \vector{v}_{A_t} - \vector{v}_A\)</span>, the magnitude is:</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-2">
+<span class="eqno">(204)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-2" title="Permalink to this equation">¶</a></span>\[\Delta v = \mag{\Delta\vector{v}} = \sqrt{\left(\vector{v}_{A_t} - \vector{v}_{A}\right)\cdot\left(\vector{v}_{A_t} - \vector{v}_{A}\right)}\]</div>
 <p>Expanding the product and simplifying with the law of cosines, we find:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos\Delta\gamma}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta\gamma = \gamma_2 - \gamma_1\)</span> is the change of flight angle.</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-3">
+<span class="eqno">(205)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-3" title="Permalink to this equation">¶</a></span>\[\Delta v = \sqrt{v_A^2 + v_{A_t}^2 - 2 v_A v_{A_t} \cos\Delta\phi}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta\phi = \phi_{A_t} - \phi_A\)</span> is the change of flight angle. The flight path angle is given by Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-flight-path-angle">(118)</a>.</p>
+<p>This gives the required velocity change at the departure point, <span class="math notranslate nohighlight">\(A\)</span>. The same calculate can be done at the arrival point, <span class="math notranslate nohighlight">\(B\)</span>, to compute the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the maneuver.</p>
 </div>
 <div class="section" id="thrust-direction">
 <h2>Thrust Direction<a class="headerlink" href="#thrust-direction" title="Permalink to this headline">¶</a></h2>
-<p>To achieve the new velocity, the thrust from the engine must be directed parallel to the direction of <span class="math notranslate nohighlight">\(\Delta\vector{v}\)</span>. Relative to the local horizon, the required angle <span class="math notranslate nohighlight">\(\phi\)</span> is given by:</p>
-<div class="math notranslate nohighlight">
-\[\tan\phi = \frac{\Delta v_r}{\Delta v_{\perp}}\]</div>
+<p>To achieve the new velocity, the thrust from the engine must be directed parallel to the direction of <span class="math notranslate nohighlight">\(\Delta\vector{v}\)</span>. Relative to the local horizon, the required angle <span class="math notranslate nohighlight">\(\gamma\)</span> is given by:</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-4">
+<span class="eqno">(206)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-4" title="Permalink to this equation">¶</a></span>\[\tan\gamma = \frac{\Delta v_r}{\Delta v_{\perp}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta v_r\)</span> is the change in the radial component of velocity and <span class="math notranslate nohighlight">\(\Delta v_{\perp}\)</span> is the change in the perpendicular component of velocity.</p>
 </div>
 <div class="section" id="relation-to-specific-energy">
 <h2>Relation to Specific Energy<a class="headerlink" href="#relation-to-specific-energy" title="Permalink to this headline">¶</a></h2>
-<p>The <em>vis viva</em> equation determines the specific energy of the spacecraft due to its kinetic and potential energy:</p>
-<div class="math notranslate nohighlight">
-\[\varepsilon = \frac{\vector{v}\cdot\vector{v}}{2} - \frac{\mu}{r}\]</div>
-<p>The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:</p>
-<div class="math notranslate nohighlight">
-\[\Delta\varepsilon = \frac{\left(\vector{v} + \Delta\vector{v}\right)\cdot\left(\vector{v} + \Delta\vector{v}\right)}{2} - \frac{\vector{v}\cdot\vector{v}}{2}\]</div>
-<p>Simplifying, assuming that <span class="math notranslate nohighlight">\(\vector{v} = \vector{v}_1\)</span> and <span class="math notranslate nohighlight">\(\left(\vector{v} + \Delta\vector{v}\right) = \vector{v}_2\)</span>, we find:</p>
-<div class="math notranslate nohighlight">
-\[\Delta\varepsilon = v\Delta v \cos\Delta\gamma + \frac{1}{2}\Delta v^2\]</div>
-<p>From this equation, for a fixed <span class="math notranslate nohighlight">\(\Delta v\)</span> from the maneuver, we see that <span class="math notranslate nohighlight">\(\Delta\varepsilon\)</span> is maximized when <span class="math notranslate nohighlight">\(v\)</span> is largest and <span class="math notranslate nohighlight">\(\Delta\gamma\)</span>=0. In the sense that higher <span class="math notranslate nohighlight">\(\Delta\varepsilon\)</span> for a given <span class="math notranslate nohighlight">\(\Delta v\)</span> is more efficient, we can see that aligning the velocity vectors and maximizing <span class="math notranslate nohighlight">\(v\)</span> by providing the impulse at periapsis has the highest efficiency.</p>
+<p>The <em>vis viva</em> equation determines the specific energy of the spacecraft due to its kinetic and potential energy by Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>. The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-5">
+<span class="eqno">(207)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-5" title="Permalink to this equation">¶</a></span>\[\Delta E = \frac{\left(\vector{v} + \Delta\vector{v}\right)\cdot\left(\vector{v} + \Delta\vector{v}\right)}{2} - \frac{\vector{v}\cdot\vector{v}}{2}\]</div>
+<p>Simplifying, assuming that <span class="math notranslate nohighlight">\(\vector{v} = \vector{v}_A\)</span> and <span class="math notranslate nohighlight">\(\left(\vector{v} + \Delta\vector{v}\right) = \vector{v}_{A_t}\)</span>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-6">
+<span class="eqno">(208)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-6" title="Permalink to this equation">¶</a></span>\[\Delta E = v\Delta v \cos\Delta\phi + \frac{1}{2}\Delta v^2\]</div>
+<p>From this equation, for a fixed <span class="math notranslate nohighlight">\(\Delta v\)</span> from the maneuver, we see that <span class="math notranslate nohighlight">\(\Delta E\)</span> is maximized when <span class="math notranslate nohighlight">\(v\)</span> is largest and <span class="math notranslate nohighlight">\(\Delta\phi\)</span>=0. In the sense that higher <span class="math notranslate nohighlight">\(\Delta E\)</span> for a given <span class="math notranslate nohighlight">\(\Delta v\)</span> is more efficient, we can see that aligning the velocity vectors and maximizing <span class="math notranslate nohighlight">\(v\)</span> by providing the impulse at periapsis has the highest efficiency.</p>
 </div>
 </div>
 

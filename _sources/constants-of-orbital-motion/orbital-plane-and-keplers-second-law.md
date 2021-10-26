@@ -31,7 +31,7 @@ The angular momentum can then be defined as:
 :::{math}
 :label: eq:angular-momentum-in-orbital-components
 \begin{aligned}
-  \vector{h} &= \vector{r}\cross\vector{v} = r\uvec{u}_r \cross\left(v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\right)\\ 
+  \vector{h} &= \vector{r}\cross\vector{v} = r\uvec{u}_r \cross\left(v_r\uvec{u}_r + v_{\perp}\uvec{u}_{\perp}\right)\\
              &= r v_r\left(\uvec{u}_r\cross\uvec{u}_r\right) + r v_{\perp}\left(\uvec{u}_r\cross\uvec{u}_{\perp}\right)\\
              &= r v_{\perp}\uvec{h}
 \end{aligned}
