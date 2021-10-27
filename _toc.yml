@@ -51,8 +51,8 @@ parts:
       - file: orbital-maneuvers/comparison-of-bielliptic-and-hohmann
       - file: orbital-maneuvers/phasing-maneuvers
       - file: orbital-maneuvers/non-hohmann-transfers
-      - file: orbital-maneuvers/apse-line-rotation
-      - file: orbital-maneuvers/chase-maneuvers
+      # - file: orbital-maneuvers/apse-line-rotation
+      # - file: orbital-maneuvers/chase-maneuvers
       - file: orbital-maneuvers/plane-change-maneuvers
       - file: orbital-maneuvers/plane-change-example
       - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
