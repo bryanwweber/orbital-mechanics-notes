@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/non-hohmann-transfers.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Apse Line Rotation" href="apse-line-rotation.html" />
+    <link rel="next" title="Plane Change Maneuvers" href="plane-change-maneuvers.html" />
     <link rel="prev" title="Phasing Maneuvers" href="phasing-maneuvers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -333,16 +333,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="apse-line-rotation.html">
-   Apse Line Rotation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chase-maneuvers.html">
-   Chase Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="plane-change-maneuvers.html">
    Plane Change Maneuvers
   </a>
@@ -576,7 +566,11 @@
 <p>Expanding the product and simplifying with the law of cosines, we find:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-3">
 <span class="eqno">(205)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-3" title="Permalink to this equation">¶</a></span>\[\Delta v = \sqrt{v_A^2 + v_{A_t}^2 - 2 v_A v_{A_t} \cos\Delta\phi}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta\phi = \phi_{A_t} - \phi_A\)</span> is the change of flight angle. The flight path angle is given by Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-flight-path-angle">(118)</a>.</p>
+<p>where <span class="math notranslate nohighlight">\(\Delta\phi = \phi_{A_t} - \phi_A\)</span> is the change of flight path angle. The flight path angle is given by Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-flight-path-angle">(118)</a>.</p>
+<p>This situation is shown in <a class="reference internal" href="#fig-non-hohmann-delta-v"><span class="std std-numref">Fig. 54</span></a> for the departure point.</p>
+<div class="figure align-default" id="fig-non-hohmann-delta-v">
+<img alt="../_images/non-hohmann-delta-v.svg" src="../_images/non-hohmann-delta-v.svg" /><p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Arbitrary changes may be made to the velocity vector by aligning the thrust vector to the angle <span class="math notranslate nohighlight">\(\gamma\)</span>. This causes a change in flight path angle from <span class="math notranslate nohighlight">\(\phi_A\)</span> to <span class="math notranslate nohighlight">\(\phi_{A_t}\)</span>. This manuever will transfer from the initial orbit to the transfer orbit. A similar maneuver is required to go from the transfer orbit to the final orbit.</span><a class="headerlink" href="#fig-non-hohmann-delta-v" title="Permalink to this image">¶</a></p>
+</div>
 <p>This gives the required velocity change at the departure point, <span class="math notranslate nohighlight">\(A\)</span>. The same calculate can be done at the arrival point, <span class="math notranslate nohighlight">\(B\)</span>, to compute the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the maneuver.</p>
 </div>
 <div class="section" id="thrust-direction">
@@ -637,10 +631,10 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="apse-line-rotation.html" title="next page">
+        <a class="right-next" href="plane-change-maneuvers.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Apse Line Rotation</p>
+                <p class="prevnext-title">Plane Change Maneuvers</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
