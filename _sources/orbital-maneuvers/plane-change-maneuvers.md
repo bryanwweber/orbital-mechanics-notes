@@ -199,7 +199,7 @@ glue("launch-azimuth-vs-inclination", fig, display=False)
 The launch azimuth, $A$, in combination with the latitude $\phi$ determines the inclination of the orbit after launch.
 :::
 
-As a practical consideration, launch azimuths are limited by the geography surrounding the launch site. Launches from Kennedy Space Center in Florida ($\phi$=28.6°N) are limited to azimuths between [35° and 120°](https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html) so that they do not cross land over the US. Therefore, polar orbits ($i$ = 90°) are not possible to achieve from Kennedy.
+As a practical consideration, launch azimuths are limited by the geography surrounding the launch site. Launches from Kennedy Space Center in Florida ($\phi$=28.6°N) are limited to azimuths between [35° and 120°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html) so that they do not cross land over the US. Therefore, polar orbits ($i$ = 90°) are not possible to achieve from Kennedy.
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -250,7 +250,7 @@ glue_bokeh("kennedy-launch-angles", plot)
 The permitted launch angles from Kennedy Space Center on the East coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::
 
-The other major launch site in the US is Vandenberg Space Force Base in southern California ($\phi$ = 34.7°N). Similar restrictions at Vandenberg require most launches to go to the south, over the Pacific Ocean. However, polar and sun-synchronous orbits are possible from Vandenberg, where the azimuth limits are from [158° to 201°](https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html).
+The other major launch site in the US is Vandenberg Space Force Base in southern California ($\phi$ = 34.7°N). Similar restrictions at Vandenberg require most launches to go to the south, over the Pacific Ocean. However, polar and sun-synchronous orbits are possible from Vandenberg, where the azimuth limits are from [158° to 201°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html).
 
 ```{code-cell} ipython3
 :tags: [remove-input]
