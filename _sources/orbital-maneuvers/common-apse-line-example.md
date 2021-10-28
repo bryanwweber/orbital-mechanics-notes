@@ -92,7 +92,7 @@ for n in ("v_p", "v_r", "v", "phi"):
     glue("common-apse-line-" + name, loc[name])
 ```
 
-The velocities and flight angles are shown in {numref}`tab:common-apse-line`.
+The velocities and flight path angles are shown in {numref}`tab:common-apse-line`.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
 :name: tab:common-apse-line
