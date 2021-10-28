@@ -18,7 +18,7 @@ The setup for the common apse line transfer orbit. The initial and final orbits 
 Therefore, we can apply the orbit equation at the departure and arrival points:
 
 :::{math}
-:label:
+:label: eq:non-hohmann-intersecting-points
 \begin{aligned}
   r_A &= \frac{p_t}{1 + e_t\cos\nu_A} & r_B &= \frac{p_t}{1 + e_t\cos\nu_B}
 \end{aligned}
@@ -29,7 +29,7 @@ where $r_A$ and $r_B$ are the orbital radii at the departure and arrival points.
 Now we have two equations and two unknowns for the transfer orbit, $e_t$ and $p_t$. Solving for these two, we find:
 
 :::{math}
-:label:
+:label: eq:non-hohmann-orbital-elements
 \begin{aligned}
   e_t &= \frac{r_B - r_A}{r_A \cos\nu_A - r_B\cos\nu_B} \\
   p_t &= r_A r_B\frac{\cos\nu_A - \cos\nu_B}{r_A\cos\nu_A - r_B\cos\nu_B}
@@ -54,14 +54,14 @@ For orbital transfers that do not take place on the apse line, we have to accoun
 It is very important that when we calculate the required $\Delta v$ for a maneuver, this is the magnitude of the change in velocity vector, not the change of magnitude of the velocity (speed). Since $\Delta\vector{v} = \vector{v}_{A_t} - \vector{v}_A$, the magnitude is:
 
 :::{math}
-:label:
+:label: eq:non-hohmann-delta-v-vector
 \Delta v = \mag{\Delta\vector{v}} = \sqrt{\left(\vector{v}_{A_t} - \vector{v}_{A}\right)\cdot\left(\vector{v}_{A_t} - \vector{v}_{A}\right)}
 :::
 
 Expanding the product and simplifying with the law of cosines, we find:
 
 :::{math}
-:label:
+:label: eq:non-hohmann-delta-v-scalar
 \Delta v = \sqrt{v_A^2 + v_{A_t}^2 - 2 v_A v_{A_t} \cos\Delta\phi}
 :::
 
@@ -82,7 +82,7 @@ This gives the required velocity change at the departure point, $A$. The same ca
 To achieve the new velocity, the thrust from the engine must be directed parallel to the direction of $\Delta\vector{v}$. Relative to the local horizon, the required angle $\gamma$ is given by:
 
 :::{math}
-:label:
+:label: eq:non-hohmann-thrust-direction
 \tan\gamma = \frac{\Delta v_r}{\Delta v_{\perp}}
 :::
 
