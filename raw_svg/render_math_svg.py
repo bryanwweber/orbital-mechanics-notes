@@ -64,7 +64,7 @@ CC_META = """
 # Match sizes from height and width attributes
 SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
 # Match a scaling factor in the class attribute
-SCALE_REGEX = re.compile(r"\bscale-(\d*)\b")
+SCALE_REGEX = re.compile(r"\bscale-([\d.]*)\b")
 
 
 def load_cache() -> CACHE_T:
