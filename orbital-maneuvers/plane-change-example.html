@@ -457,11 +457,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/plane-change-example.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="../_sources/orbital-maneuvers/plane-change-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/orbital-maneuvers/plane-change-example.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -482,7 +485,7 @@
             href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Forbital-maneuvers/plane-change-example.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/plane-change-example.ipynb"><button
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/plane-change-example.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -502,7 +505,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/plane-change-example.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/orbital-maneuvers/plane-change-example.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -528,6 +531,28 @@
   <a class="reference internal nav-link" href="#solution">
    Solution
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-1-plane-change-at-leo">
+     Case 1: Plane Change at LEO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-2-plane-change-at-geo">
+     Case 2: Plane Change at GEO
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-3-no-plane-change">
+     Case 3: No Plane Change
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimizing-the-plane-change">
+   Optimizing the Plane Change
+  </a>
  </li>
 </ul>
 
@@ -542,142 +567,117 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="example-plane-change-maneuver">
 <h1>Example: Plane Change Maneuver<a class="headerlink" href="#example-plane-change-maneuver" title="Permalink to this headline">¶</a></h1>
-<p>Find the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for an orbital transfer from a 300 km circular LEO at 28.6° inclination to geostationary equatorial orbit. Assume a Hohmann transfer. Compare the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for 2 cases:</p>
+<p>Find the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for an orbital transfer from a 300 km circular LEO at 28.6° inclination to geostationary equatorial orbit. The orbital transfer should consist of two impulses. Compare the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for 3 cases:</p>
 <ol class="simple">
-<li><p>The Hohmann trajectory has an inclination of 28.6° (plane change at altitude)</p></li>
-<li><p>The Hohmann trajectory has an inclination of 0° (plane change at LEO)</p></li>
+<li><p>The spacecraft changes its orbital inclination to 0° and changes to a Hohmann transfer trajectory in one impulse, then circularizes its orbit at GEO (plane change at LEO)</p></li>
+<li><p>The spacecraft changes to a Hohmann transfer trajectory without changing plane with the first impulse, then circularizes its orbit and changes plane upon reaching GEO altitue (plane change at GEO)</p></li>
+<li><p>The spacecraft starts in a 300 km equatorial orbit, instead of an inclined orbit, so no plane change is required</p></li>
 </ol>
-<p>Also compare to the case where the satellite starts in an equatorial orbit (no plane change required).</p>
 <div class="section" id="solution">
 <h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
-<p>From our analysis of the plane change <span class="math notranslate nohighlight">\(\Delta v\)</span> equations, we expect that plane changes at altitude will be more efficient than in LEO because the speed decreases for higher altitude orbits. Likewise, we expect that the maneuvers that require a plane change will require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than the one that doesn’t.</p>
-<p>To start, we need to define the various radii, angular momenta, and speeds of the initial and final orbits.</p>
+<p>From our analysis Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-scalar">(219)</a> for <span class="math notranslate nohighlight">\(\Delta v\)</span>, we expect that plane changes at altitude will be more efficient than in LEO because the speed decreases for higher altitude orbits. Likewise, we expect that the maneuvers that require a plane change will require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than the one that doesn’t.</p>
+<p>To start, we need to define the various radii, specific orbital energies, and speeds of the initial and final orbits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R_E</span> <span class="o">=</span> <span class="mi">6378</span>  <span class="c1"># km</span>
+
+<span class="n">R_E</span> <span class="o">=</span> <span class="mf">6378.1</span>  <span class="c1"># km</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">3.986E5</span>  <span class="c1"># km**3/s**2</span>
 <span class="n">delta_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">28.6</span><span class="p">)</span>
 
 <span class="n">r_1</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="n">R_E</span>  <span class="c1"># km</span>
 <span class="n">v_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_1</span><span class="p">)</span>  <span class="c1"># km/s</span>
-<span class="n">h_1</span> <span class="o">=</span> <span class="n">r_1</span> <span class="o">*</span> <span class="n">v_1</span>  <span class="c1"># km**2/s</span>
+<span class="n">E_1</span> <span class="o">=</span> <span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">r_1</span>  <span class="c1"># km**2/s**2</span>
 
 <span class="n">r_2</span> <span class="o">=</span> <span class="mi">42_164</span>  <span class="c1"># km</span>
 <span class="n">v_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">r_2</span><span class="p">)</span>  <span class="c1"># km/s</span>
-<span class="n">h_2</span> <span class="o">=</span> <span class="n">r_2</span> <span class="o">*</span> <span class="n">v_2</span>  <span class="c1"># km**2/s</span>
+<span class="n">E_2</span> <span class="o">=</span> <span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">r_2</span>  <span class="c1"># km**2/s**2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Then, we can calculate the properties of the Hohmann transfer orbit. Interestingly, the angular momentum is independent of the inclination, since it depends only on the apogee and perigee radii:</p>
-<div class="math notranslate nohighlight">
-\[h_t = \sqrt{2\mu}\sqrt{\frac{r_1 r_2}{r_1 + r_2}}\]</div>
+<p>Then, we can calculate the properties of the Hohmann transfer orbit. Interestingly, the specific orbital energy of the transfer orbit is independent of the inclination, since it depends only on the semimajor axis, from Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-specific-energy">(134)</a>. Thus, the velocity at apogee and perigee of the transfer orbit also don’t depend on inclination.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">*</span> <span class="n">r_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_1</span> <span class="o">+</span> <span class="n">r_2</span><span class="p">))</span>
-<span class="n">v_t1</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_1</span>
-<span class="n">v_t2</span> <span class="o">=</span> <span class="n">h_t</span> <span class="o">/</span> <span class="n">r_2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_p</span> <span class="o">=</span> <span class="n">r_1</span>
+<span class="n">r_a</span> <span class="o">=</span> <span class="n">r_2</span>
+<span class="n">a_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_p</span> <span class="o">+</span> <span class="n">r_a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">E_t</span> <span class="o">=</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a_t</span><span class="p">)</span>
+<span class="n">v_t1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">E_t</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">r_p</span><span class="p">))</span>
+<span class="n">v_t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">E_t</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">r_a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>For the case of the plane change at altitude (Case 1), the total <span class="math notranslate nohighlight">\(\Delta v\)</span> is the speed increase to transfer onto the Hohmann <span class="math notranslate nohighlight">\(v_{t1} - v_1\)</span> plus the speed change to get onto the GEO, plus the plane change at GEO, where the last two steps occur in one maneuver. Thus, the equation is:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v = v_{t1} - v_1 + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\Delta i}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta i\)</span> = 28.6°.</p>
+<div class="section" id="case-1-plane-change-at-leo">
+<h3>Case 1: Plane Change at LEO<a class="headerlink" href="#case-1-plane-change-at-leo" title="Permalink to this headline">¶</a></h3>
+<p>The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for this maneuver must include both impulses. The <span class="math notranslate nohighlight">\(\Delta v\)</span> in LEO, which includes the plane change, is given by Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(220)</a>. The velocity in the circular initial orbit does not have a radial component, and the Hohmann transfer orbit leaves the initial orbit at perigee so it doesn’t have a radial velocity component either.</p>
+<p>From Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(220)</a>, <span class="math notranslate nohighlight">\(v_1\)</span> is the velocity in the 300 km circular orbit, and <span class="math notranslate nohighlight">\(v_2 = v_{t,1}\)</span> is the velocity at perigee of the transfer orbit. The spacecraft arrives at the end of the transfer orbit with an inclination of 0°. The orbit is circularized at GEO by an in-plane maneuver, with <span class="math notranslate nohighlight">\(\Delta v\)</span> given by Eq. <a class="reference internal" href="hohmann-transfer.html#equation-eq-hohmann-transfer-delta-v">(193)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="n">v_t1</span> <span class="o">-</span> <span class="n">v_1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Delta_v</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v_1_LEO</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span>
+<span class="n">Delta_v_1_GEO</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_t2</span> <span class="o">-</span> <span class="n">v_2</span><span class="p">)</span>
+<span class="n">Delta_v_1</span> <span class="o">=</span> <span class="n">Delta_v_1_LEO</span> <span class="o">+</span> <span class="n">Delta_v_1_GEO</span>
 </pre></div>
 </div>
 </div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> to change plane and enter the Hohmann transfer is <span class="pasted-text">5.002</span> km/s, the <span class="math notranslate nohighlight">\(\Delta v\)</span> to circularize the orbit at GEO is <span class="pasted-text">1.467</span> km/s, and the total <span class="math notranslate nohighlight">\(\Delta v\)</span> is <span class="pasted-text">6.469</span> km/s.</p>
+</div>
+<div class="section" id="case-2-plane-change-at-geo">
+<h3>Case 2: Plane Change at GEO<a class="headerlink" href="#case-2-plane-change-at-geo" title="Permalink to this headline">¶</a></h3>
+<p>The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for this maneuver must include both impulses. The <span class="math notranslate nohighlight">\(\Delta v\)</span> in LEO, which does not include the plane change, is given by Eq. <a class="reference internal" href="hohmann-transfer.html#equation-eq-hohmann-transfer-delta-v">(193)</a>.</p>
+<p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> at GEO, which includes the plane change, is given by Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(220)</a>. The velocity in the circular final orbit does not have a radial component, and the Hohmann transfer orbit arrives at the target orbit at apogee so it doesn’t have a radial velocity component either.</p>
+<p>From Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(220)</a>, <span class="math notranslate nohighlight">\(v_1 = v_{t,2}\)</span> is the velocity at apogee of the transfer orbit and <span class="math notranslate nohighlight">\(v_2\)</span> is the velocity of the circular orbit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v_2_GEO</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span>
+<span class="n">Delta_v_2_LEO</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_t1</span> <span class="o">-</span> <span class="n">v_1</span><span class="p">)</span>
+<span class="n">Delta_v_2</span> <span class="o">=</span> <span class="n">Delta_v_2_LEO</span> <span class="o">+</span> <span class="n">Delta_v_2_GEO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> to center the Hohmann transfer is <span class="pasted-text">2.426</span> km/s, the <span class="math notranslate nohighlight">\(\Delta v\)</span> to circularize the orbit at GEO and change the plane is <span class="pasted-text">1.832</span> km/s, and the total <span class="math notranslate nohighlight">\(\Delta v\)</span> is <span class="pasted-text">4.258</span> km/s.</p>
+<p>As expected, doing the plane change in LEO required a larger <span class="math notranslate nohighlight">\(\Delta v\)</span>, because the speed of the spacecraft is higher in LEO than GEO.</p>
+</div>
+<div class="section" id="case-3-no-plane-change">
+<h3>Case 3: No Plane Change<a class="headerlink" href="#case-3-no-plane-change" title="Permalink to this headline">¶</a></h3>
+<p>If there is no plane change, the <span class="math notranslate nohighlight">\(\Delta v\)</span> is given by Eq. <a class="reference internal" href="hohmann-transfer.html#equation-eq-hohmann-transfer-delta-v">(193)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_t1</span> <span class="o">-</span> <span class="n">v_1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_2</span> <span class="o">-</span> <span class="n">v_t2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Without a plane change, <span class="math notranslate nohighlight">\(\Delta v =\)</span> <span class="pasted-text">3.893</span> km/s. We can see that the plane change adds about 0.37 km/s of <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for this orbital transfer.</p>
+</div>
+</div>
+<div class="section" id="optimizing-the-plane-change">
+<h2>Optimizing the Plane Change<a class="headerlink" href="#optimizing-the-plane-change" title="Permalink to this headline">¶</a></h2>
+<p>Interestingly, splitting the plane change so part happens on departure from LEO and part happens on arrival at GEO turns out to be more efficient than doing the entire plane change at GEO. If we assume that some plane change, <span class="math notranslate nohighlight">\(\Delta i\)</span>, happens on departure from LEO into the Hohmann transfer, and the remainder (28.6° - <span class="math notranslate nohighlight">\(\Delta i\)</span>) happens on arrival to GEO, then we can write the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for both impulses:</p>
+<div class="math notranslate nohighlight" id="equation-eq-plane-change-example-optimal-delta-v">
+<span class="eqno">(228)<a class="headerlink" href="#equation-eq-plane-change-example-optimal-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
+<p>We can take the derivative of this equation with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> to find the minimum, but it’s usually easier to plot a function to see if anything obvious pops out. The plot of this function is shown in <a class="reference internal" href="#fig-plane-change-optimize-delta-v"><span class="std std-numref">Fig. 61</span></a>.</p>
+<div class="figure align-default" id="fig-plane-change-optimize-delta-v">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta_v=4.2583 km/s
-</pre></div>
+<img alt="../_images/plane-change-example_14_0.png" src="../_images/plane-change-example_14_0.png" />
 </div>
+<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">The total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for a Hohmann transfer from LEO to GEO, including a plane change. <span class="math notranslate nohighlight">\(\Delta i\)</span> is the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-optimize-delta-v" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-<p>For the case of the plane change in LEO (Case 2), the plane change is added to the first velocity increment:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + v_2 - v_{t2}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span> <span class="o">+</span> <span class="n">v_2</span> <span class="o">-</span> <span class="n">v_t2</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Delta_v</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p>In <a class="reference internal" href="#fig-plane-change-optimize-delta-v"><span class="std std-numref">Fig. 61</span></a>, <span class="math notranslate nohighlight">\(\Delta i\)</span> = 28.6° shows Case 1 (plane change at LEO) and <span class="math notranslate nohighlight">\(\Delta i\)</span> = 0° shows Case 2 (plane change at GEO). We can see that there appears to be a minimum in the <span class="math notranslate nohighlight">\(\Delta v\)</span> around <span class="math notranslate nohighlight">\(\Delta i\)</span> = 2.5°. This means that about 2.5° of plane change should happen when transferring into the Hohmann trajectory, and the remainder should happen at altitude.</p>
+<p>We can determine the value of this optimium by taking the derivative with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> and setting it equal to zero:</p>
+<div class="math notranslate nohighlight" id="equation-eq-plane-change-delta-v-derivative">
+<span class="eqno">(229)<a class="headerlink" href="#equation-eq-plane-change-delta-v-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
+<p>This equation must be solved numerically, but we can plot it to verify the behavior.</p>
+<div class="figure align-default" id="fig-plane-change-delta-v-derivative">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta_v=6.4692 km/s
-</pre></div>
+<img alt="../_images/plane-change-example_16_0.png" src="../_images/plane-change-example_16_0.png" />
 </div>
+<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">The derivative of the total <span class="math notranslate nohighlight">\(\Delta v\)</span> as a function of the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-delta-v-derivative" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-<p>As expected, doing the plane change in LEO required a larger <span class="math notranslate nohighlight">\(\Delta v\)</span>, because the speed of the spacecraft is higher in LEO than GEO. Comparing to the case with no plane change:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_v</span> <span class="o">=</span> <span class="n">v_t1</span> <span class="o">-</span> <span class="n">v_1</span> <span class="o">+</span> <span class="n">v_2</span> <span class="o">-</span> <span class="n">v_t2</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Delta_v</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta_v=3.8926 km/s
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can see that the plane change adds 0.37 km/s of <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement.</p>
-<p>Interestingly, splitting the plane change so part happens on departure from LEO and part happens on arrival at GEO turns out to be more efficient than doing the entire plane change at GEO. If we assume that some plane change <span class="math notranslate nohighlight">\(\Delta i\)</span> happens on departure from LEO into the Hohmann transfer, and the remainder (<span class="math notranslate nohighlight">\(28.6° - \Delta i\)</span>) happens on arrival to GEO, then we can write the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the maneuvers:</p>
-<div class="math notranslate nohighlight">
-\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">total_inclination_change</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">28.6</span><span class="p">)</span>
-<span class="n">delta_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">total_inclination_change</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">delta_v_total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">))</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_i</span><span class="p">),</span> <span class="n">delta_v_total</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta i$, degrees&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta v$, km/s&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/plane-change-example_13_0.png" src="../_images/plane-change-example_13_0.png" />
-</div>
-</div>
-<p>In this graph, <span class="math notranslate nohighlight">\(\Delta i\)</span> = 0° shows Case 1 (plane change at altitude) and the right side of the graph shows Case 2 (plane change in LEO). We can see that there appears to be a minimum in the <span class="math notranslate nohighlight">\(\Delta v\)</span> around <span class="math notranslate nohighlight">\(\Delta i\)</span> = 2.5°. This means that about 2.5° of plane change should happen when transferring into the Hohmann trajectory, and the remainder should happen at altitude. We can determine the value of this optimium by taking the derivative with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> and setting it equal to zero:</p>
-<div class="math notranslate nohighlight">
-\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
-<p>This equation must be solved numerically, but we can plot it to verify the behavior:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_v_d_i</span> <span class="o">=</span> <span class="n">v_1</span><span class="o">*</span><span class="n">v_t1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">v_1</span><span class="o">*</span><span class="n">v_t1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">)))</span>
-<span class="n">d_v_d_i</span> <span class="o">-=</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">delta_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">v_2</span><span class="o">*</span><span class="n">v_t2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">delta_i</span><span class="p">)))</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_i</span><span class="p">),</span> <span class="n">d_v_d_i</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\Delta i$, degrees&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$d\Delta v/d \Delta i$&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/plane-change-example_15_0.png" src="../_images/plane-change-example_15_0.png" />
-</div>
-</div>
-<p>As expected, there is a single zero crossing of this function. We can use the Newton solver to find the optimum value.</p>
+<p>As expected, there is a single zero crossing of this function, meaning there is one value of the optimum. We can use the Newton solver to find the optimum value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
@@ -687,30 +687,12 @@
     <span class="k">return</span> <span class="n">d_v_d_i</span>
 
 <span class="n">delta_i_opt</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">2.5</span><span class="p">),</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">v_1</span><span class="p">,</span> <span class="n">v_t1</span><span class="p">,</span> <span class="n">v_2</span><span class="p">,</span> <span class="n">v_t2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">delta_i_opt</span><span class="p">)</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.degrees(delta_i_opt)=2.2051°
+<span class="n">delta_v_opt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i_opt</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">total_inclination_change</span> <span class="o">-</span> <span class="n">delta_i_opt</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_opt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_1</span> <span class="o">*</span> <span class="n">v_t1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">delta_i_opt</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_t2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">v_2</span> <span class="o">*</span> <span class="n">v_t2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">total_inclination_change</span> <span class="o">-</span> <span class="n">delta_i_opt</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">delta_v_opt</span><span class="si">=:</span><span class="s2">.4F</span><span class="si">}</span><span class="s2"> km/s&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>delta_v_opt=4.2335 km/s
-</pre></div>
-</div>
-</div>
-</div>
-<p>The result with the entire plane change at altitude was 4.2583 km/s, so the optimized value is less than 1% different from the value we calculated previously.</p>
+<p>The result with the entire plane change at altitude was <span class="pasted-text">4.258</span> km/s, whereas the optimized value is <span class="pasted-text">4.233</span> km/s, so the optimized value offers less than 1% improvement in <span class="math notranslate nohighlight">\(\Delta v\)</span> required. Depending on the mission design, it may or may not be worth the additional control overhead to save this propellant.</p>
 </div>
 </div>
 

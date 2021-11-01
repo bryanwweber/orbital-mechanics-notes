@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" width="500" height="350" viewBox="0 0 500 350.00001" version="1.1" id="svg5" inkscape:version="1.1.1 (c3084ef, 2021-09-22)" sodipodi:docname="plane-change-maneuver-2d.svg">
+  <sodipodi:namedview id="namedview7" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="false" inkscape:document-units="px" showgrid="true" units="px" showborder="true" borderlayer="false" inkscape:showpageshadow="false" inkscape:zoom="1.0517186" inkscape:cx="243.88653" inkscape:cy="93.656233" inkscape:window-width="1440" inkscape:window-height="847" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer1" inkscape:snap-intersection-paths="true" inkscape:object-paths="true" inkscape:snap-grids="false" lock-margins="true" fit-margin-top="20" fit-margin-left="20" fit-margin-right="20" fit-margin-bottom="20">
+    <inkscape:grid type="xygrid" id="grid16193" spacingx="5" spacingy="5" originx="3.1396707" originy="-4.2928933" />
+  </sodipodi:namedview>
+  <metadata>
+  <rdf:RDF>
+    <cc:Work rdf:about="">
+      <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      <dc:title>plane-change-maneuver-2d.svg</dc:title>
+      <dc:date>2021-10-31T13:35:53.218709</dc:date>
+      <dc:format>image/svg+xml</dc:format>
+      <dc:creator>
+        <cc:Agent>
+          <dc:title>Bryan Weber</dc:title>
+        </cc:Agent>
+      </dc:creator>
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+      <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+      <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+      <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+      <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+      <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+   </cc:License>
+   </rdf:RDF>
+</metadata>
+<defs id="defs2">
+    <marker style="overflow:visible" id="marker16689" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow2Lend" inkscape:isstock="true">
+      <path transform="matrix(-1.1,0,0,-1.1,-1.1,0)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round" id="path16687" />
+    </marker>
+    <marker style="overflow:visible" id="Arrow2Lend" refX="0" refY="0" orient="auto" inkscape:stockid="Arrow2Lend" inkscape:isstock="true">
+      <path transform="matrix(-1.1,0,0,-1.1,-1.1,0)" d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z" style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round" id="path1004" />
+    </marker>
+  </defs>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(3.1396707,-4.2928932)">
+    <path style="fill:none;stroke:#8da0cb;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 25,125 H 475" id="path16450" />
+    <path style="fill:none;stroke:#fc8d62;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 325,25 25,325" id="path16452" />
+    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)" d="M 225.00001,125 H 325" id="path16675" />
+    <path style="fill:none;stroke:#66c2a5;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker16689)" d="M 224.99999,124.99999 300,50" id="path16685" />
+    <circle style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="path17204" cx="225" cy="125" r="11.869078" />
+    <path style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="path17308" sodipodi:type="arc" sodipodi:cx="225" sodipodi:cy="125" sodipodi:rx="65" sodipodi:ry="65" sodipodi:start="5.4977871" sodipodi:end="0" sodipodi:arc-type="arc" d="M 270.96194,79.038057 A 65,65 0 0 1 290,125" sodipodi:open="true" />
+    <text xml:space="preserve" style="font-size:29.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#8da0cb;fill-opacity:1" x="35.180515" y="105.54154" id="text21533"><tspan sodipodi:role="line" id="tspan21531" x="35.180515" y="105.54154">Orbit 1</tspan></text>
+    <text xml:space="preserve" style="font-size:29.3333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none;fill:#fc8d62;fill-opacity:1" x="15.213196" y="229.14874" id="text22703"><tspan sodipodi:role="line" id="tspan22701" x="15.213196" y="229.14874">Orbit 2</tspan></text>
+  <image x="291.91492" y="85.053185" height="2.4675000000000002ex" width="1.5074999999999998ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: -0.023ex&quot; width=&quot;1.005ex&quot; height=&quot;1.645ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -717 444 727&quot;&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D6FF&quot; d=&quot;M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  <image x="240.32974" y="44.202095" height="2.4779999999999998ex" width="5.661ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: -0.65ex&quot; width=&quot;3.774ex&quot; height=&quot;1.652ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -443 1668.3 730.2&quot;&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;msub&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D463&quot; d=&quot;M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;TeXAtom&quot; transform=&quot;translate(518,-150) scale(0.707)&quot; data-mjx-texclass=&quot;ORD&quot;&gt;&lt;g data-mml-node=&quot;mo&quot;&gt;&lt;path data-c=&quot;22A5&quot; d=&quot;M369 652Q369 653 370 655T372 658T375 662T379 665T384 667T391 668Q402 666 409 653V40H708Q723 32 723 20T708 0H71Q70 0 67 2T59 9T55 20T59 31T66 38T71 40H369V652Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;mo&quot; transform=&quot;translate(778,0)&quot;&gt;&lt;path data-c=&quot;2C&quot; d=&quot;M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;mn&quot; transform=&quot;translate(1056,0)&quot;&gt;&lt;path data-c=&quot;32&quot; d=&quot;M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  <image x="300" y="146" height="2.4779999999999998ex" width="5.661ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: -0.65ex&quot; width=&quot;3.774ex&quot; height=&quot;1.652ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -443 1668.3 730.2&quot;&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;msub&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D463&quot; d=&quot;M173 380Q173 405 154 405Q130 405 104 376T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Q21 294 29 316T53 368T97 419T160 441Q202 441 225 417T249 361Q249 344 246 335Q246 329 231 291T200 202T182 113Q182 86 187 69Q200 26 250 26Q287 26 319 60T369 139T398 222T409 277Q409 300 401 317T383 343T365 361T357 383Q357 405 376 424T417 443Q436 443 451 425T467 367Q467 340 455 284T418 159T347 40T241 -11Q177 -11 139 22Q102 54 102 117Q102 148 110 181T151 298Q173 362 173 380Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;TeXAtom&quot; transform=&quot;translate(518,-150) scale(0.707)&quot; data-mjx-texclass=&quot;ORD&quot;&gt;&lt;g data-mml-node=&quot;mo&quot;&gt;&lt;path data-c=&quot;22A5&quot; d=&quot;M369 652Q369 653 370 655T372 658T375 662T379 665T384 667T391 668Q402 666 409 653V40H708Q723 32 723 20T708 0H71Q70 0 67 2T59 9T55 20T59 31T66 38T71 40H369V652Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;mo&quot; transform=&quot;translate(778,0)&quot;&gt;&lt;path data-c=&quot;2C&quot; d=&quot;M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;mn&quot; transform=&quot;translate(1056,0)&quot;&gt;&lt;path data-c=&quot;31&quot; d=&quot;M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  </g>
+  <metadata id="metadata2427">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
