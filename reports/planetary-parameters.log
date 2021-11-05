@@ -1,0 +1,170 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 558, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from pathlib import Path
+import re
+from datetime import datetime
+
+from dateutil.rrule import rrule, DAILY
+from dateutil import tz
+from skyfield.iokit import load_file, Loader
+from skyfield.elementslib import OsculatingElements, osculating_elements_of
+from skyfield.framelib import build_ecliptic_matrix
+from skyfield.units import Distance, Velocity
+import numpy as np
+from myst_nb.nb_glue import GLUE_PREFIX
+from IPython.display import display
+
+
+class CelestialObject:
+    def __init__(
+        self, identifier: int | None, name: str, elems: OsculatingElements
+    ) -> None:
+        self.identifier = identifier
+        self.name = name
+        self.aphelion: np.float64 = np.average(elems.apoapsis_distance.km)  # type: ignore
+        self.semimajor_axis: np.float64 = np.average(elems.semi_major_axis.km)  # type: ignore
+        self.perihelion: np.float64 = np.average(elems.periapsis_distance.km)  # type: ignore
+        self.period_in_days: np.float64 = np.average(elems.period_in_days)  # type: ignore
+        self.orbital_velocity: np.float64 = np.sqrt(elems._mu / self.semimajor_axis)  # type: ignore
+        self.eccentricity: np.float64 = np.average(elems.eccentricity)  # type: ignore
+        self.inclination: np.float64 = np.average(elems.inclination.degrees)  # type: ignore
+
+    def format_units(self, obj: float):
+        initial_format = format(obj, ".5E")
+        mantissa, exponent = initial_format.split("E")
+        sign = exponent[0] if exponent[0] == "-" else ""
+        value = int(exponent[1:])
+        return f"{mantissa} × 10<sup>{sign}{value}</sup>"
+
+    def glue(self):
+        metadata = {"scrapbook": {"mime_prefix": GLUE_PREFIX}}
+        for attr in ("aphelion", "semimajor_axis", "perihelion"):
+            metadata["scrapbook"]["name"] = f"{self.name}_{attr}"
+            display(
+                {GLUE_PREFIX + "text/html": self.format_units(getattr(self, attr))},
+                raw=True,
+                metadata=metadata,
+            )
+        for attr in (
+            "period_in_days",
+            "orbital_velocity",
+            "inclination",
+        ):
+            metadata["scrapbook"]["name"] = f"{self.name}_{attr}"
+            display(
+                {GLUE_PREFIX + "text/html": f"{getattr(self, attr):.2F}"},
+                raw=True,
+                metadata=metadata,
+            )
+        metadata["scrapbook"]["name"] = f"{self.name}_eccentricity"
+        display(
+            {GLUE_PREFIX + "text/html": f"{self.eccentricity:.5F}"},
+            raw=True,
+            metadata=metadata,
+        )
+
+
+def parse_pck_file(filename: Path) -> dict[int | None, float]:
+    m = re.compile(
+        r"^\s+BODY(?P<identifier>\d+)_GM\s+=\s+\(\s(?P<value>[\d.ED+-]+)\s\)$"
+    )
+    lines = iter(filename.read_text().splitlines())
+    for line in lines:
+        if "begindata" in line:
+            break
+    GM_dict: dict[int | None, float] = {None: 0.0}
+    for line in lines:
+        mat = m.search(line)
+        if mat is not None:
+            identifier = mat.group("identifier")
+            value = mat.group("value")
+            if isinstance(value, str) and isinstance(identifier, str):
+                identifier = int(identifier)
+                value = value.replace("D", "E")
+                GM_dict[identifier] = float(value)
+            else:
+                raise ValueError(value)
+
+    return GM_dict
+
+
+HERE = Path.cwd()  # .joinpath("reference", "scripts")
+if HERE.name == "reference":
+    HERE /= "scripts"
+elif HERE.name == "orbital-mechanics":
+    HERE = HERE.joinpath("reference", "scripts")
+GM_dict = parse_pck_file(HERE / "gm_Horizons.pck")
+planets = load_file(HERE / "excerpt.bsp")
+load = Loader(HERE)
+ts = load.timescale()
+start_date = datetime(2021, 10, 29, tzinfo=tz.UTC)
+end_date = datetime(2021, 12, 3, tzinfo=tz.UTC)
+dates: list[datetime] = list(rrule(DAILY, dtstart=start_date, until=end_date))
+t = ts.from_datetimes(dates)
+ecliptic_frame = build_ecliptic_matrix(t)
+
+sun = planets["Sun"]
+for planet_name in (
+    "Mercury",
+    "Venus",
+    "Earth",
+    "Mars",
+    "Jupiter",
+    "Saturn",
+    "Uranus",
+    "Neptune",
+    "Pluto",
+):
+    planet = planet_name + " Barycenter"
+    position = (planets[planet] - sun).at(t)
+
+    # This is broken, see
+    # https://github.com/skyfielders/python-skyfield/issues/655#issuecomment-960377889
+    # osculating_elements_of(position, ecliptic_frame)
+
+    # So we have to do things manually
+    elems = OsculatingElements(
+        Distance(np.einsum("mnr,nr->mr", ecliptic_frame, position.position.au)),  # type: ignore
+        Velocity(np.einsum("mnr,nr->mr", ecliptic_frame, position.velocity.au_per_d)),  # type: ignore
+        position.t,
+        GM_dict[position.center] + GM_dict[position.target],
+    )
+    c_object = CelestialObject(position.target, planet_name, elems)
+    c_object.glue()
+
+position = (planets["Moon"] - planets["Earth"]).at(t)
+elems = osculating_elements_of(position)
+c_object = CelestialObject(position.target, "Moon", elems)
+c_object.glue()
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/tmp/ipykernel_2589/3632859774.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mdateutil[0m[0;34m.[0m[0mrrule[0m [0;32mimport[0m [0mrrule[0m[0;34m,[0m [0mDAILY[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mfrom[0m [0mdateutil[0m [0;32mimport[0m [0mtz[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mfrom[0m [0mskyfield[0m[0;34m.[0m[0miokit[0m [0;32mimport[0m [0mload_file[0m[0;34m,[0m [0mLoader[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;32mfrom[0m [0mskyfield[0m[0;34m.[0m[0melementslib[0m [0;32mimport[0m [0mOsculatingElements[0m[0;34m,[0m [0mosculating_elements_of[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      9[0m [0;32mfrom[0m [0mskyfield[0m[0;34m.[0m[0mframelib[0m [0;32mimport[0m [0mbuild_ecliptic_matrix[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'skyfield'
+ModuleNotFoundError: No module named 'skyfield'
+
