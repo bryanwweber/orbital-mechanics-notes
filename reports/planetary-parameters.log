@@ -157,14 +157,21 @@ c_object.glue()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2499/3632859774.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [0;32mfrom[0m [0mdateutil[0m[0;34m.[0m[0mrrule[0m [0;32mimport[0m [0mrrule[0m[0;34m,[0m [0mDAILY[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;32mfrom[0m [0mdateutil[0m [0;32mimport[0m [0mtz[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 7[0;31m [0;32mfrom[0m [0mskyfield[0m[0;34m.[0m[0miokit[0m [0;32mimport[0m [0mload_file[0m[0;34m,[0m [0mLoader[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      8[0m [0;32mfrom[0m [0mskyfield[0m[0;34m.[0m[0melementslib[0m [0;32mimport[0m [0mOsculatingElements[0m[0;34m,[0m [0mosculating_elements_of[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      9[0m [0;32mfrom[0m [0mskyfield[0m[0;34m.[0m[0mframelib[0m [0;32mimport[0m [0mbuild_ecliptic_matrix[0m[0;34m[0m[0;34m[0m[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_2574/3632859774.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     14[0m [0;34m[0m[0m
+[1;32m     15[0m [0;34m[0m[0m
+[0;32m---> 16[0;31m [0;32mclass[0m [0mCelestialObject[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     17[0m     def __init__(
+[1;32m     18[0m         [0mself[0m[0;34m,[0m [0midentifier[0m[0;34m:[0m [0mint[0m [0;34m|[0m [0;32mNone[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m,[0m [0melems[0m[0;34m:[0m [0mOsculatingElements[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'skyfield'
-ModuleNotFoundError: No module named 'skyfield'
+[0;32m/tmp/ipykernel_2574/3632859774.py[0m in [0;36mCelestialObject[0;34m()[0m
+[1;32m     16[0m [0;32mclass[0m [0mCelestialObject[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     17[0m     def __init__(
+[0;32m---> 18[0;31m         [0mself[0m[0;34m,[0m [0midentifier[0m[0;34m:[0m [0mint[0m [0;34m|[0m [0;32mNone[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m,[0m [0melems[0m[0;34m:[0m [0mOsculatingElements[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     19[0m     ) -> None:
+[1;32m     20[0m         [0mself[0m[0;34m.[0m[0midentifier[0m [0;34m=[0m [0midentifier[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: unsupported operand type(s) for |: 'type' and 'NoneType'
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
 
