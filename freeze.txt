@@ -26,11 +26,12 @@ idna==3.2
 imagesize==1.2.0
 importlib-metadata==4.8.1
 ipykernel==6.4.1
-ipython==7.28.0
+ipython==7.29.0
 ipython-genutils==0.2.0
 ipywidgets==7.6.5
 jedi==0.18.0
 Jinja2==3.0.2
+jplephem==2.16
 jsonschema==3.2.0
 jupyter-book==0.12.0
 jupyter-cache==0.4.3
@@ -86,7 +87,9 @@ requests==2.26.0
 requests-unixsocket==0.2.0
 scipy==1.7.1
 Send2Trash==1.8.0
+sgp4==2.20
 six==1.16.0
+skyfield==1.39
 smmap==4.0.0
 sniffio==1.2.0
 snowballstemmer==2.1.0
