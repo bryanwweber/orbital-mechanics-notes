@@ -158,14 +158,14 @@ c_object.glue()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2574/3632859774.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2475/3632859774.py[0m in [0;36m<module>[0;34m[0m
 [1;32m     14[0m [0;34m[0m[0m
 [1;32m     15[0m [0;34m[0m[0m
 [0;32m---> 16[0;31m [0;32mclass[0m [0mCelestialObject[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m     17[0m     def __init__(
 [1;32m     18[0m         [0mself[0m[0;34m,[0m [0midentifier[0m[0;34m:[0m [0mint[0m [0;34m|[0m [0;32mNone[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m,[0m [0melems[0m[0;34m:[0m [0mOsculatingElements[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/tmp/ipykernel_2574/3632859774.py[0m in [0;36mCelestialObject[0;34m()[0m
+[0;32m/tmp/ipykernel_2475/3632859774.py[0m in [0;36mCelestialObject[0;34m()[0m
 [1;32m     16[0m [0;32mclass[0m [0mCelestialObject[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     17[0m     def __init__(
 [0;32m---> 18[0;31m         [0mself[0m[0;34m,[0m [0midentifier[0m[0;34m:[0m [0mint[0m [0;34m|[0m [0;32mNone[0m[0;34m,[0m [0mname[0m[0;34m:[0m [0mstr[0m[0;34m,[0m [0melems[0m[0;34m:[0m [0mOsculatingElements[0m[0;34m[0m[0;34m[0m[0m
