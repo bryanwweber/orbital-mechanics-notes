@@ -55,9 +55,13 @@ parts:
       - file: orbital-maneuvers/apse-line-rotation-example
       - file: orbital-maneuvers/plane-change-maneuvers
       - file: orbital-maneuvers/plane-change-example
-      - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
-      - file: orbital-maneuvers/nonimpulsive-maneuver-example
-      # - file: orbital-maneuvers/kennedy-launch-angles
+      # - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
+      # - file: orbital-maneuvers/nonimpulsive-maneuver-example
+  - caption: Interplanetary Trajectories
+    chapters:
+      - file: interplanetary-maneuvers/introduction
+      - file: interplanetary-maneuvers/heliocentric-trajectories
+      - file: interplanetary-maneuvers/interplanetary-transfer-phasing
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
