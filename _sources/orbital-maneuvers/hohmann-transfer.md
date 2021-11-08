@@ -124,11 +124,11 @@ Finally, the total $\Delta v$ required for the Hohmann transfer is:
 Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit from Eq. {eq}`eq:ellipse-period-useful`:
 
 :::{math}
-:label:
-t = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}
+:label: eq:hohmann-transfer-time
+t_{12} = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}
 :::
 
-where $t$ is the transfer time and $a_t$ is the semi-major axis of the transfer orbit.
+where $t_{12}$ is the transfer time and $a_t$ is the semi-major axis of the transfer orbit.
 
 ## Elliptical Initial or Target Orbits
 

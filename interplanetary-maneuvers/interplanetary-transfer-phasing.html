@@ -1,0 +1,837 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interplanetary Transfer Phasing &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/interplanetary-maneuvers/interplanetary-transfer-phasing.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kinematics" href="../review/kinematics.html" />
+    <link rel="prev" title="Heliocentric Trajectories" href="heliocentric-trajectories.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Orbital Mechanics &amp; Astrodynamics
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">
+   Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/lagrange-points.html">
+   Application of the CR3BP: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
+   Example: Plotting Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
+   The Jacobi Constant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/circular-orbits.html">
+   Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">
+   Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">
+   Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">
+   Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  The Classical Orbital Elements
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">
+   Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">
+   Right Ascension and Declination Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">
+   Classical Orbital Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
+   Classical Orbital Elements and the State Vector
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Orbital Maneuvers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">
+   Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/single-impulse-example.html">
+   Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html">
+   Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer-example.html">
+   Example: Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/bielliptic-hohmann-transfer.html">
+   Bi-elliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/phasing-maneuvers.html">
+   Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html">
+   Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/common-apse-line-example.html">
+   Non-Hohmann Transfers: Common Apse Line Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/apse-line-rotation-example.html">
+   Non-Hohmann Transfers: Apse Line Rotation Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-maneuvers.html">
+   Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Interplanetary Trajectories
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Interplanetary Trajectories and Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="heliocentric-trajectories.html">
+   Heliocentric Trajectories
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Interplanetary Transfer Phasing
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/interplanetary-maneuvers/interplanetary-transfer-phasing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/interplanetary-maneuvers/interplanetary-transfer-phasing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Finterplanetary-maneuvers/interplanetary-transfer-phasing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/interplanetary-maneuvers/interplanetary-transfer-phasing.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/interplanetary-maneuvers/interplanetary-transfer-phasing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#planetary-phase-angles">
+   Planetary Phase Angles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synodic-period">
+     Synodic Period
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phase-angle-at-departure">
+   Phase Angle at Departure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phase-angle-at-arrival">
+   Phase Angle at Arrival
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phase-angles-for-a-return-trip">
+   Phase Angles for a Return Trip
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-neptunevenus-hohmann-transfer">
+   Example: Neptune–Venus Hohmann Transfer
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="interplanetary-transfer-phasing">
+<h1>Interplanetary Transfer Phasing<a class="headerlink" href="#interplanetary-transfer-phasing" title="Permalink to this headline">¶</a></h1>
+<p>Aside from the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement discussed in the <a class="reference internal" href="heliocentric-trajectories.html"><span class="doc std std-doc">previous section</span></a>, the other important requirement for interplanetary trajectories is to correctly time the transfer so that the spacecraft and target planet rendezvous at arrival. Since the transfer orbits can take months or years to complete, the target planet may complete a significant fraction of its orbit during the transfer. Therefore, it is critical to launch the spacecraft at just the right time to rendezvous at arrival.</p>
+<p>As we did before, we will use the Hohmann transfer for simplicity. However, all the techniques discussed here can be applied to non-Hohmann transfers as well, as long as the total transfer time is known.</p>
+<div class="section" id="planetary-phase-angles">
+<h2>Planetary Phase Angles<a class="headerlink" href="#planetary-phase-angles" title="Permalink to this headline">¶</a></h2>
+<p>To correctly determine when a spacecraft should be launched, we need to know two things:</p>
+<ol class="simple">
+<li><p>The total time of the transfer orbit</p></li>
+<li><p>The angular distance between two planets, relative to the Sun</p></li>
+</ol>
+<p>The first item can be determined from the orbital elements of the transfer orbit, so we will not discuss how to calculate it here. The second item, the angular distance between two planets, is commonly called the <strong>phase angle</strong>. This is the angle formed by drawing radii from the initial planet to the Sun and then to the final planet, as shown in <a class="reference internal" href="#fig-interplanetary-phase-angle"><span class="std std-numref">Fig. 64</span></a>.</p>
+<div class="figure align-default" id="fig-interplanetary-phase-angle">
+<a class="reference internal image-reference" href="../_images/interplanetary-phase-angle.svg"><img alt="../_images/interplanetary-phase-angle.svg" src="../_images/interplanetary-phase-angle.svg" width="75%" /></a>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">A hypothetical Hohmann transfer with increasing radius. The initial phase angle between the initial and final planets is <span class="math notranslate nohighlight">\(\gamma_1\)</span> and the phase angle after the transfer is complete is <span class="math notranslate nohighlight">\(\gamma_2\)</span>. Note that while the spacecraft travels 180° of true anomaly on the transfer trajectory (green), the initial planet (blue) travels more than 180° and the final planet (red) travels less than 180°.</span><a class="headerlink" href="#fig-interplanetary-phase-angle" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the previous section, we assumed that the orbits of the planets are circular. This allows us to define the angluar distance traversed by the planet in a time interval by its average angular velocity, also called the <em>mean motion</em>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-motion">
+<span class="eqno">(230)<a class="headerlink" href="#equation-eq-mean-motion" title="Permalink to this equation">¶</a></span>\[n = \frac{2\pi}{T}\]</div>
+<p>Using the mean motion, we can define the true anomaly of a planet at a given time <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-circle-planet-true-anomaly">
+<span class="eqno">(231)<a class="headerlink" href="#equation-eq-circle-planet-true-anomaly" title="Permalink to this equation">¶</a></span>\[\nu = \nu_0 + n t\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nu_0\)</span> is the value of the true anomaly at <span class="math notranslate nohighlight">\(t = 0\)</span>. Applying this to the two planets in the transfer, we can write:</p>
+<div class="math notranslate nohighlight" id="equation-eq-planetary-phase-angle">
+<span class="eqno">(232)<a class="headerlink" href="#equation-eq-planetary-phase-angle" title="Permalink to this equation">¶</a></span>\[\gamma = \nu_f - \nu_i = \gamma_0 + \left(n_f - n_i\right) t\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma_0 = \nu_{f,0} - \nu_{i,0}\)</span> is the phase angle at <span class="math notranslate nohighlight">\(t = 0\)</span>.</p>
+<div class="section" id="synodic-period">
+<h3>Synodic Period<a class="headerlink" href="#synodic-period" title="Permalink to this headline">¶</a></h3>
+<p>The question naturally arises, if the phase angle is <span class="math notranslate nohighlight">\(\gamma_0\)</span> at <span class="math notranslate nohighlight">\(t = 0\)</span>, how long does it take to become <span class="math notranslate nohighlight">\(\gamma_0\)</span> again? This length of time is called the <strong>synodic period</strong> of the two planets. Each pair of planets has its own synodic period, determined by the relative mean motions of the planets.</p>
+<p>If we want the phase angle to change from <span class="math notranslate nohighlight">\(\gamma_0\)</span>, through all the values, and come back to <span class="math notranslate nohighlight">\(\gamma_0\)</span>, then the phase angle will have changed by 2𝜋 radians. If the initial planet has a smaller orbital radius, then the apparent motion is clockwise and the final phase angle is <span class="math notranslate nohighlight">\(\gamma_0 - 2\pi\)</span>. On the other hand, if the initial planet has a larger orbital radius, then the final phase angle will be <span class="math notranslate nohighlight">\(\gamma_0 + 2\pi\)</span> because the apparent motion is counterclockwise.</p>
+<p>In either case, we can use Eq. <a class="reference internal" href="#equation-eq-planetary-phase-angle">(232)</a> to calculate the time it takes for the initial phase angle to reoccur:</p>
+<div class="math notranslate nohighlight" id="equation-eq-synodic-period-1">
+<span class="eqno">(233)<a class="headerlink" href="#equation-eq-synodic-period-1" title="Permalink to this equation">¶</a></span>\[\gamma_0 \pm 2\pi = \gamma_0 + \left(n_f - n_i\right) T_{syn}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{syn}\)</span> is the synodic period. Solving Eq. <a class="reference internal" href="#equation-eq-synodic-period-1">(233)</a> for <span class="math notranslate nohighlight">\(T_{syn}\)</span> would result in two equations, depending on whether <span class="math notranslate nohighlight">\(n_f &gt; n_i\)</span> or vice versa. We can unify the equations by taking the absolute value of the difference <span class="math notranslate nohighlight">\(n_f - n_i\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-synodic-period-2">
+<span class="eqno">(234)<a class="headerlink" href="#equation-eq-synodic-period-2" title="Permalink to this equation">¶</a></span>\[T_{syn} = \frac{2\pi}{\lvert n_f - n_i\rvert}\]</div>
+<p>Finally, by plugging Eq. <a class="reference internal" href="#equation-eq-mean-motion">(230)</a> into Eq. <a class="reference internal" href="#equation-eq-synodic-period-2">(234)</a>, we can write the synodic period in terms of the planets’ orbital periods, <span class="math notranslate nohighlight">\(T_i\)</span> and <span class="math notranslate nohighlight">\(T_f\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-synodic-period-3">
+<span class="eqno">(235)<a class="headerlink" href="#equation-eq-synodic-period-3" title="Permalink to this equation">¶</a></span>\[T_{syn} = \frac{T_i T_f}{\lvert T_i - T_f\rvert}\]</div>
+<p>The synodic period is the period of the orbit of one planet relative to another, rather than relative to the Sun.</p>
+</div>
+</div>
+<div class="section" id="phase-angle-at-departure">
+<h2>Phase Angle at Departure<a class="headerlink" href="#phase-angle-at-departure" title="Permalink to this headline">¶</a></h2>
+<p>We now have enough information to determine the required phase angle at departure from the initial planet. Given the transfer trajectory, we can compute the transfer time, <span class="math notranslate nohighlight">\(t_{12}\)</span>. For a Hohmann transfer, this is given by Eq. <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html#equation-eq-hohmann-transfer-time">(194)</a>.</p>
+<p>During the transfer, the final planet moves an angular distance <span class="math notranslate nohighlight">\(n_f t_{12}\)</span> radians, since <span class="math notranslate nohighlight">\(n_f\)</span> is constant. This is shown in <a class="reference internal" href="#fig-interplanetary-initial-phase-angle"><span class="std std-numref">Fig. 65</span></a>.</p>
+<div class="figure align-default" id="fig-interplanetary-initial-phase-angle">
+<a class="reference internal image-reference" href="../_images/interplanetary-initial-phase-angle.svg"><img alt="../_images/interplanetary-initial-phase-angle.svg" src="../_images/interplanetary-initial-phase-angle.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">The initial phase angle <span class="math notranslate nohighlight">\(\gamma_1\)</span> and final phase angle <span class="math notranslate nohighlight">\(\gamma_2\)</span> are related to the angular travel distances.</span><a class="headerlink" href="#fig-interplanetary-initial-phase-angle" title="Permalink to this image">¶</a></p>
+</div>
+<p>The initial true anomaly of the final planet is <span class="math notranslate nohighlight">\(\nu_{f,1}\)</span> and its final anomaly is <span class="math notranslate nohighlight">\(\nu_{f,2}\)</span>, such that:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-final-planet-arrival-true-anomaly">
+<span class="eqno">(236)<a class="headerlink" href="#equation-eq-interplanetary-final-planet-arrival-true-anomaly" title="Permalink to this equation">¶</a></span>\[\nu_{f,2} = \nu_{f,1} + n_f t_{12}\]</div>
+<p>Similarly, the initial true anomaly of the initial planet is <span class="math notranslate nohighlight">\(\nu_{i,1}\)</span> and its final anomaly is <span class="math notranslate nohighlight">\(\nu_{i,2}\)</span>, such that:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-initial-planet-arrival-true-anomaly">
+<span class="eqno">(237)<a class="headerlink" href="#equation-eq-interplanetary-initial-planet-arrival-true-anomaly" title="Permalink to this equation">¶</a></span>\[\nu_{i,2} = \nu_{i,1} + n_i t_{12}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_i t_{12}\)</span> is the angular distance traveled by the initial planet during the transfer. The phase angle at departure, <span class="math notranslate nohighlight">\(\gamma_1\)</span> is given by Eq. <a class="reference internal" href="#equation-eq-planetary-phase-angle">(232)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-initial-true-anomaly">
+<span class="eqno">(238)<a class="headerlink" href="#equation-eq-interplanetary-initial-true-anomaly" title="Permalink to this equation">¶</a></span>\[\gamma_1 = \nu_{f,1} - \nu_{i,1}\]</div>
+<p>Meanwhilie, the spacecraft travels an angular distance of <span class="math notranslate nohighlight">\(\Gamma\)</span> radians during the transfer. <span class="math notranslate nohighlight">\(\Gamma\)</span> is the difference in true anomaly between the departure and arrival points on the transfer trajectory.</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-transfer-true-anomaly">
+<span class="eqno">(239)<a class="headerlink" href="#equation-eq-interplanetary-transfer-true-anomaly" title="Permalink to this equation">¶</a></span>\[\Gamma = \nu_B - \nu_A\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nu_B\)</span> and <span class="math notranslate nohighlight">\(\nu_A\)</span> are the true anomalies of the arrival and departure points, respectively. For a Hohmann transfer, <span class="math notranslate nohighlight">\(\nu_B - \nu_A = \pi\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\nu_{f,2} = \nu_B\)</span> and <span class="math notranslate nohighlight">\(\nu_{i,1} = \nu_A\)</span>. For the spacecraft to rendezvous with the planet at arrival, the true anomaly of the planet and the spacecraft must match. Plugging this relationship into Eq. <a class="reference internal" href="#equation-eq-interplanetary-final-planet-arrival-true-anomaly">(236)</a>, subtracting <span class="math notranslate nohighlight">\(\nu_A\)</span> from both sides, and using Eq. <a class="reference internal" href="#equation-eq-interplanetary-initial-true-anomaly">(238)</a> and Eq. <a class="reference internal" href="#equation-eq-interplanetary-transfer-true-anomaly">(239)</a>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-initial-phase-angle">
+<span class="eqno">(240)<a class="headerlink" href="#equation-eq-interplanetary-initial-phase-angle" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{gathered}
+\nu_{f,1} + n_f t_{12} = \nu_B \\
+\nu_{f,1} - \nu_{i,1} + n_f t_{12} = \nu_B - \nu_A \\
+\gamma_1 + n_f t_{12} = \Gamma \\
+\gamma_1 = \Gamma - n_f t_{12}
+\end{gathered}\end{split}\]</div>
+</div>
+<div class="section" id="phase-angle-at-arrival">
+<h2>Phase Angle at Arrival<a class="headerlink" href="#phase-angle-at-arrival" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#fig-interplanetary-initial-phase-angle"><span class="std std-numref">Fig. 65</span></a> can also be used to determine the phase angle at arrival, <span class="math notranslate nohighlight">\(\gamma_2\)</span>. Similar to Eq. <a class="reference internal" href="#equation-eq-interplanetary-initial-true-anomaly">(238)</a>, we can write the final phase angle in terms of the true anomalies of the planets:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-final-true-anomaly">
+<span class="eqno">(241)<a class="headerlink" href="#equation-eq-interplanetary-final-true-anomaly" title="Permalink to this equation">¶</a></span>\[\gamma_2 = \nu_{f,2} - \nu_{i,2}\]</div>
+<p>Plugging this relationship into Eq. <a class="reference internal" href="#equation-eq-interplanetary-initial-planet-arrival-true-anomaly">(237)</a>, subtracting <span class="math notranslate nohighlight">\(\nu_A\)</span> from both sides, and using Eq. <a class="reference internal" href="#equation-eq-interplanetary-transfer-true-anomaly">(239)</a>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-final-phase-angle">
+<span class="eqno">(242)<a class="headerlink" href="#equation-eq-interplanetary-final-phase-angle" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{gathered}
+\nu_{f,2} - \gamma_2 = \nu_{i,1} + n_i t_{12} \\
+\nu_{f,2} - \nu_{A} - \gamma_2 = \nu_{i,1} - \nu_A + n_i t_{12} \\
+\gamma_2 = \Gamma - n_i t_{12}
+\end{gathered}\end{split}\]</div>
+</div>
+<div class="section" id="phase-angles-for-a-return-trip">
+<h2>Phase Angles for a Return Trip<a class="headerlink" href="#phase-angles-for-a-return-trip" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s assume that the spacecraft is located at the final planet and wants to return to the initial planet. What should the phase angle at departure from the final planet be? Assuming that the transfer time is the same for the return trip, we can see from Eq. <a class="reference internal" href="#equation-eq-interplanetary-final-phase-angle">(242)</a> that the phase angle for the return trip must be:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-return-phase-angle">
+<span class="eqno">(243)<a class="headerlink" href="#equation-eq-interplanetary-return-phase-angle" title="Permalink to this equation">¶</a></span>\[\gamma'_1 = - \gamma_2\]</div>
+<p>where the prime superscript indicates that this is for the return trip. At arrival to the final planet, the phase angle is equal to <span class="math notranslate nohighlight">\(\gamma_2\)</span>, so how long must the spacecraft wait for the phase angle to become equal to <span class="math notranslate nohighlight">\(\gamma'_1\)</span>? Using Eq. <a class="reference internal" href="#equation-eq-planetary-phase-angle">(232)</a>, where <span class="math notranslate nohighlight">\(\gamma_0 = \gamma_2\)</span>, we can solve for the wait time:</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-wait-time-1">
+<span class="eqno">(244)<a class="headerlink" href="#equation-eq-interplanetary-wait-time-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{gathered}
+\gamma'_1 = - \gamma_2 = \gamma_2 + (n_f - n_i) t_{\text{wait}} \\
+t_{\text{wait}} = \frac{-2\gamma_2}{n_f - n_i}
+\end{gathered}\end{split}\]</div>
+<p>Depending on the value of <span class="math notranslate nohighlight">\(\gamma_2\)</span>, Eq. <a class="reference internal" href="#equation-eq-interplanetary-wait-time-1">(244)</a> may give a negative result. Therefore, we must add or subtract integer multiples of 2𝜋 until <span class="math notranslate nohighlight">\(t_{\text{wait}}\)</span> becomes positive.</p>
+<div class="math notranslate nohighlight" id="equation-eq-interplanetary-wait-time">
+<span class="eqno">(245)<a class="headerlink" href="#equation-eq-interplanetary-wait-time" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+t_{\text{wait}} &amp;= \frac{-2\gamma_2 - 2\pi N}{n_f - n_i} &amp;&amp;\text{if } n_i &gt; n_f \\
+t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if } n_i &lt; n_f
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N = 0, 1, 2, \ldots\)</span> is chosen so that <span class="math notranslate nohighlight">\(t_{\text{wait}}\)</span> is positive.</p>
+</div>
+<div class="section" id="example-neptunevenus-hohmann-transfer">
+<h2>Example: Neptune–Venus Hohmann Transfer<a class="headerlink" href="#example-neptunevenus-hohmann-transfer" title="Permalink to this headline">¶</a></h2>
+<p>Continuing the <a class="reference internal" href="heliocentric-trajectories.html#sec-neptune-venus-hohmann-example"><span class="std std-ref">example from the previous section</span></a>, we can determine the required phase angles for the Neptune–Venus Hohmann transfer and the total time taken for the transfer and the waiting period.</p>
+<p>First, we compute the mean motion of Neptune and Venus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">1.32712E11</span>  <span class="c1"># km**3/s**2</span>
+
+<span class="n">n_i</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mf">60910.25</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># s</span>
+<span class="n">n_f</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mf">224.70</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The mean motion of Neptune is <span class="math notranslate nohighlight">\(n_i =\)</span> <span class="pasted-text">1.19e-09</span> rad/s and of Venus is <span class="math notranslate nohighlight">\(n_f =\)</span> <span class="pasted-text">3.24e-07</span> rad/s. For a Hohmann transfer, <span class="math notranslate nohighlight">\(\Gamma = \pi\)</span> and the transfer time is found from Eq. <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html#equation-eq-hohmann-transfer-time">(194)</a>. Then, we can find the initial phase angle required.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_i</span> <span class="o">=</span> <span class="mf">4.53239E9</span>  <span class="c1"># km</span>
+<span class="n">r_f</span> <span class="o">=</span> <span class="mf">1.08209E8</span>  <span class="c1"># km</span>
+<span class="n">a_t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_i</span> <span class="o">+</span> <span class="n">r_f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># km</span>
+<span class="n">t_12</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">a_t</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># s</span>
+
+<span class="n">gamma_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">n_f</span> <span class="o">*</span> <span class="n">t_12</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that we use the modulus (<code class="docutils literal notranslate"><span class="pre">%</span></code>) operator to bring the phase angle into the range of 0-2𝜋. The initial phase angle is <span class="math notranslate nohighlight">\(\gamma_1 =\)</span> <span class="pasted-text">307.04</span>°. We can compute the phase angle at arrival similarly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">n_i</span> <span class="o">*</span> <span class="n">t_12</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The phase angle at arrival is <span class="math notranslate nohighlight">\(\gamma_2 =\)</span> <span class="pasted-text">114.07</span>°. Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since <span class="math notranslate nohighlight">\(n_f &gt; n_i\)</span>, we choose the positive version of Eq. <a class="reference internal" href="#equation-eq-interplanetary-wait-time">(245)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_wait</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">gamma_2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_f</span> <span class="o">-</span> <span class="n">n_i</span><span class="p">)</span>
+    <span class="n">t_wait</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The wait times are shown in <a class="reference internal" href="#tab-heliocentric-hohmann-wait-times"><span class="std std-numref">Table 6</span></a>. The total mission time, including the wait time, is <span class="pasted-text">61.35</span> years.</p>
+<table class="colwidths-auto table" id="tab-heliocentric-hohmann-wait-times">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">The wait times for heliocentric Hohmann transfers from Neptune to Venus and back.</span><a class="headerlink" href="#tab-heliocentric-hohmann-wait-times" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>N</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(t_{\text{wait}}\)</span> (years)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><span class="pasted-text">-0.3915607229097631</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><span class="pasted-text">0.22633515451712943</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><span class="pasted-text">0.8442310319440219</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><span class="pasted-text">1.4621269093709144</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./interplanetary-maneuvers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="heliocentric-trajectories.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Heliocentric Trajectories</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../review/kinematics.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Kinematics</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
