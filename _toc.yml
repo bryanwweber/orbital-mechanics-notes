@@ -62,6 +62,7 @@ parts:
       - file: interplanetary-maneuvers/introduction
       - file: interplanetary-maneuvers/heliocentric-trajectories
       - file: interplanetary-maneuvers/interplanetary-transfer-phasing
+      - file: interplanetary-maneuvers/sphere-of-influence
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
