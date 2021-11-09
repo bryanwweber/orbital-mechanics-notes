@@ -695,8 +695,10 @@ t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">1.32712E11</span>  <span class="c1"># km**3/s**2</span>
 
-<span class="n">n_i</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mf">60910.25</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># s</span>
-<span class="n">n_f</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mf">224.70</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># s</span>
+<span class="n">T_i</span> <span class="o">=</span> <span class="mf">60910.25</span>  <span class="c1"># days</span>
+<span class="n">T_f</span> <span class="o">=</span> <span class="mf">224.70</span>  <span class="c1"># days</span>
+<span class="n">n_i</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="n">T_i</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># s</span>
+<span class="n">n_f</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="n">T_f</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">)</span>  <span class="c1"># s</span>
 </pre></div>
 </div>
 </div>
@@ -714,7 +716,7 @@ t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if 
 </div>
 </div>
 </div>
-<p>Note that we use the modulus (<code class="docutils literal notranslate"><span class="pre">%</span></code>) operator to bring the phase angle into the range of 0-2𝜋. The initial phase angle is <span class="math notranslate nohighlight">\(\gamma_1 =\)</span> <span class="pasted-text">307.04</span>°. We can compute the phase angle at arrival similarly.</p>
+<p>Note that we use the modulus (<code class="docutils literal notranslate"><span class="pre">%</span></code>) operator to bring the phase angle into the range of 0-2𝜋. The initial phase angle is <span class="math notranslate nohighlight">\(\gamma_1 =\)</span> <span class="pasted-text">307.04</span>°. Although this is the initial phase angle, Venus actually completes approximately 53 orbits of the Sun while waiting for the spacecraft to arrive from Neptune. We can compute the phase angle at arrival similarly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">n_i</span> <span class="o">*</span> <span class="n">t_12</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
@@ -722,7 +724,12 @@ t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if 
 </div>
 </div>
 </div>
-<p>The phase angle at arrival is <span class="math notranslate nohighlight">\(\gamma_2 =\)</span> <span class="pasted-text">114.07</span>°. Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since <span class="math notranslate nohighlight">\(n_f &gt; n_i\)</span>, we choose the positive version of Eq. <a class="reference internal" href="#equation-eq-interplanetary-wait-time">(245)</a>.</p>
+<p>The phase angle at arrival is <span class="math notranslate nohighlight">\(\gamma_2 =\)</span> <span class="pasted-text">114.07</span>°. These angles are shown in <a class="reference internal" href="#fig-interplanetary-phase-angle-example"><span class="std std-numref">Fig. 66</span></a>.</p>
+<div class="figure align-default" id="fig-interplanetary-phase-angle-example">
+<a class="reference internal image-reference" href="../_images/interplanetary-phase-angle-example.svg"><img alt="../_images/interplanetary-phase-angle-example.svg" src="../_images/interplanetary-phase-angle-example.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the sun, while Neptune completes less than half of one orbit during this entire process.</span><a class="headerlink" href="#fig-interplanetary-phase-angle-example" title="Permalink to this image">¶</a></p>
+</div>
+<p>Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since <span class="math notranslate nohighlight">\(n_f &gt; n_i\)</span>, we choose the positive version of Eq. <a class="reference internal" href="#equation-eq-interplanetary-wait-time">(245)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_wait</span> <span class="o">=</span> <span class="p">[]</span>
@@ -756,6 +763,14 @@ t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if 
 </tr>
 </tbody>
 </table>
+<p>Clearly, the total mission time is dominated by the transfer time. This is because the synodic period of Venus relative to Neptune is quite small, at only <span class="pasted-text">0.62</span> Earth years. Since Venus whips around the Sun, relative to Neptune, the same phase angle occurs relatively often.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T_syn</span> <span class="o">=</span> <span class="n">T_i</span> <span class="o">*</span> <span class="n">T_f</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">T_i</span> <span class="o">-</span> <span class="n">T_f</span><span class="p">)</span>  <span class="c1"># days</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

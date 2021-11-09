@@ -202,8 +202,10 @@ First, we compute the mean motion of Neptune and Venus.
 import math as m
 mu = 1.32712E11  # km**3/s**2
 
-n_i = 2 * m.pi / (60910.25 * 86400)  # s
-n_f = 2 * m.pi / (224.70 * 86400)  # s
+T_i = 60910.25  # days
+T_f = 224.70  # days
+n_i = 2 * m.pi / (T_i * 86400)  # s
+n_f = 2 * m.pi / (T_f * 86400)  # s
 ```
 
 ```{code-cell} ipython3
@@ -231,7 +233,7 @@ gamma_1 = (m.pi - n_f * t_12) % (2 * m.pi)
 glue("heliocentric-hohmann-gamma_1", m.degrees(gamma_1))
 ```
 
-Note that we use the modulus (`%`) operator to bring the phase angle into the range of 0-2𝜋. The initial phase angle is $\gamma_1 =$ {glue:text}`heliocentric-hohmann-gamma_1:.2f`°. We can compute the phase angle at arrival similarly.
+Note that we use the modulus (`%`) operator to bring the phase angle into the range of 0-2𝜋. The initial phase angle is $\gamma_1 =$ {glue:text}`heliocentric-hohmann-gamma_1:.2f`°. Although this is the initial phase angle, Venus actually completes approximately 53 orbits of the Sun while waiting for the spacecraft to arrive from Neptune. We can compute the phase angle at arrival similarly.
 
 ```{code-cell} ipython3
 gamma_2 = (m.pi - n_i * t_12) % (2 * m.pi)
@@ -242,7 +244,16 @@ gamma_2 = (m.pi - n_i * t_12) % (2 * m.pi)
 glue("heliocentric-hohmann-gamma_2", m.degrees(gamma_2))
 ```
 
-The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamma_2:.2f`°. Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since $n_f > n_i$, we choose the positive version of Eq. {eq}`eq:interplanetary-wait-time`.
+The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamma_2:.2f`°. These angles are shown in {numref}`fig:interplanetary-phase-angle-example`.
+
+:::{figure} ../images/interplanetary-phase-angle-example.svg
+:name: fig:interplanetary-phase-angle-example
+:width: 100%
+
+The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the sun, while Neptune completes less than half of one orbit during this entire process.
+:::
+
+Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since $n_f > n_i$, we choose the positive version of Eq. {eq}`eq:interplanetary-wait-time`.
 
 ```{code-cell} ipython3
 t_wait = []
@@ -271,3 +282,14 @@ The wait times are shown in {numref}`tab:heliocentric-hohmann-wait-times`. The t
 | 2 | {glue:text}`heliocentric-hohmann-t_wait_2` |
 | 3 | {glue:text}`heliocentric-hohmann-t_wait_3` |
 :::
+
+Clearly, the total mission time is dominated by the transfer time. This is because the synodic period of Venus relative to Neptune is quite small, at only {glue:text}`heliocentric-hohmann-T_syn:.2f` Earth years. Since Venus whips around the Sun, relative to Neptune, the same phase angle occurs relatively often.
+
+```{code-cell} ipython3
+T_syn = T_i * T_f / abs(T_i - T_f)  # days
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+glue("heliocentric-hohmann-T_syn", T_syn / (365.25))
+```
