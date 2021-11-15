@@ -169,7 +169,16 @@ JDT = gregorian_to_julian_date(T_eph)
 T = (JDT - 2_451_545) / 36_525
 ```
 
-Then, we use the functions defined in [](./julian-date.md) to calculate the time since the J2000.0 epoch. Finally, we can calculate the orbital elements.
+```{code-cell} ipython3
+:tags: [remove-cell]
+from functools import partial
+from myst_nb import glue as myst_glue
+glue = partial(myst_glue, display=False)
+glue("planetary-ephemeris-JDT", f"{JDT:,.4f}")
+glue("planetary-ephemeris-epoch", f"{T:.4f}")
+```
+
+Then, we use the functions defined in [](./julian-date.md) to calculate the time since the J2000.0 epoch. The JDT is {glue:text}`planetary-ephemeris-JDT` and the number of centuries since the epoch is {glue:text}`planetary-ephemeris-epoch`. Finally, we can calculate the orbital elements.
 
 ```{code-cell} ipython3
 a = (mercury["a"] + mercury["a_dot"] * T) * 149_597_870.7
@@ -350,29 +359,28 @@ The default interface of HORIZONS is shown in {numref}`fig:horizons-default`
 The default web interface for HORIZONS.
 :::
 
-Each of the options can be changed by clicking the "Change" links. For our purposes, we can change the following:
+Each of the options can be changed by clicking the *Edit* buttons. For our purposes, we can change the following:
 
-1. _Ephemeris Type_: Either _Vector Table_ or _Orbital Elements_ is suitable, although the latter is more direct for this example
-2. _Target Body_: On this option, there is a button to retrieve a list of the Sun and planets. We will choose that, and then choose _Mercury_.
-3. _Center_: Choosing _Mercury_ in the previous step automatically sets the coordinate system center to the Sun center, but other options may be suitable here depending on your objective
-4. _Time Span_: This can be used to generate a range of dates, or to input specific dates. We will choose _Switch to discrete time form_ for this example, and then input the date of interest, in UTC: 2020-12-08 21:30
-5. _Table Settings_: Here, we want to change the units to _km & km/s_. Another useful option is the _reference plane_. The default of _ecliptic & mean equinox_ is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.
-6. _Display/Output_: On this page, you can choose the output format of your data. We will use the formatted HTML output in this example
+1. _Ephemeris Type_: Either _Vector Table_ or _Osculating Orbital Elements_ is suitable, although the latter is more direct for this example
+2. _Target Body_: This option opens a pop-up where we can search for the body of interest. In the drop-down menu under *Choose a method for specifying the target body*, you can choose *Select from a list of major bodies*, then choose *Mercury*
+3. _Center_: The default selection here is _Solar System Barycenter_, the center of gravity of the entire solar system. This is usually a little bit outside the sun, depending on the relative locations of the planets, especially Jupiter. In our case, we want the center of the Sun as the focus of the orbit, so click _Edit_ and then type `@sun` into the search box.
+4. _Time Span_: This can be used to generate a range of dates, or to input specific dates. We will choose _Specify a list of times_ for this example, and then input the date of interest, in JDT, {glue:text}`planetary-ephemeris-JDT`.
+5. _Table Settings_: Here, we want to change the units to _km and seconds_. Another useful option is the _Reference plane_. The default of _ecliptic x-y plane derived from reference plane_ is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.
 
-When you've set the options for this example, the screen should appear as in {numref}`Fig. {number} <horizons-mercury>`.
+When you've set the options for this example, the screen should appear as in {numref}`fig:horizons-mercury`.
 
-:::{figure-md} horizons-mercury
-<img src="../images/horizons-mercury.png" alt="Settings for Mercury ephemeris in HORIZONS" width="50%">
-
+:::{figure} ../images/horizons-mercury.png
+:name: fig:horizons-mercury
+:width: 75%
 The settings used in this example for the ephemerides of Mercury.
 :::
 
-After clicking _Generate Ephemeris_, the output looks like {numref}`Fig. {number} <mercury-output>`.
+After clicking _Generate Ephemeris_, the output looks like {numref}`fig:mercury-output`.
 
-:::{figure-md} mercury-output
-<img src="../images/mercury-output.png" alt="Output for Mercury ephemeris from HORIZONS" width="75%">
+:::{figure} ../images/mercury-output.png
+:name: fig:mercury-output
 
 A subset of the output from HORIZONS for Mercury showing the orbital elements.
 :::
 
-The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in {numref}`Fig. {number} <mercury-output>`, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. `IN` stands for inclination and `TA` is the true anomaly. Both of these elements match our previous calculated results for the date given.
+The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in {numref}`fig:mercury-output`, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. `IN` stands for inclination and `TA` is the true anomaly. Both of these elements match our previous calculated results for the date given.
