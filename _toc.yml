@@ -84,10 +84,6 @@ parts:
   #     - file: chapter-4/5-coordinate-transformations
   #     - file: chapter-4/6-transformation-between-geocentric-equatorial-and-perifocal-frames
   #     - file: chapter-4/7-effects-of-the-earths-oblateness
-  # - caption: Chapter 8
-  #   chapters:
-  #     - file: chapter-8/2-interplanetary-hohmann-transfers
-  #     - file: chapter-8/10-planetary-ephemeris
   - caption: Review of Vectors, Kinematics, and Newtonian Mechanics
     chapters:
       - file: review/kinematics
@@ -97,6 +93,8 @@ parts:
       - file: reference/celestial-sphere
       - file: reference/relative-motion
       - file: reference/planetary-parameters
+      - file: reference/julian-date
+      - file: reference/planetary-ephemeris
       - file: reference/gravity-and-spherical-symmetry
   - caption: Bibliography
     chapters:
