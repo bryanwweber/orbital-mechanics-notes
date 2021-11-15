@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gravity and Spherical Symmetry &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,9 +59,12 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="../bibliography.html" />
-    <link rel="prev" title="Planetary Parameters" href="planetary-parameters.html" />
+    <link rel="prev" title="Planetary Ephemeris" href="planetary-ephemeris.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -100,7 +103,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -122,7 +125,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The N-Body Problem
  </span>
@@ -184,7 +187,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Constants of Orbital Motion
  </span>
@@ -206,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The Orbit Equation
  </span>
@@ -259,7 +262,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   The Classical Orbital Elements
  </span>
@@ -286,7 +289,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Orbital Maneuvers
  </span>
@@ -353,7 +356,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Interplanetary Trajectories
  </span>
@@ -385,7 +388,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Review of Vectors, Kinematics, and Newtonian Mechanics
  </span>
@@ -402,7 +405,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Reference
  </span>
@@ -423,13 +426,23 @@
    Planetary Parameters
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="julian-date.html">
+   Julian Day
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="planetary-ephemeris.html">
+   Planetary Ephemeris
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Gravity and Spherical Symmetry
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bibliography
  </span>
@@ -552,10 +565,10 @@
 <h2>Conservative Forces Are Related to Potential Energy<a class="headerlink" href="#conservative-forces-are-related-to-potential-energy" title="Permalink to this headline">¶</a></h2>
 <p>The force field of a conservative force can be determined from the gradient of the potential energy function:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravity-force-field">
-<span class="eqno">(303)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V = - \left(\frac{\partial V}{\partial x}\uvec{\imath} + \frac{\partial V}{\partial y}\uvec{\jmath} + \frac{\partial V}{\partial z}\uvec{k}\right)\]</div>
+<span class="eqno">(313)<a class="headerlink" href="#equation-eq-gravity-force-field" title="Permalink to this equation">¶</a></span>\[\vector{F} = - \vector{\nabla} V = - \left(\frac{\partial V}{\partial x}\uvec{\imath} + \frac{\partial V}{\partial y}\uvec{\jmath} + \frac{\partial V}{\partial z}\uvec{k}\right)\]</div>
 <p>Thus, the attractive force between <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-force-from-potential-function">
-<span class="eqno">(304)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\vector{F} = \frac{V \vector{r}}{r^2}\]</div>
+<span class="eqno">(314)<a class="headerlink" href="#equation-eq-force-from-potential-function" title="Permalink to this equation">¶</a></span>\[\vector{F} = \frac{V \vector{r}}{r^2}\]</div>
 <p>By plugging in the definition of <span class="math notranslate nohighlight">\(V\)</span>, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-gravitational-potential-energy-function">(96)</a>, we recover the two-body relative equation of motion.</p>
 <p>In the book, they show that the gravitational potential energy field of a sphere is equivalent to the field of an equivalent point mass located at the center of the sphere. As long as the spheres don’t come into contact, we can substitute point masses for spheres with no difference in the equations!</p>
 <p>TODO: Add this proof following Appendix E in <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Howard D Curtis. Orbital Mechanics for Engineering Students. Elsevier, fourth edition, 2020. ISBN 978-0-08-102133-0.">Cur20</a>]</span>.</p>
@@ -585,31 +598,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="planetary-parameters.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Planetary Parameters</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="planetary-ephemeris.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Planetary Ephemeris</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../bibliography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../bibliography.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Bibliography</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -633,8 +637,7 @@
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
