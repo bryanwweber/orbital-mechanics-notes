@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
-   sodipodi:docname="interplanetary-departure-inward-transfer.svg"
+   sodipodi:docname="interplanetary-arrival-inward-transfer.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +29,8 @@
      borderlayer="false"
      inkscape:showpageshadow="false"
      inkscape:zoom="2.8662332"
-     inkscape:cx="278.93753"
-     inkscape:cy="267.07527"
+     inkscape:cx="260.79525"
+     inkscape:cy="159.61716"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
      inkscape:window-x="0"
@@ -59,6 +59,34 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="marker4275"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path1189" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(1.1) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round"
+         id="path1186" />
+    </marker>
     <marker
        style="overflow:visible"
        id="marker11040"
@@ -216,21 +244,21 @@
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
-       x="197.16797"
-       y="104.50781"
+       x="197.18359"
+       y="134.50781"
        id="text18649"
        clip-path="none"><tspan
          sodipodi:role="line"
          id="tspan18647"
-         x="197.16797"
-         y="104.50781">Spacecraft</tspan><tspan
+         x="197.18359"
+         y="134.50781">Spacecraft</tspan><tspan
          sodipodi:role="line"
-         x="197.16797"
-         y="124.50781"
-         id="tspan18651">departure</tspan><tspan
+         x="197.18359"
+         y="154.50781"
+         id="tspan18651">arrival</tspan><tspan
          sodipodi:role="line"
-         x="197.16797"
-         y="144.50781"
+         x="197.18359"
+         y="174.50781"
          id="tspan18653">hyperbola</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker3208)"
@@ -261,7 +289,7 @@
          sodipodi:role="line"
          id="tspan8172"
          x="361.90234"
-         y="242.42578">Parking orbit</tspan></text>
+         y="242.42578">Capture orbit</tspan></text>
     <path
        style="fill:#cccccc;stroke:#cccccc;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
        d="M 180,60 V 390"
@@ -290,7 +318,7 @@
        clip-path="none" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5998)"
-       d="M 180,70 V 10"
+       d="M 180,8.3282967 V 68.328297"
        id="path5994"
        clip-path="none" />
     <text
@@ -304,7 +332,7 @@
          sodipodi:role="line"
          x="203.8125"
          y="-161.79297"
-         id="tspan10071">Departure asymptote</tspan></text>
+         id="tspan10071">Arrival asymptote</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
        d="M 300.00051,300.00051 254,368"
@@ -312,10 +340,12 @@
        clip-path="none" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker11040)"
-       d="M 254,368 200,330"
+       d="m 254,368 26,22"
        id="path11036"
        sodipodi:nodetypes="cc"
-       clip-path="none" />
+       clip-path="none"
+       inkscape:transform-center-x="-13"
+       inkscape:transform-center-y="11" />
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
@@ -327,45 +357,18 @@
          id="tspan19925"
          x="34.714844"
          y="53.957031">Relative to Planet</tspan></text>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path20755"
-       sodipodi:type="arc"
-       sodipodi:cx="-299.49738"
-       sodipodi:cy="-300"
-       sodipodi:rx="40"
-       sodipodi:ry="40"
-       sodipodi:start="1.5728207"
-       sodipodi:end="5.2905839"
-       sodipodi:arc-type="arc"
-       sodipodi:open="true"
-       transform="scale(-1)"
-       clip-path="none"
-       d="m -299.57835,-260.00008 a 40,40 0 0 1 -37.76697,-27.05646 40,40 0 0 1 13.2898,-44.51715 40,40 0 0 1 46.41867,-1.92433" />
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
-       x="342"
-       y="314"
-       id="text21746"
-       class="math"
-       clip-path="none"><tspan
-         sodipodi:role="line"
-         id="tspan21744"
-         x="332.05078"
-         y="334.89062">\eta</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
-       x="212"
-       y="356"
+       x="227.37109"
+       y="390.875"
        id="text35859"
        class="math"
        clip-path="none"><tspan
          sodipodi:role="line"
          id="tspan35857"
-         x="206"
-         y="367.75">v_p</tspan></text>
+         x="227.37109"
+         y="390.875">v_p</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
@@ -390,6 +393,21 @@
          id="tspan40857"
          x="156"
          y="39.015625">v_{\infty}</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-start:url(#Arrow2Lstart);marker-end:url(#marker4275)"
+       d="m 180,80 c 120,0 120,0 120,0"
+       id="path4264" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:none"
+       x="227.26562"
+       y="66.753906"
+       id="text5429"
+       class="math"><tspan
+         sodipodi:role="line"
+         id="tspan5427"
+         x="227.26562"
+         y="66.753906">y</tspan></text>
   </g>
   <metadata
      id="metadata2427">
