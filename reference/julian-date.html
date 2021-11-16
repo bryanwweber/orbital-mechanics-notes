@@ -387,6 +387,11 @@
    Planetary Departure for Interplanetary Transfer
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-capture.html">
+   Planetary Arrival: Capture
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -672,7 +677,7 @@
 </ol>
 <p>To simplify the calculation of the Julian Day Number, we will define the following constants:</p>
 <div class="math notranslate nohighlight" id="equation-eq-julian-day-constants">
-<span class="eqno">(303)<a class="headerlink" href="#equation-eq-julian-day-constants" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(307)<a class="headerlink" href="#equation-eq-julian-day-constants" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   A &amp;= \mathrm{INT}\left(\frac{M - 14}{12}\right) \\
   B &amp;= 1461\left(Y + 4800 + A\right) \\
   C &amp;= 367\left(M - 2 - 12A\right) \\
@@ -680,7 +685,7 @@
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathrm{INT}\)</span> indicates that integer division should be done. This means that the remainder of the division is discarded, or in other words, the result is rounded towards zero. Then, <span class="math notranslate nohighlight">\(\mathrm{JDN}\)</span> can be found by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-julian-day-number">
-<span class="eqno">(304)<a class="headerlink" href="#equation-eq-julian-day-number" title="Permalink to this equation">¶</a></span>\[\mathrm{JDN} = \mathrm{INT}\left(\frac{B}{4}\right) + \mathrm{INT}\left(\frac{C}{12}\right) - \mathrm{INT}\left(\frac{3E}{4}\right) + D - 32075\]</div>
+<span class="eqno">(308)<a class="headerlink" href="#equation-eq-julian-day-number" title="Permalink to this equation">¶</a></span>\[\mathrm{JDN} = \mathrm{INT}\left(\frac{B}{4}\right) + \mathrm{INT}\left(\frac{C}{12}\right) - \mathrm{INT}\left(\frac{3E}{4}\right) + D - 32075\]</div>
 <p>Sample implementations of this algorithm can be found in many places online, and for many programming languages. See:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm">https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm</a></p></li>
