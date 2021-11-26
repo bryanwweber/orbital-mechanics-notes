@@ -65,6 +65,7 @@ parts:
       - file: interplanetary-maneuvers/sphere-of-influence
       - file: interplanetary-maneuvers/planetary-departure-trajectory
       - file: interplanetary-maneuvers/planetary-arrival-capture
+      - file: interplanetary-maneuvers/planetary-arrival-flyby
   # - caption: Chapter 3
   #   chapters:
   #     - file: chapter-3/2-time-since-periapsis
