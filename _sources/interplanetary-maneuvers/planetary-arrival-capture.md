@@ -158,7 +158,7 @@ glue("reentry-corridor-y_2", y_2)
 glue("reentry-corridor-radius", y_2 - y_1)
 ```
 
-The offset distance to have $r_p =$ 6,378 km is $y_1 =$ {glue:text}`reentry-corridor-y_1:.1f` km and to hit the edge of the atmosphere, $y_2 =$ {glue:text}`reentry-corridor-y_2:.1f` km. This gives an annulus of radius {glue:text}`reentry-corridor-radius:.1f` km that the spacecraft must be within to arrive in Earth's atmosphere. This is approximately the distance from Storrs, CT to the Statue of Liberty. If Earth was the size of a baseball, the reentry corridor would be about the thickness of a credit card.
+The offset distance to have $r_p =$ 6,378 km is $y_1 =$ {glue:text}`reentry-corridor-y_1:.1f` km and to hit the edge of the atmosphere, $y_2 =$ {glue:text}`reentry-corridor-y_2:.1f` km. This gives an annulus of thickness {glue:text}`reentry-corridor-radius:.1f` km that the spacecraft must be within to arrive in Earth's atmosphere. This is approximately the distance from Storrs, CT to the Statue of Liberty. If Earth was the size of a baseball, the reentry corridor would be about the thickness of a credit card.
 
 ## $\Delta v$ for a Capture Orbit
 
