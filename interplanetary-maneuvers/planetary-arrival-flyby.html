@@ -603,6 +603,18 @@
   <a class="reference internal nav-link" href="#example">
    Example
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#leading-side-flyby">
+     Leading-Side Flyby
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trailing-side-flyby">
+     Trailing-Side Flyby
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -763,35 +775,38 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V_p1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">V_r1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">alpha_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">V_r1</span><span class="p">,</span> <span class="n">V_p1</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">alpha_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">V_r1</span><span class="p">,</span> <span class="n">V_p1</span><span class="p">)</span>
 
 <span class="n">V_Venus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu_sun</span> <span class="o">/</span> <span class="n">R_Venus</span><span class="p">)</span>
 
-<span class="n">v_infty1_V</span> <span class="o">=</span> <span class="n">V_1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">V_Venus</span>
-<span class="n">v_infty1_S</span> <span class="o">=</span> <span class="n">V_1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha_1</span><span class="p">)</span>
-<span class="n">v_infty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V_1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">V_Venus</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">V_1</span> <span class="o">*</span> <span class="n">V_Venus</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha_1</span><span class="p">))</span>
+<span class="n">v_infty1_V</span> <span class="o">=</span> <span class="n">V_p1</span> <span class="o">-</span> <span class="n">V_Venus</span>
+<span class="n">v_infty1_S</span> <span class="o">=</span> <span class="o">-</span><span class="n">V_r1</span>
+<span class="n">v_infty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_infty1_V</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">v_infty1_S</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The spacecraft heliocentric velocity magnitude is <span class="math notranslate nohighlight">\(V_1^s =\)</span> <span class="pasted-text">48.94</span> km/s, the flight path angle is <span class="math notranslate nohighlight">\(\alpha_1 =\)</span> <span class="pasted-text">330.60</span>°, and the velocity of Venus is <span class="math notranslate nohighlight">\(V_{\text{Venus}} =\)</span> <span class="pasted-text">35.02</span> km/s. The excess velocity vector is <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1} =\)</span> <span class="pasted-text">7.62</span> <span class="math notranslate nohighlight">\(\uvec{u}_V\)</span> - <span class="pasted-text">24.02</span> <span class="math notranslate nohighlight">\(\uvec{u}_S\)</span> km/s, and its magnitude is <span class="math notranslate nohighlight">\(v_{\infty} =\)</span> <span class="pasted-text">25.20</span> km/s.</p>
+<p>The spacecraft heliocentric velocity magnitude is <span class="math notranslate nohighlight">\(V_1^s =\)</span> <span class="pasted-text">48.94</span> km/s, the flight path angle is <span class="math notranslate nohighlight">\(\alpha_1 =\)</span> <span class="pasted-text">-29.40</span>°, and the velocity of Venus is <span class="math notranslate nohighlight">\(V_{\text{Venus}} =\)</span> <span class="pasted-text">35.02</span> km/s. The excess velocity vector is <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1} =\)</span> <span class="pasted-text">7.62</span> <span class="math notranslate nohighlight">\(\uvec{u}_V\)</span> - <span class="pasted-text">24.02</span> <span class="math notranslate nohighlight">\(\uvec{u}_S\)</span> km/s, and its magnitude is <span class="math notranslate nohighlight">\(v_{\infty} =\)</span> <span class="pasted-text">25.20</span> km/s.</p>
 <p>Now we can compute the geocentric orbital elements of the flyby trajectory. In particular, we need to calculate the turn angle <span class="math notranslate nohighlight">\(\delta\)</span> using Eq. <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html#equation-eq-hyperbolic-turn-angle">(151)</a>, which requires the eccentricity <span class="math notranslate nohighlight">\(e\)</span> from Eq. <a class="reference internal" href="planetary-arrival-capture.html#equation-eq-interplanetary-arrival-eccentricity">(260)</a>. Then, we can calculate the <span class="math notranslate nohighlight">\(\phi\)</span> angles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_p</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="mf">6051.8</span>  <span class="c1"># km</span>
 <span class="n">mu_Venus</span> <span class="o">=</span> <span class="mf">3.24859E5</span>  <span class="c1"># km**3/s**2</span>
-<span class="n">e</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">r_p</span> <span class="o">*</span> <span class="n">v_infty</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">mu_Venus</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">r_p</span> <span class="o">*</span> <span class="n">v_infty</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">mu_Venus</span>
 <span class="n">delta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">e</span><span class="p">)</span>
 
-<span class="n">phi_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">V_1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha_1</span><span class="p">),</span> <span class="n">V_1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">V_Venus</span><span class="p">)</span>
+<span class="n">phi_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">v_infty1_S</span><span class="p">,</span> <span class="n">v_infty1_V</span><span class="p">)</span>
 <span class="n">phi_2_leading</span> <span class="o">=</span> <span class="n">phi_1</span> <span class="o">+</span> <span class="n">delta</span>
 <span class="n">phi_2_trailing</span> <span class="o">=</span> <span class="n">phi_1</span> <span class="o">-</span> <span class="n">delta</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The eccentricity of the hyperbola is <span class="math notranslate nohighlight">\(e =\)</span> <span class="pasted-text">13.4193</span> and the turn angle is <span class="math notranslate nohighlight">\(\delta =\)</span> <span class="pasted-text">8.55</span>°. This gives turn angles of <span class="math notranslate nohighlight">\(\phi_1 =\)</span> <span class="pasted-text">-72.41</span>° at arrival, <span class="math notranslate nohighlight">\(\phi_2 =\)</span> <span class="pasted-text">-63.86</span>° when the flyby occurs on the leading side, and <span class="math notranslate nohighlight">\(\phi_2 =\)</span> <span class="pasted-text">-80.96</span>° for the trailing-side flyby. Notice that <span class="math notranslate nohighlight">\(\delta\)</span> is treated as negative for the trailing-side flyby!</p>
-<p>Finally, we can compute the departure excess velocity vector and the departure heliocentric velocity vector, which allows us to compute the new heliocentric orbital elements. Let’s start with the leading-side flyby.</p>
+<p>The eccentricity of the hyperbola is <span class="math notranslate nohighlight">\(e =\)</span> <span class="pasted-text">13.4193</span> and the turn angle is <span class="math notranslate nohighlight">\(\delta =\)</span> <span class="pasted-text">8.55</span>°. This gives turn angles of <span class="math notranslate nohighlight">\(\phi_1 =\)</span> <span class="pasted-text">72.41</span>° at arrival, <span class="math notranslate nohighlight">\(\phi_2 =\)</span> <span class="pasted-text">80.96</span>° when the flyby occurs on the leading side, and <span class="math notranslate nohighlight">\(\phi_2 =\)</span> <span class="pasted-text">63.86</span>° for the trailing-side flyby. Notice that <span class="math notranslate nohighlight">\(\delta\)</span> is treated as negative for the trailing-side flyby!</p>
+<p>Finally, we can compute the departure excess velocity vector and the departure heliocentric velocity vector, which allows us to compute the new heliocentric orbital elements.</p>
+<div class="section" id="leading-side-flyby">
+<h3>Leading-Side Flyby<a class="headerlink" href="#leading-side-flyby" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start with the leading-side flyby.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_infty2_V</span> <span class="o">=</span> <span class="n">v_infty</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_2_leading</span><span class="p">)</span>
@@ -804,7 +819,7 @@
 </div>
 </div>
 </div>
-<p>This gives a heliocentric velocity of <span class="math notranslate nohighlight">\(V_2^s =\)</span> <span class="pasted-text">51.37</span> km/s, with components <span class="math notranslate nohighlight">\(V_{\perp,2}^s =\)</span> <span class="pasted-text">46.12</span> km/s and <span class="math notranslate nohighlight">\(V_{r,2}^s =\)</span> <span class="pasted-text">22.63</span> km/s. This is an increase of about <span class="pasted-text">2.43</span> km/s in heliocentric velocity.</p>
+<p>This gives a heliocentric velocity of <span class="math notranslate nohighlight">\(V_2^s =\)</span> <span class="pasted-text">46.25</span> km/s, with components <span class="math notranslate nohighlight">\(V_{\perp,2}^s =\)</span> <span class="pasted-text">38.98</span> km/s and <span class="math notranslate nohighlight">\(V_{r,2}^s =\)</span> <span class="pasted-text">-24.89</span> km/s. This is a decrease of about <span class="pasted-text">2.69</span> km/s in heliocentric speed, as expected for a leading-side flyby.</p>
 <p>The departure angular momentum is found by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-ang-mom">(289)</a>. From Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-orbit-equation">(290)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-e-cos">
 <span class="eqno">(295)<a class="headerlink" href="#equation-eq-interplanetary-flyby-e-cos" title="Permalink to this equation">¶</a></span>\[e_2 \cos\nu_2 = \frac{h_2^2}{\mu_{\text{sun}} R} - 1\]</div>
@@ -813,19 +828,47 @@
 <span class="eqno">(296)<a class="headerlink" href="#equation-eq-interplanetary-flyby-e-sin" title="Permalink to this equation">¶</a></span>\[e_2 \sin\nu_2 = \frac{V_{r,2}^s h_2}{\mu_{\text{sun}}}\]</div>
 <p>Taking the ratio of Eqs. <a class="reference internal" href="#equation-eq-interplanetary-flyby-e-cos">(295)</a> and <a class="reference internal" href="#equation-eq-interplanetary-flyby-e-sin">(296)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-10">
-<span class="eqno">(297)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-10" title="Permalink to this equation">¶</a></span>\[\tan \nu_2 = \frac{\frac{h_2^2}{R} - \mu_{\text{sun}}}{V_{r,2}^s h_2}\]</div>
+<span class="eqno">(297)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-10" title="Permalink to this equation">¶</a></span>\[\tan\nu_2 = \frac{R V_{r,2}^s h_2}{h_2^2 - R\mu_{\text{sun}}}\]</div>
 <p>With <span class="math notranslate nohighlight">\(h_2\)</span>, <span class="math notranslate nohighlight">\(e_2\)</span>, and <span class="math notranslate nohighlight">\(\nu_2\)</span>, we can calculate the other orbital elements of interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h_2</span> <span class="o">=</span> <span class="n">R_Venus</span> <span class="o">*</span> <span class="n">V_p2</span>
-<span class="n">nu_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">h_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">R_Venus</span> <span class="o">-</span> <span class="n">mu_sun</span><span class="p">,</span> <span class="n">V_r2</span> <span class="o">*</span> <span class="n">h_2</span><span class="p">)</span>
+<span class="n">nu_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">R_Venus</span> <span class="o">*</span> <span class="n">V_r2</span> <span class="o">*</span> <span class="n">h_2</span><span class="p">,</span> <span class="n">h_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">R_Venus</span> <span class="o">*</span> <span class="n">mu_sun</span><span class="p">)</span>
 <span class="n">e_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_r2</span> <span class="o">*</span> <span class="n">h_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mu_sun</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">nu_2</span><span class="p">))</span>
+<span class="n">a_2</span> <span class="o">=</span> <span class="n">h_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">mu_sun</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">R_p2</span> <span class="o">=</span> <span class="n">a_2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e_2</span><span class="p">)</span>
+<span class="n">R_a2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a_2</span> <span class="o">-</span> <span class="n">R_p2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the leading-side flyby the eccentricity is <span class="math notranslate nohighlight">\(e_2 =\)</span> <span class="pasted-text">0.8264</span>. Since <span class="math notranslate nohighlight">\(e_2 &lt; 1\)</span>, the new heliocentric trajectory is still an ellipse around the sun. The perihelion distance is <span class="math notranslate nohighlight">\(R_{p,2} =\)</span> <span class="pasted-text">7.340E+07</span> and the aphelion distance is <span class="math notranslate nohighlight">\(R_{a,2} =\)</span> <span class="pasted-text">7.722E+08</span>. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is <span class="math notranslate nohighlight">\(\nu_2 =\)</span> <span class="pasted-text">-73.19</span>°, so the spacecraft is approaching perihelion.</p>
+</div>
+<div class="section" id="trailing-side-flyby">
+<h3>Trailing-Side Flyby<a class="headerlink" href="#trailing-side-flyby" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s do the trailing-side flyby. The calculations are all the same as the leading-side, but we expect the spacecraft to increase its heliocentric speed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_infty2_V</span> <span class="o">=</span> <span class="n">v_infty</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi_2_trailing</span><span class="p">)</span>
+<span class="n">v_infty2_S</span> <span class="o">=</span> <span class="n">v_infty</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi_2_trailing</span><span class="p">)</span>
+
+<span class="n">V_p2</span> <span class="o">=</span> <span class="n">V_Venus</span> <span class="o">+</span> <span class="n">v_infty2_V</span>
+<span class="n">V_r2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">v_infty2_S</span>
+<span class="n">V_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V_p2</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">V_r2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">h_2</span> <span class="o">=</span> <span class="n">R_Venus</span> <span class="o">*</span> <span class="n">V_p2</span>
+<span class="n">nu_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">R_Venus</span> <span class="o">*</span> <span class="n">V_r2</span> <span class="o">*</span> <span class="n">h_2</span><span class="p">,</span> <span class="n">h_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">R_Venus</span> <span class="o">*</span> <span class="n">mu_sun</span><span class="p">)</span>
+<span class="n">e_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_r2</span> <span class="o">*</span> <span class="n">h_2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mu_sun</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">nu_2</span><span class="p">))</span>
+<span class="n">a_2</span> <span class="o">=</span> <span class="n">h_2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">mu_sun</span> <span class="o">/</span> <span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">R_p2</span> <span class="o">=</span> <span class="n">a_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">R_a2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a_2</span> <span class="o">-</span> <span class="n">R_p2</span>
 <span class="n">nu_infty_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">e_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>For the leading-side flyby the eccentricity is <span class="math notranslate nohighlight">\(e_2 =\)</span> <span class="pasted-text">1.3022</span>. Since <span class="math notranslate nohighlight">\(e_2 &gt; 1\)</span>, the new heliocentric trajectory is a hyperbola relative to the sun. The spacecraft is now on a trajectory to escape the solar system! The true anomaly is <span class="math notranslate nohighlight">\(\nu_2 =\)</span> <span class="pasted-text">40.80</span>° and the true anomaly of the asymptote is <span class="math notranslate nohighlight">\(\nu_{\infty} =\)</span> <span class="pasted-text">140.17</span>°, so the spacecraft has a ways to go to actually reach the escape point.</p>
+<p>This gives a heliocentric velocity of <span class="math notranslate nohighlight">\(V_2^s =\)</span> <span class="pasted-text">51.37</span> km/s, with components <span class="math notranslate nohighlight">\(V_{\perp,2}^s =\)</span> <span class="pasted-text">46.12</span> km/s and <span class="math notranslate nohighlight">\(V_{r,2}^s =\)</span> <span class="pasted-text">-22.63</span> km/s. This is an increase of about <span class="pasted-text">2.43</span> km/s in heliocentric speed, as expected for a trailing-side flyby.</p>
+<p>For the trailing-side flyby the eccentricity is <span class="math notranslate nohighlight">\(e_2 =\)</span> <span class="pasted-text">1.1240</span>. Since <span class="math notranslate nohighlight">\(e_2 &gt; 1\)</span>, the new heliocentric trajectory is a hyperbola relative to the sun! This means the spacecraft is now on a trajectory to escape the solar system. The true anomaly is <span class="math notranslate nohighlight">\(\nu_2 =\)</span> <span class="pasted-text">-49.20</span>°, so the spacecraft is approaching perihelion, which will be at a distance of <span class="math notranslate nohighlight">\(R_{p,2} =\)</span> <span class="pasted-text">1.300E+05</span> km, well inside the orbit of Mercury. The true anomaly of the asymptote is <span class="math notranslate nohighlight">\(\nu_{\infty} =\)</span> <span class="pasted-text">152.83</span>°.</p>
+</div>
 </div>
 </div>
 
