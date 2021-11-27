@@ -271,13 +271,13 @@ The heliocentric velocity components are $V_{\perp,1}^s =$ {glue:text}`interplan
 
 ```{code-cell} ipython3
 V_1 = np.sqrt(V_p1**2 + V_r1**2)
-alpha_1 = np.arctan2(V_r1, V_p1) % (2 * np.pi)
+alpha_1 = np.arctan2(V_r1, V_p1)
 
 V_Venus = np.sqrt(mu_sun / R_Venus)
 
-v_infty1_V = V_1 * np.cos(alpha_1) - V_Venus
-v_infty1_S = V_1 * np.sin(alpha_1)
-v_infty = np.sqrt(V_1**2 + V_Venus**2 - 2 * V_1 * V_Venus * np.cos(alpha_1))
+v_infty1_V = V_p1 - V_Venus
+v_infty1_S = -V_r1
+v_infty = np.sqrt(v_infty1_V**2 + v_infty1_S**2)
 ```
 
 ```{code-cell} ipython3
@@ -297,10 +297,10 @@ Now we can compute the geocentric orbital elements of the flyby trajectory. In p
 ```{code-cell} ipython3
 r_p = 300 + 6051.8  # km
 mu_Venus = 3.24859E5  # km**3/s**2
-e = 1 + r_p * v_infty**2 / (mu_Venus)
+e = 1 + r_p * v_infty**2 / mu_Venus
 delta = 2 * np.arcsin(1/e)
 
-phi_1 = np.arctan2(V_1 * np.sin(alpha_1), V_1 * np.cos(alpha_1) - V_Venus)
+phi_1 = np.arctan2(v_infty1_S, v_infty1_V)
 phi_2_leading = phi_1 + delta
 phi_2_trailing = phi_1 - delta
 ```
@@ -317,7 +317,11 @@ glue("interplanetary-flyby-phi_2_trailing", d(phi_2_trailing))
 
 The eccentricity of the hyperbola is $e =$ {glue:text}`interplanetary-flyby-e:.4f` and the turn angle is $\delta =$ {glue:text}`interplanetary-flyby-delta:.2f`°. This gives turn angles of $\phi_1 =$ {glue:text}`interplanetary-flyby-phi_1:.2f`° at arrival, $\phi_2 =$ {glue:text}`interplanetary-flyby-phi_2_leading:.2f`° when the flyby occurs on the leading side, and $\phi_2 =$ {glue:text}`interplanetary-flyby-phi_2_trailing:.2f`° for the trailing-side flyby. Notice that $\delta$ is treated as negative for the trailing-side flyby!
 
-Finally, we can compute the departure excess velocity vector and the departure heliocentric velocity vector, which allows us to compute the new heliocentric orbital elements. Let's start with the leading-side flyby.
+Finally, we can compute the departure excess velocity vector and the departure heliocentric velocity vector, which allows us to compute the new heliocentric orbital elements.
+
+### Leading-Side Flyby
+
+Let's start with the leading-side flyby.
 
 ```{code-cell} ipython3
 v_infty2_V = v_infty * np.cos(phi_2_leading)
@@ -330,13 +334,13 @@ V_2 = np.sqrt(V_p2**2 + V_r2**2)
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-glue("interplanetary-flyby-V_2", V_2)
-glue("interplanetary-flyby-V_p2", V_p2)
-glue("interplanetary-flyby-V_r2", V_r2)
-glue("interplanetary-flyby-Delta_V", V_2 - V_1)
+glue("interplanetary-flyby-leading-V_2", V_2)
+glue("interplanetary-flyby-leading-V_p2", V_p2)
+glue("interplanetary-flyby-leading-V_r2", V_r2)
+glue("interplanetary-flyby-leading-Delta_V", abs(V_2 - V_1))
 ```
 
-This gives a heliocentric velocity of $V_2^s =$ {glue:text}`interplanetary-flyby-V_2:.2f` km/s, with components $V_{\perp,2}^s =$ {glue:text}`interplanetary-flyby-V_p2:.2f` km/s and $V_{r,2}^s =$ {glue:text}`interplanetary-flyby-V_r2:.2f` km/s. This is an increase of about {glue:text}`interplanetary-flyby-Delta_V:.2f` km/s in heliocentric velocity.
+This gives a heliocentric velocity of $V_2^s =$ {glue:text}`interplanetary-flyby-leading-V_2:.2f` km/s, with components $V_{\perp,2}^s =$ {glue:text}`interplanetary-flyby-leading-V_p2:.2f` km/s and $V_{r,2}^s =$ {glue:text}`interplanetary-flyby-leading-V_r2:.2f` km/s. This is a decrease of about {glue:text}`interplanetary-flyby-leading-Delta_V:.2f` km/s in heliocentric speed, as expected for a leading-side flyby.
 
 The departure angular momentum is found by Eq. {eq}`eq:interplanetary-flyby-departure-ang-mom`. From Eq. {eq}`eq:interplanetary-flyby-departure-orbit-equation`, we find:
 
@@ -356,23 +360,69 @@ Taking the ratio of Eqs. {eq}`eq:interplanetary-flyby-e-cos` and {eq}`eq:interpl
 
 :::{math}
 :label:
-\tan \nu_2 = \frac{\frac{h_2^2}{R} - \mu_{\text{sun}}}{V_{r,2}^s h_2}
+\tan\nu_2 = \frac{R V_{r,2}^s h_2}{h_2^2 - R\mu_{\text{sun}}}
 :::
 
 With $h_2$, $e_2$, and $\nu_2$, we can calculate the other orbital elements of interest.
 
 ```{code-cell} ipython3
 h_2 = R_Venus * V_p2
-nu_2 = np.arctan2(h_2**2 / R_Venus - mu_sun, V_r2 * h_2)
+nu_2 = np.arctan2(R_Venus * V_r2 * h_2, h_2**2 - R_Venus * mu_sun)
 e_2 = (V_r2 * h_2) / (mu_sun * np.sin(nu_2))
+a_2 = h_2**2 / mu_sun / (1 - e_2**2)
+R_p2 = a_2 * (1 - e_2)
+R_a2 = 2 * a_2 - R_p2
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+glue("interplanetary-flyby-leading-nu_2", d(nu_2))
+glue("interplanetary-flyby-leading-e_2", e_2)
+glue("interplanetary-flyby-leading-a_2", a_2)
+glue("interplanetary-flyby-leading-R_p2", R_p2)
+glue("interplanetary-flyby-leading-R_a2", R_a2)
+```
+
+For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-leading-e_2:.4f`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the sun. The perihelion distance is $R_{p,2} =$ {glue:text}`interplanetary-flyby-leading-R_p2:.3E` and the aphelion distance is $R_{a,2} =$ {glue:text}`interplanetary-flyby-leading-R_a2:.3E`. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-leading-nu_2:.2f`°, so the spacecraft is approaching perihelion.
+
+### Trailing-Side Flyby
+
+Now let's do the trailing-side flyby. The calculations are all the same as the leading-side, but we expect the spacecraft to increase its heliocentric speed.
+
+```{code-cell} ipython3
+v_infty2_V = v_infty * np.cos(phi_2_trailing)
+v_infty2_S = v_infty * np.sin(phi_2_trailing)
+
+V_p2 = V_Venus + v_infty2_V
+V_r2 = - v_infty2_S
+V_2 = np.sqrt(V_p2**2 + V_r2**2)
+h_2 = R_Venus * V_p2
+nu_2 = np.arctan2(R_Venus * V_r2 * h_2, h_2**2 - R_Venus * mu_sun)
+e_2 = (V_r2 * h_2) / (mu_sun * np.sin(nu_2))
+a_2 = h_2**2 / mu_sun / (e**2 - 1)
+R_p2 = a_2 * (e_2 - 1)
+R_a2 = 2 * a_2 - R_p2
 nu_infty_2 = np.arccos(-1 / e_2)
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-glue("interplanetary-flyby-nu_2", d(nu_2))
-glue("interplanetary-flyby-e_2", e_2)
-glue("interplanetary-flyby-nu_infty_2", d(nu_infty_2))
+glue("interplanetary-flyby-trailing-V_2", V_2)
+glue("interplanetary-flyby-trailing-V_p2", V_p2)
+glue("interplanetary-flyby-trailing-V_r2", V_r2)
+glue("interplanetary-flyby-trailing-Delta_V", abs(V_2 - V_1))
 ```
 
-For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the sun. The spacecraft is now on a trajectory to escape the solar system! The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-nu_2:.2f`° and the true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-nu_infty_2:.2f`°, so the spacecraft has a ways to go to actually reach the escape point.
+This gives a heliocentric velocity of $V_2^s =$ {glue:text}`interplanetary-flyby-trailing-V_2:.2f` km/s, with components $V_{\perp,2}^s =$ {glue:text}`interplanetary-flyby-trailing-V_p2:.2f` km/s and $V_{r,2}^s =$ {glue:text}`interplanetary-flyby-trailing-V_r2:.2f` km/s. This is an increase of about {glue:text}`interplanetary-flyby-trailing-Delta_V:.2f` km/s in heliocentric speed, as expected for a trailing-side flyby.
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+glue("interplanetary-flyby-trailing-nu_2", d(nu_2))
+glue("interplanetary-flyby-trailing-e_2", e_2)
+glue("interplanetary-flyby-trailing-a_2", a_2)
+glue("interplanetary-flyby-trailing-R_p2", R_p2)
+glue("interplanetary-flyby-trailing-R_a2", R_a2)
+glue("interplanetary-flyby-trailing-nu_infty_2" , d(nu_infty_2))
+```
+
+For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the sun! This means the spacecraft is now on a trajectory to escape the solar system. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.3E` km, well inside the orbit of Mercury. The true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°.
