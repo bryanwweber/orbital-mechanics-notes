@@ -46,7 +46,7 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -286,6 +286,75 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
    Classical Orbital Elements and the State Vector
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time Since Periapsis &amp; Kepler's Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">
+   Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">
+   Circular and Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -594,13 +663,13 @@
 <h2>Single Frame of Reference<a class="headerlink" href="#single-frame-of-reference" title="Permalink to this headline">¶</a></h2>
 <p>Consider a vector <span class="math notranslate nohighlight">\(\vector{A}\)</span> fixed to a body that is undergoing rigid body rotation. The magnitude of <span class="math notranslate nohighlight">\(\vector{A}\)</span> is fixed. The angular velocity of the rigid body is given by <span class="math notranslate nohighlight">\(\vector{\omega}\)</span> about some instantaneous axis of rotation. Then, the time derivative of <span class="math notranslate nohighlight">\(\vector{A}\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-0">
-<span class="eqno">(312)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-0" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{A}}{dt} = \vector{\omega}\cross\vector{A}\]</div>
+<span class="eqno">(342)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-0" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{A}}{dt} = \vector{\omega}\cross\vector{A}\]</div>
 <p>The angular acceleration is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-1">
-<span class="eqno">(313)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-1" title="Permalink to this equation">¶</a></span>\[\vector{\alpha} = \frac{d\vector{\omega}}{dt}\]</div>
+<span class="eqno">(343)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-1" title="Permalink to this equation">¶</a></span>\[\vector{\alpha} = \frac{d\vector{\omega}}{dt}\]</div>
 <p>With this, we can calculate the second derivative of <span class="math notranslate nohighlight">\(\vector{A}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-2">
-<span class="eqno">(314)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-2" title="Permalink to this equation">¶</a></span>\[\frac{d^2\vector{A}}{dt^2} = \vector{\alpha}\cross\vector{A} + \vector{\omega}\cross\left(\vector{\omega}\cross\vector{A}\right)\]</div>
+<span class="eqno">(344)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-2" title="Permalink to this equation">¶</a></span>\[\frac{d^2\vector{A}}{dt^2} = \vector{\alpha}\cross\vector{A} + \vector{\omega}\cross\left(\vector{\omega}\cross\vector{A}\right)\]</div>
 </div>
 <div class="section" id="moving-frame-of-reference">
 <h2>Moving Frame of Reference<a class="headerlink" href="#moving-frame-of-reference" title="Permalink to this headline">¶</a></h2>
@@ -608,39 +677,39 @@
 <p>In the inertial frame, we will use capital letters to represent axes and unit vectors. Thus, the unit vector along the <span class="math notranslate nohighlight">\(X\)</span> axis is <span class="math notranslate nohighlight">\(\uvec{I}\)</span>, along the <span class="math notranslate nohighlight">\(Y\)</span> axis is <span class="math notranslate nohighlight">\(\uvec{J}\)</span>, and along the <span class="math notranslate nohighlight">\(Z\)</span> axis is <span class="math notranslate nohighlight">\(\uvec{K}\)</span>.</p>
 <p>Now consider a time-dependent vector <span class="math notranslate nohighlight">\(\vector{B}\)</span> with some components in the inertial frame of reference:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-3">
-<span class="eqno">(315)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-3" title="Permalink to this equation">¶</a></span>\[\vector{B} = B_X\uvec{I} + B_Y\uvec{J} + B_Z\uvec{K}\]</div>
+<span class="eqno">(345)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-3" title="Permalink to this equation">¶</a></span>\[\vector{B} = B_X\uvec{I} + B_Y\uvec{J} + B_Z\uvec{K}\]</div>
 <p>Since the unit vectors of the inertial frame of reference are fixed, the time derivative of <span class="math notranslate nohighlight">\(\vector{B}\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-4">
-<span class="eqno">(316)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-4" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{B}}{dt} = \frac{dB_X}{dt}\uvec{I} + \frac{B_Y}{dt}\uvec{J} + \frac{B_Z}{dt}\uvec{K}\]</div>
+<span class="eqno">(346)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-4" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{B}}{dt} = \frac{dB_X}{dt}\uvec{I} + \frac{B_Y}{dt}\uvec{J} + \frac{B_Z}{dt}\uvec{K}\]</div>
 <p>This is the absolute time derivative of <span class="math notranslate nohighlight">\(\vector{B}\)</span>. We can also resolve <span class="math notranslate nohighlight">\(\vector{B}\)</span> into components along a <em>moving</em> frame of reference, denoted by lower case letters:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-5">
-<span class="eqno">(317)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-5" title="Permalink to this equation">¶</a></span>\[\vector{B} = B_x\uvec{\imath} + B_y\uvec{\jmath} + B_z\uvec{k}\]</div>
+<span class="eqno">(347)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-5" title="Permalink to this equation">¶</a></span>\[\vector{B} = B_x\uvec{\imath} + B_y\uvec{\jmath} + B_z\uvec{k}\]</div>
 <p>The moving frame of reference has an absolute angular velocity relative to the inertial frame of reference, given by <span class="math notranslate nohighlight">\(\vector{\Omega}\)</span>, such that the unit vectors are a function of time. Therefore, their time derivatives are not zero and we must use the product rule to compute the derivative of <span class="math notranslate nohighlight">\(\vector{B}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-6">
-<span class="eqno">(318)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-6" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{B}}{dt} = \frac{dB_x}{dt}\uvec{\imath} + B_x \frac{d\uvec{\imath}}{dt} + \frac{dB_y}{dt}\uvec{\jmath} + B_y \frac{d\uvec{\jmath}}{dt} +\frac{dB_z}{dt}\uvec{k} + B_z \frac{d\uvec{k}}{dt}\]</div>
+<span class="eqno">(348)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-6" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{B}}{dt} = \frac{dB_x}{dt}\uvec{\imath} + B_x \frac{d\uvec{\imath}}{dt} + \frac{dB_y}{dt}\uvec{\jmath} + B_y \frac{d\uvec{\jmath}}{dt} +\frac{dB_z}{dt}\uvec{k} + B_z \frac{d\uvec{k}}{dt}\]</div>
 <p>From our discussion of the single frame of reference, we can determine the time derivatives of the unit vectors:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-7">
-<span class="eqno">(319)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-7" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\frac{d\uvec{\imath}}{dt} &amp;= \vector{\Omega}\cross\uvec{\imath} &amp; \frac{d\uvec{\jmath}}{dt} &amp;= \vector{\Omega}\cross\uvec{\jmath} &amp; \frac{d\uvec{k}}{dt} &amp;= \vector{\Omega}\cross\uvec{k}\end{aligned}\]</div>
+<span class="eqno">(349)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-7" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\frac{d\uvec{\imath}}{dt} &amp;= \vector{\Omega}\cross\uvec{\imath} &amp; \frac{d\uvec{\jmath}}{dt} &amp;= \vector{\Omega}\cross\uvec{\jmath} &amp; \frac{d\uvec{k}}{dt} &amp;= \vector{\Omega}\cross\uvec{k}\end{aligned}\]</div>
 <p>Then, we can rewrite the derivative of <span class="math notranslate nohighlight">\(\vector{B}\)</span> as:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-8">
-<span class="eqno">(320)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-8" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{B}}{dt} = \left.\frac{d\vector{B}}{dt}\right)_{\text{rel}} + \vector{\Omega}\cross\vector{B}\]</div>
+<span class="eqno">(350)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-8" title="Permalink to this equation">¶</a></span>\[\frac{d\vector{B}}{dt} = \left.\frac{d\vector{B}}{dt}\right)_{\text{rel}} + \vector{\Omega}\cross\vector{B}\]</div>
 <p>This equation allows us to compute the absolute time derivative of a vector when we know the derivative relative to a moving frame of reference by using the angular velocity of the moving frame of reference. The only time when the absolute and relative derivatives are equal are when the angular velocity of the frame of reference is zero.</p>
 <p>We can compute higher order derivatives as well:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-9">
-<span class="eqno">(321)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-9" title="Permalink to this equation">¶</a></span>\[\frac{d^2\vector{B}}{dt^2} = \left.\frac{d^2\vector{B}}{dt^2}\right)_{\text{rel}} + \dot{\vector{\Omega}}\cross\vector{B} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{B}\right) + 2\vector{\Omega}\cross\left.\frac{d\vector{B}}{dt}\right)_{\text{rel}}\]</div>
+<span class="eqno">(351)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-9" title="Permalink to this equation">¶</a></span>\[\frac{d^2\vector{B}}{dt^2} = \left.\frac{d^2\vector{B}}{dt^2}\right)_{\text{rel}} + \dot{\vector{\Omega}}\cross\vector{B} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{B}\right) + 2\vector{\Omega}\cross\left.\frac{d\vector{B}}{dt}\right)_{\text{rel}}\]</div>
 </div>
 <div class="section" id="relative-motion">
 <h2>Relative Motion<a class="headerlink" href="#relative-motion" title="Permalink to this headline">¶</a></h2>
 <p>Now, let’s apply some of these vector properties to something more related to the real world. Let <span class="math notranslate nohighlight">\(P\)</span> be a particle in arbitrary motion. We define two reference frames, one inertial and one moving.</p>
 <p>The position of <span class="math notranslate nohighlight">\(P\)</span> relative to the inertial frame is given by <span class="math notranslate nohighlight">\(\vector{r}\)</span> and relative to the moving frame is <span class="math notranslate nohighlight">\(\vector{r}_{\text{rel}}\)</span>. The position of the origin <span class="math notranslate nohighlight">\(O\)</span> of the moving reference frame relative to the inertial frame is <span class="math notranslate nohighlight">\(\vector{r}_O\)</span>. It then follows that the relationship between these vectors is:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-10">
-<span class="eqno">(322)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-10" title="Permalink to this equation">¶</a></span>\[\vector{r} = \vector{r}_O + \vector{r}_{\text{rel}}\]</div>
+<span class="eqno">(352)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-10" title="Permalink to this equation">¶</a></span>\[\vector{r} = \vector{r}_O + \vector{r}_{\text{rel}}\]</div>
 <p>Taking the time derivative of <span class="math notranslate nohighlight">\(\vector{r}\)</span> gives the absolute velocity:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-11">
-<span class="eqno">(323)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-11" title="Permalink to this equation">¶</a></span>\[\vector{v} = \vector{v}_O + \vector{\Omega}\cross\vector{r}_{\text{rel}} + \vector{v}_{\text{rel}}\]</div>
+<span class="eqno">(353)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-11" title="Permalink to this equation">¶</a></span>\[\vector{v} = \vector{v}_O + \vector{\Omega}\cross\vector{r}_{\text{rel}} + \vector{v}_{\text{rel}}\]</div>
 <p>and taking the time derivative of <span class="math notranslate nohighlight">\(\vector{v}\)</span> gives the absolute acceleration:</p>
 <div class="math notranslate nohighlight" id="equation-review-time-derivatives-of-moving-vectors-12">
-<span class="eqno">(324)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-12" title="Permalink to this equation">¶</a></span>\[\vector{a} = \vector{a}_O + \dot{\vector{\Omega}}\cross\vector{r}_{\text{rel}} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}_{\text{rel}}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}}\]</div>
+<span class="eqno">(354)<a class="headerlink" href="#equation-review-time-derivatives-of-moving-vectors-12" title="Permalink to this equation">¶</a></span>\[\vector{a} = \vector{a}_O + \dot{\vector{\Omega}}\cross\vector{r}_{\text{rel}} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}_{\text{rel}}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}}\]</div>
 <p>The last cross-product term is known as the <strong>Coriolis acceleration</strong>.</p>
 </div>
 </div>

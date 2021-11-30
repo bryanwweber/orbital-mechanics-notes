@@ -46,7 +46,7 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -286,6 +286,75 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
    Classical Orbital Elements and the State Vector
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time Since Periapsis &amp; Kepler's Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">
+   Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">
+   Circular and Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -593,9 +662,9 @@
 <p>If the initial orbit and final, or target, orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann <span id="id1">[<a class="reference internal" href="../bibliography.html#id15" title="Walter Hohmann. The Attainability of Heavenly Bodies. NASA, 1960.">Hoh60</a>]</span> showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit"><strong>Hohmann transfer</strong></a>.</p>
 <div class="figure align-default" id="fig-hohmann-transfer">
 <a class="reference internal image-reference" href="../_images/hohmann-transfer-orbit.svg"><img alt="../_images/hohmann-transfer-orbit.svg" src="../_images/hohmann-transfer-orbit.svg" width="50%" /></a>
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">The Hohmann transfer orbit. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg">Leafnode</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-hohmann-transfer" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">The Hohmann transfer orbit. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg">Leafnode</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-hohmann-transfer" title="Permalink to this image">¶</a></p>
 </div>
-<p>In <a class="reference internal" href="#fig-hohmann-transfer"><span class="std std-numref">Fig. 48</span></a>, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. When the spacecraft arrives at the far side of the ellipse, it boosts its velocity again to move into orbit 3.</p>
+<p>In <a class="reference internal" href="#fig-hohmann-transfer"><span class="std std-numref">Fig. 52</span></a>, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. When the spacecraft arrives at the far side of the ellipse, it boosts its velocity again to move into orbit 3.</p>
 <p>The periapsis distance of this <strong>transfer orbit</strong> is equal to <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and the apoapsis distance is <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. This means that the transfer orbit intersects both orbits 1 and 3. By providing impulses at both intersection points, it is possible to move from orbit 1 to orbit 3.</p>
 <div class="section" id="energy-considerations">
 <h2>Energy Considerations<a class="headerlink" href="#energy-considerations" title="Permalink to this headline">¶</a></h2>
@@ -646,23 +715,23 @@
 \[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
 <p>Since the impulses occur at periapsis and apoapsis of the transfer orbit, the transfer orbit velocity is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-orbit-velocities">
-<span class="eqno">(189)<a class="headerlink" href="#equation-eq-hohmann-transfer-orbit-velocities" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(219)<a class="headerlink" href="#equation-eq-hohmann-transfer-orbit-velocities" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   v_{t,p} &amp;= \frac{h_t}{r_p} &amp; v_{t,a} &amp;= \frac{h_t}{r_a}
 \end{aligned}\]</div>
 <p>From the equations for elliptical orbits, we can solve for the specific angular momentum in terms of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-specific-angular-momentum">
-<span class="eqno">(190)<a class="headerlink" href="#equation-eq-ellipse-specific-angular-momentum" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu \frac{r_a r_p}{r_a + r_p}}\]</div>
+<span class="eqno">(220)<a class="headerlink" href="#equation-eq-ellipse-specific-angular-momentum" title="Permalink to this equation">¶</a></span>\[h_t = \sqrt{2\mu \frac{r_a r_p}{r_a + r_p}}\]</div>
 <p>Alternatively, we can use the <em>vis viva</em> equation, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>, to find the velocity on the transfer orbit</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-0">
-<span class="eqno">(191)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(221)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   v_{t,p} &amp;= \sqrt{\mu\left(\frac{2}{r_{t,p}} - \frac{1}{a_t}\right)} &amp; v_{t,a} &amp;= \sqrt{\mu\left(\frac{2}{r_{t,a}} - \frac{1}{a_t}\right)}
 \end{aligned}\]</div>
 <p>where the semi-major axis of the elliptical transfer orbit is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-semi-major-axis">
-<span class="eqno">(192)<a class="headerlink" href="#equation-eq-hohmann-transfer-semi-major-axis" title="Permalink to this equation">¶</a></span>\[a_t = \frac{r_{t,a} + r_{t,p}}{2}\]</div>
+<span class="eqno">(222)<a class="headerlink" href="#equation-eq-hohmann-transfer-semi-major-axis" title="Permalink to this equation">¶</a></span>\[a_t = \frac{r_{t,a} + r_{t,p}}{2}\]</div>
 <p>Finally, the total <span class="math notranslate nohighlight">\(\Delta v\)</span> required for the Hohmann transfer is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-delta-v">
-<span class="eqno">(193)<a class="headerlink" href="#equation-eq-hohmann-transfer-delta-v" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(223)<a class="headerlink" href="#equation-eq-hohmann-transfer-delta-v" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   \Delta v &amp;= \lvert v_f - v_{t,a}\rvert + \lvert v_i - v_{t,p}\rvert &amp; \text{If $r_i &lt; r_f$} \\
   \Delta v &amp;= \lvert v_f - v_{t,p}\rvert + \lvert v_i - v_{t,a}\rvert &amp; \text{If $r_f &lt; r_i$}
 \end{aligned}\end{split}\]</div>
@@ -670,7 +739,7 @@
 <h3>Transit Time<a class="headerlink" href="#transit-time" title="Permalink to this headline">¶</a></h3>
 <p>Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit from Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-period-useful">(138)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-time">
-<span class="eqno">(194)<a class="headerlink" href="#equation-eq-hohmann-transfer-time" title="Permalink to this equation">¶</a></span>\[t_{12} = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
+<span class="eqno">(224)<a class="headerlink" href="#equation-eq-hohmann-transfer-time" title="Permalink to this equation">¶</a></span>\[t_{12} = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t_{12}\)</span> is the transfer time and <span class="math notranslate nohighlight">\(a_t\)</span> is the semi-major axis of the transfer orbit.</p>
 </div>
 </div>

@@ -46,7 +46,7 @@
     <script src="../_static/copyHeaderPermalink.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -286,6 +286,75 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
    Classical Orbital Elements and the State Vector
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time Since Periapsis &amp; Kepler's Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">
+   Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">
+   Circular and Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Elliptical-Orbit-Example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
+   Chapter 3.5 - Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
+   Chapter 3.6 - Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Chapter 3.7 - Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -616,7 +685,7 @@
 <p>The simplified formulas give the classical Keplerian orbital elements (<span class="math notranslate nohighlight">\(h\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(M\)</span>, <span class="math notranslate nohighlight">\(\nu\)</span>, <span class="math notranslate nohighlight">\(\Omega\)</span>, and <span class="math notranslate nohighlight">\(\omega\)</span>) for each of the planets. Each element is given with its absolute value at a reference point in time, plus the rate of change of that element. The rates of change are all given <em>per century</em>, and the reference point is the <a class="reference external" href="https://en.wikipedia.org/wiki/Epoch_(astronomy)#Julian_Dates_and_J2000">J2000.0 epoch</a> (January 1, 2000 at 12:00 PM (noon) UTC).</p>
 <p>The first step is to determine the Julian Date given the Gregorian date and time, with the procedure described in the last section. With that completed, we will need to compute the number of Julian centuries that have elapsed since J2000.0 until the target date. We can do that by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-convert-jdt-to-time-since-epoch">
-<span class="eqno">(343)<a class="headerlink" href="#equation-eq-convert-jdt-to-time-since-epoch" title="Permalink to this equation">¶</a></span>\[T = \frac{\mathrm{JDT} - 2451545}{36525}\]</div>
+<span class="eqno">(373)<a class="headerlink" href="#equation-eq-convert-jdt-to-time-since-epoch" title="Permalink to this equation">¶</a></span>\[T = \frac{\mathrm{JDT} - 2451545}{36525}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathrm{JDT}\)</span> is the desired Julian Date. Note that this should be floating point division, not integer division.</p>
 <p>Next, we need to inspect the data. There are two tables given, one that is valid from AD 1800 to AD 1950, and the other that is valid from 3000 BC to AD 3000. The longer time range has a larger error relative to historical data.</p>
 <table class="colwidths-auto table" id="tab-standish-keplerian-elements">
@@ -662,20 +731,20 @@
 <p>The coordinates are all given relative to the mean ecliptic plane, and use the vernal equinox of the J2000.0 epoch as the direction of the <span class="math notranslate nohighlight">\(X\)</span> axis, for the purpose of defining 0° longitude.</p>
 <p>Once we know the desired time relative to the J2000.0 epoch, in astronomical centuries, the value of any of the parameters given in the table can be found by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-standish-elements-propagation">
-<span class="eqno">(344)<a class="headerlink" href="#equation-eq-standish-elements-propagation" title="Permalink to this equation">¶</a></span>\[Q = Q_0 + \dot{Q} T\]</div>
+<span class="eqno">(374)<a class="headerlink" href="#equation-eq-standish-elements-propagation" title="Permalink to this equation">¶</a></span>\[Q = Q_0 + \dot{Q} T\]</div>
 <p>where <span class="math notranslate nohighlight">\(Q\)</span> is any of the properties given in the table, <span class="math notranslate nohighlight">\(\dot{Q}\)</span> is the rate of change of that property, and <span class="math notranslate nohighlight">\(Q_0\)</span> is the initial value at J2000.0. The next steps convert the mean longitude and longitude of the perihelion to the more familar true anomaly and argument of perihelion, respectively.</p>
 <p>First, we will calculate the true anomaly using the mean longitude and longitude of perihelion. The mean longitude is related to the mean anomaly by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ephemeris-mean-longitude-mean-anomaly">
-<span class="eqno">(345)<a class="headerlink" href="#equation-eq-ephemeris-mean-longitude-mean-anomaly" title="Permalink to this equation">¶</a></span>\[M_e = L - \varpi\]</div>
+<span class="eqno">(375)<a class="headerlink" href="#equation-eq-ephemeris-mean-longitude-mean-anomaly" title="Permalink to this equation">¶</a></span>\[M_e = L - \varpi\]</div>
 <p>The mean anomaly must be in the range of 0-2<span class="math notranslate nohighlight">\(\pi\)</span> radians, so it may be necessary to take the modulus of the result of this equation with 2<span class="math notranslate nohighlight">\(\pi\)</span> to do that. Once the mean anomaly is known, we can use it and the eccentricity to solve Kepler’s equation for the eccentric anomaly, <span class="math notranslate nohighlight">\(E\)</span>, using Newton iteration:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ephemeris-keplers-equation">
-<span class="eqno">(346)<a class="headerlink" href="#equation-eq-ephemeris-keplers-equation" title="Permalink to this equation">¶</a></span>\[M_e = E - e \sin E\]</div>
+<span class="eqno">(376)<a class="headerlink" href="#equation-eq-ephemeris-keplers-equation" title="Permalink to this equation">¶</a></span>\[M_e = E - e \sin E\]</div>
 <p>The eccentric anomaly can then be used to calculate the true anomaly:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ephemeris-true-anomaly">
-<span class="eqno">(347)<a class="headerlink" href="#equation-eq-ephemeris-true-anomaly" title="Permalink to this equation">¶</a></span>\[\nu = 2 \tan^{-1}\left(\sqrt\frac{1 + e}{1 - e}\tan\frac{E}{2}\right)\]</div>
+<span class="eqno">(377)<a class="headerlink" href="#equation-eq-ephemeris-true-anomaly" title="Permalink to this equation">¶</a></span>\[\nu = 2 \tan^{-1}\left(\sqrt\frac{1 + e}{1 - e}\tan\frac{E}{2}\right)\]</div>
 <p>Finally, we can calculate the argument of perihelion from the longitude of perihelion and the longitude of the ascending node:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ephemeris-argument-of-perihelion">
-<span class="eqno">(348)<a class="headerlink" href="#equation-eq-ephemeris-argument-of-perihelion" title="Permalink to this equation">¶</a></span>\[\omega = \varpi - \Omega\]</div>
+<span class="eqno">(378)<a class="headerlink" href="#equation-eq-ephemeris-argument-of-perihelion" title="Permalink to this equation">¶</a></span>\[\omega = \varpi - \Omega\]</div>
 <p>We now have <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(\nu\)</span>, from which we can also calculate <span class="math notranslate nohighlight">\(h\)</span> if necessary. In addition, we can convert the classical orbital elements to a state vector <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> for the planet, if needed.</p>
 <p>The data shown in <a class="reference internal" href="#tab-standish-keplerian-elements"><span class="std std-numref">Table 11</span></a> are valid from AD 1800-AD 2050. If the data for 3000 BC-AD 3000 are used instead, there are a few extra terms, given in <a class="reference internal" href="#tab-standish-long-term-elements"><span class="std std-numref">Table 12</span></a>, which must be used in the equation for the mean anomaly, for the planets from Jupiter to Pluto.</p>
 <table class="colwidths-auto table" id="tab-standish-long-term-elements">
@@ -699,7 +768,7 @@
 </table>
 <p>The modified equation for the mean anomaly is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-standish-modified-mean-anomaly">
-<span class="eqno">(349)<a class="headerlink" href="#equation-eq-standish-modified-mean-anomaly" title="Permalink to this equation">¶</a></span>\[M_e = L - \varpi + b T^2 + c\cos\left(f T\right) + s\sin\left(f T\right)\]</div>
+<span class="eqno">(379)<a class="headerlink" href="#equation-eq-standish-modified-mean-anomaly" title="Permalink to this equation">¶</a></span>\[M_e = L - \varpi + b T^2 + c\cos\left(f T\right) + s\sin\left(f T\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(f\)</span>, and <span class="math notranslate nohighlight">\(s\)</span> are from the table, and <span class="math notranslate nohighlight">\(T\)</span> is the desired time. This is the only change necessary between the AD 1800-AD 2050 and the 3000 BC-AD 3000 data.</p>
 <p>Let’s calculate the orbital elements for Mercury on December 8, 2020 at 4:30 PM Eastern US time.</p>
 <div class="cell docutils container">
@@ -822,12 +891,63 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>𝑎 = 5.7567E+07 km
-𝑒 = 0.20149
-𝑖 = 28.64 deg
-𝜃 = 164.05 deg
-𝜔 = 62.56 deg
-𝛺 = 10.790248210752855 deg
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2046</span><span class="o">/</span><span class="mf">3655448516.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">poliastro.ephem</span> <span class="kn">import</span> <span class="n">Ephem</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">poliastro.bodies</span> <span class="kn">import</span> <span class="n">Sun</span><span class="p">,</span> <span class="n">Mercury</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">poliastro.twobody</span> <span class="kn">import</span> <span class="n">Orbit</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">merc_ephem</span> <span class="o">=</span> <span class="n">Ephem</span><span class="o">.</span><span class="n">from_body</span><span class="p">(</span><span class="n">Mercury</span><span class="p">,</span> <span class="n">epoch</span><span class="o">.</span><span class="n">tdb</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">merc_orbit</span> <span class="o">=</span> <span class="n">Orbit</span><span class="o">.</span><span class="n">from_ephem</span><span class="p">(</span><span class="n">Sun</span><span class="p">,</span> <span class="n">merc_ephem</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
+
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.9</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">poliastro</span><span class="o">/</span><span class="n">ephem</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> 
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">poliastro.twobody.propagation</span> <span class="kn">import</span> <span class="n">propagate</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">.frames</span> <span class="kn">import</span> <span class="n">Planes</span>
+
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.9</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">poliastro</span><span class="o">/</span><span class="n">twobody</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.orbit</span> <span class="kn">import</span> <span class="n">Orbit</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Orbit&quot;</span><span class="p">]</span>
+
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.9</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">poliastro</span><span class="o">/</span><span class="n">twobody</span><span class="o">/</span><span class="n">orbit</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">poliastro.frames</span> <span class="kn">import</span> <span class="n">Planes</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">poliastro.frames.util</span> <span class="kn">import</span> <span class="n">get_frame</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">poliastro.threebody.soi</span> <span class="kn">import</span> <span class="n">laplace_radius</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">poliastro.twobody.propagation</span> <span class="kn">import</span> <span class="n">farnocchia</span><span class="p">,</span> <span class="n">propagate</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> 
+
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.9</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">poliastro</span><span class="o">/</span><span class="n">threebody</span><span class="o">/</span><span class="n">soi</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> 
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">34</span><span class="s2"> from ..twobody.mean_elements import get_mean_elements</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span><span class="s2"> </span>
+
+<span class="s2">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/poliastro/twobody/mean_elements.py in &lt;module&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="s2"> from ..constants import J2000</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="s2"> from ..frames import Planes</span>
+<span class="ne">----&gt; </span><span class="mi">7</span><span class="s2"> from .states import RVState</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="s2"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="s2"> </span>
+
+<span class="s2">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/poliastro/twobody/states.py in &lt;module&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="s2"> from astropy import units as u</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="s2"> </span>
+<span class="ne">----&gt; </span><span class="mi">3</span><span class="s2"> from ..core.elements import coe2mee, coe2rv, mee2coe, rv2coe</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="s2"> from .elements import mean_motion, period</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="s2"> </span>
+
+<span class="s2">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/poliastro/core/elements.py in &lt;module&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="s2"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="s2"> import numpy as np</span>
+<span class="ne">----&gt; </span><span class="mi">6</span><span class="s2"> from numba import njit as jit, prange</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="s2"> from numpy import cos, cross, sin, sqrt</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="s2"> from numpy.linalg import norm</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numba&#39;
 </pre></div>
 </div>
 </div>
@@ -837,11 +957,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">merc_orbit</span><span class="o">.</span><span class="n">plane</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Planes.EARTH_EQUATOR
 </pre></div>
 </div>
 </div>
@@ -857,12 +972,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Planes.EARTH_ECLIPTIC
-𝑖 = 7.01 deg
-</pre></div>
-</div>
-</div>
 </div>
 <p>As you can see, we now have the Earth ecliptic as the reference plane, and the inclination matches the previous calculation. The other major difference is in the true anomaly. This is due to the default choice of the reference point as the solar system barycenter. We can adjust the default reference point, which again we must do when we create the ephemerides. We do this by setting the <code class="docutils literal notranslate"><span class="pre">attractor</span></code> parameter for the ephemerides:</p>
 <div class="cell docutils container">
@@ -870,11 +979,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merc_ephem</span> <span class="o">=</span> <span class="n">Ephem</span><span class="o">.</span><span class="n">from_body</span><span class="p">(</span><span class="n">Mercury</span><span class="p">,</span> <span class="n">epoch</span><span class="o">.</span><span class="n">tdb</span><span class="p">,</span> <span class="n">attractor</span><span class="o">=</span><span class="n">Sun</span><span class="p">,</span> <span class="n">plane</span><span class="o">=</span><span class="n">Planes</span><span class="o">.</span><span class="n">EARTH_ECLIPTIC</span><span class="p">)</span>
 <span class="n">merc_orbit</span> <span class="o">=</span> <span class="n">Orbit</span><span class="o">.</span><span class="n">from_ephem</span><span class="p">(</span><span class="n">Sun</span><span class="p">,</span> <span class="n">merc_ephem</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;𝜃 = </span><span class="si">{</span><span class="n">merc_orbit</span><span class="o">.</span><span class="n">nu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;degree&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>𝜃 = 159.93 deg
 </pre></div>
 </div>
 </div>
@@ -905,7 +1009,7 @@
 <p>Once the <code class="docutils literal notranslate"><span class="pre">position</span></code> and <code class="docutils literal notranslate"><span class="pre">velocity</span></code> are obtained, we can use the methods from <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html"><span class="doc std std-doc">Classical Orbital Elements and the State Vector</span></a> to convert to the classical orbital elements.</p>
 <p>Note that the inclination is about 28 degrees, meaning that the default frame is the Earth-equatorial frame, equivalent to the <a class="reference external" href="https://en.wikipedia.org/wiki/International_Celestial_Reference_Frame">ICRF</a>. We can convert from this frame to the <a class="reference external" href="https://en.wikipedia.org/wiki/Ecliptic_coordinate_system">ecliptic frame</a> by a rotation around the vernal equinox:</p>
 <div class="math notranslate nohighlight" id="equation-eq-rotate-around-vernal-equinox">
-<span class="eqno">(350)<a class="headerlink" href="#equation-eq-rotate-around-vernal-equinox" title="Permalink to this equation">¶</a></span>\[\begin{split}\mat{Q} = \begin{bmatrix}1 &amp; 0 &amp; 0\\0 &amp; \cos\varepsilon &amp; \sin\varepsilon\\0 &amp; -\sin\varepsilon &amp; \cos\varepsilon\end{bmatrix}\end{split}\]</div>
+<span class="eqno">(380)<a class="headerlink" href="#equation-eq-rotate-around-vernal-equinox" title="Permalink to this equation">¶</a></span>\[\begin{split}\mat{Q} = \begin{bmatrix}1 &amp; 0 &amp; 0\\0 &amp; \cos\varepsilon &amp; \sin\varepsilon\\0 &amp; -\sin\varepsilon &amp; \cos\varepsilon\end{bmatrix}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Axial_tilt"><strong>obliquity of the ecliptic</strong></a> and <span class="math notranslate nohighlight">\(Q\)</span> is the rotation matrix. The current value of <span class="math notranslate nohighlight">\(\varepsilon\)</span> is 23.43657°. Thus, the transformation is accomplished by:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">obliquity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">deg2rad</span><span class="p">(</span><span class="mf">23.43657</span><span class="p">);</span><span class="w"></span>
 <span class="nb">transform</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">cos(obliquity)</span><span class="w"> </span><span class="s">sin(obliquity)</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="n">obliquity</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">obliquity</span><span class="p">)];</span><span class="w"></span>
@@ -926,10 +1030,10 @@
 <h2>Using JPL HORIZONS Web Interface<a class="headerlink" href="#using-jpl-horizons-web-interface" title="Permalink to this headline">¶</a></h2>
 <p>JPL also maintains a web browser based interface to the HORIZONS database. This interface can be used to determine all the same information as the previous methods, with a similar level of accuracy as the SPICE-focused methods in the previous section. The web interface is located at:</p>
 <p><a class="reference external" href="https://ssd.jpl.nasa.gov/horizons/app.html#/">https://ssd.jpl.nasa.gov/horizons/app.html#/</a></p>
-<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#fig-horizons-default"><span class="std std-numref">Fig. 78</span></a></p>
+<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#fig-horizons-default"><span class="std std-numref">Fig. 82</span></a></p>
 <div class="figure align-default" id="fig-horizons-default">
 <img alt="../_images/horizons-default.png" src="../_images/horizons-default.png" />
-<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#fig-horizons-default" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#fig-horizons-default" title="Permalink to this image">¶</a></p>
 </div>
 <p>Each of the options can be changed by clicking the <em>Edit</em> buttons. For our purposes, we can change the following:</p>
 <ol class="simple">
@@ -939,17 +1043,17 @@
 <li><p><em>Time Span</em>: This can be used to generate a range of dates, or to input specific dates. We will choose <em>Specify a list of times</em> for this example, and then input the date of interest, in JDT, <span class="pasted-text">2,459,192.3958</span>.</p></li>
 <li><p><em>Table Settings</em>: Here, we want to change the units to <em>km and seconds</em>. Another useful option is the <em>Reference plane</em>. The default of <em>ecliptic x-y plane derived from reference plane</em> is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.</p></li>
 </ol>
-<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#fig-horizons-mercury"><span class="std std-numref">Fig. 79</span></a>.</p>
+<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#fig-horizons-mercury"><span class="std std-numref">Fig. 83</span></a>.</p>
 <div class="figure align-default" id="fig-horizons-mercury">
 <a class="reference internal image-reference" href="../_images/horizons-mercury.png"><img alt="../_images/horizons-mercury.png" src="../_images/horizons-mercury.png" style="width: 75%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#fig-horizons-mercury" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#fig-horizons-mercury" title="Permalink to this image">¶</a></p>
 </div>
-<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 80</span></a>.</p>
+<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 84</span></a>.</p>
 <div class="figure align-default" id="fig-mercury-output">
 <img alt="../_images/mercury-output.png" src="../_images/mercury-output.png" />
-<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#fig-mercury-output" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#fig-mercury-output" title="Permalink to this image">¶</a></p>
 </div>
-<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 80</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
+<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 84</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
 </div>
 </div>
 
