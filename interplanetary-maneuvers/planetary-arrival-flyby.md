@@ -425,4 +425,6 @@ glue("interplanetary-flyby-trailing-R_a2", R_a2)
 glue("interplanetary-flyby-trailing-nu_infty_2" , d(nu_infty_2))
 ```
 
-For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the sun! This means the spacecraft is now on a trajectory to escape the solar system. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.3E` km, well inside the orbit of Mercury. The true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°.
+For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the sun and the true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°. This means the spacecraft is now on a trajectory to escape the solar system!
+
+The current true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.0f` km. Unfortunately, this is inside the equatorial radius of the Sun as shown in {numref}`tab:planetary-radius-parameters`, so the spacecraft would most likely not survive the encounter.

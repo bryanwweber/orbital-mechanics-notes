@@ -34,13 +34,24 @@ parts:
       - file: the-orbit-equation/elliptical-orbits
       - file: the-orbit-equation/parabolic-trajectories
       - file: the-orbit-equation/hyperbolic-trajectories
-      # - file: the-orbit-equation/the-lagrange-coefficients
   - caption: The Classical Orbital Elements
     chapters:
       - file: classical-orbital-elements/perifocal-frame
       - file: classical-orbital-elements/right-ascension-declination
       - file: classical-orbital-elements/classical-orbital-elements
       - file: classical-orbital-elements/orbital-elements-and-the-state-vector
+  - caption: Time Since Periapsis & Kepler's Equation
+    chapters:
+      - file: time-since-periapsis-and-keplers-equation/time-since-periapsis
+      - file: time-since-periapsis-and-keplers-equation/elliptical-orbits
+      - file: time-since-periapsis-and-keplers-equation/Elliptical-Orbit-Example
+      - file: time-since-periapsis-and-keplers-equation/parabolic-trajectories
+      - file: time-since-periapsis-and-keplers-equation/hyperbolic-trajectories
+      - file: time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example
+      - file: time-since-periapsis-and-keplers-equation/universal-variables
+      - file: time-since-periapsis-and-keplers-equation/Universal-Variables-Example
+      - file: time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example
+      - file: time-since-periapsis-and-keplers-equation/the-lagrange-coefficients
   - caption: Orbital Maneuvers
     chapters:
       - file: orbital-maneuvers/impulsive-maneuvers
@@ -66,18 +77,6 @@ parts:
       - file: interplanetary-maneuvers/planetary-departure-trajectory
       - file: interplanetary-maneuvers/planetary-arrival-capture
       - file: interplanetary-maneuvers/planetary-arrival-flyby
-  # - caption: Chapter 3
-  #   chapters:
-  #     - file: chapter-3/2-time-since-periapsis
-  #     - file: chapter-3/3-circular-orbits
-  #     - file: chapter-3/4-elliptical-orbits
-  #     - file: chapter-3/4a-Elliptical-Orbit-Example
-  #     - file: chapter-3/5-parabolic-trajectories
-  #     - file: chapter-3/6-hyperbolic-trajectories
-  #     - file: chapter-3/6a-Hyperbolic-Trajectory-Example
-  #     - file: chapter-3/7-universal-variables
-  #     - file: chapter-3/7a-Universal-Variables-Example
-  #     - file: chapter-3/7b-Universal-Lagrange-Coefficients-Example
   # - caption: Chapter 4
   #   chapters:
   #     - file: chapter-4/2-geocentric-right-ascension-declination-frame
