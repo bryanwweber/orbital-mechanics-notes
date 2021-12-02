@@ -310,8 +310,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Elliptical-Orbit-Example.html">
+  <a class="reference internal" href="elliptical-orbit-example.html">
    Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elliptical-orbit-time-in-shadow.html">
+   Example: Time in Earth’s Shadow
   </a>
  </li>
  <li class="toctree-l1">
@@ -801,14 +806,14 @@ $$\tan\frac{\theta - \theta_0}{2} = \frac{z}{z}$$ -->
 \[f(\chi) = 0 = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\]</div>
 <p>The derivative of this function is also useful:</p>
 <div class="math notranslate nohighlight" id="equation-universal-kepler-derivative">
-<span class="eqno">(213)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
+<span class="eqno">(215)<a class="headerlink" href="#equation-universal-kepler-derivative" title="Permalink to this equation">¶</a></span>\[\frac{d f(\chi)}{d\chi} = 2\frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi C(z) + \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} + 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0\]</div>
 <p>where <span class="math notranslate nohighlight">\(z = \alpha\chi^2\)</span>, such that:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dz}{d\chi} = 2\alpha\chi\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}\frac{d S(z)}{dz} &amp;= \frac{1}{2z}\left[C(z) - 3S(z)\right] \\\frac{d C(z)}{dz} &amp;= \frac{1}{2z}\left[1 - z S(z) - 2C(z)\right]\end{aligned}\end{split}\]</div>
-<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(213)</a> gives:</p>
+<p>Substituting these results back into Eq. <a class="reference internal" href="#equation-universal-kepler-derivative">(215)</a> gives:</p>
 <div class="math notranslate nohighlight">
 \[\frac{d f(\chi)}{d\chi} = \frac{r_0 \left.v_r\right)_0}{\sqrt{\mu}}\chi\left[1 - \alpha\chi^2 S(z)\right] + \left(1 - \alpha r_0\right)\chi^2 C(z) + r_0\]</div>
 <p>The last thing we need for a solution using Newton’s algorithm is an initial guess. There are several methods suggested for this. In <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Howard D Curtis. Orbital Mechanics for Engineering Students. Elsevier, fourth edition, 2020. ISBN 978-0-08-102133-0.">Cur20</a>]</span>, they suggest using:</p>

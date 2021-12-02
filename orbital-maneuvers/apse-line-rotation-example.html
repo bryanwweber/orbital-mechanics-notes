@@ -310,8 +310,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Elliptical-Orbit-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-example.html">
    Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.html">
+   Example: Time in Earth’s Shadow
   </a>
  </li>
  <li class="toctree-l1">
@@ -664,25 +669,25 @@
 <p>In this case, the orbital elements of both orbits are specified, as well as the desired rotation of the apse line. The problem is to find the true anomaly at which the maneuver takes place on the initial orbit, as well as the required <span class="math notranslate nohighlight">\(\Delta v\)</span> to perform the maneuver.</p>
 <p>Let <span class="math notranslate nohighlight">\(\eta\)</span> be the rotation angle of the apse line. Then, in terms of the true anomalies on the initial and final orbits, we find that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-angle">
-<span class="eqno">(239)<a class="headerlink" href="#equation-eq-apse-line-rotation-angle" title="Permalink to this equation">¶</a></span>\[\eta = \nu_i - \nu_f\]</div>
+<span class="eqno">(241)<a class="headerlink" href="#equation-eq-apse-line-rotation-angle" title="Permalink to this equation">¶</a></span>\[\eta = \nu_i - \nu_f\]</div>
 <p>Since the initial and final orbits both have their elements specified, we can use the orbit equation, Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> applied at the intersection point to solve for <span class="math notranslate nohighlight">\(\nu_i\)</span> and <span class="math notranslate nohighlight">\(\nu_f\)</span>. We find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-orbit-equation">
-<span class="eqno">(240)<a class="headerlink" href="#equation-eq-apse-line-rotation-orbit-equation" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_f = p_i - p_f\]</div>
-<p>We can a trigonometric identity to further simplify Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-orbit-equation">(240)</a> to be in terms of <span class="math notranslate nohighlight">\(\nu_i\)</span> only:</p>
+<span class="eqno">(242)<a class="headerlink" href="#equation-eq-apse-line-rotation-orbit-equation" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_f = p_i - p_f\]</div>
+<p>We can a trigonometric identity to further simplify Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-orbit-equation">(242)</a> to be in terms of <span class="math notranslate nohighlight">\(\nu_i\)</span> only:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-in-nu-i">
-<span class="eqno">(241)<a class="headerlink" href="#equation-eq-apse-line-rotation-in-nu-i" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_i \cos\eta - e_f p_i \sin\nu_i \sin\eta = p_i - p_f\]</div>
-<p>In Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(241)</a>, <span class="math notranslate nohighlight">\(e_i\)</span>, <span class="math notranslate nohighlight">\(e_f\)</span>, <span class="math notranslate nohighlight">\(p_i\)</span>, <span class="math notranslate nohighlight">\(p_f\)</span>, and <span class="math notranslate nohighlight">\(\eta\)</span> are all known, so the equation can be solved for <span class="math notranslate nohighlight">\(\nu_i\)</span>. There are two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(241)</a>. Letting:</p>
+<span class="eqno">(243)<a class="headerlink" href="#equation-eq-apse-line-rotation-in-nu-i" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_i \cos\eta - e_f p_i \sin\nu_i \sin\eta = p_i - p_f\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(243)</a>, <span class="math notranslate nohighlight">\(e_i\)</span>, <span class="math notranslate nohighlight">\(e_f\)</span>, <span class="math notranslate nohighlight">\(p_i\)</span>, <span class="math notranslate nohighlight">\(p_f\)</span>, and <span class="math notranslate nohighlight">\(\eta\)</span> are all known, so the equation can be solved for <span class="math notranslate nohighlight">\(\nu_i\)</span>. There are two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(243)</a>. Letting:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-a-b-c">
-<span class="eqno">(242)<a class="headerlink" href="#equation-eq-apse-line-rotation-a-b-c" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(244)<a class="headerlink" href="#equation-eq-apse-line-rotation-a-b-c" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   a &amp;= e_i p_f - e_f p_i \cos\eta &amp; b &amp;= -e_f p_i \sin\eta &amp; c &amp;= p_i - p_f
 \end{aligned}\]</div>
-<p>the two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(241)</a> are given by:</p>
+<p>the two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(243)</a> are given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-nu-roots">
-<span class="eqno">(243)<a class="headerlink" href="#equation-eq-apse-line-rotation-nu-roots" title="Permalink to this equation">¶</a></span>\[\nu_i = \alpha \pm \cos^{-1}\left(\frac{c}{a}\cos\alpha\right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are given by Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-a-b-c">(242)</a> and <span class="math notranslate nohighlight">\(\alpha\)</span> is given by:</p>
+<span class="eqno">(245)<a class="headerlink" href="#equation-eq-apse-line-rotation-nu-roots" title="Permalink to this equation">¶</a></span>\[\nu_i = \alpha \pm \cos^{-1}\left(\frac{c}{a}\cos\alpha\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are given by Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-a-b-c">(244)</a> and <span class="math notranslate nohighlight">\(\alpha\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-alpha">
-<span class="eqno">(244)<a class="headerlink" href="#equation-eq-apse-line-rotation-alpha" title="Permalink to this equation">¶</a></span>\[\alpha = \tan^{-1}\frac{b}{a}\]</div>
-<p>Subsequently, <span class="math notranslate nohighlight">\(\nu_f\)</span> can be found from Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-angle">(239)</a>.</p>
+<span class="eqno">(246)<a class="headerlink" href="#equation-eq-apse-line-rotation-alpha" title="Permalink to this equation">¶</a></span>\[\alpha = \tan^{-1}\frac{b}{a}\]</div>
+<p>Subsequently, <span class="math notranslate nohighlight">\(\nu_f\)</span> can be found from Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-angle">(241)</a>.</p>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>An Earth satellite is in an 8000 km by 16,000 km orbit. Calculate the <span class="math notranslate nohighlight">\(\Delta v\)</span> and the true anomaly <span class="math notranslate nohighlight">\(\nu_i\)</span> required to obtain a 7000 km by 21,000 km orbit whose apse line is rotated 25° counterclockwise.</p>
@@ -719,7 +724,7 @@
 </div>
 </div>
 </div>
-<p>The results are shown in <a class="reference internal" href="#tab-apse-line-rotation-nu-results"><span class="std std-numref">Table 4</span></a>. We chose the negative sign in Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-nu-roots">(243)</a> for convenience. Choosing the positive sign would give a different, although valid, result.</p>
+<p>The results are shown in <a class="reference internal" href="#tab-apse-line-rotation-nu-results"><span class="std std-numref">Table 4</span></a>. We chose the negative sign in Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-nu-roots">(245)</a> for convenience. Choosing the positive sign would give a different, although valid, result.</p>
 <table class="colwidths-auto table" id="tab-apse-line-rotation-nu-results">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-apse-line-rotation-nu-results" title="Permalink to this table">¶</a></caption>
 <thead>
