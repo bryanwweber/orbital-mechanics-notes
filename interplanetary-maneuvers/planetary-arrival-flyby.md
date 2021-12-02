@@ -383,7 +383,7 @@ glue("interplanetary-flyby-leading-R_p2", R_p2)
 glue("interplanetary-flyby-leading-R_a2", R_a2)
 ```
 
-For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-leading-e_2:.4f`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the sun. The perihelion distance is $R_{p,2} =$ {glue:text}`interplanetary-flyby-leading-R_p2:.3E` and the aphelion distance is $R_{a,2} =$ {glue:text}`interplanetary-flyby-leading-R_a2:.3E`. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-leading-nu_2:.2f`°, so the spacecraft is approaching perihelion.
+For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-leading-e_2:.4f`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the sun. The perihelion distance is $R_{p,2} =$ {glue:text}`interplanetary-flyby-leading-R_p2:.3E` km and the aphelion distance is $R_{a,2} =$ {glue:text}`interplanetary-flyby-leading-R_a2:.3E` km. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-leading-nu_2:.2f`°, so the spacecraft is approaching perihelion.
 
 ### Trailing-Side Flyby
 
