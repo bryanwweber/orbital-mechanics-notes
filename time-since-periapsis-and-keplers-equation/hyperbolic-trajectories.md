@@ -1,43 +1,49 @@
 ---
 jupytext:
-  formats: md:myst
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
-execution:
-  timeout: 100
 ---
-# Chapter 3.6 - Hyperbolic Trajectories ($e > 1$)
 
-For the hyperbola, we identify $a = 1$ and $b = e > 1$, so the appropriate integral is then the third one:
+# Hyperbolic Trajectories ($e > 1$)
 
-$$\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + a} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right]$$
+For the hyperbola, combining Eq. {eq}`eq:time-since-periapsis` and Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1` results in:
 
-## Mean Anomaly
+:::{math}
+:label: eq:mean-anomaly-hyperbola
+M_h = \frac{e\sqrt{e^2 - 1}\sin\nu}{1 + e\cos\nu} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]
+:::
 
-Defining the mean anomaly for the hyperbola as
+where
 
-$$M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}$$
+:::{math}
+:label: eq:hyperbolic-mean-anomaly
+M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}
+:::
 
-we can write
+The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic function of the true anomaly, as shown in {numref}`fig:mean-anomaly-hyperbola-function`.
 
-$$M_h = \frac{e\sqrt{e^2 - 1}\sin\theta}{1 + e\cos\theta} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]$$(mean-anomaly-hyperbola)
+```{code-cell} ipython3
+:tags: [remove-cell]
+from functools import partial
+from myst_nb import glue as myst_glue
 
-```{code-cell}
-:tags: [remove-input]
 import matplotlib.pyplot as plt
 from matplotlib.ticker import (MultipleLocator, FuncFormatter,
                                AutoMinorLocator)
 import numpy as np
-plt.rc("font", size=20)
 
-fig, ax = plt.subplots(figsize=(12, 9))
+glue = partial(myst_glue, display=False)
+
+fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
 ax.set_ylabel("$M_h$")
-ax.set_xlabel(r"$\theta$")
+ax.set_xlabel(r"$\nu$")
 ax.set_xlim(0, np.pi)
 e_vals = [1.1, 1.5, 2.0, 3.0, 5.0]
 ax.xaxis.set_major_locator(MultipleLocator(base=np.pi / 2))
@@ -46,26 +52,33 @@ ax.xaxis.set_minor_locator(AutoMinorLocator(n=10))
 ax.xaxis.grid(which="both")
 ax.yaxis.grid(which="major")
 for e in e_vals:
-    theta_inf = np.arccos(-1 / e)
-    theta = np.linspace(0.1, theta_inf - 0.001)
-    M_h = e * np.sqrt(e**2 - 1) * np.sin(theta) / (1 + e * np.cos(theta))
+    nu_inf = np.arccos(-1 / e)
+    nu = np.linspace(0.1, nu_inf - 1.0E-3)
+    M_h = e * np.sqrt(e**2 - 1) * np.sin(nu) / (1 + e * np.cos(nu))
     sqrt_e_p_1 = np.sqrt(e + 1)
-    sqrt_e_m_1_t = np.sqrt(e - 1) * np.tan(theta / 2)
+    sqrt_e_m_1_t = np.sqrt(e - 1) * np.tan(nu / 2)
     M_h -= np.log((sqrt_e_p_1 + sqrt_e_m_1_t) / (sqrt_e_p_1 - sqrt_e_m_1_t))
-    ax.semilogy(theta, M_h, label=f"$e$ = {e}")
-ax.legend();
+    ax.semilogy(nu, M_h, label=f"$e$ = {e}")
+ax.legend()
+glue("mean-anomaly-hyperbola-function", fig)
 ```
 
-Notice that $\theta$ cannot exceed $\theta_{\infty} = \cos^{-1}(-1 / e)$.
+:::{glue:figure} mean-anomaly-hyperbola-function
+:name: fig:mean-anomaly-hyperbola-function
+
+The hyperbolic mean anomaly as a function of true anomaly. Note that the $y$-scale is a log scale.
+:::
+
+Notice that $\nu$ cannot exceed $\nu_{\infty} = \cos^{-1}(-1 / e)$.
 
 ## Hyperbolic Eccentric Anomaly
 
-Similar to the ellipse, we will define an auxiliary angle $F$ to simplify the equations. $F$ is defined with reference to the hyperbola below.
+Similar to the ellipse, we will define an auxiliary angle $F$ to simplify the equations. $F$ is defined with reference to the hyperbola in {numref}`fig:hyperbolic-eccentric-anomaly-figure`.
 
-```{code-cell}
-:tags: [remove-input]
+```{code-cell} ipython3
+:tags: [remove-cell]
 
-fig, ax = plt.subplots(figsize=(12, 9))
+fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
 ax.set_aspect("auto")
 
 ax.spines["top"].set_visible(False)
@@ -78,14 +91,14 @@ ax.spines["bottom"].set_position("zero")  # spine for xaxis
 ax.spines["left"].set_position("zero")  # spine for yaxis
 
 e = 1.5
-theta_inf = np.arccos(-1 / e)
+nu_inf = np.arccos(-1 / e)
 a = 1
 b = a * np.sqrt(e ** 2 - 1)
 r_p = a * (e - 1)
-x_a = 100 * np.cos(theta_inf)
-y_a = 100 * np.sin(theta_inf)
+x_a = 100 * np.cos(nu_inf)
+y_a = 100 * np.sin(nu_inf)
 
-ax.set_xlim(-4, 4)
+ax.set_xlim(-4, 1)
 ax.set_ylim(-3, 3)
 
 x = np.linspace(a, 3 * a, 100)
@@ -109,100 +122,154 @@ ax.annotate("$x$", xy=(x_1/2, 2*b), backgroundcolor="white", ha="center", va="ce
 ax.plot((x_1, x_1), (2*b + 0.1, y_1 + 0.1), color="black", lw=0.5)
 ax.annotate("$b$", xy=(-a, b/2), ha="left", va="center")
 ax.annotate("", xy=(0, -0.2), xytext=(-a, -0.2), arrowprops={"arrowstyle": "<->"})
-ax.annotate("$a$", xy=(-a/2, -0.2), ha="center", va="center", backgroundcolor="white")
+ax.annotate("$a$", xy=(-a/2, -0.35), ha="center", va="center")
 ax.annotate("", xy=(-a, -0.2), xytext=(-a - r_p, -0.2), arrowprops={"arrowstyle": "<->"})
-ax.annotate("$r_p$", xy=(-a - r_p/2, -0.2), ha="center", va="center", backgroundcolor="white")
+ax.annotate("$r_p$", xy=(-a - r_p/2, -0.4), ha="center", va="center")
 ax.plot((-a - r_p, -a - r_p), (-0.1, -0.3), lw=0.5, color="black")
 ax.plot((-a , -a), (-0.1, -0.3), lw=0.5, color="black")
 ax.annotate("$r$", xy=((x_1 + hyperbola_focus) / 2, y_1 / 2), ha="right", va="top")
-ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white");
+ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white")
+glue("hyperbolic-eccentric-anomaly-figure", fig)
 ```
 
-Now, let's define the ratio $y/b$ as the hyperbolic sine of the angle $F$:
+:::{glue:figure} hyperbolic-eccentric-anomaly-figure
+:name: fig:hyperbolic-eccentric-anomaly-figure
 
-$$\sinh F = \frac{y}{b}$$
+A hyperbolic trajectory with definitions for distances used in the derivation of Kepler's law for hyperbolic.
+:::
 
-Then, because
+The ratio $y/b$ is the definition of the hyperbolic sine of the angle $F$:
 
-$$\cosh^2 x - \sinh^2 x = 1$$
+:::{math}
+:label:
+\sinh F = \frac{y}{b}
+:::
 
-we can also define
+Then, using the hyperbolic trigonometric identity:
 
-$$\cosh F = \frac{x}{a}$$
+:::{math}
+:label:
+\cosh^2 c - \sinh^2 c = 1
+:::
 
-```{note}
+we also define
+
+:::{math}
+:label:
+\cosh F = \frac{x}{a}
+:::
+
+::::{note}
 The hyperbolic angle $F$ is weird. The reason we don't draw it on the figure is because hyperbolic angles aren't angles _per se_. Instead, they can be interpreted as half the area between the $x$-axis and a line drawn from the origin to the point of interest, bounded by the hyperbola. I think. At least, that's my best interpretation from what I've been able to read. YMMV.
 
 Another way of thinking about this is by analogy to a circle. For a circle, we can draw any two lines from the center of the circle to the perimeter. These two lines will have an angle $\phi$ between them, and the area between them will be:
 
-$$A_{\text{circular sector}} = \frac{r^2 \phi}{2}$$
+:::{math}
+:label:
+A_{\text{circular sector}} = \frac{r^2 \phi}{2}
+:::
 
-![Circular Sector](../images/Circle_arc.svg)
+:::{figure} ../images/Circle_arc.svg
+:name: fig:circle_arc
 
-The area is called a **circular sector**. The image is modified from [Wikimedia](https://en.wikipedia.org/wiki/File:Circle_arc.svg).
+The highlighted area is a **circular sector**. Modified from [Wikimedia](https://en.wikipedia.org/wiki/File:Circle_arc.svg).
+:::
 
 If the circle is a unit circle ($r = 1$), then the area of the sector will be equal to the angle divided by two. Turned around, the angle is equal to twice the area:
 
-$$\phi = \frac{2A}{1^2}$$
+:::{math}
+:label:
+\phi = \frac{2A}{1^2}
+:::
 
-Similarly, we can define the hyperbolic angle on the unit hyperbola as twice the area between two lines that start at the origin and touch the hyperbola, called a **hyperbolic sector**.
+Similarly, the hyperbolic angle is defined on the unit hyperbola as twice the area between two lines that start at the origin and touch the hyperbola, called a **hyperbolic sector**.
 
-![Hyperbolic Sector](../images/Hyperbolic_functions-2.svg)
+:::{figure} ../images/Hyperbolic_functions-2.svg
+:name: fig:hyperbolic_functions
 
-The area of the hyperbolic sector is half the hyperbolic angle. However, the circular angle between the $x$-axis and the ray from the origin is not the same as the hyperbolic angle.
+The area of the hyperbolic sector is half the hyperbolic angle. [Hyperbolic_functions.svg: The original uploader was Marco Polo at English Wikipedia.derivative work: Jeandavid54](https://commons.wikimedia.org/wiki/File:Hyperbolic_functions-2.svg), Public domain, via Wikimedia Commons
+:::
+
+However, the circular angle between the $x$-axis and the ray from the origin is not the same as the hyperbolic angle.
 
 You can read more about hyperbolic angles on [Brilliant](https://brilliant.org/wiki/hyperbolic-trigonometric-functions/) and on [Wikipedia](https://en.wikipedia.org/wiki/Hyperbolic_angle).
-```
+::::
 
-We can relate $F$ to the true anomaly $\theta$ by plugging in $y = r\sin\theta$, and the orbit equation for $r$. We also note that $b = a\sqrt{e^2 - 1}$. Then:
+We can relate $F$ to the true anomaly $\nu$ by plugging in $y = r\sin\nu$, and the orbit equation for $r$. We also note that $b = a\sqrt{e^2 - 1}$. Then:
 
-$$F = \sinh^{-1}\left(\frac{\sin\theta\sqrt{e^2 - 1}}{1 + e\cos\theta}\right) = \ln\left(\frac{\sin\theta\sqrt{e^2 - 1} + \cos\theta + e}{1 + e\cos\theta}\right)$$
+:::{math}
+:label:
+F = \sinh^{-1}\left(\frac{\sin\nu\sqrt{e^2 - 1}}{1 + e\cos\nu}\right) = \ln\left(\frac{\sin\nu\sqrt{e^2 - 1} + \cos\nu + e}{1 + e\cos\nu}\right)
+:::
 
 After some more trigonometry and algebra, we find:
 
-$$F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]$$
+:::{math}
+:label:
+F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]
+:::
 
-Substituting this back into Eq. {eq}`mean-anomaly-hyperbola`, we find **Kepler's equation for the hyperbola**:
+And, with a little more algebra and trigonometry, we find an equation for $F$ in terms of $\nu$ more directly, analogous to the ellipse:
 
-$$M_h = e\sinh F - F$$
+:::{math}
+:label: eq:eccentric-anomaly-true-anomaly-hyperbola
+\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\nu}{2}
+:::
 
-As with the ellipse, Kepler's equation can be solved easily if $\theta$ is known, to be able to find $F$. However, if time is the known quantity, then Kepler's equation is transcendental and must be solved numerically.
+## Kepler's Equation for the Hyperbola
+
+Substituting this back into Eq. {eq}`eq:mean-anomaly-hyperbola`, we find **Kepler's equation for the hyperbola**:
+
+:::{math}
+:label: eq:hyperbolic-keplers-equation
+M_h = e\sinh F - F
+:::
+
+As with the ellipse, Kepler's equation can be solved easily if $F$ is known. However, if time is the known quantity, then Kepler's equation is transcendental and must be solved numerically. The form of the equation for the Newton solver is $f(F) = 0$, or:
+
+:::{math}
+:label:
+f(F) = 0 = e\sinh F - F - M_h
+:::
 
 To aid in the numerical solution, the derivative of Kepler's equation for the hyperbola is:
 
-$$f'(F) = e \cosh F - 1$$
+:::{math}
+:label:
+f'(F) = e \cosh F - 1
+:::
 
-In addition, we can estimate an initial value for the guess of $F$ from the graph below, with a known $M_h$ value. Note that the $y$-axis plots the log base 10 of $M_h$. To use the graph, take the log base 10 of whatever value you calculate for $M_h$ and find that on the graph.
+In addition, we can estimate an initial value for the guess of $F$ from {numref}`fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly`, with a known $M_h$ value.
 
-```{code-cell}
-:tags: [remove-input]
-plt.rc("figure", dpi=600)
-fig, ax = plt.subplots(figsize=(12, 9))
+```{code-cell} ipython3
+:tags: [remove-cell]
+fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
 
 ax.set_ylabel(r"$\log\left(M_h\right)$")
 ax.set_xlabel("$F$")
 ax.set_xlim(0, 2 * np.pi)
 e_vals = [1.1, 1.5, 2.0, 3.0, 5.0]
 F = np.linspace(0.01, 2 * np.pi, 100)
-ax.xaxis.set_minor_locator(AutoMinorLocator(n=10))
-ax.yaxis.set_minor_locator(AutoMinorLocator(n=10))
+ax.xaxis.set_minor_locator(AutoMinorLocator(n=5))
+ax.yaxis.set_minor_locator(AutoMinorLocator(n=5))
 ax.grid(which="both")
 for e in e_vals:
     M_h = np.log10(e * np.sinh(F) - F)
     ax.plot(F, M_h, label=f"$e$ = {e}")
-ax.legend();
+ax.legend()
+glue("hyperbolic-mean-anomaly-vs-eccentric-anomaly", fig)
 ```
 
-Some more trigonometry and algebra lead us to a simpler relationship between $F$ and $\theta$, analogous to the equation for the ellipse:
+:::{glue:figure} hyperbolic-mean-anomaly-vs-eccentric-anomaly
+:name: fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly
 
-$$\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\theta}{2}$$
+The hyperbolic mean anomaly as a function of the eccentric anomaly
+:::
 
-and the inverse, to solve for $\theta$ from $F$:
+ Note that the $y$-axis plots the log base 10 of $M_h$. To use the graph, take the log base 10 of whatever value you calculate for $M_h$ and find that on the graph. For example, assume that $M_h =$ 40.69 rad and $e =$ 2.5. Then,
 
-$$\tan\frac{\theta}{2} = \sqrt{\frac{e + 1}{e - 1}}\tanh\frac{F}{2}$$
+ :::{math}
+ \log_{10}(40.69) = 1.6
+ :::
 
-## Orbit Equation in Terms of Hyperbolic Eccentric Anomaly
-
-It is useful to have the orbit equation in terms of $F$, analogous to the ellipse. We find:
-
-$$r = a\left(e\cosh F - 1\right)$$
+From {numref}`fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly`, we estimate that $F =$ 4, and we can use this as the initial guess for a Newton solver.
