@@ -321,7 +321,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
-   Chapter 3.5 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -330,7 +330,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
-   Chapter 3.6 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -338,7 +338,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">
    Example: Hyperbolic Trajectory
   </a>
  </li>
@@ -756,7 +756,7 @@
 </ol>
 <p>To simplify the calculation of the Julian Day Number, we will define the following constants:</p>
 <div class="math notranslate nohighlight" id="equation-eq-julian-day-constants">
-<span class="eqno">(373)<a class="headerlink" href="#equation-eq-julian-day-constants" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(390)<a class="headerlink" href="#equation-eq-julian-day-constants" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   A &amp;= \mathrm{INT}\left(\frac{M - 14}{12}\right) \\
   B &amp;= 1461\left(Y + 4800 + A\right) \\
   C &amp;= 367\left(M - 2 - 12A\right) \\
@@ -764,7 +764,7 @@
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathrm{INT}\)</span> indicates that integer division should be done. This means that the remainder of the division is discarded, or in other words, the result is rounded towards zero. Then, <span class="math notranslate nohighlight">\(\mathrm{JDN}\)</span> can be found by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-julian-day-number">
-<span class="eqno">(374)<a class="headerlink" href="#equation-eq-julian-day-number" title="Permalink to this equation">¶</a></span>\[\mathrm{JDN} = \mathrm{INT}\left(\frac{B}{4}\right) + \mathrm{INT}\left(\frac{C}{12}\right) - \mathrm{INT}\left(\frac{3E}{4}\right) + D - 32075\]</div>
+<span class="eqno">(391)<a class="headerlink" href="#equation-eq-julian-day-number" title="Permalink to this equation">¶</a></span>\[\mathrm{JDN} = \mathrm{INT}\left(\frac{B}{4}\right) + \mathrm{INT}\left(\frac{C}{12}\right) - \mathrm{INT}\left(\frac{3E}{4}\right) + D - 32075\]</div>
 <p>Sample implementations of this algorithm can be found in many places online, and for many programming languages. See:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm">https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm</a></p></li>

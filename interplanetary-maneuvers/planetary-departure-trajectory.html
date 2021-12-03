@@ -321,7 +321,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
-   Chapter 3.5 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -330,7 +330,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
-   Chapter 3.6 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -338,7 +338,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">
    Example: Hyperbolic Trajectory
   </a>
  </li>
@@ -693,10 +693,10 @@
 <p>Therefore, the excess velocity associated with the geocentric hyperbolic trajectory must match the heliocentric transfer orbit <span class="math notranslate nohighlight">\(\Delta v_{\text{Sun}} = v_{t,1} - v_{\text{Planet}}\)</span> where <span class="math notranslate nohighlight">\(v_{\text{Planet}}\)</span> is the planet’s orbital velocity relative to the Sun. If, and only if, this is the case the spacecraft will coast through the desired transfer trajectory around the Sun to the orbit of the target planet.</p>
 <div class="section" id="orbital-elements">
 <h3>Orbital Elements<a class="headerlink" href="#orbital-elements" title="Permalink to this headline">¶</a></h3>
-<p>To determine the mass of propellant required to place the spacecraft into the heliocentric transfer trajectory, we need to compute the orbital elements of the geocentric hyperbolic trajectory. Let’s assume that the spacecraft begins in a parking orbit around the planet, as shown in <a class="reference internal" href="#fig-interplanetary-departure"><span class="std std-numref">Fig. 74</span></a>.</p>
+<p>To determine the mass of propellant required to place the spacecraft into the heliocentric transfer trajectory, we need to compute the orbital elements of the geocentric hyperbolic trajectory. Let’s assume that the spacecraft begins in a parking orbit around the planet, as shown in <a class="reference internal" href="#fig-interplanetary-departure"><span class="std std-numref">Fig. 79</span></a>.</p>
 <div class="figure align-default" id="fig-interplanetary-departure">
 <a class="reference internal image-reference" href="../_images/interplanetary-departure.svg"><img alt="../_images/interplanetary-departure.svg" src="../_images/interplanetary-departure.svg" width="75%" /></a>
-<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">A departure trajectory from a planet where the heliocentric orbital radius of the departure planet is smaller than the final planet.</span><a class="headerlink" href="#fig-interplanetary-departure" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">A departure trajectory from a planet where the heliocentric orbital radius of the departure planet is smaller than the final planet.</span><a class="headerlink" href="#fig-interplanetary-departure" title="Permalink to this image">¶</a></p>
 </div>
 <p>From the parking orbit, the spacecraft conducts an impulsive maneuver to put itself onto the geocentric hyperbolic escape trajectory. This occurs at an angle <span class="math notranslate nohighlight">\(\eta\)</span> relative to the planet’s heliocentric orbital velocity vector.</p>
 <div class="admonition important">
@@ -707,36 +707,36 @@
 <p>To find <span class="math notranslate nohighlight">\(v_p\)</span>, we first need to choose a radius of the parking orbit <span class="math notranslate nohighlight">\(r_p\)</span>. The choice of <span class="math notranslate nohighlight">\(r_p\)</span> determines the <span class="math notranslate nohighlight">\(\Delta v\)</span> required to transfer from the parking orbit to the hyperbola, so <span class="math notranslate nohighlight">\(r_p\)</span> depends on the capabilities of the launch vehicle to provide thrust in LEO.</p>
 <p>One approach to find <span class="math notranslate nohighlight">\(v_p\)</span> is via the <em>vis viva</em> equation, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>. We know that the energy along the geocentric hyperbola is constant. Therefore, we can equate the energy at the insertion point (periapsis) with the energy at <span class="math notranslate nohighlight">\(r_{\infty}\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-departure-hyperbola-energy">
-<span class="eqno">(285)<a class="headerlink" href="#equation-eq-interplanetary-departure-hyperbola-energy" title="Permalink to this equation">¶</a></span>\[E = \frac{v_p^2}{2} - \frac{\mu_i}{r_p} = \frac{v_{\infty}^2}{2} - \frac{\mu_i}{r_{\infty}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu_i\)</span> is the standard gravitational parameter of the planet. The last term in Eq. <a class="reference internal" href="#equation-eq-interplanetary-departure-hyperbola-energy">(285)</a> can be neglected as <span class="math notranslate nohighlight">\(r\rightarrow r_{\infty}\)</span>. Therefore, we can solve for the periapsis velocity:</p>
+<span class="eqno">(302)<a class="headerlink" href="#equation-eq-interplanetary-departure-hyperbola-energy" title="Permalink to this equation">¶</a></span>\[E = \frac{v_p^2}{2} - \frac{\mu_i}{r_p} = \frac{v_{\infty}^2}{2} - \frac{\mu_i}{r_{\infty}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_i\)</span> is the standard gravitational parameter of the planet. The last term in Eq. <a class="reference internal" href="#equation-eq-interplanetary-departure-hyperbola-energy">(302)</a> can be neglected as <span class="math notranslate nohighlight">\(r\rightarrow r_{\infty}\)</span>. Therefore, we can solve for the periapsis velocity:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-departure-periapsis-velocity">
-<span class="eqno">(286)<a class="headerlink" href="#equation-eq-interplanetary-departure-periapsis-velocity" title="Permalink to this equation">¶</a></span>\[v_p = \sqrt{v_{\infty}^2 + 2\frac{\mu_i}{r_p}}\]</div>
+<span class="eqno">(303)<a class="headerlink" href="#equation-eq-interplanetary-departure-periapsis-velocity" title="Permalink to this equation">¶</a></span>\[v_p = \sqrt{v_{\infty}^2 + 2\frac{\mu_i}{r_p}}\]</div>
 <p>From the discussion above, we know that <span class="math notranslate nohighlight">\(v_{\infty}\)</span> is found from the heliocentric transfer orbit:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-departure-v-infty">
-<span class="eqno">(287)<a class="headerlink" href="#equation-eq-interplanetary-departure-v-infty" title="Permalink to this equation">¶</a></span>\[v_{\infty} = \Delta v_{\text{Sun}}\text{ relative to the Sun}\]</div>
+<span class="eqno">(304)<a class="headerlink" href="#equation-eq-interplanetary-departure-v-infty" title="Permalink to this equation">¶</a></span>\[v_{\infty} = \Delta v_{\text{Sun}}\text{ relative to the Sun}\]</div>
 <p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> required by the spacecraft to transfer from the parking orbit to the hyperbola is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-departure-delta-v">
-<span class="eqno">(288)<a class="headerlink" href="#equation-eq-interplanetary-departure-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v = \lvert v_p - v_{\text{parking}}\rvert\]</div>
+<span class="eqno">(305)<a class="headerlink" href="#equation-eq-interplanetary-departure-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v = \lvert v_p - v_{\text{parking}}\rvert\]</div>
 <p>The spacecraft will usually depart the planet’s sphere of influence parallel to the planet’s heliocentric velocity vector. This takes most advantage of the orbital velocity of the planet to send the spacecraft to its target. The angle <span class="math notranslate nohighlight">\(\eta\)</span> is the angle relative to the planet’s heliocentric velocity at which the transfer from parking orbit to geocentric hyperbola occurs.</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-departure-impulse-angle">
-<span class="eqno">(289)<a class="headerlink" href="#equation-eq-interplanetary-departure-impulse-angle" title="Permalink to this equation">¶</a></span>\[\cos\eta = -\frac{1}{e}\]</div>
+<span class="eqno">(306)<a class="headerlink" href="#equation-eq-interplanetary-departure-impulse-angle" title="Permalink to this equation">¶</a></span>\[\cos\eta = -\frac{1}{e}\]</div>
 <p>The eccentricity of the geocentric hyperbola can be found from the semimajor axis via Eq. <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html#equation-eq-hyperbolic-excess-speed">(160)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-hyperbola-semimajor-axis">
-<span class="eqno">(290)<a class="headerlink" href="#equation-eq-interplanetary-hyperbola-semimajor-axis" title="Permalink to this equation">¶</a></span>\[a = \frac{\mu_i}{v_{\infty}^2}\]</div>
+<span class="eqno">(307)<a class="headerlink" href="#equation-eq-interplanetary-hyperbola-semimajor-axis" title="Permalink to this equation">¶</a></span>\[a = \frac{\mu_i}{v_{\infty}^2}\]</div>
 <p>Then, rearranging Eq. <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html#equation-eq-hyperbolic-periapsis-apoapsis">(156)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-hyperbola-eccentricity">
-<span class="eqno">(291)<a class="headerlink" href="#equation-eq-interplanetary-hyperbola-eccentricity" title="Permalink to this equation">¶</a></span>\[e = 1 + \frac{r_p}{a} = 1 + \frac{r_p v_{\infty}^2}{\mu_i}\]</div>
-<p>Since all the terms in the rightmost term in Eq. <a class="reference internal" href="#equation-eq-interplanetary-hyperbola-eccentricity">(291)</a> are positive, the eccentricity will be greater than one, as expected. Using combinations of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(v_p\)</span>, and <span class="math notranslate nohighlight">\(r_p\)</span>, the other orbital elements can be found as needed.</p>
-<p>Examining Eqs. <a class="reference internal" href="#equation-eq-interplanetary-departure-hyperbola-energy">(285)</a>, <a class="reference internal" href="#equation-eq-interplanetary-departure-periapsis-velocity">(286)</a>, <a class="reference internal" href="#equation-eq-interplanetary-departure-delta-v">(288)</a>, and <a class="reference internal" href="#equation-eq-interplanetary-hyperbola-eccentricity">(291)</a>, we see that none of them depend on the size of <span class="math notranslate nohighlight">\(v_{\infty}\)</span> relative to the planet’s orbital velocity. Therefore, all the analysis and equations are identical for a hyperbola that reduces the spacecraft heliocentric speed relative to the planet’s heliocentric speed, as shown in <a class="reference internal" href="#fig-interplanetary-departure-inward-transfer"><span class="std std-numref">Fig. 75</span></a>.</p>
+<span class="eqno">(308)<a class="headerlink" href="#equation-eq-interplanetary-hyperbola-eccentricity" title="Permalink to this equation">¶</a></span>\[e = 1 + \frac{r_p}{a} = 1 + \frac{r_p v_{\infty}^2}{\mu_i}\]</div>
+<p>Since all the terms in the rightmost term in Eq. <a class="reference internal" href="#equation-eq-interplanetary-hyperbola-eccentricity">(308)</a> are positive, the eccentricity will be greater than one, as expected. Using combinations of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(v_p\)</span>, and <span class="math notranslate nohighlight">\(r_p\)</span>, the other orbital elements can be found as needed.</p>
+<p>Examining Eqs. <a class="reference internal" href="#equation-eq-interplanetary-departure-hyperbola-energy">(302)</a>, <a class="reference internal" href="#equation-eq-interplanetary-departure-periapsis-velocity">(303)</a>, <a class="reference internal" href="#equation-eq-interplanetary-departure-delta-v">(305)</a>, and <a class="reference internal" href="#equation-eq-interplanetary-hyperbola-eccentricity">(308)</a>, we see that none of them depend on the size of <span class="math notranslate nohighlight">\(v_{\infty}\)</span> relative to the planet’s orbital velocity. Therefore, all the analysis and equations are identical for a hyperbola that reduces the spacecraft heliocentric speed relative to the planet’s heliocentric speed, as shown in <a class="reference internal" href="#fig-interplanetary-departure-inward-transfer"><span class="std std-numref">Fig. 80</span></a>.</p>
 <div class="figure align-default" id="fig-interplanetary-departure-inward-transfer">
 <a class="reference internal image-reference" href="../_images/interplanetary-departure-inward-transfer.svg"><img alt="../_images/interplanetary-departure-inward-transfer.svg" src="../_images/interplanetary-departure-inward-transfer.svg" width="75%" /></a>
-<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">A departure trajectory from a planet where the heliocentric orbital radius of the departure planet is larger than the final planet. Note that the spacecraft’s heliocentric speed is smaller than the planet’s, so it emerges from the back side of the sphere of influence.</span><a class="headerlink" href="#fig-interplanetary-departure-inward-transfer" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">A departure trajectory from a planet where the heliocentric orbital radius of the departure planet is larger than the final planet. Note that the spacecraft’s heliocentric speed is smaller than the planet’s, so it emerges from the back side of the sphere of influence.</span><a class="headerlink" href="#fig-interplanetary-departure-inward-transfer" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="angle-of-the-departure-hyperbola">
 <h2>Angle of the Departure Hyperbola<a class="headerlink" href="#angle-of-the-departure-hyperbola" title="Permalink to this headline">¶</a></h2>
-<p>In Eq. <a class="reference internal" href="#equation-eq-interplanetary-departure-impulse-angle">(289)</a>, we found the angle <span class="math notranslate nohighlight">\(\eta\)</span>, the angle of the apse line of the hyperbola relative to the heliocentric planetary velocity. However, the inverse cosine function is ambigous in the quadrant of the result, meaning that the impulse could occur on either side of the velocity vector.</p>
+<p>In Eq. <a class="reference internal" href="#equation-eq-interplanetary-departure-impulse-angle">(306)</a>, we found the angle <span class="math notranslate nohighlight">\(\eta\)</span>, the angle of the apse line of the hyperbola relative to the heliocentric planetary velocity. However, the inverse cosine function is ambigous in the quadrant of the result, meaning that the impulse could occur on either side of the velocity vector.</p>
 <p>The solution for <span class="math notranslate nohighlight">\(\eta\)</span> that is chosen in practice is determined by the inclination of the parking orbit. If the parking orbit is prograde (<span class="math notranslate nohighlight">\(0° &lt; i &lt; 90°\)</span>), then the injection to the departure hyperbola will be counterclockwise. On the other hand, if the parking orbit is retrograde (<span class="math notranslate nohighlight">\(90° &lt; i &lt; 180°\)</span>), then the injection to the departure hyperbola will be clockwise.</p>
 </div>
 <div class="section" id="example">

@@ -321,7 +321,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
-   Chapter 3.5 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -330,7 +330,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
-   Chapter 3.6 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -338,7 +338,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Hyperbolic-Trajectory-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">
    Example: Hyperbolic Trajectory
   </a>
  </li>
@@ -646,7 +646,7 @@
 <h1>Sphere of Influence<a class="headerlink" href="#sphere-of-influence" title="Permalink to this headline">¶</a></h1>
 <p>As we discussed in the <a class="reference internal" href="introduction.html"><span class="doc std std-doc">introduction</span></a> to this chapter, the method of patched conics requires us to patch together three trajectories, two about the planets and one about the Sun. In the preceding two sections, we determined the parameters of the heliocentric portion of the method and we will now move on to the planetary trajectories.</p>
 <p>In this context, it is helpful to define where the planetary trajectories start and end. Newton’s law of motion shows us that the force on a spacecraft varies inversely with the distance from all of the masses in a system. However, the method of patched conics requires us to have distinct starting and ending points for the trajectories.</p>
-<p>To define the start and end of the planetary trajectories, we define the <a class="reference external" href="https://en.wikipedia.org/wiki/Sphere_of_influence_(astrodynamics)"><strong>sphere of influence</strong></a> of each planet. The sphere of influence is illustrated by the dashed gray lines in <a class="reference internal" href="introduction.html#fig-interplanetary-transfer"><span class="std std-numref">Fig. 70</span></a>, repeated here for reference.</p>
+<p>To define the start and end of the planetary trajectories, we define the <a class="reference external" href="https://en.wikipedia.org/wiki/Sphere_of_influence_(astrodynamics)"><strong>sphere of influence</strong></a> of each planet. The sphere of influence is illustrated by the dashed gray lines in <a class="reference internal" href="introduction.html#fig-interplanetary-transfer"><span class="std std-numref">Fig. 75</span></a>, repeated here for reference.</p>
 <a class="reference internal image-reference" href="../_images/interplanetary-transfer.svg"><img alt="../_images/interplanetary-transfer.svg" src="../_images/interplanetary-transfer.svg" width="100%" /></a>
 <p>Conceptually, we can imagine the sphere of influence as a boundary, inside of which the planet’s gravitational pull dominates the pull of the Sun on a much smaller mass. This allows us to estimate a specific radius beyond which the focus of the trajectory switches from the planet to the Sun. Therefore, the velocity that the spacecraft has when it leaves the sphere of influence of a planet is the velocity that it starts with on its heliocentric trajectory.</p>
 <div class="section" id="estimating-the-sphere-of-influence-radius">
@@ -654,36 +654,36 @@
 <p>Let’s consider a three body system, consisting of the Sun, the planet, and the spacecraft. An inertial frame is fixed to the Sun and we are interested in the equations of motion of the spacecraft in this frame.</p>
 <p>Let <span class="math notranslate nohighlight">\(\vector{R}\)</span> be the radial vector from the Sun to the spacecraft, <span class="math notranslate nohighlight">\(\vector{r}\)</span> be the radial vector from the planet to the spacecraft, and <span class="math notranslate nohighlight">\(\vector{R}_p\)</span> be the radial vector from the Sun to the planet. Then the equation of motion of the spacecraft in the inertial frame of the Sun is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-eom-inertial">
-<span class="eqno">(278)<a class="headerlink" href="#equation-eq-sphere-of-influence-eom-inertial" title="Permalink to this equation">¶</a></span>\[m \ddot{\vector{R}} = \vector{F}_s + \vector{F}_p\]</div>
+<span class="eqno">(295)<a class="headerlink" href="#equation-eq-sphere-of-influence-eom-inertial" title="Permalink to this equation">¶</a></span>\[m \ddot{\vector{R}} = \vector{F}_s + \vector{F}_p\]</div>
 <p>where <span class="math notranslate nohighlight">\(m\)</span> is the mass of the spacecraft and <span class="math notranslate nohighlight">\(\vector{F}_s\)</span> and <span class="math notranslate nohighlight">\(\vector{F}_p\)</span> are the forces on the spacecraft due to the Sun and the planet, respectively. Dividing through by the spacecraft mass, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-accel-inertial">
-<span class="eqno">(279)<a class="headerlink" href="#equation-eq-sphere-of-influence-accel-inertial" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{R}} = \vector{A}_s + \vector{P}_p\]</div>
-<p>In Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-inertial">(279)</a>, <span class="math notranslate nohighlight">\(\vector{A}\)</span> is the primary acceleration vector, which is due to the Sun in the inertial frame. On the other hand, <span class="math notranslate nohighlight">\(\vector{P}\)</span> represents the perturbing acceleration vector, which is due to the planet.</p>
+<span class="eqno">(296)<a class="headerlink" href="#equation-eq-sphere-of-influence-accel-inertial" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{R}} = \vector{A}_s + \vector{P}_p\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-inertial">(296)</a>, <span class="math notranslate nohighlight">\(\vector{A}\)</span> is the primary acceleration vector, which is due to the Sun in the inertial frame. On the other hand, <span class="math notranslate nohighlight">\(\vector{P}\)</span> represents the perturbing acceleration vector, which is due to the planet.</p>
 <p>Next, we need to write the equations of motion of the spacecraft in a moving reference frame relative to the planet:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-eom-relative">
-<span class="eqno">(280)<a class="headerlink" href="#equation-eq-sphere-of-influence-eom-relative" title="Permalink to this equation">¶</a></span>\[m \ddot{\vector{r}} = \vector{F}_p + \vector{F}_s\]</div>
+<span class="eqno">(297)<a class="headerlink" href="#equation-eq-sphere-of-influence-eom-relative" title="Permalink to this equation">¶</a></span>\[m \ddot{\vector{r}} = \vector{F}_p + \vector{F}_s\]</div>
 <p>Dividing through by the mass again, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-accel-relative">
-<span class="eqno">(281)<a class="headerlink" href="#equation-eq-sphere-of-influence-accel-relative" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \vector{a}_p + \vector{p}_s\]</div>
-<p>In Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-relative">(281)</a>, <span class="math notranslate nohighlight">\(\vector{a}\)</span> is the primary acceleration vector, which is due to the planet in the relative frame. On the other hand, <span class="math notranslate nohighlight">\(\vector{p}\)</span> represents the perturbing acceleration vector, which is due to the Sun.</p>
-<p>Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-inertial">(279)</a> and Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-relative">(281)</a> show us that we can think of the accelerations of the spacecraft in terms of a primary acceleration and a perturbing acceleration. Taking the ratio of the magnitudes of these accelerations, we can draw two main conclusions:</p>
+<span class="eqno">(298)<a class="headerlink" href="#equation-eq-sphere-of-influence-accel-relative" title="Permalink to this equation">¶</a></span>\[\ddot{\vector{r}} = \vector{a}_p + \vector{p}_s\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-relative">(298)</a>, <span class="math notranslate nohighlight">\(\vector{a}\)</span> is the primary acceleration vector, which is due to the planet in the relative frame. On the other hand, <span class="math notranslate nohighlight">\(\vector{p}\)</span> represents the perturbing acceleration vector, which is due to the Sun.</p>
+<p>Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-inertial">(296)</a> and Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-relative">(298)</a> show us that we can think of the accelerations of the spacecraft in terms of a primary acceleration and a perturbing acceleration. Taking the ratio of the magnitudes of these accelerations, we can draw two main conclusions:</p>
 <ol class="simple">
 <li><p>When <span class="math notranslate nohighlight">\(p_s/a_p\)</span> is large, then the spacecraft trajectory is significantly perturbed by the gravity of the Sun</p></li>
 <li><p>When <span class="math notranslate nohighlight">\(P_p/A_s\)</span> is large, then the spacecraft trajectory is significantly perturbed by the gravity of the planet</p></li>
 </ol>
 <p>By comparing these two ratios, we can compare the perturbing influence of the Sun with the perturbing influence of the planet. When the Sun’s perturbation is less than the planet’s perturbation, the spacecraft must be within the sphere of influence! Mathematically, we say:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-ratios">
-<span class="eqno">(282)<a class="headerlink" href="#equation-eq-sphere-of-influence-ratios" title="Permalink to this equation">¶</a></span>\[\frac{p_s}{a_p} &lt; \frac{P_p}{A_s}\]</div>
+<span class="eqno">(299)<a class="headerlink" href="#equation-eq-sphere-of-influence-ratios" title="Permalink to this equation">¶</a></span>\[\frac{p_s}{a_p} &lt; \frac{P_p}{A_s}\]</div>
 <p>The acceleration magnitudes are given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-accel-magnitudes">
-<span class="eqno">(283)<a class="headerlink" href="#equation-eq-sphere-of-influence-accel-magnitudes" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(300)<a class="headerlink" href="#equation-eq-sphere-of-influence-accel-magnitudes" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   A_s &amp;= \frac{G m_s}{R^2} &amp; P_p &amp;= \frac{G m_p}{r^2} &amp; a_p &amp;= \frac{G m_p}{r^2} &amp; p_s &amp; = \frac{G m_s}{R^3} r
 \end{aligned}\]</div>
 <p>where <span class="math notranslate nohighlight">\(m_p\)</span> is the mass of the planet and <span class="math notranslate nohighlight">\(m_s\)</span> is the mass of the Sun. Note that we are assuming that <span class="math notranslate nohighlight">\(R = R_p\)</span>. In other words, inside the sphere of radius, the distance from the Sun to the spacecraft is the same as the distance from the Sun to the planet. In addition, we are interested in the situation where the position of the spacecraft <em>relative to the planet</em>, given by <span class="math notranslate nohighlight">\(r\)</span>, is equal to the sphere of influence radius, such that <span class="math notranslate nohighlight">\(r = r_{\text{SOI}}\)</span>.</p>
-<p>Plugging Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-magnitudes">(283)</a> into Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-ratios">(282)</a> and simplifying, we find:</p>
+<p>Plugging Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-accel-magnitudes">(300)</a> into Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-ratios">(299)</a> and simplifying, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sphere-of-influence-radius">
-<span class="eqno">(284)<a class="headerlink" href="#equation-eq-sphere-of-influence-radius" title="Permalink to this equation">¶</a></span>\[r_{\text{SOI}} = R \left(\frac{m_p}{m_s}\right)^{2/5}\]</div>
-<p>where <span class="math notranslate nohighlight">\(R\)</span> is the radius of the planet’s orbit around the Sun. Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-radius">(284)</a> shows that <span class="math notranslate nohighlight">\(r_{\text{SOI}}\)</span> is proportional to the orbital radius and the planet’s mass. Larger planets or planets that are further away from the Sun have larger spheres of influence. Since the sphere of influence is based on a balance between the planet and the Sun, this interpretation makes sense.</p>
+<span class="eqno">(301)<a class="headerlink" href="#equation-eq-sphere-of-influence-radius" title="Permalink to this equation">¶</a></span>\[r_{\text{SOI}} = R \left(\frac{m_p}{m_s}\right)^{2/5}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is the radius of the planet’s orbit around the Sun. Eq. <a class="reference internal" href="#equation-eq-sphere-of-influence-radius">(301)</a> shows that <span class="math notranslate nohighlight">\(r_{\text{SOI}}\)</span> is proportional to the orbital radius and the planet’s mass. Larger planets or planets that are further away from the Sun have larger spheres of influence. Since the sphere of influence is based on a balance between the planet and the Sun, this interpretation makes sense.</p>
 </div>
 </div>
 

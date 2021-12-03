@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 3.6 - Hyperbolic Trajectories (\(e &gt; 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Hyperbolic Trajectories (\(e &gt; 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -58,8 +58,8 @@
     <link rel="canonical" href="https://orbital-mechanics.space/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Example: Hyperbolic Trajectory" href="Hyperbolic-Trajectory-Example.html" />
-    <link rel="prev" title="Chapter 3.5 - Parabolic Trajectories (\(e = 1\))" href="parabolic-trajectories.html" />
+    <link rel="next" title="Example: Hyperbolic Trajectory" href="hyperbolic-trajectory-example.html" />
+    <link rel="prev" title="Parabolic Trajectories (\(e = 1\))" href="parabolic-trajectories.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -321,7 +321,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="parabolic-trajectories.html">
-   Chapter 3.5 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -330,7 +330,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 3.6 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -338,7 +338,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Hyperbolic-Trajectory-Example.html">
+  <a class="reference internal" href="hyperbolic-trajectory-example.html">
    Example: Hyperbolic Trajectory
   </a>
  </li>
@@ -647,18 +647,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mean-anomaly">
-   Mean Anomaly
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hyperbolic-eccentric-anomaly">
    Hyperbolic Eccentric Anomaly
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#orbit-equation-in-terms-of-hyperbolic-eccentric-anomaly">
-   Orbit Equation in Terms of Hyperbolic Eccentric Anomaly
+  <a class="reference internal nav-link" href="#kepler-s-equation-for-the-hyperbola">
+   Kepler’s Equation for the Hyperbola
   </a>
  </li>
 </ul>
@@ -672,90 +667,91 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-3-6-hyperbolic-trajectories-e-1">
-<h1>Chapter 3.6 - Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)<a class="headerlink" href="#chapter-3-6-hyperbolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
-<p>For the hyperbola, we identify <span class="math notranslate nohighlight">\(a = 1\)</span> and <span class="math notranslate nohighlight">\(b = e &gt; 1\)</span>, so the appropriate integral is then the third one:</p>
-<div class="math notranslate nohighlight">
-\[\int\frac{dx}{\left(a + b\cos x\right)^2} = \frac{1}{\left(b^2 - a^2\right)^{3/2}}\left[\frac{b\sqrt{b^2 - a^2}\sin x}{a + b\cos x} - a\ln\left(\frac{\sqrt{b + a} + \sqrt{b - a}\tan\frac{x}{2}}{\sqrt{b + a} - \sqrt{b - a}\tan\frac{x}{2}}\right)\right]\]</div>
-<div class="section" id="mean-anomaly">
-<h2>Mean Anomaly<a class="headerlink" href="#mean-anomaly" title="Permalink to this headline">¶</a></h2>
-<p>Defining the mean anomaly for the hyperbola as</p>
-<div class="math notranslate nohighlight">
-\[M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}\]</div>
-<p>we can write</p>
-<div class="math notranslate nohighlight" id="equation-mean-anomaly-hyperbola">
-<span class="eqno">(214)<a class="headerlink" href="#equation-mean-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\theta}{1 + e\cos\theta} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]\]</div>
-<div class="cell tag_remove-input docutils container">
+  <div class="tex2jax_ignore mathjax_ignore section" id="hyperbolic-trajectories-e-1">
+<h1>Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)<a class="headerlink" href="#hyperbolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
+<p>For the hyperbola, combining Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis">(189)</a> and Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis-rhs-e-gt-1">(192)</a> results in:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-hyperbola">
+<span class="eqno">(219)<a class="headerlink" href="#equation-eq-mean-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\nu}{1 + e\cos\nu} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-hyperbolic-mean-anomaly">
+<span class="eqno">(220)<a class="headerlink" href="#equation-eq-hyperbolic-mean-anomaly" title="Permalink to this equation">¶</a></span>\[M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}\]</div>
+<p>The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic function of the true anomaly, as shown in <a class="reference internal" href="#fig-mean-anomaly-hyperbola-function"><span class="std std-numref">Fig. 54</span></a>.</p>
+<div class="figure align-default" id="fig-mean-anomaly-hyperbola-function">
 <div class="cell_output docutils container">
 <img alt="../_images/hyperbolic-trajectories_1_0.png" src="../_images/hyperbolic-trajectories_1_0.png" />
 </div>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">The hyperbolic mean anomaly as a function of true anomaly. Note that the <span class="math notranslate nohighlight">\(y\)</span>-scale is a log scale.</span><a class="headerlink" href="#fig-mean-anomaly-hyperbola-function" title="Permalink to this image">¶</a></p>
 </div>
-<p>Notice that <span class="math notranslate nohighlight">\(\theta\)</span> cannot exceed <span class="math notranslate nohighlight">\(\theta_{\infty} = \cos^{-1}(-1 / e)\)</span>.</p>
-</div>
+<p>Notice that <span class="math notranslate nohighlight">\(\nu\)</span> cannot exceed <span class="math notranslate nohighlight">\(\nu_{\infty} = \cos^{-1}(-1 / e)\)</span>.</p>
 <div class="section" id="hyperbolic-eccentric-anomaly">
 <h2>Hyperbolic Eccentric Anomaly<a class="headerlink" href="#hyperbolic-eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
-<p>Similar to the ellipse, we will define an auxiliary angle <span class="math notranslate nohighlight">\(F\)</span> to simplify the equations. <span class="math notranslate nohighlight">\(F\)</span> is defined with reference to the hyperbola below.</p>
-<div class="cell tag_remove-input docutils container">
+<p>Similar to the ellipse, we will define an auxiliary angle <span class="math notranslate nohighlight">\(F\)</span> to simplify the equations. <span class="math notranslate nohighlight">\(F\)</span> is defined with reference to the hyperbola in <a class="reference internal" href="#fig-hyperbolic-eccentric-anomaly-figure"><span class="std std-numref">Fig. 55</span></a>.</p>
+<div class="figure align-default" id="fig-hyperbolic-eccentric-anomaly-figure">
 <div class="cell_output docutils container">
 <img alt="../_images/hyperbolic-trajectories_3_0.png" src="../_images/hyperbolic-trajectories_3_0.png" />
 </div>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">A hyperbolic trajectory with definitions for distances used in the derivation of Kepler’s law for hyperbolic.</span><a class="headerlink" href="#fig-hyperbolic-eccentric-anomaly-figure" title="Permalink to this image">¶</a></p>
 </div>
-<p>Now, let’s define the ratio <span class="math notranslate nohighlight">\(y/b\)</span> as the hyperbolic sine of the angle <span class="math notranslate nohighlight">\(F\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\sinh F = \frac{y}{b}\]</div>
-<p>Then, because</p>
-<div class="math notranslate nohighlight">
-\[\cosh^2 x - \sinh^2 x = 1\]</div>
-<p>we can also define</p>
-<div class="math notranslate nohighlight">
-\[\cosh F = \frac{x}{a}\]</div>
+<p>The ratio <span class="math notranslate nohighlight">\(y/b\)</span> is the definition of the hyperbolic sine of the angle <span class="math notranslate nohighlight">\(F\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-0">
+<span class="eqno">(221)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-0" title="Permalink to this equation">¶</a></span>\[\sinh F = \frac{y}{b}\]</div>
+<p>Then, using the hyperbolic trigonometric identity:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-1">
+<span class="eqno">(222)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-1" title="Permalink to this equation">¶</a></span>\[\cosh^2 c - \sinh^2 c = 1\]</div>
+<p>we also define</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-2">
+<span class="eqno">(223)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-2" title="Permalink to this equation">¶</a></span>\[\cosh F = \frac{x}{a}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The hyperbolic angle <span class="math notranslate nohighlight">\(F\)</span> is weird. The reason we don’t draw it on the figure is because hyperbolic angles aren’t angles <em>per se</em>. Instead, they can be interpreted as half the area between the <span class="math notranslate nohighlight">\(x\)</span>-axis and a line drawn from the origin to the point of interest, bounded by the hyperbola. I think. At least, that’s my best interpretation from what I’ve been able to read. YMMV.</p>
 <p>Another way of thinking about this is by analogy to a circle. For a circle, we can draw any two lines from the center of the circle to the perimeter. These two lines will have an angle <span class="math notranslate nohighlight">\(\phi\)</span> between them, and the area between them will be:</p>
-<div class="math notranslate nohighlight">
-\[A_{\text{circular sector}} = \frac{r^2 \phi}{2}\]</div>
-<p><img alt="Circular Sector" src="../_images/Circle_arc.svg" /></p>
-<p>The area is called a <strong>circular sector</strong>. The image is modified from <a class="reference external" href="https://en.wikipedia.org/wiki/File:Circle_arc.svg">Wikimedia</a>.</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-3">
+<span class="eqno">(224)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-3" title="Permalink to this equation">¶</a></span>\[A_{\text{circular sector}} = \frac{r^2 \phi}{2}\]</div>
+<div class="figure align-default" id="fig-circle-arc">
+<img alt="../_images/Circle_arc.svg" src="../_images/Circle_arc.svg" /><p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">The highlighted area is a <strong>circular sector</strong>. Modified from <a class="reference external" href="https://en.wikipedia.org/wiki/File:Circle_arc.svg">Wikimedia</a>.</span><a class="headerlink" href="#fig-circle-arc" title="Permalink to this image">¶</a></p>
+</div>
 <p>If the circle is a unit circle (<span class="math notranslate nohighlight">\(r = 1\)</span>), then the area of the sector will be equal to the angle divided by two. Turned around, the angle is equal to twice the area:</p>
-<div class="math notranslate nohighlight">
-\[\phi = \frac{2A}{1^2}\]</div>
-<p>Similarly, we can define the hyperbolic angle on the unit hyperbola as twice the area between two lines that start at the origin and touch the hyperbola, called a <strong>hyperbolic sector</strong>.</p>
-<p><img alt="Hyperbolic Sector" src="../_images/Hyperbolic_functions-2.svg" /></p>
-<p>The area of the hyperbolic sector is half the hyperbolic angle. However, the circular angle between the <span class="math notranslate nohighlight">\(x\)</span>-axis and the ray from the origin is not the same as the hyperbolic angle.</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-4">
+<span class="eqno">(225)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-4" title="Permalink to this equation">¶</a></span>\[\phi = \frac{2A}{1^2}\]</div>
+<p>Similarly, the hyperbolic angle is defined on the unit hyperbola as twice the area between two lines that start at the origin and touch the hyperbola, called a <strong>hyperbolic sector</strong>.</p>
+<div class="figure align-default" id="fig-hyperbolic-functions">
+<img alt="../_images/Hyperbolic_functions-2.svg" src="../_images/Hyperbolic_functions-2.svg" /><p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">The area of the hyperbolic sector is half the hyperbolic angle. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hyperbolic_functions-2.svg">Hyperbolic_functions.svg: The original uploader was Marco Polo at English Wikipedia.derivative work: Jeandavid54</a>, Public domain, via Wikimedia Commons</span><a class="headerlink" href="#fig-hyperbolic-functions" title="Permalink to this image">¶</a></p>
+</div>
+<p>However, the circular angle between the <span class="math notranslate nohighlight">\(x\)</span>-axis and the ray from the origin is not the same as the hyperbolic angle.</p>
 <p>You can read more about hyperbolic angles on <a class="reference external" href="https://brilliant.org/wiki/hyperbolic-trigonometric-functions/">Brilliant</a> and on <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_angle">Wikipedia</a>.</p>
 </div>
-<p>We can relate <span class="math notranslate nohighlight">\(F\)</span> to the true anomaly <span class="math notranslate nohighlight">\(\theta\)</span> by plugging in <span class="math notranslate nohighlight">\(y = r\sin\theta\)</span>, and the orbit equation for <span class="math notranslate nohighlight">\(r\)</span>. We also note that <span class="math notranslate nohighlight">\(b = a\sqrt{e^2 - 1}\)</span>. Then:</p>
-<div class="math notranslate nohighlight">
-\[F = \sinh^{-1}\left(\frac{\sin\theta\sqrt{e^2 - 1}}{1 + e\cos\theta}\right) = \ln\left(\frac{\sin\theta\sqrt{e^2 - 1} + \cos\theta + e}{1 + e\cos\theta}\right)\]</div>
+<p>We can relate <span class="math notranslate nohighlight">\(F\)</span> to the true anomaly <span class="math notranslate nohighlight">\(\nu\)</span> by plugging in <span class="math notranslate nohighlight">\(y = r\sin\nu\)</span>, and the orbit equation for <span class="math notranslate nohighlight">\(r\)</span>. We also note that <span class="math notranslate nohighlight">\(b = a\sqrt{e^2 - 1}\)</span>. Then:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-5">
+<span class="eqno">(226)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-5" title="Permalink to this equation">¶</a></span>\[F = \sinh^{-1}\left(\frac{\sin\nu\sqrt{e^2 - 1}}{1 + e\cos\nu}\right) = \ln\left(\frac{\sin\nu\sqrt{e^2 - 1} + \cos\nu + e}{1 + e\cos\nu}\right)\]</div>
 <p>After some more trigonometry and algebra, we find:</p>
-<div class="math notranslate nohighlight">
-\[F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\theta}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\theta}{2}}\right]\]</div>
-<p>Substituting this back into Eq. <a class="reference internal" href="#equation-mean-anomaly-hyperbola">(214)</a>, we find <strong>Kepler’s equation for the hyperbola</strong>:</p>
-<div class="math notranslate nohighlight">
-\[M_h = e\sinh F - F\]</div>
-<p>As with the ellipse, Kepler’s equation can be solved easily if <span class="math notranslate nohighlight">\(\theta\)</span> is known, to be able to find <span class="math notranslate nohighlight">\(F\)</span>. However, if time is the known quantity, then Kepler’s equation is transcendental and must be solved numerically.</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-6">
+<span class="eqno">(227)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-6" title="Permalink to this equation">¶</a></span>\[F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]\]</div>
+<p>And, with a little more algebra and trigonometry, we find an equation for <span class="math notranslate nohighlight">\(F\)</span> in terms of <span class="math notranslate nohighlight">\(\nu\)</span> more directly, analogous to the ellipse:</p>
+<div class="math notranslate nohighlight" id="equation-eq-eccentric-anomaly-true-anomaly-hyperbola">
+<span class="eqno">(228)<a class="headerlink" href="#equation-eq-eccentric-anomaly-true-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\nu}{2}\]</div>
+</div>
+<div class="section" id="kepler-s-equation-for-the-hyperbola">
+<h2>Kepler’s Equation for the Hyperbola<a class="headerlink" href="#kepler-s-equation-for-the-hyperbola" title="Permalink to this headline">¶</a></h2>
+<p>Substituting this back into Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-hyperbola">(219)</a>, we find <strong>Kepler’s equation for the hyperbola</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-hyperbolic-keplers-equation">
+<span class="eqno">(229)<a class="headerlink" href="#equation-eq-hyperbolic-keplers-equation" title="Permalink to this equation">¶</a></span>\[M_h = e\sinh F - F\]</div>
+<p>As with the ellipse, Kepler’s equation can be solved easily if <span class="math notranslate nohighlight">\(F\)</span> is known. However, if time is the known quantity, then Kepler’s equation is transcendental and must be solved numerically. The form of the equation for the Newton solver is <span class="math notranslate nohighlight">\(f(F) = 0\)</span>, or:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-7">
+<span class="eqno">(230)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-7" title="Permalink to this equation">¶</a></span>\[f(F) = 0 = e\sinh F - F - M_h\]</div>
 <p>To aid in the numerical solution, the derivative of Kepler’s equation for the hyperbola is:</p>
-<div class="math notranslate nohighlight">
-\[f'(F) = e \cosh F - 1\]</div>
-<p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from the graph below, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value. Note that the <span class="math notranslate nohighlight">\(y\)</span>-axis plots the log base 10 of <span class="math notranslate nohighlight">\(M_h\)</span>. To use the graph, take the log base 10 of whatever value you calculate for <span class="math notranslate nohighlight">\(M_h\)</span> and find that on the graph.</p>
-<div class="cell tag_remove-input docutils container">
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-8">
+<span class="eqno">(231)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-8" title="Permalink to this equation">¶</a></span>\[f'(F) = e \cosh F - 1\]</div>
+<p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from <a class="reference internal" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly"><span class="std std-numref">Fig. 58</span></a>, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value.</p>
+<div class="figure align-default" id="fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly">
 <div class="cell_output docutils container">
 <img alt="../_images/hyperbolic-trajectories_5_0.png" src="../_images/hyperbolic-trajectories_5_0.png" />
 </div>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">The hyperbolic mean anomaly as a function of the eccentric anomaly</span><a class="headerlink" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly" title="Permalink to this image">¶</a></p>
 </div>
-<p>Some more trigonometry and algebra lead us to a simpler relationship between <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, analogous to the equation for the ellipse:</p>
+<p>Note that the <span class="math notranslate nohighlight">\(y\)</span>-axis plots the log base 10 of <span class="math notranslate nohighlight">\(M_h\)</span>. To use the graph, take the log base 10 of whatever value you calculate for <span class="math notranslate nohighlight">\(M_h\)</span> and find that on the graph. For example, assume that <span class="math notranslate nohighlight">\(M_h =\)</span> 40.69 rad and <span class="math notranslate nohighlight">\(e =\)</span> 2.5. Then,</p>
 <div class="math notranslate nohighlight">
-\[\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\theta}{2}\]</div>
-<p>and the inverse, to solve for <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(F\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\tan\frac{\theta}{2} = \sqrt{\frac{e + 1}{e - 1}}\tanh\frac{F}{2}\]</div>
-</div>
-<div class="section" id="orbit-equation-in-terms-of-hyperbolic-eccentric-anomaly">
-<h2>Orbit Equation in Terms of Hyperbolic Eccentric Anomaly<a class="headerlink" href="#orbit-equation-in-terms-of-hyperbolic-eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
-<p>It is useful to have the orbit equation in terms of <span class="math notranslate nohighlight">\(F\)</span>, analogous to the ellipse. We find:</p>
-<div class="math notranslate nohighlight">
-\[r = a\left(e\cosh F - 1\right)\]</div>
+\[\log_{10}(40.69) = 1.6\]</div>
+<p>From <a class="reference internal" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly"><span class="std std-numref">Fig. 58</span></a>, we estimate that <span class="math notranslate nohighlight">\(F =\)</span> 4, and we can use this as the initial guess for a Newton solver.</p>
 </div>
 </div>
 
@@ -788,10 +784,10 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 3.5 - Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</p>
+            <p class="prev-next-title">Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Hyperbolic-Trajectory-Example.html" title="next page">
+    <a class='right-next' id="next-link" href="hyperbolic-trajectory-example.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Example: Hyperbolic Trajectory</p>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 3.5 - Parabolic Trajectories (\(e = 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    <title>Parabolic Trajectories (\(e = 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -58,7 +58,7 @@
     <link rel="canonical" href="https://orbital-mechanics.space/time-since-periapsis-and-keplers-equation/parabolic-trajectories.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 3.6 - Hyperbolic Trajectories (\(e &gt; 1\))" href="hyperbolic-trajectories.html" />
+    <link rel="next" title="Hyperbolic Trajectories (\(e &gt; 1\))" href="hyperbolic-trajectories.html" />
     <link rel="prev" title="Example: Time in Earth’s Shadow" href="elliptical-orbit-time-in-shadow.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -321,7 +321,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 3.5 - Parabolic Trajectories (
+   Parabolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e = 1\)
    </span>
@@ -330,7 +330,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="hyperbolic-trajectories.html">
-   Chapter 3.6 - Hyperbolic Trajectories (
+   Hyperbolic Trajectories (
    <span class="math notranslate nohighlight">
     \(e &gt; 1\)
    </span>
@@ -338,7 +338,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Hyperbolic-Trajectory-Example.html">
+  <a class="reference internal" href="hyperbolic-trajectory-example.html">
    Example: Hyperbolic Trajectory
   </a>
  </li>
@@ -629,26 +629,23 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-3-5-parabolic-trajectories-e-1">
-<h1>Chapter 3.5 - Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#chapter-3-5-parabolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
-<p>For the parabola, we set <span class="math notranslate nohighlight">\(a = b = 1\)</span>. Thus, the equation for the integral becomes:</p>
-<div class="math notranslate nohighlight">
-\[\int_0^{\theta}\frac{d\theta}{\left(1 + \cos\theta\right)^2} = \frac{1}{2}\tan\frac{\theta}{2} + \frac{1}{6}\tan^3\frac{\theta}{2}\]</div>
-<p>Then, Eq. <code class="xref eq docutils literal notranslate"><span class="pre">time-since-periapsis</span></code> becomes:</p>
-<div class="math notranslate nohighlight">
-\[\frac{\mu^2}{h^3}t = \frac{1}{2}\tan\frac{\theta}{2} + \frac{1}{6}\tan^3\frac{\theta}{2}\]</div>
-<p>Defining the left hand side as <span class="math notranslate nohighlight">\(M_p\)</span>, the mean anomaly of the parabolic trajectory, we find:</p>
-<div class="math notranslate nohighlight">
-\[M_p = \frac{1}{2}\tan\frac{\theta}{2} + \frac{1}{6}\tan^3\frac{\theta}{2}\]</div>
-<p>This is known as <strong>Barker’s equation</strong> and gives us the time since periapsis in terms of the true anomaly. If, instead, we know the time since periapsis and want to solve for the true anomaly, we need to solve the cubic equation:</p>
-<div class="math notranslate nohighlight">
-\[0 = \frac{1}{2}\tan\frac{\theta}{2} + \frac{1}{6}\tan^3\frac{\theta}{2} - M_p\]</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="parabolic-trajectories-e-1">
+<h1>Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#parabolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
+<p>Combining Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis">(189)</a> and Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis-rhs-e-eq-1">(191)</a> results in:</p>
+<div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis-parabola">
+<span class="eqno">(214)<a class="headerlink" href="#equation-eq-time-since-periapsis-parabola" title="Permalink to this equation">¶</a></span>\[\frac{\mu^2}{h^3}t = \frac{1}{2}\tan\frac{\nu}{2} + \frac{1}{6}\tan^3\frac{\nu}{2}\]</div>
+<p>We define the left hand side of Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-parabola">(214)</a> as <span class="math notranslate nohighlight">\(M_p\)</span>, the mean anomaly of the parabolic trajectory:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-parabola">
+<span class="eqno">(215)<a class="headerlink" href="#equation-eq-mean-anomaly-parabola" title="Permalink to this equation">¶</a></span>\[M_p = \frac{\mu^2}{h^3}t\]</div>
+<p>Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-parabola">(214)</a> is known as <strong>Barker’s equation</strong> and gives us the time since periapsis in terms of the true anomaly. If, instead, we know the time since periapsis and want to solve for the true anomaly, we need to solve the cubic equation <span id="id1">[<a class="reference internal" href="../bibliography.html#id20" title="R. Meire. An Efficient Method for Solving Barker's Equation. Journal of the British Astronomical Association, 95:113, April 1985.">Mei85</a>]</span>:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-0">
+<span class="eqno">(216)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-0" title="Permalink to this equation">¶</a></span>\[0 = \frac{1}{2}\tan\frac{\nu}{2} + \frac{1}{6}\tan^3\frac{\nu}{2} - M_p\]</div>
 <p>which has one real root:</p>
-<div class="math notranslate nohighlight">
-\[\tan\frac{\theta}{2} = z - \frac{1}{z}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-1">
+<span class="eqno">(217)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-1" title="Permalink to this equation">¶</a></span>\[\tan\frac{\nu}{2} = z - \frac{1}{z}\]</div>
 <p>where:</p>
-<div class="math notranslate nohighlight">
-\[z = \sqrt[3]{3M_p + \sqrt{1 + \left(3 M_p\right)^2}}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-2">
+<span class="eqno">(218)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-2" title="Permalink to this equation">¶</a></span>\[z = \sqrt[3]{3M_p + \sqrt{1 + \left(3 M_p\right)^2}}\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -686,7 +683,7 @@
     <a class='right-next' id="next-link" href="hyperbolic-trajectories.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 3.6 - Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</p>
+        <p class="prev-next-title">Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
