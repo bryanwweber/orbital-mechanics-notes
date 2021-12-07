@@ -58,8 +58,8 @@
     <link rel="canonical" href="https://orbital-mechanics.space/time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Impulsive Maneuvers" href="../orbital-maneuvers/impulsive-maneuvers.html" />
-    <link rel="prev" title="Example: Universal Lagrange Coefficients" href="Universal-Lagrange-Coefficients-Example.html" />
+    <link rel="next" title="Orbit Independent Solution: The Universal Anomaly" href="universal-variables.html" />
+    <link rel="prev" title="Example: Hyperbolic Trajectory" href="hyperbolic-trajectory-example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -342,24 +342,24 @@
    Example: Hyperbolic Trajectory
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="universal-variables.html">
-   Chapter 3.7 - Universal Variables
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Universal-Variables-Example.html">
+  <a class="reference internal" href="universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -636,11 +636,6 @@
    Coefficients in Terms of the True Anomaly
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#relating-true-anamoly-to-time">
-   Relating True Anamoly to Time
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -659,67 +654,54 @@
 <p>Although, we can compute <span class="math notranslate nohighlight">\(e\)</span> from the initial position and velocity.</p>
 </div>
 <p>The Lagrange coefficients are a set of 4 scalar functions that allow us to determine the orbit given only the initial position and velocity. We do not need to know the shape of the orbit beforehand, because we will see that the Lagrange coefficients do not depend on the eccentricity.</p>
-<p>The position and velocity vectors at any time are linear combinations of the Lagrange coefficients and the initial conditions. This useful property allows us to introduce the variable to time back into our equations, which we previously replaced with <span class="math notranslate nohighlight">\(\theta\)</span>, the true anomaly. We will do this in Chapter 3.</p>
+<p>The position and velocity vectors at any time are linear combinations of the Lagrange coefficients and the initial conditions. This useful property allows us to introduce the time variable into our equations.</p>
 <div class="section" id="position-velocity-and-angular-momentum">
 <h2>Position, Velocity, and Angular Momentum<a class="headerlink" href="#position-velocity-and-angular-momentum" title="Permalink to this headline">¶</a></h2>
 <p>We start by defining the initial conditions, subscripted with a <span class="math notranslate nohighlight">\(0\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-initial-conditions">
-<span class="eqno">(233)<a class="headerlink" href="#equation-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= \pf{x}_0\uvec{p} + \pf{y}_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{\pf{x}}_0\uvec{p} + \dot{\pf{y}}_0\uvec{q}\end{aligned}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-lagrange-coefficients-initial-conditions">
+<span class="eqno">(232)<a class="headerlink" href="#equation-eq-lagrange-coefficients-initial-conditions" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\vector{r}_0 &amp;= x_0\uvec{p} + y_0\uvec{q} &amp; \vector{v}_0 &amp;= \dot{x}_0\uvec{p} + \dot{y}_0\uvec{q}\end{aligned}\]</div>
 <p>Then the angular momentum is found by taking the cross product:</p>
-<div class="math notranslate nohighlight">
-\[\vector{h} = \vector{r}_0 \cross\vector{v}_0 = \uvec{w}\left(\pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-0">
+<span class="eqno">(233)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-0" title="Permalink to this equation">¶</a></span>\[\vector{h} = \vector{r}_0 \cross\vector{v}_0 = \uvec{w}\left(x_0\dot{y}_0 - y_0\dot{x}_0\right)\]</div>
 <p>From the definition of the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> unit vector, we can see that the magnitude of the angular momentum must be:</p>
-<div class="math notranslate nohighlight">
-\[h = \pf{x}_0\dot{\pf{y}}_0 - \pf{y}_0\dot{\pf{x}}_0\]</div>
-<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-initial-conditions">(233)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}\uvec{p} &amp;= \frac{\dot{\pf{y}}_0}{h}\vector{r}_0 - \frac{\pf{y}_0}{h}\vector{v}_0 &amp; \uvec{q} &amp;= -\frac{\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{\pf{x}_0}{h}\vector{v}_0\end{aligned}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-1">
+<span class="eqno">(234)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-1" title="Permalink to this equation">¶</a></span>\[h = x_0\dot{y}_0 - y_0\dot{x}_0\]</div>
+<p>Now we want to write the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> in terms of the initial conditions. Equation <a class="reference internal" href="#equation-eq-lagrange-coefficients-initial-conditions">(232)</a> contains two equations, and <span class="math notranslate nohighlight">\(\uvec{p}\)</span> and <span class="math notranslate nohighlight">\(\uvec{q}\)</span> are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-2">
+<span class="eqno">(235)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-2" title="Permalink to this equation">¶</a></span>\[\begin{aligned}\uvec{p} &amp;= \frac{\dot{y}_0}{h}\vector{r}_0 - \frac{y_0}{h}\vector{v}_0 &amp; \uvec{q} &amp;= -\frac{\dot{x}_0}{h}\vector{r}_0 + \frac{x_0}{h}\vector{v}_0\end{aligned}\]</div>
 <p>Putting these two unit vectors back into the equations for the general position and velocity, and simplifying, we find:</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><strong>Note:</strong> The velocity equation in the book has a typo, it is missing the dot on the <span class="math notranslate nohighlight">\(\pf{x}_0\)</span> in the position term.</p>
-</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}\vector{r} &amp;= \frac{\pf{x}\dot{\pf{y}}_0 - \pf{y}\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{-\pf{x}\pf{y}_0 + \pf{y}\pf{x}_0}{h}\vector{v}_0 \\ \vector{v} &amp;= \frac{\dot{\pf{x}}\dot{\pf{y}}_0 - \dot{\pf{y}}\dot{\pf{x}}_0}{h}\vector{r}_0 + \frac{-\dot{\pf{x}}\pf{y}_0 + \dot{\pf{y}}\pf{x}_0}{h}\vector{v}_0\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-3">
+<span class="eqno">(236)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-3" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\vector{r} &amp;= \frac{x\dot{y}_0 - y\dot{x}_0}{h}\vector{r}_0 + \frac{-xy_0 + yx_0}{h}\vector{v}_0 \\ \vector{v} &amp;= \frac{\dot{x}\dot{y}_0 - \dot{y}\dot{x}_0}{h}\vector{r}_0 + \frac{-\dot{x}y_0 + \dot{y}x_0}{h}\vector{v}_0\end{aligned}\end{split}\]</div>
 <p>By inspecting these two equations, we can see that they are composed of a linear combination of <span class="math notranslate nohighlight">\(\vector{r}_0\)</span> and <span class="math notranslate nohighlight">\(\vector{v}_0\)</span>. In addition, the coefficients in front of the initial position and velocity are related. These are called the <strong>Lagrange coefficients</strong>, and given the symbols <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, <span class="math notranslate nohighlight">\(\dot{f}\)</span>, and <span class="math notranslate nohighlight">\(\dot{g}\)</span>:</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><strong>Note:</strong> The equation for <span class="math notranslate nohighlight">\(\dot{f}\)</span> in the book is correct, although as mentioned before, its form in the equation for velocity is not.</p>
-</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}f &amp;= \frac{\pf{x}\dot{\pf{y}}_0 - \pf{y}\dot{\pf{x}}_0}{h} &amp; g &amp;= \frac{-\pf{x}\pf{y}_0 + \pf{y}\pf{x}_0}{h} \\ \dot{f} &amp;= \frac{\dot{\pf{x}}\dot{\pf{y}}_0 - \dot{\pf{y}}\dot{\pf{x}}_0}{h} &amp; \dot{g} &amp;= \frac{-\dot{\pf{x}}\pf{y}_0 + \dot{\pf{y}}\pf{x}_0}{h}\end{aligned}\end{split}\]</div>
-<p>Note that the time derivative coefficients, <span class="math notranslate nohighlight">\(\dot{f}\)</span> and <span class="math notranslate nohighlight">\(\dot{g}\)</span>, only take the time derivative of the time-varying components, that is, <span class="math notranslate nohighlight">\(\pf{x}\)</span> and <span class="math notranslate nohighlight">\(\pf{y}\)</span>. The initial conditions are constant, by definition.</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-4">
+<span class="eqno">(237)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-4" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}f &amp;= \frac{x\dot{y}_0 - y\dot{x}_0}{h} &amp; g &amp;= \frac{-xy_0 + yx_0}{h} \\ \dot{f} &amp;= \frac{\dot{x}\dot{y}_0 - \dot{y}\dot{x}_0}{h} &amp; \dot{g} &amp;= \frac{-\dot{x}y_0 + \dot{y}x_0}{h}\end{aligned}\end{split}\]</div>
+<p>Note that the time derivative coefficients, <span class="math notranslate nohighlight">\(\dot{f}\)</span> and <span class="math notranslate nohighlight">\(\dot{g}\)</span>, only take the time derivative of the time-varying components, that is, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The initial conditions are constant, by definition.</p>
 <p>From the conservation of angular momentum, we know that</p>
-<div class="math notranslate nohighlight">
-\[\vector{h}_0 = \vector{r}_0 \cross\vector{v}_0 = \vector{h}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-5">
+<span class="eqno">(238)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-5" title="Permalink to this equation">¶</a></span>\[\vector{h}_0 = \vector{r}_0 \cross\vector{v}_0 = \vector{h}\]</div>
 <p>since the angular momentum is constant. This imposes a condition on the relationship between the Lagrange coefficients:</p>
-<div class="math notranslate nohighlight">
-\[f\dot{g} - \dot{f}g = 1\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-6">
+<span class="eqno">(239)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-6" title="Permalink to this equation">¶</a></span>\[f\dot{g} - \dot{f}g = 1\]</div>
 <p>Thus, if any three of the Lagrange coefficients are known, the fourth can be determined from this constraint.</p>
 </div>
 <div class="section" id="coefficients-in-terms-of-the-true-anomaly">
 <h2>Coefficients in Terms of the True Anomaly<a class="headerlink" href="#coefficients-in-terms-of-the-true-anomaly" title="Permalink to this headline">¶</a></h2>
 <p>We can use a <em>lot</em> of algebra and trig to define the Lagrange coefficients in terms of the change of true anomaly:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}f &amp;= 1 - \frac{\mu r}{h^2}\left(1 - \cos\Delta\theta\right) &amp; g &amp;= \frac{rr_0}{h}\sin\Delta\theta \\ \dot{f} &amp;= \frac{\mu}{h}\frac{1 - \cos\Delta\theta}{\sin\Delta\theta}\left[\frac{\mu}{h^2}\left(1 - \cos\Delta\theta\right) - \frac{1}{r_0} - \frac{1}{r}\right] &amp; \dot{g} &amp;= 1 - \frac{\mu r_0}{h^2}\left(1 - \cos\Delta\theta\right)\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-7">
+<span class="eqno">(240)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}f &amp;= 1 - \frac{\mu r}{h^2}\left(1 - \cos\Delta\nu\right) &amp; g &amp;= \frac{rr_0}{h}\sin\Delta\nu \\ \dot{f} &amp;= \frac{\mu}{h}\frac{1 - \cos\Delta\nu}{\sin\Delta\nu}\left[\frac{\mu}{h^2}\left(1 - \cos\Delta\nu\right) - \frac{1}{r_0} - \frac{1}{r}\right] &amp; \dot{g} &amp;= 1 - \frac{\mu r_0}{h^2}\left(1 - \cos\Delta\nu\right)\end{aligned}\end{split}\]</div>
 <p>These equations allow us to determine the state vector, given the initial conditions <span class="math notranslate nohighlight">\(\vector{r}_0\)</span> and <span class="math notranslate nohighlight">\(\vector{v}_0\)</span>, and the desired change in true anomaly. Notice that we don’t require the type of orbit, since the eccentricity does not appear in any of these equations.</p>
-<p>One further equation that we need is the orbit equation in terms of the true anomaly:</p>
-<div class="math notranslate nohighlight">
-\[r = \frac{h^2}{\mu}\frac{1}{1 + \left(\frac{h^2}{\mu r_0} - 1\right) \cos\Delta\theta - \frac{h\left.v_r\right)_0}{\mu}\sin\Delta\theta}\]</div>
-<p>The disadvantage of these equations is that we cannot solve for periapsis and/or apoapsis distances, without first calculating the eccentricity and true anomaly of the initial point. Fortunately, these can be calculated as follows. First, obtain the specific angular momentum from:</p>
-<div class="math notranslate nohighlight">
-\[h = \mag{\vector{r}_0 \cross\vector{v}_0}\]</div>
+<p>One further equation that we need is the orbit equation in terms of the change of true anomaly:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-8">
+<span class="eqno">(241)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-8" title="Permalink to this equation">¶</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + \left(\frac{h^2}{\mu r_0} - 1\right) \cos\Delta\nu - \frac{hv_{r,0}}{\mu}\sin\Delta\nu}\]</div>
+<p>The disadvantage of these equations is that we cannot solve for periapsis or apoapsis distances, without first calculating the eccentricity and true anomaly of the initial point. Fortunately, these can be calculated as follows. First, obtain the specific angular momentum from:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-9">
+<span class="eqno">(242)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-9" title="Permalink to this equation">¶</a></span>\[h = \mag{\vector{r}_0 \cross\vector{v}_0}\]</div>
 <p>Then, project the initial velocity into the radial direction by taking the dot product of the initial velocity with a unit vector pointing in the direction of <span class="math notranslate nohighlight">\(\vector{r}_0\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\left.v_r\right)_0 = \vector{v}_0\cdot\frac{\vector{r}_0}{r_0}\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-10">
+<span class="eqno">(243)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-10" title="Permalink to this equation">¶</a></span>\[v_{r,0} = \vector{v}_0\cdot\frac{\vector{r}_0}{r_0}\]</div>
 <p>Then, we can solve for the eccentricity and initial true anomaly from the orbit equation and its derivative:</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}r &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\theta_0} &amp; \left.v_r\right)_0 = \frac{\mu}{h}\sin\theta_0\end{aligned}\]</div>
-</div>
-<div class="section" id="relating-true-anamoly-to-time">
-<h2>Relating True Anamoly to Time<a class="headerlink" href="#relating-true-anamoly-to-time" title="Permalink to this headline">¶</a></h2>
-<p>Ideally, we would be able to solve this problem as a function of time, instead of true anomaly. Time is a much more natural variable for humans to deal with. To do so, we need a relationship between <span class="math notranslate nohighlight">\(\Delta\theta\)</span> and <span class="math notranslate nohighlight">\(\Delta t\)</span>. This is a complex problem, and we will deal with it in the next chapter.</p>
-<p>We can find series solutions of the Lagrange coefficients, which allow us to do these calculations. Since the series solutions are only valid for times around <span class="math notranslate nohighlight">\(t_0\)</span>, we will just wait to deal with the problem completely in the next chapter. Details are in the book if you’re interested.</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-11">
+<span class="eqno">(244)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-the-lagrange-coefficients-11" title="Permalink to this equation">¶</a></span>\[\begin{aligned}r &amp;= \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu_0} &amp; v_{r,0} = \frac{\mu}{h}\sin\nu_0\end{aligned}\]</div>
 </div>
 </div>
 
@@ -748,17 +730,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="Universal-Lagrange-Coefficients-Example.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="hyperbolic-trajectory-example.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Example: Universal Lagrange Coefficients</p>
+            <p class="prev-next-title">Example: Hyperbolic Trajectory</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../orbital-maneuvers/impulsive-maneuvers.html" title="next page">
+    <a class='right-next' id="next-link" href="universal-variables.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Impulsive Maneuvers</p>
+        <p class="prev-next-title">Orbit Independent Solution: The Universal Anomaly</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

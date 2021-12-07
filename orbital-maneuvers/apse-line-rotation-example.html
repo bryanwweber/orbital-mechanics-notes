@@ -343,23 +343,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Chapter 3.7 - Universal Variables
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -669,25 +669,25 @@
 <p>In this case, the orbital elements of both orbits are specified, as well as the desired rotation of the apse line. The problem is to find the true anomaly at which the maneuver takes place on the initial orbit, as well as the required <span class="math notranslate nohighlight">\(\Delta v\)</span> to perform the maneuver.</p>
 <p>Let <span class="math notranslate nohighlight">\(\eta\)</span> be the rotation angle of the apse line. Then, in terms of the true anomalies on the initial and final orbits, we find that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-angle">
-<span class="eqno">(258)<a class="headerlink" href="#equation-eq-apse-line-rotation-angle" title="Permalink to this equation">¶</a></span>\[\eta = \nu_i - \nu_f\]</div>
+<span class="eqno">(304)<a class="headerlink" href="#equation-eq-apse-line-rotation-angle" title="Permalink to this equation">¶</a></span>\[\eta = \nu_i - \nu_f\]</div>
 <p>Since the initial and final orbits both have their elements specified, we can use the orbit equation, Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> applied at the intersection point to solve for <span class="math notranslate nohighlight">\(\nu_i\)</span> and <span class="math notranslate nohighlight">\(\nu_f\)</span>. We find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-orbit-equation">
-<span class="eqno">(259)<a class="headerlink" href="#equation-eq-apse-line-rotation-orbit-equation" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_f = p_i - p_f\]</div>
-<p>We can a trigonometric identity to further simplify Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-orbit-equation">(259)</a> to be in terms of <span class="math notranslate nohighlight">\(\nu_i\)</span> only:</p>
+<span class="eqno">(305)<a class="headerlink" href="#equation-eq-apse-line-rotation-orbit-equation" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_f = p_i - p_f\]</div>
+<p>We can a trigonometric identity to further simplify Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-orbit-equation">(305)</a> to be in terms of <span class="math notranslate nohighlight">\(\nu_i\)</span> only:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-in-nu-i">
-<span class="eqno">(260)<a class="headerlink" href="#equation-eq-apse-line-rotation-in-nu-i" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_i \cos\eta - e_f p_i \sin\nu_i \sin\eta = p_i - p_f\]</div>
-<p>In Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(260)</a>, <span class="math notranslate nohighlight">\(e_i\)</span>, <span class="math notranslate nohighlight">\(e_f\)</span>, <span class="math notranslate nohighlight">\(p_i\)</span>, <span class="math notranslate nohighlight">\(p_f\)</span>, and <span class="math notranslate nohighlight">\(\eta\)</span> are all known, so the equation can be solved for <span class="math notranslate nohighlight">\(\nu_i\)</span>. There are two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(260)</a>. Letting:</p>
+<span class="eqno">(306)<a class="headerlink" href="#equation-eq-apse-line-rotation-in-nu-i" title="Permalink to this equation">¶</a></span>\[e_i p_f \cos\nu_i - e_f p_i \cos\nu_i \cos\eta - e_f p_i \sin\nu_i \sin\eta = p_i - p_f\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(306)</a>, <span class="math notranslate nohighlight">\(e_i\)</span>, <span class="math notranslate nohighlight">\(e_f\)</span>, <span class="math notranslate nohighlight">\(p_i\)</span>, <span class="math notranslate nohighlight">\(p_f\)</span>, and <span class="math notranslate nohighlight">\(\eta\)</span> are all known, so the equation can be solved for <span class="math notranslate nohighlight">\(\nu_i\)</span>. There are two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(306)</a>. Letting:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-a-b-c">
-<span class="eqno">(261)<a class="headerlink" href="#equation-eq-apse-line-rotation-a-b-c" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(307)<a class="headerlink" href="#equation-eq-apse-line-rotation-a-b-c" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   a &amp;= e_i p_f - e_f p_i \cos\eta &amp; b &amp;= -e_f p_i \sin\eta &amp; c &amp;= p_i - p_f
 \end{aligned}\]</div>
-<p>the two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(260)</a> are given by:</p>
+<p>the two roots of Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-in-nu-i">(306)</a> are given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-nu-roots">
-<span class="eqno">(262)<a class="headerlink" href="#equation-eq-apse-line-rotation-nu-roots" title="Permalink to this equation">¶</a></span>\[\nu_i = \alpha \pm \cos^{-1}\left(\frac{c}{a}\cos\alpha\right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are given by Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-a-b-c">(261)</a> and <span class="math notranslate nohighlight">\(\alpha\)</span> is given by:</p>
+<span class="eqno">(308)<a class="headerlink" href="#equation-eq-apse-line-rotation-nu-roots" title="Permalink to this equation">¶</a></span>\[\nu_i = \alpha \pm \cos^{-1}\left(\frac{c}{a}\cos\alpha\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are given by Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-a-b-c">(307)</a> and <span class="math notranslate nohighlight">\(\alpha\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-apse-line-rotation-alpha">
-<span class="eqno">(263)<a class="headerlink" href="#equation-eq-apse-line-rotation-alpha" title="Permalink to this equation">¶</a></span>\[\alpha = \tan^{-1}\frac{b}{a}\]</div>
-<p>Subsequently, <span class="math notranslate nohighlight">\(\nu_f\)</span> can be found from Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-angle">(258)</a>.</p>
+<span class="eqno">(309)<a class="headerlink" href="#equation-eq-apse-line-rotation-alpha" title="Permalink to this equation">¶</a></span>\[\alpha = \tan^{-1}\frac{b}{a}\]</div>
+<p>Subsequently, <span class="math notranslate nohighlight">\(\nu_f\)</span> can be found from Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-angle">(304)</a>.</p>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>An Earth satellite is in an 8000 km by 16,000 km orbit. Calculate the <span class="math notranslate nohighlight">\(\Delta v\)</span> and the true anomaly <span class="math notranslate nohighlight">\(\nu_i\)</span> required to obtain a 7000 km by 21,000 km orbit whose apse line is rotated 25° counterclockwise.</p>
@@ -724,9 +724,9 @@
 </div>
 </div>
 </div>
-<p>The results are shown in <a class="reference internal" href="#tab-apse-line-rotation-nu-results"><span class="std std-numref">Table 4</span></a>. We chose the negative sign in Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-nu-roots">(262)</a> for convenience. Choosing the positive sign would give a different, although valid, result.</p>
+<p>The results are shown in <a class="reference internal" href="#tab-apse-line-rotation-nu-results"><span class="std std-numref">Table 5</span></a>. We chose the negative sign in Eq. <a class="reference internal" href="#equation-eq-apse-line-rotation-nu-roots">(308)</a> for convenience. Choosing the positive sign would give a different, although valid, result.</p>
 <table class="colwidths-auto table" id="tab-apse-line-rotation-nu-results">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-apse-line-rotation-nu-results" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-apse-line-rotation-nu-results" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p></p></th>
 <th class="text-align:left head"><p>Initial</p></th>
@@ -774,9 +774,9 @@
 </div>
 </div>
 </div>
-<p>The radius at the impulse point is <span class="math notranslate nohighlight">\(r =\)</span> <span class="pasted-text">20997.44</span> km, the <span class="math notranslate nohighlight">\(\Delta v=\)</span> <span class="pasted-text">0.80</span> km/s, and the thrust vector angle is <span class="math notranslate nohighlight">\(\gamma =\)</span> <span class="pasted-text">86.23</span>°. The velocity components and flight path angles are shown in <a class="reference internal" href="#tab-apse-line-rotation"><span class="std std-numref">Table 5</span></a>.</p>
+<p>The radius at the impulse point is <span class="math notranslate nohighlight">\(r =\)</span> <span class="pasted-text">20997.44</span> km, the <span class="math notranslate nohighlight">\(\Delta v=\)</span> <span class="pasted-text">0.80</span> km/s, and the thrust vector angle is <span class="math notranslate nohighlight">\(\gamma =\)</span> <span class="pasted-text">86.23</span>°. The velocity components and flight path angles are shown in <a class="reference internal" href="#tab-apse-line-rotation"><span class="std std-numref">Table 6</span></a>.</p>
 <table class="colwidths-auto table" id="tab-apse-line-rotation">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-apse-line-rotation" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-apse-line-rotation" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p></p></th>
 <th class="text-align:left head"><p>Initial</p></th>

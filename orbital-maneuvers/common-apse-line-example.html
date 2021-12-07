@@ -343,23 +343,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Chapter 3.7 - Universal Variables
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -652,7 +652,7 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="non-hohmann-transfers-common-apse-line-example">
 <h1>Non-Hohmann Transfers: Common Apse Line Example<a class="headerlink" href="#non-hohmann-transfers-common-apse-line-example" title="Permalink to this headline">¶</a></h1>
 <p>A satellite is in a 3,500 km by 14,500 km orbit around Earth. At 150° of true anomaly, the satellite conducts an impulsive maneuver for reentry at the apse line. Determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> and the angle relative to local horizontal that the thrust vector makes.</p>
-<p>Note that in this case there will only be a single impulse and we will assume that reentry occurs at the radius of Earth, 6378.1 km. The original and the transfer orbit have the same apse line and the same focus. We will use Eq. <a class="reference internal" href="non-hohmann-transfers.html#equation-eq-non-hohmann-delta-v-scalar">(254)</a> to determine <span class="math notranslate nohighlight">\(\Delta v\)</span> and Eq. <a class="reference internal" href="non-hohmann-transfers.html#equation-eq-non-hohmann-thrust-direction">(255)</a> to determine <span class="math notranslate nohighlight">\(\gamma\)</span>. These equations both require the velocity vector at 150° true anomaly on the original orbit and the transfer orbit.</p>
+<p>Note that in this case there will only be a single impulse and we will assume that reentry occurs at the radius of Earth, 6378.1 km. The original and the transfer orbit have the same apse line and the same focus. We will use Eq. <a class="reference internal" href="non-hohmann-transfers.html#equation-eq-non-hohmann-delta-v-scalar">(300)</a> to determine <span class="math notranslate nohighlight">\(\Delta v\)</span> and Eq. <a class="reference internal" href="non-hohmann-transfers.html#equation-eq-non-hohmann-thrust-direction">(301)</a> to determine <span class="math notranslate nohighlight">\(\gamma\)</span>. These equations both require the velocity vector at 150° true anomaly on the original orbit and the transfer orbit.</p>
 <p>First we will find the orbital elements for the original orbit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,7 +672,7 @@
 </div>
 </div>
 <p>The semimajor axis is <span class="math notranslate nohighlight">\(a_i =\)</span> <span class="pasted-text">15378.10</span> km and the eccentricity is <span class="math notranslate nohighlight">\(e_i =\)</span> <span class="pasted-text">0.3577</span>. Next, we need to calculate <span class="math notranslate nohighlight">\(r_A\)</span> and <span class="math notranslate nohighlight">\(r_B\)</span> to determine the orbital parameters for the transfer orbit.</p>
-<p>There is no target orbit; rather, the target is a point on the apse line at the radius of Earth. Thus, <span class="math notranslate nohighlight">\(r_B =\)</span> 6378.1 km and <span class="math notranslate nohighlight">\(\nu_B =\)</span> 0°. <span class="math notranslate nohighlight">\(r_A\)</span> is found from the orbit equation on the initial orbit. Then, Eq. <a class="reference internal" href="non-hohmann-transfers.html#equation-eq-non-hohmann-orbital-elements">(252)</a> is used to find the orbital elements.</p>
+<p>There is no target orbit; rather, the target is a point on the apse line at the radius of Earth. Thus, <span class="math notranslate nohighlight">\(r_B =\)</span> 6378.1 km and <span class="math notranslate nohighlight">\(\nu_B =\)</span> 0°. <span class="math notranslate nohighlight">\(r_A\)</span> is found from the orbit equation on the initial orbit. Then, Eq. <a class="reference internal" href="non-hohmann-transfers.html#equation-eq-non-hohmann-orbital-elements">(298)</a> is used to find the orbital elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_A</span> <span class="o">=</span> <span class="n">p_i</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e_i</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu_A</span><span class="p">))</span>
@@ -707,9 +707,9 @@
 </div>
 </div>
 </div>
-<p>The velocities and flight path angles are shown in <a class="reference internal" href="#tab-common-apse-line"><span class="std std-numref">Table 3</span></a>.</p>
+<p>The velocities and flight path angles are shown in <a class="reference internal" href="#tab-common-apse-line"><span class="std std-numref">Table 4</span></a>.</p>
 <table class="colwidths-auto table" id="tab-common-apse-line">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-common-apse-line" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Velocity components and flight path angles on the original and transfer orbits</span><a class="headerlink" href="#tab-common-apse-line" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p></p></th>
 <th class="text-align:left head"><p>Initial</p></th>

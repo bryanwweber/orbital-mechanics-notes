@@ -1,0 +1,945 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example: Universal Variables &#8212; Orbital Mechanics &amp; Astrodynamics</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://orbital-mechanics.space/time-since-periapsis-and-keplers-equation/universal-variables-example.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example: Universal Lagrange Coefficients" href="universal-lagrange-coefficients-example.html" />
+    <link rel="prev" title="Orbit Independent Solution: The Universal Anomaly" href="universal-variables.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/hohmann.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Orbital Mechanics &amp; Astrodynamics
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/reference-frames.html">
+   Reference Frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
+   Mass, Force, and Newton’s Law of Gravitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
+   Force, Acceleration, and Momentum
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The N-Body Problem
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
+   Two-Body Equations of Motion in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
+   Two-Body Numerical Solution in an Inertial Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
+   Motion of the Barycenter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
+   Relative Motion in the Two-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
+   Two-Body Problem in the Co-Moving Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">
+   Circular Restricted Three-Body Problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/lagrange-points.html">
+   Application of the CR3BP: Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
+   Example: Plotting Lagrange Points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
+   The Jacobi Constant
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">
+   Example: CR3BP Equations of Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
+   Many-Body Problems
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Constants of Orbital Motion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
+   Energy Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
+   Angular Momentum Is Conserved In Orbital Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
+   Orbital Plane and Kepler’s Second Law
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The Orbit Equation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
+   The Orbit Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
+   Orbital Nomenclature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/circular-orbits.html">
+   Circular Orbits (
+   <span class="math notranslate nohighlight">
+    \(e = 0\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">
+   Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(0 &lt; e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">
+   Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">
+   Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The Classical Orbital Elements
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">
+   Perifocal Frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">
+   Right Ascension and Declination Coordinates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">
+   Classical Orbital Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
+   Classical Orbital Elements and the State Vector
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time Since Periapsis &amp; Kepler's Equation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="time-since-periapsis.html">
+   Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elliptical-orbits.html">
+   Circular and Elliptical Orbits (
+   <span class="math notranslate nohighlight">
+    \(e &lt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elliptical-orbit-example.html">
+   Example: Elliptical Orbit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elliptical-orbit-time-in-shadow.html">
+   Example: Time in Earth’s Shadow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parabolic-trajectories.html">
+   Parabolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e = 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hyperbolic-trajectories.html">
+   Hyperbolic Trajectories (
+   <span class="math notranslate nohighlight">
+    \(e &gt; 1\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hyperbolic-trajectory-example.html">
+   Example: Hyperbolic Trajectory
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="the-lagrange-coefficients.html">
+   The Lagrange Coefficients
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Example: Universal Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="universal-lagrange-coefficients-example.html">
+   Example: Universal Lagrange Coefficients
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Orbital Maneuvers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">
+   Impulsive Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/single-impulse-example.html">
+   Single Impulse Orbital Change
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html">
+   Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer-example.html">
+   Example: Hohmann Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/bielliptic-hohmann-transfer.html">
+   Bi-elliptic Hohmann transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/comparison-of-bielliptic-and-hohmann.html">
+   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/phasing-maneuvers.html">
+   Phasing Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html">
+   Non-Hohmann Transfers with a Common Apse Line
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/common-apse-line-example.html">
+   Non-Hohmann Transfers: Common Apse Line Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/apse-line-rotation-example.html">
+   Non-Hohmann Transfers: Apse Line Rotation Example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-maneuvers.html">
+   Plane Change Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/plane-change-example.html">
+   Example: Plane Change Maneuver
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Interplanetary Trajectories
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/introduction.html">
+   Interplanetary Trajectories and Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/heliocentric-trajectories.html">
+   Heliocentric Trajectories
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/interplanetary-transfer-phasing.html">
+   Interplanetary Transfer Phasing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/sphere-of-influence.html">
+   Sphere of Influence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-departure-trajectory.html">
+   Planetary Departure for Interplanetary Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-capture.html">
+   Planetary Arrival: Capture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-flyby.html">
+   Planetary Arrival: Flyby
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Review of Vectors, Kinematics, and Newtonian Mechanics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/kinematics.html">
+   Kinematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
+   Time Derivatives of Moving Vectors
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/celestial-sphere.html">
+   Celestial Sphere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/relative-motion.html">
+   Relative Motion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-parameters.html">
+   Planetary Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/julian-date.html">
+   Julian Day
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/planetary-ephemeris.html">
+   Planetary Ephemeris
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
+   Gravity and Spherical Symmetry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bibliography
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/time-since-periapsis-and-keplers-equation/universal-variables-example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/time-since-periapsis-and-keplers-equation/universal-variables-example.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Ftime-since-periapsis-and-keplers-equation/universal-variables-example.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/time-since-periapsis-and-keplers-equation/universal-variables-example.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/time-since-periapsis-and-keplers-equation/universal-variables-example.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="example-universal-variables">
+<h1>Example: Universal Variables<a class="headerlink" href="#example-universal-variables" title="Permalink to this headline">¶</a></h1>
+<p>An Earth-centered trajectory has initial velocity of 10 km/s, initial radius of 10,000 km, and initial true anomaly of 30°. Determine the true anomaly 1 hr later, using the universal anomaly.</p>
+<div class="section" id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p>The general solution procedure is as follows.</p>
+<ol class="simple">
+<li><p>Determine the type of orbit</p></li>
+<li><p>Determine which eccentric anomaly is appropriate, depending on the type of orbit</p></li>
+<li><p>Determine the value of <span class="math notranslate nohighlight">\(\chi\)</span> at the later time</p></li>
+<li><p>Determine the value of the eccentric anomaly from <span class="math notranslate nohighlight">\(\chi\)</span></p></li>
+<li><p>Determine <span class="math notranslate nohighlight">\(\nu\)</span> from the eccentric anomaly</p></li>
+</ol>
+<p>To start, we need to identify the type of orbit. In the universal formulation, we know that if the semimajor axis is positive, the orbit is elliptical; if the semimajor axis is negative, the orbit is a hyperbola. We can find the semimajor axis from the energy equation:</p>
+<div class="math notranslate nohighlight">
+\[a = \left(\frac{2}{r_0} - \frac{v_0^2}{\mu}\right)^{-1}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">theta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">r_0</span> <span class="o">=</span> <span class="mi">10_000</span>  <span class="c1"># km</span>
+<span class="n">v_0</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># km/s</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">3.986004418E5</span>  <span class="c1"># km**3/s**2</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">r_0</span> <span class="o">-</span> <span class="n">v_0</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">mu</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-19654.94 km
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the semimajor axis is negative, we know the orbit is a hyperbola. Therefore, we can solve for the eccentricity using the orbit equation for a hyperbola, in terms of the semimajor axis:</p>
+<div class="math notranslate nohighlight">
+\[r_0 = a\frac{e^2 - 1}{1 + e\cos\nu_0}\]</div>
+<p>Solving this equation for <span class="math notranslate nohighlight">\(e\)</span>, we find:</p>
+<div class="math notranslate nohighlight">
+\[0 = e^2 - \frac{r_0}{a}\cos\nu_0 e - \left(a + r_0\right)\]</div>
+<p>This equation is quadratic in <span class="math notranslate nohighlight">\(e\)</span>, so we can use the quadratic formula to solve it. Notice that the signs of the second and third term are negative. In addition, we need to take the absolute value of the semimajor axis, because the orbit formula was developed assuming that <span class="math notranslate nohighlight">\(a\)</span> was positive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="o">-</span><span class="n">r_0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_0</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r_0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))))</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.468
+</pre></div>
+</div>
+</div>
+</div>
+<p>As expected, the eccentricity is larger than 1 for a hyperbola.</p>
+<p>Next, to find the universal anomaly at <span class="math notranslate nohighlight">\(t_0\)</span> + 1 hr, we need the initial radial velocity. From Ch. 2, we know that:</p>
+<div class="math notranslate nohighlight">
+\[v_r = \frac{\mu}{h} e \sin\nu\]</div>
+<p>The only unknown in this equation is <span class="math notranslate nohighlight">\(h\)</span>, since we are interested in the initial radial velocity, that is, when <span class="math notranslate nohighlight">\(\nu = \nu_0\)</span>. For a hyperbola, we can find the orbital angular momentum from the hyperbolic excess velocity:</p>
+<div class="math notranslate nohighlight">
+\[h = \frac{\mu}{v_{\infty}} \sqrt{e^2 - 1}\]</div>
+<p>and the hyperbolic excess velocity in terms of the semimajor axis:</p>
+<div class="math notranslate nohighlight">
+\[v_{\infty} = \sqrt{\frac{\mu}{a}}\]</div>
+<p>Note again that this formula was derived under the assumption that <span class="math notranslate nohighlight">\(a\)</span> is positive, so we need to take the absolute value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_infty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">v_infty</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">v_r0</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">h</span> <span class="o">*</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">v_r0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;km/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.075 km/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have enough information to find the universal anomaly from Kepler’s equation:</p>
+<div class="math notranslate nohighlight">
+\[f(\chi) = 0 = \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 C(z) + \left(1 - \alpha r_0\right) \chi^3 S(z)+ r_0 \chi - \sqrt{\mu}\Delta t\]</div>
+<p>where <span class="math notranslate nohighlight">\(z = \alpha\chi^2\)</span>. The derivative of this function is:</p>
+<div class="math notranslate nohighlight">
+\[f'(\chi) = \frac{r_0v_{r,0}}{\sqrt{\mu}} \chi\left(1 - z S(z)\right) + \left(1 - \alpha r_0\right) \chi^2 C(z) + r_0\]</div>
+<p>The Stumpff functions <span class="math notranslate nohighlight">\(C(z) = c_0(z)\)</span> and <span class="math notranslate nohighlight">\(S(z) = c_1(z)\)</span> are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}C(z) = \begin{cases}\displaystyle \frac{1 - \cos\sqrt{z}}{z} &amp; \left(z &gt; 0\right)\\ \displaystyle\frac{\cosh\sqrt{-z} - 1}{-z} &amp; \left(z &lt; 0\right) \\ \displaystyle\frac{1}{2} &amp; \left(z = 0\right)\end{cases}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}S(z) =\begin{cases}\displaystyle \frac{\sqrt{z} - \sin\sqrt{z}}{\left(\sqrt{z}\right)^3} &amp; \left(z &gt; 0\right)\\ \displaystyle \frac{\sinh\sqrt{-z} - \sqrt{-z}}{\left(\sqrt{-z}\right)^3} &amp; \left(z &lt; 0\right) \\ \displaystyle \frac{1}{6} &amp; \left(z = 0\right)\end{cases}\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Solve the Stumpff function C(z) = c0(z). The input z should be</span>
+<span class="sd">    a scalar value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span> <span class="o">/</span> <span class="n">z</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Solve the Stumpff function S(z) = c1(z). The input z should be</span>
+<span class="sd">    a scalar value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">elif</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+
+<span class="k">def</span> <span class="nf">universal_kepler</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span> <span class="n">r_0</span><span class="p">,</span> <span class="n">v_r0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Solve the universal Kepler equation in terms of the universal anomaly chi.</span>
+<span class="sd">    </span>
+<span class="sd">    This function is intended to be used with an iterative solution algorithm,</span>
+<span class="sd">    such as Newton&#39;s algorithm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">first_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">v_r0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">third_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">chi</span>
+    <span class="n">fourth_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta_t</span>
+    <span class="k">return</span> <span class="n">first_term</span> <span class="o">+</span> <span class="n">second_term</span> <span class="o">+</span> <span class="n">third_term</span> <span class="o">-</span> <span class="n">fourth_term</span>
+
+<span class="k">def</span> <span class="nf">d_universal_d_chi</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span> <span class="n">r_0</span><span class="p">,</span> <span class="n">v_r0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The derivative of the universal Kepler equation in terms of the universal anomaly.&quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">first_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">v_r0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">third_term</span> <span class="o">=</span> <span class="n">r_0</span>
+    <span class="k">return</span> <span class="n">first_term</span> <span class="o">+</span> <span class="n">second_term</span> <span class="o">+</span> <span class="n">third_term</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we need to define the rest of the values for this function. By definition,</p>
+<div class="math notranslate nohighlight">
+\[\alpha = \frac{1}{a}\]</div>
+<p>and the initial guess for <span class="math notranslate nohighlight">\(\chi\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\chi_{i=0} = \sqrt{\mu} \left\lvert\alpha\right\rvert \Delta t\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_t</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">3600</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">a</span>
+<span class="n">chi_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta_t</span>
+<span class="n">chi</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span>
+    <span class="n">func</span><span class="o">=</span><span class="n">universal_kepler</span><span class="p">,</span>
+    <span class="n">fprime</span><span class="o">=</span><span class="n">d_universal_d_chi</span><span class="p">,</span>
+    <span class="n">x0</span><span class="o">=</span><span class="n">chi_0</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">r_0</span><span class="p">,</span> <span class="n">v_r0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>128.511
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <span class="math notranslate nohighlight">\(\chi\)</span> determined, we need to relate it back to the eccentric anomaly to determine the true anomaly. The appropriate eccentric anomaly is <span class="math notranslate nohighlight">\(F\)</span>, for hyperbolic trajectories. The relationship between <span class="math notranslate nohighlight">\(\chi\)</span> and <span class="math notranslate nohighlight">\(F\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\chi = \sqrt{-a} \left(F - F_0\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(F_0\)</span> is the eccentric anomaly determined at the initial true anomaly:</p>
+<div class="math notranslate nohighlight">
+\[F_0 = 2 \tanh^{-1}\left(\sqrt{\frac{e - 1}{e + 1}}\tan\frac{\nu_0}{2}\right)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_0</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">e</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta_0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">F_0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.234
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, we can solve for <span class="math notranslate nohighlight">\(F\)</span> and relate that back to <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[F = \frac{\chi}{\sqrt{-a}} + F_0\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\nu = 2 \tan^{-1} \left(\sqrt{\frac{e + 1}{e - 1}}\tanh\frac{F}{2}\right)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">chi</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">F_0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">F</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span><span class="si">:</span><span class="s2">.3F</span><span class="si">}</span><span class="s2">°&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.151
+1.746 100.040°
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./time-since-periapsis-and-keplers-equation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="universal-variables.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Orbit Independent Solution: The Universal Anomaly</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="universal-lagrange-coefficients-example.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example: Universal Lagrange Coefficients</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Bryan Weber<br/>
+        
+          <div class="extra_footer">
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

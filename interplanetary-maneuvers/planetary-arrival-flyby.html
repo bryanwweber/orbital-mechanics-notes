@@ -343,23 +343,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Chapter 3.7 - Universal Variables
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -711,14 +711,14 @@
 <h2>Arrival Trajectory<a class="headerlink" href="#arrival-trajectory" title="Permalink to this headline">¶</a></h2>
 <p>When the spacecraft arrives at the target planet, it’s trajectory will be a hyperbola relative to the planet. When crossing the sphere of influence of the planet, the spacecraft can be in one of two orientations:</p>
 <ol>
-<li><p>crossing in front of the planet, as shown in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 84</span></a>, called a <strong>leading-side flyby</strong>.</p>
+<li><p>crossing in front of the planet, as shown in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 85</span></a>, called a <strong>leading-side flyby</strong>.</p>
 <div class="figure align-default" id="fig-interplanetary-leading-flyby">
-<img alt="../_images/interplanetary-leading-flyby.svg" src="../_images/interplanetary-leading-flyby.svg" /><p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">A leading-side planetary flyby. Notice that the spacecraft crosses in front of the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-leading-flyby" title="Permalink to this image">¶</a></p>
+<img alt="../_images/interplanetary-leading-flyby.svg" src="../_images/interplanetary-leading-flyby.svg" /><p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">A leading-side planetary flyby. Notice that the spacecraft crosses in front of the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-leading-flyby" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p>crossing behind the planet, as shown in <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 85</span></a>, called a <strong>trailing-side flyby</strong></p>
+<li><p>crossing behind the planet, as shown in <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 86</span></a>, called a <strong>trailing-side flyby</strong></p>
 <div class="figure align-default" id="fig-interplanetary-trailing-flyby">
-<img alt="../_images/interplanetary-trailing-flyby.svg" src="../_images/interplanetary-trailing-flyby.svg" /><p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">A trailing-side planetary flyby. Notice that the spacecraft crosses behind the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-trailing-flyby" title="Permalink to this image">¶</a></p>
+<img alt="../_images/interplanetary-trailing-flyby.svg" src="../_images/interplanetary-trailing-flyby.svg" /><p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">A trailing-side planetary flyby. Notice that the spacecraft crosses behind the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-trailing-flyby" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ol>
@@ -727,11 +727,11 @@
 <h3>Arrival Heliocentric Velocity<a class="headerlink" href="#arrival-heliocentric-velocity" title="Permalink to this headline">¶</a></h3>
 <p>To determine the spacecraft’s hyperbolic orbital elements, we need to find <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1}\)</span>, the excess velocity vector at arrival. The excess velocity vector can be found by taking the vector difference of the planet and spacecraft heliocentric velocity vectors:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-arrival-excess-velocity-vector">
-<span class="eqno">(324)<a class="headerlink" href="#equation-eq-interplanetary-flyby-arrival-excess-velocity-vector" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\infty,1} = \vector{V}_1^s - \vector{V}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\vector{V}\)</span> is the orbital velocity of the planet and <span class="math notranslate nohighlight">\(\vector{V}_1^s\)</span> is the spacecraft’s heliocentric velocity vector. This vector sum is shown visually in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 84</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 85</span></a> in the inset figure.</p>
+<span class="eqno">(370)<a class="headerlink" href="#equation-eq-interplanetary-flyby-arrival-excess-velocity-vector" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\infty,1} = \vector{V}_1^s - \vector{V}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vector{V}\)</span> is the orbital velocity of the planet and <span class="math notranslate nohighlight">\(\vector{V}_1^s\)</span> is the spacecraft’s heliocentric velocity vector. This vector sum is shown visually in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 85</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 86</span></a> in the inset figure.</p>
 <p>In the heliocentric frame, the spacecraft’s velocity can be split into two components:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-arrival-heliocentric-components">
-<span class="eqno">(325)<a class="headerlink" href="#equation-eq-interplanetary-flyby-arrival-heliocentric-components" title="Permalink to this equation">¶</a></span>\[\vector{V}_1^s = V_{1,r}^s \uvec{u}_r + V_{1,\perp}^s \uvec{u}_{\perp} = \frac{\mu_{\text{sun}}}{h_1} e_1 \sin\nu_1 \uvec{u}_r + \frac{\mu_{\text{sun}}}{h_1}\left(1 + e_1 \cos\nu_1\right) \uvec{u}_{\perp}\]</div>
+<span class="eqno">(371)<a class="headerlink" href="#equation-eq-interplanetary-flyby-arrival-heliocentric-components" title="Permalink to this equation">¶</a></span>\[\vector{V}_1^s = V_{1,r}^s \uvec{u}_r + V_{1,\perp}^s \uvec{u}_{\perp} = \frac{\mu_{\text{sun}}}{h_1} e_1 \sin\nu_1 \uvec{u}_r + \frac{\mu_{\text{sun}}}{h_1}\left(1 + e_1 \cos\nu_1\right) \uvec{u}_{\perp}\]</div>
 <p>where <span class="math notranslate nohighlight">\(e_1\)</span>, <span class="math notranslate nohighlight">\(h_1\)</span>, and <span class="math notranslate nohighlight">\(\nu_1\)</span> are the eccentricity, angular momentum, and true anomaly, respectively, of the heliocentric transfer orbit.</p>
 </div>
 <div class="section" id="geocentric-unit-vectors">
@@ -739,29 +739,29 @@
 <p>To simplify the calculation of <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span>, we would like to work with unit vectors attached to the planet, rather than the sun. The <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span>-<span class="math notranslate nohighlight">\(\uvec{u}_{\perp}\)</span> coordinate system, which is attached to the heliocentric orbit, can be converted into a geocentric system with the unit vectors <span class="math notranslate nohighlight">\(\uvec{u}_{V}\)</span> and <span class="math notranslate nohighlight">\(\uvec{u}_{S}\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\uvec{u}_V\)</span> points along the planet’s orbital velocity vector. Since we assumed that the planet’s orbit is circular, the planet’s orbital velocity vector is always perpendicular to it’s radial vector. In other words:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-uvec-perp">
-<span class="eqno">(326)<a class="headerlink" href="#equation-eq-interplanetary-flyby-uvec-perp" title="Permalink to this equation">¶</a></span>\[\uvec{u}_V = \uvec{u}_{\perp}\]</div>
+<span class="eqno">(372)<a class="headerlink" href="#equation-eq-interplanetary-flyby-uvec-perp" title="Permalink to this equation">¶</a></span>\[\uvec{u}_V = \uvec{u}_{\perp}\]</div>
 <p>The other geocentric unit vector corresponds to the radial direction, but is oriented in the opposite way. Thus:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-uvec-r">
-<span class="eqno">(327)<a class="headerlink" href="#equation-eq-interplanetary-flyby-uvec-r" title="Permalink to this equation">¶</a></span>\[\uvec{u}_S = -\uvec{u}_{r}\]</div>
+<span class="eqno">(373)<a class="headerlink" href="#equation-eq-interplanetary-flyby-uvec-r" title="Permalink to this equation">¶</a></span>\[\uvec{u}_S = -\uvec{u}_{r}\]</div>
 <p>Thus, in the geocentric coordinate system, the planet’s orbital velocity is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-planet-velocity">
-<span class="eqno">(328)<a class="headerlink" href="#equation-eq-interplanetary-flyby-planet-velocity" title="Permalink to this equation">¶</a></span>\[\vector{V} = V \uvec{u}_V = \sqrt{\frac{\mu_{\text{sun}}}{R}} \uvec{u}_V\]</div>
+<span class="eqno">(374)<a class="headerlink" href="#equation-eq-interplanetary-flyby-planet-velocity" title="Permalink to this equation">¶</a></span>\[\vector{V} = V \uvec{u}_V = \sqrt{\frac{\mu_{\text{sun}}}{R}} \uvec{u}_V\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is the planet’s orbital radius around the Sun. Similarly, the spacecraft’s heliocentric velocity can be transformed to the geocentric coordinate system:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-0">
-<span class="eqno">(329)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-0" title="Permalink to this equation">¶</a></span>\[\vector{V}_1^s = V_1^s \cos\alpha_1 \uvec{u}_V + V_1^s \sin\alpha_1 \uvec{u}_S\]</div>
+<span class="eqno">(375)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-0" title="Permalink to this equation">¶</a></span>\[\vector{V}_1^s = V_1^s \cos\alpha_1 \uvec{u}_V + V_1^s \sin\alpha_1 \uvec{u}_S\]</div>
 <p>where <span class="math notranslate nohighlight">\(V_1^s\)</span> is the magnitude of the spacecraft’s heliocentric velocity and <span class="math notranslate nohighlight">\(\alpha_1\)</span> is the angle that <span class="math notranslate nohighlight">\(\vector{V}_1^s\)</span> makes with <span class="math notranslate nohighlight">\(\vector{V}\)</span>. Thus, <span class="math notranslate nohighlight">\(\alpha_1\)</span> is the flight path angle of the spacecraft, and its value is found from Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-flight-path-angle">(118)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-1">
-<span class="eqno">(330)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-1" title="Permalink to this equation">¶</a></span>\[\alpha_1 = \tan^{-1} \frac{V_{1,r}^s}{V_{1,\perp}^s} = \frac{e_1\sin\nu_1}{1 + e_1\cos\nu_1}\]</div>
+<span class="eqno">(376)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-1" title="Permalink to this equation">¶</a></span>\[\alpha_1 = \tan^{-1} \frac{V_{1,r}^s}{V_{1,\perp}^s} = \frac{e_1\sin\nu_1}{1 + e_1\cos\nu_1}\]</div>
 </div>
 <div class="section" id="arrival-excess-velocity-vector">
 <h3>Arrival Excess Velocity Vector<a class="headerlink" href="#arrival-excess-velocity-vector" title="Permalink to this headline">¶</a></h3>
-<p>In <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 84</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 85</span></a>, we can break the excess velocity vector into the geocentric coordinate system:</p>
+<p>In <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 85</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 86</span></a>, we can break the excess velocity vector into the geocentric coordinate system:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-excess-velocity-geocentric">
-<span class="eqno">(331)<a class="headerlink" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\infty,1} = \left(V_1^s\cos\alpha_1 - V\right) \uvec{u}_V + V_1^s \sin\alpha_1 \uvec{u}_S\]</div>
+<span class="eqno">(377)<a class="headerlink" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\infty,1} = \left(V_1^s\cos\alpha_1 - V\right) \uvec{u}_V + V_1^s \sin\alpha_1 \uvec{u}_S\]</div>
 <p>Finally, we can compute the magnitude of the excess velocity:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-excess-velocity-magnitude">
-<span class="eqno">(332)<a class="headerlink" href="#equation-eq-interplanetary-flyby-excess-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v_{\infty} = \sqrt{\left(V_1^s\right)^2 + V^2 - 2 V_1^s V \cos\alpha_1}\]</div>
-<p>The magnitude <span class="math notranslate nohighlight">\(V_1^s\)</span> can be found from the velocity components in Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-arrival-heliocentric-components">(325)</a>, and <span class="math notranslate nohighlight">\(V\)</span> is given by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-planet-velocity">(328)</a>.</p>
+<span class="eqno">(378)<a class="headerlink" href="#equation-eq-interplanetary-flyby-excess-velocity-magnitude" title="Permalink to this equation">¶</a></span>\[v_{\infty} = \sqrt{\left(V_1^s\right)^2 + V^2 - 2 V_1^s V \cos\alpha_1}\]</div>
+<p>The magnitude <span class="math notranslate nohighlight">\(V_1^s\)</span> can be found from the velocity components in Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-arrival-heliocentric-components">(371)</a>, and <span class="math notranslate nohighlight">\(V\)</span> is given by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-planet-velocity">(374)</a>.</p>
 <p>The magnitude of the excess velocity depends only on the semimajor axis of the hyperbola. Since the semimajor axis is constant, the magnitude of the excess velocity is also constant. Thus, we drop the subscript for arrival and departure for the magntiude.</p>
 <p>Once we have the magnitude of the excess velocity, and when we specify a value for <span class="math notranslate nohighlight">\(r_p\)</span>, we can apply the techniques in the <a class="reference internal" href="planetary-arrival-capture.html"><span class="doc std std-doc">previous section</span></a> to compute the orbital elements of the hyperbola.</p>
 <div class="admonition note">
@@ -772,55 +772,55 @@
 </div>
 <div class="section" id="departure-trajectory">
 <h2>Departure Trajectory<a class="headerlink" href="#departure-trajectory" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1}\)</span> from Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric">(331)</a>, we are ready to calculate the departure trajectory. The <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span> vector is rotated through the turn angle <span class="math notranslate nohighlight">\(\delta\)</span>. We need a consistent reference line from which the angle of the <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span> vector can be measured.</p>
-<p>The easiest choice for a reference line is the planet’s heliocentric velocity vector. As shown in <a class="reference internal" href="#fig-interplanetary-flyby-phi-angle"><span class="std std-numref">Fig. 86</span></a>, we can define an angle <span class="math notranslate nohighlight">\(\phi\)</span> from the planet’s velocity vector <span class="math notranslate nohighlight">\(\vector{V}\)</span> to <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span>. <span class="math notranslate nohighlight">\(\phi_1\)</span> is defined for the angle at arrival and <span class="math notranslate nohighlight">\(\phi_2\)</span> is the angle at departure.</p>
+<p>Now that we have <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1}\)</span> from Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric">(377)</a>, we are ready to calculate the departure trajectory. The <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span> vector is rotated through the turn angle <span class="math notranslate nohighlight">\(\delta\)</span>. We need a consistent reference line from which the angle of the <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span> vector can be measured.</p>
+<p>The easiest choice for a reference line is the planet’s heliocentric velocity vector. As shown in <a class="reference internal" href="#fig-interplanetary-flyby-phi-angle"><span class="std std-numref">Fig. 87</span></a>, we can define an angle <span class="math notranslate nohighlight">\(\phi\)</span> from the planet’s velocity vector <span class="math notranslate nohighlight">\(\vector{V}\)</span> to <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span>. <span class="math notranslate nohighlight">\(\phi_1\)</span> is defined for the angle at arrival and <span class="math notranslate nohighlight">\(\phi_2\)</span> is the angle at departure.</p>
 <div class="figure align-default" id="fig-interplanetary-flyby-phi-angle">
 <a class="reference internal image-reference" href="../_images/interplanetary-flyby-phi-angle.svg"><img alt="../_images/interplanetary-flyby-phi-angle.svg" src="../_images/interplanetary-flyby-phi-angle.svg" width="75%" /></a>
-<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">The angles <span class="math notranslate nohighlight">\(\phi_1\)</span> and <span class="math notranslate nohighlight">\(\phi_2\)</span> are defined from the planet’s velocity vector to the excess velocity vector.</span><a class="headerlink" href="#fig-interplanetary-flyby-phi-angle" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">The angles <span class="math notranslate nohighlight">\(\phi_1\)</span> and <span class="math notranslate nohighlight">\(\phi_2\)</span> are defined from the planet’s velocity vector to the excess velocity vector.</span><a class="headerlink" href="#fig-interplanetary-flyby-phi-angle" title="Permalink to this image">¶</a></p>
 </div>
 <p>The relationship between the <span class="math notranslate nohighlight">\(\phi\)</span> angles is:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-2">
-<span class="eqno">(333)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-2" title="Permalink to this equation">¶</a></span>\[\phi_2 = \phi_1 + \delta\]</div>
+<span class="eqno">(379)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-2" title="Permalink to this equation">¶</a></span>\[\phi_2 = \phi_1 + \delta\]</div>
 <p>Note that the sign of <span class="math notranslate nohighlight">\(\delta\)</span> is important. For a leading-side flyby <span class="math notranslate nohighlight">\(\delta\)</span> is positive, while for a trailing-side flyby <span class="math notranslate nohighlight">\(\delta\)</span> is negative.</p>
-<p>In the geocentric coordinate system, the excess velocity vector has components given by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric">(331)</a>. From a right triangle, the angle <span class="math notranslate nohighlight">\(\phi_1\)</span> is found by:</p>
+<p>In the geocentric coordinate system, the excess velocity vector has components given by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric">(377)</a>. From a right triangle, the angle <span class="math notranslate nohighlight">\(\phi_1\)</span> is found by:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-3">
-<span class="eqno">(334)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-3" title="Permalink to this equation">¶</a></span>\[\tan\phi_1 = \frac{V_1^s\sin\alpha_1}{V_1^s\cos\alpha_1 - V}\]</div>
+<span class="eqno">(380)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-3" title="Permalink to this equation">¶</a></span>\[\tan\phi_1 = \frac{V_1^s\sin\alpha_1}{V_1^s\cos\alpha_1 - V}\]</div>
 <p>Since the magnitude of the excess velocity is constant, we can find the departure excess velocity vector using <span class="math notranslate nohighlight">\(\phi_2\)</span> and the magnitude:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-4">
-<span class="eqno">(335)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-4" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\infty,2} = v_{\infty}\cos\phi_2 \uvec{u}_V + v_{\infty} \sin\phi_2 \uvec{u}_S\]</div>
+<span class="eqno">(381)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-4" title="Permalink to this equation">¶</a></span>\[\vector{v}_{\infty,2} = v_{\infty}\cos\phi_2 \uvec{u}_V + v_{\infty} \sin\phi_2 \uvec{u}_S\]</div>
 <p>Then, finally, the heliocentric velocity vector at departure is found by the vector sum of <span class="math notranslate nohighlight">\(\vector{V}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}_{\infty,2}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-5">
-<span class="eqno">(336)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-5" title="Permalink to this equation">¶</a></span>\[\vector{V}_{2}^s = \vector{V} + \vector{v}_{\infty,2} = V + v_{\infty} \cos\phi_2\uvec{u}_V + v_{\infty}\sin\phi_2 \uvec{u}_S\]</div>
-<p>From Eqs. <a class="reference internal" href="#equation-eq-interplanetary-flyby-uvec-perp">(326)</a> and <a class="reference internal" href="#equation-eq-interplanetary-flyby-uvec-r">(327)</a>, we see that the perpendicular and radial components of the heliocentric velocity are:</p>
+<span class="eqno">(382)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-5" title="Permalink to this equation">¶</a></span>\[\vector{V}_{2}^s = \vector{V} + \vector{v}_{\infty,2} = V + v_{\infty} \cos\phi_2\uvec{u}_V + v_{\infty}\sin\phi_2 \uvec{u}_S\]</div>
+<p>From Eqs. <a class="reference internal" href="#equation-eq-interplanetary-flyby-uvec-perp">(372)</a> and <a class="reference internal" href="#equation-eq-interplanetary-flyby-uvec-r">(373)</a>, we see that the perpendicular and radial components of the heliocentric velocity are:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-6">
-<span class="eqno">(337)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-6" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(383)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-6" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
   V_{\perp,2}^s &amp;= V + v_{\infty} \cos\phi_2 &amp; V_{r,2}^s &amp;= -v_{\infty}\sin\phi_2
 \end{aligned}\]</div>
 <p>Using these two velocity components and the known radial distance of the planet from the sun, we can compute the orbital elements of the new heliocentric orbit. The orbital angular momentum is found by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-departure-ang-mom">
-<span class="eqno">(338)<a class="headerlink" href="#equation-eq-interplanetary-flyby-departure-ang-mom" title="Permalink to this equation">¶</a></span>\[h_2 = R V_{\perp,2}\]</div>
+<span class="eqno">(384)<a class="headerlink" href="#equation-eq-interplanetary-flyby-departure-ang-mom" title="Permalink to this equation">¶</a></span>\[h_2 = R V_{\perp,2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is the planet’s orbital radius. Using the orbit equation, Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> and Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-parallel-velocity-component">(115)</a>, we can solve for the eccentricity and true anomaly:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-departure-orbit-equation">
-<span class="eqno">(339)<a class="headerlink" href="#equation-eq-interplanetary-flyby-departure-orbit-equation" title="Permalink to this equation">¶</a></span>\[R = \frac{h_2^2}{\mu_{\text{sun}}} \frac{1}{1 + e_2 \cos\nu_2}\]</div>
+<span class="eqno">(385)<a class="headerlink" href="#equation-eq-interplanetary-flyby-departure-orbit-equation" title="Permalink to this equation">¶</a></span>\[R = \frac{h_2^2}{\mu_{\text{sun}}} \frac{1}{1 + e_2 \cos\nu_2}\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-departure-radial-velocity">
-<span class="eqno">(340)<a class="headerlink" href="#equation-eq-interplanetary-flyby-departure-radial-velocity" title="Permalink to this equation">¶</a></span>\[V_{r,2}^s = \frac{\mu_{\text{sun}}}{h_2}e_2\sin\nu_2\]</div>
+<span class="eqno">(386)<a class="headerlink" href="#equation-eq-interplanetary-flyby-departure-radial-velocity" title="Permalink to this equation">¶</a></span>\[V_{r,2}^s = \frac{\mu_{\text{sun}}}{h_2}e_2\sin\nu_2\]</div>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>A spacecraft will use a flyby manuever around Venus to change its heliocentric orbit. The spacecraft departs the orbit of Neptune on a velocity perpendicular to a line to the sun, and meets Venus at a true anomaly of 120° relative to the departure point. The periapsis altitude is 300 km. Calculate the spacecraft’s new heliocentric orbital elements after a leading-side flyby and a trailing-side flyby.</p>
 <p>First, we need to calculate the arrival heliocentric velocity vector. The spacecraft departs Neptune’s orbit at aphelion of the transfer orbit. We know the departure point is aphelion because the velocity vector is perpendicular to the radius vector. We can find the orbital elements of the transfer orbit by using the orbit equation, Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> at the departure and arrival points.</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-7">
-<span class="eqno">(341)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(387)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
   R_{\text{Neptune}} &amp;= \frac{h_1^2}{\mu_{\text{sun}}} \frac{1}{1 - e_1} &amp; \text{Departure} \\
   R_{\text{Venus}} &amp;= \frac{h_1^2}{\mu_{\text{sun}}} \frac{1}{1 - e_1\cos\nu_1} &amp; \text{Arrival}
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\nu\)</span> at Neptune departure is 180° and <span class="math notranslate nohighlight">\(\nu_1 =\)</span> -60° or 300°. This pair of equations can be simultaneously solved for <span class="math notranslate nohighlight">\(h_1\)</span> and <span class="math notranslate nohighlight">\(e_1\)</span> to give the parameters of the transfer orbit. Solving first for <span class="math notranslate nohighlight">\(e_1\)</span>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-8">
-<span class="eqno">(342)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-8" title="Permalink to this equation">¶</a></span>\[e_1 = \frac{R_{\text{Neptune}} - R_{\text{Venus}}}{R_{\text{Neptune}} + R_{\text{Venus}}\cos\nu_1}\]</div>
+<span class="eqno">(388)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-8" title="Permalink to this equation">¶</a></span>\[e_1 = \frac{R_{\text{Neptune}} - R_{\text{Venus}}}{R_{\text{Neptune}} + R_{\text{Venus}}\cos\nu_1}\]</div>
 <p>Then, <span class="math notranslate nohighlight">\(h_1\)</span> is found from the orbit equation at Neptune departure:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-9">
-<span class="eqno">(343)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-9" title="Permalink to this equation">¶</a></span>\[h_1 = \sqrt{\mu_{\text{sun}} R_{\text{Neptune}}\left(1 - e_1\right)}\]</div>
+<span class="eqno">(389)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-9" title="Permalink to this equation">¶</a></span>\[h_1 = \sqrt{\mu_{\text{sun}} R_{\text{Neptune}}\left(1 - e_1\right)}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -861,7 +861,7 @@
 </div>
 </div>
 <p>The spacecraft heliocentric velocity magnitude is <span class="math notranslate nohighlight">\(V_1^s =\)</span> <span class="pasted-text">48.94</span> km/s, the flight path angle is <span class="math notranslate nohighlight">\(\alpha_1 =\)</span> <span class="pasted-text">-29.40</span>°, and the velocity of Venus is <span class="math notranslate nohighlight">\(V_{\text{Venus}} =\)</span> <span class="pasted-text">35.02</span> km/s. The excess velocity vector is <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1} =\)</span> <span class="pasted-text">7.62</span> <span class="math notranslate nohighlight">\(\uvec{u}_V\)</span> - <span class="pasted-text">24.02</span> <span class="math notranslate nohighlight">\(\uvec{u}_S\)</span> km/s, and its magnitude is <span class="math notranslate nohighlight">\(v_{\infty} =\)</span> <span class="pasted-text">25.20</span> km/s.</p>
-<p>Now we can compute the geocentric orbital elements of the flyby trajectory. In particular, we need to calculate the turn angle <span class="math notranslate nohighlight">\(\delta\)</span> using Eq. <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html#equation-eq-hyperbolic-turn-angle">(151)</a>, which requires the eccentricity <span class="math notranslate nohighlight">\(e\)</span> from Eq. <a class="reference internal" href="planetary-arrival-capture.html#equation-eq-interplanetary-arrival-eccentricity">(309)</a>. Then, we can calculate the <span class="math notranslate nohighlight">\(\phi\)</span> angles.</p>
+<p>Now we can compute the geocentric orbital elements of the flyby trajectory. In particular, we need to calculate the turn angle <span class="math notranslate nohighlight">\(\delta\)</span> using Eq. <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html#equation-eq-hyperbolic-turn-angle">(151)</a>, which requires the eccentricity <span class="math notranslate nohighlight">\(e\)</span> from Eq. <a class="reference internal" href="planetary-arrival-capture.html#equation-eq-interplanetary-arrival-eccentricity">(355)</a>. Then, we can calculate the <span class="math notranslate nohighlight">\(\phi\)</span> angles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_p</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="mf">6051.8</span>  <span class="c1"># km</span>
@@ -894,15 +894,15 @@
 </div>
 </div>
 <p>This gives a heliocentric velocity of <span class="math notranslate nohighlight">\(V_2^s =\)</span> <span class="pasted-text">46.25</span> km/s, with components <span class="math notranslate nohighlight">\(V_{\perp,2}^s =\)</span> <span class="pasted-text">38.98</span> km/s and <span class="math notranslate nohighlight">\(V_{r,2}^s =\)</span> <span class="pasted-text">-24.89</span> km/s. This is a decrease of about <span class="pasted-text">2.69</span> km/s in heliocentric speed, as expected for a leading-side flyby.</p>
-<p>The departure angular momentum is found by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-ang-mom">(338)</a>. From Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-orbit-equation">(339)</a>, we find:</p>
+<p>The departure angular momentum is found by Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-ang-mom">(384)</a>. From Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-orbit-equation">(385)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-e-cos">
-<span class="eqno">(344)<a class="headerlink" href="#equation-eq-interplanetary-flyby-e-cos" title="Permalink to this equation">¶</a></span>\[e_2 \cos\nu_2 = \frac{h_2^2}{\mu_{\text{sun}} R} - 1\]</div>
-<p>Similarly, from Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-radial-velocity">(340)</a>, we find:</p>
+<span class="eqno">(390)<a class="headerlink" href="#equation-eq-interplanetary-flyby-e-cos" title="Permalink to this equation">¶</a></span>\[e_2 \cos\nu_2 = \frac{h_2^2}{\mu_{\text{sun}} R} - 1\]</div>
+<p>Similarly, from Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-departure-radial-velocity">(386)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-e-sin">
-<span class="eqno">(345)<a class="headerlink" href="#equation-eq-interplanetary-flyby-e-sin" title="Permalink to this equation">¶</a></span>\[e_2 \sin\nu_2 = \frac{V_{r,2}^s h_2}{\mu_{\text{sun}}}\]</div>
-<p>Taking the ratio of Eqs. <a class="reference internal" href="#equation-eq-interplanetary-flyby-e-cos">(344)</a> and <a class="reference internal" href="#equation-eq-interplanetary-flyby-e-sin">(345)</a>, we find:</p>
+<span class="eqno">(391)<a class="headerlink" href="#equation-eq-interplanetary-flyby-e-sin" title="Permalink to this equation">¶</a></span>\[e_2 \sin\nu_2 = \frac{V_{r,2}^s h_2}{\mu_{\text{sun}}}\]</div>
+<p>Taking the ratio of Eqs. <a class="reference internal" href="#equation-eq-interplanetary-flyby-e-cos">(390)</a> and <a class="reference internal" href="#equation-eq-interplanetary-flyby-e-sin">(391)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-interplanetary-maneuvers-planetary-arrival-flyby-10">
-<span class="eqno">(346)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-10" title="Permalink to this equation">¶</a></span>\[\tan\nu_2 = \frac{R V_{r,2}^s h_2}{h_2^2 - R\mu_{\text{sun}}}\]</div>
+<span class="eqno">(392)<a class="headerlink" href="#equation-interplanetary-maneuvers-planetary-arrival-flyby-10" title="Permalink to this equation">¶</a></span>\[\tan\nu_2 = \frac{R V_{r,2}^s h_2}{h_2^2 - R\mu_{\text{sun}}}\]</div>
 <p>With <span class="math notranslate nohighlight">\(h_2\)</span>, <span class="math notranslate nohighlight">\(e_2\)</span>, and <span class="math notranslate nohighlight">\(\nu_2\)</span>, we can calculate the other orbital elements of interest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -942,7 +942,7 @@
 </div>
 <p>This gives a heliocentric velocity of <span class="math notranslate nohighlight">\(V_2^s =\)</span> <span class="pasted-text">51.37</span> km/s, with components <span class="math notranslate nohighlight">\(V_{\perp,2}^s =\)</span> <span class="pasted-text">46.12</span> km/s and <span class="math notranslate nohighlight">\(V_{r,2}^s =\)</span> <span class="pasted-text">-22.63</span> km/s. This is an increase of about <span class="pasted-text">2.43</span> km/s in heliocentric speed, as expected for a trailing-side flyby.</p>
 <p>For the trailing-side flyby the eccentricity is <span class="math notranslate nohighlight">\(e_2 =\)</span> <span class="pasted-text">1.1240</span>. Since <span class="math notranslate nohighlight">\(e_2 &gt; 1\)</span>, the new heliocentric trajectory is a hyperbola relative to the sun and the true anomaly of the asymptote is <span class="math notranslate nohighlight">\(\nu_{\infty} =\)</span> <span class="pasted-text">152.83</span>°. This means the spacecraft is now on a trajectory to escape the solar system!</p>
-<p>The current true anomaly is <span class="math notranslate nohighlight">\(\nu_2 =\)</span> <span class="pasted-text">-49.20</span>°, so the spacecraft is approaching perihelion, which will be at a distance of <span class="math notranslate nohighlight">\(R_{p,2} =\)</span> <span class="pasted-text">130006</span> km. Unfortunately, this is inside the equatorial radius of the Sun as shown in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-radius-parameters"><span class="std std-numref">Table 8</span></a>, so the spacecraft would most likely not survive the encounter.</p>
+<p>The current true anomaly is <span class="math notranslate nohighlight">\(\nu_2 =\)</span> <span class="pasted-text">-49.20</span>°, so the spacecraft is approaching perihelion, which will be at a distance of <span class="math notranslate nohighlight">\(R_{p,2} =\)</span> <span class="pasted-text">130006</span> km. Unfortunately, this is inside the equatorial radius of the Sun as shown in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-radius-parameters"><span class="std std-numref">Table 9</span></a>, so the spacecraft would most likely not survive the encounter.</p>
 </div>
 </div>
 </div>

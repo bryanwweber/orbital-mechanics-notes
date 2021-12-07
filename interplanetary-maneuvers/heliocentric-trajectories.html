@@ -343,23 +343,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Chapter 3.7 - Universal Variables
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -683,9 +683,9 @@
 <p>However, the Hohmann transfer is still the most efficient transfer, so it is a useful basis for comparison to other trajectories. Recall that in the Hohmann transfer, the velocity vectors of the spacecraft at departure and arrival are parallel to the initial and final orbits, and that the transfer is made of 180° of an ellipse.</p>
 <p>To calculate the orbital parameters for a transfer, we will simplify the calculations with three assumptions:</p>
 <ol class="simple">
-<li><p>All the planetary orbits are coplanar. With the exceptions of Mercury and Pluto, the orbital inclinations of the planets range from 0° for Earth to 3.4° for Venus, as shown in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 9</span></a>.</p></li>
-<li><p>The planetary orbits are circular. Again with the exceptions of Mercury and Pluto, the eccentricities of the planets’ orbits range from 6.7×10<sup>-3</sup> for Venus to 9.3×10<sup>-2</sup>, as shown in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 9</span></a>.</p></li>
-<li><p>The radius of the circular orbit is equal to the mean semimajor axis of the orbit. The semimajor axis can be found in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 9</span></a>.</p></li>
+<li><p>All the planetary orbits are coplanar. With the exceptions of Mercury and Pluto, the orbital inclinations of the planets range from 0° for Earth to 3.4° for Venus, as shown in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 10</span></a>.</p></li>
+<li><p>The planetary orbits are circular. Again with the exceptions of Mercury and Pluto, the eccentricities of the planets’ orbits range from 6.7×10<sup>-3</sup> for Venus to 9.3×10<sup>-2</sup>, as shown in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 10</span></a>.</p></li>
+<li><p>The radius of the circular orbit is equal to the mean semimajor axis of the orbit. The semimajor axis can be found in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 10</span></a>.</p></li>
 </ol>
 <p>With these three assumptions, the calculation of the required velocities can be completed by the methods discussed in <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html"><span class="doc std std-doc">Hohmann Transfer</span></a> and <a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html"><span class="doc std std-doc">Non-Hohmann Transfers with a Common Apse Line</span></a>.</p>
 <p>The value for the gravitational parameter <span class="math notranslate nohighlight">\(\mu\)</span> <em>must</em> be the value for the sun, <span class="math notranslate nohighlight">\(\mu_{\text{Sun}} =\)</span> 1.32712×10<sup>11</sup> km<sup>3</sup>/s<sup>2</sup>.</p>
@@ -697,7 +697,7 @@
 <p>A spacecraft will complete a Hohmann transfer from Neptune to Venus. Calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> and the total transfer time.</p>
 <p>As with the single-planet Hohmann transfer, there are multiple approaches to computing the required velocities. We will start by calculating the orbital velocities of the two planets. Any objects in the same orbit about the Sun must have the same velocity.</p>
 <p>The spacecraft will start on the same orbit as Neptune, with Neptune’s orbital velocity, before providing an impulse to get onto the transfer orbit. Upon reaching Venus’s orbit, the spacecraft will provide another impulse to change its velocity to match Venus’s orbital velocity.</p>
-<p>The value for <span class="math notranslate nohighlight">\(\mu_{\text{Sun}}\)</span> comes from <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-mass-parameters"><span class="std std-numref">Table 7</span></a> and the orbital radii for the planets are assumed to be equal to the semimajor axes given in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 9</span></a>.</p>
+<p>The value for <span class="math notranslate nohighlight">\(\mu_{\text{Sun}}\)</span> comes from <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-mass-parameters"><span class="std std-numref">Table 8</span></a> and the orbital radii for the planets are assumed to be equal to the semimajor axes given in <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 10</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
@@ -712,7 +712,7 @@
 </div>
 </div>
 </div>
-<p>This gives orbital velocities of <span class="math notranslate nohighlight">\(v_1 =\)</span> <span class="pasted-text">5.411</span> km/s for Neptune and <span class="math notranslate nohighlight">\(v_2 =\)</span> <span class="pasted-text">35.021</span> km/s for Venus. These match the values from <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 9</span></a>, as expected.</p>
+<p>This gives orbital velocities of <span class="math notranslate nohighlight">\(v_1 =\)</span> <span class="pasted-text">5.411</span> km/s for Neptune and <span class="math notranslate nohighlight">\(v_2 =\)</span> <span class="pasted-text">35.021</span> km/s for Venus. These match the values from <a class="reference internal" href="../reference/planetary-parameters.html#tab-planetary-orbital-elements"><span class="std std-numref">Table 10</span></a>, as expected.</p>
 <p>Next, we’ll use the orbital energy of the transfer orbit to determine the velocities at aphelion and perihelion of the transfer orbit.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

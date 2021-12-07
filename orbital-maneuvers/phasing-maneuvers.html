@@ -343,23 +343,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Chapter 3.7 - Universal Variables
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -684,36 +684,36 @@
 <p>We assume that the velocity change is applied parallel to the velocity vector at the impulse point. This gives the minimum propellant usage for such a maneuver, but is relatively slow. More general orbital transfers, including rendezvous maneuvers that require less than a full orbit, will be covered in <a class="reference internal" href="non-hohmann-transfers.html"><span class="doc std std-doc">Non-Hohmann Transfers with a Common Apse Line</span></a>.</p>
 <div class="section" id="returning-at-a-later-time">
 <h2>Returning At A Later Time<a class="headerlink" href="#returning-at-a-later-time" title="Permalink to this headline">¶</a></h2>
-<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-increase-period"><span class="std std-numref">Fig. 62</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
+<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-increase-period"><span class="std std-numref">Fig. 63</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
 <div class="figure align-default" id="fig-phasing-orbit-increase-period">
 <a class="reference internal image-reference" href="../_images/phasing-orbit-increase-period.svg"><img alt="../_images/phasing-orbit-increase-period.svg" src="../_images/phasing-orbit-increase-period.svg" width="75%" /></a>
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">A phasing orbit to allow a target spacecraft to catch up to the interceptor spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is larger than the initial orbit, so the period of the phasing orbit is longer.</span><a class="headerlink" href="#fig-phasing-orbit-increase-period" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">A phasing orbit to allow a target spacecraft to catch up to the interceptor spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is larger than the initial orbit, so the period of the phasing orbit is longer.</span><a class="headerlink" href="#fig-phasing-orbit-increase-period" title="Permalink to this image">¶</a></p>
 </div>
 <p>At the impulse point, the interceptor spacecraft increases its velocity to place itself on Orbit 2. The period of Orbit 2 is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-phasing-orbit-2-period">
-<span class="eqno">(246)<a class="headerlink" href="#equation-eq-phasing-orbit-2-period" title="Permalink to this equation">¶</a></span>\[T_2 = \frac{2\pi}{\sqrt{\mu}} a_2^{3/2}\]</div>
+<span class="eqno">(292)<a class="headerlink" href="#equation-eq-phasing-orbit-2-period" title="Permalink to this equation">¶</a></span>\[T_2 = \frac{2\pi}{\sqrt{\mu}} a_2^{3/2}\]</div>
 <p>while the period of Orbit 1 is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-phasing-orbit-1-period">
-<span class="eqno">(247)<a class="headerlink" href="#equation-eq-phasing-orbit-1-period" title="Permalink to this equation">¶</a></span>\[T_1 = \frac{2\pi}{\sqrt{\mu}} a_1^{3/2}\]</div>
+<span class="eqno">(293)<a class="headerlink" href="#equation-eq-phasing-orbit-1-period" title="Permalink to this equation">¶</a></span>\[T_1 = \frac{2\pi}{\sqrt{\mu}} a_1^{3/2}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(a_1 &lt; a_2\)</span>, the period of Orbit 2 is greater. Therefore, while the interceptor craft travels 360° of true anomaly in time <span class="math notranslate nohighlight">\(T_2\)</span>, the target spacecraft travels <em>more than</em> 360° of true anomaly. This allows the target spacecraft to catch up and reach the impulse point at the same time that the interceptor returns there.</p>
 </div>
 <div class="section" id="returning-at-an-earlier-time">
 <h2>Returning At An Earlier Time<a class="headerlink" href="#returning-at-an-earlier-time" title="Permalink to this headline">¶</a></h2>
-<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-decrease-period"><span class="std std-numref">Fig. 63</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
+<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-decrease-period"><span class="std std-numref">Fig. 64</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
 <div class="figure align-default" id="fig-phasing-orbit-decrease-period">
 <a class="reference internal image-reference" href="../_images/phasing-orbit-decrease-period.svg"><img alt="../_images/phasing-orbit-decrease-period.svg" src="../_images/phasing-orbit-decrease-period.svg" width="75%" /></a>
-<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">A phasing orbit to allow an interceptor spacecraft to catch up to the target spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is smaller than the initial orbit, so the period of the phasing orbit is shorter.</span><a class="headerlink" href="#fig-phasing-orbit-decrease-period" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">A phasing orbit to allow an interceptor spacecraft to catch up to the target spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is smaller than the initial orbit, so the period of the phasing orbit is shorter.</span><a class="headerlink" href="#fig-phasing-orbit-decrease-period" title="Permalink to this image">¶</a></p>
 </div>
-<p>At the impulse point, the interceptor spacecraft decreases its velocity to place itself on Orbit 2. The period of Orbit 2 is given by Eq. <a class="reference internal" href="#equation-eq-phasing-orbit-2-period">(246)</a> while the period of Orbit 1 is given by Eq. <a class="reference internal" href="#equation-eq-phasing-orbit-1-period">(247)</a>.</p>
+<p>At the impulse point, the interceptor spacecraft decreases its velocity to place itself on Orbit 2. The period of Orbit 2 is given by Eq. <a class="reference internal" href="#equation-eq-phasing-orbit-2-period">(292)</a> while the period of Orbit 1 is given by Eq. <a class="reference internal" href="#equation-eq-phasing-orbit-1-period">(293)</a>.</p>
 <p>Since <span class="math notranslate nohighlight">\(a_1 &gt; a_2\)</span>, the period of Orbit 2 is smaller. Therefore, while the interceptor craft travels 360° of true anomaly in time <span class="math notranslate nohighlight">\(T_2\)</span>, the target spacecraft travels less than_ 360° of true anomaly. This allows the interceptor spacecraft to catch up and reach the impulse point at the same time that the target returns there.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Although we’ve treated phasing maneuvers as useful to rendezvous two spacecraft, they can also be used to change the longitude above which a satellite orbits. Assume a satellite is in GEO above the prime meridian, a longitude of 0°E. The target longitude is 137.2°W. Determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement if the phasing maneuver takes 1, 2, and 5 rotations of Earth.</p>
-<p><a class="reference internal" href="#fig-phasing-maneuver-example"><span class="std std-numref">Fig. 64</span></a> shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth’s rotation.</p>
+<p><a class="reference internal" href="#fig-phasing-maneuver-example"><span class="std std-numref">Fig. 65</span></a> shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth’s rotation.</p>
 <div class="figure align-default" id="fig-phasing-maneuver-example">
 <a class="reference internal image-reference" href="../_images/phasing-maneuver-example.svg"><img alt="../_images/phasing-maneuver-example.svg" src="../_images/phasing-maneuver-example.svg" width="70%" /></a>
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">The initial conditions for the phasing maneuver to 137.2°W longitude. Not to scale.</span><a class="headerlink" href="#fig-phasing-maneuver-example" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">The initial conditions for the phasing maneuver to 137.2°W longitude. Not to scale.</span><a class="headerlink" href="#fig-phasing-maneuver-example" title="Permalink to this image">¶</a></p>
 </div>
 <p>To find the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement, we need to know how much <span class="math notranslate nohighlight">\(\Delta v\)</span> is required to get onto the phasing orbit and then return back to GEO. This is determined by the GEO velocity as well as the velocity at the impulse point on the phasing orbit.</p>
 <div class="margin sidebar">
@@ -760,10 +760,10 @@
 <p>The two impulses in the phasing orbit occur at the same location relative to the phasing orbit. Thus, the <span class="math notranslate nohighlight">\(\Delta v\)</span> required to move from the initial orbit onto the phasing orbit has the same magnitude as the <span class="math notranslate nohighlight">\(\Delta v\)</span> required to do the reverse.</p>
 <p>When the period of the phasing orbit is less than the original orbit, and the impulse point is apoapsis of the phasing orbit, then we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-shorter-period-phasing-delta-v">
-<span class="eqno">(248)<a class="headerlink" href="#equation-eq-shorter-period-phasing-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v = 2 \left\lvert v_a - v_i \right\rvert\]</div>
+<span class="eqno">(294)<a class="headerlink" href="#equation-eq-shorter-period-phasing-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v = 2 \left\lvert v_a - v_i \right\rvert\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_a\)</span> is the apoapsis velocity of the phasing orbit and <span class="math notranslate nohighlight">\(v_i\)</span> is the velocity at the impulse point on the original orbit. Conversely, when the period of the phasing orbit is longer than the original orbit, we find that the impulse point is the periapsis of the phasing orbit, such that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-longer-period-phasing-delta-v">
-<span class="eqno">(249)<a class="headerlink" href="#equation-eq-longer-period-phasing-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v = 2 \left\lvert v_p - v_i \right\rvert\]</div>
+<span class="eqno">(295)<a class="headerlink" href="#equation-eq-longer-period-phasing-delta-v" title="Permalink to this equation">¶</a></span>\[\Delta v = 2 \left\lvert v_p - v_i \right\rvert\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E_0</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a_0</span><span class="p">)</span>
@@ -776,7 +776,7 @@
 <p>The GEO velocity is <span class="math notranslate nohighlight">\(v_{\text{GEO}} =\)</span> <span class="pasted-text">3.075</span> km/s, the phasing orbit apogee velocity is <span class="math notranslate nohighlight">\(v_{a_0} =\)</span> <span class="pasted-text">0.961</span> km/s, and the <span class="math notranslate nohighlight">\(\Delta v\)</span> is <span class="pasted-text">4.228</span> km/s.</p>
 <p>Now, let’s allow the phasing maneuver to cover multiple revolutions of Earth. This means that the period of the phasing orbit will be:</p>
 <div class="math notranslate nohighlight" id="equation-eq-phasing-orbit-multiple-revolutions">
-<span class="eqno">(250)<a class="headerlink" href="#equation-eq-phasing-orbit-multiple-revolutions" title="Permalink to this equation">¶</a></span>\[T_{\text{phasing}} = t_{137.2°} + n T_{\text{one orbit}}\]</div>
+<span class="eqno">(296)<a class="headerlink" href="#equation-eq-phasing-orbit-multiple-revolutions" title="Permalink to this equation">¶</a></span>\[T_{\text{phasing}} = t_{137.2°} + n T_{\text{one orbit}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_{137.2°}\)</span> is the time for the target longitude to reach the impulse point, <span class="math notranslate nohighlight">\(n\)</span> is the number of Earth rotations, and <span class="math notranslate nohighlight">\(T_{\text{one orbit}}\)</span> is the period of one of the initial orbits. In this case, <span class="math notranslate nohighlight">\(T_{\text{one orbit}}\)</span> is one sidereal day, since the initial orbit is GEO.</p>
 <p>In this case, the period of the phasing orbit is longer than the GEO period, so the impulse point is at perigee of the phasing orbit.</p>
 <div class="cell docutils container">
@@ -807,7 +807,7 @@
 </div>
 </div>
 <table class="colwidths-auto table" id="tab-phasing-orbit-comparison">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Comparison of results for various phasing orbits.</span><a class="headerlink" href="#tab-phasing-orbit-comparison" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Comparison of results for various phasing orbits.</span><a class="headerlink" href="#tab-phasing-orbit-comparison" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="text-align:left head"><p>Number of<br>Complete Rotations</p></th>
 <th class="text-align:left head"><p>Period (hours)</p></th>
@@ -833,7 +833,7 @@
 </tr>
 </tbody>
 </table>
-<p>A comparison of the results is shown in <a class="reference internal" href="#tab-phasing-orbit-comparison"><span class="std std-numref">Table 2</span></a>. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the earth, has the highest <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement. The smallest <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement is for the case of a single complete rotation of the earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional <span class="math notranslate nohighlight">\(\Delta v\)</span> to do so.</p>
+<p>A comparison of the results is shown in <a class="reference internal" href="#tab-phasing-orbit-comparison"><span class="std std-numref">Table 3</span></a>. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the earth, has the highest <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement. The smallest <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement is for the case of a single complete rotation of the earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional <span class="math notranslate nohighlight">\(\Delta v\)</span> to do so.</p>
 </div>
 </div>
 

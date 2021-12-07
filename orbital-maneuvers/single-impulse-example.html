@@ -343,23 +343,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Chapter 3.7 - Universal Variables
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
+   The Lagrange Coefficients
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Variables-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
+   Orbit Independent Solution: The Universal Anomaly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
    Example: Universal Variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example.html">
+  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
    Example: Universal Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
   </a>
  </li>
 </ul>
@@ -652,14 +652,14 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="single-impulse-orbital-change">
 <h1>Single Impulse Orbital Change<a class="headerlink" href="#single-impulse-orbital-change" title="Permalink to this headline">¶</a></h1>
 <p>The simplest case of an orbit change is one that only requires a single impulse. Examples of this kind of maneuver are <a class="reference external" href="https://en.wikipedia.org/wiki/Orbit_insertion">orbit insertion</a> and deorbit burns.</p>
-<p>For any single-impulse orbital maneuver, the initial and final orbits must intersect at some point. The two velocities required for Eq. <a class="reference internal" href="impulsive-maneuvers.html#equation-eq-single-impulse-delta-v">(236)</a> are determined at the point of intersection of the two orbits. Eq. <a class="reference internal" href="impulsive-maneuvers.html#equation-eq-single-impulse-delta-v">(236)</a> can be simplified to involve only velocity magnitudes when the velocity vectors are parallel at the point of intersection.</p>
+<p>For any single-impulse orbital maneuver, the initial and final orbits must intersect at some point. The two velocities required for Eq. <a class="reference internal" href="impulsive-maneuvers.html#equation-eq-single-impulse-delta-v">(282)</a> are determined at the point of intersection of the two orbits. Eq. <a class="reference internal" href="impulsive-maneuvers.html#equation-eq-single-impulse-delta-v">(282)</a> can be simplified to involve only velocity magnitudes when the velocity vectors are parallel at the point of intersection.</p>
 <p>Let’s consider a case where we want to deorbit a spacecraft from low Earth orbit. To deorbit a spacecraft, we need to place it in an orbit that will intersect the atmosphere. Once in the atmosphere, drag will take over and reduce the velocity to the terminal velocity. As a simplification, we will neglect the atmosphere. This means we will determine the true anomaly when the spacecraft reaches the surface of the earth, or when the orbital radius is equal to the earth’s radius.</p>
-<p>Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the <span class="math notranslate nohighlight">\(x\)</span> axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in <a class="reference internal" href="#fig-single-impulse-example-orbit"><span class="std std-numref">Fig. 59</span></a>.</p>
+<p>Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the <span class="math notranslate nohighlight">\(x\)</span> axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in <a class="reference internal" href="#fig-single-impulse-example-orbit"><span class="std std-numref">Fig. 60</span></a>.</p>
 <div class="figure align-default" id="fig-single-impulse-example-orbit">
 <div class="cell_output docutils container">
 <img alt="../_images/single-impulse-example_1_0.png" src="../_images/single-impulse-example_1_0.png" />
 </div>
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">A deorbit maneuver conducted by a providing a single impulse to the spacecraft.</span><a class="headerlink" href="#fig-single-impulse-example-orbit" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">A deorbit maneuver conducted by a providing a single impulse to the spacecraft.</span><a class="headerlink" href="#fig-single-impulse-example-orbit" title="Permalink to this image">¶</a></p>
 </div>
 <p>We are interested in calculating the <span class="math notranslate nohighlight">\(\Delta v\)</span> required to perform this maneuver. Since the impact orbit and the circular orbit intersect at one point, we can use a single impulse transfer to perform the maneuver. We will choose the impact trajectory such that the velocity vectors are parallel for the circular and impact orbits at the impulse point. This means we can work entirely in magnitudes.</p>
 <p>To find <span class="math notranslate nohighlight">\(\Delta v\)</span>, we need to calculate two velocities:</p>
@@ -680,13 +680,13 @@
 <p>To find the specific angular momentum, we can use the equations for an elliptical orbit. The radial coordinate at apogee is given by Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-distance-to-apoapsis">(117)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[r_a = \frac{h^2}{\mu}\frac{1}{1 - e}\]</div>
-<p>The choice of location of perigee means that the apse line of the impact orbit actually points to the <em>left</em> on <a class="reference internal" href="#fig-single-impulse-example-orbit"><span class="std std-numref">Fig. 59</span></a>. From apogee of the impact orbit until the time of impact, the satellite will be approaching perigee. Thus, the true anomaly will be larger than 180°.</p>
+<p>The choice of location of perigee means that the apse line of the impact orbit actually points to the <em>left</em> on <a class="reference internal" href="#fig-single-impulse-example-orbit"><span class="std std-numref">Fig. 60</span></a>. From apogee of the impact orbit until the time of impact, the satellite will be approaching perigee. Thus, the true anomaly will be larger than 180°.</p>
 <p>At the impact point, <span class="math notranslate nohighlight">\(\nu =\)</span> 180° + 145° and <span class="math notranslate nohighlight">\(r = R_E\)</span>. Thus:</p>
 <div class="math notranslate nohighlight">
 \[R_E = \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu}\]</div>
 <p>Now we have two equations and two unknowns, <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(e\)</span>. It turns out to be easier to solve for <span class="math notranslate nohighlight">\(e\)</span> first:</p>
 <div class="math notranslate nohighlight" id="equation-eq-single-impulse-example-e">
-<span class="eqno">(237)<a class="headerlink" href="#equation-eq-single-impulse-example-e" title="Permalink to this equation">¶</a></span>\[e = \frac{z_0}{R_E \left(1 + \cos\nu\right) + z_0}\]</div>
+<span class="eqno">(283)<a class="headerlink" href="#equation-eq-single-impulse-example-e" title="Permalink to this equation">¶</a></span>\[e = \frac{z_0}{R_E \left(1 + \cos\nu\right) + z_0}\]</div>
 <p>Then, Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-distance-to-apoapsis">(117)</a> is used to find <span class="math notranslate nohighlight">\(h\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
