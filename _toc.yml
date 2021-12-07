@@ -49,10 +49,10 @@ parts:
       - file: time-since-periapsis-and-keplers-equation/parabolic-trajectories
       - file: time-since-periapsis-and-keplers-equation/hyperbolic-trajectories
       - file: time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example
-      - file: time-since-periapsis-and-keplers-equation/universal-variables
-      - file: time-since-periapsis-and-keplers-equation/Universal-Variables-Example
-      - file: time-since-periapsis-and-keplers-equation/Universal-Lagrange-Coefficients-Example
       - file: time-since-periapsis-and-keplers-equation/the-lagrange-coefficients
+      - file: time-since-periapsis-and-keplers-equation/universal-variables
+      - file: time-since-periapsis-and-keplers-equation/universal-variables-example
+      - file: time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example
   - caption: Orbital Maneuvers
     chapters:
       - file: orbital-maneuvers/impulsive-maneuvers
