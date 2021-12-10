@@ -75,14 +75,14 @@ In Eq. {eq}`eq:time-since-periapsis-rhs-e-lt-1`, $e < 1$, so it will apply for c
 
 :::{math}
 :label: eq:time-since-periapsis-rhs-e-eq-1
-\int\frac{dx}{\left(1 + e\cos \nu\right)^2} = \left(\frac{1}{2}\tan \frac{\nu}{2}+\frac{1}{6}\tan^{3}\frac{\nu}{2}\right)
+\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \left(\frac{1}{2}\tan \frac{\nu}{2}+\frac{1}{6}\tan^{3}\frac{\nu}{2}\right)
 :::
 
 In Eq. {eq}`eq:time-since-periapsis-rhs-e-eq-1`, $e = 1$, so it will apply for parabolic trajectories.
 
 :::{math}
 :label: eq:time-since-periapsis-rhs-e-gt-1
-\int\frac{dx}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(e^2 - 1\right)^{3/2}}\left[\frac{e\sqrt{e^2 - 1}\sin \nu}{1 + e\cos \nu} - \ln\left(\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right)\right]
+\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(e^2 - 1\right)^{3/2}}\left[\frac{e\sqrt{e^2 - 1}\sin \nu}{1 + e\cos \nu} - \ln\left(\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right)\right]
 :::
 
 In Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1`, $e > 1$, so it will apply for hyperbolic trajectories.
