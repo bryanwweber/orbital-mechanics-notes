@@ -1,9 +1,9 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-# Ubuntu 20.04 (focal)
-# https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
-ARG ROOT_CONTAINER=ubuntu:focal
+# Ubuntu 22.04 (jammy)
+# https://hub.docker.com/_/ubuntu/?tab=tags&name=jammy
+ARG ROOT_CONTAINER=ubuntu:jammy
 
 FROM $ROOT_CONTAINER
 
@@ -22,9 +22,9 @@ USER root
 # (ARGS are in lower case to distinguish them from ENV)
 # Check https://github.com/conda-forge/miniforge/releases
 # Conda version
-ARG conda_version="4.10.3"
+ARG conda_version="22.11.1"
 # Miniforge installer patch version
-ARG miniforge_patch_number="5"
+ARG miniforge_patch_number="2"
 # Package Manager and Python implementation to use (https://github.com/conda-forge/miniforge)
 # - conda only: either Miniforge3 to use Python or Miniforge-pypy3 to use PyPy
 # - conda + mamba: either Mambaforge to use Python or Mambaforge-pypy3 to use PyPy
@@ -33,7 +33,7 @@ ARG miniforge_python="Mambaforge"
 ARG miniforge_version="${conda_version}-${miniforge_patch_number}"
 
 # Julia version to install
-ARG julia_version="1.6.3"
+ARG julia_version="1.8.5"
 
 
 # Install all OS dependencies for notebook server that starts but lacks all
@@ -120,12 +120,9 @@ RUN set -x && \
     echo "conda ${CONDA_VERSION}" >> "${CONDA_DIR}/conda-meta/pinned" && \
     conda config --system --set auto_update_conda false && \
     conda config --system --set show_channel_urls true && \
-    if [[ "${PYTHON_VERSION}" != "default" ]]; then conda install --yes python="${PYTHON_VERSION}"; fi && \
+    if [[ "${PYTHON_VERSION}" != "default" ]]; then mamba install --yes python="${PYTHON_VERSION}"; fi && \
     conda list python | grep '^python ' | tr -s ' ' | cut -d ' ' -f 1,2 >> "${CONDA_DIR}/conda-meta/pinned" && \
-    conda install --quiet --yes \
-    "conda=${CONDA_VERSION}" \
-    'pip' && \
-    conda update --all --quiet --yes && \
+    mamba update --all --quiet --yes && \
     conda clean --all -f -y && \
     rm -rf "/home/${NB_USER}/.cache/yarn" && \
     fix-permissions "${CONDA_DIR}" && \
@@ -137,10 +134,13 @@ RUN set -x && \
     export julia_arch && \
     if [ "$julia_arch" == "aarm64" ]; then \
       julia_arch="aarch64"; \
+      s3_arch="aarch64"; \
+    elif [ "$julia_arch" == "x86_64" ]; then \
+      s3_arch="x64"; \
     fi; \
     julia_installer="julia-${julia_version}-linux-${julia_arch}.tar.gz" && \
     export julia_installer && \
-    wget --quiet "https://julialang-s3.julialang.org/bin/linux/${julia_arch}/${JULIA_VERSION:0:3}/${julia_installer}" && \
+    wget --quiet "https://julialang-s3.julialang.org/bin/linux/${s3_arch}/${JULIA_VERSION:0:3}/${julia_installer}" && \
     tar -xf "${julia_installer}" && \
     rm "${julia_installer}" && \
     mv julia-${julia_version}/* "${JULIA_DIR}/" && \

@@ -1,0 +1,33 @@
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.1.0",
+    "flake8>=6.0.0",
+    "doit>=0.36.0",
+    "pyyaml>=6.0",
+    "mypy>=0.991",
+]
+
+[project]
+# PEP 621 project metadata
+# See https://www.python.org/dev/peps/pep-0621/
+name = "orbital-mechanics-notes"
+dependencies = [
+    "jupyter-book@ https://github.com/bryanwweber/jupyter-book/archive/refs/heads/bump-deps.zip",
+    "myst-nb-bokeh>=1.0",
+    "myst-nb>=0.17.1,<0.18",
+    "matplotlib",
+    "numpy",
+    "scipy",
+    "poliastro",
+    "astropy",
+    "sympy",
+    "myst-parser>=0.18.0",
+    "wheel>=0.38.4",
+    "pint>=0.20.1",
+    "skyfield>=1.45",
+    "sphinx-inline-tabs>=2022.1.2b11",
+    "sphinx-panels>=0.6.0",
+]
+requires-python = ">=3.9,<3.11"

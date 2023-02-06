@@ -30,7 +30,11 @@ def task_clean_svg_cache():
 def task_build_jb():
     return {
         "actions": [["jb", "build", "."]],
-        "task_dep": ["svg_math", "execute_python_scripts", "execute_matlab_scripts"],
+        "task_dep": [
+            "svg_math",
+            "execute_python_scripts",
+            # "execute_matlab_scripts",
+        ],
         "uptodate": [False],
         "verbosity": 2,
     }

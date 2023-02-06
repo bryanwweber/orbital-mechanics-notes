@@ -343,8 +343,8 @@ v_p_capture = np.sqrt(2 * (E_array + mu_f / r_p_array))
 Delta_v_array = np.abs(v_p - v_p_capture).T
 
 p = figure(
-      plot_width=600,
-      plot_height=350,
+      width=600,
+      height=350,
       x_axis_label="Eccentricity [-]",
       y_axis_label="𝛥v [km/s]"
   )

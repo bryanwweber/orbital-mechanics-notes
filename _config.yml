@@ -13,6 +13,8 @@ exclude_patterns:
   - chapter-3
   - chapter-4
   - chapter-8
+  - .venv
+  - .pytest_cache
 
 latex:
   latex_documents:
