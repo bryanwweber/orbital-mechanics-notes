@@ -22,7 +22,7 @@ jobs:
         run: pdm sync --prod --no-self
       # Build the book
       - name: Build the book
-        run: jupyter-book build -vv .
+        run: pdm run jupyter-book build -vv .
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
         if: github.ref == 'refs/heads/main'
