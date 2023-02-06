@@ -12,34 +12,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      # Install dependencies
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v3
         with:
-          python-version: 3.9
-
-      - name: Upgrade pip
-        run: python3 -m pip install --upgrade pip setuptools wheel
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/freeze.txt') }}
-          restore-keys: ${{ runner.os }}-pip-
-
+          cache: true
+          python-version: "3.10"
       - name: Install dependencies
-        run: |
-          python3 -m pip install --no-deps -r freeze.txt
-
+        run: pdm sync --prod
       # Build the book
       - name: Build the book
-        run: |
-          jupyter-book build -vv .
+        run: jupyter-book build -vv .
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.6.4
+        uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/html
