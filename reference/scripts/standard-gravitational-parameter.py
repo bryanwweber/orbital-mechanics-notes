@@ -3,7 +3,7 @@ from typing import Optional
 
 import pint
 from IPython.display import display
-from myst_nb.nb_glue import GLUE_PREFIX
+from myst_nb.ext.glue import GLUE_PREFIX
 
 units = pint.UnitRegistry()
 Q_ = units.Quantity

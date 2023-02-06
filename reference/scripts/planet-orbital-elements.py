@@ -10,7 +10,7 @@ from skyfield.elementslib import OsculatingElements, osculating_elements_of
 from skyfield.framelib import build_ecliptic_matrix
 from skyfield.units import Distance, Velocity
 import numpy as np
-from myst_nb.nb_glue import GLUE_PREFIX
+from myst_nb.ext.glue import GLUE_PREFIX
 from IPython.display import display
 
 

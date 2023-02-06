@@ -1,5 +1,5 @@
 import csv
-from myst_nb.nb_glue import GLUE_PREFIX
+from myst_nb.ext.glue import GLUE_PREFIX
 from IPython.display import display
 
 # Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/5
