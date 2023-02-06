@@ -20,13 +20,13 @@ class CelestialObject:
     ) -> None:
         self.identifier = identifier
         self.name = name
-        self.aphelion: np.float64 = np.average(elems.apoapsis_distance.km)  # type: ignore
-        self.semimajor_axis: np.float64 = np.average(elems.semi_major_axis.km)  # type: ignore
-        self.perihelion: np.float64 = np.average(elems.periapsis_distance.km)  # type: ignore
-        self.period_in_days: np.float64 = np.average(elems.period_in_days)  # type: ignore
-        self.orbital_velocity: np.float64 = np.sqrt(elems._mu / self.semimajor_axis)  # type: ignore
-        self.eccentricity: np.float64 = np.average(elems.eccentricity)  # type: ignore
-        self.inclination: np.float64 = np.average(elems.inclination.degrees)  # type: ignore
+        self.aphelion: np.float64 = np.average(elems.apoapsis_distance.km)
+        self.semimajor_axis: np.float64 = np.average(elems.semi_major_axis.km)
+        self.perihelion: np.float64 = np.average(elems.periapsis_distance.km)
+        self.period_in_days: np.float64 = np.average(elems.period_in_days)
+        self.orbital_velocity: np.float64 = np.sqrt(elems._mu / self.semimajor_axis)
+        self.eccentricity: np.float64 = np.average(elems.eccentricity)
+        self.inclination: np.float64 = np.average(elems.inclination.degrees)
 
     def format_units(self, obj: float):
         initial_format = format(obj, ".5E")
