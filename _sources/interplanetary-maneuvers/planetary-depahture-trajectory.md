@@ -9,6 +9,7 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
+orphan: true
 ---
 
 # Planetary Depahture for Interplanetary Transfer

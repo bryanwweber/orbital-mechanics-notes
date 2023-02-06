@@ -70,48 +70,48 @@ Notice that the smallest object in {numref}`tab:standard-gravitational-parameter
   - $\mu$ [km<sup>3</sup>/s<sup>2</sup>]
 -
   - Sun
-  - {glue:}`Sun_mass`
-  - {glue:}`Sun_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Sun_mass`
+  - {glue}`../reference/planetary-parameters.md::Sun_GM_in_km`
 -
   - Mercury
-  - {glue:}`Mercury_mass`
-  - {glue:}`Mercury_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Mercury_mass`
+  - {glue}`../reference/planetary-parameters.md::Mercury_GM_in_km`
 -
   - Venus
-  - {glue:}`Venus_mass`
-  - {glue:}`Venus_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Venus_mass`
+  - {glue}`../reference/planetary-parameters.md::Venus_GM_in_km`
 -
   - Earth
-  - {glue:}`Earth_mass`
-  - {glue:}`Earth_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Earth_mass`
+  - {glue}`../reference/planetary-parameters.md::Earth_GM_in_km`
 -
   - Moon
-  - {glue:}`Moon_mass`
-  - {glue:}`Moon_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Moon_mass`
+  - {glue}`../reference/planetary-parameters.md::Moon_GM_in_km`
 -
   - Mars
-  - {glue:}`Mars_mass`
-  - {glue:}`Mars_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Mars_mass`
+  - {glue}`../reference/planetary-parameters.md::Mars_GM_in_km`
 -
   - Jupiter
-  - {glue:}`Jupiter_mass`
-  - {glue:}`Jupiter_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Jupiter_mass`
+  - {glue}`../reference/planetary-parameters.md::Jupiter_GM_in_km`
 -
   - Saturn
-  - {glue:}`Saturn_mass`
-  - {glue:}`Saturn_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Saturn_mass`
+  - {glue}`../reference/planetary-parameters.md::Saturn_GM_in_km`
 -
   - Uranus
-  - {glue:}`Uranus_mass`
-  - {glue:}`Uranus_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Uranus_mass`
+  - {glue}`../reference/planetary-parameters.md::Uranus_GM_in_km`
 -
   - Neptune
-  - {glue:}`Neptune_mass`
-  - {glue:}`Neptune_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Neptune_mass`
+  - {glue}`../reference/planetary-parameters.md::Neptune_GM_in_km`
 -
   - Pluto
-  - {glue:}`Pluto_mass`
-  - {glue:}`Pluto_GM_in_km`
+  - {glue}`../reference/planetary-parameters.md::Pluto_mass`
+  - {glue}`../reference/planetary-parameters.md::Pluto_GM_in_km`
 :::
 
 Returning to Eq. {eq}`eq:two-body-relative-motion-literal` and substituting $\mu$, we find:
