@@ -1,0 +1,27 @@
+# syntax=docker/dockerfile:1.5-labs
+FROM node:16-alpine AS deps
+
+WORKDIR /usr/src/app
+ADD https://github.com/bryanwweber/math-api.git .
+RUN yarn install --frozen-lockfile
+
+FROM node:16-alpine AS builder
+WORKDIR /usr/src/app
+COPY --from=deps /usr/src/app/server.ts .
+COPY --from=deps /usr/src/app/index.ts .
+COPY --from=deps /usr/src/app/adaptor.ts .
+COPY --from=deps /usr/src/app/tsconfig.json .
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+RUN ./node_modules/.bin/tsc
+
+FROM node:16-alpine as runner
+
+WORKDIR /usr/src/app
+ENV NODE_ENV=production
+COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY --from=builder /usr/src/app/server.js .
+COPY --from=builder /usr/src/app/index.js .
+COPY --from=builder /usr/src/app/adaptor.js .
+COPY --from=deps /usr/src/app/index.html .
+EXPOSE 3000
+CMD ["server.js"]
