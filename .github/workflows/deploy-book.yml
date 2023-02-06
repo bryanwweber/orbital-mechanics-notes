@@ -3,8 +3,9 @@ name: deploy-book
 # Only run this when the main branch changes
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -18,12 +19,13 @@ jobs:
           cache: true
           python-version: "3.10"
       - name: Install dependencies
-        run: pdm sync --prod
+        run: pdm sync --prod --no-self
       # Build the book
       - name: Build the book
         run: jupyter-book build -vv .
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
