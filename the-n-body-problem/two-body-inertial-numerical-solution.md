@@ -282,7 +282,7 @@ glue("two_body_inertial_m1_relative", js, display=False)
 The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to $m_1$. In this reference frame, the orbits of the barycenter and $m_2$ appear to be ellipses with $m_1$ at one of the foci.
 :::
 
-Interestingly, the equations for this solution are symmetric. We can reverse the roles of $m_1$ and $m_1$ and have exactly the same plot as {numref}`fig:two-body-inertial-m1-relative`. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!
+Interestingly, the equations for this solution are symmetric. We can reverse the roles of $m_1$ and $m_2$ and have exactly the same plot as {numref}`fig:two-body-inertial-m1-relative`. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!
 
 The code to generate the plots is shown below.
 
