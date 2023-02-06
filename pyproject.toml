@@ -14,7 +14,7 @@ dev = [
 # See https://www.python.org/dev/peps/pep-0621/
 name = "orbital-mechanics-notes"
 dependencies = [
-    "https://github.com/bryanwweber/jupyter-book/archive/bump-deps.zip",
+    "jupyter-book@ https://github.com/bryanwweber/jupyter-book/archive/refs/heads/bump-deps.zip",
     "myst-nb-bokeh>=1.0",
     "myst-nb>=0.17.1,<0.18",
     "matplotlib",
