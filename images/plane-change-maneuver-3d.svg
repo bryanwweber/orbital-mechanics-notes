@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" width="525" height="525" viewBox="0 0 525 525" version="1.1" id="svg5" inkscape:version="1.1.1 (c3084ef, 2021-09-22)" sodipodi:docname="plane-change-maneuver-3d.svg">
   <sodipodi:namedview id="namedview7" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="false" inkscape:document-units="px" showgrid="true" units="px" showborder="true" borderlayer="false" inkscape:showpageshadow="false" inkscape:zoom="1.1906893" inkscape:cx="248.17558" inkscape:cy="258.25378" inkscape:window-width="1440" inkscape:window-height="847" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="layer1" inkscape:snap-smooth-nodes="true" inkscape:object-paths="true" inkscape:snap-intersection-paths="true" inkscape:snap-midpoints="true" inkscape:snap-object-midpoints="true" inkscape:snap-center="true" inkscape:snap-text-baseline="true" inkscape:snap-grids="false" fit-margin-top="20" lock-margins="true" fit-margin-left="20" fit-margin-right="20" fit-margin-bottom="20">
     <inkscape:grid type="axonomgrid" id="grid9" gridanglex="15" gridanglez="15" spacingy="5" units="px" originx="-35.234309" originy="-27.581348" />
@@ -8,7 +8,7 @@
     <cc:Work rdf:about="">
       <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
       <dc:title>plane-change-maneuver-3d.svg</dc:title>
-      <dc:date>2021-10-31T12:53:48.479918</dc:date>
+      <dc:date>2023-02-05T22:27:50.459378</dc:date>
       <dc:format>image/svg+xml</dc:format>
       <dc:creator>
         <cc:Agent>
