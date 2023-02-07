@@ -25,10 +25,11 @@ Recall the equations of motion for the two-body problem in a reference frame att
 
 In this example, we will solve the two-body problem in relative coordinates. Although the problem is in relative coordinates, the solution procedure is the same as [](./two-body-inertial-numerical-solution.md). In Python, the first thing is to import the required libraries. This step is not necessary in Matlab.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-1]"
 :end-before: "[section-2]"
+:language: python
 :::
 ::::
 
@@ -45,17 +46,17 @@ We want to determine the minimum and maximum altitude, and the satellite's speed
 
 To avoid confusion with the $y$ coordinate, we will use capital $Y$ for the state vector. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-2]"
 :end-before: "[section-3]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-2]"
 :end-before: "[section-3]"
+:language: matlab
 :::
 ::::
 
@@ -63,17 +64,17 @@ Then, we need to define the function that describes the motion of our system. Th
 
 Inside the function, we use the values in the state vector to fill the `Ydot` vector. Then, we return `Ydot` back to the solver.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-3]"
 :end-before: "[section-4]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-3]"
 :end-before: "[section-4]"
+:language: matlab
 :::
 ::::
 
@@ -83,17 +84,17 @@ We will guess the final time and check that increasing it does not change the an
 
 In Python, once the solver finishes, the solution is stored in `sol.y`. Each column of `sol.y` corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define `Y`.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-4]"
 :end-before: "[section-5]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-4]"
 :end-before: "[section-5]"
+:language: matlab
 :::
 ::::
 
@@ -106,49 +107,49 @@ h = \mag{\vector{r}} - R_E
 
 where $h$ is the altitude and $R_E$ is the radius of the earth. Similarly, the speed is the magnitude of the velocity.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-5]"
 :end-before: "[section-6]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-5]"
 :end-before: "[section-6]"
+:language: matlab
 :::
 ::::
 
 Now we can process the arrays to find the minimum and maximum altitude, and the speed at those locations. In Python, there are separate functions to find the minimum/maximum and its index; in Matlab, there is a single function to do both.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-6]"
 :end-before: "[section-7]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-6]"
 :end-before: "[section-7]"
+:language: matlab
 :::
 ::::
 
 Finally, we can print the results to the screen.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-7]"
 :end-before: "[section-8]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-7]"
 :end-before: "[section-8]"
+:language: matlab
 :::
 ::::
 
@@ -163,17 +164,17 @@ The time at maximum altitude is: 7288.57 s
 
 Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let's plot the orbit. The central sphere is representative of the earth.
 
-::::{tab} Python
+::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
 :start-after: "[section-8]"
 :end-before: "[section-9]"
+:language: python
 :::
-::::
 
-::::{tab} Matlab
 :::{literalinclude} scripts/two_body_relative_numerical_solution.m
 :start-after: "[section-8]"
 :end-before: "[section-9]"
+:language: matlab
 :::
 ::::
 

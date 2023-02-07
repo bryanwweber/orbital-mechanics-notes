@@ -6,7 +6,8 @@ In this section, we will introduce some common nomenclature for orbits that are 
 
 For the four conical orbits, the true anomaly is defined with $\nu=0$ pointing along the apse line, or the eccentricity vector.
 
-::::{tab} Ellipse
+:::::{tab-set}
+::::{tab-item} Ellipse
 :::{figure} ../images/periapsis-and-apoapsis-ellipse.svg
 :name: fig:periapsis-and-apoapsis-ellipse
 
@@ -18,7 +19,7 @@ The elliptical orbit has two foci. We choose the right focus to be occupied by c
 The location in the orbit that is farthest from the primary mass is located at $\nu =$ 180°. This point is called **apoapsis**.
 ::::
 
-::::{tab} Circle
+::::{tab-item} Circle
 :::{figure} ../images/periapsis-and-apoapsis-circle.svg
 :name: fig:periapsis-and-apoapsis-circle
 :width: 75%
@@ -31,7 +32,7 @@ The circular orbit has eccentricity $e = 0$. In the circular orbit, there is no 
 For circular orbits, we usually pick the apse line to be along the $x$-axis and start counting the true anomaly from there. However, the choice is arbitrary and any point would give an equivalent result.
 ::::
 
-::::{tab} Parabola
+::::{tab-item} Parabola
 :::{figure} ../images/periapsis-and-apoapsis-parabola.svg
 :name: fig:periapsis-and-apoapsis-parabola
 :width: 75%
@@ -44,7 +45,7 @@ The parabolic trajectory has eccentricity $e = 1$. The parabolic trajectory exte
 The parabolic trajectory has a periapsis, a point of closest approach, but no apoapsis, since the trajectory extends to infinity.
 ::::
 
-::::{tab} Hyperbola
+::::{tab-item} Hyperbola
 :::{figure} ../images/periapsis-and-apoapsis-hyperbola.svg
 :name: fig:periapsis-and-apoapsis-hyperbola
 :width: 75%
@@ -60,6 +61,7 @@ The hyperbolic trajectory has a periapsis, a point of closest approach, on the o
 
 The wings of the hyperbola approach the asymptote lines as $x$ goes to infinity.
 ::::
+:::::
 
 ```{note}
 The terms _periapsis_ and _apoapsis_ are composed of two parts - a prefix indicating the distance from the primary object, and a suffix indicating which astronomical body is the primary. The prefixes are _peri-_, which comes from a Greek root meaning _near_, and _apo-_, which comes from a Greek root meaning _away from_.

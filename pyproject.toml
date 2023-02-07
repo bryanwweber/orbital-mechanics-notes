@@ -27,7 +27,6 @@ dependencies = [
     "wheel>=0.38.4",
     "pint>=0.20.1",
     "skyfield>=1.45",
-    "sphinx-inline-tabs>=2022.1.2b11",
-    "sphinx-panels>=0.6.0",
+    "sphinx-design>=0.3.0",
 ]
 requires-python = ">=3.9,<3.11"
