@@ -67,8 +67,6 @@ parts:
       - file: orbital-maneuvers/apse-line-rotation-example
       - file: orbital-maneuvers/plane-change-maneuvers
       - file: orbital-maneuvers/plane-change-example
-      # - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
-      # - file: orbital-maneuvers/nonimpulsive-maneuver-example
   - caption: Interplanetary Trajectories
     chapters:
       - file: interplanetary-maneuvers/introduction
@@ -101,3 +99,8 @@ parts:
   - caption: Bibliography
     chapters:
       - file: bibliography
+  - caption: Postscript
+    chapters:
+      - file: interplanetary-maneuvers/planetary-depahture-trajectory
+      - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers
+      - file: orbital-maneuvers/nonimpulsive-maneuver-example

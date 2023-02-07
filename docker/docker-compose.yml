@@ -34,6 +34,9 @@ services:
     ports: ["8080:8080"]
     command: python3 -m http.server 8080 -d /html
     volumes:
-      - ../_build/html:/html
+      - type: bind
+        source: "../_build/html"
+        target: "/html"
+        read_only: true
     working_dir: /html
     container_name: http-server

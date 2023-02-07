@@ -1041,15 +1041,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sphinx-inline-tabs"
-version = "2022.1.2b11"
-requires_python = ">=3.8"
-summary = "Add inline tabbed content to your Sphinx documentation."
-dependencies = [
-    "sphinx>=3",
-]
-
-[[package]]
 name = "sphinx-jupyterbook-latex"
 version = "0.5.2"
 requires_python = ">=3.6"
@@ -1064,15 +1055,6 @@ version = "0.1.3"
 summary = "Supporting continuous HTML section numbering"
 dependencies = [
     "sphinx>=3",
-]
-
-[[package]]
-name = "sphinx-panels"
-version = "0.6.0"
-summary = "A sphinx extension for creating panels in a grid layout."
-dependencies = [
-    "docutils",
-    "sphinx<5,>=2",
 ]
 
 [[package]]
@@ -1249,7 +1231,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.1"
-content_hash = "sha256:794dde4ac5f95288cdbf6aa29241e3d199439e66a3495096bd270abbd7bc1678"
+content_hash = "sha256:e42b79613d317796dfcc579664e1e2094828f5a3f2dbd9bf1cf4de8627393a92"
 
 [metadata.files]
 "alabaster 0.7.13" = [
@@ -2674,10 +2656,6 @@ content_hash = "sha256:794dde4ac5f95288cdbf6aa29241e3d199439e66a3495096bd270abbd
     {url = "https://files.pythonhosted.org/packages/6a/2e/ba8e08ac97618e3f207e19297840937d4c39d77cea1aca2b8ea0a18f0bd8/sphinx_external_toc-0.3.1-py3-none-any.whl", hash = "sha256:cd93c1e7599327b2a728db12d9819068ce719c4b037ffc62e47f20ffb6310fb3"},
     {url = "https://files.pythonhosted.org/packages/a9/55/84109f851bffeb93ecaa18c9d525168224038c5db633224b0e088b841c13/sphinx_external_toc-0.3.1.tar.gz", hash = "sha256:9c8ea9980ea0e57bf3ce98f6a400f9b69eb1df808f7dd796c9c8cc1873d8b355"},
 ]
-"sphinx-inline-tabs 2022.1.2b11" = [
-    {url = "https://files.pythonhosted.org/packages/65/ed/120f0f62243aa3fbb6a22fb28940ffdfa783013700c82d445e687b86f0bb/sphinx_inline_tabs-2022.1.2b11.tar.gz", hash = "sha256:afb9142772ec05ccb07f05d8181b518188fc55631b26ee803c694e812b3fdd73"},
-    {url = "https://files.pythonhosted.org/packages/b6/d7/3ae4fe00f19df4256f0cb31f5034ad26aa3a4afdc44e1c8833d527429078/sphinx_inline_tabs-2022.1.2b11-py3-none-any.whl", hash = "sha256:bb4e807769ef52301a186d0678da719120b978a1af4fd62a1e9453684e962dbc"},
-]
 "sphinx-jupyterbook-latex 0.5.2" = [
     {url = "https://files.pythonhosted.org/packages/18/9e/23dfce036d9cd50d71fcc7da70b99b7a6ea92bd55eb4a2fc2ac8a9501dbf/sphinx_jupyterbook_latex-0.5.2-py3-none-any.whl", hash = "sha256:24de689689ddc27c736b15b91c6b9afdcdc31570938572693bb05bfff8f50758"},
     {url = "https://files.pythonhosted.org/packages/20/a5/7dbb8a2f4238d0c5dbed4b1fec6fcc1979571257b99620a21368674a45ef/sphinx_jupyterbook_latex-0.5.2.tar.gz", hash = "sha256:da1d3ad028f55ddbf10b9130bb9f24fc60cafb671cbd39dfd95537aafc90972e"},
@@ -2685,10 +2663,6 @@ content_hash = "sha256:794dde4ac5f95288cdbf6aa29241e3d199439e66a3495096bd270abbd
 "sphinx-multitoc-numbering 0.1.3" = [
     {url = "https://files.pythonhosted.org/packages/37/1e/577bae038372885ebc34bd8c0f290295785a0250cac6528eb6d50e4b92d5/sphinx-multitoc-numbering-0.1.3.tar.gz", hash = "sha256:c9607671ac511236fa5d61a7491c1031e700e8d498c9d2418e6c61d1251209ae"},
     {url = "https://files.pythonhosted.org/packages/ec/9f/902f2030674cd9473fdbe5a2c2dec2618c27ec853484c35f82cf8df40ece/sphinx_multitoc_numbering-0.1.3-py3-none-any.whl", hash = "sha256:33d2e707a9b2b8ad636b3d4302e658a008025106fe0474046c651144c26d8514"},
-]
-"sphinx-panels 0.6.0" = [
-    {url = "https://files.pythonhosted.org/packages/8a/5a/7232e77ac35af925fc231ec8b4242f8a26d7242da9b511a5605f1a091d4b/sphinx_panels-0.6.0-py3-none-any.whl", hash = "sha256:bd64afaf85c07f8096d21c8247fc6fd757e339d1be97832c8832d6ae5ed2e61d"},
-    {url = "https://files.pythonhosted.org/packages/d7/7b/ddb37819993d7328a743acc838220eb25032b501d5f6beeb6c59924e2e9e/sphinx-panels-0.6.0.tar.gz", hash = "sha256:d36dcd26358117e11888f7143db4ac2301ebe90873ac00627bf1fe526bf0f058"},
 ]
 "sphinx-thebe 0.2.1" = [
     {url = "https://files.pythonhosted.org/packages/19/f6/fb50e5cb37447e30caa25b1cda2734cb2a1737c2f16bb36e4c463dee583c/sphinx-thebe-0.2.1.tar.gz", hash = "sha256:f4c8c1542054f991b73fcb28c4cf21697e42aba2f83f22348c1c851b82766583"},

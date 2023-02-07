@@ -10,9 +10,7 @@ exclude_patterns:
   - docker
   - assets
   - blender
-  - chapter-3
   - chapter-4
-  - chapter-8
   - .venv
   - .pytest_cache
 
@@ -26,7 +24,7 @@ execute:
 sphinx:
   extra_extensions:
     - myst_nb_bokeh
-    - sphinx_inline_tabs
+    - sphinx_design
   config:
     html_show_copyright: false
     html_extra_path: ["assets"]
