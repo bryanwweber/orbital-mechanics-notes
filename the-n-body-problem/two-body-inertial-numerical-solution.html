@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Two-Body Numerical Solution in an Inertial Frame &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,43 +20,40 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-inertial-numerical-solution.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Orbital Mechanics &amp; Astrodynamics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Orbital Mechanics & Astrodynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -538,114 +553,267 @@
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Postscript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">
+   Planetary Depahture for Interplanetary Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/the-n-body-problem/two-body-inertial-numerical-solution.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/the-n-body-problem/two-body-inertial-numerical-solution.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/two-body-inertial-numerical-solution.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/two-body-inertial-numerical-solution.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/the-n-body-problem/two-body-inertial-numerical-solution.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/the-n-body-problem/two-body-inertial-numerical-solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/two-body-inertial-numerical-solution.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/two-body-inertial-numerical-solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/the-n-body-problem/two-body-inertial-numerical-solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/the-n-body-problem/two-body-inertial-numerical-solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-state-vector">
    The State Vector
@@ -668,17 +836,55 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Two-Body Numerical Solution in an Inertial Frame</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-state-vector">
+   The State Vector
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transforming-the-system-of-ordinary-differential-equations">
+   Transforming the System of Ordinary Differential Equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-algorithm">
+   Solution Algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-solution-using-pre-built-libraries">
+   Numerical Solution Using Pre-Built Libraries
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="two-body-numerical-solution-in-an-inertial-frame">
-<h1>Two-Body Numerical Solution in an Inertial Frame<a class="headerlink" href="#two-body-numerical-solution-in-an-inertial-frame" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="two-body-numerical-solution-in-an-inertial-frame">
+<h1>Two-Body Numerical Solution in an Inertial Frame<a class="headerlink" href="#two-body-numerical-solution-in-an-inertial-frame" title="Permalink to this headline">#</a></h1>
 <p>The equations of motion for the two-body problem in an inertial frame are given by <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>, repeated here:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -699,16 +905,18 @@
 \end{aligned}\end{split}\]</div>
 <p>where the subscript <span class="math notranslate nohighlight">\(0\)</span> indicates the <em>initial</em> position and velocity. These are the 12 components of the <em>initial state vector</em>, which we will give the symbol <span class="math notranslate nohighlight">\(y_0\)</span>.</p>
 <p>The two masses are equal, <span class="math notranslate nohighlight">\(m_1 = m_2 = 1.0\times 10^{26} \text{ kg}\)</span> and Newton’s gravitational constant is <span class="math notranslate nohighlight">\(G = 6.67430\times 10^{-2} \text{ km}^3 \text{ kg}^{-1} \text{ s}^{-2}\)</span>.</p>
-<div class="section" id="the-state-vector">
-<h2>The State Vector<a class="headerlink" href="#the-state-vector" title="Permalink to this headline">¶</a></h2>
+<section id="the-state-vector">
+<h2>The State Vector<a class="headerlink" href="#the-state-vector" title="Permalink to this headline">#</a></h2>
 <p>In the numerical solution, the state vector is stored in an <strong>array</strong>. Arrays in programming are data structures that are optimized to store numbers. The order that the components appear in the state vector isn’t important, only that we keep track of the order and don’t forget it. For the sake of choosing something, we will set the positions followed by the velocities:</p>
 <div class="math notranslate nohighlight" id="equation-eq-state-vector-array">
-<span class="eqno">(22)<a class="headerlink" href="#equation-eq-state-vector-array" title="Permalink to this equation">¶</a></span>\[y = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z_1}\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
+<span class="eqno">(22)<a class="headerlink" href="#equation-eq-state-vector-array" title="Permalink to this equation">#</a></span>\[y = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z_1}\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
 <p>The array is indicated by using square brackets, <span class="math notranslate nohighlight">\([\dots]\)</span>, and lists all the components of the array inside the brackets. Depending on the programming language you’re using, there are different ways to create arrays.</p>
 <p>In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-0">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-20</span>  <span class="c1"># km**3/(kg * s**2)</span>
 <span class="n">m_1</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">=</span> <span class="mf">1.0e26</span>  <span class="c1"># kg</span>
@@ -723,41 +931,45 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430E-20</span><span class="p">;</span><span class="w">  </span><span class="c">% km^3/(kg * s^2)</span><span class="w"></span>
-<span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
-<span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span><span class="w"></span>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-1">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430E-20</span><span class="p">;</span><span class="w">  </span><span class="c">% km^3/(kg * s^2)</span>
+<span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span>
+<span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0E26</span><span class="p">;</span><span class="w">  </span><span class="c">% kg</span>
 
-<span class="n">R10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span><span class="w"></span>
-<span class="n">R20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span><span class="w"></span>
-<span class="n">dotR10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span><span class="w"></span>
-<span class="n">dotR20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span><span class="w"></span>
+<span class="n">R10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span>
+<span class="n">R20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3000</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km</span>
+<span class="n">dotR10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span>
+<span class="n">dotR20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w">  </span><span class="c">% km/s</span>
 
-<span class="n">y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">R10</span><span class="w"> </span><span class="n">R20</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="n">dotR20</span><span class="p">];</span><span class="w"></span>
+<span class="n">y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">R10</span><span class="w"> </span><span class="n">R20</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="n">dotR20</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>These code samples first set the constants in the problem, <span class="math notranslate nohighlight">\(G\)</span> and <span class="math notranslate nohighlight">\(m_1 = m_2\)</span>. Then, they create the initial position and velocity arrays. Finally, the arrays are stuck together into the initial state vector, <code class="docutils literal notranslate"><span class="pre">y_0</span></code>.</p>
-</div>
-<div class="section" id="transforming-the-system-of-ordinary-differential-equations">
-<h2>Transforming the System of Ordinary Differential Equations<a class="headerlink" href="#transforming-the-system-of-ordinary-differential-equations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="transforming-the-system-of-ordinary-differential-equations">
+<h2>Transforming the System of Ordinary Differential Equations<a class="headerlink" href="#transforming-the-system-of-ordinary-differential-equations" title="Permalink to this headline">#</a></h2>
 <p>The system of ordinary differential equations (ODEs) in <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> or <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a> is a second order system. However, it can be transformed to a system of first-order ODEs by recognizing the acceleration as the first derivative of the velocity. Solving a first-order system is much simpler than solving a second-order system.</p>
 <p>We know that the system of equations requires the</p>
 <div class="math notranslate nohighlight" id="equation-eq-numerical-solution">
-<span class="eqno">(23)<a class="headerlink" href="#equation-eq-numerical-solution" title="Permalink to this equation">¶</a></span>\[\dot{\vector{y}} = f\left(t, \vector{y}\right)\]</div>
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-numerical-solution" title="Permalink to this equation">#</a></span>\[\dot{\vector{y}} = f\left(t, \vector{y}\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{y}\)</span> is the state vector, <span class="math notranslate nohighlight">\(t\)</span> is time, and <span class="math notranslate nohighlight">\(f\)</span> is a function that depends on the current time and the current state vector.</p>
 <p>The left hand side of <a class="reference internal" href="#equation-eq-numerical-solution">(23)</a> is the time-derivative of the state vector, which we find by taking the time derivative of each element of the state vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-state-vector-derivative">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-state-vector-derivative" title="Permalink to this equation">¶</a></span>\[\dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]\]</div>
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-state-vector-derivative" title="Permalink to this equation">#</a></span>\[\dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]\]</div>
 <p>In words, the left side of <a class="reference internal" href="#equation-eq-numerical-solution">(23)</a> is another array, where the first six elements are the velocity components (the first derivative of position) and the second six are the acceleration (the first derivative of velocity).</p>
-</div>
-<div class="section" id="solution-algorithm">
-<h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="solution-algorithm">
+<h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Permalink to this headline">#</a></h2>
 <p>We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>. This can be done for one direction at a time, as shown in the following code:</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-2">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">Y_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Z_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">X_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -776,35 +988,39 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="n">Y_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="n">Z_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="n">X_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="n">Y_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-<span class="n">Z_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-3">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">X_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Y_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Z_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">X_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">Y_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">Z_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
 
-<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">((</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">((</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
 
-<span class="n">ddotX_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotY_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotZ_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotX_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotY_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotZ_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">ddotX_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ddotY_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ddotZ_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ddotX_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">X_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ddotY_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Y_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ddotZ_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">Z_2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Z_1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>We’ll see in a little bit why we’re using the state vector to get positions rather than the position vectors.</p>
-</div>
+</aside>
 <p>This code first retrieves the position components from the state vector. Then it calculates each component of acceleration for the two masses.</p>
 <p>This code is pretty long, and we’ve created a bunch of variables to keep track of. Fortunately, there are simpler ways to approach this calculation. The next code samples show how to take advantage of the nature of array computations:</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-4">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R_1</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">R_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)))</span>
@@ -815,14 +1031,16 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-5">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y0</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
 
-<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">);</span><span class="w"></span>
-<span class="n">ddot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotR10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">ddot</span><span class="p">;</span><span class="w"></span>
-<span class="n">ddotR20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">ddot</span><span class="p">;</span><span class="w"></span>
+<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">);</span>
+<span class="n">ddot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ddotR10</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">ddot</span><span class="p">;</span>
+<span class="n">ddotR20</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">ddot</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -830,7 +1048,7 @@
 <p>In this code, you retrieve the position of each mass as an array instead of into a single variable. Then, using array functions, you compute the distance and the accelerations.</p>
 <p>Now that you’ve calculated the acceleration, the velocity and position at the next time can be found by integration:</p>
 <div class="math notranslate nohighlight" id="equation-eq-kinematic-integration">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-kinematic-integration" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(25)<a class="headerlink" href="#equation-eq-kinematic-integration" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \dot{R}_1 &amp;= \int_0^t \ddot{R}_1 dt + \dot{R}_{1,0}\\
   \dot{R}_2 &amp;= \int_0^t \ddot{R}_2 dt + \dot{R}_{2,0}\\
   R_1 &amp;= \int_0^t \dot{R}_1 dt + R_{1,0}\\
@@ -838,9 +1056,11 @@
 \end{aligned}\end{split}\]</div>
 <p>Assuming that the acceleration and velocity are constant over some time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, the integrals simplify to the product of the term and <span class="math notranslate nohighlight">\(\Delta t\)</span>. The choice of <span class="math notranslate nohighlight">\(\Delta t\)</span> is up to you. Smaller values of <span class="math notranslate nohighlight">\(\Delta t\)</span> will be more accurate but take longer to compute.</p>
 <p>Let’s choose <span class="math notranslate nohighlight">\(\Delta t = 1\text{ s}\)</span>. Then, to compute the state vector at the next time step:</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># s</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-6">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># s</span>
 <span class="n">dotR_1_1</span> <span class="o">=</span> <span class="n">ddotR_1_0</span> <span class="o">*</span> <span class="n">Delta_t</span> <span class="o">+</span> <span class="n">dotR_1_0</span>
 <span class="n">dotR_2_1</span> <span class="o">=</span> <span class="n">ddotR_2_0</span> <span class="o">*</span> <span class="n">Delta_t</span> <span class="o">+</span> <span class="n">dotR_2_0</span>
 
@@ -850,26 +1070,30 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c">% s</span><span class="w"></span>
-<span class="n">dotR11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR10</span><span class="p">;</span><span class="w"></span>
-<span class="n">dotR21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR20</span><span class="p">;</span><span class="w"></span>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-7">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Delta_t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c">% s</span>
+<span class="n">dotR11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR10</span><span class="p">;</span>
+<span class="n">dotR21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ddotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dotR20</span><span class="p">;</span>
 
-<span class="n">R11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R10</span><span class="p">;</span><span class="w"></span>
-<span class="n">R21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R20</span><span class="p">;</span><span class="w"></span>
+<span class="n">R11</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR10</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R10</span><span class="p">;</span>
+<span class="n">R21</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dotR20</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">Delta_t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R20</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>However, it would be inefficient to do this by hand and there are more accurate methods available. I don’t see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you’re using.</p>
-</div>
-<div class="section" id="numerical-solution-using-pre-built-libraries">
-<h2>Numerical Solution Using Pre-Built Libraries<a class="headerlink" href="#numerical-solution-using-pre-built-libraries" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="numerical-solution-using-pre-built-libraries">
+<h2>Numerical Solution Using Pre-Built Libraries<a class="headerlink" href="#numerical-solution-using-pre-built-libraries" title="Permalink to this headline">#</a></h2>
 <p>In SciPy, the function is called <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a>. In Matlab, the function is called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html"><code class="docutils literal notranslate"><span class="pre">ode45</span></code></a>.</p>
 <p>First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-8">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 
@@ -882,10 +1106,12 @@
 <p>Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above (<span class="math notranslate nohighlight">\(\dot{\vector{y}}\)</span>) and return it to the solver, so that the solver can calculate the value of the state vector at time <span class="math notranslate nohighlight">\(t + \Delta t\)</span>.</p>
 <p>The function takes the time <span class="math notranslate nohighlight">\(t\)</span> and current value of the state vector <span class="math notranslate nohighlight">\(y\)</span> as inputs. In this way, we can use the current state vector to compute the current acceleration.</p>
 <p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">ydot</span></code> back to the solver.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolute_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system in an inertial reference frame.</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-5" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-9">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolute_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system in an inertial reference frame.</span>
 
 <span class="sd">    The state vector ``y`` should be in the order:</span>
 
@@ -920,32 +1146,33 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    function dydt = absolute_motion(~,y)
-        % Calculate the motion of a two-body system in an inertial reference frame.
-        %
-        % The state vector ``y`` should be in the order:
-        %
-        % 1. Coordinates of $m_1$
-        % 2. Coordinates of $m_2$
-        % 3. Velocity components of $m_1$
-        % 4. Velocity components of $m_2$
+<input id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-10">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>dydt<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">absolute_motion</span><span class="p">(</span>~,y<span class="p">)</span>
+<span class="w">    </span><span class="c">% Calculate the motion of a two-body system in an inertial reference frame.</span>
+<span class="w">    </span><span class="c">%</span>
+<span class="w">    </span><span class="c">% The state vector ``y`` should be in the order:</span>
+<span class="w">    </span><span class="c">%</span>
+<span class="w">    </span><span class="c">% 1. Coordinates of $m_1$</span>
+<span class="w">    </span><span class="c">% 2. Coordinates of $m_2$</span>
+<span class="w">    </span><span class="c">% 3. Velocity components of $m_1$</span>
+<span class="w">    </span><span class="c">% 4. Velocity components of $m_2$</span>
 
-        R1 = y(1:3);
-        R2 = y(4:6);
+<span class="w">    </span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
 
-        dotR1 = y(7:9);
-        dotR2 = y(10:12);
+<span class="w">    </span><span class="n">dotR1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">);</span>
+<span class="w">    </span><span class="n">dotR2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">);</span>
 
-        r = norm(R2 - R1);
+<span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">);</span>
 
-        ddotR1 = G .* m2 .* (R2 - R1) ./ r.^3;
-        ddotR2 = G .* m1 .* (R1 - R2) ./ r.^3;
+<span class="w">    </span><span class="n">ddotR1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ddotR2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">(</span><span class="n">R1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R2</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
 
-        dydt = [dotR1; dotR2; ddotR1; ddotR2];
+<span class="w">    </span><span class="n">dydt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">dotR1</span><span class="p">;</span><span class="w"> </span><span class="n">dotR2</span><span class="p">;</span><span class="w"> </span><span class="n">ddotR1</span><span class="p">;</span><span class="w"> </span><span class="n">ddotR2</span><span class="p">];</span>
 
-    end % absolute_motion
-
+<span class="k">end</span><span class="w"> </span><span class="c">% absolute_motion</span>
 </pre></div>
 </div>
 </div>
@@ -953,9 +1180,11 @@
 <p>With the function defined, we can call <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> or <code class="docutils literal notranslate"><span class="pre">ode45()</span></code>. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
 <p>Once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> in Python or just <code class="docutils literal notranslate"><span class="pre">y</span></code> in Matlab. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">y</span></code>. In Matlab, the solution already has each timestep in a row.</p>
 <p>Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-6" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-11">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
 <span class="n">t_f</span> <span class="o">=</span> <span class="mi">480</span>  <span class="c1"># seconds</span>
 <span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 
@@ -971,14 +1200,16 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="n">tf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">480</span><span class="p">;</span><span class="w"></span>
-<span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ode45</span><span class="p">(@</span><span class="n">absolute_motion</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">t0</span><span class="w"> </span><span class="n">tf</span><span class="p">],</span><span class="w"> </span><span class="n">y0</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-12">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">tf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">480</span><span class="p">;</span>
+<span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ode45</span><span class="p">(@</span><span class="n">absolute_motion</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">t0</span><span class="w"> </span><span class="n">tf</span><span class="p">],</span><span class="w"> </span><span class="n">y0</span><span class="p">);</span>
 
-<span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c">% km</span><span class="w"></span>
-<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% km</span><span class="w"></span>
-<span class="n">barycenter</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">R2</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="p">);</span><span class="w"></span>
+<span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c">% km</span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% km</span>
+<span class="n">barycenter</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">R2</span><span class="p">)</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="p">(</span><span class="n">m1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -986,11 +1217,8 @@
 <p>Finally, we construct some plots of the situation. In <a class="reference internal" href="#fig-two-body-inertial"><span class="std std-numref">Fig. 9</span></a>, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="doc std std-doc">next section</span></a>.</p>
 <p>The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
 </div>
-</div>
-<div class="figure align-default" id="fig-two-body-inertial">
-<div class="cell_output docutils container">
+<figure class="align-default" id="fig-two-body-inertial">
 <div class="output text_html"><div id="scene" style="width: 100%"></div>
 <div
   id="scene-gui"
@@ -1147,16 +1375,14 @@
     }
   }
 </script>
-</div></div>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.</span><a class="headerlink" href="#fig-two-body-inertial" title="Permalink to this image">¶</a></p>
-</div>
+</div><figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.</span><a class="headerlink" href="#fig-two-body-inertial" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in <a class="reference internal" href="#fig-two-body-inertial-cg-relative"><span class="std std-numref">Fig. 10</span></a>. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
 </div>
-</div>
-<div class="figure align-default" id="fig-two-body-inertial-cg-relative">
-<div class="cell_output docutils container">
+<figure class="align-default" id="fig-two-body-inertial-cg-relative">
 <div class="output text_html"><div id="cg-relative-scene" style="width: 100%"></div>
 <div
   id="cg-relative-scene-gui"
@@ -1313,16 +1539,14 @@
     }
   }
 </script>
-</div></div>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with the barycenter at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-cg-relative" title="Permalink to this image">¶</a></p>
-</div>
+</div><figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with the barycenter at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-cg-relative" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a> fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.</p>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
 </div>
-</div>
-<div class="figure align-default" id="fig-two-body-inertial-m1-relative">
-<div class="cell_output docutils container">
+<figure class="align-default" id="fig-two-body-inertial-m1-relative">
 <div class="output text_html"><div id="m1-relative-scene" style="width: 100%"></div>
 <div
   id="m1-relative-scene-gui"
@@ -1480,14 +1704,17 @@
     }
   }
 </script>
-</div></div>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the orbits of the barycenter and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with <span class="math notranslate nohighlight">\(m_1\)</span> at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-m1-relative" title="Permalink to this image">¶</a></p>
-</div>
+</div><figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the orbits of the barycenter and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with <span class="math notranslate nohighlight">\(m_1\)</span> at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-m1-relative" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Interestingly, the equations for this solution are symmetric. We can reverse the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> and have exactly the same plot as <a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a>. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!</p>
 <p>The code to generate the plots is shown below.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-13" name="sd-tab-set-7" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-13">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_1</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_1&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">R_2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">R_2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">R_2</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;m_2&quot;</span><span class="p">)</span>
@@ -1514,57 +1741,59 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--7-input--2" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="w"></span>
+<input id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-14">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">output</span>
 
-<span class="s">return</span><span class="w"></span>
+<span class="s">return</span>
 
-<span class="k">function</span><span class="w"> </span><span class="nf">output</span><span class="w"></span>
-<span class="w">    </span><span class="c">% Plot the output in three graphs</span><span class="w"></span>
-<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of two masses in an inertial frame&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-r&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-g&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">axis_settings</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">output</span>
+<span class="w">    </span><span class="c">% Plot the output in three graphs</span>
+<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of two masses in an inertial frame&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-r&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">barycenter</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-g&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">axis_settings</span>
 
-<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of two masses relative to their barycenter&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="w">    </span><span class="n">R1_rel_COG</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">barycenter</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">R2_rel_COG</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">barycenter</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-r&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;og&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">axis_settings</span><span class="w"></span>
+<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of two masses relative to their barycenter&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span>
+<span class="w">    </span><span class="n">R1_rel_COG</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">barycenter</span><span class="p">;</span>
+<span class="w">    </span><span class="n">R2_rel_COG</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">barycenter</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R1_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-r&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_COG</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;og&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">axis_settings</span>
 
-<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of mass 2 relative to mass 1&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="w">    </span><span class="n">R2_rel_R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">COG_rel_R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">barycenter</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-g&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;or&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">axis_settings</span><span class="w"></span>
+<span class="w">    </span><span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Motion of mass 2 relative to mass 1&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span>
+<span class="w">    </span><span class="n">R2_rel_R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">COG_rel_R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">barycenter</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">R1</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">R2_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-b&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">COG_rel_R1</span><span class="p">(:,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;-g&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;or&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">axis_settings</span>
 
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">axis_settings</span><span class="w"></span>
-<span class="w">        </span><span class="nb">view</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span><span class="w"></span>
-<span class="w">        </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="w">        </span><span class="nb">axis</span><span class="w"> </span><span class="n">equal</span><span class="w"></span>
-<span class="w">        </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;X (km)&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Y (km)&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="nb">zlabel</span><span class="p">(</span><span class="s">&#39;Z (km)&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="c">% axis_settings</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">axis_settings</span>
+<span class="w">        </span><span class="nb">view</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span>
+<span class="w">        </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span>
+<span class="w">        </span><span class="nb">axis</span><span class="w"> </span><span class="n">equal</span>
+<span class="w">        </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;X (km)&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Y (km)&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nb">zlabel</span><span class="p">(</span><span class="s">&#39;Z (km)&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="c">% axis_settings</span>
 
-<span class="k">end</span><span class="w"> </span><span class="c">% output</span><span class="w"></span>
+<span class="k">end</span><span class="w"> </span><span class="c">% output</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1578,7 +1807,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./the-n-body-problem"
         },
         predefinedOutput: true
@@ -1588,9 +1817,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="two-body-inertial-motion.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1606,29 +1837,31 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Bryan Weber<br/>
-        
-          <div class="extra_footer">
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Weber<br/>
+  
+    <div class="extra_footer">
+      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Hyperbolic Trajectories (\(e &gt; 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,43 +20,40 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Orbital Mechanics &amp; Astrodynamics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Orbital Mechanics & Astrodynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -538,114 +553,267 @@
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Postscript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">
+   Planetary Depahture for Interplanetary Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Ftime-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Ftime-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hyperbolic-eccentric-anomaly">
    Hyperbolic Eccentric Anomaly
@@ -658,102 +826,134 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Hyperbolic Trajectories (e > 1)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperbolic-eccentric-anomaly">
+   Hyperbolic Eccentric Anomaly
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kepler-s-equation-for-the-hyperbola">
+   Kepler’s Equation for the Hyperbola
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="hyperbolic-trajectories-e-1">
-<h1>Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)<a class="headerlink" href="#hyperbolic-trajectories-e-1" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hyperbolic-trajectories-e-1">
+<h1>Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)<a class="headerlink" href="#hyperbolic-trajectories-e-1" title="Permalink to this headline">#</a></h1>
 <p>For the hyperbola, combining Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis">(189)</a> and Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis-rhs-e-gt-1">(192)</a> results in:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-hyperbola">
-<span class="eqno">(219)<a class="headerlink" href="#equation-eq-mean-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\nu}{1 + e\cos\nu} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]\]</div>
+<span class="eqno">(219)<a class="headerlink" href="#equation-eq-mean-anomaly-hyperbola" title="Permalink to this equation">#</a></span>\[M_h = \frac{e\sqrt{e^2 - 1}\sin\nu}{1 + e\cos\nu} - \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-hyperbolic-mean-anomaly">
-<span class="eqno">(220)<a class="headerlink" href="#equation-eq-hyperbolic-mean-anomaly" title="Permalink to this equation">¶</a></span>\[M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}\]</div>
+<span class="eqno">(220)<a class="headerlink" href="#equation-eq-hyperbolic-mean-anomaly" title="Permalink to this equation">#</a></span>\[M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}\]</div>
 <p>The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic function of the true anomaly, as shown in <a class="reference internal" href="#fig-mean-anomaly-hyperbola-function"><span class="std std-numref">Fig. 54</span></a>.</p>
-<div class="figure align-default" id="fig-mean-anomaly-hyperbola-function">
-<div class="cell_output docutils container">
-<img alt="../_images/hyperbolic-trajectories_1_0.png" src="../_images/hyperbolic-trajectories_1_0.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">The hyperbolic mean anomaly as a function of true anomaly. Note that the <span class="math notranslate nohighlight">\(y\)</span>-scale is a log scale.</span><a class="headerlink" href="#fig-mean-anomaly-hyperbola-function" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="fig-mean-anomaly-hyperbola-function">
+<img alt="../_images/7b2ac15c7f027da2a5129be23bc3522a1fdbbd913259c3597c794fc675cf470b.png" src="../_images/7b2ac15c7f027da2a5129be23bc3522a1fdbbd913259c3597c794fc675cf470b.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">The hyperbolic mean anomaly as a function of true anomaly. Note that the <span class="math notranslate nohighlight">\(y\)</span>-scale is a log scale.</span><a class="headerlink" href="#fig-mean-anomaly-hyperbola-function" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Notice that <span class="math notranslate nohighlight">\(\nu\)</span> cannot exceed <span class="math notranslate nohighlight">\(\nu_{\infty} = \cos^{-1}(-1 / e)\)</span>.</p>
-<div class="section" id="hyperbolic-eccentric-anomaly">
-<h2>Hyperbolic Eccentric Anomaly<a class="headerlink" href="#hyperbolic-eccentric-anomaly" title="Permalink to this headline">¶</a></h2>
+<section id="hyperbolic-eccentric-anomaly">
+<h2>Hyperbolic Eccentric Anomaly<a class="headerlink" href="#hyperbolic-eccentric-anomaly" title="Permalink to this headline">#</a></h2>
 <p>Similar to the ellipse, we will define an auxiliary angle <span class="math notranslate nohighlight">\(F\)</span> to simplify the equations. <span class="math notranslate nohighlight">\(F\)</span> is defined with reference to the hyperbola in <a class="reference internal" href="#fig-hyperbolic-eccentric-anomaly-figure"><span class="std std-numref">Fig. 55</span></a>.</p>
-<div class="figure align-default" id="fig-hyperbolic-eccentric-anomaly-figure">
-<div class="cell_output docutils container">
-<img alt="../_images/hyperbolic-trajectories_3_0.png" src="../_images/hyperbolic-trajectories_3_0.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">A hyperbolic trajectory with definitions for distances used in the derivation of Kepler’s law for hyperbolic.</span><a class="headerlink" href="#fig-hyperbolic-eccentric-anomaly-figure" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="fig-hyperbolic-eccentric-anomaly-figure">
+<img alt="../_images/12200ba7f72c16c3396ae83aa492bfc2b1f2c2ee96260ba774392b9a7fe04f46.png" src="../_images/12200ba7f72c16c3396ae83aa492bfc2b1f2c2ee96260ba774392b9a7fe04f46.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">A hyperbolic trajectory with definitions for distances used in the derivation of Kepler’s law for hyperbolic.</span><a class="headerlink" href="#fig-hyperbolic-eccentric-anomaly-figure" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The ratio <span class="math notranslate nohighlight">\(y/b\)</span> is the definition of the hyperbolic sine of the angle <span class="math notranslate nohighlight">\(F\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-0">
-<span class="eqno">(221)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-0" title="Permalink to this equation">¶</a></span>\[\sinh F = \frac{y}{b}\]</div>
+<span class="eqno">(221)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-0" title="Permalink to this equation">#</a></span>\[\sinh F = \frac{y}{b}\]</div>
 <p>Then, using the hyperbolic trigonometric identity:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-1">
-<span class="eqno">(222)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-1" title="Permalink to this equation">¶</a></span>\[\cosh^2 c - \sinh^2 c = 1\]</div>
+<span class="eqno">(222)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-1" title="Permalink to this equation">#</a></span>\[\cosh^2 c - \sinh^2 c = 1\]</div>
 <p>we also define</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-2">
-<span class="eqno">(223)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-2" title="Permalink to this equation">¶</a></span>\[\cosh F = \frac{x}{a}\]</div>
+<span class="eqno">(223)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-2" title="Permalink to this equation">#</a></span>\[\cosh F = \frac{x}{a}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The hyperbolic angle <span class="math notranslate nohighlight">\(F\)</span> is weird. The reason we don’t draw it on the figure is because hyperbolic angles aren’t angles <em>per se</em>. Instead, they can be interpreted as half the area between the <span class="math notranslate nohighlight">\(x\)</span>-axis and a line drawn from the origin to the point of interest, bounded by the hyperbola. I think. At least, that’s my best interpretation from what I’ve been able to read. YMMV.</p>
 <p>Another way of thinking about this is by analogy to a circle. For a circle, we can draw any two lines from the center of the circle to the perimeter. These two lines will have an angle <span class="math notranslate nohighlight">\(\phi\)</span> between them, and the area between them will be:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-3">
-<span class="eqno">(224)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-3" title="Permalink to this equation">¶</a></span>\[A_{\text{circular sector}} = \frac{r^2 \phi}{2}\]</div>
-<div class="figure align-default" id="fig-circle-arc">
-<img alt="../_images/Circle_arc.svg" src="../_images/Circle_arc.svg" /><p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">The highlighted area is a <strong>circular sector</strong>. Modified from <a class="reference external" href="https://en.wikipedia.org/wiki/File:Circle_arc.svg">Wikimedia</a>.</span><a class="headerlink" href="#fig-circle-arc" title="Permalink to this image">¶</a></p>
-</div>
+<span class="eqno">(224)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-3" title="Permalink to this equation">#</a></span>\[A_{\text{circular sector}} = \frac{r^2 \phi}{2}\]</div>
+<figure class="align-default" id="fig-circle-arc">
+<img alt="../_images/Circle_arc.svg" src="../_images/Circle_arc.svg" /><figcaption>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">The highlighted area is a <strong>circular sector</strong>. Modified from <a class="reference external" href="https://en.wikipedia.org/wiki/File:Circle_arc.svg">Wikimedia</a>.</span><a class="headerlink" href="#fig-circle-arc" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>If the circle is a unit circle (<span class="math notranslate nohighlight">\(r = 1\)</span>), then the area of the sector will be equal to the angle divided by two. Turned around, the angle is equal to twice the area:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-4">
-<span class="eqno">(225)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-4" title="Permalink to this equation">¶</a></span>\[\phi = \frac{2A}{1^2}\]</div>
+<span class="eqno">(225)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-4" title="Permalink to this equation">#</a></span>\[\phi = \frac{2A}{1^2}\]</div>
 <p>Similarly, the hyperbolic angle is defined on the unit hyperbola as twice the area between two lines that start at the origin and touch the hyperbola, called a <strong>hyperbolic sector</strong>.</p>
-<div class="figure align-default" id="fig-hyperbolic-functions">
-<img alt="../_images/Hyperbolic_functions-2.svg" src="../_images/Hyperbolic_functions-2.svg" /><p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">The area of the hyperbolic sector is half the hyperbolic angle. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hyperbolic_functions-2.svg">Hyperbolic_functions.svg: The original uploader was Marco Polo at English Wikipedia.derivative work: Jeandavid54</a>, Public domain, via Wikimedia Commons</span><a class="headerlink" href="#fig-hyperbolic-functions" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="fig-hyperbolic-functions">
+<img alt="../_images/Hyperbolic_functions-2.svg" src="../_images/Hyperbolic_functions-2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 57 </span><span class="caption-text">The area of the hyperbolic sector is half the hyperbolic angle. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hyperbolic_functions-2.svg">Hyperbolic_functions.svg: The original uploader was Marco Polo at English Wikipedia.derivative work: Jeandavid54</a>, Public domain, via Wikimedia Commons</span><a class="headerlink" href="#fig-hyperbolic-functions" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>However, the circular angle between the <span class="math notranslate nohighlight">\(x\)</span>-axis and the ray from the origin is not the same as the hyperbolic angle.</p>
 <p>You can read more about hyperbolic angles on <a class="reference external" href="https://brilliant.org/wiki/hyperbolic-trigonometric-functions/">Brilliant</a> and on <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_angle">Wikipedia</a>.</p>
 </div>
 <p>We can relate <span class="math notranslate nohighlight">\(F\)</span> to the true anomaly <span class="math notranslate nohighlight">\(\nu\)</span> by plugging in <span class="math notranslate nohighlight">\(y = r\sin\nu\)</span>, and the orbit equation for <span class="math notranslate nohighlight">\(r\)</span>. We also note that <span class="math notranslate nohighlight">\(b = a\sqrt{e^2 - 1}\)</span>. Then:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-5">
-<span class="eqno">(226)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-5" title="Permalink to this equation">¶</a></span>\[F = \sinh^{-1}\left(\frac{\sin\nu\sqrt{e^2 - 1}}{1 + e\cos\nu}\right) = \ln\left(\frac{\sin\nu\sqrt{e^2 - 1} + \cos\nu + e}{1 + e\cos\nu}\right)\]</div>
+<span class="eqno">(226)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-5" title="Permalink to this equation">#</a></span>\[F = \sinh^{-1}\left(\frac{\sin\nu\sqrt{e^2 - 1}}{1 + e\cos\nu}\right) = \ln\left(\frac{\sin\nu\sqrt{e^2 - 1} + \cos\nu + e}{1 + e\cos\nu}\right)\]</div>
 <p>After some more trigonometry and algebra, we find:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-6">
-<span class="eqno">(227)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-6" title="Permalink to this equation">¶</a></span>\[F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]\]</div>
+<span class="eqno">(227)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-6" title="Permalink to this equation">#</a></span>\[F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]\]</div>
 <p>And, with a little more algebra and trigonometry, we find an equation for <span class="math notranslate nohighlight">\(F\)</span> in terms of <span class="math notranslate nohighlight">\(\nu\)</span> more directly, analogous to the ellipse:</p>
 <div class="math notranslate nohighlight" id="equation-eq-eccentric-anomaly-true-anomaly-hyperbola">
-<span class="eqno">(228)<a class="headerlink" href="#equation-eq-eccentric-anomaly-true-anomaly-hyperbola" title="Permalink to this equation">¶</a></span>\[\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\nu}{2}\]</div>
-</div>
-<div class="section" id="kepler-s-equation-for-the-hyperbola">
-<h2>Kepler’s Equation for the Hyperbola<a class="headerlink" href="#kepler-s-equation-for-the-hyperbola" title="Permalink to this headline">¶</a></h2>
+<span class="eqno">(228)<a class="headerlink" href="#equation-eq-eccentric-anomaly-true-anomaly-hyperbola" title="Permalink to this equation">#</a></span>\[\tanh\frac{F}{2} = \sqrt{\frac{e - 1}{e + 1}}\tan\frac{\nu}{2}\]</div>
+</section>
+<section id="kepler-s-equation-for-the-hyperbola">
+<h2>Kepler’s Equation for the Hyperbola<a class="headerlink" href="#kepler-s-equation-for-the-hyperbola" title="Permalink to this headline">#</a></h2>
 <p>Substituting this back into Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-hyperbola">(219)</a>, we find <strong>Kepler’s equation for the hyperbola</strong>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hyperbolic-keplers-equation">
-<span class="eqno">(229)<a class="headerlink" href="#equation-eq-hyperbolic-keplers-equation" title="Permalink to this equation">¶</a></span>\[M_h = e\sinh F - F\]</div>
+<span class="eqno">(229)<a class="headerlink" href="#equation-eq-hyperbolic-keplers-equation" title="Permalink to this equation">#</a></span>\[M_h = e\sinh F - F\]</div>
 <p>As with the ellipse, Kepler’s equation can be solved easily if <span class="math notranslate nohighlight">\(F\)</span> is known. However, if time is the known quantity, then Kepler’s equation is transcendental and must be solved numerically. The form of the equation for the Newton solver is <span class="math notranslate nohighlight">\(f(F) = 0\)</span>, or:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-7">
-<span class="eqno">(230)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-7" title="Permalink to this equation">¶</a></span>\[f(F) = 0 = e\sinh F - F - M_h\]</div>
+<span class="eqno">(230)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-7" title="Permalink to this equation">#</a></span>\[f(F) = 0 = e\sinh F - F - M_h\]</div>
 <p>To aid in the numerical solution, the derivative of Kepler’s equation for the hyperbola is:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-8">
-<span class="eqno">(231)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-8" title="Permalink to this equation">¶</a></span>\[f'(F) = e \cosh F - 1\]</div>
+<span class="eqno">(231)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-8" title="Permalink to this equation">#</a></span>\[f'(F) = e \cosh F - 1\]</div>
 <p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from <a class="reference internal" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly"><span class="std std-numref">Fig. 58</span></a>, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value.</p>
-<div class="figure align-default" id="fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly">
-<div class="cell_output docutils container">
-<img alt="../_images/hyperbolic-trajectories_5_0.png" src="../_images/hyperbolic-trajectories_5_0.png" />
-</div>
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">The hyperbolic mean anomaly as a function of the eccentric anomaly</span><a class="headerlink" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly" title="Permalink to this image">¶</a></p>
-</div>
+<figure class="align-default" id="fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly">
+<img alt="../_images/9290c890849da5e93b4e21dc2bfb6fe23f97b02937f249dafab4eff5370497c0.png" src="../_images/9290c890849da5e93b4e21dc2bfb6fe23f97b02937f249dafab4eff5370497c0.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 58 </span><span class="caption-text">The hyperbolic mean anomaly as a function of the eccentric anomaly</span><a class="headerlink" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Note that the <span class="math notranslate nohighlight">\(y\)</span>-axis plots the log base 10 of <span class="math notranslate nohighlight">\(M_h\)</span>. To use the graph, take the log base 10 of whatever value you calculate for <span class="math notranslate nohighlight">\(M_h\)</span> and find that on the graph. For example, assume that <span class="math notranslate nohighlight">\(M_h =\)</span> 40.69 rad and <span class="math notranslate nohighlight">\(e =\)</span> 2.5. Then,</p>
 <div class="math notranslate nohighlight">
 \[\log_{10}(40.69) = 1.6\]</div>
 <p>From <a class="reference internal" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly"><span class="std std-numref">Fig. 58</span></a>, we estimate that <span class="math notranslate nohighlight">\(F =\)</span> 4, and we can use this as the initial guess for a Newton solver.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -767,7 +967,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./time-since-periapsis-and-keplers-equation"
         },
         predefinedOutput: true
@@ -777,9 +977,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="parabolic-trajectories.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -795,29 +997,31 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Bryan Weber<br/>
-        
-          <div class="extra_footer">
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Weber<br/>
+  
+    <div class="extra_footer">
+      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

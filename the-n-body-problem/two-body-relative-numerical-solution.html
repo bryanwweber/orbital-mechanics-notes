@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Two-Body Problem in the Co-Moving Frame &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,43 +20,40 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-relative-numerical-solution.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Orbital Mechanics &amp; Astrodynamics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Orbital Mechanics & Astrodynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -538,14 +553,41 @@
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Postscript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">
+   Planetary Depahture for Interplanetary Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -553,104 +595,229 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
+    <div class="header-article row sticky-top noprint">
+        
 
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/the-n-body-problem/two-body-relative-numerical-solution.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/the-n-body-problem/two-body-relative-numerical-solution.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/the-n-body-problem/two-body-relative-numerical-solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/two-body-relative-numerical-solution.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/two-body-relative-numerical-solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/the-n-body-problem/two-body-relative-numerical-solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/the-n-body-problem/two-body-relative-numerical-solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fthe-n-body-problem/two-body-relative-numerical-solution.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/the-n-body-problem/two-body-relative-numerical-solution.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/the-n-body-problem/two-body-relative-numerical-solution.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
     </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Two-Body Problem in the Co-Moving Frame</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="two-body-problem-in-the-co-moving-frame">
-<h1>Two-Body Problem in the Co-Moving Frame<a class="headerlink" href="#two-body-problem-in-the-co-moving-frame" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="two-body-problem-in-the-co-moving-frame">
+<h1>Two-Body Problem in the Co-Moving Frame<a class="headerlink" href="#two-body-problem-in-the-co-moving-frame" title="Permalink to this headline">#</a></h1>
 <p>Recall the equations of motion for the two-body problem in a reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="two-body-relative-motion.html#equation-eq-two-body-relative-motion-components">(40)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -659,9 +826,11 @@
   \ddot{z} &amp;= -\mu \frac{z}{r^3}
 \end{aligned}\end{split}\]</div>
 <p>In this example, we will solve the two-body problem in relative coordinates. Although the problem is in relative coordinates, the solution procedure is the same as <a class="reference internal" href="two-body-inertial-numerical-solution.html"><span class="doc std std-doc">Two-Body Numerical Solution in an Inertial Frame</span></a>. In Python, the first thing is to import the required libraries. This step is not necessary in Matlab.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-0">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>  <span class="c1"># noqa: F401, needed for 3d plots</span>
@@ -678,9 +847,11 @@
 \end{aligned}\end{split}\]</div>
 <p>We want to determine the minimum and maximum altitude, and the satellite’s speed at those two locations. The altitude of the satellite is its height above the earth’s surface. The radius of the earth is 6378.12 km.</p>
 <p>To avoid confusion with the <span class="math notranslate nohighlight">\(y\)</span> coordinate, we will use capital <span class="math notranslate nohighlight">\(Y\)</span> for the state vector. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-20</span>  <span class="c1"># km**3/(kg * s**2)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-1" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-1">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-20</span>  <span class="c1"># km**3/(kg * s**2)</span>
 <span class="n">m_1</span> <span class="o">=</span> <span class="mf">5.97219e24</span>  <span class="c1"># kg</span>
 <span class="n">m_2</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># kg</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span>
@@ -694,28 +865,31 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">two_body_relative_numerical_solution</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-20</span><span class="p">;</span> <span class="o">%</span> <span class="n">km</span><span class="o">^</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">kg</span> <span class="o">*</span> <span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">m1</span> <span class="o">=</span> <span class="mf">5.97219e24</span><span class="p">;</span> <span class="o">%</span> <span class="n">kg</span>
-    <span class="n">m2</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">%</span> <span class="n">kg</span>
-    <span class="n">mu</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m1</span><span class="p">;</span> <span class="o">%</span> <span class="n">km</span><span class="o">^</span><span class="mi">3</span><span class="o">/</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span>
-    <span class="n">RE</span> <span class="o">=</span> <span class="mf">6378.12</span><span class="p">;</span> <span class="o">%</span> <span class="n">km</span>
+<input id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-2">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">two_body_relative_numerical_solution</span>
+<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6.67430e-20</span><span class="p">;</span><span class="w"> </span><span class="c">% km^3/(kg * s^2)</span>
+<span class="w">    </span><span class="n">m1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">5.97219e24</span><span class="p">;</span><span class="w"> </span><span class="c">% kg</span>
+<span class="w">    </span><span class="n">m2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c">% kg</span>
+<span class="w">    </span><span class="n">mu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m1</span><span class="p">;</span><span class="w"> </span><span class="c">% km^3/s^2</span>
+<span class="w">    </span><span class="n">RE</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">6378.12</span><span class="p">;</span><span class="w"> </span><span class="c">% km</span>
 
-    <span class="n">r0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8000</span> <span class="mi">0</span> <span class="mi">6000</span><span class="p">];</span> <span class="o">%</span> <span class="n">km</span>
-    <span class="n">v0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">7</span> <span class="mi">0</span><span class="p">];</span> <span class="o">%</span> <span class="n">km</span><span class="o">/</span><span class="n">s</span>
-    <span class="n">Y0</span> <span class="o">=</span> <span class="p">[</span><span class="n">r0</span> <span class="n">v0</span><span class="p">];</span>
-
+<span class="w">    </span><span class="n">r0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">8000</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">6000</span><span class="p">];</span><span class="w"> </span><span class="c">% km</span>
+<span class="w">    </span><span class="n">v0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="c">% km/s</span>
+<span class="w">    </span><span class="n">Y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">r0</span><span class="w"> </span><span class="n">v0</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Then, we need to define the function that describes the motion of our system. This function needs to compute the derivative of the state vector and return it to the solver.</p>
 <p>Inside the function, we use the values in the state vector to fill the <code class="docutils literal notranslate"><span class="pre">Ydot</span></code> vector. Then, we return <code class="docutils literal notranslate"><span class="pre">Ydot</span></code> back to the solver.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">relative_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system relative to $m_1$.</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-3">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">relative_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the motion of a two-body system relative to $m_1$.</span>
 
 <span class="sd">    The state vector ``Y`` should be in the order:</span>
 
@@ -740,14 +914,16 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">function</span> <span class="n">Ydot</span> <span class="o">=</span> <span class="n">relative_motion</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
-        <span class="n">rvector</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
-        <span class="n">vvector</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">rvector</span><span class="p">);</span>
-        <span class="n">avector</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">.*</span> <span class="n">rvector</span> <span class="o">./</span> <span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
-        <span class="n">Ydot</span> <span class="o">=</span> <span class="p">[</span><span class="n">vvector</span><span class="p">;</span> <span class="n">avector</span><span class="p">];</span>
-    <span class="n">end</span>
+<input id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-4">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">function</span><span class="w"> </span>Ydot<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">relative_motion</span><span class="p">(</span>t,Y<span class="p">)</span>
+<span class="w">        </span><span class="n">rvector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">vvector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
+<span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">rvector</span><span class="p">);</span>
+<span class="w">        </span><span class="n">avector</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">mu</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">rvector</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="n">r</span><span class="o">.^</span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Ydot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">vvector</span><span class="p">;</span><span class="w"> </span><span class="n">avector</span><span class="p">];</span>
+<span class="w">    </span><span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -755,9 +931,11 @@
 <p>With the function defined, we can call the solver function. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.</p>
 <p>We will guess the final time and check that increasing it does not change the answers for minimum and maximum altitude.</p>
 <p>In Python, once the solver finishes, the solution is stored in <code class="docutils literal notranslate"><span class="pre">sol.y</span></code>. Each column of <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> corresponds to a single timestep and each row corresponds to one of the state variables. It is more convenient to work with the transpose of this array, so we do that and define <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-5">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t_0</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># seconds</span>
 <span class="n">t_f</span> <span class="o">=</span> <span class="mi">14_709</span>  <span class="c1"># seconds, period of one orbit</span>
 <span class="n">t_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">relative_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t_0</span><span class="p">,</span> <span class="n">t_f</span><span class="p">],</span> <span class="n">Y_0</span><span class="p">,</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_points</span><span class="p">)</span>
@@ -769,25 +947,28 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">%</span> <span class="n">seconds</span>
-    <span class="n">tf</span> <span class="o">=</span> <span class="mi">14709</span><span class="p">;</span> <span class="o">%</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">period</span> <span class="n">of</span> <span class="n">one</span> <span class="n">orbit</span>
-    <span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span> <span class="o">=</span> <span class="n">ode45</span><span class="p">(</span><span class="nd">@relative_motion</span><span class="p">,</span> <span class="p">[</span><span class="n">t0</span><span class="p">,</span> <span class="n">tf</span><span class="p">],</span> <span class="n">Y0</span><span class="p">);</span>
+<input id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-6">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">t0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% seconds</span>
+<span class="w">    </span><span class="n">tf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">14709</span><span class="p">;</span><span class="w"> </span><span class="c">% seconds, period of one orbit</span>
+<span class="w">    </span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">Y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ode45</span><span class="p">(@</span><span class="n">relative_motion</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">tf</span><span class="p">],</span><span class="w"> </span><span class="n">Y0</span><span class="p">);</span>
 
-    <span class="n">rvec</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
-    <span class="n">vvec</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
-
+<span class="w">    </span><span class="n">rvec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vvec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(:,</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Since we are looking for the minimum and maximum <em>altitude</em>, we need to calculate the distance of the satellite from the center of the earth and then subtract the radius of the earth. This will give the altitude above the surface:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earth-altitude-definition">
-<span class="eqno">(41)<a class="headerlink" href="#equation-eq-earth-altitude-definition" title="Permalink to this equation">¶</a></span>\[h = \mag{\vector{r}} - R_E\]</div>
+<span class="eqno">(41)<a class="headerlink" href="#equation-eq-earth-altitude-definition" title="Permalink to this equation">#</a></span>\[h = \mag{\vector{r}} - R_E\]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the altitude and <span class="math notranslate nohighlight">\(R_E\)</span> is the radius of the earth. Similarly, the speed is the magnitude of the velocity.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-7" name="sd-tab-set-4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-7">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="c1"># altitude is the distance above the surface of the Earth</span>
 <span class="n">altitude</span> <span class="o">=</span> <span class="n">r_mag</span> <span class="o">-</span> <span class="n">R_E</span>
 
@@ -796,19 +977,22 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">rmag</span> <span class="o">=</span> <span class="n">vecnorm</span><span class="p">(</span><span class="n">rvec</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">altitude</span> <span class="o">=</span> <span class="n">rmag</span> <span class="o">-</span> <span class="n">RE</span><span class="p">;</span>
-    <span class="n">speed</span> <span class="o">=</span> <span class="n">vecnorm</span><span class="p">(</span><span class="n">vvec</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-
+<input id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-8">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">rmag</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">vecnorm</span><span class="p">(</span><span class="n">rvec</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">altitude</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">rmag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">RE</span><span class="p">;</span>
+<span class="w">    </span><span class="n">speed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">vecnorm</span><span class="p">(</span><span class="n">vvec</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now we can process the arrays to find the minimum and maximum altitude, and the speed at those locations. In Python, there are separate functions to find the minimum/maximum and its index; in Matlab, there is a single function to do both.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-5" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-9">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">min_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
 <span class="n">i_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
 
 <span class="n">max_altitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
@@ -822,23 +1006,27 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="n">min_altitude</span><span class="p">,</span> <span class="n">imin</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">altitude</span><span class="p">);</span>
-    <span class="p">[</span><span class="n">max_altitude</span><span class="p">,</span> <span class="n">imax</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">altitude</span><span class="p">);</span>
-    
-    <span class="n">speed_at_min_alt</span> <span class="o">=</span> <span class="n">speed</span><span class="p">(</span><span class="n">imin</span><span class="p">);</span>
-    <span class="n">speed_at_max_alt</span> <span class="o">=</span> <span class="n">speed</span><span class="p">(</span><span class="n">imax</span><span class="p">);</span> 
-    <span class="n">time_at_min_alt</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="n">imin</span><span class="p">);</span>
-    <span class="n">time_at_max_alt</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="n">imax</span><span class="p">);</span>    
-    
+<input id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-10">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p">[</span><span class="n">min_altitude</span><span class="p">,</span><span class="w"> </span><span class="n">imin</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">altitude</span><span class="p">);</span>
+<span class="w">    </span><span class="p">[</span><span class="n">max_altitude</span><span class="p">,</span><span class="w"> </span><span class="n">imax</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">altitude</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">speed_at_min_alt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">speed</span><span class="p">(</span><span class="n">imin</span><span class="p">);</span>
+<span class="w">    </span><span class="n">speed_at_max_alt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">speed</span><span class="p">(</span><span class="n">imax</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">time_at_min_alt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">imin</span><span class="p">);</span>
+<span class="w">    </span><span class="n">time_at_max_alt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">imax</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Finally, we can print the results to the screen.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-6" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-11">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">The minimum altitude during the orbit is: </span><span class="si">{</span><span class="n">min_altitude</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km</span>
 <span class="s2">The speed at the minimum altitude is: </span><span class="si">{</span><span class="n">speed_at_min_alt</span><span class="si">:</span><span class="s2">.2F</span><span class="si">}</span><span class="s2"> km/s</span>
@@ -852,14 +1040,15 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;The minimum altitude during the orbit is: </span><span class="si">%8.2f</span><span class="s1"> km</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">min_altitude</span><span class="p">)</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;The speed at the minimum altitude is: </span><span class="si">%8.2f</span><span class="s1"> km/s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">speed_at_min_alt</span><span class="p">)</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;The time at minimum altitude is: </span><span class="si">%8.2f</span><span class="s1"> s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time_at_min_alt</span><span class="p">)</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;The maximum altitude during the orbit is: </span><span class="si">%8.2f</span><span class="s1"> km</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">max_altitude</span><span class="p">)</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;The speed at the maximum altitude is: </span><span class="si">%8.2f</span><span class="s1"> km/s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">speed_at_max_alt</span><span class="p">)</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;The time at maximum altitude is: </span><span class="si">%8.2f</span><span class="s1"> s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">time_at_max_alt</span><span class="p">)</span>
-
+<input id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-12">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;The minimum altitude during the orbit is: %8.2f km\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">min_altitude</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;The speed at the minimum altitude is: %8.2f km/s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">speed_at_min_alt</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;The time at minimum altitude is: %8.2f s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">time_at_min_alt</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;The maximum altitude during the orbit is: %8.2f km\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">max_altitude</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;The speed at the maximum altitude is: %8.2f km/s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">speed_at_max_alt</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;The time at maximum altitude is: %8.2f s\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">time_at_max_alt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -873,9 +1062,11 @@ The time at maximum altitude is: 7288.57 s
 </pre></div>
 </div>
 <p>Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let’s plot the orbit. The central sphere is representative of the earth.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-13" name="sd-tab-set-7" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-13">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Orbit&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;km&quot;</span><span class="p">)</span>
@@ -899,55 +1090,53 @@ The time at maximum altitude is: 7288.57 s
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--7-input--2" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--2">Matlab</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">figure</span><span class="p">()</span>
-    <span class="p">[</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">zz</span><span class="p">]</span> <span class="o">=</span> <span class="n">sphere</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-    <span class="n">surf</span><span class="p">(</span><span class="n">RE</span><span class="o">*</span><span class="n">xx</span><span class="p">,</span> <span class="n">RE</span><span class="o">*</span><span class="n">yy</span><span class="p">,</span> <span class="n">RE</span><span class="o">*</span><span class="n">zz</span><span class="p">)</span>
-    <span class="n">colormap</span><span class="p">(</span><span class="n">light_blue</span><span class="p">)</span>
-    <span class="n">caxis</span><span class="p">([</span><span class="o">-</span><span class="n">RE</span><span class="o">/</span><span class="mi">100</span> <span class="n">RE</span><span class="o">/</span><span class="mi">100</span><span class="p">])</span>
-    <span class="n">shading</span> <span class="n">interp</span>
+<input id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-14">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nb">figure</span><span class="p">()</span>
+<span class="w">    </span><span class="p">[</span><span class="n">xx</span><span class="p">,</span><span class="w"> </span><span class="n">yy</span><span class="p">,</span><span class="w"> </span><span class="n">zz</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sphere</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="w">    </span><span class="nb">surf</span><span class="p">(</span><span class="n">RE</span><span class="o">*</span><span class="n">xx</span><span class="p">,</span><span class="w"> </span><span class="n">RE</span><span class="o">*</span><span class="n">yy</span><span class="p">,</span><span class="w"> </span><span class="n">RE</span><span class="o">*</span><span class="n">zz</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">colormap</span><span class="p">(</span><span class="n">light_blue</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">caxis</span><span class="p">([</span><span class="o">-</span><span class="n">RE</span><span class="o">/</span><span class="mi">100</span><span class="w"> </span><span class="n">RE</span><span class="o">/</span><span class="mi">100</span><span class="p">])</span>
+<span class="w">    </span><span class="nb">shading</span><span class="w"> </span><span class="n">interp</span>
 
-    <span class="o">%</span>   <span class="n">Draw</span> <span class="ow">and</span> <span class="n">label</span> <span class="n">the</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="ow">and</span> <span class="n">Z</span> <span class="n">axes</span>
-    <span class="n">line</span><span class="p">([</span><span class="mi">0</span> <span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">]);</span>
-    <span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span> <span class="o">+</span> <span class="n">RE</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">line</span><span class="p">([</span><span class="mi">0</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">]);</span>
-    <span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">RE</span> <span class="o">+</span> <span class="n">RE</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">line</span><span class="p">([</span><span class="mi">0</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="p">]);</span>
-    <span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">RE</span> <span class="o">+</span> <span class="n">RE</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c">%   Draw and label the X, Y and Z axes</span>
+<span class="w">    </span><span class="nb">line</span><span class="p">([</span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="nb">text</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">RE</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">line</span><span class="p">([</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="nb">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">RE</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">line</span><span class="p">([</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="p">]);</span>
+<span class="w">    </span><span class="nb">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">RE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">RE</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;z&#39;</span><span class="p">)</span>
 
-    <span class="n">hold</span> <span class="n">on</span>
-    <span class="n">plot3</span><span class="p">(</span><span class="n">rvec</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
-    <span class="n">plot3</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;.r&#39;</span><span class="p">)</span>
-    <span class="n">text</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;Min. Altitude&#39;</span><span class="p">)</span>
-    <span class="n">plot3</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;.g&#39;</span><span class="p">)</span>
-    <span class="n">text</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;Max. Altitude&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">rvec</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;.r&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">text</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imin</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;Min. Altitude&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot3</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;.g&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">text</span><span class="p">(</span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">rvec</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;Max. Altitude&#39;</span><span class="p">)</span>
 
-    <span class="n">view</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">.4</span><span class="p">])</span>
+<span class="w">    </span><span class="nb">view</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">.4</span><span class="p">])</span>
 
-    <span class="o">%</span>   <span class="n">Specify</span> <span class="n">some</span> <span class="n">properties</span> <span class="n">of</span> <span class="n">the</span> <span class="n">graph</span>
-    <span class="n">grid</span> <span class="n">on</span>
-    <span class="n">axis</span> <span class="n">equal</span>
-    <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;km&#39;</span><span class="p">)</span>
-    <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;km&#39;</span><span class="p">)</span>
-    <span class="n">zlabel</span><span class="p">(</span><span class="s1">&#39;km&#39;</span><span class="p">)</span>
- 
-    <span class="n">function</span> <span class="nb">map</span> <span class="o">=</span> <span class="n">light_blue</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span> <span class="n">g</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
-        <span class="nb">map</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="n">g</span> <span class="n">b</span>
-               <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-               <span class="n">r</span> <span class="n">g</span> <span class="n">b</span><span class="p">];</span>
-    <span class="n">end</span>
-
+<span class="w">    </span><span class="c">%   Specify some properties of the graph</span>
+<span class="w">    </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span>
+<span class="w">    </span><span class="nb">axis</span><span class="w"> </span><span class="n">equal</span>
+<span class="w">    </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;km&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;km&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">zlabel</span><span class="p">(</span><span class="s">&#39;km&#39;</span><span class="p">)</span>
+<span class="w"> </span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">map</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">light_blue</span>
+<span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">map</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">r</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="n">b</span>
+<span class="w">               </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">               </span><span class="n">r</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="n">b</span><span class="p">];</span>
+<span class="w">    </span><span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
 </div>
-</div>
-<div class="figure align-default" id="fig-two-body-relative">
-<div class="cell_output docutils container">
+<figure class="align-default" id="fig-two-body-relative">
 <div class="output text_html"><div id="scene" style="width: 100%"></div>
 <div
   id="scene-gui"
@@ -1115,10 +1304,11 @@ The time at maximum altitude is: 7288.57 s
     }
   }
 </script>
-</div></div>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">The motion of a satellite in orbit around the earth.</span><a class="headerlink" href="#fig-two-body-relative" title="Permalink to this image">¶</a></p>
-</div>
-</div>
+</div><figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The motion of a satellite in orbit around the earth.</span><a class="headerlink" href="#fig-two-body-relative" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1132,7 +1322,7 @@ The time at maximum altitude is: 7288.57 s
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./the-n-body-problem"
         },
         predefinedOutput: true
@@ -1142,9 +1332,11 @@ The time at maximum altitude is: 7288.57 s
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="two-body-relative-motion.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1160,29 +1352,31 @@ The time at maximum altitude is: 7288.57 s
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Bryan Weber<br/>
-        
-          <div class="extra_footer">
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Weber<br/>
+  
+    <div class="extra_footer">
+      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

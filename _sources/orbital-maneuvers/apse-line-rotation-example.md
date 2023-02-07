@@ -15,7 +15,7 @@ kernelspec:
 
 Another case of non-Hohmann orbital transfers are when the apse line of the orbit should be changed. To accomplish the transfer with one impulse, the initial and target orbits must intersect at at least one point. If the orbits do not intersect, then it will require at least two impulses to accomplish the total maneuver, using an intermediate transfer orbit. The case of multiple impulses is a generalization of the single-impulse case shown here.
 
-In general, two orbits with different apse lines and a common focus will intersect in two locations, as shown in {numref}`fig:two-ellipses-intersecting`. We can choose either location to perform the maneuver that switches from one orbit to the other.
+In general, two orbits with different apse lines and a common focus will intersect in two locations. We can choose either location to perform the maneuver that switches from one orbit to the other.
 
 In this case, the orbital elements of both orbits are specified, as well as the desired rotation of the apse line. The problem is to find the true anomaly at which the maneuver takes place on the initial orbit, as well as the required $\Delta v$ to perform the maneuver.
 
@@ -34,7 +34,7 @@ Since the initial and final orbits both have their elements specified, we can us
 e_i p_f \cos\nu_i - e_f p_i \cos\nu_f = p_i - p_f
 :::
 
-We can a trigonometric identity to further simplify Eq. {eq}`eq:apse-line-rotation-orbit-equation` to be in terms of $\nu_i$ only:
+We can use a trigonometric identity to further simplify Eq. {eq}`eq:apse-line-rotation-orbit-equation` to be in terms of $\nu_i$ only:
 
 :::{math}
 :label: eq:apse-line-rotation-in-nu_i

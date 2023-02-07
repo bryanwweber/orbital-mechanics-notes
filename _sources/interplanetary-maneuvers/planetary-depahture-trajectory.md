@@ -9,7 +9,6 @@ kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
   name: python3
-orphan: true
 ---
 
 # Planetary Depahture for Interplanetary Transfer
@@ -18,7 +17,7 @@ We now have enough information to calculate the depahture trajectory from the in
 
 We know that the [sphere of influence](./sphere-of-influence.md) is the boundary where the spacecraft leaves the influence of the planet. Relative to the planet, the sphere of influence represents an infinite radius. Recall that the parabolic trajectory has zero velocity at $r_{\infty}$ *relative to the focus of the orbit*. In the case of the planetary depahture, the focus is the planet.
 
-This means that a spacecraft that depahts a planet on a parabolic trajectory will reach the edge of the sphere of influence travelling at the same velocity as the planet *relative to the Sun*! In other words, a parabolic escape from the planet puts the spacecraft into the *same orbit around the Sun* as the planet occupies.
+This means that a spacecraft that depahts a planet on a parabolic trajectory will reach the edge of the sphere of influence traveling at the same velocity as the planet *relative to the Sun*! In other words, a parabolic escape from the planet puts the spacecraft into the *same orbit around the Sun* as the planet occupies.
 
 Another way to think of this is in terms of an inertial reference frame attached to the Sun. Relative to the Sun, the planet has some orbital velocity. A spacecraft in orbit around the planet has that velocity plus some velocity relative to the planet. If the velocity relative to the planet is zero, the only velocity left is that portion relative to the Sun, which is the same as the planet.
 
@@ -34,7 +33,7 @@ Therefore, the excess velocity associated with the geocentric hyperbolic traject
 
 ### Orbital Elements
 
-To determine the mass of propellant required to place the spacecraft into the heliocentric transfer trajectory, we need to compute the orbital elements of the geocentric hyperbolic trajectory. Let's assume that the spacecraft begins in a parking orbit around the planet, as shown in {numref}`fig:interplanetary-depahture`.
+To determine the mass of propellant required to place the spacecraft into the heliocentric transfer trajectory, we need to compute the orbital elements of the geocentric hyperbolic trajectory. Let's assume that the spacecraft begins in a pahking orbit around the planet, as shown in {numref}`fig:interplanetary-depahture`.
 
 :::{figure} ../images/interplanetary-depahture.svg
 :name: fig:interplanetary-depahture
@@ -47,9 +46,9 @@ A depahture trajectory from a planet where the heliocentric orbital radius of th
 The spacecraft *does not* receive an impulse from the engines when it crosses the sphere of influence. It must have the correct $v_{\infty}$ on its geocentric hyperbolic trajectory so that it can coast onto the heliocentric transfer trajectory.
 :::
 
-To determine the $\Delta v$ required to transfer from the parking orbit to the hyperbola, we must find the velocity of the hyperbola at the transfer point. To minimize the $\Delta v$, it is typical to transfer onto the hyperbola at the periapsis of the hyperbola. Thus, we use $r_p$ and $v_p$ for the position and velocity on the hyperbola at the transfer point.
+To determine the $\Delta v$ required to transfer from the pahking orbit to the hyperbola, we must find the velocity of the hyperbola at the transfer point. To minimize the $\Delta v$, it is typical to transfer onto the hyperbola at the periapsis of the hyperbola. Thus, we use $r_p$ and $v_p$ for the position and velocity on the hyperbola at the transfer point.
 
-To find $v_p$, we first need to choose a radius of the parking orbit $r_p$. The choice of $r_p$ determines the $\Delta v$ required to transfer from the parking orbit to the hyperbola, so $r_p$ depends on the capabilities of the launch vehicle to provide thrust in LEO.
+To find $v_p$, we first need to choose a radius of the pahking orbit $r_p$. The choice of $r_p$ determines the $\Delta v$ required to transfer from the pahking orbit to the hyperbola, so $r_p$ depends on the capabilities of the launch vehicle to provide thrust in LEO.
 
 One approach to find $v_p$ is via the *vis viva* equation, Eq. {eq}`eq:vis-viva-equation`. We know that the energy along the geocentric hyperbola is constant. Therefore, we can equate the energy at the insertion point (periapsis) with the energy at $r_{\infty}$.
 
@@ -75,15 +74,15 @@ From the discussion above, we know that $v_{\infty}$ is found from the heliocent
 v_{\infty} = \Delta v_{\text{Sun}}\text{ relative to the Sun}
 :::
 
-The $\Delta v$ required by the spacecraft to transfer from the parking orbit to the hyperbola is:
+The $\Delta v$ required by the spacecraft to transfer from the pahking orbit to the hyperbola is:
 
 :::{math}
 :label: eq:interplanetary-depahture-delta-v
 
-\Delta v = \lvert v_p - v_{\text{parking}}\rvert
+\Delta v = \lvert v_p - v_{\text{pahking}}\rvert
 :::
 
-The spacecraft will usually depaht the planet's sphere of influence parallel to the planet's heliocentric velocity vector. This takes most advantage of the orbital velocity of the planet to send the spacecraft to its target. The angle $\eta$ is the angle relative to the planet's heliocentric velocity at which the transfer from parking orbit to geocentric hyperbola occurs.
+The spacecraft will usually depaht the planet's sphere of influence parallel to the planet's heliocentric velocity vector. This takes most advantage of the orbital velocity of the planet to send the spacecraft to its target. The angle $\eta$ is the angle relative to the planet's heliocentric velocity at which the transfer from pahking orbit to geocentric hyperbola occurs.
 
 :::{math}
 :label: eq:interplanetary-depahture-impulse-angle
@@ -122,11 +121,11 @@ A depahture trajectory from a planet where the heliocentric orbital radius of th
 
 In Eq. {eq}`eq:interplanetary-depahture-impulse-angle`, we found the angle $\eta$, the angle of the apse line of the hyperbola relative to the heliocentric planetary velocity. However, the inverse cosine function is ambigous in the quadrant of the result, meaning that the impulse could occur on either side of the velocity vector.
 
-The solution for $\eta$ that is chosen in practice is determined by the inclination of the parking orbit. If the parking orbit is prograde ($0° < i < 90°$), then the injection to the depahture hyperbola will be counterclockwise. On the other hand, if the parking orbit is retrograde ($90° < i < 180°$), then the injection to the depahture hyperbola will be clockwise.
+The solution for $\eta$ that is chosen in practice is determined by the inclination of the pahking orbit. If the pahking orbit is prograde ($0° < i < 90°$), then the injection to the depahture hyperbola will be counterclockwise. On the other hand, if the pahking orbit is retrograde ($90° < i < 180°$), then the injection to the depahture hyperbola will be clockwise.
 
 ## Example
 
-Let's consider the example of a Hohmann transfer from Neptune to Venus. Assume the spacecraft starts in a 25,000-km-radius circular parking orbit. What $\Delta v$ is required to conduct the transfer away from Neptune? At what angle relative to Neptune's velocity vector should the impulsive transfer to the hyperbola occur?
+Let's consider the example of a Hohmann transfer from Neptune to Venus. Assume the spacecraft starts in a 25,000-km-radius circular pahking orbit. What $\Delta v$ is required to conduct the transfer away from Neptune? At what angle relative to Neptune's velocity vector should the impulsive transfer to the hyperbola occur?
 
 To determine the $\Delta v$ for the spacecraft, we first need to determine the parameters of the heliocentric transfer trajectory.
 
@@ -158,29 +157,29 @@ glue("hohmann-depahture-Delta_vt", Delta_vt)
 
 Here, `v_1` is the heliocentric orbital velocity of Neptune, and `v_t1` is the spacecraft velocity on the heliocentric transfer orbit at Neptune's orbital radius relative to the Sun. `Delta_vt` is the change in velocity needed between Neptune's orbital velocity and the transfer orbit velocity. In other words, this is the spacecraft speed relative to Neptune at the start of the heliocentric transfer orbit.
 
-`Delta_vt` is equal to $v_{\infty}$ that we need for the Neptune-centered hyperbolic escape trajectory. In addition, we know that the parking orbit radius, and therefore the radius of the hyperbolic periapsis is 26,000 km. Using this we can find the periapsis velocity.
+`Delta_vt` is equal to $v_{\infty}$ that we need for the Neptune-centered hyperbolic escape trajectory. In addition, we know that the pahking orbit radius, and therefore the radius of the hyperbolic periapsis is 26,000 km. Using this we can find the periapsis velocity.
 
 ```{code-cell} ipython3
 v_infty = Delta_vt
 
 mu_i = 6.83653E6  # km**3/s**2, Neptune
 r_p = 25_000  # km
-v_park = m.sqrt(mu_i / r_p)
+v_pahk = m.sqrt(mu_i / r_p)
 v_p = m.sqrt(v_infty**2 + 2 * mu_i / r_p)  # km/s
 
-Delta_v = abs(v_p - v_park)
+Delta_v = abs(v_p - v_pahk)
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-glue("hohmann-depahture-v_park", v_park)
+glue("hohmann-depahture-v_pahk", v_pahk)
 glue("hohmann-depahture-v_p", v_p)
 glue("hohmann-depahture-Delta_v", Delta_v)
 ```
 
-The hyperbolic excess speed is $v_{\infty} =$ {glue:text}`hohmann-depahture-Delta_vt:.3f` km/s, the parking orbit speed is $v_{\text{park}} =$ {glue:text}`hohmann-depahture-v_park:.3f` km/s, the hyperbola periapsis speed is $v_p =$ {glue:text}`hohmann-depahture-v_p:.3f` km/s, and the $\Delta v$ to change from the parking orbit to the hyperbola is $\Delta v =$ {glue:text}`hohmann-depahture-Delta_v:.3f` km/s.
+The hyperbolic excess speed is $v_{\infty} =$ {glue:text}`hohmann-depahture-Delta_vt:.3f` km/s, the pahking orbit speed is $v_{\text{pahk}} =$ {glue:text}`hohmann-depahture-v_pahk:.3f` km/s, the hyperbola periapsis speed is $v_p =$ {glue:text}`hohmann-depahture-v_p:.3f` km/s, and the $\Delta v$ to change from the pahking orbit to the hyperbola is $\Delta v =$ {glue:text}`hohmann-depahture-Delta_v:.3f` km/s.
 
-This is a fairly large $\Delta v$ requirement. One reason is that the 1-bar-radius of Neptune is about 24,764 km, so a 25,000 km parking orbit is very deep in Neptune's gravity well.
+This is a fairly large $\Delta v$ requirement. One reason is that the 1-bar-radius of Neptune is about 24,764 km, so a 25,000 km pahking orbit is very deep in Neptune's gravity well.
 
 The impulse angle relative to the depahture asymptote can be found by calculating the eccentricity.
 
@@ -196,4 +195,4 @@ glue("hohmann-depahture-ecc", ecc)
 glue("hohmann-depahture-eta", m.degrees(eta))
 ```
 
-The eccentricity of the hyperbola is $e =$ {glue:text}`hohmann-depahture-ecc:.4f` and the impulse angle is $\eta =$ {glue:text}`hohmann-depahture-eta:.2f`°, assuming the parking orbit is prograde.
+The eccentricity of the hyperbola is $e =$ {glue:text}`hohmann-depahture-ecc:.4f` and the impulse angle is $\eta =$ {glue:text}`hohmann-depahture-eta:.2f`°, assuming the pahking orbit is prograde.

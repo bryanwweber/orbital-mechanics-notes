@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Classical Orbital Elements and the State Vector &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,43 +20,40 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/classical-orbital-elements/orbital-elements-and-the-state-vector.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Orbital Mechanics &amp; Astrodynamics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Orbital Mechanics & Astrodynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -538,114 +553,267 @@
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Postscript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">
+   Planetary Depahture for Interplanetary Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/classical-orbital-elements/orbital-elements-and-the-state-vector.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/classical-orbital-elements/orbital-elements-and-the-state-vector.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fclassical-orbital-elements/orbital-elements-and-the-state-vector.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/classical-orbital-elements/orbital-elements-and-the-state-vector.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/classical-orbital-elements/orbital-elements-and-the-state-vector.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/classical-orbital-elements/orbital-elements-and-the-state-vector.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Fclassical-orbital-elements/orbital-elements-and-the-state-vector.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/classical-orbital-elements/orbital-elements-and-the-state-vector.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/classical-orbital-elements/orbital-elements-and-the-state-vector.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/classical-orbital-elements/orbital-elements-and-the-state-vector.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#state-vector-orbital-elements">
    State Vector → Orbital Elements
@@ -707,22 +875,99 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Classical Orbital Elements and the State Vector</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#state-vector-orbital-elements">
+   State Vector → Orbital Elements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1position-and-velocity-magnitudes">
+     Step 1—Position and Velocity Magnitudes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2orbital-angular-momentum">
+     Step 2—Orbital Angular Momentum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3inclination">
+     Step 3—Inclination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4right-ascension-of-the-ascending-node">
+     Step 4—Right Ascension of the Ascending Node
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-5eccentricity">
+     Step 5—Eccentricity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-6argument-of-periapsis">
+     Step 6—Argument of Periapsis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-7true-anomaly">
+     Step 7—True Anomaly
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orbital-elements-state-vector">
+   Orbital Elements → State Vector
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1transform-to-perifocal-frame">
+     Step 1—Transform to Perifocal Frame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2rotate-the-perifocal-frame">
+     Step 2—Rotate the Perifocal Frame
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="classical-orbital-elements-and-the-state-vector">
-<h1>Classical Orbital Elements and the State Vector<a class="headerlink" href="#classical-orbital-elements-and-the-state-vector" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="classical-orbital-elements-and-the-state-vector">
+<h1>Classical Orbital Elements and the State Vector<a class="headerlink" href="#classical-orbital-elements-and-the-state-vector" title="Permalink to this headline">#</a></h1>
 <p>As we saw in the <a class="reference internal" href="classical-orbital-elements.html"><span class="doc std std-doc">last section</span></a>, we can replace the six elements in the state vector with six orbital elements which describe the orbit. If the position and velocity vectors are known, we need to be able to convert them to the classical orbital elements. Likewise, if we have six independent orbital elements, we might want to convert them into a state vector.</p>
-<div class="section" id="state-vector-orbital-elements">
-<h2>State Vector → Orbital Elements<a class="headerlink" href="#state-vector-orbital-elements" title="Permalink to this headline">¶</a></h2>
+<section id="state-vector-orbital-elements">
+<h2>State Vector → Orbital Elements<a class="headerlink" href="#state-vector-orbital-elements" title="Permalink to this headline">#</a></h2>
 <p>Let’s assume that we are given the state vector, composed of <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> at some time <span class="math notranslate nohighlight">\(t_0\)</span>. We would like to determine the six classical orbital elements:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(h\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(e\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(i\)</span></p></li>
@@ -731,17 +976,19 @@
 <li><p><span class="math notranslate nohighlight">\(\nu\)</span></p></li>
 </ol>
 <p>As we discussed previously, this set of six elements is not unique; for instance, the orbital angular momentum <span class="math notranslate nohighlight">\(h\)</span> can be replaced by the semi-major axis distance, <span class="math notranslate nohighlight">\(a\)</span>. Nonetheless, this set of six is a convenient set to calculate and other elements can be determined from this set.</p>
-<div class="section" id="step-1position-and-velocity-magnitudes">
-<h3>Step 1—Position and Velocity Magnitudes<a class="headerlink" href="#step-1position-and-velocity-magnitudes" title="Permalink to this headline">¶</a></h3>
+<section id="step-1position-and-velocity-magnitudes">
+<h3>Step 1—Position and Velocity Magnitudes<a class="headerlink" href="#step-1position-and-velocity-magnitudes" title="Permalink to this headline">#</a></h3>
 <p>The first step in the conversion is to calculate <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(v_r\)</span>, and <span class="math notranslate nohighlight">\(v_{\perp}\)</span>. Recall that the radial velocity is the projection of the velocity vector onto the unit radial vector:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-elements-radial-velocity">
-<span class="eqno">(172)<a class="headerlink" href="#equation-orbital-elements-radial-velocity" title="Permalink to this equation">¶</a></span>\[v_r = \vector{v} \cdot \frac{\vector{r}}{r}\]</div>
+<span class="eqno">(172)<a class="headerlink" href="#equation-orbital-elements-radial-velocity" title="Permalink to this equation">#</a></span>\[v_r = \vector{v} \cdot \frac{\vector{r}}{r}\]</div>
 <p>and we can subsequently find the azimuthal velocity by the Pythagorean theorem:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-elements-perpendicular-velocity">
-<span class="eqno">(173)<a class="headerlink" href="#equation-orbital-elements-perpendicular-velocity" title="Permalink to this equation">¶</a></span>\[v_{\perp} = \sqrt{v^2 - v_r^2}\]</div>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="eqno">(173)<a class="headerlink" href="#equation-orbital-elements-perpendicular-velocity" title="Permalink to this equation">#</a></span>\[v_{\perp} = \sqrt{v^2 - v_r^2}\]</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-0">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">r_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">5_000</span><span class="p">,</span> <span class="mi">7_000</span><span class="p">))</span>  <span class="c1"># km</span>
 <span class="n">v_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">))</span>  <span class="c1"># km/s</span>
@@ -755,81 +1002,93 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">r_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="mi">7000</span><span class="p">];</span><span class="w"> </span><span class="c">% km</span><span class="w"></span>
-<span class="n">v_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">];</span><span class="w"> </span><span class="c">% km/s</span><span class="w"></span>
-<span class="n">mu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.986E5</span><span class="p">;</span><span class="w"> </span><span class="c">% km^3/s^2</span><span class="w"></span>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-1">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">r_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w"> </span><span class="mi">7000</span><span class="p">];</span><span class="w"> </span><span class="c">% km</span>
+<span class="n">v_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0</span><span class="p">];</span><span class="w"> </span><span class="c">% km/s</span>
+<span class="n">mu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.986E5</span><span class="p">;</span><span class="w"> </span><span class="c">% km^3/s^2</span>
 
-<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">r_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">v_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">v_r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">dot</span><span class="p">(</span><span class="n">r_vec</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">v_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">v_p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">v</span>^<span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v_r</span>^<span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">r_vec</span><span class="p">);</span>
+<span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">v_vec</span><span class="p">);</span>
+<span class="n">v_r</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">dot</span><span class="p">(</span><span class="n">r_vec</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">v_vec</span><span class="p">);</span>
+<span class="n">v_p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">v</span>^<span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v_r</span>^<span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>For this example, we find <span class="math notranslate nohighlight">\(r =\)</span> <span class="pasted-text">8660.254</span> km, <span class="math notranslate nohighlight">\(v =\)</span> <span class="pasted-text">7.071</span> km/s, <span class="math notranslate nohighlight">\(v_r =\)</span> <span class="pasted-text">6.697</span> km/s, and <span class="math notranslate nohighlight">\(v_{\perp} =\)</span> <span class="pasted-text">2.269</span> km/s.</p>
-</div>
-<div class="section" id="step-2orbital-angular-momentum">
-<h3>Step 2—Orbital Angular Momentum<a class="headerlink" href="#step-2orbital-angular-momentum" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-2orbital-angular-momentum">
+<h3>Step 2—Orbital Angular Momentum<a class="headerlink" href="#step-2orbital-angular-momentum" title="Permalink to this headline">#</a></h3>
 <p>Next, we need to calculate the orbital angular momentum. By definition, <span class="math notranslate nohighlight">\(\vector{h} = \vector{r}\cross\vector{v}\)</span>. We also need the magnitude of the angular momentum.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span> <span class="n">v_vec</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-2">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">h_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span> <span class="n">v_vec</span><span class="p">)</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">h_vec</span><span class="p">)</span>
 
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">h_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="w"> </span><span class="n">v_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">h_vec</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-3">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">h_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span><span class="w"> </span><span class="n">v_vec</span><span class="p">);</span>
+<span class="n">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">h_vec</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>We find <span class="math notranslate nohighlight">\(\vector{h} =\)</span> <span class="pasted-text">-3000</span> <span class="math notranslate nohighlight">\(\uvec{I}\)</span> + <span class="pasted-text">16000</span> <span class="math notranslate nohighlight">\(\uvec{J}\)</span> - <span class="pasted-text">11000</span> <span class="math notranslate nohighlight">\(\uvec{K}\)</span> km<sup>2</sup>/s and <span class="math notranslate nohighlight">\(h =\)</span> <span class="pasted-text">19646.883</span> km<sup>2</sup>/s. Notice that the <span class="math notranslate nohighlight">\(Z\)</span> component of the angular momentum is negative. This means the momentum vector is pointing down and the orbit is retrograde. The magnitude of the orbital angular momentum is the first orbital element.</p>
-</div>
-<div class="section" id="step-3inclination">
-<h3>Step 3—Inclination<a class="headerlink" href="#step-3inclination" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-3inclination">
+<h3>Step 3—Inclination<a class="headerlink" href="#step-3inclination" title="Permalink to this headline">#</a></h3>
 <p>Once the angular momentum is calculated, we can calculate the inclination, <span class="math notranslate nohighlight">\(i\)</span>. Let’s form a right triangle with one leg as the <span class="math notranslate nohighlight">\(Z\)</span> component of the angular momentum and the hypotenuse as the magnitude of the angular momentum. Then the inclination is the angle adjacent to <span class="math notranslate nohighlight">\(h_Z\)</span> and can be found by the inverse cosine, as shown in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-inclination">(174)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-inclination">
-<span class="eqno">(174)<a class="headerlink" href="#equation-eq-orbital-elements-inclination" title="Permalink to this equation">¶</a></span>\[i = \cos^{-1}\left(\frac{h_Z}{h}\right)\]</div>
+<span class="eqno">(174)<a class="headerlink" href="#equation-eq-orbital-elements-inclination" title="Permalink to this equation">#</a></span>\[i = \cos^{-1}\left(\frac{h_Z}{h}\right)\]</div>
 <p>Since the inclination is restricted to lie between 0° and 180°, we do not need to worry about the quadrant ambiguity inherent in the inverse cosine function.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">h_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-4">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">h_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span>
 
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="n">h_vec</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-5">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="n">h_vec</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>The inclination of this orbit is <span class="math notranslate nohighlight">\(i =\)</span> <span class="pasted-text">124.05</span>°. We know for retrograde orbits, the inclination must be between 90° and 180°, which is the case here. The inclination is the second orbital element.</p>
-</div>
-<div class="section" id="step-4right-ascension-of-the-ascending-node">
-<h3>Step 4—Right Ascension of the Ascending Node<a class="headerlink" href="#step-4right-ascension-of-the-ascending-node" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-4right-ascension-of-the-ascending-node">
+<h3>Step 4—Right Ascension of the Ascending Node<a class="headerlink" href="#step-4right-ascension-of-the-ascending-node" title="Permalink to this headline">#</a></h3>
 <p>Next, we will calculate the right ascension of the ascending node. The ascending node is the point on the line of nodes where the spacecraft ascends above the reference plane. Since the line of nodes is defined by the intersection of the orbital plane and the reference plane, it must lie in both planes.</p>
 <p>Therefore, the node line is perpendicular to the normal vectors of both the reference plane and the orbital plane. We can find the perpendicular vector by taking the cross product of a vector normal to the reference plane and a vector normal to the orbital plane. For convenience, we choose the <span class="math notranslate nohighlight">\(\uvec{K}\)</span> vector and the <span class="math notranslate nohighlight">\(\vector{h}\)</span> vector, as shown in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-node-line">(175)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-node-line">
-<span class="eqno">(175)<a class="headerlink" href="#equation-eq-orbital-elements-node-line" title="Permalink to this equation">¶</a></span>\[\vector{N} = \uvec{K}\cross\vector{h}\]</div>
+<span class="eqno">(175)<a class="headerlink" href="#equation-eq-orbital-elements-node-line" title="Permalink to this equation">#</a></span>\[\vector{N} = \uvec{K}\cross\vector{h}\]</div>
 <p>Then, similar to the inclination, we form a right triangle where the <span class="math notranslate nohighlight">\(X\)</span> component of <span class="math notranslate nohighlight">\(\vector{N}\)</span> is one leg and the magnitude of <span class="math notranslate nohighlight">\(\vector{N}\)</span> is the hypotenuse. The right ascension of the ascending node is the angle adjacent to <span class="math notranslate nohighlight">\(N_X\)</span> so it can be found by the inverse cosine, as shown in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-omega">(176)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-omega">
-<span class="eqno">(176)<a class="headerlink" href="#equation-eq-orbital-elements-omega" title="Permalink to this equation">¶</a></span>\[\Omega = \cos^{-1}\left(\frac{N_X}{N}\right)\]</div>
+<span class="eqno">(176)<a class="headerlink" href="#equation-eq-orbital-elements-omega" title="Permalink to this equation">#</a></span>\[\Omega = \cos^{-1}\left(\frac{N_X}{N}\right)\]</div>
 <p>However, unlike the inclination, <span class="math notranslate nohighlight">\(\Omega\)</span> can vary from 0° to 360°, so we need to determine the appropriate quadrant for the resulting angle. We can do this by comparing the sign of the <span class="math notranslate nohighlight">\(Y\)</span> component of <span class="math notranslate nohighlight">\(\vector{N}\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(N_Y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{N}\)</span> must be pointing to the first or second quadrant and 0° ≤ <span class="math notranslate nohighlight">\(\Omega\)</span> ≤ 180°. If <span class="math notranslate nohighlight">\(N_Y &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{N}\)</span> must be pointing to the third or fourth quadrant, so 180° &lt; <span class="math notranslate nohighlight">\(\Omega\)</span> &lt; 360°. We can express this fully with the conditions in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-raan">(177)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-raan">
-<span class="eqno">(177)<a class="headerlink" href="#equation-eq-orbital-elements-raan" title="Permalink to this equation">¶</a></span>\[\begin{split}\Omega = \begin{cases}
+<span class="eqno">(177)<a class="headerlink" href="#equation-eq-orbital-elements-raan" title="Permalink to this equation">#</a></span>\[\begin{split}\Omega = \begin{cases}
 \cos^{-1}\left(\frac{N_X}{N}\right) &amp; N_Y \geq 0 \\
 2\pi - \cos^{-1}\left(\frac{N_X}{N}\right) &amp; N_Y &lt; 0
 \end{cases}\end{split}\]</div>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-6">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">N_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">h_vec</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
 <span class="n">Omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">N_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>
@@ -837,33 +1096,37 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
-<span class="n">N_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">h_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">N_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">Omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="n">N_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-7">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<span class="n">N_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">h_vec</span><span class="p">);</span>
+<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">N_vec</span><span class="p">);</span>
+<span class="n">Omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="n">N_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>For this problem, we find <span class="math notranslate nohighlight">\(N_Y =\)</span> <span class="pasted-text">-3000</span>, so the right ascension of the ascending node is in the third or fourth quadrant. Then, we find <span class="math notranslate nohighlight">\(\Omega =\)</span> <span class="pasted-text">190.62</span>°. The right ascension of the ascending node is the third orbital element.</p>
-</div>
-<div class="section" id="step-5eccentricity">
-<h3>Step 5—Eccentricity<a class="headerlink" href="#step-5eccentricity" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-5eccentricity">
+<h3>Step 5—Eccentricity<a class="headerlink" href="#step-5eccentricity" title="Permalink to this headline">#</a></h3>
 <p>The fourth orbital element is the eccentricity. Way back in Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-vector-orbit-equation">(112)</a>, we found the eccentricity vector as the constant of integration of the equation of motion. Repeating the equation here:</p>
 <div class="math notranslate nohighlight">
 \[\vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu} - \frac{\vector{r}}{r}\]</div>
 <p>If you’re using a computer to do calculations, this form is the simplest to use. However, we can replace the cross product and simplify Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-vector-orbit-equation">(112)</a> somewhat.</p>
 <div class="math notranslate nohighlight" id="equation-eq-simplified-eccentricity-vector">
-<span class="eqno">(178)<a class="headerlink" href="#equation-eq-simplified-eccentricity-vector" title="Permalink to this equation">¶</a></span>\[\vector{e} = \frac{1}{\mu}\left[\left(v^2 - \frac{\mu}{r}\right)\vector{r} - r v_r \vector{v}\right]\]</div>
+<span class="eqno">(178)<a class="headerlink" href="#equation-eq-simplified-eccentricity-vector" title="Permalink to this equation">#</a></span>\[\vector{e} = \frac{1}{\mu}\left[\left(v^2 - \frac{\mu}{r}\right)\vector{r} - r v_r \vector{v}\right]\]</div>
 <p>Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-vector">(178)</a> is useful if you’re doing calculations out by hand, since you don’t have to do any cross products, only scalar multiplications of the vectors.</p>
 <p>The magnitude of the eccentricity can be found in the usual method programmatically, or with a form simplified from Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-vector">(178)</a>, as shown in Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-magnitude">(179)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-simplified-eccentricity-magnitude">
-<span class="eqno">(179)<a class="headerlink" href="#equation-eq-simplified-eccentricity-magnitude" title="Permalink to this equation">¶</a></span>\[e = \sqrt{1 + \frac{h^2}{\mu}\left(v^2 - \frac{2\mu}{r}\right)}\]</div>
+<span class="eqno">(179)<a class="headerlink" href="#equation-eq-simplified-eccentricity-magnitude" title="Permalink to this equation">#</a></span>\[e = \sqrt{1 + \frac{h^2}{\mu}\left(v^2 - \frac{2\mu}{r}\right)}\]</div>
 <p>Again, Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-magnitude">(179)</a> is useful for hand calculations.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-8">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">N_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">h_vec</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">N_vec</span><span class="p">)</span>
 <span class="n">Omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">N_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>
@@ -875,158 +1138,173 @@
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
-<span class="n">N_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">h_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">N_vec</span><span class="p">);</span><span class="w"></span>
-<span class="n">Omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="n">N_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-9">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<span class="n">N_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">h_vec</span><span class="p">);</span>
+<span class="n">N</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">N_vec</span><span class="p">);</span>
+<span class="n">Omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="n">N_vec</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">);</span>
 
-<span class="c">% [section-5]</span><span class="w"></span>
-<span class="n">e_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">v_vec</span><span class="p">,</span><span class="w"> </span><span class="n">h_vec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r_vec</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
-<span class="n">e</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">e_vec</span><span class="p">);</span><span class="w"></span>
+<span class="c">% [section-5]</span>
+<span class="n">e_vec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cross</span><span class="p">(</span><span class="n">v_vec</span><span class="p">,</span><span class="w"> </span><span class="n">h_vec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r_vec</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="n">e</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">e_vec</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>The eccentricity of this orbit is <span class="math notranslate nohighlight">\(e =\)</span> <span class="pasted-text">0.948</span>, so the orbit is a very eccentric ellipse.</p>
-</div>
-<div class="section" id="step-6argument-of-periapsis">
-<h3>Step 6—Argument of Periapsis<a class="headerlink" href="#step-6argument-of-periapsis" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-6argument-of-periapsis">
+<h3>Step 6—Argument of Periapsis<a class="headerlink" href="#step-6argument-of-periapsis" title="Permalink to this headline">#</a></h3>
 <p>The last two orbital elements are found using the algebraic definition of the dot product, Eq. <a class="reference internal" href="#equation-eq-dot-product-definition">(180)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-dot-product-definition">
-<span class="eqno">(180)<a class="headerlink" href="#equation-eq-dot-product-definition" title="Permalink to this equation">¶</a></span>\[\vector{A}\cdot\vector{B} = A B \cos\theta\]</div>
+<span class="eqno">(180)<a class="headerlink" href="#equation-eq-dot-product-definition" title="Permalink to this equation">#</a></span>\[\vector{A}\cdot\vector{B} = A B \cos\theta\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{A}\)</span> and <span class="math notranslate nohighlight">\(\vector{B}\)</span> are arbitrary vectors, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are their magnitudes, and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the vectors.</p>
 <p>By definition, the eccentricity vector points towards periapsis. Moreover, the argument of periapsis is the angle from the ascending node to periapsis following around the orbit. In other words, the argument of periapsis is the angle between the eccentricity vector <span class="math notranslate nohighlight">\(\vector{e}\)</span> and the node line <span class="math notranslate nohighlight">\(\vector{N}\)</span>. We can solve for <span class="math notranslate nohighlight">\(\omega\)</span> by using Eq. <a class="reference internal" href="#equation-eq-dot-product-definition">(180)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-omega-lowercase">
-<span class="eqno">(181)<a class="headerlink" href="#equation-eq-orbital-elements-omega-lowercase" title="Permalink to this equation">¶</a></span>\[\omega = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)\]</div>
+<span class="eqno">(181)<a class="headerlink" href="#equation-eq-orbital-elements-omega-lowercase" title="Permalink to this equation">#</a></span>\[\omega = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)\]</div>
 <p>Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the <span class="math notranslate nohighlight">\(Z\)</span> component of <span class="math notranslate nohighlight">\(\vector{e}\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(e_Z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{e}\)</span> points up and periapsis must be between the ascending node and descending node, so 0° ≤ <span class="math notranslate nohighlight">\(\omega\)</span> ≤ 180°. On the other hand, if <span class="math notranslate nohighlight">\(e_Z &lt; 0\)</span>, then periapsis must be between the descending and ascending nodes, and 180° &lt; <span class="math notranslate nohighlight">\(\omega\)</span> &lt; 360°. We can express this fully with the conditions in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-aop">(182)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-aop">
-<span class="eqno">(182)<a class="headerlink" href="#equation-eq-orbital-elements-aop" title="Permalink to this equation">¶</a></span>\[\begin{split}\omega = \begin{cases}
+<span class="eqno">(182)<a class="headerlink" href="#equation-eq-orbital-elements-aop" title="Permalink to this equation">#</a></span>\[\begin{split}\omega = \begin{cases}
 \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)) &amp; e_Z \geq 0 \\
 2\pi - \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)) &amp; e_Z &lt; 0
 \end{cases}\end{split}\]</div>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">e_vec</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">e</span><span class="p">))</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-10">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span> <span class="n">e_vec</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">e</span><span class="p">))</span>
 
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="nb">dot</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span><span class="w"> </span><span class="n">e_vec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">e</span><span class="p">));</span><span class="w"></span>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-11">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="nb">dot</span><span class="p">(</span><span class="n">N_vec</span><span class="p">,</span><span class="w"> </span><span class="n">e_vec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">e</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>For this problem, we find <span class="math notranslate nohighlight">\(e_Z =\)</span> <span class="pasted-text">-0.6578</span>, so the argument of periapsis is in the third or fourth quadrant. Then, we find <span class="math notranslate nohighlight">\(\omega =\)</span> <span class="pasted-text">303.09</span>°. The argument of periapsis is the fifth orbital element.</p>
-</div>
-<div class="section" id="step-7true-anomaly">
-<h3>Step 7—True Anomaly<a class="headerlink" href="#step-7true-anomaly" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-7true-anomaly">
+<h3>Step 7—True Anomaly<a class="headerlink" href="#step-7true-anomaly" title="Permalink to this headline">#</a></h3>
 <p>The final orbital element is the true anomaly, <span class="math notranslate nohighlight">\(\nu\)</span>. The true anomaly is the angle from the apse line to the position vector. In other words, it is the angle between <span class="math notranslate nohighlight">\(\vector{e}\)</span> and <span class="math notranslate nohighlight">\(\vector{r}\)</span>. We can solve for <span class="math notranslate nohighlight">\(\nu\)</span> by using Eq. <a class="reference internal" href="#equation-eq-dot-product-definition">(180)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-nu">
-<span class="eqno">(183)<a class="headerlink" href="#equation-eq-orbital-elements-nu" title="Permalink to this equation">¶</a></span>\[\nu = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right)\]</div>
+<span class="eqno">(183)<a class="headerlink" href="#equation-eq-orbital-elements-nu" title="Permalink to this equation">#</a></span>\[\nu = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right)\]</div>
 <p>Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the radial component of the velocity, <span class="math notranslate nohighlight">\(v_r\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(v_r \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{r}\)</span> is increasing in length and the spacecraft must be flying away from periapsis, so 0° ≤ <span class="math notranslate nohighlight">\(\nu\)</span> &lt; 180°. On the other hand, if <span class="math notranslate nohighlight">\(v_r &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{r}\)</span> must be getting shorter and the spacecraft must be flying towards periapsis, such that 180° ≤ <span class="math notranslate nohighlight">\(\nu\)</span> &lt; 360°. We can express this fully with the conditions in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-true-anomaly">(184)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-true-anomaly">
-<span class="eqno">(184)<a class="headerlink" href="#equation-eq-orbital-elements-true-anomaly" title="Permalink to this equation">¶</a></span>\[\begin{split}\nu = \begin{cases}
+<span class="eqno">(184)<a class="headerlink" href="#equation-eq-orbital-elements-true-anomaly" title="Permalink to this equation">#</a></span>\[\begin{split}\nu = \begin{cases}
 \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right) &amp; v_r \geq 0 \\
 2\pi - \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right) &amp; v_r &lt; 0
 \end{cases}\end{split}\]</div>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r_vec</span> <span class="o">/</span> <span class="n">r</span><span class="p">,</span> <span class="n">e_vec</span> <span class="o">/</span> <span class="n">e</span><span class="p">))</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-12">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r_vec</span> <span class="o">/</span> <span class="n">r</span><span class="p">,</span> <span class="n">e_vec</span> <span class="o">/</span> <span class="n">e</span><span class="p">))</span>
 
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">nu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="nb">dot</span><span class="p">(</span><span class="n">e_vec</span><span class="p">,</span><span class="w"> </span><span class="n">r_vec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">));</span><span class="w"></span>
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-13">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">nu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="nb">dot</span><span class="p">(</span><span class="n">e_vec</span><span class="p">,</span><span class="w"> </span><span class="n">r_vec</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>For this problem, we find <span class="math notranslate nohighlight">\(v_r =\)</span> <span class="pasted-text">6.6973</span> km/s, so the argument of periapsis is in the first or second quadrant. Then, we find <span class="math notranslate nohighlight">\(\nu =\)</span> <span class="pasted-text">159.61</span>°. The true anomaly is the sixth and final orbital element.</p>
-</div>
-</div>
-<div class="section" id="orbital-elements-state-vector">
-<h2>Orbital Elements → State Vector<a class="headerlink" href="#orbital-elements-state-vector" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="orbital-elements-state-vector">
+<h2>Orbital Elements → State Vector<a class="headerlink" href="#orbital-elements-state-vector" title="Permalink to this headline">#</a></h2>
 <p>The algorithm to convert from the orbital elements back to the state vector is somewhat more involved, so we do not include the complete derivation here. There are two steps in this algorithm:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Use the orbital elements <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(\nu\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> to represent <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> in the <a class="reference internal" href="perifocal-frame.html"><span class="doc std std-doc">perifocal frame</span></a></p></li>
 <li><p>Rotate the perifocal frame so that the axes align with the inertial axes using the orbital elements <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
 </ol>
 <p>The first step is rather simple, but the derivation of the second step requires a long digression on the topic of <a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_of_axes">coordinate transformations</a>. So, we’ll skip the derivation and get right to the point.</p>
-<div class="section" id="step-1transform-to-perifocal-frame">
-<h3>Step 1—Transform to Perifocal Frame<a class="headerlink" href="#step-1transform-to-perifocal-frame" title="Permalink to this headline">¶</a></h3>
+<section id="step-1transform-to-perifocal-frame">
+<h3>Step 1—Transform to Perifocal Frame<a class="headerlink" href="#step-1transform-to-perifocal-frame" title="Permalink to this headline">#</a></h3>
 <p>Remember that the perifocal frame is defined in the orbital plane with the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span>, <span class="math notranslate nohighlight">\(\uvec{q}\)</span>, and <span class="math notranslate nohighlight">\(\uvec{w}\)</span>, as shown in <a class="reference internal" href="perifocal-frame.html#fig-definition-of-perifocal-frame"><span class="std std-numref">Fig. 41</span></a>. The position and velocity components in the perifocal frame are given by Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-vector-orbit-equation">(167)</a> and Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-simplified-velocity-vector">(170)</a>, respectively.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r_w</span> <span class="o">=</span> <span class="n">h</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">mu</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-14">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r_w</span> <span class="o">=</span> <span class="n">h</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">mu</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
 <span class="n">v_w</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">h</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span> <span class="n">e</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
 
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--7-input--2" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">r_w</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">h</span>^<span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">))</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
-<span class="n">v_w</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
+</input><label class="sd-tab-label" data-sync-id="tabcode-matlab" for="sd-tab-item-15">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">r_w</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">h</span>^<span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">))</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span>
+<span class="n">v_w</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">nu</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>For this example, we find <span class="math notranslate nohighlight">\(\vector{r}_{\omega} =\)</span> <span class="pasted-text">-8117.7120</span> <span class="math notranslate nohighlight">\(\uvec{p}\)</span> + <span class="pasted-text">3017.0767</span> <span class="math notranslate nohighlight">\(\uvec{q}\)</span> km and <span class="math notranslate nohighlight">\(\vector{v}_{\omega} =\)</span> <span class="pasted-text">-7.0680</span> <span class="math notranslate nohighlight">\(\uvec{p}\)</span> + <span class="pasted-text">0.2067</span> <span class="math notranslate nohighlight">\(\uvec{q}\)</span> km/s.</p>
-</div>
-<div class="section" id="step-2rotate-the-perifocal-frame">
-<h3>Step 2—Rotate the Perifocal Frame<a class="headerlink" href="#step-2rotate-the-perifocal-frame" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-2rotate-the-perifocal-frame">
+<h3>Step 2—Rotate the Perifocal Frame<a class="headerlink" href="#step-2rotate-the-perifocal-frame" title="Permalink to this headline">#</a></h3>
 <p>The second step of this algorithm is to apply the set of coordinate transformations that converts the perifocal frame into the inertial frame. It turns out that a set of three rotations applied sequentially will accomplish this goal. These steps are shown in <a class="reference internal" href="#fig-euler-angle-rotation"><span class="std std-numref">Fig. 46</span></a>.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Rotate around the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis until the <span class="math notranslate nohighlight">\(\uvec{p}\)</span> axis is aligned with the node line</p></li>
 <li><p>Rotate around the node line until the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis is aligned with the <span class="math notranslate nohighlight">\(Z\)</span> axis</p></li>
 <li><p>Rotate around the <span class="math notranslate nohighlight">\(Z\)</span> axis until the <span class="math notranslate nohighlight">\(\uvec{p}\)</span> axis is aligned with the <span class="math notranslate nohighlight">\(X\)</span> axis</p></li>
 </ol>
-<div class="figure align-default" id="fig-euler-angle-rotation">
+<figure class="align-default" id="fig-euler-angle-rotation">
 <img alt="../_images/Euler.gif" src="../_images/Euler.gif" />
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">The sequence of rotations to convert from the perifocal frame to the inertial frame. Adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Euler2.gif">Juansempere</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-euler-angle-rotation" title="Permalink to this image">¶</a></p>
-</div>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Step 2.1—Rotate Until <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is Aligned With the Node Line</p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">By definition, the <span class="math notranslate nohighlight">\(\uvec{p}\)</span> vector points towards periapsis. Therefore, it is also aligned with the eccentricity vector. If we rotate the frame around the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis until <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is aligned with the node line, this will align <span class="math notranslate nohighlight">\(\vector{e}\)</span> with <span class="math notranslate nohighlight">\(\vector{N}\)</span>. This rotation is the negative of the argument of periapsis, <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Step 2.2—Rotate Until <span class="math notranslate nohighlight">\(\uvec{w}\)</span> is Aligned With the <span class="math notranslate nohighlight">\(Z\)</span> Axis</p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">At this point, the node line and the eccentricity are aligned. Rotating around the node line changes the inclination of the orbit. When <span class="math notranslate nohighlight">\(\uvec{w}\)</span> is aligned with the <span class="math notranslate nohighlight">\(Z\)</span> axis, then the inclination, <span class="math notranslate nohighlight">\(i\)</span>, has been accounted for.</p>
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The sequence of rotations to convert from the perifocal frame to the inertial frame. Adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Euler2.gif">Juansempere</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-euler-angle-rotation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Step 2.1—Rotate Until <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is Aligned With the Node Line</div>
+<p class="sd-card-text">By definition, the <span class="math notranslate nohighlight">\(\uvec{p}\)</span> vector points towards periapsis. Therefore, it is also aligned with the eccentricity vector. If we rotate the frame around the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis until <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is aligned with the node line, this will align <span class="math notranslate nohighlight">\(\vector{e}\)</span> with <span class="math notranslate nohighlight">\(\vector{N}\)</span>. This rotation is the negative of the argument of periapsis, <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Step 2.3—Rotate Until <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is Aligned With the <span class="math notranslate nohighlight">\(X\)</span> Axis</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Step 2.2—Rotate Until <span class="math notranslate nohighlight">\(\uvec{w}\)</span> is Aligned With the <span class="math notranslate nohighlight">\(Z\)</span> Axis</div>
+<p class="sd-card-text">At this point, the node line and the eccentricity are aligned. Rotating around the node line changes the inclination of the orbit. When <span class="math notranslate nohighlight">\(\uvec{w}\)</span> is aligned with the <span class="math notranslate nohighlight">\(Z\)</span> axis, then the inclination, <span class="math notranslate nohighlight">\(i\)</span>, has been accounted for.</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">The last step is to account for the right ascension of the ascending node. Since <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is now aligned with the node line, we can rotate around the <span class="math notranslate nohighlight">\(Z\)</span> axis to turn the orbital plane until it aligns with the <span class="math notranslate nohighlight">\(X\)</span> axis. This is the negative of the right ascension of the ascending node.</p>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Step 2.3—Rotate Until <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is Aligned With the <span class="math notranslate nohighlight">\(X\)</span> Axis</div>
+<p class="sd-card-text">The last step is to account for the right ascension of the ascending node. Since <span class="math notranslate nohighlight">\(\uvec{p}\)</span> is now aligned with the node line, we can rotate around the <span class="math notranslate nohighlight">\(Z\)</span> axis to turn the orbital plane until it aligns with the <span class="math notranslate nohighlight">\(X\)</span> axis. This is the negative of the right ascension of the ascending node.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <p>These three angles (<span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(\Omega\)</span>) are called <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_angles"><strong>Euler angles</strong></a>. Transformations based on the Euler angles are well known and can be calculated in many ways. Here, we’ll use a computing environment to simplify the calculations.</p>
-<div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--8-input--1" name="tab-set--8" type="radio"><label class="tab-label" for="tab-set--8-input--1">Python</label><div class="tab-content docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.transform</span> <span class="kn">import</span> <span class="n">Rotation</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-8" type="radio">
+</input><label class="sd-tab-label" data-sync-id="PYTHON" for="sd-tab-item-16">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.transform</span> <span class="kn">import</span> <span class="n">Rotation</span>
 
 <span class="n">R</span> <span class="o">=</span> <span class="n">Rotation</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="s2">&quot;ZXZ&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="n">omega</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="n">Omega</span><span class="p">])</span>
 <span class="n">r_rot</span> <span class="o">=</span> <span class="n">r_w</span> <span class="o">@</span> <span class="n">R</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
@@ -1038,12 +1316,14 @@
 <p>Notice that the rotation is right-handed by default, positive clockwise. Since we are reversing the rotations, the angles all have to be negative.</p>
 <p>To actually perform the rotation, we need to multiply the position and velocity vectors in the perifocal frame by the rotation matrix. The <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol in Python performs matrix multiplication, instead of scalar multiplication.</p>
 </div>
-<input class="tab-input" id="tab-set--8-input--2" name="tab-set--8" type="radio"><label class="tab-label" for="tab-set--8-input--2">MATLAB</label><div class="tab-content docutils">
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">0</span><span class="w"> </span><span class="s">1]</span><span class="p">;</span><span class="w"></span>
-<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">cos(-i)</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="nb">i</span><span class="p">);</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">sin(-i)</span><span class="w"> </span><span class="s">cos(-i)]</span><span class="p">;</span><span class="w"></span>
-<span class="n">R3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">0</span><span class="w"> </span><span class="s">1]</span><span class="p">;</span><span class="w"></span>
-<span class="n">r_rot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">r_w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R3</span><span class="p">;</span><span class="w"></span>
-<span class="n">v_rot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v_w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R3</span><span class="p">;</span><span class="w"></span>
+<input id="sd-tab-item-17" name="sd-tab-set-8" type="radio">
+</input><label class="sd-tab-label" data-sync-id="MATLAB" for="sd-tab-item-17">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">0</span><span class="w"> </span><span class="s">1]</span><span class="p">;</span>
+<span class="n">R2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">cos(-i)</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="nb">i</span><span class="p">);</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">sin(-i)</span><span class="w"> </span><span class="s">cos(-i)]</span><span class="p">;</span>
+<span class="n">R3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="n">Omega</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="s">0</span><span class="w"> </span><span class="s">1]</span><span class="p">;</span>
+<span class="n">r_rot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">r_w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R3</span><span class="p">;</span>
+<span class="n">v_rot</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v_w</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">R3</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>In Matlab, there is no built-in way to compute rotation matrices. Instead, the easiest step is to compose the rotation matrices for each direction and multiply the position and velocity vectors by the matrices.</p>
@@ -1052,9 +1332,9 @@
 </div>
 </div>
 <p>In the end, we find <span class="math notranslate nohighlight">\(\vector{r} =\)</span> <span class="pasted-text">1000</span> <span class="math notranslate nohighlight">\(\uvec{I}\)</span> + <span class="pasted-text">5000</span> <span class="math notranslate nohighlight">\(\uvec{J}\)</span> + <span class="pasted-text">7000</span> <span class="math notranslate nohighlight">\(\uvec{K}\)</span> km and <span class="math notranslate nohighlight">\(\vector{v} =\)</span> <span class="pasted-text">3</span> <span class="math notranslate nohighlight">\(\uvec{I}\)</span> + <span class="pasted-text">4</span> <span class="math notranslate nohighlight">\(\uvec{J}\)</span> + <span class="pasted-text">5</span> <span class="math notranslate nohighlight">\(\uvec{K}\)</span> km/s. This is exactly the same as the initial condition, showing that we did the conversion correctly.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1068,7 +1348,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./classical-orbital-elements"
         },
         predefinedOutput: true
@@ -1078,9 +1358,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="classical-orbital-elements.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1096,29 +1378,31 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Bryan Weber<br/>
-        
-          <div class="extra_footer">
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Weber<br/>
+  
+    <div class="extra_footer">
+      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

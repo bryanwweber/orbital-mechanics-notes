@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Julian Day &#8212; Orbital Mechanics &amp; Astrodynamics</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,43 +20,40 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/tabs.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/copyHeaderPermalink.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/reference/julian-date.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Orbital Mechanics &amp; Astrodynamics
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Orbital Mechanics & Astrodynamics
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -538,114 +553,267 @@
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Postscript
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">
+   Planetary Depahture for Interplanetary Transfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
+   Nonimpulsive Orbital Maneuvers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
+   Example: Nonimpulsive Maneuvers
+  </a>
+ </li>
+</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/reference/julian-date.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/reference/julian-date.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Freference/julian-date.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/reference/julian-date.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/reference/julian-date.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/reference/julian-date.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Freference/julian-date.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/reference/julian-date.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/reference/julian-date.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/reference/julian-date.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#julian-period">
    Julian Period
@@ -697,43 +865,110 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Julian Day</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julian-period">
+   Julian Period
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-solar-cycle">
+     The Solar Cycle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-lunar-cycle">
+     The Lunar Cycle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-indiction-cycle">
+     The Indiction Cycle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculating-julian-days">
+   Calculating Julian Days
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julian-dates">
+   Julian Dates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python">
+     Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matlab">
+     MATLAB
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="julian-day">
-<h1>Julian Day<a class="headerlink" href="#julian-day" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="julian-day">
+<h1>Julian Day<a class="headerlink" href="#julian-day" title="Permalink to this headline">#</a></h1>
 <p>The <strong>Julian Day</strong> is a concept invented by historians and astronomers to provide a continuous count of days since a particular starting point. Julian Day 0 is set to be the day starting on January 1, 4713 BC in the <a class="reference external" href="https://en.wikipedia.org/wiki/Proleptic_Julian_calendar">proleptic Julian calendar</a> at 12:00 PM (noon) in UTC. This corresponds to November 24, 4714 BC in the <a class="reference external" href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar">proleptic Gregorian calendar</a>.</p>
 <p>Julian days are counted as integers continuously until the present time. This makes it very easy to compare relative times of events and do arithmetic between days.</p>
-<div class="section" id="julian-period">
-<h2>Julian Period<a class="headerlink" href="#julian-period" title="Permalink to this headline">¶</a></h2>
+<section id="julian-period">
+<h2>Julian Period<a class="headerlink" href="#julian-period" title="Permalink to this headline">#</a></h2>
 <p>The Julian day is a single day in the Julian Period, a period of time 7,980 years long. The Julian Period is defined as the product of three cycles in the Julian calendar:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The solar cycle (28 years)</p></li>
 <li><p>The lunar cycle (19 years)</p></li>
 <li><p>The indiction cycle (15 years)</p></li>
 </ol>
 <p>A Julian Period starts when each of these cycles is on its first day, on the same day. Counting backwards, and assuming that the Julian calendar extends infinitely in both directions in time, the previous time that this occurred was in the year 4713 BCE.</p>
-<div class="section" id="the-solar-cycle">
-<h3>The Solar Cycle<a class="headerlink" href="#the-solar-cycle" title="Permalink to this headline">¶</a></h3>
+<section id="the-solar-cycle">
+<h3>The Solar Cycle<a class="headerlink" href="#the-solar-cycle" title="Permalink to this headline">#</a></h3>
 <p>The Julian calendar is the calendar imposed by Julius Cesar during the Roman Republic. It had a leap year every 4th year, with no exceptions. This gave the average length of a year as 365.25 days, keeping the days of the year roughly in sync with the length of the solar year. Since there are 7 days in a week, it takes 28 years for a leap day to happen on every day of the week, giving the length of the <a class="reference external" href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)">solar cycle</a>.</p>
-</div>
-<div class="section" id="the-lunar-cycle">
-<h3>The Lunar Cycle<a class="headerlink" href="#the-lunar-cycle" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-lunar-cycle">
+<h3>The Lunar Cycle<a class="headerlink" href="#the-lunar-cycle" title="Permalink to this headline">#</a></h3>
 <p>As we know, the moon goes through phases as it orbits around the earth. The <a class="reference external" href="https://en.wikipedia.org/wiki/Metonic_cycle">lunar, or <strong>metonic</strong>, cycle</a> of 19 years is approximately the time for the lunar phase to repeat on the same day of the year.</p>
-</div>
-<div class="section" id="the-indiction-cycle">
-<h3>The Indiction Cycle<a class="headerlink" href="#the-indiction-cycle" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-indiction-cycle">
+<h3>The Indiction Cycle<a class="headerlink" href="#the-indiction-cycle" title="Permalink to this headline">#</a></h3>
 <p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Indiction">indiction</a> is the periodic reassessment of property for a land tax, used in the Middle Ages. At that time, the reassessment occurred every 15 years.</p>
-</div>
-</div>
-<div class="section" id="calculating-julian-days">
-<h2>Calculating Julian Days<a class="headerlink" href="#calculating-julian-days" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="calculating-julian-days">
+<h2>Calculating Julian Days<a class="headerlink" href="#calculating-julian-days" title="Permalink to this headline">#</a></h2>
 <p>The Julian calendar was introduced in 46 BC by Julius Cesar, with leap years occuring every four years. This gives the average length of a year as 365.25 days, which is slightly longer than the <a class="reference external" href="https://en.wikipedia.org/wiki/Tropical_year">solar year</a> of 365.2422 days. Therefore, over time, the day on which the equinox will occur shifts.</p>
 <p>In 1582, Pope Gregory XIII imposed a modified version of the Julian calendar. The Gregorian calendar, which is still in use today, corrects the average length of the year to 365.2425 days by skipping leap years under certain conditions:</p>
 <blockquote>
@@ -741,7 +976,7 @@
 </div></blockquote>
 <p>Since the Julian Period was introduced in 1583, it used the Julian calendar rather than the Gregorian calendar, which wouldn’t be adopted everywhere until the mid-1700s. This means that we need some formula to convert a given Gregorian date into a Julian Day.</p>
 <p>A Gregorian calendar date must have 3 integer parts to calculate the Julian Day Number (<span class="math notranslate nohighlight">\(\mathrm{JDN}\)</span>):</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The month number, <span class="math notranslate nohighlight">\(M\)</span>, varying from 1-12.</p></li>
 <li><p>The day of the month, <span class="math notranslate nohighlight">\(D\)</span>, varying from 1-31 depending on the month.</p></li>
 <li><p>The year, <span class="math notranslate nohighlight">\(Y\)</span>, using <a class="reference external" href="https://en.wikipedia.org/wiki/Astronomical_year_numbering">astronomical year numbering</a>. Astronomical year numbering is the same as the Gregorian year for all after 1 AD. However, the Gregorian calendar does not include a Year 0, whereas the astronomical year numbering does. Therefore:</p>
@@ -756,7 +991,7 @@
 </ol>
 <p>To simplify the calculation of the Julian Day Number, we will define the following constants:</p>
 <div class="math notranslate nohighlight" id="equation-eq-julian-day-constants">
-<span class="eqno">(436)<a class="headerlink" href="#equation-eq-julian-day-constants" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(436)<a class="headerlink" href="#equation-eq-julian-day-constants" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   A &amp;= \mathrm{INT}\left(\frac{M - 14}{12}\right) \\
   B &amp;= 1461\left(Y + 4800 + A\right) \\
   C &amp;= 367\left(M - 2 - 12A\right) \\
@@ -764,7 +999,7 @@
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathrm{INT}\)</span> indicates that integer division should be done. This means that the remainder of the division is discarded, or in other words, the result is rounded towards zero. Then, <span class="math notranslate nohighlight">\(\mathrm{JDN}\)</span> can be found by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-julian-day-number">
-<span class="eqno">(437)<a class="headerlink" href="#equation-eq-julian-day-number" title="Permalink to this equation">¶</a></span>\[\mathrm{JDN} = \mathrm{INT}\left(\frac{B}{4}\right) + \mathrm{INT}\left(\frac{C}{12}\right) - \mathrm{INT}\left(\frac{3E}{4}\right) + D - 32075\]</div>
+<span class="eqno">(437)<a class="headerlink" href="#equation-eq-julian-day-number" title="Permalink to this equation">#</a></span>\[\mathrm{JDN} = \mathrm{INT}\left(\frac{B}{4}\right) + \mathrm{INT}\left(\frac{C}{12}\right) - \mathrm{INT}\left(\frac{3E}{4}\right) + D - 32075\]</div>
 <p>Sample implementations of this algorithm can be found in many places online, and for many programming languages. See:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm">https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm</a></p></li>
@@ -772,21 +1007,21 @@
 <li><p><a class="reference external" href="https://web.archive.org/web/20201207022832/https://craftofcoding.files.wordpress.com/2013/07/cs_langjuliandates.pdf">https://web.archive.org/web/20201207022832/https://craftofcoding.files.wordpress.com/2013/07/cs_langjuliandates.pdf</a></p></li>
 <li><p><a class="reference external" href="https://dl.acm.org/doi/10.1145/364096.364097">https://dl.acm.org/doi/10.1145/364096.364097</a></p></li>
 </ul>
-</div>
-<div class="section" id="julian-dates">
-<h2>Julian Dates<a class="headerlink" href="#julian-dates" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="julian-dates">
+<h2>Julian Dates<a class="headerlink" href="#julian-dates" title="Permalink to this headline">#</a></h2>
 <p>Related to the Julian Day, the <strong>Julian Date</strong> (<span class="math notranslate nohighlight">\(\mathrm{JDT}\)</span>) is a decimal number that includes the Julian Day number in the whole part, and the fraction of the day towards the next Julian Day Number in the decimal. Remember that Julian Days start at 12:00 PM (noon) UTC, so 6:00 PM UTC would be JDN + 0.25 and 6:00 AM UTC would be the JDN of the previous Gregorian date + 0.75.</p>
-</div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
 <p>Here we’ll give an example converting Gregorian dates to JDN and JDT.</p>
-<div class="section" id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h3>
 <p>One possible Python implementation of the conversion from Gregorian date to JDN is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gregorian_to_julian_day_number</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert the given proleptic Gregorian date to the equivalent Julian Day Number.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the given proleptic Gregorian date to the equivalent Julian Day Number.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;month must be between 1 and 12, inclusive&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">31</span><span class="p">:</span>
@@ -814,7 +1049,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gregorian_to_julian_date</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert a Gregorian date to a Julian Date.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a Gregorian date to a Julian Date.&quot;&quot;&quot;</span>
     <span class="n">JDN</span> <span class="o">=</span> <span class="n">gregorian_to_julian_day_number</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
     <span class="n">JDT</span> <span class="o">=</span> <span class="n">JDN</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span> <span class="o">-</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">24</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">minute</span> <span class="o">/</span> <span class="mi">1_440</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">second</span> <span class="o">/</span> <span class="mi">86_400</span> <span class="o">+</span> <span class="n">dt</span><span class="o">.</span><span class="n">microsecond</span> <span class="o">/</span> <span class="mi">86_400_000_000</span>
     <span class="k">return</span> <span class="n">JDT</span>
@@ -836,7 +1071,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
 
 <span class="k">def</span> <span class="nf">julian_day_number_to_gregorian</span><span class="p">(</span><span class="n">jdn</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert the Julian Day Number to the proleptic Gregorian Year, Month, Day.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the Julian Day Number to the proleptic Gregorian Year, Month, Day.&quot;&quot;&quot;</span>
     <span class="n">L</span> <span class="o">=</span> <span class="n">jdn</span> <span class="o">+</span> <span class="mi">68569</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">L</span> <span class="o">/</span> <span class="mi">146_097</span><span class="p">)</span>
     <span class="n">L</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="nb">int</span><span class="p">((</span><span class="mi">146097</span> <span class="o">*</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
@@ -850,7 +1085,7 @@
     <span class="k">return</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span>
 
 <span class="k">def</span> <span class="nf">julian_date_to_gregorian</span><span class="p">(</span><span class="n">jd</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert a decimal Julian Date to the equivalent proleptic Gregorian date and time.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a decimal Julian Date to the equivalent proleptic Gregorian date and time.&quot;&quot;&quot;</span>
     <span class="n">jdn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jd</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">jdn</span> <span class="o">&lt;</span> <span class="mi">1_721_426</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Julian Day Numbers less than 1,721,426 are not supported, &quot;</span>
@@ -869,7 +1104,7 @@
 </div>
 <p><a class="reference internal" href="#tab-julian-date-conversion-results"><span class="std std-numref">Table 11</span></a> shows that the reverse conversion gives back nearly identical results. The difference is most likely due to floating point error in the microsecond calculation.</p>
 <table class="colwidths-auto table" id="tab-julian-date-conversion-results">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">Julian date conversion results using an evening and a morning time.</span><a class="headerlink" href="#tab-julian-date-conversion-results" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">Julian date conversion results using an evening and a morning time.</span><a class="headerlink" href="#tab-julian-date-conversion-results" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Original</p></th>
 <th class="head"><p>Julian Date</p></th>
@@ -901,62 +1136,62 @@
 </div>
 </div>
 <p>Note that since there is no Year 0, 4714 BC is the same as Year -4713.</p>
-</div>
-<div class="section" id="matlab">
-<h3>MATLAB<a class="headerlink" href="#matlab" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="matlab">
+<h3>MATLAB<a class="headerlink" href="#matlab" title="Permalink to this headline">#</a></h3>
 <p>MATLAB has a function called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/datetime.juliandate.html"><code class="docutils literal notranslate"><span class="pre">juliandate</span></code></a>, which takes a <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> instance and does the conversion to the Julian Date automatically. Note that you should specify the local time zone if you use <code class="docutils literal notranslate"><span class="pre">datetime('now')</span></code> to ensure that the correct Julian Day Number is returned.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">format</span><span class="w"> </span><span class="n">longG</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">TimeZone</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;UTC&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">format</span><span class="w"> </span><span class="n">longG</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">TimeZone</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;UTC&#39;</span><span class="p">;</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t1</span>
 
 <span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>
 
-<span class="w">  </span><span class="nb">datetime</span><span class="w"></span>
+<span class="w">  </span><span class="nb">datetime</span>
 
-<span class="w">   </span><span class="mi">07</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2020</span><span class="w"> </span><span class="mi">18</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">43</span><span class="w"></span>
+<span class="w">   </span><span class="mi">07</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2020</span><span class="w"> </span><span class="mi">18</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">43</span>
 
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">juliandate</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">juliandate</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
 
-<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span>
 
-<span class="w">          </span><span class="mf">2459191.25883883</span><span class="w"></span>
+<span class="w">          </span><span class="mf">2459191.25883883</span>
 </pre></div>
 </div>
 <p>This gives the same result as the Python code above. MATLAB also allows the reverse conversion, by using <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> with the Julian Date:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">jd1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">juliandate</span><span class="p">(</span><span class="nb">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">));</span><span class="w"></span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">jd1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">juliandate</span><span class="p">(</span><span class="nb">datetime</span><span class="p">(</span><span class="s">&#39;2020-12-07 18:12:43.674805&#39;</span><span class="p">));</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">)</span>
 
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>
 
-<span class="w">  </span><span class="nb">datetime</span><span class="w"></span>
+<span class="w">  </span><span class="nb">datetime</span>
 
-<span class="w">   </span><span class="mi">07</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2020</span><span class="w"> </span><span class="mi">18</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">43</span><span class="w"></span>
+<span class="w">   </span><span class="mi">07</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2020</span><span class="w"> </span><span class="mi">18</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">43</span>
 </pre></div>
 </div>
 <p>Note that the default time zone is UTC, to convert to a different time zone, the <code class="docutils literal notranslate"><span class="pre">'TimeZone'</span></code> argument to <code class="docutils literal notranslate"><span class="pre">datetime()</span></code> must be supplied:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">,</span><span class="s">&#39;TimeZone&#39;</span><span class="p">,</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="n">jd1</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">,</span><span class="s">&#39;TimeZone&#39;</span><span class="p">,</span><span class="s">&#39;America/New_York&#39;</span><span class="p">)</span>
 
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>
 
-<span class="w">  </span><span class="nb">datetime</span><span class="w"></span>
+<span class="w">  </span><span class="nb">datetime</span>
 
-<span class="w">   </span><span class="mi">07</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2020</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">43</span><span class="w"></span>
+<span class="w">   </span><span class="mi">07</span><span class="o">-</span><span class="n">Dec</span><span class="o">-</span><span class="mi">2020</span><span class="w"> </span><span class="mi">13</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">43</span>
 </pre></div>
 </div>
 <p>MATLAB also uses the proleptic Gregorian calendar for dates prior to 1583, so JDT of 0 returns the same date as Python.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="s">&#39;JulianDate&#39;</span><span class="p">)</span>
 
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>
 
-<span class="w">  </span><span class="nb">datetime</span><span class="w"></span>
+<span class="w">  </span><span class="nb">datetime</span>
 
-<span class="w">   </span><span class="mi">24</span><span class="o">-</span><span class="n">Nov</span><span class="o">--</span><span class="mi">4713</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="w"></span>
+<span class="w">   </span><span class="mi">24</span><span class="o">-</span><span class="n">Nov</span><span class="o">--</span><span class="mi">4713</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -970,7 +1205,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./reference"
         },
         predefinedOutput: true
@@ -980,9 +1215,11 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="planetary-parameters.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -998,29 +1235,31 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Bryan Weber<br/>
-        
-          <div class="extra_footer">
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Weber<br/>
+  
+    <div class="extra_footer">
+      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
 
-          </div>
-      </p>
     </div>
-  </footer>
-</main>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
