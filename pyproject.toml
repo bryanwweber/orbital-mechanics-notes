@@ -1,8 +1,9 @@
+#:schema https://json.schemastore.org/pyproject.json
 [tool]
 [tool.pdm]
 [tool.pdm.dev-dependencies]
 dev = [
-    "black>=23.1.0",
+    "black[jupyter]>=23.1.0",
     "flake8>=6.0.0",
     "doit>=0.36.0",
     "pyyaml>=6.0",
@@ -14,19 +15,20 @@ dev = [
 # See https://www.python.org/dev/peps/pep-0621/
 name = "orbital-mechanics-notes"
 dependencies = [
-    "jupyter-book@ https://github.com/bryanwweber/jupyter-book/archive/refs/heads/bump-deps.zip",
+    "astropy",
+    "ipympl",
+    "jupyter-book>=0.14.0",
+    "matplotlib",
     "myst-nb-bokeh>=1.0",
     "myst-nb>=0.17.1,<0.18",
-    "matplotlib",
     "numpy",
-    "scipy",
-    "poliastro",
-    "astropy",
-    "sympy",
-    "myst-parser>=0.18.0",
-    "wheel>=0.38.4",
     "pint>=0.20.1",
+    "plotly",
+    "poliastro",
+    "scipy",
     "skyfield>=1.45",
     "sphinx-design>=0.3.0",
+    "sympy",
+    "wheel>=0.38.4",
 ]
 requires-python = ">=3.9,<3.11"
