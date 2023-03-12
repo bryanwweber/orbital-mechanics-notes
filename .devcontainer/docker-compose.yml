@@ -1,0 +1,53 @@
+version: "3"
+services:
+  # jupyter:
+  #   # A dev environment with jupyterhub. Useful when dependencies aren't built for a
+  #   # particular platform, such as macOS arm64
+  #   image: ghcr.io/bryanwweber/orbital-mechanics-book:latest
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       - PYTHON_VERSION=3.10
+  #     tags:
+  #       - bryanwweber/orbital-mechanics-book:latest
+  #       - ghcr.io/bryanwweber/orbital-mechanics-book:latest
+  #   ports: ["10000:10000"]
+  #   # Mount into 'work' to avoid overwriting files
+  #   # installed into jovyan's home directory
+  #   volumes:
+  #     - ..:/home/jovyan/work
+  #   container_name: jupyter
+  math-api:
+    image: ghcr.io/bryanwweber/math-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.math-api
+      target: runner
+      tags:
+        - ghcr.io/bryanwweber/math-api:latest
+    ports: ["3000:3000"]
+    container_name: math-api
+  workspace:
+    image: ghcr.io/bryanwweber/workspace:latest
+    container_name: workspace
+    build:
+      context: ..
+      target: workspace
+      dockerfile: .devcontainer/Dockerfile.workspace
+      tags:
+        - ghcr.io/bryanwweber/workspace:latest
+    volumes:
+      - ..:/workspaces/orbital-mechanics-notes:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+  http-server:
+    image: python:3.10-alpine
+    ports: ["8080:8080"]
+    command: python3 -m http.server 8080 -d /html
+    volumes:
+      - type: bind
+        source: "../_build/html"
+        target: "/html"
+        read_only: true
+    working_dir: /html
+    container_name: http-server

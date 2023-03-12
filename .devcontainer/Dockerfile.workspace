@@ -1,0 +1,71 @@
+FROM python:3.10-alpine as pdm
+
+RUN mkdir -p /tmp/pdm
+COPY pyproject.toml pdm.lock /tmp/pdm/
+
+WORKDIR /tmp/pdm
+
+RUN --mount=type=cache,target=/root/.cache \
+    pip3 --disable-pip-version-check install pdm \
+    && pdm export -f requirements > /tmp/pdm/requirements.txt
+
+FROM alpine:3 as julia
+ARG JULIA_VERSION=1.9.0-rc1
+ARG JULIA_ARCH="x86_64"
+
+RUN mkdir -p /tmp/julia
+WORKDIR /tmp
+
+RUN set -x && \
+    if [ "$JULIA_ARCH" == "aarm64" ]; then \
+      JULIA_ARCH="aarch64"; \
+      S3_ARCH="aarch64"; \
+    elif [ "$JULIA_ARCH" == "aarch64" ]; then \
+      S3_ARCH="aarch64"; \
+    elif [ "$JULIA_ARCH" == "x86_64" ]; then \
+      S3_ARCH="x64"; \
+    fi; \
+    JULIA_INSTALLER="julia-${JULIA_VERSION}-linux-${JULIA_ARCH}.tar.gz" \
+    && wget --quiet "https://julialang-s3.julialang.org/bin/checksums/julia-${JULIA_VERSION}.sha256" \
+    && wget --quiet "https://julialang-s3.julialang.org/bin/linux/${S3_ARCH}/${JULIA_VERSION:0:3}/${JULIA_INSTALLER}" \
+    && grep ${JULIA_INSTALLER} "julia-${JULIA_VERSION}.sha256" | sha256sum -cs \
+    && tar -xf "${JULIA_INSTALLER}" -C /tmp/julia --strip-components=1 \
+    && rm "${JULIA_INSTALLER}"
+
+FROM python:3.10-bullseye as workspace
+
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+ARG JULIA_DIR=/opt/julia
+
+ENV PATH="${JULIA_DIR}/bin:${PATH}" \
+    HOME="/home/${USERNAME}"
+COPY .devcontainer/fix-permissions /usr/local/bin/fix-permissions
+RUN chmod a+rx /usr/local/bin/fix-permissions
+
+# Create USERNAME with name vscode user with UID=1000 and in the 'users' group
+# and make sure these dirs are writable by the `users` group.
+RUN groupadd --gid ${USER_GID} ${USERNAME} \
+    && useradd --uid $USER_UID --gid ${USERNAME} --shell /bin/bash --create-home ${USERNAME} \
+    && mkdir -p "${JULIA_DIR}" \
+    && chown "${USER_UID}:${USER_GID}" "${JULIA_DIR}" \
+    && chmod g+w /etc/passwd \
+    && fix-permissions "${HOME}" \
+    && fix-permissions "${JULIA_DIR}"
+
+COPY --from=pdm /tmp/pdm/requirements.txt /tmp/pip-tmp/
+RUN --mount=type=cache,target=/root/.cache \
+    pip3 --disable-pip-version-check install -r /tmp/pip-tmp/requirements.txt \
+    && rm -rf /tmp/pip-tmp
+
+USER ${USERNAME}
+
+COPY --from=julia /tmp/julia/ "${JULIA_DIR}/"
+COPY .devcontainer/packages.jl /tmp/packages.jl
+
+RUN fix-permissions "${JULIA_DIR}"
+RUN julia "/tmp/packages.jl" \
+    && fix-permissions "${HOME}/.julia"
+
+WORKDIR /workspaces/orbital-mechanics-notes
