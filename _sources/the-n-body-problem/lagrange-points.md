@@ -223,7 +223,7 @@ glue("collinear-lagrange-solution", fig, display=False);
 The solutions of Eq. {eq}`eq:collinear-lagrange-solution`, showing the dimensionless positions of the collinear Lagrange points as a function of the dimensionless mass.
 :::
 
-On this figure, the $x$ axis is $\pi_2$ and the $y$ axis is $x^*$. For a given value of $pi_2$, we can locate the three values of $x^*$ that solve the equation. The gray dashed lines give the corresponding positions of $m_1$ and $m_2$ at the given value of $\pi_2$.
+On this figure, the $x$ axis is $\pi_2$ and the $y$ axis is $x^*$. For a given value of $\pi_2$, we can locate the three values of $x^*$ that solve the equation. The gray dashed lines give the corresponding positions of $m_1$ and $m_2$ at the given value of $\pi_2$.
 
 The solutions for $x^*$ for the collinear Lagrange points lie on the S-curve shape. For a given value of $\pi_2$, we can see there are 3 solutions of the function, corresponding to the three collinear Lagrange points for that system.
 
