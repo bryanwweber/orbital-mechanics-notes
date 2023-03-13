@@ -1310,7 +1310,7 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
 lock_version = "4.1"
-content_hash = "sha256:bbff91ca6880d1be66ce9167f6167fd04ea57e9865daf81cd07ba970239dd9f8"
+content_hash = "sha256:9c2d1d876ea73de8a851c92e15d6daabf2221e74ff221112033d49a614e5c84c"
 
 [metadata.files]
 "accessible-pygments 0.0.3" = [

@@ -1,7 +1,6 @@
 # Book settings
 title: Orbital Mechanics & Astrodynamics
 author: Bryan Weber
-logo: hohmann.png
 
 exclude_patterns:
   - homework
@@ -15,8 +14,7 @@ exclude_patterns:
   - .pytest_cache
 
 latex:
-  latex_documents:
-    targetname: book.tex
+  latex_engine: xelatex
 
 execute:
   execute_notebooks: "auto"
@@ -26,8 +24,15 @@ sphinx:
     - myst_nb_bokeh
     - sphinx_design
   config:
+    language: en
     html_show_copyright: false
     html_extra_path: ["assets"]
+    html_theme_options:
+      logo:
+        image_light: "_static/hohmann-light.svg"
+        image_dark: "_static/hohmann-dark.svg"
+      extra_footer: |
+        <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
     mathjax3_config:
       tex:
         macros:
@@ -42,9 +47,11 @@ sphinx:
           KE: "\\mathrm{KE}" # Kinetic energy
           PE: "V" # Potential energy
 
-myst_enable_extensions:
-  - colon_fence
-  - html_admonition
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - html_admonition
+    - dollarmath
 
 repository:
   url: https://github.com/bryanwweber/orbital-mechanics-notes
@@ -54,9 +61,8 @@ html:
   use_edit_page_button: true
   use_repository_button: true
   use_issues_button: true
-  extra_footer: |
-    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
   baseurl: "https://orbital-mechanics.space"
+  favicon: "_static/favicon-16x16.png"
 
 bibtex_bibfiles:
   - references.bib
