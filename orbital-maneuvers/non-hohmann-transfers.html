@@ -1,44 +1,55 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Non-Hohmann Transfers with a Common Apse Line &#8212; Orbital Mechanics &amp; Astrodynamics</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -54,787 +65,361 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-maneuvers/non-hohmann-transfers';</script>
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/non-hohmann-transfers.html" />
+    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Non-Hohmann Transfers: Common Apse Line Example" href="common-apse-line-example.html" />
     <link rel="prev" title="Phasing Maneuvers" href="phasing-maneuvers.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/hohmann.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Orbital Mechanics & Astrodynamics
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
+    
+    
+    <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/reference-frames.html">
-   Reference Frames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
-   Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
-   Force, Acceleration, and Momentum
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">Mass, Force, and Newton’s Law of Gravitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/force-acceleration-and-momentum.html">Force, Acceleration, and Momentum</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  The N-Body Problem
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The N-Body Problem</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
-   Two-Body Equations of Motion in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
-   Two-Body Numerical Solution in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
-   Motion of the Barycenter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
-   Relative Motion in the Two-Body Problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
-   Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">
-   Circular Restricted Three-Body Problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/lagrange-points.html">
-   Application of the CR3BP: Lagrange Points
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
-   Example: Plotting Lagrange Points
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
-   The Jacobi Constant
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">
-   Example: CR3BP Equations of Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
-   Many-Body Problems
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">Two-Body Equations of Motion in an Inertial Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">Two-Body Numerical Solution in an Inertial Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">Motion of the Barycenter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">Relative Motion in the Two-Body Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">Two-Body Problem in the Co-Moving Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">Circular Restricted Three-Body Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/lagrange-points.html">Application of the CR3BP: Lagrange Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">Example: Plotting Lagrange Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">The Jacobi Constant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">Example: CR3BP Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/many-body-problems.html">Many-Body Problems</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Constants of Orbital Motion
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Constants of Orbital Motion</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
-   Energy Is Conserved In Orbital Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
-   Angular Momentum Is Conserved In Orbital Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
-   Orbital Plane and Kepler’s Second Law
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">Energy Is Conserved In Orbital Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">Angular Momentum Is Conserved In Orbital Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">Orbital Plane and Kepler’s Second Law</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  The Orbit Equation
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Orbit Equation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
-   The Orbit Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
-   Orbital Nomenclature
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/circular-orbits.html">
-   Circular Orbits (
-   <span class="math notranslate nohighlight">
-    \(e = 0\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">
-   Elliptical Orbits (
-   <span class="math notranslate nohighlight">
-    \(0 &lt; e &lt; 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">
-   Parabolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e = 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">
-   Hyperbolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e &gt; 1\)
-   </span>
-   )
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">The Orbit Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">Orbital Nomenclature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/circular-orbits.html">Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  The Classical Orbital Elements
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Classical Orbital Elements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">
-   Perifocal Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">
-   Right Ascension and Declination Coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">
-   Classical Orbital Elements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
-   Classical Orbital Elements and the State Vector
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">Perifocal Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">Right Ascension and Declination Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">Classical Orbital Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">Classical Orbital Elements and the State Vector</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Time Since Periapsis &amp; Kepler's Equation
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Time Since Periapsis &amp; Kepler's Equation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">
-   Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">
-   Circular and Elliptical Orbits (
-   <span class="math notranslate nohighlight">
-    \(e &lt; 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-example.html">
-   Example: Elliptical Orbit
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.html">
-   Example: Time in Earth’s Shadow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
-   Parabolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e = 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
-   Hyperbolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e &gt; 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">
-   Example: Hyperbolic Trajectory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Orbit Independent Solution: The Universal Anomaly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
-   Example: Universal Variables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
-   Example: Universal Lagrange Coefficients
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">Circular and Elliptical Orbits (<span class="math notranslate nohighlight">\(e &lt; 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-example.html">Example: Elliptical Orbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.html">Example: Time in Earth’s Shadow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">Example: Hyperbolic Trajectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">The Lagrange Coefficients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">Orbit Independent Solution: The Universal Anomaly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">Example: Universal Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">Example: Universal Lagrange Coefficients</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Orbital Maneuvers
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Maneuvers</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="impulsive-maneuvers.html">
-   Impulsive Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="single-impulse-example.html">
-   Single Impulse Orbital Change
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hohmann-transfer.html">
-   Hohmann Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hohmann-transfer-example.html">
-   Example: Hohmann Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bielliptic-hohmann-transfer.html">
-   Bi-elliptic Hohmann transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="comparison-of-bielliptic-and-hohmann.html">
-   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="phasing-maneuvers.html">
-   Phasing Maneuvers
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Non-Hohmann Transfers with a Common Apse Line
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="common-apse-line-example.html">
-   Non-Hohmann Transfers: Common Apse Line Example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="apse-line-rotation-example.html">
-   Non-Hohmann Transfers: Apse Line Rotation Example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plane-change-maneuvers.html">
-   Plane Change Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plane-change-example.html">
-   Example: Plane Change Maneuver
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="impulsive-maneuvers.html">Impulsive Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single-impulse-example.html">Single Impulse Orbital Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hohmann-transfer.html">Hohmann Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hohmann-transfer-example.html">Example: Hohmann Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bielliptic-hohmann-transfer.html">Bi-elliptic Hohmann transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison-of-bielliptic-and-hohmann.html">Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phasing-maneuvers.html">Phasing Maneuvers</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-Hohmann Transfers with a Common Apse Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-apse-line-example.html">Non-Hohmann Transfers: Common Apse Line Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apse-line-rotation-example.html">Non-Hohmann Transfers: Apse Line Rotation Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plane-change-maneuvers.html">Plane Change Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plane-change-example.html">Example: Plane Change Maneuver</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interplanetary Trajectories
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interplanetary Trajectories</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/introduction.html">
-   Interplanetary Trajectories and Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/heliocentric-trajectories.html">
-   Heliocentric Trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/interplanetary-transfer-phasing.html">
-   Interplanetary Transfer Phasing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/sphere-of-influence.html">
-   Sphere of Influence
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/planetary-departure-trajectory.html">
-   Planetary Departure for Interplanetary Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-capture.html">
-   Planetary Arrival: Capture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-flyby.html">
-   Planetary Arrival: Flyby
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/introduction.html">Interplanetary Trajectories and Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/heliocentric-trajectories.html">Heliocentric Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/interplanetary-transfer-phasing.html">Interplanetary Transfer Phasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/sphere-of-influence.html">Sphere of Influence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/planetary-departure-trajectory.html">Planetary Departure for Interplanetary Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-capture.html">Planetary Arrival: Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/planetary-arrival-flyby.html">Planetary Arrival: Flyby</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Review of Vectors, Kinematics, and Newtonian Mechanics
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Review of Vectors, Kinematics, and Newtonian Mechanics</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/kinematics.html">
-   Kinematics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
-   Time Derivatives of Moving Vectors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../review/kinematics.html">Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">Time Derivatives of Moving Vectors</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Reference
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/celestial-sphere.html">
-   Celestial Sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/relative-motion.html">
-   Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/julian-date.html">
-   Julian Day
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-ephemeris.html">
-   Planetary Ephemeris
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
-   Gravity and Spherical Symmetry
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/celestial-sphere.html">Celestial Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/relative-motion.html">Relative Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/planetary-parameters.html">Planetary Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/julian-date.html">Julian Day</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/planetary-ephemeris.html">Planetary Ephemeris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">Gravity and Spherical Symmetry</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Bibliography
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Postscript
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Postscript</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">
-   Planetary Depahture for Interplanetary Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nonimpulsive-orbital-maneuvers.html">
-   Nonimpulsive Orbital Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nonimpulsive-maneuver-example.html">
-   Example: Nonimpulsive Maneuvers
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../interplanetary-maneuvers/planetary-depahture-trajectory.html">Planetary Depahture for Interplanetary Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonimpulsive-orbital-maneuvers.html">Nonimpulsive Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonimpulsive-maneuver-example.html">Example: Nonimpulsive Maneuvers</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/orbital-maneuvers/non-hohmann-transfers.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Forbital-maneuvers/non-hohmann-transfers.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/orbital-maneuvers/non-hohmann-transfers.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/orbital-maneuvers/non-hohmann-transfers.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculating-delta-v">
-   Calculating
-   <span class="math notranslate nohighlight">
-    \(\Delta v\)
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#thrust-direction">
-   Thrust Direction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#relation-to-specific-energy">
-   Relation to Specific Energy
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Non-Hohmann Transfers with a Common Apse Line</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculating-delta-v">
-   Calculating
-   <span class="math notranslate nohighlight">
-    \(\Delta v\)
-   </span>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#thrust-direction">
-   Thrust Direction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#relation-to-specific-energy">
-   Relation to Specific Energy
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Non-Hohmann Transfers with a Common Apse Line</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-delta-v">Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thrust-direction">Thrust Direction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-specific-energy">Relation to Specific Energy</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="non-hohmann-transfers-with-a-common-apse-line">
-<h1>Non-Hohmann Transfers with a Common Apse Line<a class="headerlink" href="#non-hohmann-transfers-with-a-common-apse-line" title="Permalink to this headline">#</a></h1>
+<h1>Non-Hohmann Transfers with a Common Apse Line<a class="headerlink" href="#non-hohmann-transfers-with-a-common-apse-line" title="Permalink to this heading">#</a></h1>
 <p>The Hohmann transfer requires that the spacecraft have the thrust impulses applied at periapsis and apoapsis of the transfer orbit. However, this limits the possible timing of the transfer if we are trying to intercept another celestial body.</p>
 <p>Instead, it would be more convenient if we could transfer to or from any point in the initial or target orbit. This would require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than a Hohmann transfer, but gives more flexibility. The only required condition is that the transfer orbit must intersect both the initial and final orbits.</p>
 <p>For now, we will assume that the initial and target orbits have a common apse line. In addition, the two orbits will have the same focus. Assume that we want to leave the initial orbit at the true anomaly <span class="math notranslate nohighlight">\(\nu_A\)</span> and arrive at the target orbit at the true anomaly <span class="math notranslate nohighlight">\(\nu_B\)</span>.</p>
@@ -867,7 +452,7 @@ title="Print to PDF"
 \end{aligned}\end{split}\]</div>
 </div>
 <section id="calculating-delta-v">
-<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this headline">#</a></h2>
+<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this heading">#</a></h2>
 <p>For orbital transfers that do not take place on the apse line, we have to account for the change in direction of the velocity vector in addition to the change of magnitude. The difference in length of the velocity vectors is the change in speed and the change of flight path angle is the change of direction of the vector.</p>
 <p>It is very important that when we calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> for a maneuver, this is the magnitude of the change in velocity vector, not the change of magnitude of the velocity (speed). Since <span class="math notranslate nohighlight">\(\Delta\vector{v} = \vector{v}_{A_t} - \vector{v}_A\)</span>, the magnitude is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-delta-v-vector">
@@ -885,14 +470,14 @@ title="Print to PDF"
 <p>This gives the required velocity change at the departure point, <span class="math notranslate nohighlight">\(A\)</span>. The same calculate can be done at the arrival point, <span class="math notranslate nohighlight">\(B\)</span>, to compute the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the maneuver.</p>
 </section>
 <section id="thrust-direction">
-<h2>Thrust Direction<a class="headerlink" href="#thrust-direction" title="Permalink to this headline">#</a></h2>
+<h2>Thrust Direction<a class="headerlink" href="#thrust-direction" title="Permalink to this heading">#</a></h2>
 <p>To achieve the new velocity, the thrust from the engine must be directed parallel to the direction of <span class="math notranslate nohighlight">\(\Delta\vector{v}\)</span>. Relative to the local horizon, the required angle <span class="math notranslate nohighlight">\(\gamma\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-thrust-direction">
 <span class="eqno">(301)<a class="headerlink" href="#equation-eq-non-hohmann-thrust-direction" title="Permalink to this equation">#</a></span>\[\tan\gamma = \frac{\Delta v_r}{\Delta v_{\perp}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta v_r\)</span> is the change in the radial component of velocity and <span class="math notranslate nohighlight">\(\Delta v_{\perp}\)</span> is the change in the perpendicular component of velocity.</p>
 </section>
 <section id="relation-to-specific-energy">
-<h2>Relation to Specific Energy<a class="headerlink" href="#relation-to-specific-energy" title="Permalink to this headline">#</a></h2>
+<h2>Relation to Specific Energy<a class="headerlink" href="#relation-to-specific-energy" title="Permalink to this heading">#</a></h2>
 <p>The <em>vis viva</em> equation determines the specific energy of the spacecraft due to its kinetic and potential energy by Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>. The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-0">
 <span class="eqno">(302)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-0" title="Permalink to this equation">#</a></span>\[\Delta E = \frac{\left(\vector{v} + \Delta\vector{v}\right)\cdot\left(\vector{v} + \Delta\vector{v}\right)}{2} - \frac{\vector{v}\cdot\vector{v}}{2}\]</div>
@@ -923,53 +508,98 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="phasing-maneuvers.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Phasing Maneuvers</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="phasing-maneuvers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Phasing Maneuvers</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="common-apse-line-example.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="common-apse-line-example.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Non-Hohmann Transfers: Common Apse Line Example</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Weber<br/>
-  
-    <div class="extra_footer">
-      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-    </div>
-</p>
-        </footer>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-delta-v">Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thrust-direction">Thrust Direction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-to-specific-energy">Relation to Specific Energy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
     
+<p class="component-author">
+By Bryan Weber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
 </div>
+  </div>
+  
+</div></div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,44 +1,55 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Planetary Arrival: Capture &#8212; Orbital Mechanics &amp; Astrodynamics</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -54,897 +65,376 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.0.3.min.js"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.0.3.min.js"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.0.3.min.js"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.0.3.min.js"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.0.3.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.1.0.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.1.0.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.1.0.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.1.0.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.1.0.min.js"></script>
     <script>Bokeh.set_log_level("info");</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'interplanetary-maneuvers/planetary-arrival-capture';</script>
     <link rel="canonical" href="https://orbital-mechanics.space/interplanetary-maneuvers/planetary-arrival-capture.html" />
+    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Planetary Arrival: Flyby" href="planetary-arrival-flyby.html" />
     <link rel="prev" title="Planetary Departure for Interplanetary Transfer" href="planetary-departure-trajectory.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/hohmann.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Orbital Mechanics & Astrodynamics</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Orbital Mechanics & Astrodynamics
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
+    
+    
+    <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/reference-frames.html">
-   Reference Frames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">
-   Mass, Force, and Newton’s Law of Gravitation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/force-acceleration-and-momentum.html">
-   Force, Acceleration, and Momentum
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/reference-frames.html">Reference Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html">Mass, Force, and Newton’s Law of Gravitation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/force-acceleration-and-momentum.html">Force, Acceleration, and Momentum</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  The N-Body Problem
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The N-Body Problem</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">
-   Two-Body Equations of Motion in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">
-   Two-Body Numerical Solution in an Inertial Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">
-   Motion of the Barycenter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">
-   Relative Motion in the Two-Body Problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">
-   Two-Body Problem in the Co-Moving Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">
-   Circular Restricted Three-Body Problem
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/lagrange-points.html">
-   Application of the CR3BP: Lagrange Points
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">
-   Example: Plotting Lagrange Points
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">
-   The Jacobi Constant
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">
-   Example: CR3BP Equations of Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-n-body-problem/many-body-problems.html">
-   Many-Body Problems
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-inertial-motion.html">Two-Body Equations of Motion in an Inertial Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-inertial-numerical-solution.html">Two-Body Numerical Solution in an Inertial Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/motion-of-the-barycenter.html">Motion of the Barycenter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-relative-motion.html">Relative Motion in the Two-Body Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/two-body-relative-numerical-solution.html">Two-Body Problem in the Co-Moving Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/circular-restricted-three-body-problem.html">Circular Restricted Three-Body Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/lagrange-points.html">Application of the CR3BP: Lagrange Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/Lagrange-points-example.html">Example: Plotting Lagrange Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/jacobi-constant.html">The Jacobi Constant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/Equations-of-Motion-CR3BP.html">Example: CR3BP Equations of Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-n-body-problem/many-body-problems.html">Many-Body Problems</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Constants of Orbital Motion
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Constants of Orbital Motion</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">
-   Energy Is Conserved In Orbital Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">
-   Angular Momentum Is Conserved In Orbital Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">
-   Orbital Plane and Kepler’s Second Law
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html">Energy Is Conserved In Orbital Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-of-orbital-motion/angular-momentum-is-conserved.html">Angular Momentum Is Conserved In Orbital Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html">Orbital Plane and Kepler’s Second Law</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  The Orbit Equation
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Orbit Equation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">
-   The Orbit Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">
-   Orbital Nomenclature
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/circular-orbits.html">
-   Circular Orbits (
-   <span class="math notranslate nohighlight">
-    \(e = 0\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">
-   Elliptical Orbits (
-   <span class="math notranslate nohighlight">
-    \(0 &lt; e &lt; 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">
-   Parabolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e = 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">
-   Hyperbolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e &gt; 1\)
-   </span>
-   )
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html">The Orbit Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html">Orbital Nomenclature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/circular-orbits.html">Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html">Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/parabolic-trajectories.html">Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-orbit-equation/hyperbolic-trajectories.html">Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  The Classical Orbital Elements
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The Classical Orbital Elements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">
-   Perifocal Frame
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">
-   Right Ascension and Declination Coordinates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">
-   Classical Orbital Elements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">
-   Classical Orbital Elements and the State Vector
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/perifocal-frame.html">Perifocal Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/right-ascension-declination.html">Right Ascension and Declination Coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/classical-orbital-elements.html">Classical Orbital Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../classical-orbital-elements/orbital-elements-and-the-state-vector.html">Classical Orbital Elements and the State Vector</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Time Since Periapsis &amp; Kepler's Equation
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Time Since Periapsis &amp; Kepler's Equation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">
-   Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">
-   Circular and Elliptical Orbits (
-   <span class="math notranslate nohighlight">
-    \(e &lt; 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-example.html">
-   Example: Elliptical Orbit
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.html">
-   Example: Time in Earth’s Shadow
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">
-   Parabolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e = 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">
-   Hyperbolic Trajectories (
-   <span class="math notranslate nohighlight">
-    \(e &gt; 1\)
-   </span>
-   )
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">
-   Example: Hyperbolic Trajectory
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">
-   The Lagrange Coefficients
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">
-   Orbit Independent Solution: The Universal Anomaly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">
-   Example: Universal Variables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">
-   Example: Universal Lagrange Coefficients
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html">Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbits.html">Circular and Elliptical Orbits (<span class="math notranslate nohighlight">\(e &lt; 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-example.html">Example: Elliptical Orbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.html">Example: Time in Earth’s Shadow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/parabolic-trajectories.html">Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.html">Hyperbolic Trajectories (<span class="math notranslate nohighlight">\(e &gt; 1\)</span>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.html">Example: Hyperbolic Trajectory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.html">The Lagrange Coefficients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables.html">Orbit Independent Solution: The Universal Anomaly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-variables-example.html">Example: Universal Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.html">Example: Universal Lagrange Coefficients</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Orbital Maneuvers
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Orbital Maneuvers</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">
-   Impulsive Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/single-impulse-example.html">
-   Single Impulse Orbital Change
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html">
-   Hohmann Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer-example.html">
-   Example: Hohmann Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/bielliptic-hohmann-transfer.html">
-   Bi-elliptic Hohmann transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/comparison-of-bielliptic-and-hohmann.html">
-   Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/phasing-maneuvers.html">
-   Phasing Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html">
-   Non-Hohmann Transfers with a Common Apse Line
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/common-apse-line-example.html">
-   Non-Hohmann Transfers: Common Apse Line Example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/apse-line-rotation-example.html">
-   Non-Hohmann Transfers: Apse Line Rotation Example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/plane-change-maneuvers.html">
-   Plane Change Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/plane-change-example.html">
-   Example: Plane Change Maneuver
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/impulsive-maneuvers.html">Impulsive Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/single-impulse-example.html">Single Impulse Orbital Change</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html">Hohmann Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/hohmann-transfer-example.html">Example: Hohmann Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/bielliptic-hohmann-transfer.html">Bi-elliptic Hohmann transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/comparison-of-bielliptic-and-hohmann.html">Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/phasing-maneuvers.html">Phasing Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/non-hohmann-transfers.html">Non-Hohmann Transfers with a Common Apse Line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/common-apse-line-example.html">Non-Hohmann Transfers: Common Apse Line Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/apse-line-rotation-example.html">Non-Hohmann Transfers: Apse Line Rotation Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/plane-change-maneuvers.html">Plane Change Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/plane-change-example.html">Example: Plane Change Maneuver</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interplanetary Trajectories
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interplanetary Trajectories</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
-   Interplanetary Trajectories and Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="heliocentric-trajectories.html">
-   Heliocentric Trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="interplanetary-transfer-phasing.html">
-   Interplanetary Transfer Phasing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sphere-of-influence.html">
-   Sphere of Influence
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="planetary-departure-trajectory.html">
-   Planetary Departure for Interplanetary Transfer
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Planetary Arrival: Capture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="planetary-arrival-flyby.html">
-   Planetary Arrival: Flyby
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Interplanetary Trajectories and Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heliocentric-trajectories.html">Heliocentric Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interplanetary-transfer-phasing.html">Interplanetary Transfer Phasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphere-of-influence.html">Sphere of Influence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planetary-departure-trajectory.html">Planetary Departure for Interplanetary Transfer</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Planetary Arrival: Capture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="planetary-arrival-flyby.html">Planetary Arrival: Flyby</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Review of Vectors, Kinematics, and Newtonian Mechanics
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Review of Vectors, Kinematics, and Newtonian Mechanics</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/kinematics.html">
-   Kinematics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">
-   Time Derivatives of Moving Vectors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../review/kinematics.html">Kinematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../review/time-derivatives-of-moving-vectors.html">Time Derivatives of Moving Vectors</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Reference
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/celestial-sphere.html">
-   Celestial Sphere
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/relative-motion.html">
-   Relative Motion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-parameters.html">
-   Planetary Parameters
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/julian-date.html">
-   Julian Day
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/planetary-ephemeris.html">
-   Planetary Ephemeris
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">
-   Gravity and Spherical Symmetry
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/celestial-sphere.html">Celestial Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/relative-motion.html">Relative Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/planetary-parameters.html">Planetary Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/julian-date.html">Julian Day</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/planetary-ephemeris.html">Planetary Ephemeris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/gravity-and-spherical-symmetry.html">Gravity and Spherical Symmetry</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Bibliography
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bibliography</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Postscript
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Postscript</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="planetary-depahture-trajectory.html">
-   Planetary Depahture for Interplanetary Transfer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">
-   Nonimpulsive Orbital Maneuvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">
-   Example: Nonimpulsive Maneuvers
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="planetary-depahture-trajectory.html">Planetary Depahture for Interplanetary Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/nonimpulsive-orbital-maneuvers.html">Nonimpulsive Orbital Maneuvers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../orbital-maneuvers/nonimpulsive-maneuver-example.html">Example: Nonimpulsive Maneuvers</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/bryanwweber/orbital-mechanics-notes/main?urlpath=tree/interplanetary-maneuvers/planetary-arrival-capture.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/interplanetary-maneuvers/planetary-arrival-capture.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/bryanwweber/orbital-mechanics-notes"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/issues/new?title=Issue%20on%20page%20%2Finterplanetary-maneuvers/planetary-arrival-capture.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/bryanwweber/orbital-mechanics-notes/edit/main/interplanetary-maneuvers/planetary-arrival-capture.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/interplanetary-maneuvers/planetary-arrival-capture.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../_sources/interplanetary-maneuvers/planetary-arrival-capture.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arrival-trajectory">
-   Arrival Trajectory
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#orbital-elements-of-arrival-trajectory">
-   Orbital Elements of Arrival Trajectory
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reentry-corridor">
-   Reentry Corridor
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#delta-v-for-a-capture-orbit">
-   <span class="math notranslate nohighlight">
-    \(\Delta v\)
-   </span>
-   for a Capture Orbit
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hyperbolic-trajectory">
-     Hyperbolic Trajectory
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capture-orbit">
-     Capture Orbit
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Example
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Planetary Arrival: Capture</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arrival-trajectory">
-   Arrival Trajectory
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#orbital-elements-of-arrival-trajectory">
-   Orbital Elements of Arrival Trajectory
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reentry-corridor">
-   Reentry Corridor
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#delta-v-for-a-capture-orbit">
-   <span class="math notranslate nohighlight">
-    \(\Delta v\)
-   </span>
-   for a Capture Orbit
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hyperbolic-trajectory">
-     Hyperbolic Trajectory
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#capture-orbit">
-     Capture Orbit
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Example
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Planetary Arrival: Capture</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrival-trajectory">Arrival Trajectory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-of-arrival-trajectory">Orbital Elements of Arrival Trajectory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reentry-corridor">Reentry Corridor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-v-for-a-capture-orbit"><span class="math notranslate nohighlight">\(\Delta v\)</span> for a Capture Orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperbolic-trajectory">Hyperbolic Trajectory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capture-orbit">Capture Orbit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="planetary-arrival-capture">
-<h1>Planetary Arrival: Capture<a class="headerlink" href="#planetary-arrival-capture" title="Permalink to this headline">#</a></h1>
+<h1>Planetary Arrival: Capture<a class="headerlink" href="#planetary-arrival-capture" title="Permalink to this heading">#</a></h1>
 <p>In an interplanetary transfer, when we arrive at the target planet, we have three choices of trajectory:</p>
 <ol class="arabic simple">
 <li><p>Impact the planet</p></li>
@@ -953,7 +443,7 @@ title="Print to PDF"
 </ol>
 <p>In this section, we’ll talk about the first two options, and discuss flyby trajectories in the next section.</p>
 <section id="arrival-trajectory">
-<h2>Arrival Trajectory<a class="headerlink" href="#arrival-trajectory" title="Permalink to this headline">#</a></h2>
+<h2>Arrival Trajectory<a class="headerlink" href="#arrival-trajectory" title="Permalink to this heading">#</a></h2>
 <p>When arriving at the target planet, the spacecraft will cross the sphere of influence <em>ahead of</em> or <em>behind</em> the planet on the planet’s orbital path.</p>
 <ul>
 <li><p><strong>Inner to Outer Planet</strong>: The spacecraft velocity is lower than the planet’s orbital velocity. The spacecraft crosses the sphere of influence <em>in front</em> of the planet. This is shown in <a class="reference internal" href="#fig-interplanetary-arrival"><span class="std std-numref">Fig. 82</span></a>.</p>
@@ -976,7 +466,7 @@ title="Print to PDF"
 <p>In <a class="reference internal" href="#fig-interplanetary-arrival"><span class="std std-numref">Fig. 82</span></a> and <a class="reference internal" href="#fig-interplanetary-arrival-inward-transfer"><span class="std std-numref">Fig. 83</span></a>, we see that the spacecraft crosses the sphere of influence at some <strong>offset distance</strong> or <strong>aiming radius</strong>, <span class="math notranslate nohighlight">\(y\)</span>, perpendicular to the planet’s orbital path. The offset distance is determined by the desired periapsis radius of the arrival hyperbola, <span class="math notranslate nohighlight">\(r_p\)</span>.</p>
 </section>
 <section id="orbital-elements-of-arrival-trajectory">
-<h2>Orbital Elements of Arrival Trajectory<a class="headerlink" href="#orbital-elements-of-arrival-trajectory" title="Permalink to this headline">#</a></h2>
+<h2>Orbital Elements of Arrival Trajectory<a class="headerlink" href="#orbital-elements-of-arrival-trajectory" title="Permalink to this heading">#</a></h2>
 <p>As with the <a class="reference internal" href="planetary-departure-trajectory.html"><span class="doc std std-doc">departure trajectory</span></a>, we must choose the value of <span class="math notranslate nohighlight">\(r_p\)</span> that we want for the hyperbola. If we want to impact the planet, in the absence of an atomsphere, then we should choose the radius of the planet as <span class="math notranslate nohighlight">\(r_p\)</span>. If an atmosphere is present, then an altitude at the approximate edge of the atmosphere would be more appropriate.</p>
 <p>On the other hand, we may want to enter an orbit around the planet, either to conduct a science mission or perform system checks before a deorbit burn. In this case, <span class="math notranslate nohighlight">\(r_p\)</span> should be well above the atmosphere.</p>
 <p>In either case, once <span class="math notranslate nohighlight">\(r_p\)</span> is chosen, we can calculate the eccentricity of the arrival trajectory using Eq. <a class="reference internal" href="planetary-departure-trajectory.html#equation-eq-interplanetary-hyperbola-eccentricity">(354)</a>:</p>
@@ -994,7 +484,7 @@ title="Print to PDF"
 <p>With the eccentricity and semimajor axis, we can determine any of the other orbital elements.</p>
 </section>
 <section id="reentry-corridor">
-<h2>Reentry Corridor<a class="headerlink" href="#reentry-corridor" title="Permalink to this headline">#</a></h2>
+<h2>Reentry Corridor<a class="headerlink" href="#reentry-corridor" title="Permalink to this heading">#</a></h2>
 <p>Depending on the mission design, we may want to impact the planetary atmosphere from the hyperbolic approach trajectory. In that case, the offset distance must be precisely determined so that the hyperbolic periapsis radius is within the atmosphere. There is a small range of values of the offset distance that will achieve this, depending on the height of the atmosphere.</p>
 <p>In addition, since the plane of the hyperbolic arrival trajectory can be rotated around the center of the planet, there is a surface of possible arrival trajectories (much like the surface of departure trajectories). Combined with the range of offset distances, this gives a small annulus where the hyperbola will impact the atmosphere. This annulus is called the <a class="reference external" href="https://web.archive.org/web/20211115092141/https://www.faa.gov/about/office_org/headquarters_offices/avs/offices/aam/cami/library/online_libraries/aerospace_medicine/tutorial/media/iii.4.1.7_returning_from_space.pdf"><strong>reentry corridor</strong></a>.</p>
 <p>The size of the reentry corridor depends on:</p>
@@ -1004,7 +494,7 @@ title="Print to PDF"
 <li><p>the gravitational parameter of the planet</p></li>
 </ul>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
 <p>To give an idea of the order of magnitude of the size of the reentry corridor, let’s take the example of an Earth return trajectory from Mars. By convention, spacecraft enter Earth’s atmosphere at the <a class="reference external" href="https://en.wikipedia.org/wiki/K%C3%A1rm%C3%A1n_line"><strong>Kármán line</strong></a>, an imaginary line at an altitude of 100 km where the density of the atmosphere is signifcant. This gives <span class="math notranslate nohighlight">\(r_p\)</span> values ranging from 6,378–6,478 km.</p>
 <p>Next, let’s compute <span class="math notranslate nohighlight">\(v_{\infty}\)</span> for an arrival from Mars.</p>
 <div class="cell docutils container">
@@ -1051,14 +541,14 @@ title="Print to PDF"
 </section>
 </section>
 <section id="delta-v-for-a-capture-orbit">
-<h2><span class="math notranslate nohighlight">\(\Delta v\)</span> for a Capture Orbit<a class="headerlink" href="#delta-v-for-a-capture-orbit" title="Permalink to this headline">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(\Delta v\)</span> for a Capture Orbit<a class="headerlink" href="#delta-v-for-a-capture-orbit" title="Permalink to this heading">#</a></h2>
 <p>If the spacecraft is to impact the planet or its atmosphere, then we do not need to be worried about a <span class="math notranslate nohighlight">\(\Delta v\)</span> maneuver, in general. However, if the spacecraft will enter a capture orbit, then it must conduct a burn to change from the hyperbolic trajectory to a circular or elliptical orbit.</p>
 <p>As with other <span class="math notranslate nohighlight">\(\Delta v\)</span> calculations, we need to determine the velocity of the spacecraft on the initial trajectory, the hyperbola in this case, where it intersects with the capture orbit. We also need the velocity of the spacecraft on the capture orbit at the intersection point.</p>
 <p>Once the velocities are determined, <span class="math notranslate nohighlight">\(\Delta v\)</span> is calculated by taking the absolute value of their difference:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-arrival-delta-v">
 <span class="eqno">(359)<a class="headerlink" href="#equation-eq-interplanetary-arrival-delta-v" title="Permalink to this equation">#</a></span>\[\Delta v = \lvert v_p - v_{p,\text{capture}}\rvert\]</div>
 <section id="hyperbolic-trajectory">
-<h3>Hyperbolic Trajectory<a class="headerlink" href="#hyperbolic-trajectory" title="Permalink to this headline">#</a></h3>
+<h3>Hyperbolic Trajectory<a class="headerlink" href="#hyperbolic-trajectory" title="Permalink to this heading">#</a></h3>
 <p>We will assume that the maneuver occurs at the periapsis of the hyperbolic trajectory. The velocity at the periapsis of the hyperbola can be found from the energy:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-arrival-hyperbolic-periapsis-velocity">
 <span class="eqno">(360)<a class="headerlink" href="#equation-eq-interplanetary-arrival-hyperbolic-periapsis-velocity" title="Permalink to this equation">#</a></span>\[v_p = \sqrt{v_{\infty}^2 + \frac{2 \mu_f}{r_p}}\]</div>
@@ -1070,7 +560,7 @@ title="Print to PDF"
 <span class="eqno">(362)<a class="headerlink" href="#equation-eq-interplanetary-arrival-hyperbolic-periapsis-velocity-2" title="Permalink to this equation">#</a></span>\[v_p = \frac{h}{r_p} = \frac{v_{\infty}y}{r_p}\]</div>
 </section>
 <section id="capture-orbit">
-<h3>Capture Orbit<a class="headerlink" href="#capture-orbit" title="Permalink to this headline">#</a></h3>
+<h3>Capture Orbit<a class="headerlink" href="#capture-orbit" title="Permalink to this heading">#</a></h3>
 <p>To determine the capture orbit, we need to decide on two factors:</p>
 <ol class="arabic simple">
 <li><p>Where in the capture orbit, relative to the capture orbit’s periapsis, will the transfer occur</p></li>
@@ -1097,7 +587,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id1">
-<h2>Example<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>Example<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Let’s continue the example of the Hohmann transfer from Neptune to Venus. At arrival at Venus, we want to enter a 300-km-altitude circular orbit to conduct atmospheric observations. What is the offset distance required to achieve this orbit? What is the required <span class="math notranslate nohighlight">\(\Delta v\)</span>?</p>
 <p>To determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> for the spacecraft, we first need to determine the parameters of the heliocentric transfer trajectory.</p>
 <div class="cell docutils container">
@@ -1196,9 +686,9 @@ title="Print to PDF"
 <div class="cell tag_remove-input docutils container">
 </div>
 <figure class="align-default" id="fig-hohmann-arrival-r-p-e-plot">
-<div id="hohmann-arrival-r_p_e_plot"></div><script type="text/javascript">
+<div id="hohmann-arrival-r_p_e_plot-306696f6-6105-413e-8e3d-40e3df8d9b94"></div><script type="text/javascript">
 Bokeh.embed.embed_item(
-    {"target_id":"hohmann-arrival-r_p_e_plot","root_id":"p1001","doc":{"version":"3.0.3","title":"","defs":[],"roots":[{"type":"object","name":"Figure","id":"p1001","attributes":{"height":350,"x_range":{"type":"object","name":"DataRange1d","id":"p1002"},"y_range":{"type":"object","name":"DataRange1d","id":"p1003"},"x_scale":{"type":"object","name":"LinearScale","id":"p1014"},"y_scale":{"type":"object","name":"LinearScale","id":"p1016"},"title":{"type":"object","name":"Title","id":"p1007"},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1053","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1047","attributes":{"selected":{"type":"object","name":"Selection","id":"p1048","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1049"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"VcZb7ZoPJECs3/5H5fwjQGxkzUlH6iNA4nLymcDXI0Cgz7/hUMUjQJtom8z3siNAjKLtB7WgI0BQZhBDiI4jQEzkPi9xfCNAlQSGf29qI0BEe7XoglgjQKp4USGrRiNAtO2E4ec0I0BOXRTjOCMjQNYzUeGdESNANp4NmRYAI0CI2pDIou4iQJT8iy9C3SJAlCAPj/TLIkBNB3+puboiQHoWi0KRqSJAB7kjH3uYIkC6GnEFd4ciQDM7yryEdiJAWlSsDaRlIkCJkLLB1FQiQPYMjqMWRCJAACX+fmkzIkBKA8kgzSIiQJF1tFZBEiJAegB/78UBIkCRMNm6WvEhQPklX4n/4CFAWViSLLTQIUCkkNN2eMAhQJsWXTtMsCFA7w89Ti+gIUDmDlCEIZAhQMLOO7MigCFA+xtqsTJwIUCi5gNWUWAhQDl97Hh+UCFAd+688rlAIUBxkL+cAzEhQLqr61BbISFAHEnh6cARIUCaIOVCNAIhQHSo3De18iBACUNKpUPjIEBriklo39MgQH24i16IxCBAsipUZj61IEBLAHVeAaYgQC7SSybRliBAbIO+na2HIECSKTillnggQOULph2MaSBAzbh06I1aIECXMI3nm0sgQNMkUv21PCBAp0udDNwtIEBUxrz4DR8gQEiacKVLECBAMjzo9pQBIEC4WICj0+UfQJxH/zWUyB9ATKMscGurH0AsULQdWY4fQBBxCgtdcR9A2DxnBXdUH0Bm8MLapjcfQPrb0VnsGh9ALIsAUkf+HkCOBnCTt+EeQEIu8u48xR5AkiwGNteoHkAGANU6howeQOwbLtBJcB5A+h6EySFUHkAMn+n6DTgeQIoJDjkOHB5Avpc6WSIAHkCMVk8xSuQdQOJAwJeFyB1AdmySY9SsHUASSFlsNpEdQBrrM4qrdR1ArHXKlTNaHUDmgEtozj4dQNKeadt7Ix1AoulYyTsIHUCQocwMDu0cQDbZ9IDy0RxA0i98Aem2HEACmYVq8ZscQMYxqpgLgRxAPiL3aDdmHEDSi+u4dEscQICDdmbDMBxA3hf1TyMWHEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1054","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1055"}}},"glyph":{"type":"object","name":"Line","id":"p1050","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1051","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1052","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1078","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1072","attributes":{"selected":{"type":"object","name":"Selection","id":"p1073","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1074"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"4g9Xz5KHJEAM5KWg1XckQNpUu1csaCRAaCDdqZZYJECMPSBOFEkkQFxOWf2kOSRA+LwNckgqJEC4eWVo/hokQIRSHZ7GCyRAjtt50qD8I0AK4jrGjO0jQCZijzuK3iNAl/kJ9pjPI0DI0JW6uMAjQM70a0/psSNAwhwJfCqjI0Ba1SMJfJQjQOwNo8DdhSNARAKVbU93I0AOfSbc0GgjQKFumtlhWiNAatRBNAJMI0BA7XO7sT0jQDC3hj9wLyNAcbPHkT0hI0B67XSEGRMjQDFCtuoDBSNAauSWmPz2IkAoHP9iA+kiQPo9rh8Y2yJAJdg0pTrNIkBUE+/Kar8iQJhE/2iosSJAwK5IWPOjIkACcWpyS5YiQCKhupGwiCJAUI9BkSJ7IkAUMrVMoW0iQKS4dKAsYCJAIEKEacRSIkBEuIiFaEUiQCTMw9IYOCJApBMQMNUqIkBkRt18nR0iQPKYLJlxECJAEzWNZVEDIkAKzhjDPPYhQNdPcJMz6SFAWqi4uDXcIUCEqZcVQ88hQIIDMY1bwiFAIlYjA3+1IUCJWIVbraghQHIW43rmmyFAJkI7RiqPIUCImvyieIIhQFxkA3fRdSFAOPaWqDRpIUByVmceolwhQF7qir8ZUCFATzZ8c5tDIUDMrRciJzchQFqTmbO8KiFAZOebEFweIUC2ZRQiBRIhQBaRUtG3BSFAc8z9B3T5IEBQgROwOe0gQN9S5bMI4SBAeV0X/uDUIEAAgp55wsggQMe8vhGtvCBAsocJsqCwIEAXR1xGnaQgQCHB3rqimCBAV58B/LCMIEDu+Xz2x4AgQKbsTpfndCBA3jS6yw9pIECU2ESBQF0gQA/WtqV5USBA9dsYJ7tFIEB8CbPzBDogQIa2C/pWLiBAZEPmKLEiIEAJ8EFvExcgQHG6WLx9CyBAEIg8/9//H0Cye31R1OgfQLa2O0/Y0R9APper2Ou6H0BucWzODqQfQFKahhFBjR9AeH5pg4J2H0Dyw+kF018fQGp3P3sySR9AAkQExqAyH0CYtTHJHRwfQEKFH2ipBR9AsO+BhkPvHkA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1079","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1080"}}},"glyph":{"type":"object","name":"Line","id":"p1075","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1076","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1077","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1107","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1101","attributes":{"selected":{"type":"object","name":"Selection","id":"p1102","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1103"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"wIh8fCDzJECLv2AySOUkQFKXCGmB1yRAcAq43svJJEDdjEpTJ7wkQOBdJYiTriRAfG8qQBChJEDd26s/nZMkQILhX0w6hiRAQV9VLed4JEC4yeiqo2skQCiUuY5vXiRA8Aago0pRJEBefqO1NEQkQLUM8ZEtNyRArHrSBjUqJEDaoaXjSh0kQNgc1PhuECRACknLF6EDJEBOlvQS4fYjQOwgrr0u6iNAapJD7IndI0AORudz8tAjQPutqypoxCNADPZ85+q3I0C24RqCeqsjQEriEtMWnyNANWO6s7+SI0DcSSn+dIYjQOCmNI02eiNAtZZpPARuI0CCTwjo3WEjQHNa/2zDVSNAm/bmqLRJI0DEo/x5sT0jQHzTHr+5MSNAzr7IV80lI0BCXw4k7BkjQJqJmAQWDiNAFCmh2koCI0DNme+HivYiQCQh1e7U6iJA2oIp8infIkDxsUd1idMiQBScClzzxyJAqg7Kime8IkB6tFfm5bAiQBQr/FNupSJA/C50uQCaIkDY3e38nI4iQMANBgVDgyJA+LjFuPJ3IkBMfZ//q2wiQFgubcFuYSJAFnpt5jpWIkAIn0FXEEsiQFwz6/zuPyJAa/zJwNY0IkAW1pmMxykiQFapcErBHiJAmnG85MMTIkBIUEFGzwgiQBSuF1rj/SFAj2mqCwDzIUCOErVGJeghQPsxQvdS3SFAnp2pCYnSIUB+145qx8chQHt43wYOvSFAv6XRy1yyIUCokOKms6chQN8A1YUSnSFAPeivVnmSIUA5AL0H6IchQIhwh4defSFApX7axNxyIUAIRsCuYmghQK94gDTwXSFAyCefRYVTIUA+lNvRIUkhQNYGL8nFPiFAva/LG3E0IUA4jRu6IyohQEhZv5TdHyFACH6NnJ4VIUCaEJHCZgshQGbSCPg1ASFAiThmLgz3IEAteUxX6ewgQMKej2TN4iBAy6AzSLjYIEAmgmv0qc4gQKZ0mFuixCBA0gFJcKG6IECuODglp7AgQFjgTG2zpiBAaa+YO8acIEDyh1eD35IgQOS37jf/iCBA5D3sTCV/IEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1108","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1109"}}},"glyph":{"type":"object","name":"Line","id":"p1104","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1105","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1106","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1009","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1032"},{"type":"object","name":"WheelZoomTool","id":"p1033"},{"type":"object","name":"BoxZoomTool","id":"p1034","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1035","attributes":{"syncable":false,"level":"overlay","visible":false,"left_units":"canvas","right_units":"canvas","bottom_units":"canvas","top_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"SaveTool","id":"p1036"},{"type":"object","name":"ResetTool","id":"p1037"},{"type":"object","name":"HelpTool","id":"p1038"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1025","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1028","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1026"},"axis_label":"\ud835\udee5v [km/s]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1027"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1018","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1021","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1019"},"axis_label":"Eccentricity [-]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1020"}}}],"center":[{"type":"object","name":"Grid","id":"p1024","attributes":{"axis":{"id":"p1018"}}},{"type":"object","name":"Grid","id":"p1031","attributes":{"dimension":1,"axis":{"id":"p1025"}}},{"type":"object","name":"Legend","id":"p1070","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p1071","attributes":{"label":{"type":"value","value":"r_p = 6052 km"},"renderers":[{"id":"p1053"}]}},{"type":"object","name":"LegendItem","id":"p1100","attributes":{"label":{"type":"value","value":"r_p = 8552 km"},"renderers":[{"id":"p1078"}]}},{"type":"object","name":"LegendItem","id":"p1134","attributes":{"label":{"type":"value","value":"r_p = 11052 km"},"renderers":[{"id":"p1107"}]}}]}}]}}]},"version":"3.0.3"}
+    {"target_id":null,"root_id":"p1001","doc":{"version":"3.1.0","title":"","defs":[],"roots":[{"type":"object","name":"Figure","id":"p1001","attributes":{"height":350,"x_range":{"type":"object","name":"DataRange1d","id":"p1003"},"y_range":{"type":"object","name":"DataRange1d","id":"p1002"},"x_scale":{"type":"object","name":"LinearScale","id":"p1014"},"y_scale":{"type":"object","name":"LinearScale","id":"p1016"},"title":{"type":"object","name":"Title","id":"p1009"},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1053","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1047","attributes":{"selected":{"type":"object","name":"Selection","id":"p1048","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1049"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"VcZb7ZoPJECs3/5H5fwjQGxkzUlH6iNA4nLymcDXI0Cgz7/hUMUjQJtom8z3siNAjKLtB7WgI0BQZhBDiI4jQEzkPi9xfCNAlQSGf29qI0BEe7XoglgjQKp4USGrRiNAtO2E4ec0I0BOXRTjOCMjQNYzUeGdESNANp4NmRYAI0CI2pDIou4iQJT8iy9C3SJAlCAPj/TLIkBNB3+puboiQHoWi0KRqSJAB7kjH3uYIkC6GnEFd4ciQDM7yryEdiJAWlSsDaRlIkCJkLLB1FQiQPYMjqMWRCJAACX+fmkzIkBKA8kgzSIiQJF1tFZBEiJAegB/78UBIkCRMNm6WvEhQPklX4n/4CFAWViSLLTQIUCkkNN2eMAhQJsWXTtMsCFA7w89Ti+gIUDmDlCEIZAhQMLOO7MigCFA+xtqsTJwIUCi5gNWUWAhQDl97Hh+UCFAd+688rlAIUBxkL+cAzEhQLqr61BbISFAHEnh6cARIUCaIOVCNAIhQHSo3De18iBACUNKpUPjIEBriklo39MgQH24i16IxCBAsipUZj61IEBLAHVeAaYgQC7SSybRliBAbIO+na2HIECSKTillnggQOULph2MaSBAzbh06I1aIECXMI3nm0sgQNMkUv21PCBAp0udDNwtIEBUxrz4DR8gQEiacKVLECBAMjzo9pQBIEC4WICj0+UfQJxH/zWUyB9ATKMscGurH0AsULQdWY4fQBBxCgtdcR9A2DxnBXdUH0Bm8MLapjcfQPrb0VnsGh9ALIsAUkf+HkCOBnCTt+EeQEIu8u48xR5AkiwGNteoHkAGANU6howeQOwbLtBJcB5A+h6EySFUHkAMn+n6DTgeQIoJDjkOHB5Avpc6WSIAHkCMVk8xSuQdQOJAwJeFyB1AdmySY9SsHUASSFlsNpEdQBrrM4qrdR1ArHXKlTNaHUDmgEtozj4dQNKeadt7Ix1AoulYyTsIHUCQocwMDu0cQDbZ9IDy0RxA0i98Aem2HEACmYVq8ZscQMYxqpgLgRxAPiL3aDdmHEDSi+u4dEscQICDdmbDMBxA3hf1TyMWHEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1054","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1055"}}},"glyph":{"type":"object","name":"Line","id":"p1050","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1051","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1052","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1064","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1058","attributes":{"selected":{"type":"object","name":"Selection","id":"p1059","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1060"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"4g9Xz5KHJEAM5KWg1XckQNpUu1csaCRAaCDdqZZYJECMPSBOFEkkQFxOWf2kOSRA+LwNckgqJEC4eWVo/hokQIRSHZ7GCyRAjtt50qD8I0AK4jrGjO0jQCZijzuK3iNAl/kJ9pjPI0DI0JW6uMAjQM70a0/psSNAwhwJfCqjI0Ba1SMJfJQjQOwNo8DdhSNARAKVbU93I0AOfSbc0GgjQKFumtlhWiNAatRBNAJMI0BA7XO7sT0jQDC3hj9wLyNAcbPHkT0hI0B67XSEGRMjQDFCtuoDBSNAauSWmPz2IkAoHP9iA+kiQPo9rh8Y2yJAJdg0pTrNIkBUE+/Kar8iQJhE/2iosSJAwK5IWPOjIkACcWpyS5YiQCKhupGwiCJAUI9BkSJ7IkAUMrVMoW0iQKS4dKAsYCJAIEKEacRSIkBEuIiFaEUiQCTMw9IYOCJApBMQMNUqIkBkRt18nR0iQPKYLJlxECJAEzWNZVEDIkAKzhjDPPYhQNdPcJMz6SFAWqi4uDXcIUCEqZcVQ88hQIIDMY1bwiFAIlYjA3+1IUCJWIVbraghQHIW43rmmyFAJkI7RiqPIUCImvyieIIhQFxkA3fRdSFAOPaWqDRpIUByVmceolwhQF7qir8ZUCFATzZ8c5tDIUDMrRciJzchQFqTmbO8KiFAZOebEFweIUC2ZRQiBRIhQBaRUtG3BSFAc8z9B3T5IEBQgROwOe0gQN9S5bMI4SBAeV0X/uDUIEAAgp55wsggQMe8vhGtvCBAsocJsqCwIEAXR1xGnaQgQCHB3rqimCBAV58B/LCMIEDu+Xz2x4AgQKbsTpfndCBA3jS6yw9pIECU2ESBQF0gQA/WtqV5USBA9dsYJ7tFIEB8CbPzBDogQIa2C/pWLiBAZEPmKLEiIEAJ8EFvExcgQHG6WLx9CyBAEIg8/9//H0Cye31R1OgfQLa2O0/Y0R9APper2Ou6H0BucWzODqQfQFKahhFBjR9AeH5pg4J2H0Dyw+kF018fQGp3P3sySR9AAkQExqAyH0CYtTHJHRwfQEKFH2ipBR9AsO+BhkPvHkA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1065","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1066"}}},"glyph":{"type":"object","name":"Line","id":"p1061","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1062","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1063","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1074","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1068","attributes":{"selected":{"type":"object","name":"Selection","id":"p1069","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1070"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"wIh8fCDzJECLv2AySOUkQFKXCGmB1yRAcAq43svJJEDdjEpTJ7wkQOBdJYiTriRAfG8qQBChJEDd26s/nZMkQILhX0w6hiRAQV9VLed4JEC4yeiqo2skQCiUuY5vXiRA8Aago0pRJEBefqO1NEQkQLUM8ZEtNyRArHrSBjUqJEDaoaXjSh0kQNgc1PhuECRACknLF6EDJEBOlvQS4fYjQOwgrr0u6iNAapJD7IndI0AORudz8tAjQPutqypoxCNADPZ85+q3I0C24RqCeqsjQEriEtMWnyNANWO6s7+SI0DcSSn+dIYjQOCmNI02eiNAtZZpPARuI0CCTwjo3WEjQHNa/2zDVSNAm/bmqLRJI0DEo/x5sT0jQHzTHr+5MSNAzr7IV80lI0BCXw4k7BkjQJqJmAQWDiNAFCmh2koCI0DNme+HivYiQCQh1e7U6iJA2oIp8infIkDxsUd1idMiQBScClzzxyJAqg7Kime8IkB6tFfm5bAiQBQr/FNupSJA/C50uQCaIkDY3e38nI4iQMANBgVDgyJA+LjFuPJ3IkBMfZ//q2wiQFgubcFuYSJAFnpt5jpWIkAIn0FXEEsiQFwz6/zuPyJAa/zJwNY0IkAW1pmMxykiQFapcErBHiJAmnG85MMTIkBIUEFGzwgiQBSuF1rj/SFAj2mqCwDzIUCOErVGJeghQPsxQvdS3SFAnp2pCYnSIUB+145qx8chQHt43wYOvSFAv6XRy1yyIUCokOKms6chQN8A1YUSnSFAPeivVnmSIUA5AL0H6IchQIhwh4defSFApX7axNxyIUAIRsCuYmghQK94gDTwXSFAyCefRYVTIUA+lNvRIUkhQNYGL8nFPiFAva/LG3E0IUA4jRu6IyohQEhZv5TdHyFACH6NnJ4VIUCaEJHCZgshQGbSCPg1ASFAiThmLgz3IEAteUxX6ewgQMKej2TN4iBAy6AzSLjYIEAmgmv0qc4gQKZ0mFuixCBA0gFJcKG6IECuODglp7AgQFjgTG2zpiBAaa+YO8acIEDyh1eD35IgQOS37jf/iCBA5D3sTCV/IEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1075","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1076"}}},"glyph":{"type":"object","name":"Line","id":"p1071","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1072","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1073","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1007","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1032"},{"type":"object","name":"WheelZoomTool","id":"p1033"},{"type":"object","name":"BoxZoomTool","id":"p1034","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1035","attributes":{"syncable":false,"level":"overlay","visible":false,"left_units":"canvas","right_units":"canvas","bottom_units":"canvas","top_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"SaveTool","id":"p1036"},{"type":"object","name":"ResetTool","id":"p1037"},{"type":"object","name":"HelpTool","id":"p1038"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1025","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1028","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1026"},"axis_label":"\ud835\udee5v [km/s]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1027"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1018","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1021","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1019"},"axis_label":"Eccentricity [-]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1020"}}}],"center":[{"type":"object","name":"Grid","id":"p1024","attributes":{"axis":{"id":"p1018"}}},{"type":"object","name":"Grid","id":"p1031","attributes":{"dimension":1,"axis":{"id":"p1025"}}},{"type":"object","name":"Legend","id":"p1056","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p1057","attributes":{"label":{"type":"value","value":"r_p = 6052 km"},"renderers":[{"id":"p1053"}]}},{"type":"object","name":"LegendItem","id":"p1067","attributes":{"label":{"type":"value","value":"r_p = 8552 km"},"renderers":[{"id":"p1064"}]}},{"type":"object","name":"LegendItem","id":"p1077","attributes":{"label":{"type":"value","value":"r_p = 11052 km"},"renderers":[{"id":"p1074"}]}}]}}]}}],"callbacks":{"type":"map"}},"version":"3.1.0"}, "hohmann-arrival-r_p_e_plot-306696f6-6105-413e-8e3d-40e3df8d9b94"
 );
 </script><figcaption>
 <p><span class="caption-number">Fig. 84 </span><span class="caption-text">The required <span class="math notranslate nohighlight">\(\Delta v\)</span> to enter a capture orbit of the given periapsis radius. The eccentricity is plotted on the x-axis of the chart. For this range of <span class="math notranslate nohighlight">\(r_p\)</span> values, the <span class="math notranslate nohighlight">\(\Delta v\)</span> increases at fixed <span class="math notranslate nohighlight">\(e\)</span>. For a fixed <span class="math notranslate nohighlight">\(r_p\)</span>, <span class="math notranslate nohighlight">\(\Delta v\)</span> decreases as <span class="math notranslate nohighlight">\(e\)</span> increases.</span><a class="headerlink" href="#fig-hohmann-arrival-r-p-e-plot" title="Permalink to this image">#</a></p>
@@ -1271,53 +761,107 @@ Bokeh.embed.embed_item(
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="planetary-departure-trajectory.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Planetary Departure for Interplanetary Transfer</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="planetary-departure-trajectory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Planetary Departure for Interplanetary Transfer</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="planetary-arrival-flyby.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="planetary-arrival-flyby.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Planetary Arrival: Flyby</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Weber<br/>
-  
-    <div class="extra_footer">
-      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-    </div>
-</p>
-        </footer>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrival-trajectory">Arrival Trajectory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-elements-of-arrival-trajectory">Orbital Elements of Arrival Trajectory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reentry-corridor">Reentry Corridor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-v-for-a-capture-orbit"><span class="math notranslate nohighlight">\(\Delta v\)</span> for a Capture Orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperbolic-trajectory">Hyperbolic Trajectory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#capture-orbit">Capture Orbit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
     
+<p class="component-author">
+By Bryan Weber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+
 </div>
+  </div>
+  
+</div></div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
