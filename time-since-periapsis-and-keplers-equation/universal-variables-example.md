@@ -49,7 +49,7 @@ $$r_0 = a\frac{e^2 - 1}{1 + e\cos\nu_0}$$
 
 Solving this equation for $e$, we find:
 
-$$0 = e^2 - \frac{r_0}{a}\cos\nu_0 e - \left(a + r_0\right)$$
+$$0 = e^2 - \frac{r_0}{a}\cos\nu_0 e - \left(1 + \frac{r_0}{a}\right)$$
 
 This equation is quadratic in $e$, so we can use the quadratic formula to solve it. Notice that the signs of the second and third term are negative. In addition, we need to take the absolute value of the semimajor axis, because the orbit formula was developed assuming that $a$ was positive.
 
