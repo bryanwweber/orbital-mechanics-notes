@@ -46,7 +46,7 @@ In {numref}`fig:interplanetary-arrival` and {numref}`fig:interplanetary-arrival-
 
 ## Orbital Elements of Arrival Trajectory
 
-As with the [departure trajectory](./planetary-departure-trajectory.md), we must choose the value of $r_p$ that we want for the hyperbola. If we want to impact the planet, in the absence of an atomsphere, then we should choose the radius of the planet as $r_p$. If an atmosphere is present, then an altitude at the approximate edge of the atmosphere would be more appropriate.
+As with the [departure trajectory](./planetary-departure-trajectory.md), we must choose the value of $r_p$ that we want for the hyperbola. If we want to impact the planet, in the absence of an atmosphere, then we should choose the radius of the planet as $r_p$. If an atmosphere is present, then an altitude at the approximate edge of the atmosphere would be more appropriate.
 
 On the other hand, we may want to enter an orbit around the planet, either to conduct a science mission or perform system checks before a deorbit burn. In this case, $r_p$ should be well above the atmosphere.
 
@@ -98,7 +98,7 @@ The size of the reentry corridor depends on:
 
 ### Example
 
-To give an idea of the order of magnitude of the size of the reentry corridor, let's take the example of an Earth return trajectory from Mars. By convention, spacecraft enter Earth's atmosphere at the [**Kármán line**](https://en.wikipedia.org/wiki/K%C3%A1rm%C3%A1n_line), an imaginary line at an altitude of 100 km where the density of the atmosphere is signifcant. This gives $r_p$ values ranging from 6,378–6,478 km.
+To give an idea of the order of magnitude of the size of the reentry corridor, let's take the example of an Earth return trajectory from Mars. By convention, spacecraft enter Earth's atmosphere at the [**Kármán line**](https://en.wikipedia.org/wiki/K%C3%A1rm%C3%A1n_line), an imaginary line at an altitude of 100 km where the density of the atmosphere is significant. This gives $r_p$ values ranging from 6,378–6,478 km.
 
 Next, let's compute $v_{\infty}$ for an arrival from Mars.
 
