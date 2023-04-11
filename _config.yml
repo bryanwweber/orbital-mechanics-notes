@@ -33,6 +33,12 @@ sphinx:
         image_dark: "_static/hohmann-dark.svg"
       extra_footer: |
         <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text"><a rel="cc:attributionURL" property="dct:title" href="https://orbital-mechanics.space">Orbital Mechanics & Astrodynamics</a> by <span property="cc:attributionName">Bryan Weber</span> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+      use_edit_page_button: true
+      use_repository_button: true
+      use_issues_button: true
+      repository_url: https://github.com/bryanwweber/orbital-mechanics-notes
+      repository_branch: main
+      path_to_docs: ""
     mathjax3_config:
       tex:
         macros:
@@ -52,14 +58,8 @@ parse:
     - colon_fence
     - dollarmath
 
-repository:
-  url: https://github.com/bryanwweber/orbital-mechanics-notes
-  branch: main
 
 html:
-  use_edit_page_button: true
-  use_repository_button: true
-  use_issues_button: true
   baseurl: "https://orbital-mechanics.space"
   favicon: "_static/favicon-16x16.png"
 
