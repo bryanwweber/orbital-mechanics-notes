@@ -50,7 +50,6 @@ sphinx:
 parse:
   myst_enable_extensions:
     - colon_fence
-    - html_admonition
     - dollarmath
 
 repository:

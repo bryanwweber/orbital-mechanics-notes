@@ -11,15 +11,15 @@ Mass is trivially conserved in this system, since neither body is changing mass.
 
 In the rest of this section, we will assume the coordinate system is the co-moving system attached to $m_1$, so we are working with the [two-body problem in relative motion](../the-n-body-problem/two-body-relative-motion.md).
 
-<div class="admonition important">
-<p class="admonition-title">Takeaway Message</p>
+:::{admonition} **Takeaway Message**
+:class: attention
 There are three important results in this section:
 
 1. The angular momentum vector is normal to a plane defined by the relative position and velocity vectors
 2. $m_2$ always orbits in the same plane, defined by the direction of the angular momentum vector, in the two-body system
 3. The magnitude of the angular momentum is a constant for a given orbit
 
-</div>
+:::
 
 ## An Intuitive Understanding of Angular Momentum
 
