@@ -16,6 +16,7 @@ dev = [
 name = "orbital-mechanics-notes"
 dependencies = [
     "astropy",
+    "docutils>=0.17,!=0.18.*,!=0.19.*",
     "ipympl",
     "jupyter-book~=0.15.0",
     "matplotlib",
