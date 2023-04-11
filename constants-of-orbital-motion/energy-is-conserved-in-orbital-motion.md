@@ -11,8 +11,8 @@ Mass is trivially conserved in this system, since neither body is changing mass.
 
 In the rest of this section, we will assume the coordinate system is the co-moving system attached to $m_1$, so we are working with the [two-body problem in relative motion](../the-n-body-problem/two-body-relative-motion.md).
 
-<div class="admonition important">
-<p class="admonition-title">Takeaway Message</p>
+::::{admonition} **Takeaway Message**
+:class: attention
 There are two important results in this section:
 
 1. The two-body equation of motion _does_ satisfy conservation of energy, that is, total energy is constant
@@ -23,7 +23,7 @@ There are two important results in this section:
 E = \frac{v^2}{2} - \frac{\mu}{r}
 :::
 
-</div>
+::::
 
 ## An Intuitive Understanding of Energy
 

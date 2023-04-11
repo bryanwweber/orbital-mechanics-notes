@@ -1,3 +1,35 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.lintOnSave": true,
+    "cSpell.words": [
+        "apoapsis",
+        "deorbit",
+        "Hohmann",
+        "Kármán",
+        "periapsis",
+        "semimajor",
+        "Storrs"
+    ],
+    "cSpell.ignoreWords": ["devcontainer"],
+    "cSpell.languageSettings": [
+        {
+          // use with Markdown files
+          "languageId": "markdown",
+          "dictionaries": ["latex"],
+          // Exclude code
+        //   "ignoreRegExpList": [
+        //     "\\$.*\\$",
+        //     "\\$\\$([\\n\\(\\)]|[^(\\$\\$)])*\\$\\$",
+        //     "`.*`",
+        //     "```([\\n\\(\\)]|[^(\\$\\$)])*```",
+        //     "\\{\\w+\\}`.+`",
+        //     ":::\\{math\\}([\\n\\(\\)]|[^(\\$\\$)])*:::",
+        //     "---([\\n\\(\\)]|[^(\\$\\$)])*---"
+        //   ]
+        }
+      ]
+
 }
