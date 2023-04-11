@@ -25,21 +25,21 @@ Recall the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, defined in terms 
 r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}
 :::
 
-We now want to relate the true anomaly, $\nu$, to time. The rate of change of the true anomaly, $\dot{\nu}$ is equal to the angular velocity of the position vector. This is exactly the azimuthal component of the velocity:
+We now want to relate the true anomaly, $\nu$, to time. The rate of change of the true anomaly, $\dot{\nu}$ is equal to the angular velocity of the position vector. This is exactly the azimuthal, also called the perpendicular, component of the velocity:
 
 :::{math}
-:label:
+:label: eq:rate-of-change-of-true-anomaly
 v_{\perp} = r \dot{\nu} = r \frac{d\nu}{dt}
 :::
 
-A more convenient form of this relationship is found by using the specific angular momentum, since $h$ is constant:
+The $v_{\perp}$ term in Eq. {eq}`eq:rate-of-change-of-true-anomaly` makes the equation more complicated than it needs to be, so we'd like to replace it. A more convenient form of Eq. {eq}`eq:rate-of-change-of-true-anomaly` is found by using the specific angular momentum to replace $v_{\perp}$, since $h$ is constant:
 
 :::{math}
 :label:
 h = r v_{\perp} = r^2\dot{\nu} \Rightarrow \frac{d\nu}{dt} = \frac{h}{r^2}
 :::
 
-Substituting the orbit equation and separating variables, we find:
+Substituting the orbit equation to eliminate $r$ and separating variables, we find:
 
 :::{math}
 :label:
@@ -57,7 +57,7 @@ where $t_p$ is defined as the **time since periapsis**. Remember that periapsis 
 
 :::{math}
 :label: eq:time-since-periapsis
-\frac{\mu}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
+\frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
 :::
 
 The integral on the right-hand side of Eq. {eq}`eq:time-since-periapsis` can be found in standard tables of integrals {cite}`Gradshtein2007,Zwillinger2003`. There are three forms of the equation, depending on the value of $e$.
@@ -148,7 +148,7 @@ def kepler(E, M_e, e):
 
 def d_kepler_d_E(E, M_e, e):
     """The derivative of Kepler's equation, to be used in a Newton solver.
-    
+
     Note that the argument M_e is unused, but must be present so the function
     arguments are consistent with the kepler function.
     """
@@ -194,10 +194,10 @@ def animate(t):
 
     nu_arc = np.linspace(0, nu, 50)
     true_anomaly_arc.set_data(a * e + 0.2 * np.cos(nu_arc), 0.2 * np.sin(nu_arc))
-    
+
     Me_arc = np.linspace(0, M_e, 50)
     mean_anomaly_arc.set_data(0.1 * np.cos(Me_arc), 0.1 * np.sin(Me_arc))
-    
+
     ecc_arc = np.linspace(0, E, 50)
     eccentric_anomaly_arc.set_data(0.4 * np.cos(ecc_arc), 0.4 * np.sin(ecc_arc))
     return (ecc_line, spacecraft, mean_anomaly, eccentric_anomaly, true_anomaly_arc, mean_anomaly_arc, eccentric_anomaly_arc)
