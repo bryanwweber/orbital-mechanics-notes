@@ -82,8 +82,8 @@ Since $\alpha$ is positive, this must be an elliptical orbit.
 Now we have enough information to solve the universal Kepler equation.
 
 ```{code-cell} ipython3
-def stumpff_0(z):
-    """Solve the Stumpff function C(z) = c0(z). The input z should be
+def stumpff_2(z):
+    """Solve the Stumpff function C(z) = c2(z). The input z should be
     a scalar value.
     """
     if z > 0:
@@ -93,8 +93,8 @@ def stumpff_0(z):
     else:
         return 1/2
 
-def stumpff_1(z):
-    """Solve the Stumpff function S(z) = c1(z). The input z should be
+def stumpff_3(z):
+    """Solve the Stumpff function S(z) = c3(z). The input z should be
     a scalar value.
     """
     if z > 0:
@@ -106,13 +106,13 @@ def stumpff_1(z):
 
 def universal_kepler(chi, r_0, v_r0, alpha, delta_t, mu):
     """Solve the universal Kepler equation in terms of the universal anomaly chi.
-    
+
     This function is intended to be used with an iterative solution algorithm,
     such as Newton's algorithm.
     """
     z = alpha * chi**2
-    first_term = r_0 * v_r0 / np.sqrt(mu) * chi**2 * stumpff_0(z)
-    second_term = (1 - alpha * r_0) * chi**3 * stumpff_1(z)
+    first_term = r_0 * v_r0 / np.sqrt(mu) * chi**2 * stumpff_2(z)
+    second_term = (1 - alpha * r_0) * chi**3 * stumpff_3(z)
     third_term = r_0 * chi
     fourth_term = np.sqrt(mu) * delta_t
     return first_term + second_term + third_term - fourth_term
@@ -120,8 +120,8 @@ def universal_kepler(chi, r_0, v_r0, alpha, delta_t, mu):
 def d_universal_d_chi(chi, r_0, v_r0, alpha, delta_t, mu):
     """The derivative of the universal Kepler equation in terms of the universal anomaly."""
     z = alpha * chi**2
-    first_term = r_0 * v_r0 / np.sqrt(mu) * chi * (1 - z * stumpff_1(z))
-    second_term = (1 - alpha * r_0) * chi**2 * stumpff_0(z)
+    first_term = r_0 * v_r0 / np.sqrt(mu) * chi * (1 - z * stumpff_3(z))
+    second_term = (1 - alpha * r_0) * chi**2 * stumpff_2(z)
     third_term = r_0
     return first_term + second_term + third_term
 
@@ -141,8 +141,8 @@ Now we can solve the equations to find the Lagrange coefficients, and then the p
 
 ```{code-cell} ipython3
 z = alpha * chi**2
-f = 1 - chi**2 / r_0 * stumpff_0(z)
-g = delta_t - chi**3 / np.sqrt(mu) * stumpff_1(z)
+f = 1 - chi**2 / r_0 * stumpff_2(z)
+g = delta_t - chi**3 / np.sqrt(mu) * stumpff_3(z)
 
 vec_r = f * vec_r_0 + g * vec_v_0
 r = np.sqrt(vec_r.dot(vec_r))
@@ -151,8 +151,8 @@ print(round(r, 3), "km")
 ```
 
 ```{code-cell} ipython3
-fdot = chi * np.sqrt(mu) / (r * r_0) * (z * stumpff_1(z) - 1)
-gdot = 1 - chi**2 / r * stumpff_0(z)
+fdot = chi * np.sqrt(mu) / (r * r_0) * (z * stumpff_3(z) - 1)
+gdot = 1 - chi**2 / r * stumpff_2(z)
 
 vec_v = fdot * vec_r_0 + gdot * vec_v_0
 v = np.sqrt(vec_v.dot(vec_v))

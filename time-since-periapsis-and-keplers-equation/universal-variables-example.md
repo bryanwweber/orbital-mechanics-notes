@@ -89,7 +89,7 @@ where $z = \alpha\chi^2$. The derivative of this function is:
 
 $$f'(\chi) = \frac{r_0v_{r,0}}{\sqrt{\mu}} \chi\left(1 - z S(z)\right) + \left(1 - \alpha r_0\right) \chi^2 C(z) + r_0$$
 
-The Stumpff functions $C(z) = c_0(z)$ and $S(z) = c_1(z)$ are:
+The Stumpff functions $C(z) = c_2(z)$ and $S(z) = c_3(z)$ are:
 
 $$C(z) = \begin{cases}\displaystyle \frac{1 - \cos\sqrt{z}}{z} & \left(z > 0\right)\\ \displaystyle\frac{\cosh\sqrt{-z} - 1}{-z} & \left(z < 0\right) \\ \displaystyle\frac{1}{2} & \left(z = 0\right)\end{cases}$$
 
@@ -98,8 +98,8 @@ and
 $$S(z) =\begin{cases}\displaystyle \frac{\sqrt{z} - \sin\sqrt{z}}{\left(\sqrt{z}\right)^3} & \left(z > 0\right)\\ \displaystyle \frac{\sinh\sqrt{-z} - \sqrt{-z}}{\left(\sqrt{-z}\right)^3} & \left(z < 0\right) \\ \displaystyle \frac{1}{6} & \left(z = 0\right)\end{cases}$$
 
 ```{code-cell} ipython3
-def stumpff_0(z):
-    """Solve the Stumpff function C(z) = c0(z). The input z should be
+def stumpff_2(z):
+    """Solve the Stumpff function C(z) = c2(z). The input z should be
     a scalar value.
     """
     if z > 0:
@@ -109,8 +109,8 @@ def stumpff_0(z):
     else:
         return 1/2
 
-def stumpff_1(z):
-    """Solve the Stumpff function S(z) = c1(z). The input z should be
+def stumpff_3(z):
+    """Solve the Stumpff function S(z) = c3(z). The input z should be
     a scalar value.
     """
     if z > 0:
@@ -122,13 +122,13 @@ def stumpff_1(z):
 
 def universal_kepler(chi, r_0, v_r0, alpha, delta_t, mu):
     """Solve the universal Kepler equation in terms of the universal anomaly chi.
-    
+
     This function is intended to be used with an iterative solution algorithm,
     such as Newton's algorithm.
     """
     z = alpha * chi**2
-    first_term = r_0 * v_r0 / np.sqrt(mu) * chi**2 * stumpff_0(z)
-    second_term = (1 - alpha * r_0) * chi**3 * stumpff_1(z)
+    first_term = r_0 * v_r0 / np.sqrt(mu) * chi**2 * stumpff_2(z)
+    second_term = (1 - alpha * r_0) * chi**3 * stumpff_3(z)
     third_term = r_0 * chi
     fourth_term = np.sqrt(mu) * delta_t
     return first_term + second_term + third_term - fourth_term
@@ -136,8 +136,8 @@ def universal_kepler(chi, r_0, v_r0, alpha, delta_t, mu):
 def d_universal_d_chi(chi, r_0, v_r0, alpha, delta_t, mu):
     """The derivative of the universal Kepler equation in terms of the universal anomaly."""
     z = alpha * chi**2
-    first_term = r_0 * v_r0 / np.sqrt(mu) * chi * (1 - z * stumpff_1(z))
-    second_term = (1 - alpha * r_0) * chi**2 * stumpff_0(z)
+    first_term = r_0 * v_r0 / np.sqrt(mu) * chi * (1 - z * stumpff_3(z))
+    second_term = (1 - alpha * r_0) * chi**2 * stumpff_2(z)
     third_term = r_0
     return first_term + second_term + third_term
 ```
