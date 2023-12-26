@@ -542,8 +542,8 @@ document.write(`
 <p>Now we have enough information to solve the universal Kepler equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the Stumpff function C(z) = c0(z). The input z should be</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stumpff_2</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the Stumpff function C(z) = c2(z). The input z should be</span>
 <span class="sd">    a scalar value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -553,8 +553,8 @@ document.write(`
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
 
-<span class="k">def</span> <span class="nf">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the Stumpff function S(z) = c1(z). The input z should be</span>
+<span class="k">def</span> <span class="nf">stumpff_3</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the Stumpff function S(z) = c3(z). The input z should be</span>
 <span class="sd">    a scalar value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -566,13 +566,13 @@ document.write(`
 
 <span class="k">def</span> <span class="nf">universal_kepler</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span> <span class="n">r_0</span><span class="p">,</span> <span class="n">v_r0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the universal Kepler equation in terms of the universal anomaly chi.</span>
-<span class="sd">    </span>
+
 <span class="sd">    This function is intended to be used with an iterative solution algorithm,</span>
 <span class="sd">    such as Newton&#39;s algorithm.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">first_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">v_r0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">first_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">v_r0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">stumpff_2</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">stumpff_3</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
     <span class="n">third_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">chi</span>
     <span class="n">fourth_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta_t</span>
     <span class="k">return</span> <span class="n">first_term</span> <span class="o">+</span> <span class="n">second_term</span> <span class="o">+</span> <span class="n">third_term</span> <span class="o">-</span> <span class="n">fourth_term</span>
@@ -580,8 +580,8 @@ document.write(`
 <span class="k">def</span> <span class="nf">d_universal_d_chi</span><span class="p">(</span><span class="n">chi</span><span class="p">,</span> <span class="n">r_0</span><span class="p">,</span> <span class="n">v_r0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">delta_t</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The derivative of the universal Kepler equation in terms of the universal anomaly.&quot;&quot;&quot;</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">first_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">v_r0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">first_term</span> <span class="o">=</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">v_r0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">stumpff_3</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+    <span class="n">second_term</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">stumpff_2</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
     <span class="n">third_term</span> <span class="o">=</span> <span class="n">r_0</span>
     <span class="k">return</span> <span class="n">first_term</span> <span class="o">+</span> <span class="n">second_term</span> <span class="o">+</span> <span class="n">third_term</span>
 
@@ -608,8 +608,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">delta_t</span> <span class="o">-</span> <span class="n">chi</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">r_0</span> <span class="o">*</span> <span class="n">stumpff_2</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">delta_t</span> <span class="o">-</span> <span class="n">chi</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">stumpff_3</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
 <span class="n">vec_r</span> <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">vec_r_0</span> <span class="o">+</span> <span class="n">g</span> <span class="o">*</span> <span class="n">vec_v_0</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vec_r</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec_r</span><span class="p">))</span>
@@ -627,8 +627,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fdot</span> <span class="o">=</span> <span class="n">chi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">stumpff_1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">gdot</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">r</span> <span class="o">*</span> <span class="n">stumpff_0</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fdot</span> <span class="o">=</span> <span class="n">chi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">r_0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">stumpff_3</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">gdot</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">chi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">r</span> <span class="o">*</span> <span class="n">stumpff_2</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
 <span class="n">vec_v</span> <span class="o">=</span> <span class="n">fdot</span> <span class="o">*</span> <span class="n">vec_r_0</span> <span class="o">+</span> <span class="n">gdot</span> <span class="o">*</span> <span class="n">vec_v_0</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vec_v</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec_v</span><span class="p">))</span>
@@ -672,7 +672,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6999.744311448168
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6999.744311448165
 </pre></div>
 </div>
 </div>
