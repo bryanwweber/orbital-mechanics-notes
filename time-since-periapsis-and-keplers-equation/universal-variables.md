@@ -48,13 +48,13 @@ Then, we will define the universal variable, or universal anomaly $\chi$, which 
 Using the universal anomaly, we can find the position and velocity of the orbiting mass at any future time via:
 
 :::{math}
-:label:
+:label: eq:radius-velocity-universal-anomaly
 \begin{aligned}\vector{r} &= \left[1 - \frac{\chi^2}{r_0}C\left(\alpha\chi^2\right)\right]\vector{r}_0 + \left[\left(t - t_0\right) - \frac{\chi^3}{\sqrt{\mu}}S\left(\alpha\chi^2\right)\right]\vector{v}_0\\\vector{v} &= \frac{\chi\sqrt{\mu}}{r r_0}\left[\alpha\chi^2S\left(\alpha\chi^2\right) - 1\right]\vector{r}_0 + \left[1 - \frac{\chi^2}{r}C\left(\alpha\chi^2\right)\right]\vector{v}_0\end{aligned}
 :::
 
-where $\alpha = 1/a$ and we will define $C(z)$ and $S(z)$ shortly. Note that $\alpha < 0$ for hyperbolas, $\alpha = 0$ for parabolas ($a\rightarrow\infty$) and $\alpha > 0$ for ellipses. Interestingly, this gives $\chi$ dimensions of square root of length, such that $\alpha\chi^2$ is dimensionless.
+where $\alpha = 1/a$ and we will define $C(z)$ and $S(z)$ shortly. Note that $\alpha < 0$ for hyperbolas, $\alpha = 0$ for parabolas ($a\rightarrow\infty$) and $\alpha > 0$ for ellipses. This gives $\chi$ dimensions of square root of length, such that $\alpha\chi^2$ is dimensionless.
 
-In a [previous section](./the-lagrange-coefficients.md), we identified the coefficients of $\vector{r}_0$ and $\vector{v}_0$ in similar equations as the **Lagrange coefficients**, in that case, in terms of the change of true anomaly. These equations give the Lagrange coefficients in terms of the universal anomaly.
+In a [previous section](./the-lagrange-coefficients.md), we identified the coefficients of $\vector{r}_0$ and $\vector{v}_0$ in equations similar to {eq}`eq:radius-velocity-universal-anomaly` as the **Lagrange coefficients**, in that case, in terms of the change of true anomaly. Eqs. {eq}`eq:radius-velocity-universal-anomaly` give the Lagrange coefficients in terms of the universal anomaly.
 
 Now, we need a way to solve for $\chi$, the universal anomaly. We can write Kepler's equation in terms of the universal anomaly as:
 
@@ -65,6 +65,8 @@ Now, we need a way to solve for $\chi$, the universal anomaly. We can write Kepl
 
 Like Kepler's equation in the ellipse and hyperbola specific forms, this equation is transcendental in $\chi$. If $\chi$ is known, the equation can be solved for the change in time interval, $t - t_0$. If the time interval is known instead, we must use numerical techniques to solve the equation.
 
+Next, we need to define the functions $C(z)$ and $S(z)$.
+
 ## Stumpff Functions
 
 The functions $C(z)$ and $S(z)$ are [**Stumpff functions**](https://en.wikipedia.org/wiki/Stumpff_function). They can be defined by infinite series of the form:
@@ -74,7 +76,9 @@ The functions $C(z)$ and $S(z)$ are [**Stumpff functions**](https://en.wikipedia
 c_k(z) = \frac{1}{k!} - \frac{z}{\left(k + 2\right)!} + \frac{z^2}{\left(k + 4\right)!} - \cdots = \sum_{i=0}^{\infty}\frac{\left(-1\right)^{i} z^i}{\left(k + 2i\right)!}
 :::
 
-where $k$ is an integer that indicates the type of Stumpff function. Interestingly, the Stumpff functions are related to the Taylor series expansions of the circular and hyperbolic trigonometric functions. The first two Stumpff functions, $k=0$ and $k=1$ respectively, define our $C(z)$ and $S(z)$ functions from above.
+where $k$ is an integer that indicates the type of Stumpff function.
+
+To solve Eq. {eq}`eq:universal-keplers-equation`, we don't want to work with the infinite series forms of the Stumpff equations. Instead, we will convert the Stumpff functions to trigonometric functions using the Taylor series expansions of the [circular](https://en.wikipedia.org/wiki/Trigonometric_functions#Power_series_expansion) and [hyperbolic](https://en.wikipedia.org/wiki/Hyperbolic_functions#Taylor_series_expressions) trigonometric functions. The first third and fourth Stumpff functions, $k=2$ and $k=3$ respectively, define our $C(z)$ and $S(z)$ functions from above.
 
 :::{math}
 :label: eq:stumpff-function-0
@@ -99,7 +103,7 @@ from functools import partial
 from myst_nb import glue as myst_glue
 glue = partial(myst_glue, display=False)
 
-def stumpff_0(z):
+def stumpff_2(z):
     x = np.full_like(z, np.nan)
     x[z > 0] = (1 - np.cos(np.sqrt(z[z > 0]))) / z[z > 0]
     x[z < 0] = (np.cosh(np.sqrt(-z[z < 0])) - 1) / (-z[z < 0])
@@ -107,7 +111,7 @@ def stumpff_0(z):
     return x
 
 
-def stumpff_1(z):
+def stumpff_3(z):
     x = np.full_like(z, np.nan)
     z_gt_0 = z[z > 0]
     z_lt_0 = z[z < 0]
@@ -120,12 +124,12 @@ x_1 = np.linspace(-50, 0, 100)
 x_2 = np.linspace(0, 30, 100)
 x_3 = np.linspace(30, 500, 300)
 
-y0_1 = stumpff_0(x_1)
-y1_1 = stumpff_1(x_1)
-y0_2 = stumpff_0(x_2)
-y1_2 = stumpff_1(x_2)
-y0_3 = stumpff_0(x_3)
-y1_3 = stumpff_1(x_3)
+y0_1 = stumpff_2(x_1)
+y1_1 = stumpff_3(x_1)
+y0_2 = stumpff_2(x_2)
+y1_2 = stumpff_3(x_2)
+y0_3 = stumpff_2(x_3)
+y1_3 = stumpff_3(x_3)
 fig, (ax_1, ax_2, ax_3) = plt.subplots(figsize=(4, 6), dpi=200, nrows=3)
 ax_1.plot(x_1, y0_1, label="$C(z)$")
 ax_1.plot(x_1, y1_1, label="$S(z)$")
