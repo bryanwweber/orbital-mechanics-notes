@@ -1,0 +1,3 @@
+[tools]
+python = { version = "3.11", virtualenv = ".venv" }
+markdownlint-cli2 = "latest"

@@ -1,0 +1,7 @@
+{
+    "globs": ["**/*.md", "!.venv"],
+    "config": {
+        "MD013": false,
+        "MD037": false
+    }
+}
