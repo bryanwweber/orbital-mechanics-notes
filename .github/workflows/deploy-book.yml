@@ -7,17 +7,20 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  PYDEVD_DISABLE_FILE_VALIDATION: 1
+
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup PDM
         uses: pdm-project/setup-pdm@v3
         with:
           cache: true
-          python-version: "3.10"
+          python-version: "3.11"
       - name: Install dependencies
         run: pdm sync --prod --no-self
       # Build the book
@@ -26,7 +29,7 @@ jobs:
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
         if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3.9.2
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/html
