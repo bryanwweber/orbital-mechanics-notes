@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -82,6 +83,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -135,9 +145,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -147,8 +159,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Orbital Mechanics & Astrodynamics - Home"/>
+    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Orbital Mechanics & Astrodynamics - Home"/>`);</script>
   
   
 </a></div>
@@ -428,20 +440,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -603,7 +617,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-cr3bp-example-trajectory">
-<img alt="../_images/975a06afa3eafe2e87ee295105b6a6d9850a4d18b6eae682b347abfeea568de1.png" src="../_images/975a06afa3eafe2e87ee295105b6a6d9850a4d18b6eae682b347abfeea568de1.png" />
+<img alt="../_images/de181586cafee31fbc7d91cc322b5e6d32a81225f70436beb64f73ecd9e231e1.png" src="../_images/de181586cafee31fbc7d91cc322b5e6d32a81225f70436beb64f73ecd9e231e1.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 22 </span><span class="caption-text">The trajectory of <span class="math notranslate nohighlight">\(m\)</span> in the rotating frame of reference, in non-dimensional coordinates.</span><a class="headerlink" href="#fig-cr3bp-example-trajectory" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -645,7 +659,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-runge-kutta-jacobi-constant">
-<img alt="../_images/4c062efccaf5ad628587c95cea768d3c01b75df67c9e166a6c0e8ff06390abae.png" src="../_images/4c062efccaf5ad628587c95cea768d3c01b75df67c9e166a6c0e8ff06390abae.png" />
+<img alt="../_images/8136e5931f1266ecc2b4fab49ca2c88cbb911326b4f326f85c716b967efee5fe.png" src="../_images/8136e5931f1266ecc2b4fab49ca2c88cbb911326b4f326f85c716b967efee5fe.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 23 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time. The horizontal line is the initial Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-jacobi-constant" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -686,7 +700,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-runge-kutta-small-tolerance">
-<img alt="../_images/a3261a93afa6e8b2c30586676edde1f4829758a18d5603caa171b44534ecccee.png" src="../_images/a3261a93afa6e8b2c30586676edde1f4829758a18d5603caa171b44534ecccee.png" />
+<img alt="../_images/b0296d6cd9709067ad74960e07f6814ecb985bac8d3863fd10189bf7407da3c7.png" src="../_images/b0296d6cd9709067ad74960e07f6814ecb985bac8d3863fd10189bf7407da3c7.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 24 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time using a solver with reduced tolerances. The horizontal line is the initial value of the Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-small-tolerance" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -711,7 +725,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-trajectory-comparison-cr3bp">
-<img alt="../_images/b921cb2b315ab6d61952302f4427ae2b027374546a32f7350a2e6411aea35442.png" src="../_images/b921cb2b315ab6d61952302f4427ae2b027374546a32f7350a2e6411aea35442.png" />
+<img alt="../_images/9e47787c55906f7faa63bf5de4b00496ad76e6d7db91cc784c090bb805b162cf.png" src="../_images/9e47787c55906f7faa63bf5de4b00496ad76e6d7db91cc784c090bb805b162cf.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 25 </span><span class="caption-text">The two trajectories for the solutions to this problem, in the co-rotating frame.</span><a class="headerlink" href="#fig-trajectory-comparison-cr3bp" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -737,7 +751,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-jacobi-constant-with-sigma">
-<img alt="../_images/a065446a75100d45c2346bfd1e0e9bc9762fab0d0d439a7ce9f29f4f56ed9087.png" src="../_images/a065446a75100d45c2346bfd1e0e9bc9762fab0d0d439a7ce9f29f4f56ed9087.png" />
+<img alt="../_images/49f2588e6305dc0f96b73a5c625e74f9679779c3e1bc552e1d0f97448c963001.png" src="../_images/49f2588e6305dc0f96b73a5c625e74f9679779c3e1bc552e1d0f97448c963001.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 26 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, and the non-dimensional position relative to <span class="math notranslate nohighlight">\(m_1\)</span>, plotted as a function of non-dimensional time.</span><a class="headerlink" href="#fig-jacobi-constant-with-sigma" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -772,8 +786,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="jacobi-constant.html"
@@ -819,7 +835,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -832,6 +848,7 @@ By Bryan Weber
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -846,7 +863,7 @@ By Bryan Weber
 </div>
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -855,8 +872,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

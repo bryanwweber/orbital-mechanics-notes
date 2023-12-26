@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -82,6 +83,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -135,9 +145,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -147,8 +159,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Orbital Mechanics & Astrodynamics - Home"/>
+    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Orbital Mechanics & Astrodynamics - Home"/>`);</script>
   
   
 </a></div>
@@ -428,20 +440,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -582,7 +596,7 @@ document.write(`
 <span class="eqno">(323)<a class="headerlink" href="#equation-eq-plane-change-example-optimal-delta-v" title="Permalink to this equation">#</a></span>\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
 <p>We can take the derivative of this equation with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> to find the minimum, but it’s usually easier to plot a function to see if anything obvious pops out. The plot of this function is shown in <a class="reference internal" href="#fig-plane-change-optimize-delta-v"><span class="std std-numref">Fig. 74</span></a>.</p>
 <figure class="align-default" id="fig-plane-change-optimize-delta-v">
-<img alt="../_images/87bb3fed75d23820393a6fef14fb19a35b063618eddd6f62f756b1c993e80ba4.png" src="../_images/87bb3fed75d23820393a6fef14fb19a35b063618eddd6f62f756b1c993e80ba4.png" />
+<img alt="../_images/91da95a01bc36cbdaf504e63cb68eb917fe14f654447e0c0e1538315007c4547.png" src="../_images/91da95a01bc36cbdaf504e63cb68eb917fe14f654447e0c0e1538315007c4547.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 74 </span><span class="caption-text">The total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for a Hohmann transfer from LEO to GEO, including a plane change. <span class="math notranslate nohighlight">\(\Delta i\)</span> is the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-optimize-delta-v" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -593,7 +607,7 @@ document.write(`
 <span class="eqno">(324)<a class="headerlink" href="#equation-eq-plane-change-delta-v-derivative" title="Permalink to this equation">#</a></span>\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
 <p>This equation must be solved numerically, but we can plot it to verify the behavior.</p>
 <figure class="align-default" id="fig-plane-change-delta-v-derivative">
-<img alt="../_images/a2fe3150014b164a58bbc69e106133efc092e07112a57b9f4eed996e9de58cc8.png" src="../_images/a2fe3150014b164a58bbc69e106133efc092e07112a57b9f4eed996e9de58cc8.png" />
+<img alt="../_images/499aef80860230c0c843048ba377cec1050c2e99747e69828f356057e69fb4d4.png" src="../_images/499aef80860230c0c843048ba377cec1050c2e99747e69828f356057e69fb4d4.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 75 </span><span class="caption-text">The derivative of the total <span class="math notranslate nohighlight">\(\Delta v\)</span> as a function of the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-delta-v-derivative" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -642,8 +656,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="plane-change-maneuvers.html"
@@ -693,7 +709,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -706,6 +722,7 @@ By Bryan Weber
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -720,7 +737,7 @@ By Bryan Weber
 </div>
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -729,8 +746,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
