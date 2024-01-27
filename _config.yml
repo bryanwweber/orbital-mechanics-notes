@@ -12,6 +12,7 @@ exclude_patterns:
   - chapter-4
   - .venv
   - .pytest_cache
+  - INSTALL.md
 
 latex:
   latex_engine: xelatex
