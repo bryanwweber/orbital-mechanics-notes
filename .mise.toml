@@ -1,0 +1,8 @@
+[tools]
+python = { version = "3.11", virtualenv = ".venv" }
+markdownlint-cli2 = "latest"
+pdm = "latest"
+
+[plugins]
+pdm = "https://github.com/1oglop1/asdf-pdm"
+markdownlint-cli2 = "https://github.com/paulo-ferraz-oliveira/asdf-markdownlint-cli2"
