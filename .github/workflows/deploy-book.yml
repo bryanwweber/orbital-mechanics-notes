@@ -10,19 +10,19 @@ on:
 env:
   PYDEVD_DISABLE_FILE_VALIDATION: 1
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
+# This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Setup PDM
-        uses: pdm-project/setup-pdm@v3
+        uses: pdm-project/setup-pdm@v4
         with:
           cache: true
           python-version: "3.11"
       - name: Install dependencies
-        run: pdm sync --prod --no-self
+        run: pdm sync --prod
       # Build the book
       - name: Build the book
         run: pdm run jupyter-book build -vv -W .

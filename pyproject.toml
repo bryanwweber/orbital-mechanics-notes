@@ -1,7 +1,47 @@
 #:schema https://json.schemastore.org/pyproject.json
+[project]
+dependencies = [
+    "astropy>=6.0.0",
+    "docutils>=0.20.1",
+    "ipympl>=0.9.3",
+    "jupyter-book>=1.0.0",
+    "matplotlib>=3.8.2",
+    "myst-nb-bokeh>=2024.1.0",
+    "myst-nb>=1.0.0",
+    "numpy>=1.26.3",
+    "pint>=0.23",
+    "plotly>=5.18.0",
+    "poliastro>=0.18.dev0",
+    "scipy>=1.12.0",
+    "skyfield>=1.47",
+    "sphinx-design>=0.5.0",
+    "sympy>=1.12",
+    "wheel>=0.42.0",
+]
+# Numba 0.58.1 requires Python < 3.12
+requires-python = ">=3.10,<3.12"
+name = "orbital-mechanics-notes"
+version = "2024.01.0"
+description = "Orbital Mechanics Notes built with JupyterBook"
+authors = [
+    {name = "Bryan Weber", email = "bryan.w.weber@gmail.com"},
+]
+license = {text = "CC-BY-SA-4.0"}
+
+[tool.pdm]
+distribution = false
+
 [tool.pdm.dev-dependencies]
-dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "mypy>=1.8.0", "ruff>=0.1.9"]
+dev = [
+    "doit>=0.36.0",
+    "pyyaml>=6.0.1",
+    "mypy>=1.8.0",
+    "ruff>=0.1.14",
+]
 [tool.pdm.resolution.overrides]
+# Unfortunately, poliastro is no longer maintained. I updated some dependencies on my
+# fork to be able to upgrade some other things like astropy. Nothing seems to be broken
+# but I'll need a replacement here at some point.
 "poliastro" = "https://github.com/bryanwweber/poliastro/archive/main.zip"
 
 [tool.ruff]
@@ -15,28 +55,3 @@ select = [
   "NPY", # NumPy rules
   "RUF", # Ruff rules
 ]
-target-version = "py311"
-
-[project]
-# PEP 621 project metadata
-# See https://www.python.org/dev/peps/pep-0621/
-dependencies = [
-  "astropy>=6.0.0",
-  "docutils>=0.15,!=0.18.*,!=0.19.*",
-  "ipympl>=0.9.3",
-  "jupyter-book>=0.15.1",
-  "matplotlib>=3.8.2",
-  "myst-nb-bokeh>=1.1.0",
-  "myst-nb",
-  "numpy>=1.26.2",
-  "pint>=0.23",
-  "plotly>=5.18.0",
-  "poliastro>=0.18.dev0",
-  "scipy>=1.11.4",
-  "skyfield>=1.46",
-  "sphinx-design>=0.3.0",
-  "sympy>=1.12",
-  "wheel>=0.42.0",
-]
-# Numba 0.58.1 requires Python < 3.12
-requires-python = ">=3.10,<3.12"
