@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Two-Body Problem in the Co-Moving Frame &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/two-body-relative-numerical-solution';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-relative-numerical-solution.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Circular Restricted Three-Body Problem" href="circular-restricted-three-body-problem.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -482,10 +498,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="two-body-problem-in-the-co-moving-frame">
-<h1>Two-Body Problem in the Co-Moving Frame<a class="headerlink" href="#two-body-problem-in-the-co-moving-frame" title="Permalink to this heading">#</a></h1>
+<h1>Two-Body Problem in the Co-Moving Frame<a class="headerlink" href="#two-body-problem-in-the-co-moving-frame" title="Link to this heading">#</a></h1>
 <p>Recall the equations of motion for the two-body problem in a reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="two-body-relative-motion.html#equation-eq-two-body-relative-motion-components">(40)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -493,7 +509,7 @@ document.write(`
   \ddot{y} &amp;= -\mu \frac{y}{r^3} \\
   \ddot{z} &amp;= -\mu \frac{z}{r^3}
 \end{aligned}\end{split}\]</div>
-<p>In this example, we will solve the two-body problem in relative coordinates. Although the problem is in relative coordinates, the solution procedure is the same as <a class="reference internal" href="two-body-inertial-numerical-solution.html"><span class="doc std std-doc">Two-Body Numerical Solution in an Inertial Frame</span></a>. In Python, the first thing is to import the required libraries. This step is not necessary in Matlab.</p>
+<p>In this example, we will solve the two-body problem in relative coordinates. Although the problem is in relative coordinates, the solution procedure is the same as <a class="reference internal" href="two-body-inertial-numerical-solution.html"><span class="std std-doc">Two-Body Numerical Solution in an Inertial Frame</span></a>. In Python, the first thing is to import the required libraries. This step is not necessary in Matlab.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-0">
@@ -630,7 +646,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 </div>
 <p>Since we are looking for the minimum and maximum <em>altitude</em>, we need to calculate the distance of the satellite from the center of the earth and then subtract the radius of the earth. This will give the altitude above the surface:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earth-altitude-definition">
-<span class="eqno">(41)<a class="headerlink" href="#equation-eq-earth-altitude-definition" title="Permalink to this equation">#</a></span>\[h = \mag{\vector{r}} - R_E\]</div>
+<span class="eqno">(41)<a class="headerlink" href="#equation-eq-earth-altitude-definition" title="Link to this equation">#</a></span>\[h = \mag{\vector{r}} - R_E\]</div>
 <p>where <span class="math notranslate nohighlight">\(h\)</span> is the altitude and <span class="math notranslate nohighlight">\(R_E\)</span> is the radius of the earth. Similarly, the speed is the magnitude of the velocity.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-7" name="sd-tab-set-4" type="radio">
@@ -973,7 +989,7 @@ MATLAB</label><div class="sd-tab-content docutils">
   }
 </script>
 </div><figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The motion of a satellite in orbit around the earth.</span><a class="headerlink" href="#fig-two-body-relative" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The motion of a satellite in orbit around the earth.</span><a class="headerlink" href="#fig-two-body-relative" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1033,6 +1049,8 @@ MATLAB</label><div class="sd-tab-content docutils">
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -1073,8 +1091,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

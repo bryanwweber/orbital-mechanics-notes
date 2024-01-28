@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Mass, Force, and Newton’s Law of Gravitation &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro/mass-force-and-newtons-law-of-gravitation';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/intro/mass-force-and-newtons-law-of-gravitation.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Force, Acceleration, and Momentum" href="force-acceleration-and-momentum.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
@@ -482,10 +498,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mass-force-and-newton-s-law-of-gravitation">
-<h1>Mass, Force, and Newton’s Law of Gravitation<a class="headerlink" href="#mass-force-and-newton-s-law-of-gravitation" title="Permalink to this heading">#</a></h1>
+<h1>Mass, Force, and Newton’s Law of Gravitation<a class="headerlink" href="#mass-force-and-newton-s-law-of-gravitation" title="Link to this heading">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>In Newtonian mechanics, a net force on an object causes the object to accelerate. Forces can be transmitted between objects by direct contact or without contact by a potential field.</p>
@@ -498,27 +514,27 @@ document.write(`
 <p>All potential fields are generated by a <strong>source</strong>. As you learned in Physics, the force due to a potential field is inversely proportional to the square of the distance between two sources in the field.</p>
 <p>In a gravitational field, the sources are <strong>masses</strong>. Therefore, the magnitude of the force between two masses is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-newtons-law-of-gravitation">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-newtons-law-of-gravitation" title="Permalink to this equation">#</a></span>\[F = G \frac{m_1 m_2}{r^2}\]</div>
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-newtons-law-of-gravitation" title="Link to this equation">#</a></span>\[F = G \frac{m_1 m_2}{r^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> are the two masses, <span class="math notranslate nohighlight">\(r\)</span> is the distance between them, and <span class="math notranslate nohighlight">\(G\)</span> is <strong>Newton’s gravitational constant</strong>. Eq. <a class="reference internal" href="#equation-eq-newtons-law-of-gravitation">(1)</a> is called <em>Newton’s law of gravitation</em>, first published by Isaac Newton in the 1680s <span id="id1">[<a class="reference internal" href="../bibliography.html#id5" title="Roger R. Bate, Donald D. Mueller, and Jerry E. White. Fundamentals of Astrodynamics. Dover Publications, New York, 1971. ISBN 978-0-486-60061-1.">BMW71</a>]</span>. In SI units, <span class="math notranslate nohighlight">\(G\)</span> has the value <span class="output text_html">6.6742×10<sup>-11</sup> m<sup>3</sup>/(kg s<sup>2</sup>)</span>.</p>
 <p>Due to the extremely small size of <span class="math notranslate nohighlight">\(G\)</span>, masses either have to be very large or very close together to generate a significant gravitational force.</p>
 <p>When one of the masses is much larger than the other, we usually group the larger mass <span class="math notranslate nohighlight">\(M\)</span> with the <span class="math notranslate nohighlight">\(G\)</span> and <span class="math notranslate nohighlight">\(r^2\)</span> terms:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mod-nlog">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-mod-nlog" title="Permalink to this equation">#</a></span>\[F = m \left(\frac{GM}{r^2}\right)\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-mod-nlog" title="Link to this equation">#</a></span>\[F = m \left(\frac{GM}{r^2}\right)\]</div>
 <p>The second term on the right side of <a class="reference internal" href="#equation-eq-mod-nlog">(2)</a> is typically called the <strong>acceleration due to gravity</strong>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravity-acceleration">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-gravity-acceleration" title="Permalink to this equation">#</a></span>\[g = \frac{GM}{r^2}\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-gravity-acceleration" title="Link to this equation">#</a></span>\[g = \frac{GM}{r^2}\]</div>
 <p>Therefore, the <strong>weight</strong> of a smaller mass, <span class="math notranslate nohighlight">\(m\)</span>, in the gravitational field of a much larger mass is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-weight">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-weight" title="Permalink to this equation">#</a></span>\[W = mg\]</div>
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-weight" title="Link to this equation">#</a></span>\[W = mg\]</div>
 <p>For the surface of the Earth, we can plug in <span class="math notranslate nohighlight">\(R_E =\)</span> <span class="output text_html">6378 km</span> and <span class="math notranslate nohighlight">\(M =\)</span> <span class="output text_html">5.974×10<sup>24</sup> kg</span> to find <span class="math notranslate nohighlight">\(g_0 =\)</span> <span class="output text_html">9.802 m/s<sup>2</sup></span>.</p>
 <p>We can also determine the variation of <span class="math notranslate nohighlight">\(g\)</span> with altitude for the Earth. Referenced to the gravity at the surface of the Earth (<span class="math notranslate nohighlight">\(g_0\)</span>), we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravity-ratio">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-gravity-ratio" title="Permalink to this equation">#</a></span>\[\frac{g}{g_0} = \frac{1}{\left(1 + z/R_E\right)^2}\]</div>
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-gravity-ratio" title="Link to this equation">#</a></span>\[\frac{g}{g_0} = \frac{1}{\left(1 + z/R_E\right)^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(z\)</span> is the height above the surface of the Earth. This variation is plotted in <a class="reference internal" href="#g-g-0"><span class="std std-numref">Fig. 7</span></a>.</p>
 <figure class="align-default" id="g-g-0">
 <img alt="../_images/aa00c9f45e31a75870e604a8336b4512b04d5f7ed3703e22e5e2451d8d9bb2b8.png" src="../_images/aa00c9f45e31a75870e604a8336b4512b04d5f7ed3703e22e5e2451d8d9bb2b8.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Variation of <span class="math notranslate nohighlight">\(g/g_0\)</span> with altitude.</span><a class="headerlink" href="#g-g-0" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Variation of <span class="math notranslate nohighlight">\(g/g_0\)</span> with altitude.</span><a class="headerlink" href="#g-g-0" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In <a class="reference internal" href="#g-g-0"><span class="std std-numref">Fig. 7</span></a>, you can see that gravity varies significantly with altitude. However, for most normal altitudes, there isn’t much variation. At 10 km, a typical cruise altitude, the value of <span class="math notranslate nohighlight">\(g\)</span> is almost the same as <span class="math notranslate nohighlight">\(g_0\)</span>. Even at the height of the ISS (400 km), <span class="math notranslate nohighlight">\(g\)</span> is still 90% of the value of <span class="math notranslate nohighlight">\(g_0\)</span>.</p>
@@ -580,6 +596,8 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -620,8 +638,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

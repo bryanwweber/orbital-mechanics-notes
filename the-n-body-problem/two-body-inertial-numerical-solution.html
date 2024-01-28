@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Two-Body Numerical Solution in an Inertial Frame &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/two-body-inertial-numerical-solution';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-inertial-numerical-solution.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Motion of the Barycenter" href="motion-of-the-barycenter.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -495,10 +511,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="two-body-numerical-solution-in-an-inertial-frame">
-<h1>Two-Body Numerical Solution in an Inertial Frame<a class="headerlink" href="#two-body-numerical-solution-in-an-inertial-frame" title="Permalink to this heading">#</a></h1>
+<h1>Two-Body Numerical Solution in an Inertial Frame<a class="headerlink" href="#two-body-numerical-solution-in-an-inertial-frame" title="Link to this heading">#</a></h1>
 <p>The equations of motion for the two-body problem in an inertial frame are given by <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>, repeated here:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -520,10 +536,10 @@ document.write(`
 <p>where the subscript <span class="math notranslate nohighlight">\(0\)</span> indicates the <em>initial</em> position and velocity. These are the 12 components of the <em>initial state vector</em>, which we will give the symbol <span class="math notranslate nohighlight">\(y_0\)</span>.</p>
 <p>The two masses are equal, <span class="math notranslate nohighlight">\(m_1 = m_2 = 1.0\times 10^{26} \text{ kg}\)</span> and Newton’s gravitational constant is <span class="math notranslate nohighlight">\(G = 6.67430\times 10^{-2} \text{ km}^3 \text{ kg}^{-1} \text{ s}^{-2}\)</span>.</p>
 <section id="the-state-vector">
-<h2>The State Vector<a class="headerlink" href="#the-state-vector" title="Permalink to this heading">#</a></h2>
+<h2>The State Vector<a class="headerlink" href="#the-state-vector" title="Link to this heading">#</a></h2>
 <p>In the numerical solution, the state vector is stored in an <strong>array</strong>. Arrays in programming are data structures that are optimized to store numbers. The order that the components appear in the state vector isn’t important, only that we keep track of the order and don’t forget it. For the sake of choosing something, we will set the positions followed by the velocities:</p>
 <div class="math notranslate nohighlight" id="equation-eq-state-vector-array">
-<span class="eqno">(22)<a class="headerlink" href="#equation-eq-state-vector-array" title="Permalink to this equation">#</a></span>\[y = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z_1}\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
+<span class="eqno">(22)<a class="headerlink" href="#equation-eq-state-vector-array" title="Link to this equation">#</a></span>\[y = \left[X_1\ Y_1\ Z_1\ X_2\ Y_2\ Z_2\ \dot{X}_1\ \dot{Y}_1\ \dot{Z_1}\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\right]\]</div>
 <p>The array is indicated by using square brackets, <span class="math notranslate nohighlight">\([\dots]\)</span>, and lists all the components of the array inside the brackets. Depending on the programming language you’re using, there are different ways to create arrays.</p>
 <p>In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.</p>
 <div class="sd-tab-set docutils">
@@ -565,19 +581,19 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>These code samples first set the constants in the problem, <span class="math notranslate nohighlight">\(G\)</span> and <span class="math notranslate nohighlight">\(m_1 = m_2\)</span>. Then, they create the initial position and velocity arrays. Finally, the arrays are stuck together into the initial state vector, <code class="docutils literal notranslate"><span class="pre">y_0</span></code>.</p>
 </section>
 <section id="transforming-the-system-of-ordinary-differential-equations">
-<h2>Transforming the System of Ordinary Differential Equations<a class="headerlink" href="#transforming-the-system-of-ordinary-differential-equations" title="Permalink to this heading">#</a></h2>
+<h2>Transforming the System of Ordinary Differential Equations<a class="headerlink" href="#transforming-the-system-of-ordinary-differential-equations" title="Link to this heading">#</a></h2>
 <p>The system of ordinary differential equations (ODEs) in <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> or <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a> is a second order system. However, it can be transformed to a system of first-order ODEs by recognizing the acceleration as the first derivative of the velocity. Solving a first-order system is much simpler than solving a second-order system.</p>
 <p>We know that the system of equations requires the</p>
 <div class="math notranslate nohighlight" id="equation-eq-numerical-solution">
-<span class="eqno">(23)<a class="headerlink" href="#equation-eq-numerical-solution" title="Permalink to this equation">#</a></span>\[\dot{\vector{y}} = f\left(t, \vector{y}\right)\]</div>
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-numerical-solution" title="Link to this equation">#</a></span>\[\dot{\vector{y}} = f\left(t, \vector{y}\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{y}\)</span> is the state vector, <span class="math notranslate nohighlight">\(t\)</span> is time, and <span class="math notranslate nohighlight">\(f\)</span> is a function that depends on the current time and the current state vector.</p>
 <p>The left hand side of <a class="reference internal" href="#equation-eq-numerical-solution">(23)</a> is the time-derivative of the state vector, which we find by taking the time derivative of each element of the state vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-state-vector-derivative">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-state-vector-derivative" title="Permalink to this equation">#</a></span>\[\dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]\]</div>
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-state-vector-derivative" title="Link to this equation">#</a></span>\[\dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]\]</div>
 <p>In words, the left side of <a class="reference internal" href="#equation-eq-numerical-solution">(23)</a> is another array, where the first six elements are the velocity components (the first derivative of position) and the second six are the acceleration (the first derivative of velocity).</p>
 </section>
 <section id="solution-algorithm">
-<h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Permalink to this heading">#</a></h2>
+<h2>Solution Algorithm<a class="headerlink" href="#solution-algorithm" title="Link to this heading">#</a></h2>
 <p>We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-components">(21)</a>. This can be done for one direction at a time, as shown in the following code:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
@@ -662,7 +678,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>In this code, you retrieve the position of each mass as an array instead of into a single variable. Then, using array functions, you compute the distance and the accelerations.</p>
 <p>Now that you’ve calculated the acceleration, the velocity and position at the next time can be found by integration:</p>
 <div class="math notranslate nohighlight" id="equation-eq-kinematic-integration">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-kinematic-integration" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(25)<a class="headerlink" href="#equation-eq-kinematic-integration" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \dot{R}_1 &amp;= \int_0^t \ddot{R}_1 dt + \dot{R}_{1,0}\\
   \dot{R}_2 &amp;= \int_0^t \ddot{R}_2 dt + \dot{R}_{2,0}\\
   R_1 &amp;= \int_0^t \dot{R}_1 dt + R_{1,0}\\
@@ -700,7 +716,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>However, it would be inefficient to do this by hand and there are more accurate methods available. I don’t see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you’re using.</p>
 </section>
 <section id="numerical-solution-using-pre-built-libraries">
-<h2>Numerical Solution Using Pre-Built Libraries<a class="headerlink" href="#numerical-solution-using-pre-built-libraries" title="Permalink to this heading">#</a></h2>
+<h2>Numerical Solution Using Pre-Built Libraries<a class="headerlink" href="#numerical-solution-using-pre-built-libraries" title="Link to this heading">#</a></h2>
 <p>In SciPy, the function is called <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a>. In Matlab, the function is called <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/ode45.html"><code class="docutils literal notranslate"><span class="pre">ode45</span></code></a>.</p>
 <p>First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.</p>
 <div class="sd-tab-set docutils">
@@ -828,7 +844,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Finally, we construct some plots of the situation. In <a class="reference internal" href="#fig-two-body-inertial"><span class="std std-numref">Fig. 9</span></a>, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="doc std std-doc">next section</span></a>.</p>
+<p>Finally, we construct some plots of the situation. In <a class="reference internal" href="#fig-two-body-inertial"><span class="std std-numref">Fig. 9</span></a>, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="std std-doc">next section</span></a>.</p>
 <p>The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -990,7 +1006,7 @@ MATLAB</label><div class="sd-tab-content docutils">
   }
 </script>
 </div><figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.</span><a class="headerlink" href="#fig-two-body-inertial" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.</span><a class="headerlink" href="#fig-two-body-inertial" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in <a class="reference internal" href="#fig-two-body-inertial-cg-relative"><span class="std std-numref">Fig. 10</span></a>. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.</p>
@@ -1154,7 +1170,7 @@ MATLAB</label><div class="sd-tab-content docutils">
   }
 </script>
 </div><figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with the barycenter at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-cg-relative" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with the barycenter at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-cg-relative" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a> fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.</p>
@@ -1319,7 +1335,7 @@ MATLAB</label><div class="sd-tab-content docutils">
   }
 </script>
 </div><figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the orbits of the barycenter and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with <span class="math notranslate nohighlight">\(m_1\)</span> at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-m1-relative" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>. In this reference frame, the orbits of the barycenter and <span class="math notranslate nohighlight">\(m_2\)</span> appear to be ellipses with <span class="math notranslate nohighlight">\(m_1\)</span> at one of the foci.</span><a class="headerlink" href="#fig-two-body-inertial-m1-relative" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Interestingly, the equations for this solution are symmetric. We can reverse the roles of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> and have exactly the same plot as <a class="reference internal" href="#fig-two-body-inertial-m1-relative"><span class="std std-numref">Fig. 11</span></a>. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!</p>
@@ -1466,6 +1482,7 @@ MATLAB</label><div class="sd-tab-content docutils">
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1521,8 +1538,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Parabolic Trajectories (\(e = 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-orbit-equation/parabolic-trajectories';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-orbit-equation/parabolic-trajectories.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Hyperbolic Trajectories (\(e &gt; 1\))" href="hyperbolic-trajectories.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -493,53 +509,53 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="parabolic-trajectories-e-1">
-<h1>Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#parabolic-trajectories-e-1" title="Permalink to this heading">#</a></h1>
+<h1>Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#parabolic-trajectories-e-1" title="Link to this heading">#</a></h1>
 <p>For the case of <span class="math notranslate nohighlight">\(e = 1\)</span>, the orbit formula is simplified:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabola-orbit-equation">
-<span class="eqno">(142)<a class="headerlink" href="#equation-eq-parabola-orbit-equation" title="Permalink to this equation">#</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}\]</div>
+<span class="eqno">(142)<a class="headerlink" href="#equation-eq-parabola-orbit-equation" title="Link to this equation">#</a></span>\[r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}\]</div>
 <p>For <span class="math notranslate nohighlight">\(\nu\rightarrow\pi\)</span>, then <span class="math notranslate nohighlight">\(\cos\nu\rightarrow -1\)</span> and the bottom of that fraction goes to zero. Therefore, as <span class="math notranslate nohighlight">\(\nu\rightarrow\pi\)</span>, <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>!</p>
 <p>When <span class="math notranslate nohighlight">\(e = 1\)</span>, the trajectory is a parabolic shape. By convention, the apse line lies along the <span class="math notranslate nohighlight">\(x\)</span>-axis and the parabola opens to the left, as shown in <a class="reference internal" href="#fig-parabolic-orbit-definitions"><span class="std std-numref">Fig. 39</span></a>.</p>
 <figure class="align-default" id="fig-parabolic-orbit-definitions">
 <a class="reference internal image-reference" href="../_images/parabolic-orbit-definitions.svg"><img alt="../_images/parabolic-orbit-definitions.svg" height="450px" src="../_images/parabolic-orbit-definitions.svg" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Definition of distances in the parabolic trajectory. <span class="math notranslate nohighlight">\(p\)</span> is the orbital parameter.</span><a class="headerlink" href="#fig-parabolic-orbit-definitions" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Definition of distances in the parabolic trajectory. <span class="math notranslate nohighlight">\(p\)</span> is the orbital parameter.</span><a class="headerlink" href="#fig-parabolic-orbit-definitions" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>From the <em>vis viva</em> equation, conservation of energy, we find for <span class="math notranslate nohighlight">\(e = 1\)</span> that <span class="math notranslate nohighlight">\(E=0\)</span> and:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabola-vis-viva">
-<span class="eqno">(143)<a class="headerlink" href="#equation-eq-parabola-vis-viva" title="Permalink to this equation">#</a></span>\[\frac{v^2}{2} - \frac{\mu}{r} = 0\]</div>
+<span class="eqno">(143)<a class="headerlink" href="#equation-eq-parabola-vis-viva" title="Link to this equation">#</a></span>\[\frac{v^2}{2} - \frac{\mu}{r} = 0\]</div>
 <p>Then the velocity anywhere on the trajectory can be found by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabola-velocity-magnitude">
-<span class="eqno">(144)<a class="headerlink" href="#equation-eq-parabola-velocity-magnitude" title="Permalink to this equation">#</a></span>\[v = \sqrt{\frac{2\mu}{r}}\]</div>
+<span class="eqno">(144)<a class="headerlink" href="#equation-eq-parabola-velocity-magnitude" title="Link to this equation">#</a></span>\[v = \sqrt{\frac{2\mu}{r}}\]</div>
 <p>As <span class="math notranslate nohighlight">\(r\rightarrow\infty\)</span>, then <span class="math notranslate nohighlight">\(v\rightarrow 0\)</span>! Basically, <span class="math notranslate nohighlight">\(m_2\)</span> will coast out to infinity and will have exactly zero velocity when it reaches infinity.</p>
 <p>Since the path leads out and never comes back, the trajectory with <span class="math notranslate nohighlight">\(e = 1\)</span> is also called an <strong>escape trajectory</strong>. The velocity necessary to escape from <span class="math notranslate nohighlight">\(m_1\)</span> on a parabolic trajectory can then be found from the previous equation based on the current orbital radius of <span class="math notranslate nohighlight">\(m_2\)</span>.</p>
 <p>Let’s start with a circular orbit with a radius <span class="math notranslate nohighlight">\(r\)</span>. The velocity is given by Eq. <a class="reference internal" href="circular-orbits.html#equation-eq-circular-orbit-velocity">(121)</a>. Assuming that we can instantaneously boost the spacecraft velocity to a parabolic trajectory, the velocity on the parabolic trajectory at the point where it is tangent to the circle is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabola-velocity-relative-to-circle">
-<span class="eqno">(145)<a class="headerlink" href="#equation-eq-parabola-velocity-relative-to-circle" title="Permalink to this equation">#</a></span>\[v_{\text{esc}} = \sqrt{2} v_{\text{circular}}\]</div>
+<span class="eqno">(145)<a class="headerlink" href="#equation-eq-parabola-velocity-relative-to-circle" title="Link to this equation">#</a></span>\[v_{\text{esc}} = \sqrt{2} v_{\text{circular}}\]</div>
 <p>In practice, an object that is launched from Earth on an escape trajectory will not actually make it out to infinity. This is because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth if it doesn’t have any other velocity boosts.</p>
 <section id="flight-path-angle">
-<h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Permalink to this heading">#</a></h2>
+<h2>Flight Path Angle<a class="headerlink" href="#flight-path-angle" title="Link to this heading">#</a></h2>
 <p>For parabolic trajectories, the radial and azimuthal velocity components are:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabolic-velocity-components">
-<span class="eqno">(146)<a class="headerlink" href="#equation-eq-parabolic-velocity-components" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(146)<a class="headerlink" href="#equation-eq-parabolic-velocity-components" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   v_r &amp;= \frac{\mu}{h}\sin\nu \\
   v_{\perp} &amp;= \frac{\mu}{h}\left(1 + \cos\nu\right)
 \end{aligned}\end{split}\]</div>
 <p>These equations can be combined and simplified to find that the flight path angle is a simple function of the true anomaly:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabolic-flight-path-angle">
-<span class="eqno">(147)<a class="headerlink" href="#equation-eq-parabolic-flight-path-angle" title="Permalink to this equation">#</a></span>\[\phi = \frac{\nu}{2}\]</div>
+<span class="eqno">(147)<a class="headerlink" href="#equation-eq-parabolic-flight-path-angle" title="Link to this equation">#</a></span>\[\phi = \frac{\nu}{2}\]</div>
 </section>
 <section id="orbital-parameter">
-<h2>Orbital Parameter<a class="headerlink" href="#orbital-parameter" title="Permalink to this heading">#</a></h2>
+<h2>Orbital Parameter<a class="headerlink" href="#orbital-parameter" title="Link to this heading">#</a></h2>
 <p>The orbital parameter <span class="math notranslate nohighlight">\(p\)</span>, also called the semi-latus rectum, is the distance perpendicular to the apse line from the focus to the trajectory. The value is given by Eq. <a class="reference internal" href="orbital-nomenclature.html#equation-eq-semi-latus-rectum">(119)</a>. Plugging in <span class="math notranslate nohighlight">\(e = 1\)</span> to the equation for the periapsis distance, Eq. <a class="reference internal" href="orbital-nomenclature.html#equation-eq-distance-to-periapsis">(116)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabolic-periapsis-distance">
-<span class="eqno">(148)<a class="headerlink" href="#equation-eq-parabolic-periapsis-distance" title="Permalink to this equation">#</a></span>\[r_p = \frac{p}{2}\]</div>
+<span class="eqno">(148)<a class="headerlink" href="#equation-eq-parabolic-periapsis-distance" title="Link to this equation">#</a></span>\[r_p = \frac{p}{2}\]</div>
 <p>For a Cartesian coordinate system centered on the focus, periapsis is then at the point <span class="math notranslate nohighlight">\((p/2, 0)\)</span>. Thus, we can write a Cartesian equation for the parabola:</p>
 <div class="math notranslate nohighlight" id="equation-eq-parabolic-cartesian-equation">
-<span class="eqno">(149)<a class="headerlink" href="#equation-eq-parabolic-cartesian-equation" title="Permalink to this equation">#</a></span>\[x = \frac{p}{2} - \frac{y^2}{2p}\]</div>
+<span class="eqno">(149)<a class="headerlink" href="#equation-eq-parabolic-cartesian-equation" title="Link to this equation">#</a></span>\[x = \frac{p}{2} - \frac{y^2}{2p}\]</div>
 </section>
 </section>
 
@@ -600,6 +616,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -653,8 +670,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

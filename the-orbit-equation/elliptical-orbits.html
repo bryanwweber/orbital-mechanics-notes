@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Elliptical Orbits (\(0 &lt; e &lt; 1\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-orbit-equation/elliptical-orbits';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-orbit-equation/elliptical-orbits.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Parabolic Trajectories (\(e = 1\))" href="parabolic-trajectories.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -496,64 +512,64 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="elliptical-orbits-0-e-1">
-<h1>Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)<a class="headerlink" href="#elliptical-orbits-0-e-1" title="Permalink to this heading">#</a></h1>
+<h1>Elliptical Orbits (<span class="math notranslate nohighlight">\(0 &lt; e &lt; 1\)</span>)<a class="headerlink" href="#elliptical-orbits-0-e-1" title="Link to this heading">#</a></h1>
 <p>If the eccentricity is between 0 and 1, then the radius of the orbit varies with the true anomaly. However, the magnitude of the product <span class="math notranslate nohighlight">\(e \cos\nu\)</span> is never greater than one. This means that the bottom of the fraction in the orbit equation, Eq. <a class="reference internal" href="the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a>, is never zero and the orbit is an elliptical shape. The minimum value of <span class="math notranslate nohighlight">\(r\)</span> occurs at periapsis where <span class="math notranslate nohighlight">\(\nu = 0\)</span> and the maximum value of <span class="math notranslate nohighlight">\(r\)</span> is at apoapsis where <span class="math notranslate nohighlight">\(\nu = \pi\)</span>. The distance to periapsis and apoapsis are given by Eq. <a class="reference internal" href="orbital-nomenclature.html#equation-eq-distance-to-periapsis">(116)</a> and Eq. <a class="reference internal" href="orbital-nomenclature.html#equation-eq-distance-to-apoapsis">(117)</a>, respectively.</p>
 <section id="major-and-minor-axes">
-<h2>Major and Minor Axes<a class="headerlink" href="#major-and-minor-axes" title="Permalink to this heading">#</a></h2>
+<h2>Major and Minor Axes<a class="headerlink" href="#major-and-minor-axes" title="Link to this heading">#</a></h2>
 <p>The geometry of the ellipse is shown in <a class="reference internal" href="#fig-elliptical-orbit-definitions"><span class="std std-numref">Fig. 37</span></a>.</p>
 <figure class="align-default" id="fig-elliptical-orbit-definitions">
 <a class="reference internal image-reference" href="../_images/elliptical-orbit-definitions.svg"><img alt="../_images/elliptical-orbit-definitions.svg" src="../_images/elliptical-orbit-definitions.svg" width="75%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 37 </span><span class="caption-text">The geometry and definition of distances in an elliptical orbit.</span><a class="headerlink" href="#fig-elliptical-orbit-definitions" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">The geometry and definition of distances in an elliptical orbit.</span><a class="headerlink" href="#fig-elliptical-orbit-definitions" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Let <span class="math notranslate nohighlight">\(2a\)</span> denote the total distance from periapsis to apoapsis along the apse line. Then:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-semi-major-axis">
-<span class="eqno">(128)<a class="headerlink" href="#equation-eq-ellipse-semi-major-axis" title="Permalink to this equation">#</a></span>\[a = \frac{h^2}{\mu} \frac{1}{1 - e^2}\]</div>
+<span class="eqno">(128)<a class="headerlink" href="#equation-eq-ellipse-semi-major-axis" title="Link to this equation">#</a></span>\[a = \frac{h^2}{\mu} \frac{1}{1 - e^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> is the <strong>semi-major axis</strong> of the ellipse. We can then write the orbit equation, Eq. <a class="reference internal" href="the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> in terms of the semi-major axis:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-orbit-equation-semi-major-axis">
-<span class="eqno">(129)<a class="headerlink" href="#equation-eq-ellipse-orbit-equation-semi-major-axis" title="Permalink to this equation">#</a></span>\[r = a\frac{1 - e^2}{1 + e\cos\nu}\]</div>
+<span class="eqno">(129)<a class="headerlink" href="#equation-eq-ellipse-orbit-equation-semi-major-axis" title="Link to this equation">#</a></span>\[r = a\frac{1 - e^2}{1 + e\cos\nu}\]</div>
 <p>From the definition of the parameter of the orbit in Eq. <a class="reference internal" href="orbital-nomenclature.html#equation-eq-semi-latus-rectum">(119)</a>, we can see that:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-parameter-of-orbit">
-<span class="eqno">(130)<a class="headerlink" href="#equation-eq-ellipse-parameter-of-orbit" title="Permalink to this equation">#</a></span>\[p = a \left(1 - e^2\right)\]</div>
+<span class="eqno">(130)<a class="headerlink" href="#equation-eq-ellipse-parameter-of-orbit" title="Link to this equation">#</a></span>\[p = a \left(1 - e^2\right)\]</div>
 <p>Then, the distance to periapsis, in terms of the semi-major axis is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-periapsis-distance">
-<span class="eqno">(131)<a class="headerlink" href="#equation-eq-ellipse-periapsis-distance" title="Permalink to this equation">#</a></span>\[r_p = a\left(1 - e\right)\]</div>
+<span class="eqno">(131)<a class="headerlink" href="#equation-eq-ellipse-periapsis-distance" title="Link to this equation">#</a></span>\[r_p = a\left(1 - e\right)\]</div>
 <p>and the distance from <span class="math notranslate nohighlight">\(m_1\)</span> to the center of the ellipse is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-center-to-focus-distance">
-<span class="eqno">(132)<a class="headerlink" href="#equation-eq-ellipse-center-to-focus-distance" title="Permalink to this equation">#</a></span>\[c = ae = a - r_p\]</div>
+<span class="eqno">(132)<a class="headerlink" href="#equation-eq-ellipse-center-to-focus-distance" title="Link to this equation">#</a></span>\[c = ae = a - r_p\]</div>
 <p>If <span class="math notranslate nohighlight">\(B\)</span> is the point on the orbit directly above <span class="math notranslate nohighlight">\(C\)</span>, the center, then <span class="math notranslate nohighlight">\(b\)</span> is the distance of the <strong>semi-minor axis</strong>. The semi-minor axis can then be found in terms of the semi-major axis and the eccentricity:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-semi-minor-axis">
-<span class="eqno">(133)<a class="headerlink" href="#equation-eq-ellipse-semi-minor-axis" title="Permalink to this equation">#</a></span>\[b = a\sqrt{1 - e^2}\]</div>
+<span class="eqno">(133)<a class="headerlink" href="#equation-eq-ellipse-semi-minor-axis" title="Link to this equation">#</a></span>\[b = a\sqrt{1 - e^2}\]</div>
 </section>
 <section id="specific-energy">
-<h2>Specific Energy<a class="headerlink" href="#specific-energy" title="Permalink to this heading">#</a></h2>
+<h2>Specific Energy<a class="headerlink" href="#specific-energy" title="Link to this heading">#</a></h2>
 <p>The specific energy of the orbit is found in terms of the semi-major axis as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-specific-energy">
-<span class="eqno">(134)<a class="headerlink" href="#equation-eq-ellipse-specific-energy" title="Permalink to this equation">#</a></span>\[E = -\frac{\mu}{2a}\]</div>
+<span class="eqno">(134)<a class="headerlink" href="#equation-eq-ellipse-specific-energy" title="Link to this equation">#</a></span>\[E = -\frac{\mu}{2a}\]</div>
 <p>which is the same formula as the circular orbit, with the radius equal to the semi-major axis. In addition, the specific energy depends only on the semi-major axis, and is independent of the eccentricity.</p>
 </section>
 <section id="period">
-<h2>Period<a class="headerlink" href="#period" title="Permalink to this heading">#</a></h2>
+<h2>Period<a class="headerlink" href="#period" title="Link to this heading">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Interestingly, there is no formula to calculate the perimeter of an ellipse. This was discussed recently by <a class="reference external" href="https://youtu.be/5nW3nJhBHL0">Stand Up Maths</a>, where I first found out about it.</p>
 </aside>
 <p>The period of the elliptical orbit can be found in terms of the semi-major and semi-minor axes. The area of an ellipse is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-area">
-<span class="eqno">(135)<a class="headerlink" href="#equation-eq-ellipse-area" title="Permalink to this equation">#</a></span>\[A = \pi a b\]</div>
+<span class="eqno">(135)<a class="headerlink" href="#equation-eq-ellipse-area" title="Link to this equation">#</a></span>\[A = \pi a b\]</div>
 <p>From Kepler’s second law (equal areas in equal times), given by Eq. <a class="reference internal" href="../constants-of-orbital-motion/orbital-plane-and-keplers-second-law.html#equation-eq-areal-velocity-definition">(109)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-area-time-relation">
-<span class="eqno">(136)<a class="headerlink" href="#equation-eq-ellipse-area-time-relation" title="Permalink to this equation">#</a></span>\[A = \frac{h}{2} \Delta t\]</div>
+<span class="eqno">(136)<a class="headerlink" href="#equation-eq-ellipse-area-time-relation" title="Link to this equation">#</a></span>\[A = \frac{h}{2} \Delta t\]</div>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> is the complete area of the ellipse, then <span class="math notranslate nohighlight">\(\Delta t\)</span> is the period <span class="math notranslate nohighlight">\(T\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-period-definition">
-<span class="eqno">(137)<a class="headerlink" href="#equation-eq-ellipse-period-definition" title="Permalink to this equation">#</a></span>\[T = \frac{2\pi ab}{h}\]</div>
+<span class="eqno">(137)<a class="headerlink" href="#equation-eq-ellipse-period-definition" title="Link to this equation">#</a></span>\[T = \frac{2\pi ab}{h}\]</div>
 <p>Subbing the expressions for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-period-useful">
-<span class="eqno">(138)<a class="headerlink" href="#equation-eq-ellipse-period-useful" title="Permalink to this equation">#</a></span>\[T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}\]</div>
+<span class="eqno">(138)<a class="headerlink" href="#equation-eq-ellipse-period-useful" title="Link to this equation">#</a></span>\[T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}\]</div>
 <p>which is also the same formula as a circle, with the semi-major axis in the role of the radius. Note that this formula is also independent of the eccentricity. This equation represents Kepler’s third law:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -561,25 +577,25 @@ document.write(`
 <figure class="align-default" id="fig-solar-system-orbital-period-vs-semimajor-axis">
 <a class="reference internal image-reference" href="../_images/Solar_system_orbital_period_vs_semimajor_axis.svg"><img alt="../_images/Solar_system_orbital_period_vs_semimajor_axis.svg" src="../_images/Solar_system_orbital_period_vs_semimajor_axis.svg" width="50%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Log-log plot of orbital period in Earth years vs orbit semi-major axis in AU of some Solar System bodies. Crosses denote values used by Kepler. Data is from <a class="reference external" href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html">NASA</a>. Credit <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Solar_system_orbital_period_vs_semimajor_axis.svg">Cmglee</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-solar-system-orbital-period-vs-semimajor-axis" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Log-log plot of orbital period in Earth years vs orbit semi-major axis in AU of some Solar System bodies. Crosses denote values used by Kepler. Data is from <a class="reference external" href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html">NASA</a>. Credit <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Solar_system_orbital_period_vs_semimajor_axis.svg">Cmglee</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-solar-system-orbital-period-vs-semimajor-axis" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="eccentricity">
-<h2>Eccentricity<a class="headerlink" href="#eccentricity" title="Permalink to this heading">#</a></h2>
+<h2>Eccentricity<a class="headerlink" href="#eccentricity" title="Link to this heading">#</a></h2>
 <p>The eccentricity of the orbit can be determined if the distances to periapsis and apoapsis are known. By dividing the equations for <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-periapsis-apoapsis-ratio">
-<span class="eqno">(139)<a class="headerlink" href="#equation-eq-ellipse-periapsis-apoapsis-ratio" title="Permalink to this equation">#</a></span>\[\frac{r_p}{r_a} = \frac{1 - e}{1 + e}\]</div>
+<span class="eqno">(139)<a class="headerlink" href="#equation-eq-ellipse-periapsis-apoapsis-ratio" title="Link to this equation">#</a></span>\[\frac{r_p}{r_a} = \frac{1 - e}{1 + e}\]</div>
 <p>Solving Eq. <a class="reference internal" href="#equation-eq-ellipse-periapsis-apoapsis-ratio">(139)</a> for the eccentricity:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-eccentricity-periapsis-apoapsis">
-<span class="eqno">(140)<a class="headerlink" href="#equation-eq-ellipse-eccentricity-periapsis-apoapsis" title="Permalink to this equation">#</a></span>\[e = \frac{r_a - r_p}{r_a + r_p}\]</div>
+<span class="eqno">(140)<a class="headerlink" href="#equation-eq-ellipse-eccentricity-periapsis-apoapsis" title="Link to this equation">#</a></span>\[e = \frac{r_a - r_p}{r_a + r_p}\]</div>
 </section>
 <section id="average-radial-distance">
-<h2>Average Radial Distance<a class="headerlink" href="#average-radial-distance" title="Permalink to this heading">#</a></h2>
+<h2>Average Radial Distance<a class="headerlink" href="#average-radial-distance" title="Link to this heading">#</a></h2>
 <p>One final interesting parameter of the orbit is the average distance from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span> over the orbit. This is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-average-radial-distance">
-<span class="eqno">(141)<a class="headerlink" href="#equation-eq-ellipse-average-radial-distance" title="Permalink to this equation">#</a></span>\[\overline{r}_{\nu} = a\sqrt{1 - e^2} = b = \sqrt{r_p r_a}\]</div>
+<span class="eqno">(141)<a class="headerlink" href="#equation-eq-ellipse-average-radial-distance" title="Link to this equation">#</a></span>\[\overline{r}_{\nu} = a\sqrt{1 - e^2} = b = \sqrt{r_p r_a}\]</div>
 <p>where the <span class="math notranslate nohighlight">\(\nu\)</span> subscript indicates that this average is performed over all the values of the true anomaly. Thus, we can see that the average orbital radius is equal to the semi-minor axis, or the square root of the product of the periapsis and apoapsis.</p>
 </section>
 </section>
@@ -641,6 +657,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -697,8 +714,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

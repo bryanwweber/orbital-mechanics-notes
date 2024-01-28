@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>The Jacobi Constant &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/jacobi-constant';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/jacobi-constant.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Example: CR3BP Equations of Motion" href="Equations-of-Motion-CR3BP.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -495,14 +511,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-jacobi-constant">
-<h1>The Jacobi Constant<a class="headerlink" href="#the-jacobi-constant" title="Permalink to this heading">#</a></h1>
+<h1>The Jacobi Constant<a class="headerlink" href="#the-jacobi-constant" title="Link to this heading">#</a></h1>
 <p>Let’s return now to the graph of the potential function, <a class="reference internal" href="lagrange-points.html#fig-pseudo-potential-energy-cr3bp"><span class="std std-numref">Fig. 17</span></a>. The potential function represents the <strong>potential energy</strong> that the tertiary mass will have if it is located at a given <span class="math notranslate nohighlight">\(x^*\)</span>-<span class="math notranslate nohighlight">\(y^*\)</span> point in the orbital plane. The tertiary mass will also have some speed, <span class="math notranslate nohighlight">\(v^*\)</span>, with a corresponding <strong>kinetic energy</strong>.</p>
 <p>From the law of conservation of energy, we know that the sum of the kinetic and potential energies of the tertiary mass will be constant. We will use the fact that energy is constant to determine what areas of space are accessible for the tertiary mass with a certain initial condition.</p>
 <section id="potential-energy">
-<h2>Potential Energy<a class="headerlink" href="#potential-energy" title="Permalink to this heading">#</a></h2>
+<h2>Potential Energy<a class="headerlink" href="#potential-energy" title="Link to this heading">#</a></h2>
 <p>The potential energy is given in Eq. <a class="reference internal" href="lagrange-points.html#equation-eq-pseudo-potential-energy-cr3bp">(87)</a> and repeated here:</p>
 <div class="math notranslate nohighlight">
 \[U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]\]</div>
@@ -514,17 +530,17 @@ document.write(`
 </ol>
 </section>
 <section id="kinetic-energy">
-<h2>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this heading">#</a></h2>
+<h2>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Link to this heading">#</a></h2>
 <p>The mass-specific kinetic energy is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mass-specific-ke-cr3bp">
-<span class="eqno">(89)<a class="headerlink" href="#equation-eq-mass-specific-ke-cr3bp" title="Permalink to this equation">#</a></span>\[\frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]\]</div>
+<span class="eqno">(89)<a class="headerlink" href="#equation-eq-mass-specific-ke-cr3bp" title="Link to this equation">#</a></span>\[\frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]\]</div>
 <p>Combining Eqs. <a class="reference internal" href="lagrange-points.html#equation-eq-pseudo-potential-energy-cr3bp">(87)</a> and <a class="reference internal" href="#equation-eq-mass-specific-ke-cr3bp">(89)</a>, we find from conservation of energy:</p>
 <div class="math notranslate nohighlight" id="equation-eq-jacobi-constant-cr3bp">
-<span class="eqno">(90)<a class="headerlink" href="#equation-eq-jacobi-constant-cr3bp" title="Permalink to this equation">#</a></span>\[\frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] = J\]</div>
+<span class="eqno">(90)<a class="headerlink" href="#equation-eq-jacobi-constant-cr3bp" title="Link to this equation">#</a></span>\[\frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] = J\]</div>
 <p>The constant <span class="math notranslate nohighlight">\(J\)</span> is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Jacobi_integral"><strong>Jacobi Constant</strong></a>, and represents the total energy of the tertiary mass relative to the rotating reference frame.</p>
 </section>
 <section id="interpreting-the-jacobi-constant">
-<h2>Interpreting the Jacobi Constant<a class="headerlink" href="#interpreting-the-jacobi-constant" title="Permalink to this heading">#</a></h2>
+<h2>Interpreting the Jacobi Constant<a class="headerlink" href="#interpreting-the-jacobi-constant" title="Link to this heading">#</a></h2>
 <p>Since <span class="math notranslate nohighlight">\(J\)</span> is a constant, the total energy of the tertiary mass is fixed. The tertiary mass can trade kinetic energy for potential energy, and vice versa, but the total energy cannot change. This leads to two conclusions.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -534,7 +550,7 @@ document.write(`
 <p>Assume now that the velocity of the mass is <span class="math notranslate nohighlight">\(v^*_2\)</span> and the position is <span class="math notranslate nohighlight">\(\left(x^*_2, y^*_2\right)\)</span> so that the potential energy is <span class="math notranslate nohighlight">\(U_2\)</span>. Then the Jacobi constant is equal to the sum of the kinetic and potential energies. If the mass wants to climb up the potential energy surface, it can trade kinetic energy for potential energy. Eventually, however, the kinetic energy and the velocity will go to zero, and the mass cannot climb any higher!</p>
 </section>
 <section id="forbidden-regions">
-<h2>Forbidden Regions<a class="headerlink" href="#forbidden-regions" title="Permalink to this heading">#</a></h2>
+<h2>Forbidden Regions<a class="headerlink" href="#forbidden-regions" title="Link to this heading">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>Koon et al. <span id="id1">[<a class="reference internal" href="../bibliography.html#id16" title="Wang Sang Koon, Martin W. Lo, Jerrold E. Marsden, and Shane D. Ross. Dynamical Systems, the Three-Body Problem, and Space Mission Design. CalTech, 1.2 edition, April 2011.">KLMR11</a>]</span> also refer to the area where a particle cannot enter as the <strong>Hill’s region</strong>.</p>
@@ -543,13 +559,13 @@ document.write(`
 <p>As the mass moves, it exchanges energy between kinetic energy (velocity) and potential energy (position). At some position, the <span class="math notranslate nohighlight">\(J\)</span> will be equal to <span class="math notranslate nohighlight">\(U\)</span>, and the velocity will be (by definition) zero. Thus, the mass cannot travel any further in that direction.</p>
 <p>For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting <span class="math notranslate nohighlight">\(v^* =\)</span> 0 in Eq. <a class="reference internal" href="#equation-eq-jacobi-constant-cr3bp">(90)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-jacobi-contours-zero-velocity">
-<span class="eqno">(91)<a class="headerlink" href="#equation-eq-jacobi-contours-zero-velocity" title="Permalink to this equation">#</a></span>\[\frac{2 \left(1 - \pi_2\right)}{\sigma} + \frac{2 \pi_2}{\psi} + \left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] + 2J = 0\]</div>
+<span class="eqno">(91)<a class="headerlink" href="#equation-eq-jacobi-contours-zero-velocity" title="Link to this equation">#</a></span>\[\frac{2 \left(1 - \pi_2\right)}{\sigma} + \frac{2 \pi_2}{\psi} + \left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right] + 2J = 0\]</div>
 <p>Since the first three terms on the left are all positive, zero velocity curves correspond to negative values of the Jacobi constant.</p>
 <p><a class="reference internal" href="#fig-jacobi-forbidden-regions"><span class="std std-numref">Fig. 21</span></a> plots the forbidden regions, shown as shaded areas, for several values of <span class="math notranslate nohighlight">\(J\)</span>.</p>
 <figure class="align-default" id="fig-jacobi-forbidden-regions">
 <img alt="../_images/45d3b6e887f44e336c6a6240aae1e89994770edfd34fcc65a5780c571eb56658.png" src="../_images/45d3b6e887f44e336c6a6240aae1e89994770edfd34fcc65a5780c571eb56658.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">The forbidden regions in the Earth-Moon system, for varying values of the Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>.</span><a class="headerlink" href="#fig-jacobi-forbidden-regions" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">The forbidden regions in the Earth-Moon system, for varying values of the Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>.</span><a class="headerlink" href="#fig-jacobi-forbidden-regions" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>At a given instant, assume that the position and and velocity of the satellite are known, such that <span class="math notranslate nohighlight">\(J\)</span> can be calculated. <a class="reference internal" href="#fig-jacobi-forbidden-regions"><span class="std std-numref">Fig. 21</span></a> tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.</p>
@@ -617,6 +633,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -672,8 +689,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

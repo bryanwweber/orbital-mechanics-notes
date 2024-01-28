@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Classical Orbital Elements and the State Vector &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'classical-orbital-elements/orbital-elements-and-the-state-vector';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/classical-orbital-elements/orbital-elements-and-the-state-vector.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Time Since Periapsis, Mean Anomaly, and Eccentric Anomaly" href="../time-since-periapsis-and-keplers-equation/time-since-periapsis.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -506,13 +522,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="classical-orbital-elements-and-the-state-vector">
-<h1>Classical Orbital Elements and the State Vector<a class="headerlink" href="#classical-orbital-elements-and-the-state-vector" title="Permalink to this heading">#</a></h1>
-<p>As we saw in the <a class="reference internal" href="classical-orbital-elements.html"><span class="doc std std-doc">last section</span></a>, we can replace the six elements in the state vector with six orbital elements which describe the orbit. If the position and velocity vectors are known, we need to be able to convert them to the classical orbital elements. Likewise, if we have six independent orbital elements, we might want to convert them into a state vector.</p>
+<h1>Classical Orbital Elements and the State Vector<a class="headerlink" href="#classical-orbital-elements-and-the-state-vector" title="Link to this heading">#</a></h1>
+<p>As we saw in the <a class="reference internal" href="classical-orbital-elements.html"><span class="std std-doc">last section</span></a>, we can replace the six elements in the state vector with six orbital elements which describe the orbit. If the position and velocity vectors are known, we need to be able to convert them to the classical orbital elements. Likewise, if we have six independent orbital elements, we might want to convert them into a state vector.</p>
 <section id="state-vector-orbital-elements">
-<h2>State Vector → Orbital Elements<a class="headerlink" href="#state-vector-orbital-elements" title="Permalink to this heading">#</a></h2>
+<h2>State Vector → Orbital Elements<a class="headerlink" href="#state-vector-orbital-elements" title="Link to this heading">#</a></h2>
 <p>Let’s assume that we are given the state vector, composed of <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> at some time <span class="math notranslate nohighlight">\(t_0\)</span>. We would like to determine the six classical orbital elements:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(h\)</span></p></li>
@@ -524,13 +540,13 @@ document.write(`
 </ol>
 <p>As we discussed previously, this set of six elements is not unique; for instance, the orbital angular momentum <span class="math notranslate nohighlight">\(h\)</span> can be replaced by the semi-major axis distance, <span class="math notranslate nohighlight">\(a\)</span>. Nonetheless, this set of six is a convenient set to calculate and other elements can be determined from this set.</p>
 <section id="step-1position-and-velocity-magnitudes">
-<h3>Step 1—Position and Velocity Magnitudes<a class="headerlink" href="#step-1position-and-velocity-magnitudes" title="Permalink to this heading">#</a></h3>
+<h3>Step 1—Position and Velocity Magnitudes<a class="headerlink" href="#step-1position-and-velocity-magnitudes" title="Link to this heading">#</a></h3>
 <p>The first step in the conversion is to calculate <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(v_r\)</span>, and <span class="math notranslate nohighlight">\(v_{\perp}\)</span>. Recall that the radial velocity is the projection of the velocity vector onto the unit radial vector:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-elements-radial-velocity">
-<span class="eqno">(172)<a class="headerlink" href="#equation-orbital-elements-radial-velocity" title="Permalink to this equation">#</a></span>\[v_r = \vector{v} \cdot \frac{\vector{r}}{r}\]</div>
+<span class="eqno">(172)<a class="headerlink" href="#equation-orbital-elements-radial-velocity" title="Link to this equation">#</a></span>\[v_r = \vector{v} \cdot \frac{\vector{r}}{r}\]</div>
 <p>and we can subsequently find the azimuthal velocity by the Pythagorean theorem:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-elements-perpendicular-velocity">
-<span class="eqno">(173)<a class="headerlink" href="#equation-orbital-elements-perpendicular-velocity" title="Permalink to this equation">#</a></span>\[v_{\perp} = \sqrt{v^2 - v_r^2}\]</div>
+<span class="eqno">(173)<a class="headerlink" href="#equation-orbital-elements-perpendicular-velocity" title="Link to this equation">#</a></span>\[v_{\perp} = \sqrt{v^2 - v_r^2}\]</div>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-0">
@@ -567,7 +583,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>For this example, we find <span class="math notranslate nohighlight">\(r =\)</span> <span class="pasted-text">8660.254</span> km, <span class="math notranslate nohighlight">\(v =\)</span> <span class="pasted-text">7.071</span> km/s, <span class="math notranslate nohighlight">\(v_r =\)</span> <span class="pasted-text">6.697</span> km/s, and <span class="math notranslate nohighlight">\(v_{\perp} =\)</span> <span class="pasted-text">2.269</span> km/s.</p>
 </section>
 <section id="step-2orbital-angular-momentum">
-<h3>Step 2—Orbital Angular Momentum<a class="headerlink" href="#step-2orbital-angular-momentum" title="Permalink to this heading">#</a></h3>
+<h3>Step 2—Orbital Angular Momentum<a class="headerlink" href="#step-2orbital-angular-momentum" title="Link to this heading">#</a></h3>
 <p>Next, we need to calculate the orbital angular momentum. By definition, <span class="math notranslate nohighlight">\(\vector{h} = \vector{r}\cross\vector{v}\)</span>. We also need the magnitude of the angular momentum.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
@@ -591,10 +607,10 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>We find <span class="math notranslate nohighlight">\(\vector{h} =\)</span> <span class="pasted-text">-3000</span> <span class="math notranslate nohighlight">\(\uvec{I}\)</span> + <span class="pasted-text">16000</span> <span class="math notranslate nohighlight">\(\uvec{J}\)</span> - <span class="pasted-text">11000</span> <span class="math notranslate nohighlight">\(\uvec{K}\)</span> km<sup>2</sup>/s and <span class="math notranslate nohighlight">\(h =\)</span> <span class="pasted-text">19646.883</span> km<sup>2</sup>/s. Notice that the <span class="math notranslate nohighlight">\(Z\)</span> component of the angular momentum is negative. This means the momentum vector is pointing down and the orbit is retrograde. The magnitude of the orbital angular momentum is the first orbital element.</p>
 </section>
 <section id="step-3inclination">
-<h3>Step 3—Inclination<a class="headerlink" href="#step-3inclination" title="Permalink to this heading">#</a></h3>
+<h3>Step 3—Inclination<a class="headerlink" href="#step-3inclination" title="Link to this heading">#</a></h3>
 <p>Once the angular momentum is calculated, we can calculate the inclination, <span class="math notranslate nohighlight">\(i\)</span>. Let’s form a right triangle with one leg as the <span class="math notranslate nohighlight">\(Z\)</span> component of the angular momentum and the hypotenuse as the magnitude of the angular momentum. Then the inclination is the angle adjacent to <span class="math notranslate nohighlight">\(h_Z\)</span> and can be found by the inverse cosine, as shown in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-inclination">(174)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-inclination">
-<span class="eqno">(174)<a class="headerlink" href="#equation-eq-orbital-elements-inclination" title="Permalink to this equation">#</a></span>\[i = \cos^{-1}\left(\frac{h_Z}{h}\right)\]</div>
+<span class="eqno">(174)<a class="headerlink" href="#equation-eq-orbital-elements-inclination" title="Link to this equation">#</a></span>\[i = \cos^{-1}\left(\frac{h_Z}{h}\right)\]</div>
 <p>Since the inclination is restricted to lie between 0° and 180°, we do not need to worry about the quadrant ambiguity inherent in the inverse cosine function.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
@@ -616,18 +632,18 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>The inclination of this orbit is <span class="math notranslate nohighlight">\(i =\)</span> <span class="pasted-text">124.05</span>°. We know for retrograde orbits, the inclination must be between 90° and 180°, which is the case here. The inclination is the second orbital element.</p>
 </section>
 <section id="step-4right-ascension-of-the-ascending-node">
-<h3>Step 4—Right Ascension of the Ascending Node<a class="headerlink" href="#step-4right-ascension-of-the-ascending-node" title="Permalink to this heading">#</a></h3>
+<h3>Step 4—Right Ascension of the Ascending Node<a class="headerlink" href="#step-4right-ascension-of-the-ascending-node" title="Link to this heading">#</a></h3>
 <p>Next, we will calculate the right ascension of the ascending node. The ascending node is the point on the line of nodes where the spacecraft ascends above the reference plane. Since the line of nodes is defined by the intersection of the orbital plane and the reference plane, it must lie in both planes.</p>
 <p>Therefore, the node line is perpendicular to the normal vectors of both the reference plane and the orbital plane. We can find the perpendicular vector by taking the cross product of a vector normal to the reference plane and a vector normal to the orbital plane. For convenience, we choose the <span class="math notranslate nohighlight">\(\uvec{K}\)</span> vector and the <span class="math notranslate nohighlight">\(\vector{h}\)</span> vector, as shown in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-node-line">(175)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-node-line">
-<span class="eqno">(175)<a class="headerlink" href="#equation-eq-orbital-elements-node-line" title="Permalink to this equation">#</a></span>\[\vector{N} = \uvec{K}\cross\vector{h}\]</div>
+<span class="eqno">(175)<a class="headerlink" href="#equation-eq-orbital-elements-node-line" title="Link to this equation">#</a></span>\[\vector{N} = \uvec{K}\cross\vector{h}\]</div>
 <p>Then, similar to the inclination, we form a right triangle where the <span class="math notranslate nohighlight">\(X\)</span> component of <span class="math notranslate nohighlight">\(\vector{N}\)</span> is one leg and the magnitude of <span class="math notranslate nohighlight">\(\vector{N}\)</span> is the hypotenuse. The right ascension of the ascending node is the angle adjacent to <span class="math notranslate nohighlight">\(N_X\)</span> so it can be found by the inverse cosine, as shown in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-omega">(176)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-omega">
-<span class="eqno">(176)<a class="headerlink" href="#equation-eq-orbital-elements-omega" title="Permalink to this equation">#</a></span>\[\Omega = \cos^{-1}\left(\frac{N_X}{N}\right)\]</div>
+<span class="eqno">(176)<a class="headerlink" href="#equation-eq-orbital-elements-omega" title="Link to this equation">#</a></span>\[\Omega = \cos^{-1}\left(\frac{N_X}{N}\right)\]</div>
 <p>However, unlike the inclination, <span class="math notranslate nohighlight">\(\Omega\)</span> can vary from 0° to 360°, so we need to determine the appropriate quadrant for the resulting angle. We can do this by comparing the sign of the <span class="math notranslate nohighlight">\(Y\)</span> component of <span class="math notranslate nohighlight">\(\vector{N}\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(N_Y \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{N}\)</span> must be pointing to the first or second quadrant and 0° ≤ <span class="math notranslate nohighlight">\(\Omega\)</span> ≤ 180°. If <span class="math notranslate nohighlight">\(N_Y &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{N}\)</span> must be pointing to the third or fourth quadrant, so 180° &lt; <span class="math notranslate nohighlight">\(\Omega\)</span> &lt; 360°. We can express this fully with the conditions in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-raan">(177)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-raan">
-<span class="eqno">(177)<a class="headerlink" href="#equation-eq-orbital-elements-raan" title="Permalink to this equation">#</a></span>\[\begin{split}\Omega = \begin{cases}
+<span class="eqno">(177)<a class="headerlink" href="#equation-eq-orbital-elements-raan" title="Link to this equation">#</a></span>\[\begin{split}\Omega = \begin{cases}
 \cos^{-1}\left(\frac{N_X}{N}\right) &amp; N_Y \geq 0 \\
 2\pi - \cos^{-1}\left(\frac{N_X}{N}\right) &amp; N_Y &lt; 0
 \end{cases}\end{split}\]</div>
@@ -657,17 +673,17 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>For this problem, we find <span class="math notranslate nohighlight">\(N_Y =\)</span> <span class="pasted-text">-3000</span>, so the right ascension of the ascending node is in the third or fourth quadrant. Then, we find <span class="math notranslate nohighlight">\(\Omega =\)</span> <span class="pasted-text">190.62</span>°. The right ascension of the ascending node is the third orbital element.</p>
 </section>
 <section id="step-5eccentricity">
-<h3>Step 5—Eccentricity<a class="headerlink" href="#step-5eccentricity" title="Permalink to this heading">#</a></h3>
+<h3>Step 5—Eccentricity<a class="headerlink" href="#step-5eccentricity" title="Link to this heading">#</a></h3>
 <p>The fourth orbital element is the eccentricity. Way back in Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-vector-orbit-equation">(112)</a>, we found the eccentricity vector as the constant of integration of the equation of motion. Repeating the equation here:</p>
 <div class="math notranslate nohighlight">
 \[\vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu} - \frac{\vector{r}}{r}\]</div>
 <p>If you’re using a computer to do calculations, this form is the simplest to use. However, we can replace the cross product and simplify Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-vector-orbit-equation">(112)</a> somewhat.</p>
 <div class="math notranslate nohighlight" id="equation-eq-simplified-eccentricity-vector">
-<span class="eqno">(178)<a class="headerlink" href="#equation-eq-simplified-eccentricity-vector" title="Permalink to this equation">#</a></span>\[\vector{e} = \frac{1}{\mu}\left[\left(v^2 - \frac{\mu}{r}\right)\vector{r} - r v_r \vector{v}\right]\]</div>
+<span class="eqno">(178)<a class="headerlink" href="#equation-eq-simplified-eccentricity-vector" title="Link to this equation">#</a></span>\[\vector{e} = \frac{1}{\mu}\left[\left(v^2 - \frac{\mu}{r}\right)\vector{r} - r v_r \vector{v}\right]\]</div>
 <p>Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-vector">(178)</a> is useful if you’re doing calculations out by hand, since you don’t have to do any cross products, only scalar multiplications of the vectors.</p>
 <p>The magnitude of the eccentricity can be found in the usual method programmatically, or with a form simplified from Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-vector">(178)</a>, as shown in Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-magnitude">(179)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-simplified-eccentricity-magnitude">
-<span class="eqno">(179)<a class="headerlink" href="#equation-eq-simplified-eccentricity-magnitude" title="Permalink to this equation">#</a></span>\[e = \sqrt{1 + \frac{h^2}{\mu}\left(v^2 - \frac{2\mu}{r}\right)}\]</div>
+<span class="eqno">(179)<a class="headerlink" href="#equation-eq-simplified-eccentricity-magnitude" title="Link to this equation">#</a></span>\[e = \sqrt{1 + \frac{h^2}{\mu}\left(v^2 - \frac{2\mu}{r}\right)}\]</div>
 <p>Again, Eq. <a class="reference internal" href="#equation-eq-simplified-eccentricity-magnitude">(179)</a> is useful for hand calculations.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
@@ -703,18 +719,18 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>The eccentricity of this orbit is <span class="math notranslate nohighlight">\(e =\)</span> <span class="pasted-text">0.948</span>, so the orbit is a very eccentric ellipse.</p>
 </section>
 <section id="step-6argument-of-periapsis">
-<h3>Step 6—Argument of Periapsis<a class="headerlink" href="#step-6argument-of-periapsis" title="Permalink to this heading">#</a></h3>
+<h3>Step 6—Argument of Periapsis<a class="headerlink" href="#step-6argument-of-periapsis" title="Link to this heading">#</a></h3>
 <p>The last two orbital elements are found using the algebraic definition of the dot product, Eq. <a class="reference internal" href="#equation-eq-dot-product-definition">(180)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-dot-product-definition">
-<span class="eqno">(180)<a class="headerlink" href="#equation-eq-dot-product-definition" title="Permalink to this equation">#</a></span>\[\vector{A}\cdot\vector{B} = A B \cos\theta\]</div>
+<span class="eqno">(180)<a class="headerlink" href="#equation-eq-dot-product-definition" title="Link to this equation">#</a></span>\[\vector{A}\cdot\vector{B} = A B \cos\theta\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{A}\)</span> and <span class="math notranslate nohighlight">\(\vector{B}\)</span> are arbitrary vectors, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are their magnitudes, and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the vectors.</p>
 <p>By definition, the eccentricity vector points towards periapsis. Moreover, the argument of periapsis is the angle from the ascending node to periapsis following around the orbit. In other words, the argument of periapsis is the angle between the eccentricity vector <span class="math notranslate nohighlight">\(\vector{e}\)</span> and the node line <span class="math notranslate nohighlight">\(\vector{N}\)</span>. We can solve for <span class="math notranslate nohighlight">\(\omega\)</span> by using Eq. <a class="reference internal" href="#equation-eq-dot-product-definition">(180)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-omega-lowercase">
-<span class="eqno">(181)<a class="headerlink" href="#equation-eq-orbital-elements-omega-lowercase" title="Permalink to this equation">#</a></span>\[\omega = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)\]</div>
+<span class="eqno">(181)<a class="headerlink" href="#equation-eq-orbital-elements-omega-lowercase" title="Link to this equation">#</a></span>\[\omega = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)\]</div>
 <p>Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the <span class="math notranslate nohighlight">\(Z\)</span> component of <span class="math notranslate nohighlight">\(\vector{e}\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(e_Z \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{e}\)</span> points up and periapsis must be between the ascending node and descending node, so 0° ≤ <span class="math notranslate nohighlight">\(\omega\)</span> ≤ 180°. On the other hand, if <span class="math notranslate nohighlight">\(e_Z &lt; 0\)</span>, then periapsis must be between the descending and ascending nodes, and 180° &lt; <span class="math notranslate nohighlight">\(\omega\)</span> &lt; 360°. We can express this fully with the conditions in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-aop">(182)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-aop">
-<span class="eqno">(182)<a class="headerlink" href="#equation-eq-orbital-elements-aop" title="Permalink to this equation">#</a></span>\[\begin{split}\omega = \begin{cases}
+<span class="eqno">(182)<a class="headerlink" href="#equation-eq-orbital-elements-aop" title="Link to this equation">#</a></span>\[\begin{split}\omega = \begin{cases}
 \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)) &amp; e_Z \geq 0 \\
 2\pi - \cos^{-1}\left(\frac{\vector{e}\cdot\vector{N}}{e N}\right)) &amp; e_Z &lt; 0
 \end{cases}\end{split}\]</div>
@@ -738,14 +754,14 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>For this problem, we find <span class="math notranslate nohighlight">\(e_Z =\)</span> <span class="pasted-text">-0.6578</span>, so the argument of periapsis is in the third or fourth quadrant. Then, we find <span class="math notranslate nohighlight">\(\omega =\)</span> <span class="pasted-text">303.09</span>°. The argument of periapsis is the fifth orbital element.</p>
 </section>
 <section id="step-7true-anomaly">
-<h3>Step 7—True Anomaly<a class="headerlink" href="#step-7true-anomaly" title="Permalink to this heading">#</a></h3>
+<h3>Step 7—True Anomaly<a class="headerlink" href="#step-7true-anomaly" title="Link to this heading">#</a></h3>
 <p>The final orbital element is the true anomaly, <span class="math notranslate nohighlight">\(\nu\)</span>. The true anomaly is the angle from the apse line to the position vector. In other words, it is the angle between <span class="math notranslate nohighlight">\(\vector{e}\)</span> and <span class="math notranslate nohighlight">\(\vector{r}\)</span>. We can solve for <span class="math notranslate nohighlight">\(\nu\)</span> by using Eq. <a class="reference internal" href="#equation-eq-dot-product-definition">(180)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-nu">
-<span class="eqno">(183)<a class="headerlink" href="#equation-eq-orbital-elements-nu" title="Permalink to this equation">#</a></span>\[\nu = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right)\]</div>
+<span class="eqno">(183)<a class="headerlink" href="#equation-eq-orbital-elements-nu" title="Link to this equation">#</a></span>\[\nu = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right)\]</div>
 <p>Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the radial component of the velocity, <span class="math notranslate nohighlight">\(v_r\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(v_r \geq 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{r}\)</span> is increasing in length and the spacecraft must be flying away from periapsis, so 0° ≤ <span class="math notranslate nohighlight">\(\nu\)</span> &lt; 180°. On the other hand, if <span class="math notranslate nohighlight">\(v_r &lt; 0\)</span>, then <span class="math notranslate nohighlight">\(\vector{r}\)</span> must be getting shorter and the spacecraft must be flying towards periapsis, such that 180° ≤ <span class="math notranslate nohighlight">\(\nu\)</span> &lt; 360°. We can express this fully with the conditions in Eq. <a class="reference internal" href="#equation-eq-orbital-elements-true-anomaly">(184)</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-orbital-elements-true-anomaly">
-<span class="eqno">(184)<a class="headerlink" href="#equation-eq-orbital-elements-true-anomaly" title="Permalink to this equation">#</a></span>\[\begin{split}\nu = \begin{cases}
+<span class="eqno">(184)<a class="headerlink" href="#equation-eq-orbital-elements-true-anomaly" title="Link to this equation">#</a></span>\[\begin{split}\nu = \begin{cases}
 \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right) &amp; v_r \geq 0 \\
 2\pi - \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right) &amp; v_r &lt; 0
 \end{cases}\end{split}\]</div>
@@ -770,15 +786,15 @@ MATLAB</label><div class="sd-tab-content docutils">
 </section>
 </section>
 <section id="orbital-elements-state-vector">
-<h2>Orbital Elements → State Vector<a class="headerlink" href="#orbital-elements-state-vector" title="Permalink to this heading">#</a></h2>
+<h2>Orbital Elements → State Vector<a class="headerlink" href="#orbital-elements-state-vector" title="Link to this heading">#</a></h2>
 <p>The algorithm to convert from the orbital elements back to the state vector is somewhat more involved, so we do not include the complete derivation here. There are two steps in this algorithm:</p>
 <ol class="arabic simple">
-<li><p>Use the orbital elements <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(\nu\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> to represent <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> in the <a class="reference internal" href="perifocal-frame.html"><span class="doc std std-doc">perifocal frame</span></a></p></li>
+<li><p>Use the orbital elements <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(\nu\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> to represent <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> in the <a class="reference internal" href="perifocal-frame.html"><span class="std std-doc">perifocal frame</span></a></p></li>
 <li><p>Rotate the perifocal frame so that the axes align with the inertial axes using the orbital elements <span class="math notranslate nohighlight">\(\Omega\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, and <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
 </ol>
 <p>The first step is rather simple, but the derivation of the second step requires a long digression on the topic of <a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_of_axes">coordinate transformations</a>. So, we’ll skip the derivation and get right to the point.</p>
 <section id="step-1transform-to-perifocal-frame">
-<h3>Step 1—Transform to Perifocal Frame<a class="headerlink" href="#step-1transform-to-perifocal-frame" title="Permalink to this heading">#</a></h3>
+<h3>Step 1—Transform to Perifocal Frame<a class="headerlink" href="#step-1transform-to-perifocal-frame" title="Link to this heading">#</a></h3>
 <p>Remember that the perifocal frame is defined in the orbital plane with the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span>, <span class="math notranslate nohighlight">\(\uvec{q}\)</span>, and <span class="math notranslate nohighlight">\(\uvec{w}\)</span>, as shown in <a class="reference internal" href="perifocal-frame.html#fig-definition-of-perifocal-frame"><span class="std std-numref">Fig. 41</span></a>. The position and velocity components in the perifocal frame are given by Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-vector-orbit-equation">(167)</a> and Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-simplified-velocity-vector">(170)</a>, respectively.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
@@ -802,7 +818,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>For this example, we find <span class="math notranslate nohighlight">\(\vector{r}_{\omega} =\)</span> <span class="pasted-text">-8117.7120</span> <span class="math notranslate nohighlight">\(\uvec{p}\)</span> + <span class="pasted-text">3017.0767</span> <span class="math notranslate nohighlight">\(\uvec{q}\)</span> km and <span class="math notranslate nohighlight">\(\vector{v}_{\omega} =\)</span> <span class="pasted-text">-7.0680</span> <span class="math notranslate nohighlight">\(\uvec{p}\)</span> + <span class="pasted-text">0.2067</span> <span class="math notranslate nohighlight">\(\uvec{q}\)</span> km/s.</p>
 </section>
 <section id="step-2rotate-the-perifocal-frame">
-<h3>Step 2—Rotate the Perifocal Frame<a class="headerlink" href="#step-2rotate-the-perifocal-frame" title="Permalink to this heading">#</a></h3>
+<h3>Step 2—Rotate the Perifocal Frame<a class="headerlink" href="#step-2rotate-the-perifocal-frame" title="Link to this heading">#</a></h3>
 <p>The second step of this algorithm is to apply the set of coordinate transformations that converts the perifocal frame into the inertial frame. It turns out that a set of three rotations applied sequentially will accomplish this goal. These steps are shown in <a class="reference internal" href="#fig-euler-angle-rotation"><span class="std std-numref">Fig. 46</span></a>.</p>
 <ol class="arabic simple">
 <li><p>Rotate around the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis until the <span class="math notranslate nohighlight">\(\uvec{p}\)</span> axis is aligned with the node line</p></li>
@@ -812,7 +828,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-euler-angle-rotation">
 <img alt="../_images/Euler.gif" src="../_images/Euler.gif" />
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The sequence of rotations to convert from the perifocal frame to the inertial frame. Adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Euler2.gif">Juansempere</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-euler-angle-rotation" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The sequence of rotations to convert from the perifocal frame to the inertial frame. Adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Euler2.gif">Juansempere</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-euler-angle-rotation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -940,6 +956,7 @@ MATLAB</label><div class="sd-tab-content docutils">
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1006,8 +1023,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

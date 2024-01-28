@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Circular Orbits (\(e = 0\)) &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-orbit-equation/circular-orbits';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-orbit-equation/circular-orbits.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Elliptical Orbits (\(0 &lt; e &lt; 1\))" href="elliptical-orbits.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -493,50 +509,50 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="circular-orbits-e-0">
-<h1>Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)<a class="headerlink" href="#circular-orbits-e-0" title="Permalink to this heading">#</a></h1>
+<h1>Circular Orbits (<span class="math notranslate nohighlight">\(e = 0\)</span>)<a class="headerlink" href="#circular-orbits-e-0" title="Link to this heading">#</a></h1>
 <p>Setting <span class="math notranslate nohighlight">\(e = 0\)</span> in the orbit equation, Eq. <a class="reference internal" href="the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a> yields:</p>
 <div class="math notranslate nohighlight" id="equation-eq-circular-orbit-equation">
-<span class="eqno">(120)<a class="headerlink" href="#equation-eq-circular-orbit-equation" title="Permalink to this equation">#</a></span>\[r = \frac{h^2}{\mu}\]</div>
+<span class="eqno">(120)<a class="headerlink" href="#equation-eq-circular-orbit-equation" title="Link to this equation">#</a></span>\[r = \frac{h^2}{\mu}\]</div>
 <p>The radius of an orbit with <span class="math notranslate nohighlight">\(e = 0\)</span> is constant, so the orbit is a circle. The velocity is also constant:</p>
 <div class="math notranslate nohighlight" id="equation-eq-circular-orbit-velocity">
-<span class="eqno">(121)<a class="headerlink" href="#equation-eq-circular-orbit-velocity" title="Permalink to this equation">#</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
+<span class="eqno">(121)<a class="headerlink" href="#equation-eq-circular-orbit-velocity" title="Link to this equation">#</a></span>\[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
 <p>The time required to complete one orbit is known as the <strong>orbital period</strong>. Because the speed of a circular orbit is constant, the period is simply the circumference divided by the velocity:</p>
 <div class="math notranslate nohighlight" id="equation-eq-circular-orbit-period">
-<span class="eqno">(122)<a class="headerlink" href="#equation-eq-circular-orbit-period" title="Permalink to this equation">#</a></span>\[T = \frac{2\pi r}{\sqrt{\mu/r}} = \frac{2\pi}{\sqrt{\mu}}r^{3/2}\]</div>
+<span class="eqno">(122)<a class="headerlink" href="#equation-eq-circular-orbit-period" title="Link to this equation">#</a></span>\[T = \frac{2\pi r}{\sqrt{\mu/r}} = \frac{2\pi}{\sqrt{\mu}}r^{3/2}\]</div>
 <p>The specific energy of a circular orbit is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-circular-orbit-energy">
-<span class="eqno">(123)<a class="headerlink" href="#equation-eq-circular-orbit-energy" title="Permalink to this equation">#</a></span>\[E_{\text{circular}} = -\frac{\mu}{2r}\]</div>
+<span class="eqno">(123)<a class="headerlink" href="#equation-eq-circular-orbit-energy" title="Link to this equation">#</a></span>\[E_{\text{circular}} = -\frac{\mu}{2r}\]</div>
 <p>The specific energy of the circular orbit is negative. As the orbit radius goes up, the energy increases and gets closer to zero. Thus, a given launch vehicle with a certain amount of fuel can launch a large payload to an orbit with a small radius, or a small payload to an orbit with a large radius.</p>
 <section id="low-earth-orbit">
-<h2>Low Earth Orbit<a class="headerlink" href="#low-earth-orbit" title="Permalink to this heading">#</a></h2>
+<h2>Low Earth Orbit<a class="headerlink" href="#low-earth-orbit" title="Link to this heading">#</a></h2>
 <p>Many manned spacecraft and unpopulated satellites occupy ideally circular orbits around the Earth. These orbits typically fall between altitudes of 150 km (100 miles) and 2000 km (1200 miles). These orbits are called <strong>low earth orbits</strong>, or LEO. The lower of these altitudes is substantially above the bulk of the drag-inducing atmosphere. The higher altitude is less than the altitude of the <a class="reference external" href="https://en.wikipedia.org/wiki/Van_Allen_radiation_belt">Van Allen radiation belts</a>, a dangerous region of space extending from about 1000 km outwards.</p>
 <figure class="align-default" id="fig-comparison-satellite-navigation-orbits">
 <a class="reference internal image-reference" href="../_images/Comparison_satellite_navigation_orbits.svg"><img alt="../_images/Comparison_satellite_navigation_orbits.svg" src="../_images/Comparison_satellite_navigation_orbits.svg" width="50%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">A comparison of satellite navigation orbits. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Comparison_satellite_navigation_orbits.svg">cmglee</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-comparison-satellite-navigation-orbits" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">A comparison of satellite navigation orbits. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Comparison_satellite_navigation_orbits.svg">cmglee</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons</span><a class="headerlink" href="#fig-comparison-satellite-navigation-orbits" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="geostationary-equatorial-orbit">
-<h2>Geostationary Equatorial Orbit<a class="headerlink" href="#geostationary-equatorial-orbit" title="Permalink to this heading">#</a></h2>
+<h2>Geostationary Equatorial Orbit<a class="headerlink" href="#geostationary-equatorial-orbit" title="Link to this heading">#</a></h2>
 <p>If a satellite remains at a constant location above the earth’s equator, then the orbit is a circular <strong>geostationary equatorial orbit</strong>, or GEO. For GEO, the radial vector from the center of the earth to the satellite must have the same angular velocity as the surface of the earth.</p>
 <p>The angular velocity of the earth is calculated by dividing the complete revolution, <span class="math notranslate nohighlight">\(2\pi\)</span> radians by the length of the <a class="reference external" href="https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day"><strong>sidereal day</strong></a>. The familiar, 24-hour, day is called the <a class="reference external" href="https://en.wikipedia.org/wiki/Synodic_day"><strong>synodic day</strong></a> or <strong>solar day</strong>. The solar day is the time that it takes for the Sun to apparently make one revolution around the Earth.</p>
 <p>However, for GEO, we are interested in the time it takes for the Earth to complete one rotation around its axis. This is slightly shorter than the synodic day, because the Earth is also moving around the sun as it rotates. If the Earth were fixed in space, the synodic and sidereal days would be equal length.</p>
 <p>The sidereal day is approximately 23.93 hours, giving an inertial angular velocity of the Earth of:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earth-angular-velocity">
-<span class="eqno">(124)<a class="headerlink" href="#equation-eq-earth-angular-velocity" title="Permalink to this equation">#</a></span>\[\omega_E = \unit{72.9218\times 10^{-6}}{rad/s}\]</div>
+<span class="eqno">(124)<a class="headerlink" href="#equation-eq-earth-angular-velocity" title="Link to this equation">#</a></span>\[\omega_E = \unit{72.9218\times 10^{-6}}{rad/s}\]</div>
 <p>The radius of GEO is</p>
 <div class="math notranslate nohighlight" id="equation-eq-geo-radius">
-<span class="eqno">(125)<a class="headerlink" href="#equation-eq-geo-radius" title="Permalink to this equation">#</a></span>\[r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}\]</div>
+<span class="eqno">(125)<a class="headerlink" href="#equation-eq-geo-radius" title="Link to this equation">#</a></span>\[r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}\]</div>
 <p>The altitude is then:</p>
 <div class="math notranslate nohighlight" id="equation-eq-geo-altitude">
-<span class="eqno">(126)<a class="headerlink" href="#equation-eq-geo-altitude" title="Permalink to this equation">#</a></span>\[z_{\text{GEO}} = \unit{35,768}{km} = \unit{22,241}{mi}\]</div>
+<span class="eqno">(126)<a class="headerlink" href="#equation-eq-geo-altitude" title="Link to this equation">#</a></span>\[z_{\text{GEO}} = \unit{35,768}{km} = \unit{22,241}{mi}\]</div>
 <p>The speed at GEO is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-geo-speed">
-<span class="eqno">(127)<a class="headerlink" href="#equation-eq-geo-speed" title="Permalink to this equation">#</a></span>\[v_{\text{GEO}} = \unit{3.075}{km/s}\]</div>
+<span class="eqno">(127)<a class="headerlink" href="#equation-eq-geo-speed" title="Link to this equation">#</a></span>\[v_{\text{GEO}} = \unit{3.075}{km/s}\]</div>
 </section>
 </section>
 
@@ -597,6 +613,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -650,8 +667,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

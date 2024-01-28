@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Example: CR3BP Equations of Motion &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/Equations-of-Motion-CR3BP';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/Equations-of-Motion-CR3BP.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Many-Body Problems" href="many-body-problems.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -494,10 +510,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="example-cr3bp-equations-of-motion">
-<h1>Example: CR3BP Equations of Motion<a class="headerlink" href="#example-cr3bp-equations-of-motion" title="Permalink to this heading">#</a></h1>
+<h1>Example: CR3BP Equations of Motion<a class="headerlink" href="#example-cr3bp-equations-of-motion" title="Link to this heading">#</a></h1>
 <p>Equation <a class="reference internal" href="circular-restricted-three-body-problem.html#equation-eq-non-dim-scalar-eom-cr3bp">(71)</a> shows the three nondimensional scalar equations of motion for the CR3BP, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -505,9 +521,9 @@ document.write(`
   \ddot{y}^* + 2\dot{x}^* - y^* &amp;= -\frac{1 - \pi_2}{\sigma^3} y^* - \frac{\pi_2}{\psi^3}y^* \\
   \ddot{z}^* &amp;= -\frac{1 - \pi_2}{\sigma^3}z^* - \frac{\pi_2}{\psi^3}z^*
 \end{aligned}\end{split}\]</div>
-<p>In this example, we will solve this system of equations numerically for the position of the tertiary mass <span class="math notranslate nohighlight">\(m\)</span> as a function of time in the rotating frame of reference. The state vector in this problem is the same as in <a class="reference internal" href="two-body-relative-numerical-solution.html"><span class="doc std std-doc">the relative motion case</span></a>. There are six elements of the state vector:</p>
+<p>In this example, we will solve this system of equations numerically for the position of the tertiary mass <span class="math notranslate nohighlight">\(m\)</span> as a function of time in the rotating frame of reference. The state vector in this problem is the same as in <a class="reference internal" href="two-body-relative-numerical-solution.html"><span class="std std-doc">the relative motion case</span></a>. There are six elements of the state vector:</p>
 <div class="math notranslate nohighlight" id="equation-eq-state-vector-cr3bp">
-<span class="eqno">(92)<a class="headerlink" href="#equation-eq-state-vector-cr3bp" title="Permalink to this equation">#</a></span>\[Y = \left[x^*\ y^*\ z^*\ \dot{x}^*\ \dot{y}^*\ \dot{z}^*\right]^T\]</div>
+<span class="eqno">(92)<a class="headerlink" href="#equation-eq-state-vector-cr3bp" title="Link to this equation">#</a></span>\[Y = \left[x^*\ y^*\ z^*\ \dot{x}^*\ \dot{y}^*\ \dot{z}^*\right]^T\]</div>
 <p>To put Eq. <a class="reference internal" href="circular-restricted-three-body-problem.html#equation-eq-non-dim-scalar-eom-cr3bp">(71)</a> into a form that we can solve, we need to solve for the acceleration components:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -619,13 +635,13 @@ document.write(`
 <figure class="align-default" id="fig-cr3bp-example-trajectory">
 <img alt="../_images/de181586cafee31fbc7d91cc322b5e6d32a81225f70436beb64f73ecd9e231e1.png" src="../_images/de181586cafee31fbc7d91cc322b5e6d32a81225f70436beb64f73ecd9e231e1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The trajectory of <span class="math notranslate nohighlight">\(m\)</span> in the rotating frame of reference, in non-dimensional coordinates.</span><a class="headerlink" href="#fig-cr3bp-example-trajectory" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The trajectory of <span class="math notranslate nohighlight">\(m\)</span> in the rotating frame of reference, in non-dimensional coordinates.</span><a class="headerlink" href="#fig-cr3bp-example-trajectory" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As shown in <a class="reference internal" href="#fig-cr3bp-example-trajectory"><span class="std std-numref">Fig. 22</span></a>, we can get some very interesting behavior of <span class="math notranslate nohighlight">\(m\)</span> in the rotating frame of reference. The behavior of <span class="math notranslate nohighlight">\(m\)</span> depends very strongly on the initial conditions that we set.</p>
 <p><strong>See what interesting patterns you can get, and post your efforts on Piazza!</strong></p>
 <section id="calculating-the-jacobi-constant">
-<h2>Calculating the Jacobi Constant<a class="headerlink" href="#calculating-the-jacobi-constant" title="Permalink to this heading">#</a></h2>
+<h2>Calculating the Jacobi Constant<a class="headerlink" href="#calculating-the-jacobi-constant" title="Link to this heading">#</a></h2>
 <p>In the nondimensional coordinates, the Jacobi constant is given by Eq. <a class="reference internal" href="jacobi-constant.html#equation-eq-jacobi-constant-cr3bp">(90)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[J = \frac{1}{2} \left(v^*\right)^2 - \frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]\]</div>
@@ -661,13 +677,13 @@ document.write(`
 <figure class="align-default" id="fig-runge-kutta-jacobi-constant">
 <img alt="../_images/8136e5931f1266ecc2b4fab49ca2c88cbb911326b4f326f85c716b967efee5fe.png" src="../_images/8136e5931f1266ecc2b4fab49ca2c88cbb911326b4f326f85c716b967efee5fe.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time. The horizontal line is the initial Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-jacobi-constant" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time. The horizontal line is the initial Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-jacobi-constant" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Oh dear. <a class="reference internal" href="#fig-runge-kutta-jacobi-constant"><span class="std std-numref">Fig. 23</span></a> shows that the Jacobi constant varies by about 0.02 over the trajectory. Keep in mind that a change of <span class="math notranslate nohighlight">\(J\)</span> on the order of <span class="math notranslate nohighlight">\(10^{-2}\)</span> is the difference from the <span class="math notranslate nohighlight">\(L_1\)</span> and <span class="math notranslate nohighlight">\(L_2\)</span> points being accessible in the Earth-Moon system. So a change of <span class="math notranslate nohighlight">\(2\times 10^{-2}\)</span> is quite large on that scale.</p>
 </section>
 <section id="tighten-the-integrator-tolerances">
-<h2>Tighten the Integrator Tolerances<a class="headerlink" href="#tighten-the-integrator-tolerances" title="Permalink to this heading">#</a></h2>
+<h2>Tighten the Integrator Tolerances<a class="headerlink" href="#tighten-the-integrator-tolerances" title="Link to this heading">#</a></h2>
 <p>According to Rubinsztejn <span id="id1">[<a class="reference internal" href="../bibliography.html#id29" title="Ari Rubinsztejn. Matlab Astrodynamics Library - CR3BP. https://gereshes.com/2019/03/11/matlab-astrodynamics-library-cr3bp/, March 2019.">Rub19</a>]</span>, the problem may be with the integrator we’re using, which doesn’t guarantee that energy is conserved because of the algorithm it uses. We can change the precision requirements for the solver. The default integrator for <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> is a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.RK45.html#scipy.integrate.RK45">5th order Runge-Kutta integrator</a>, with absolute and relative tolerances of <span class="math notranslate nohighlight">\(10^{-6}\)</span> and <span class="math notranslate nohighlight">\(10^{-3}\)</span>, respectively.</p>
 <p>We will decrease the absolute and relative tolerances, to ensure that the solver is producing a high-accuracy solution.</p>
 <div class="cell tag_remove-output docutils container">
@@ -702,7 +718,7 @@ document.write(`
 <figure class="align-default" id="fig-runge-kutta-small-tolerance">
 <img alt="../_images/b0296d6cd9709067ad74960e07f6814ecb985bac8d3863fd10189bf7407da3c7.png" src="../_images/b0296d6cd9709067ad74960e07f6814ecb985bac8d3863fd10189bf7407da3c7.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time using a solver with reduced tolerances. The horizontal line is the initial value of the Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-small-tolerance" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time using a solver with reduced tolerances. The horizontal line is the initial value of the Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-small-tolerance" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As shown in <a class="reference internal" href="#fig-runge-kutta-small-tolerance"><span class="std std-numref">Fig. 24</span></a>, reducing the tolerances significantly improves the behavior of the solver. The change in <span class="math notranslate nohighlight">\(J\)</span> is now on the order of <span class="math notranslate nohighlight">\(1\times 10^{-5}\)</span>, which is acceptable for reasonable lengths of integration time.</p>
@@ -727,12 +743,12 @@ document.write(`
 <figure class="align-default" id="fig-trajectory-comparison-cr3bp">
 <img alt="../_images/9e47787c55906f7faa63bf5de4b00496ad76e6d7db91cc784c090bb805b162cf.png" src="../_images/9e47787c55906f7faa63bf5de4b00496ad76e6d7db91cc784c090bb805b162cf.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">The two trajectories for the solutions to this problem, in the co-rotating frame.</span><a class="headerlink" href="#fig-trajectory-comparison-cr3bp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">The two trajectories for the solutions to this problem, in the co-rotating frame.</span><a class="headerlink" href="#fig-trajectory-comparison-cr3bp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="cause-of-error">
-<h2>Cause of Error<a class="headerlink" href="#cause-of-error" title="Permalink to this heading">#</a></h2>
+<h2>Cause of Error<a class="headerlink" href="#cause-of-error" title="Link to this heading">#</a></h2>
 <p>Now, let’s examine <a class="reference internal" href="#fig-runge-kutta-jacobi-constant"><span class="std std-numref">Fig. 23</span></a> and <a class="reference internal" href="#fig-runge-kutta-small-tolerance"><span class="std std-numref">Fig. 24</span></a> again. There appears to be a structure to the changes in <span class="math notranslate nohighlight">\(J\)</span>. This gives us a hint that the problem might be related to the physical situation that the tertiary mass finds itself in. Let’s plot the distance from the larger mass, given by <span class="math notranslate nohighlight">\(\sigma\)</span>, on the same plot as the Jacobi constant.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -753,7 +769,7 @@ document.write(`
 <figure class="align-default" id="fig-jacobi-constant-with-sigma">
 <img alt="../_images/49f2588e6305dc0f96b73a5c625e74f9679779c3e1bc552e1d0f97448c963001.png" src="../_images/49f2588e6305dc0f96b73a5c625e74f9679779c3e1bc552e1d0f97448c963001.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, and the non-dimensional position relative to <span class="math notranslate nohighlight">\(m_1\)</span>, plotted as a function of non-dimensional time.</span><a class="headerlink" href="#fig-jacobi-constant-with-sigma" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, and the non-dimensional position relative to <span class="math notranslate nohighlight">\(m_1\)</span>, plotted as a function of non-dimensional time.</span><a class="headerlink" href="#fig-jacobi-constant-with-sigma" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As you can see in <a class="reference internal" href="#fig-jacobi-constant-with-sigma"><span class="std std-numref">Fig. 26</span></a>, the error in the Jacobi constant spikes when the tertiary mass gets closer to the primary mass, <span class="math notranslate nohighlight">\(m_1\)</span>.  This makes a certain amount of sense, because the acceleration terms depend inversely on the cube of <span class="math notranslate nohighlight">\(\sigma\)</span>. As the value of <span class="math notranslate nohighlight">\(\sigma\)</span> gets smaller, the error grows.</p>
@@ -818,6 +834,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -872,8 +889,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

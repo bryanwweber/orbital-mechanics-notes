@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Force, Acceleration, and Momentum &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro/force-acceleration-and-momentum';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/intro/force-acceleration-and-momentum.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Two-Body Equations of Motion in an Inertial Frame" href="../the-n-body-problem/two-body-inertial-motion.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
@@ -493,10 +509,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="force-acceleration-and-momentum">
-<h1>Force, Acceleration, and Momentum<a class="headerlink" href="#force-acceleration-and-momentum" title="Permalink to this heading">#</a></h1>
+<h1>Force, Acceleration, and Momentum<a class="headerlink" href="#force-acceleration-and-momentum" title="Link to this heading">#</a></h1>
 <p>In the <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica"><em>Principia</em></a>, Newton laid out three laws of motion:</p>
 <ol class="arabic simple">
 <li><p>Without a net external force, the motion of an object remains constant</p></li>
@@ -505,31 +521,31 @@ document.write(`
 </ol>
 <p>Newton’s second law can be expressed mathematically as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-newtons-second-law">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-newtons-second-law" title="Permalink to this equation">#</a></span>\[\vector{F} = m \ddot{\vector{r}}\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-newtons-second-law" title="Link to this equation">#</a></span>\[\vector{F} = m \ddot{\vector{r}}\]</div>
 <p>In this equation, <span class="math notranslate nohighlight">\(\vector{\ddot{r}}\)</span> is the <strong>absolute acceleration</strong> of the center of mass of the system. The absolute acceleration is measured in an <a class="reference internal" href="reference-frames.html#sec-inertial-reference-frame"><span class="std std-ref"><strong>inertial frame of reference</strong></span></a> that is not accelerating relative to the fixed stars.</p>
 <section id="impulse-and-linear-momentum">
-<h2>Impulse and Linear Momentum<a class="headerlink" href="#impulse-and-linear-momentum" title="Permalink to this heading">#</a></h2>
+<h2>Impulse and Linear Momentum<a class="headerlink" href="#impulse-and-linear-momentum" title="Link to this heading">#</a></h2>
 <p>The <strong>impulse</strong> of a force is the integral of the force over time:</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-impulse">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-definition-impulse" title="Permalink to this equation">#</a></span>\[\vector{I} = \int_{t_1}^{t_2} \vector{F} dt\]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-definition-impulse" title="Link to this equation">#</a></span>\[\vector{I} = \int_{t_1}^{t_2} \vector{F} dt\]</div>
 <p>Note that impulse is a vector quantity. If the mass is constant, then impulse is equal to the change in linear momentum:</p>
 <div class="math notranslate nohighlight" id="equation-eq-linear-momentum">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-linear-momentum" title="Permalink to this equation">#</a></span>\[\Delta\vector{v} = \frac{\vector{I}}{m}\]</div>
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-linear-momentum" title="Link to this equation">#</a></span>\[\Delta\vector{v} = \frac{\vector{I}}{m}\]</div>
 <p>If the force is also constant, then the change in velocity is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-change-of-velocity">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-change-of-velocity" title="Permalink to this equation">#</a></span>\[\Delta\vector{v} = \frac{\vector{F}}{m}\Delta t\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-change-of-velocity" title="Link to this equation">#</a></span>\[\Delta\vector{v} = \frac{\vector{F}}{m}\Delta t\]</div>
 </section>
 <section id="angular-momentum">
-<h2>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Permalink to this heading">#</a></h2>
+<h2>Angular Momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h2>
 <p>The moment of a force about the origin <span class="math notranslate nohighlight">\(O\)</span> of an inertial reference frame is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-moment-about-origin">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-moment-about-origin" title="Permalink to this equation">#</a></span>\[\vector{M}_O = \vector{r}\cross\vector{F} = \vector{r}\cross m\vector{a} = \vector{r}\cross m\frac{d\vector{v}}{dt}\]</div>
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-moment-about-origin" title="Link to this equation">#</a></span>\[\vector{M}_O = \vector{r}\cross\vector{F} = \vector{r}\cross m\vector{a} = \vector{r}\cross m\frac{d\vector{v}}{dt}\]</div>
 <p>Assuming that the mass is constant, this can be rewritten as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-moment-constant-mass">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-moment-constant-mass" title="Permalink to this equation">#</a></span>\[\vector{M}_O = \frac{d}{dt}\left(r\cross m\vector{v}\right) = \frac{d\vector{H}_O}{dt}\]</div>
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-moment-constant-mass" title="Link to this equation">#</a></span>\[\vector{M}_O = \frac{d}{dt}\left(r\cross m\vector{v}\right) = \frac{d\vector{H}_O}{dt}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\vector{H}_O\)</span> is the <strong>angular momentum</strong> about <span class="math notranslate nohighlight">\(O\)</span>. Then we define the <strong>net angular impulse</strong>, analogous to the linear impulse:</p>
 <div class="math notranslate nohighlight" id="equation-eq-net-angular-impulse">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-net-angular-impulse" title="Permalink to this equation">#</a></span>\[\int_{t_1}^{t_2} \vector{M}_O dt = H_{O,2} - H_{O,1}\]</div>
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-net-angular-impulse" title="Link to this equation">#</a></span>\[\int_{t_1}^{t_2} \vector{M}_O dt = H_{O,2} - H_{O,1}\]</div>
 </section>
 </section>
 
@@ -590,6 +606,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -643,8 +660,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

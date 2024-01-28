@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Hohmann Transfer &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-maneuvers/hohmann-transfer';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/hohmann-transfer.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Example: Hohmann Transfer" href="hohmann-transfer-example.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -497,21 +513,21 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hohmann-transfer">
-<h1>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Permalink to this heading">#</a></h1>
+<h1>Hohmann Transfer<a class="headerlink" href="#hohmann-transfer" title="Link to this heading">#</a></h1>
 <p>If the initial orbit and final, or target, orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann <span id="id1">[<a class="reference internal" href="../bibliography.html#id15" title="Walter Hohmann. The Attainability of Heavenly Bodies. NASA, 1960.">Hoh60</a>]</span> showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit"><strong>Hohmann transfer</strong></a>.</p>
 <figure class="align-default" id="fig-hohmann-transfer">
 <a class="reference internal image-reference" href="../_images/hohmann-transfer-orbit.svg"><img alt="../_images/hohmann-transfer-orbit.svg" src="../_images/hohmann-transfer-orbit.svg" width="50%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 61 </span><span class="caption-text">The Hohmann transfer orbit. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg">Leafnode</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-hohmann-transfer" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 61 </span><span class="caption-text">The Hohmann transfer orbit. <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg">Leafnode</a> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-hohmann-transfer" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In <a class="reference internal" href="#fig-hohmann-transfer"><span class="std std-numref">Fig. 61</span></a>, the spacecraft is initially in orbit 1 with radius <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and is targeting orbit 3 with radius <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. When the spacecraft arrives at the far side of the ellipse, it boosts its velocity again to move into orbit 3.</p>
 <p>The periapsis distance of this <strong>transfer orbit</strong> is equal to <span class="math notranslate nohighlight">\(\mathsf{R}\)</span> and the apoapsis distance is <span class="math notranslate nohighlight">\(\mathsf{R}'\)</span>. This means that the transfer orbit intersects both orbits 1 and 3. By providing impulses at both intersection points, it is possible to move from orbit 1 to orbit 3.</p>
 <section id="energy-considerations">
-<h2>Energy Considerations<a class="headerlink" href="#energy-considerations" title="Permalink to this heading">#</a></h2>
+<h2>Energy Considerations<a class="headerlink" href="#energy-considerations" title="Link to this heading">#</a></h2>
 <p>The specific energy of the initial and final orbits are given by Eq. <a class="reference internal" href="../the-orbit-equation/circular-orbits.html#equation-eq-circular-orbit-energy">(123)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[E = -\frac{\mu}{2r}\]</div>
@@ -550,7 +566,7 @@ document.write(`
 </div>
 </details></section>
 <section id="calculating-delta-v">
-<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this heading">#</a></h2>
+<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Link to this heading">#</a></h2>
 <p>At the locations where orbit 2 intersects with orbits 1 and 3, the velocity vectors are parallel. The reason the Hohmann transfer is the most efficient two-impulse maneuver is because only the magnitude of the velocity needs to change, not its direction as well. This means that the minimum propellant is used to achieve the necessary <span class="math notranslate nohighlight">\(\Delta \vector{v}\)</span>.</p>
 <p>For multiple-impulse maneuvers, we are interested in determining the <strong>total</strong> <span class="math notranslate nohighlight">\(\Delta v\)</span>. Since a maneuver to decrease the spacecraft velocity consumes the same amount of propellant as one that increases the velocity we are concerned with the magnitude of all of the necessary velocity changes.</p>
 <p>For each impulse, we need to calculate the difference in velocity between the circular orbits and the transfer orbit. Since the velocity vectors are parallel at both impulse locations we can work entirely with velocity magnitudes.</p>
@@ -559,36 +575,36 @@ document.write(`
 \[v_{\text{circular}} = \sqrt{\frac{\mu}{r}}\]</div>
 <p>Since the impulses occur at periapsis and apoapsis of the transfer orbit, the transfer orbit velocity is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-orbit-velocities">
-<span class="eqno">(284)<a class="headerlink" href="#equation-eq-hohmann-transfer-orbit-velocities" title="Permalink to this equation">#</a></span>\[\begin{aligned}
+<span class="eqno">(284)<a class="headerlink" href="#equation-eq-hohmann-transfer-orbit-velocities" title="Link to this equation">#</a></span>\[\begin{aligned}
   v_{t,p} &amp;= \frac{h_t}{r_p} &amp; v_{t,a} &amp;= \frac{h_t}{r_a}
 \end{aligned}\]</div>
 <p>From the equations for elliptical orbits, we can solve for the specific angular momentum in terms of <span class="math notranslate nohighlight">\(r_p\)</span> and <span class="math notranslate nohighlight">\(r_a\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ellipse-specific-angular-momentum">
-<span class="eqno">(285)<a class="headerlink" href="#equation-eq-ellipse-specific-angular-momentum" title="Permalink to this equation">#</a></span>\[h_t = \sqrt{2\mu \frac{r_a r_p}{r_a + r_p}}\]</div>
+<span class="eqno">(285)<a class="headerlink" href="#equation-eq-ellipse-specific-angular-momentum" title="Link to this equation">#</a></span>\[h_t = \sqrt{2\mu \frac{r_a r_p}{r_a + r_p}}\]</div>
 <p>Alternatively, we can use the <em>vis viva</em> equation, Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>, to find the velocity on the transfer orbit</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-hohmann-transfer-0">
-<span class="eqno">(286)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Permalink to this equation">#</a></span>\[\begin{aligned}
+<span class="eqno">(286)<a class="headerlink" href="#equation-orbital-maneuvers-hohmann-transfer-0" title="Link to this equation">#</a></span>\[\begin{aligned}
   v_{t,p} &amp;= \sqrt{\mu\left(\frac{2}{r_{t,p}} - \frac{1}{a_t}\right)} &amp; v_{t,a} &amp;= \sqrt{\mu\left(\frac{2}{r_{t,a}} - \frac{1}{a_t}\right)}
 \end{aligned}\]</div>
 <p>where the semi-major axis of the elliptical transfer orbit is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-semi-major-axis">
-<span class="eqno">(287)<a class="headerlink" href="#equation-eq-hohmann-transfer-semi-major-axis" title="Permalink to this equation">#</a></span>\[a_t = \frac{r_{t,a} + r_{t,p}}{2}\]</div>
+<span class="eqno">(287)<a class="headerlink" href="#equation-eq-hohmann-transfer-semi-major-axis" title="Link to this equation">#</a></span>\[a_t = \frac{r_{t,a} + r_{t,p}}{2}\]</div>
 <p>Finally, the total <span class="math notranslate nohighlight">\(\Delta v\)</span> required for the Hohmann transfer is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-delta-v">
-<span class="eqno">(288)<a class="headerlink" href="#equation-eq-hohmann-transfer-delta-v" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(288)<a class="headerlink" href="#equation-eq-hohmann-transfer-delta-v" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \Delta v &amp;= \lvert v_f - v_{t,a}\rvert + \lvert v_i - v_{t,p}\rvert &amp; \text{If $r_i &lt; r_f$} \\
   \Delta v &amp;= \lvert v_f - v_{t,p}\rvert + \lvert v_i - v_{t,a}\rvert &amp; \text{If $r_f &lt; r_i$}
 \end{aligned}\end{split}\]</div>
 <section id="transit-time">
-<h3>Transit Time<a class="headerlink" href="#transit-time" title="Permalink to this heading">#</a></h3>
+<h3>Transit Time<a class="headerlink" href="#transit-time" title="Link to this heading">#</a></h3>
 <p>Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit from Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-period-useful">(138)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hohmann-transfer-time">
-<span class="eqno">(289)<a class="headerlink" href="#equation-eq-hohmann-transfer-time" title="Permalink to this equation">#</a></span>\[t_{12} = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
+<span class="eqno">(289)<a class="headerlink" href="#equation-eq-hohmann-transfer-time" title="Link to this equation">#</a></span>\[t_{12} = \frac{T}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t_{12}\)</span> is the transfer time and <span class="math notranslate nohighlight">\(a_t\)</span> is the semi-major axis of the transfer orbit.</p>
 </section>
 </section>
 <section id="elliptical-initial-or-target-orbits">
-<h2>Elliptical Initial or Target Orbits<a class="headerlink" href="#elliptical-initial-or-target-orbits" title="Permalink to this heading">#</a></h2>
+<h2>Elliptical Initial or Target Orbits<a class="headerlink" href="#elliptical-initial-or-target-orbits" title="Link to this heading">#</a></h2>
 <p>The idea of a Hohmann transfer can be extended to the case where one or both of the initial and final orbits are ellipses. Recalling that the Hohmann transfer traverses half of the elliptical transfer orbit, the departure and arrival points on the initial and final orbits will be on opposite sides of the attracting body. In addition, the definition of the Hohmann transfer is that the transfer orbit at the departure and arrival points should be tangent to the initial and final orbits, respectively.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -675,6 +691,7 @@ Which option requires lower <span class="math notranslate nohighlight">\(\Delta 
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -732,8 +749,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

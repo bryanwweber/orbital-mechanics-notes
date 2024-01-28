@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Example: Plane Change Maneuver &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-maneuvers/plane-change-example';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/plane-change-example.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Interplanetary Trajectories and Maneuvers" href="../interplanetary-maneuvers/introduction.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -498,10 +514,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="example-plane-change-maneuver">
-<h1>Example: Plane Change Maneuver<a class="headerlink" href="#example-plane-change-maneuver" title="Permalink to this heading">#</a></h1>
+<h1>Example: Plane Change Maneuver<a class="headerlink" href="#example-plane-change-maneuver" title="Link to this heading">#</a></h1>
 <p>Find the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for an orbital transfer from a 300 km circular LEO at 28.6° inclination to geostationary equatorial orbit. The orbital transfer should consist of two impulses. Compare the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for 3 cases:</p>
 <ol class="arabic simple">
 <li><p>The spacecraft changes its orbital inclination to 0° and changes to a Hohmann transfer trajectory in one impulse, then circularizes its orbit at GEO (plane change at LEO)</p></li>
@@ -509,7 +525,7 @@ document.write(`
 <li><p>The spacecraft starts in a 300 km equatorial orbit, instead of an inclined orbit, so no plane change is required</p></li>
 </ol>
 <section id="solution">
-<h2>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h2>
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
 <p>From our analysis Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-scalar">(314)</a> for <span class="math notranslate nohighlight">\(\Delta v\)</span>, we expect that plane changes at altitude will be more efficient than in LEO because the speed decreases for higher altitude orbits. Likewise, we expect that the maneuvers that require a plane change will require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than the one that doesn’t.</p>
 <p>To start, we need to define the various radii, specific orbital energies, and speeds of the initial and final orbits.</p>
 <div class="cell docutils container">
@@ -545,7 +561,7 @@ document.write(`
 </div>
 </div>
 <section id="case-1-plane-change-at-leo">
-<h3>Case 1: Plane Change at LEO<a class="headerlink" href="#case-1-plane-change-at-leo" title="Permalink to this heading">#</a></h3>
+<h3>Case 1: Plane Change at LEO<a class="headerlink" href="#case-1-plane-change-at-leo" title="Link to this heading">#</a></h3>
 <p>The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for this maneuver must include both impulses. The <span class="math notranslate nohighlight">\(\Delta v\)</span> in LEO, which includes the plane change, is given by Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(315)</a>. The velocity in the circular initial orbit does not have a radial component, and the Hohmann transfer orbit leaves the initial orbit at perigee so it doesn’t have a radial velocity component either.</p>
 <p>From Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(315)</a>, <span class="math notranslate nohighlight">\(v_1\)</span> is the velocity in the 300 km circular orbit, and <span class="math notranslate nohighlight">\(v_2 = v_{t,1}\)</span> is the velocity at perigee of the transfer orbit. The spacecraft arrives at the end of the transfer orbit with an inclination of 0°. The orbit is circularized at GEO by an in-plane maneuver, with <span class="math notranslate nohighlight">\(\Delta v\)</span> given by Eq. <a class="reference internal" href="hohmann-transfer.html#equation-eq-hohmann-transfer-delta-v">(288)</a>.</p>
 <div class="cell docutils container">
@@ -560,7 +576,7 @@ document.write(`
 <p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> to change plane and enter the Hohmann transfer is <span class="pasted-text">5.002</span> km/s, the <span class="math notranslate nohighlight">\(\Delta v\)</span> to circularize the orbit at GEO is <span class="pasted-text">1.467</span> km/s, and the total <span class="math notranslate nohighlight">\(\Delta v\)</span> is <span class="pasted-text">6.469</span> km/s.</p>
 </section>
 <section id="case-2-plane-change-at-geo">
-<h3>Case 2: Plane Change at GEO<a class="headerlink" href="#case-2-plane-change-at-geo" title="Permalink to this heading">#</a></h3>
+<h3>Case 2: Plane Change at GEO<a class="headerlink" href="#case-2-plane-change-at-geo" title="Link to this heading">#</a></h3>
 <p>The total <span class="math notranslate nohighlight">\(\Delta v\)</span> for this maneuver must include both impulses. The <span class="math notranslate nohighlight">\(\Delta v\)</span> in LEO, which does not include the plane change, is given by Eq. <a class="reference internal" href="hohmann-transfer.html#equation-eq-hohmann-transfer-delta-v">(288)</a>.</p>
 <p>The <span class="math notranslate nohighlight">\(\Delta v\)</span> at GEO, which includes the plane change, is given by Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(315)</a>. The velocity in the circular final orbit does not have a radial component, and the Hohmann transfer orbit arrives at the target orbit at apogee so it doesn’t have a radial velocity component either.</p>
 <p>From Eq. <a class="reference internal" href="plane-change-maneuvers.html#equation-eq-plane-change-delta-v-apsis">(315)</a>, <span class="math notranslate nohighlight">\(v_1 = v_{t,2}\)</span> is the velocity at apogee of the transfer orbit and <span class="math notranslate nohighlight">\(v_2\)</span> is the velocity of the circular orbit.</p>
@@ -577,7 +593,7 @@ document.write(`
 <p>As expected, doing the plane change in LEO required a larger <span class="math notranslate nohighlight">\(\Delta v\)</span>, because the speed of the spacecraft is higher in LEO than GEO.</p>
 </section>
 <section id="case-3-no-plane-change">
-<h3>Case 3: No Plane Change<a class="headerlink" href="#case-3-no-plane-change" title="Permalink to this heading">#</a></h3>
+<h3>Case 3: No Plane Change<a class="headerlink" href="#case-3-no-plane-change" title="Link to this heading">#</a></h3>
 <p>If there is no plane change, the <span class="math notranslate nohighlight">\(\Delta v\)</span> is given by Eq. <a class="reference internal" href="hohmann-transfer.html#equation-eq-hohmann-transfer-delta-v">(288)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,26 +606,26 @@ document.write(`
 </section>
 </section>
 <section id="optimizing-the-plane-change">
-<h2>Optimizing the Plane Change<a class="headerlink" href="#optimizing-the-plane-change" title="Permalink to this heading">#</a></h2>
+<h2>Optimizing the Plane Change<a class="headerlink" href="#optimizing-the-plane-change" title="Link to this heading">#</a></h2>
 <p>Interestingly, splitting the plane change so part happens on departure from LEO and part happens on arrival at GEO turns out to be more efficient than doing the entire plane change at GEO. If we assume that some plane change, <span class="math notranslate nohighlight">\(\Delta i\)</span>, happens on departure from LEO into the Hohmann transfer, and the remainder (28.6° - <span class="math notranslate nohighlight">\(\Delta i\)</span>) happens on arrival to GEO, then we can write the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for both impulses:</p>
 <div class="math notranslate nohighlight" id="equation-eq-plane-change-example-optimal-delta-v">
-<span class="eqno">(323)<a class="headerlink" href="#equation-eq-plane-change-example-optimal-delta-v" title="Permalink to this equation">#</a></span>\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
+<span class="eqno">(323)<a class="headerlink" href="#equation-eq-plane-change-example-optimal-delta-v" title="Link to this equation">#</a></span>\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
 <p>We can take the derivative of this equation with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> to find the minimum, but it’s usually easier to plot a function to see if anything obvious pops out. The plot of this function is shown in <a class="reference internal" href="#fig-plane-change-optimize-delta-v"><span class="std std-numref">Fig. 74</span></a>.</p>
 <figure class="align-default" id="fig-plane-change-optimize-delta-v">
 <img alt="../_images/91da95a01bc36cbdaf504e63cb68eb917fe14f654447e0c0e1538315007c4547.png" src="../_images/91da95a01bc36cbdaf504e63cb68eb917fe14f654447e0c0e1538315007c4547.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 74 </span><span class="caption-text">The total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for a Hohmann transfer from LEO to GEO, including a plane change. <span class="math notranslate nohighlight">\(\Delta i\)</span> is the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-optimize-delta-v" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 74 </span><span class="caption-text">The total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for a Hohmann transfer from LEO to GEO, including a plane change. <span class="math notranslate nohighlight">\(\Delta i\)</span> is the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-optimize-delta-v" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In <a class="reference internal" href="#fig-plane-change-optimize-delta-v"><span class="std std-numref">Fig. 74</span></a>, <span class="math notranslate nohighlight">\(\Delta i\)</span> = 28.6° shows Case 1 (plane change at LEO) and <span class="math notranslate nohighlight">\(\Delta i\)</span> = 0° shows Case 2 (plane change at GEO). We can see that there appears to be a minimum in the <span class="math notranslate nohighlight">\(\Delta v\)</span> around <span class="math notranslate nohighlight">\(\Delta i\)</span> = 2.5°. This means that about 2.5° of plane change should happen when transferring into the Hohmann trajectory, and the remainder should happen at altitude.</p>
 <p>We can determine the value of this optimium by taking the derivative with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> and setting it equal to zero:</p>
 <div class="math notranslate nohighlight" id="equation-eq-plane-change-delta-v-derivative">
-<span class="eqno">(324)<a class="headerlink" href="#equation-eq-plane-change-delta-v-derivative" title="Permalink to this equation">#</a></span>\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
+<span class="eqno">(324)<a class="headerlink" href="#equation-eq-plane-change-delta-v-derivative" title="Link to this equation">#</a></span>\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
 <p>This equation must be solved numerically, but we can plot it to verify the behavior.</p>
 <figure class="align-default" id="fig-plane-change-delta-v-derivative">
 <img alt="../_images/499aef80860230c0c843048ba377cec1050c2e99747e69828f356057e69fb4d4.png" src="../_images/499aef80860230c0c843048ba377cec1050c2e99747e69828f356057e69fb4d4.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 75 </span><span class="caption-text">The derivative of the total <span class="math notranslate nohighlight">\(\Delta v\)</span> as a function of the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-delta-v-derivative" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">The derivative of the total <span class="math notranslate nohighlight">\(\Delta v\)</span> as a function of the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-delta-v-derivative" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As expected, there is a single zero crossing of this function, meaning there is one value of the optimum. We can use the Newton solver to find the optimum value.</p>
@@ -688,6 +704,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -746,8 +763,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Relative Motion in the Two-Body Problem &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/two-body-relative-motion';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-relative-motion.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Two-Body Problem in the Co-Moving Frame" href="two-body-relative-numerical-solution.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -494,10 +510,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="relative-motion-in-the-two-body-problem">
-<h1>Relative Motion in the Two-Body Problem<a class="headerlink" href="#relative-motion-in-the-two-body-problem" title="Permalink to this heading">#</a></h1>
+<h1>Relative Motion in the Two-Body Problem<a class="headerlink" href="#relative-motion-in-the-two-body-problem" title="Link to this heading">#</a></h1>
 <p>In this section, we will solve the two-body problem in <em>relative coordinates</em>, rather than absolute or inertial coordinates. There are several advantages to this approach:</p>
 <ol class="arabic simple">
 <li><p>The state vector only has 6 elements instead of 12</p></li>
@@ -509,7 +525,7 @@ document.write(`
 <div><p>The solution for the allowed relative motion [in the two-body problem] was first obtained by Isaac Newton in 1683. Newton was arguably the first person capable of obtaining it since the solution requires a law of gravitation, a law of motion, and differential calculus, all of which he invented. <strong>pp. 11</strong></p>
 </div></blockquote>
 <section id="equation-of-relative-motion">
-<h2>Equation of Relative Motion<a class="headerlink" href="#equation-of-relative-motion" title="Permalink to this heading">#</a></h2>
+<h2>Equation of Relative Motion<a class="headerlink" href="#equation-of-relative-motion" title="Link to this heading">#</a></h2>
 <p>Recall the equation for the position of <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-relative-position-vector">(14)</a>, and repeated here:</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
@@ -518,28 +534,23 @@ document.write(`
 <p>where lowercase <span class="math notranslate nohighlight">\(\vector{r}\)</span> indicates that the vector is relative and uppercase <span class="math notranslate nohighlight">\(\vector{R}\)</span> indicates that the vector is absolute.</p>
 <p>The equation of motion is derived from <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-relative-position-vector">(14)</a> by differentiating twice:</p>
 <div class="math notranslate nohighlight" id="equation-eq-relative-acceleration-vector">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eq-relative-acceleration-vector" title="Permalink to this equation">#</a></span>\[\ddot{\vector{r}} = \ddot{\vector{R}}_2 - \ddot{\vector{R}}_1\]</div>
+<span class="eqno">(29)<a class="headerlink" href="#equation-eq-relative-acceleration-vector" title="Link to this equation">#</a></span>\[\ddot{\vector{r}} = \ddot{\vector{R}}_2 - \ddot{\vector{R}}_1\]</div>
 <p>The absolute acceleration is found from Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a>. Plugging in the results for the two absolute acceleration vectors:</p>
 <div class="math notranslate nohighlight">
 \[\ddot{\vector{r}} = -G m_1 \frac{\vector{r}}{r^3} - G m_2 \frac{\vector{r}}{r^3}\]</div>
 <p>This simplifies to:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-relative-motion-literal">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eq-two-body-relative-motion-literal" title="Permalink to this equation">#</a></span>\[\ddot{\vector{r}} = -G\left(m_1 + m_2\right)\frac{\vector{r}}{r^3}\]</div>
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-two-body-relative-motion-literal" title="Link to this equation">#</a></span>\[\ddot{\vector{r}} = -G\left(m_1 + m_2\right)\frac{\vector{r}}{r^3}\]</div>
 <p>We now define a parameter, <span class="math notranslate nohighlight">\(\mu\)</span>, called the <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_gravitational_parameter"><strong>standard gravitational parameter</strong></a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-literal-definition-of-mu">
-<span class="eqno">(31)<a class="headerlink" href="#equation-eq-literal-definition-of-mu" title="Permalink to this equation">#</a></span>\[\mu = G\left(m_1 + m_2\right)\]</div>
+<span class="eqno">(31)<a class="headerlink" href="#equation-eq-literal-definition-of-mu" title="Link to this equation">#</a></span>\[\mu = G\left(m_1 + m_2\right)\]</div>
 <p>The utility of this parameter is mostly for the case where <span class="math notranslate nohighlight">\(m_1 \gg m_2\)</span>. Fortunately, this is the case for many practical problems. For instance, human-built devices orbiting around a planet have a much smaller mass than the planet. Thus, if <span class="math notranslate nohighlight">\(m_2\)</span> is the mass of the device and <span class="math notranslate nohighlight">\(m_1\)</span> is the mass of the planet, then <span class="math notranslate nohighlight">\(m_1 + m_2 \approx m_1\)</span> and we can set:</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-of-mu">
-<span class="eqno">(32)<a class="headerlink" href="#equation-eq-definition-of-mu" title="Permalink to this equation">#</a></span>\[\mu \approx G m_1\]</div>
+<span class="eqno">(32)<a class="headerlink" href="#equation-eq-definition-of-mu" title="Link to this equation">#</a></span>\[\mu \approx G m_1\]</div>
 <p>Therefore, we can tabulate values of <span class="math notranslate nohighlight">\(\mu\)</span> for various celestial bodies, as shown in <a class="reference internal" href="#tab-standard-gravitational-parameter"><span class="std std-numref">Table 1</span></a>. To use any of the values here in your code, replace the <code class="docutils literal notranslate"><span class="pre">×</span> <span class="pre">10^{&lt;number&gt;}</span></code> with <code class="docutils literal notranslate"><span class="pre">E&lt;number&gt;</span></code>, so <code class="docutils literal notranslate"><span class="pre">1.32712</span> <span class="pre">×</span> <span class="pre">10^{11}</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1.32712E11</span></code>.</p>
 <p>Notice that the smallest object in <a class="reference internal" href="#tab-standard-gravitational-parameter"><span class="std std-numref">Table 1</span></a> is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in Eq. <a class="reference internal" href="#equation-eq-definition-of-mu">(32)</a>.</p>
 <table class="table" id="tab-standard-gravitational-parameter">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">The standard gravitational parameter (<span class="math notranslate nohighlight">\(\mu\)</span>) and the mass for major celestial objects in the Solar System. See also: <a class="reference internal" href="../reference/planetary-parameters.html#sec-planetary-parameters"><span class="std std-ref">Planetary Parameters</span></a> and <span id="id2">[<a class="reference internal" href="../bibliography.html#id22" title="Ryan S. Park, William M. Folkner, James G. Williams, and Dale H. Boggs. The JPL Planetary and Lunar Ephemerides DE440 and DE441. The Astronomical Journal, 161(3):105, February 2021. doi:10.3847/1538-3881/abd414.">PFWB21</a>]</span></span><a class="headerlink" href="#tab-standard-gravitational-parameter" title="Permalink to this table">#</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">The standard gravitational parameter (<span class="math notranslate nohighlight">\(\mu\)</span>) and the mass for major celestial objects in the Solar System. See also: <a class="reference internal" href="../reference/planetary-parameters.html#sec-planetary-parameters"><span class="std std-ref">Planetary Parameters</span></a> and <span id="id2">[<a class="reference internal" href="../bibliography.html#id22" title="Ryan S. Park, William M. Folkner, James G. Williams, and Dale H. Boggs. The JPL Planetary and Lunar Ephemerides DE440 and DE441. The Astronomical Journal, 161(3):105, February 2021. doi:10.3847/1538-3881/abd414.">PFWB21</a>]</span></span><a class="headerlink" href="#tab-standard-gravitational-parameter" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Celestial Body</p></th>
 <th class="head"><p>Mass [kg]</p></th>
@@ -595,7 +606,7 @@ document.write(`
 </table>
 <p>Returning to Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion-literal">(30)</a> and substituting <span class="math notranslate nohighlight">\(\mu\)</span>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-relative-motion">
-<span class="eqno">(33)<a class="headerlink" href="#equation-eq-two-body-relative-motion" title="Permalink to this equation">#</a></span>\[\ddot{\vector{r}} = -\frac{\mu}{r^3}\vector{r}\]</div>
+<span class="eqno">(33)<a class="headerlink" href="#equation-eq-two-body-relative-motion" title="Link to this equation">#</a></span>\[\ddot{\vector{r}} = -\frac{\mu}{r^3}\vector{r}\]</div>
 <p>This is a nonlinear, second-order ordinary differential equation. It can be solved analytically, if we can find the constants of integration. There are two vector constants of integration, each of which have three scalar components. Thus, there are six constants of integration that must be determined from the initial conditions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -603,20 +614,20 @@ document.write(`
 </div>
 </section>
 <section id="motion-relative-to-the-center-of-mass">
-<h2>Motion Relative to the Center of Mass<a class="headerlink" href="#motion-relative-to-the-center-of-mass" title="Permalink to this heading">#</a></h2>
-<p>Now, referring to the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="doc std std-doc">Motion of the Barycenter</span></a>, we will find the motion of the masses relative to the center of mass, <span class="math notranslate nohighlight">\(\COG\)</span>, of the system. Let <span class="math notranslate nohighlight">\(\vector{r}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{r}_2\)</span> be the position vectors of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> relative to the center of mass, respectively. We also note that, in this definition, <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> points in the same direction as <span class="math notranslate nohighlight">\(\vector{r}_2\)</span>.</p>
+<h2>Motion Relative to the Center of Mass<a class="headerlink" href="#motion-relative-to-the-center-of-mass" title="Link to this heading">#</a></h2>
+<p>Now, referring to the <a class="reference internal" href="motion-of-the-barycenter.html"><span class="std std-doc">Motion of the Barycenter</span></a>, we will find the motion of the masses relative to the center of mass, <span class="math notranslate nohighlight">\(\COG\)</span>, of the system. Let <span class="math notranslate nohighlight">\(\vector{r}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{r}_2\)</span> be the position vectors of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> relative to the center of mass, respectively. We also note that, in this definition, <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> points in the same direction as <span class="math notranslate nohighlight">\(\vector{r}_2\)</span>.</p>
 <p>Skipping all the algebra, it turns out that the equation of motion for <span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(G\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-motion-of-m-2-relative-to-cog">
-<span class="eqno">(34)<a class="headerlink" href="#equation-eq-motion-of-m-2-relative-to-cog" title="Permalink to this equation">#</a></span>\[\ddot{\vector{r}}_2 = - \frac{\mu'}{r_2^3}\vector{r}_2\]</div>
+<span class="eqno">(34)<a class="headerlink" href="#equation-eq-motion-of-m-2-relative-to-cog" title="Link to this equation">#</a></span>\[\ddot{\vector{r}}_2 = - \frac{\mu'}{r_2^3}\vector{r}_2\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-of-mu-prime">
-<span class="eqno">(35)<a class="headerlink" href="#equation-eq-definition-of-mu-prime" title="Permalink to this equation">#</a></span>\[\mu' = \left(\frac{m_1}{m_1 + m_2}\right)^3\mu\]</div>
+<span class="eqno">(35)<a class="headerlink" href="#equation-eq-definition-of-mu-prime" title="Link to this equation">#</a></span>\[\mu' = \left(\frac{m_1}{m_1 + m_2}\right)^3\mu\]</div>
 <p>and <span class="math notranslate nohighlight">\(\mu\)</span> is as given previously. Similarly, the equation of motion for <span class="math notranslate nohighlight">\(m_1\)</span> relative to <span class="math notranslate nohighlight">\(\COG\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-motion-of-m-1-relative-to-cog">
-<span class="eqno">(36)<a class="headerlink" href="#equation-eq-motion-of-m-1-relative-to-cog" title="Permalink to this equation">#</a></span>\[\ddot{\vector{r}}_1 = - \frac{\mu''}{r_1^3}\vector{r}_1\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-eq-motion-of-m-1-relative-to-cog" title="Link to this equation">#</a></span>\[\ddot{\vector{r}}_1 = - \frac{\mu''}{r_1^3}\vector{r}_1\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-eq-definition-of-mu-double-prime">
-<span class="eqno">(37)<a class="headerlink" href="#equation-eq-definition-of-mu-double-prime" title="Permalink to this equation">#</a></span>\[\mu'' = \left(\frac{m_2}{m_1 + m_2}\right)^3\mu\]</div>
+<span class="eqno">(37)<a class="headerlink" href="#equation-eq-definition-of-mu-double-prime" title="Link to this equation">#</a></span>\[\mu'' = \left(\frac{m_2}{m_1 + m_2}\right)^3\mu\]</div>
 <p>Thus, we can see that all three equations of relative motion:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a></p></li>
@@ -626,12 +637,12 @@ document.write(`
 <p>have the same form, differing only in the constants. The solutions to these equations will all have the same shape! This means that if we find the solution in one reference frame, the solution will be the same shape in any other reference frame.</p>
 </section>
 <section id="equation-of-motion-in-a-co-moving-frame">
-<h2>Equation of Motion in a Co-moving Frame<a class="headerlink" href="#equation-of-motion-in-a-co-moving-frame" title="Permalink to this heading">#</a></h2>
+<h2>Equation of Motion in a Co-moving Frame<a class="headerlink" href="#equation-of-motion-in-a-co-moving-frame" title="Link to this heading">#</a></h2>
 <p>Now we are going to transform Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-relative-position-vector">(14)</a> into a more convenient form. Since it is hard to define an inertial reference frame, the vectors <span class="math notranslate nohighlight">\(\vector{R}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{R}_2\)</span> are unknown in general.</p>
 <p>In most of the problems that we work with, it is convenient to treat <span class="math notranslate nohighlight">\(m_1\)</span> as the origin of the coordinate system. For example, in solving the motion of a satellite around Earth, we are most interested in where the satellite is relative to Earth. So a reference frame attached to the center of the Earth and moving with the Earth is quite convenient.</p>
 <p>A reference frame attached to, and moving with, <span class="math notranslate nohighlight">\(m_1\)</span> is shown in <a class="reference internal" href="#fig-coordinate-relative-to-m1"><span class="std std-numref">Fig. 12</span></a>. In this reference frame, the components of <span class="math notranslate nohighlight">\(\vector{r}\)</span> are:</p>
 <div class="math notranslate nohighlight" id="equation-eq-position-vector-in-comoving-frame">
-<span class="eqno">(38)<a class="headerlink" href="#equation-eq-position-vector-in-comoving-frame" title="Permalink to this equation">#</a></span>\[\vector{r} = x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
+<span class="eqno">(38)<a class="headerlink" href="#equation-eq-position-vector-in-comoving-frame" title="Link to this equation">#</a></span>\[\vector{r} = x\uvec{\imath} + y\uvec{\jmath} + z\uvec{k}\]</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><em>relative</em> here means relative to the moving reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span></p>
@@ -639,23 +650,23 @@ document.write(`
 <p>Note that the position here uses lowercase <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> and does not involve the difference between two absolute coordinates.</p>
 <figure class="align-default" id="fig-coordinate-relative-to-m1">
 <img alt="../_images/coordinate-relative-to-m1.svg" src="../_images/coordinate-relative-to-m1.svg" /><figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">The co-moving coordinate system attached to <span class="math notranslate nohighlight">\(m_1\)</span>.</span><a class="headerlink" href="#fig-coordinate-relative-to-m1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">The co-moving coordinate system attached to <span class="math notranslate nohighlight">\(m_1\)</span>.</span><a class="headerlink" href="#fig-coordinate-relative-to-m1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We can find the relative velocity and acceleration:</p>
 <div class="math notranslate nohighlight" id="equation-eq-relative-velocity-and-acceleration">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eq-relative-velocity-and-acceleration" title="Permalink to this equation">#</a></span>\[\begin{aligned}
+<span class="eqno">(39)<a class="headerlink" href="#equation-eq-relative-velocity-and-acceleration" title="Link to this equation">#</a></span>\[\begin{aligned}
   \dot{\vector{r}}_{\text{rel}} &amp;= \dot{x}\uvec{\imath} + \dot{y}\uvec{\jmath} + \dot{z}\uvec{k} &amp; \ddot{\vector{r}}_{\text{rel}} &amp;= \ddot{x}\uvec{\imath} + \ddot{y}\uvec{\jmath} + \ddot{z}\uvec{k}
 \end{aligned}\]</div>
 <p>The absolute acceleration is equal to the relative acceleration only in the case where <span class="math notranslate nohighlight">\(\vector{\Omega}\)</span> and <span class="math notranslate nohighlight">\(\dot{\vector{\Omega}}\)</span>, the angular velocity and angular acceleration respectively, of the moving reference frame, are zero. Therefore, this reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span> cannot be rotating.</p>
 <p>Using the definition of <span class="math notranslate nohighlight">\(\vector{r}\)</span> from Eq. <a class="reference internal" href="#equation-eq-position-vector-in-comoving-frame">(38)</a> and <span class="math notranslate nohighlight">\(\ddot{\vector{r}}\)</span> from Eq. <a class="reference internal" href="#equation-eq-relative-velocity-and-acceleration">(39)</a>, we can rewrite the equation of relative motion, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-relative-motion-components">
-<span class="eqno">(40)<a class="headerlink" href="#equation-eq-two-body-relative-motion-components" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(40)<a class="headerlink" href="#equation-eq-two-body-relative-motion-components" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \ddot{x} &amp;= -\mu \frac{x}{r^3} \\
   \ddot{y} &amp;= -\mu \frac{y}{r^3} \\
   \ddot{z} &amp;= -\mu \frac{z}{r^3}
 \end{aligned}\end{split}\]</div>
-<p>In the reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a> can be solved numerically in exactly the same way as Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> from <a class="reference internal" href="two-body-inertial-motion.html"><span class="doc std std-doc">Two-Body Equations of Motion in an Inertial Frame</span></a>. Since the relative position, velocity, and acceleration vectors only have three components (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, etc.) the state vector will have 6 components instead of 12.</p>
+<p>In the reference frame attached to <span class="math notranslate nohighlight">\(m_1\)</span>, Eq. <a class="reference internal" href="#equation-eq-two-body-relative-motion">(33)</a> can be solved numerically in exactly the same way as Eq. <a class="reference internal" href="two-body-inertial-motion.html#equation-eq-two-body-inertial-equation-of-motion">(20)</a> from <a class="reference internal" href="two-body-inertial-motion.html"><span class="std std-doc">Two-Body Equations of Motion in an Inertial Frame</span></a>. Since the relative position, velocity, and acceleration vectors only have three components (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, etc.) the state vector will have 6 components instead of 12.</p>
 </section>
 </section>
 
@@ -716,6 +727,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -770,8 +782,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

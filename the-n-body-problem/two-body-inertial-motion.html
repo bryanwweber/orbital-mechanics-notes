@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Two-Body Equations of Motion in an Inertial Frame &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/two-body-inertial-motion';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/the-n-body-problem/two-body-inertial-motion.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Two-Body Numerical Solution in an Inertial Frame" href="two-body-inertial-numerical-solution.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -497,77 +513,77 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="two-body-equations-of-motion-in-an-inertial-frame">
-<h1>Two-Body Equations of Motion in an Inertial Frame<a class="headerlink" href="#two-body-equations-of-motion-in-an-inertial-frame" title="Permalink to this heading">#</a></h1>
+<h1>Two-Body Equations of Motion in an Inertial Frame<a class="headerlink" href="#two-body-equations-of-motion-in-an-inertial-frame" title="Link to this heading">#</a></h1>
 <p>In this section, we will develop the equations of motion for two masses, <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, each affected by the other’s gravitational pull. Remember that an inertial reference frame may move with constant velocity, but it cannot rotate or accelerate.</p>
 <p>The origin of this inertial frame of reference is arbitrary. We don’t specify where the origin of the frame is, only that the frame exists and is inertial. Finding a truly inertial reference frame can be tricky, since picking a fixed location in space is tricky. Even Newton deferred this question!</p>
 <section id="relative-position-vector">
-<h2>Relative Position Vector<a class="headerlink" href="#relative-position-vector" title="Permalink to this heading">#</a></h2>
+<h2>Relative Position Vector<a class="headerlink" href="#relative-position-vector" title="Link to this heading">#</a></h2>
 <p>We will use capital letters to refer to coordinates in the inertial reference frame, <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, and <span class="math notranslate nohighlight">\(Z\)</span> with unit vectors <span class="math notranslate nohighlight">\(\uvec{I}\)</span>, <span class="math notranslate nohighlight">\(\uvec{J}\)</span>, and <span class="math notranslate nohighlight">\(\uvec{K}\)</span>, respectively.</p>
 <figure class="align-default" id="fig-two-point-masses">
 <img alt="Two point masses in an inertial reference frame" src="../_images/two-point-masses.svg" /><figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The locations of two point masses, <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, in an inertial reference frame</span><a class="headerlink" href="#fig-two-point-masses" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The locations of two point masses, <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span>, in an inertial reference frame</span><a class="headerlink" href="#fig-two-point-masses" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The position vectors <span class="math notranslate nohighlight">\(\vector{R}_1\)</span> and <span class="math notranslate nohighlight">\(\vector{R}_2\)</span> of two point masses in this reference frame are:</p>
 <div class="math notranslate nohighlight" id="equation-eq-absolute-position-vector">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eq-absolute-position-vector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-absolute-position-vector" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \vector{R}_1 &amp;= X_1\uvec{I} + Y_1\uvec{J} + Z_1\uvec{K}\\
   \vector{R}_2 &amp;= X_2\uvec{I} + Y_2\uvec{J} + Z_2\uvec{K}
 \end{aligned}\end{split}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(\vector{r}\)</span> be the vector pointing from <span class="math notranslate nohighlight">\(m_1\)</span> to <span class="math notranslate nohighlight">\(m_2\)</span>, which we also phrase as <strong><span class="math notranslate nohighlight">\(m_2\)</span> relative to <span class="math notranslate nohighlight">\(m_1\)</span></strong>. Then:</p>
 <div class="math notranslate nohighlight" id="equation-eq-relative-position-vector">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-relative-position-vector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-relative-position-vector" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \vector{r} &amp;= \vector{R}_2 - \vector{R}_1\\
   \vector{r} &amp;= \left(X_2 - X_1\right)\uvec{I} + \left(Y_2 - Y_1\right)\uvec{J} + \left(Z_2 - Z_1\right)\uvec{K}
 \end{aligned}\end{split}\]</div>
 <p>We also define a <strong>unit vector</strong> pointing from <span class="math notranslate nohighlight">\(m_1\)</span> toward <span class="math notranslate nohighlight">\(m_2\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-relative-unit-vector">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-relative-unit-vector" title="Permalink to this equation">#</a></span>\[\uvec{u}_r = \frac{\vector{r}}{r}\]</div>
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-relative-unit-vector" title="Link to this equation">#</a></span>\[\uvec{u}_r = \frac{\vector{r}}{r}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r\)</span> is the magnitude of <span class="math notranslate nohighlight">\(\vector{r}\)</span>, or the distance between the two masses.</p>
 <section id="forces-in-the-two-body-system">
-<h3>Forces in the Two-Body System<a class="headerlink" href="#forces-in-the-two-body-system" title="Permalink to this heading">#</a></h3>
+<h3>Forces in the Two-Body System<a class="headerlink" href="#forces-in-the-two-body-system" title="Link to this heading">#</a></h3>
 <p>The two masses are acted upon only by their mutual gravitational pull. <span class="math notranslate nohighlight">\(\vector{F}_{12}\)</span> is the force exerted on <span class="math notranslate nohighlight">\(m_1\)</span> by <span class="math notranslate nohighlight">\(m_2\)</span> and <span class="math notranslate nohighlight">\(\vector{F}_{21}\)</span> is the force exerted on <span class="math notranslate nohighlight">\(m_2\)</span> by <span class="math notranslate nohighlight">\(m_1\)</span>. By Newton’s third law:</p>
 <div class="math notranslate nohighlight" id="equation-eq-newtons-third-law-for-two-body">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eq-newtons-third-law-for-two-body" title="Permalink to this equation">#</a></span>\[\vector{F}_{12} = -\vector{F}_{21}\]</div>
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-newtons-third-law-for-two-body" title="Link to this equation">#</a></span>\[\vector{F}_{12} = -\vector{F}_{21}\]</div>
 <p>Newton’s second law says that the force is equal to the mass times the acceleration:</p>
 <div class="math notranslate nohighlight" id="equation-eq-newtons-second-law-two-body">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eq-newtons-second-law-two-body" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(17)<a class="headerlink" href="#equation-eq-newtons-second-law-two-body" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \vector{F}_{12} &amp;= m_1\ddot{\vector{R}}_1 \\
   \vector{F}_{21} &amp;= m_2\ddot{\vector{R}}_2
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\ddot{\vector{R}}\)</span> is the <strong>absolute acceleration</strong> of the subscripted mass. Absolute means that the acceleration is taken relative to an inertial reference frame. This is important because Newton’s second law only applies for absolute accelerations.</p>
 <p>Since the only force in this system is the gravitational attraction, the force is also equal to Newton’s law of gravitation, <a class="reference internal" href="../intro/mass-force-and-newtons-law-of-gravitation.html#equation-eq-newtons-law-of-gravitation">(1)</a>. The force of <span class="math notranslate nohighlight">\(m_2\)</span> on <span class="math notranslate nohighlight">\(m_1\)</span>, <span class="math notranslate nohighlight">\(F_{12}\)</span>, points in the <em>positive</em> direction of <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span>. Because of Newton’s third law, as represented by <a class="reference internal" href="#equation-eq-newtons-third-law-for-two-body">(16)</a>, the force of <span class="math notranslate nohighlight">\(m_1\)</span> on <span class="math notranslate nohighlight">\(m_2\)</span>, <span class="math notranslate nohighlight">\(F_{21}\)</span>, points in the negative direction of <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span>. This is shown in <a class="reference internal" href="#equation-eq-gravitational-force-two-body">(18)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gravitational-force-two-body">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eq-gravitational-force-two-body" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(18)<a class="headerlink" href="#equation-eq-gravitational-force-two-body" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \vector{F}_{12} &amp;= \frac{G m_1 m_2}{r^2}\uvec{u}_r\\
   \vector{F}_{21} &amp;= -\frac{G m_1 m_2}{r^2}\uvec{u}_r
 \end{aligned}\end{split}\]</div>
 </section>
 </section>
 <section id="finding-the-equations-of-motion">
-<h2>Finding the Equations of Motion<a class="headerlink" href="#finding-the-equations-of-motion" title="Permalink to this heading">#</a></h2>
+<h2>Finding the Equations of Motion<a class="headerlink" href="#finding-the-equations-of-motion" title="Link to this heading">#</a></h2>
 <p>Combining <a class="reference internal" href="#equation-eq-newtons-second-law-two-body">(17)</a> and <a class="reference internal" href="#equation-eq-gravitational-force-two-body">(18)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-second-law-and-gravity-two-body">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eq-second-law-and-gravity-two-body" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(19)<a class="headerlink" href="#equation-eq-second-law-and-gravity-two-body" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   m_1 \ddot{\vector{R}}_1 &amp;= \frac{G m_1 m_2}{r^2}\uvec{u}_r\\
   m_2 \ddot{\vector{R}}_2 &amp;= -\frac{G m_1 m_2}{r^2}\uvec{u}_r
 \end{aligned}\end{split}\]</div>
 <p>Finally, we divide through by the mass on the left side of each equation and replace <span class="math notranslate nohighlight">\(\uvec{u}_r\)</span> with its definition, <a class="reference internal" href="#equation-eq-relative-unit-vector">(15)</a> to arrive at the <strong>two-body inertial equations of motion</strong>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-inertial-equation-of-motion">
-<span class="eqno">(20)<a class="headerlink" href="#equation-eq-two-body-inertial-equation-of-motion" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(20)<a class="headerlink" href="#equation-eq-two-body-inertial-equation-of-motion" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \ddot{\vector{R}}_1 &amp;= G m_2 \frac{\vector{r}}{r^3}\\
   \ddot{\vector{R}}_2 &amp;= -G m_1 \frac{\vector{r}}{r^3}
 \end{aligned}\end{split}\]</div>
 <p>This is a coupled, nonlinear, vector system of ordinary differential equations.</p>
 </section>
 <section id="finding-the-system-state-as-a-function-of-time">
-<h2>Finding the System State as a Function of Time<a class="headerlink" href="#finding-the-system-state-as-a-function-of-time" title="Permalink to this heading">#</a></h2>
+<h2>Finding the System State as a Function of Time<a class="headerlink" href="#finding-the-system-state-as-a-function-of-time" title="Link to this heading">#</a></h2>
 <p>Our goal is now to determine equations that will let us solve for the position, velocity, and acceleration of the two masses as a function of time. We split <a class="reference internal" href="#equation-eq-two-body-inertial-equation-of-motion">(20)</a> into components to find the absolute acceleration of each mass:</p>
 <div class="math notranslate nohighlight" id="equation-eq-two-body-inertial-components">
-<span class="eqno">(21)<a class="headerlink" href="#equation-eq-two-body-inertial-components" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(21)<a class="headerlink" href="#equation-eq-two-body-inertial-components" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \ddot{X}_1 &amp;= G m_2 \frac{X_2 - X_1}{r^3} &amp; \ddot{Y}_1 &amp;= G m_2 \frac{Y_2 - Y_1}{r^3} &amp; \ddot{Z}_1 &amp;= G m_2 \frac{Z_2 - Z_1}{r^3}\\
   \ddot{X}_2 &amp;= G m_1 \frac{X_1 - X_2}{r^3} &amp; \ddot{Y}_2 &amp;= G m_1 \frac{Y_1 - Y_2}{r^3} &amp; \ddot{Z}_2 &amp;= G m_1 \frac{Z_1 - Z_2}{r^3}
 \end{aligned}\end{split}\]</div>
@@ -638,6 +654,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -695,8 +712,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

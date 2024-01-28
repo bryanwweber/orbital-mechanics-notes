@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Non-Hohmann Transfers with a Common Apse Line &#8212; Orbital Mechanics &amp; Astrodynamics</title>
   
@@ -19,56 +18,60 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/copyHeaderPermalink.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-maneuvers/non-hohmann-transfers';</script>
+    <script src="../_static/copyHeaderPermalink.js?v=eb7e8955"></script>
     <link rel="canonical" href="https://orbital-mechanics.space/orbital-maneuvers/non-hohmann-transfers.html" />
-    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+    <link rel="icon" href="../_static/favicon-16x16.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Non-Hohmann Transfers: Common Apse Line Example" href="common-apse-line-example.html" />
@@ -82,10 +85,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +128,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +169,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
@@ -494,10 +510,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="non-hohmann-transfers-with-a-common-apse-line">
-<h1>Non-Hohmann Transfers with a Common Apse Line<a class="headerlink" href="#non-hohmann-transfers-with-a-common-apse-line" title="Permalink to this heading">#</a></h1>
+<h1>Non-Hohmann Transfers with a Common Apse Line<a class="headerlink" href="#non-hohmann-transfers-with-a-common-apse-line" title="Link to this heading">#</a></h1>
 <p>The Hohmann transfer requires that the spacecraft have the thrust impulses applied at periapsis and apoapsis of the transfer orbit. However, this limits the possible timing of the transfer if we are trying to intercept another celestial body.</p>
 <p>Instead, it would be more convenient if we could transfer to or from any point in the initial or target orbit. This would require more <span class="math notranslate nohighlight">\(\Delta v\)</span> than a Hohmann transfer, but gives more flexibility. The only required condition is that the transfer orbit must intersect both the initial and final orbits.</p>
 <p>For now, we will assume that the initial and target orbits have a common apse line. In addition, the two orbits will have the same focus. Assume that we want to leave the initial orbit at the true anomaly <span class="math notranslate nohighlight">\(\nu_A\)</span> and arrive at the target orbit at the true anomaly <span class="math notranslate nohighlight">\(\nu_B\)</span>.</p>
@@ -505,18 +521,18 @@ document.write(`
 <figure class="align-default" id="fig-common-apse-line-transfer">
 <a class="reference internal image-reference" href="../_images/common-apse-line-transfer.svg"><img alt="../_images/common-apse-line-transfer.svg" src="../_images/common-apse-line-transfer.svg" width="75%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 66 </span><span class="caption-text">The setup for the common apse line transfer orbit. The initial and final orbits are shown in black, while the transfer orbit is shown in blue. The solid section of the transfer orbit is the portion actually traversed by the spacecraft.</span><a class="headerlink" href="#fig-common-apse-line-transfer" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">The setup for the common apse line transfer orbit. The initial and final orbits are shown in black, while the transfer orbit is shown in blue. The solid section of the transfer orbit is the portion actually traversed by the spacecraft.</span><a class="headerlink" href="#fig-common-apse-line-transfer" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Therefore, we can apply the orbit equation at the departure and arrival points:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-intersecting-points">
-<span class="eqno">(297)<a class="headerlink" href="#equation-eq-non-hohmann-intersecting-points" title="Permalink to this equation">#</a></span>\[\begin{aligned}
+<span class="eqno">(297)<a class="headerlink" href="#equation-eq-non-hohmann-intersecting-points" title="Link to this equation">#</a></span>\[\begin{aligned}
   r_A &amp;= \frac{p_t}{1 + e_t\cos\nu_A} &amp; r_B &amp;= \frac{p_t}{1 + e_t\cos\nu_B}
 \end{aligned}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r_A\)</span> and <span class="math notranslate nohighlight">\(r_B\)</span> are the orbital radii at the departure and arrival points. Note that <span class="math notranslate nohighlight">\(p_t\)</span> is the orbital parameter for the transfer orbit, and <span class="math notranslate nohighlight">\(p = h^2/\mu\)</span>.</p>
 <p>Now we have two equations and two unknowns for the transfer orbit, <span class="math notranslate nohighlight">\(e_t\)</span> and <span class="math notranslate nohighlight">\(p_t\)</span>. Solving for these two, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-orbital-elements">
-<span class="eqno">(298)<a class="headerlink" href="#equation-eq-non-hohmann-orbital-elements" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(298)<a class="headerlink" href="#equation-eq-non-hohmann-orbital-elements" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
   e_t &amp;= \frac{r_B - r_A}{r_A \cos\nu_A - r_B\cos\nu_B} \\
   p_t &amp;= r_A r_B\frac{\cos\nu_A - \cos\nu_B}{r_A\cos\nu_A - r_B\cos\nu_B}
 \end{aligned}\end{split}\]</div>
@@ -530,38 +546,38 @@ document.write(`
 \end{aligned}\end{split}\]</div>
 </div>
 <section id="calculating-delta-v">
-<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Permalink to this heading">#</a></h2>
+<h2>Calculating <span class="math notranslate nohighlight">\(\Delta v\)</span><a class="headerlink" href="#calculating-delta-v" title="Link to this heading">#</a></h2>
 <p>For orbital transfers that do not take place on the apse line, we have to account for the change in direction of the velocity vector in addition to the change of magnitude. The difference in length of the velocity vectors is the change in speed and the change of flight path angle is the change of direction of the vector.</p>
 <p>It is very important that when we calculate the required <span class="math notranslate nohighlight">\(\Delta v\)</span> for a maneuver, this is the magnitude of the change in velocity vector, not the change of magnitude of the velocity (speed). Since <span class="math notranslate nohighlight">\(\Delta\vector{v} = \vector{v}_{A_t} - \vector{v}_A\)</span>, the magnitude is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-delta-v-vector">
-<span class="eqno">(299)<a class="headerlink" href="#equation-eq-non-hohmann-delta-v-vector" title="Permalink to this equation">#</a></span>\[\Delta v = \mag{\Delta\vector{v}} = \sqrt{\left(\vector{v}_{A_t} - \vector{v}_{A}\right)\cdot\left(\vector{v}_{A_t} - \vector{v}_{A}\right)}\]</div>
+<span class="eqno">(299)<a class="headerlink" href="#equation-eq-non-hohmann-delta-v-vector" title="Link to this equation">#</a></span>\[\Delta v = \mag{\Delta\vector{v}} = \sqrt{\left(\vector{v}_{A_t} - \vector{v}_{A}\right)\cdot\left(\vector{v}_{A_t} - \vector{v}_{A}\right)}\]</div>
 <p>Expanding the product and simplifying with the law of cosines, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-delta-v-scalar">
-<span class="eqno">(300)<a class="headerlink" href="#equation-eq-non-hohmann-delta-v-scalar" title="Permalink to this equation">#</a></span>\[\Delta v = \sqrt{v_A^2 + v_{A_t}^2 - 2 v_A v_{A_t} \cos\Delta\phi}\]</div>
+<span class="eqno">(300)<a class="headerlink" href="#equation-eq-non-hohmann-delta-v-scalar" title="Link to this equation">#</a></span>\[\Delta v = \sqrt{v_A^2 + v_{A_t}^2 - 2 v_A v_{A_t} \cos\Delta\phi}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta\phi = \phi_{A_t} - \phi_A\)</span> is the change of flight path angle. The flight path angle is given by Eq. <a class="reference internal" href="../the-orbit-equation/orbital-nomenclature.html#equation-eq-flight-path-angle">(118)</a>.</p>
 <p>This situation is shown in <a class="reference internal" href="#fig-non-hohmann-delta-v"><span class="std std-numref">Fig. 67</span></a> for the departure point.</p>
 <figure class="align-default" id="fig-non-hohmann-delta-v">
 <img alt="../_images/non-hohmann-delta-v.svg" src="../_images/non-hohmann-delta-v.svg" /><figcaption>
-<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Arbitrary changes may be made to the velocity vector by aligning the thrust vector to the angle <span class="math notranslate nohighlight">\(\gamma\)</span>. This causes a change in flight path angle from <span class="math notranslate nohighlight">\(\phi_A\)</span> to <span class="math notranslate nohighlight">\(\phi_{A_t}\)</span>. This manuever will transfer from the initial orbit to the transfer orbit. A similar maneuver is required to go from the transfer orbit to the final orbit.</span><a class="headerlink" href="#fig-non-hohmann-delta-v" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Arbitrary changes may be made to the velocity vector by aligning the thrust vector to the angle <span class="math notranslate nohighlight">\(\gamma\)</span>. This causes a change in flight path angle from <span class="math notranslate nohighlight">\(\phi_A\)</span> to <span class="math notranslate nohighlight">\(\phi_{A_t}\)</span>. This manuever will transfer from the initial orbit to the transfer orbit. A similar maneuver is required to go from the transfer orbit to the final orbit.</span><a class="headerlink" href="#fig-non-hohmann-delta-v" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This gives the required velocity change at the departure point, <span class="math notranslate nohighlight">\(A\)</span>. The same calculate can be done at the arrival point, <span class="math notranslate nohighlight">\(B\)</span>, to compute the total <span class="math notranslate nohighlight">\(\Delta v\)</span> for the maneuver.</p>
 </section>
 <section id="thrust-direction">
-<h2>Thrust Direction<a class="headerlink" href="#thrust-direction" title="Permalink to this heading">#</a></h2>
+<h2>Thrust Direction<a class="headerlink" href="#thrust-direction" title="Link to this heading">#</a></h2>
 <p>To achieve the new velocity, the thrust from the engine must be directed parallel to the direction of <span class="math notranslate nohighlight">\(\Delta\vector{v}\)</span>. Relative to the local horizon, the required angle <span class="math notranslate nohighlight">\(\gamma\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-hohmann-thrust-direction">
-<span class="eqno">(301)<a class="headerlink" href="#equation-eq-non-hohmann-thrust-direction" title="Permalink to this equation">#</a></span>\[\tan\gamma = \frac{\Delta v_r}{\Delta v_{\perp}}\]</div>
+<span class="eqno">(301)<a class="headerlink" href="#equation-eq-non-hohmann-thrust-direction" title="Link to this equation">#</a></span>\[\tan\gamma = \frac{\Delta v_r}{\Delta v_{\perp}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta v_r\)</span> is the change in the radial component of velocity and <span class="math notranslate nohighlight">\(\Delta v_{\perp}\)</span> is the change in the perpendicular component of velocity.</p>
 </section>
 <section id="relation-to-specific-energy">
-<h2>Relation to Specific Energy<a class="headerlink" href="#relation-to-specific-energy" title="Permalink to this heading">#</a></h2>
+<h2>Relation to Specific Energy<a class="headerlink" href="#relation-to-specific-energy" title="Link to this heading">#</a></h2>
 <p>The <em>vis viva</em> equation determines the specific energy of the spacecraft due to its kinetic and potential energy by Eq. <a class="reference internal" href="../constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.html#equation-eq-vis-viva-equation">(93)</a>. The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-0">
-<span class="eqno">(302)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-0" title="Permalink to this equation">#</a></span>\[\Delta E = \frac{\left(\vector{v} + \Delta\vector{v}\right)\cdot\left(\vector{v} + \Delta\vector{v}\right)}{2} - \frac{\vector{v}\cdot\vector{v}}{2}\]</div>
+<span class="eqno">(302)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-0" title="Link to this equation">#</a></span>\[\Delta E = \frac{\left(\vector{v} + \Delta\vector{v}\right)\cdot\left(\vector{v} + \Delta\vector{v}\right)}{2} - \frac{\vector{v}\cdot\vector{v}}{2}\]</div>
 <p>Simplifying, assuming that <span class="math notranslate nohighlight">\(\vector{v} = \vector{v}_A\)</span> and <span class="math notranslate nohighlight">\(\left(\vector{v} + \Delta\vector{v}\right) = \vector{v}_{A_t}\)</span>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-orbital-maneuvers-non-hohmann-transfers-1">
-<span class="eqno">(303)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-1" title="Permalink to this equation">#</a></span>\[\Delta E = v\Delta v \cos\Delta\phi + \frac{1}{2}\Delta v^2\]</div>
+<span class="eqno">(303)<a class="headerlink" href="#equation-orbital-maneuvers-non-hohmann-transfers-1" title="Link to this equation">#</a></span>\[\Delta E = v\Delta v \cos\Delta\phi + \frac{1}{2}\Delta v^2\]</div>
 <p>From this equation, for a fixed <span class="math notranslate nohighlight">\(\Delta v\)</span> from the maneuver, we see that <span class="math notranslate nohighlight">\(\Delta E\)</span> is maximized when <span class="math notranslate nohighlight">\(v\)</span> is largest and <span class="math notranslate nohighlight">\(\Delta\phi\)</span>=0. In the sense that higher <span class="math notranslate nohighlight">\(\Delta E\)</span> for a given <span class="math notranslate nohighlight">\(\Delta v\)</span> is more efficient, we can see that aligning the velocity vectors and maximizing <span class="math notranslate nohighlight">\(v\)</span> by providing the impulse at periapsis has the highest efficiency.</p>
 </section>
 </section>
@@ -623,6 +639,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -677,8 +694,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
