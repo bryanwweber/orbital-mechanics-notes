@@ -1,6 +1,4 @@
 {
-    "python.formatting.provider": "black",
-    "python.linting.mypyEnabled": true,
     "cSpell.words": [
         "apoapsis",
         "deorbit",
