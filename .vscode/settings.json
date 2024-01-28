@@ -1,9 +1,6 @@
 {
     "python.formatting.provider": "black",
-    "python.linting.enabled": true,
     "python.linting.mypyEnabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.lintOnSave": true,
     "cSpell.words": [
         "apoapsis",
         "deorbit",
