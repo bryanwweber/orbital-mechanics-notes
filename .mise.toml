@@ -6,3 +6,21 @@ pdm = "latest"
 [plugins]
 pdm = "https://github.com/1oglop1/asdf-pdm"
 markdownlint-cli2 = "https://github.com/paulo-ferraz-oliveira/asdf-markdownlint-cli2"
+
+[tasks]
+ruff_check_lint = { description = "Run the ruff linter", run = "ruff check ." }
+ruff_format_lint = { run = "ruff format --check . || true", description = "Run the ruff formatter in check mode" }
+markdownlint_lint = { run = "markdownlint-cli2 || true", description = "Run markdownlint" }
+lint = { depends = [
+  "ruff_check_lint",
+  "ruff_format_lint",
+  "markdownlint_lint",
+], description = "Run all the linter tools" }
+ruff_check_format = { run = "ruff check --fix .", description = "Run the ruff linter in fix mode" }
+ruff_format_format = { run = "ruff format .", description = "Run the ruff formatter" }
+markdownlint_format = { run = "markdownlint-cli2 --fix", description = "Run markdownlint in fix mode" }
+format = { depends = [
+  "ruff_check_format",
+  "ruff_format_format",
+  "markdownlint_format",
+], description = "Run all the formatting tools" }
