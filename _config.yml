@@ -29,6 +29,7 @@ sphinx:
     html_show_copyright: false
     html_extra_path: ["assets"]
     html_theme_options:
+      navigation_with_keys: false
       logo:
         image_light: "_static/hohmann-light.svg"
         image_dark: "_static/hohmann-dark.svg"
@@ -58,7 +59,6 @@ parse:
   myst_enable_extensions:
     - colon_fence
     - dollarmath
-
 
 html:
   baseurl: "https://orbital-mechanics.space"
