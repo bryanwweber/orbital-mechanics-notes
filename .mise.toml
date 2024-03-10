@@ -1,5 +1,5 @@
 [tools]
-python = { version = "3.11", virtualenv = ".venv" }
+python = { version = "3.12", virtualenv = ".venv" }
 markdownlint-cli2 = "latest"
 pdm = "latest"
 
