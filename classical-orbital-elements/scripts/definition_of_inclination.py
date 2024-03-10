@@ -1,13 +1,11 @@
 #!/usr/bin/env python
-# coding: utf-8
 
 # In[1]:
 
 
-import plotly.graph_objects as go
 import numpy as np
+import plotly.graph_objects as go
 from scipy.spatial.transform import Rotation as R
-
 
 # In[2]:
 
@@ -66,7 +64,7 @@ colors = dict(
 
 a = 100
 e = 0.4
-b = a * np.sqrt(1 - e ** 2)
+b = a * np.sqrt(1 - e**2)
 r_p = a * (1 - e)
 
 inclination = 30
@@ -77,7 +75,7 @@ rot = R.from_euler("zxy", [0, 0, inclination], degrees=True)
 
 theta = np.arange(0, 2 * np.pi, step=0.01)
 phi = 0
-r = a * (1 - e ** 2) / (1 - e * np.cos(theta - phi))
+r = a * (1 - e**2) / (1 - e * np.cos(theta - phi))
 x = r * np.cos(theta)
 y = r * np.sin(theta)
 z = np.zeros_like(x)

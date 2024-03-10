@@ -40,7 +40,7 @@ For circular orbits, we usually pick the apse line to be along the $x$-axis and 
 A parabolic trajectory, $e = 1$
 :::
 
-The parabolic trajectory has eccentricity $e = 1$. The parabolic trajectory extends to infinity towards the left of the domain. It is the limiting case where an object on a parabolic trajectory will never return to the primary mass. Thus, it is called a _trajectory_ rather than _orbit_ since it is not periodic.
+The parabolic trajectory has eccentricity $e = 1$. The parabolic trajectory extends to infinity towards the left of the domain. It is the limiting case where an object on a parabolic trajectory will never return to the primary mass. Thus, it is called a *trajectory* rather than *orbit* since it is not periodic.
 
 The parabolic trajectory has a periapsis, a point of closest approach, but no apoapsis, since the trajectory extends to infinity.
 ::::

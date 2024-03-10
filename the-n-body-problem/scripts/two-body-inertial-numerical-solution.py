@@ -21,19 +21,19 @@ Z_2 = y_0[5]
 
 r = np.sqrt((X_2 - X_1) ** 2 + (Y_2 - Y_1) ** 2 + (Z_2 - Z_1) ** 2)
 
-ddotX_1 = G * m_2 * (X_2 - X_1) / r ** 3
-ddotY_1 = G * m_2 * (Y_2 - Y_1) / r ** 3
-ddotZ_1 = G * m_2 * (Z_2 - Z_1) / r ** 3
-ddotX_2 = -G * m_1 * (X_2 - X_1) / r ** 3
-ddotY_2 = -G * m_1 * (Y_2 - Y_1) / r ** 3
-ddotZ_2 = -G * m_1 * (Z_2 - Z_1) / r ** 3
+ddotX_1 = G * m_2 * (X_2 - X_1) / r**3
+ddotY_1 = G * m_2 * (Y_2 - Y_1) / r**3
+ddotZ_1 = G * m_2 * (Z_2 - Z_1) / r**3
+ddotX_2 = -G * m_1 * (X_2 - X_1) / r**3
+ddotY_2 = -G * m_1 * (Y_2 - Y_1) / r**3
+ddotZ_2 = -G * m_1 * (Z_2 - Z_1) / r**3
 
 # [section-3]
 R_1 = y_0[:3]
 R_2 = y_0[3:6]
 
 r = np.sqrt(np.sum(np.square(R_2 - R_1)))
-ddot = G * (R_2 - R_1) / r ** 3
+ddot = G * (R_2 - R_1) / r**3
 ddotR_1_0 = m_2 * ddot
 ddotR_2_0 = -m_1 * ddot
 
@@ -46,9 +46,8 @@ R_1_1 = dotR_1_0 * Delta_t + R_1_0
 R_2_1 = dotR_2_0 * Delta_t + R_2_0
 
 # [section-5]
-from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+from scipy.integrate import solve_ivp
 
 
 # [section-6]
@@ -76,7 +75,7 @@ def absolute_motion(t, y):
     # Calculate the acceleration terms and fill them in to the rest
     # of the derivative array
     r = np.sqrt(np.sum(np.square(R_2 - R_1)))
-    ddot = G * (R_2 - R_1) / r ** 3
+    ddot = G * (R_2 - R_1) / r**3
     ddotR_1 = m_2 * ddot
     ddotR_2 = -m_1 * ddot
 

@@ -1,6 +1,6 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import matplotlib.pyplot as plt
+import numpy as np
 
 plt.ioff()
 
@@ -30,13 +30,13 @@ def plot_figure():
     e = 1.1
     theta_inf = np.arccos(-1 / e)
     a = 1
-    b = a * np.sqrt(e ** 2 - 1)
+    b = a * np.sqrt(e**2 - 1)
     r_p = a * (e - 1)
 
     (m1,) = ax.plot(-a - r_p, 0, "ko")
 
     x = np.linspace(a, 2 * a, 1000)
-    y = b / a * np.sqrt(x ** 2 - a ** 2)
+    y = b / a * np.sqrt(x**2 - a**2)
     (r_pos,) = ax.plot(x, y, color="C0")
     (r_neg,) = ax.plot(x, -y, color="C0")
     (l_neg,) = ax.plot(-x, -y, color="C1")
@@ -58,7 +58,7 @@ def plot_figure():
         return (r_pos, r_neg, l_neg, l_pos, ann_2, ann_3, ann_4, m1, point, ann)
 
     def animate(t):
-        r = a * (e ** 2 - 1) / (1 + e * np.cos(t))
+        r = a * (e**2 - 1) / (1 + e * np.cos(t))
         point.set_data(-a - r_p + r * np.cos(t), r * np.sin(t))
         ann.set_text(rf"$\nu$ = {np.degrees(t):.2F}°")
         return (point, ann)

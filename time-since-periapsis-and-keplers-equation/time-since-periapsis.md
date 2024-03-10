@@ -217,6 +217,7 @@ The true, mean, and eccentric anomalies for an elliptical orbit. The true anomal
 :::
 
 (sec:time-since-periapsis-solution-procedures)=
+
 ## Solution Procedures
 
 There are now two cases that we want to consider:

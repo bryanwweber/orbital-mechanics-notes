@@ -1,17 +1,16 @@
 #!/usr/bin/env python
-# coding: utf-8
 
-# **The canonical version of this is in `classical-orbital-elements/scripts/definition-of-raan.py`.**
+# **The canonical version of this is in
+# `classical-orbital-elements/scripts/definition-of-raan.py`.**
 #
 # This Notebook is here for interactive experimentation.
 
 # In[1]:
 
 
-import plotly.graph_objects as go
 import numpy as np
+import plotly.graph_objects as go
 from scipy.spatial.transform import Rotation as R
-
 
 # In[2]:
 
@@ -70,9 +69,9 @@ colors = dict(
 
 a = 100
 e = 0.4
-b = a * np.sqrt(1 - e ** 2)
+b = a * np.sqrt(1 - e**2)
 r_p = a * (1 - e)
-p = a * (1 - e ** 2)
+p = a * (1 - e**2)
 
 inclination = 30
 raan = 30
@@ -83,7 +82,7 @@ rot = R.from_euler("ZYZ", [raan, inclination, omega], degrees=True)
 theta = np.arange(0, 2 * np.pi, step=0.01)
 phi = 0
 # https://math.stackexchange.com/a/819533
-r = a * (1 - e ** 2) / (1 - e * np.cos(theta - phi))
+r = a * (1 - e**2) / (1 - e * np.cos(theta - phi))
 x = r * np.cos(theta)
 y = r * np.sin(theta)
 z = np.zeros_like(x)

@@ -1,8 +1,8 @@
 # [section-1]
-from scipy.integrate import solve_ivp
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401, needed for 3d plots
+from scipy.integrate import solve_ivp
 
 # [section-2]
 G = 6.67430e-20  # km**3/(kg * s**2)
@@ -34,7 +34,7 @@ def relative_motion(t, Y):
 
     # Calculate the accelerations
     r = np.sqrt(np.sum(np.square(r_vec)))
-    a_vec = -mu * r_vec / r ** 3
+    a_vec = -mu * r_vec / r**3
     Ydot[3:] = a_vec
 
     return Ydot

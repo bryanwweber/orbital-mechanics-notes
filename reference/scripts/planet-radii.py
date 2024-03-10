@@ -1,6 +1,7 @@
 import csv
-from myst_nb.ext.glue import GLUE_PREFIX
+
 from IPython.display import display
+from myst_nb.ext.glue import GLUE_PREFIX
 
 # Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/5
 planet_data = """\
@@ -16,7 +17,7 @@ Jupiter,69911 ± 6,71492 ± 4,66854 ± 10,62.1,31,102
 Saturn,58232 ± 6,60268 ± 4,54364 ± 10,102.9,8,205
 Uranus,25362 ± 7,25559 ± 4,24973 ± 20,16.8,28,0
 Neptune,24622 ± 19,24764 ± 15,24341 ± 30,8.0,14,0
-"""
+"""  # noqa: E501
 
 # Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/6
 moon_data = """\
@@ -87,7 +88,7 @@ Neptune,VII,Larissa,96 ± 7,104,,89,2.9,6.0,5.0
 Neptune,VIII,Proteus,208 ± 8,218,208,201,7.9,18.0,13.0
 Neptune,I,Triton,1352.6 ± 2.4,,,,,,
 Neptune,II,Nereid,170 ± 25,,,,,,
-"""
+"""  # noqa: E501
 
 # Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/7
 dwarf_data = """\
@@ -113,7 +114,7 @@ Body,Mean radius (km),Radii measured along principal axes.x (km),Radii measured 
 67P/Churyumov–Gerasimenko,1.65,2.40,1.55,1.20,(f)
 81P/Wild 2,1.975,2.7,1.9,1.5,
 103P/Hartley 2,0.58,0.34,1.16,1.16,(g)
-"""
+"""  # noqa: E501, RUF001
 
 
 def glue(row: dict[str, str], name: str, object: str) -> None:

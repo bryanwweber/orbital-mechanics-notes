@@ -1,20 +1,19 @@
-from __future__ import annotations
-import requests
-from xml.etree import ElementTree as ET
-from pathlib import Path
 import json
-from typing import Optional, Union, Dict
+import re
 import sys
 from datetime import datetime
-import re
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+import requests
 
 HERE = Path(__file__).parent
 OUTPUT = HERE.parent / "images"
 # HOST = "https://math.vercel.app"
 HOST = "http://localhost:3000"
-PARAMS: dict[str, Optional[Union[str, bytes]]] = {"from": None}
+PARAMS: dict[str, str | bytes | None] = {"from": None}
 CACHE = HERE / "mathjax_cache.json"
-CACHE_T = Dict[Optional[Union[str, bytes]], str]
+CACHE_T = dict[str | bytes | None, str]
 SESSION = requests.Session()
 NAMESPACES = {
     "": "http://www.w3.org/2000/svg",
@@ -60,7 +59,7 @@ CC_META = """
    </rdf:RDF>
 </metadata>
 </root>
-"""
+"""  # noqa: E501
 # Match sizes from height and width attributes
 SIZE_REGEX = re.compile(r"([\d.]+)?(\w*)?")
 # Match a scaling factor in the class attribute
@@ -148,7 +147,7 @@ def replace_text(search_elem: ET.Element, cache: CACHE_T) -> None:
         search_elem.remove(elem)
 
 
-def main(svg_file: Optional[Path] = None) -> None:
+def main(svg_file: Path | None = None) -> None:
     if svg_file is None:
         for svg_f in HERE.glob("*.svg"):
             main(svg_f)

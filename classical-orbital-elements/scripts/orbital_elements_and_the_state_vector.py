@@ -8,7 +8,7 @@ mu = 3.986e5  # km^3/s^2
 r = np.linalg.norm(r_vec)
 v = np.linalg.norm(v_vec)
 v_r = np.dot(r_vec / r, v_vec)
-v_p = np.sqrt(v ** 2 - v_r ** 2)
+v_p = np.sqrt(v**2 - v_r**2)
 
 # [section-2]
 h_vec = np.cross(r_vec, v_vec)
@@ -34,7 +34,7 @@ omega = 2 * np.pi - np.arccos(np.dot(N_vec, e_vec) / (N * e))
 nu = np.arccos(np.dot(r_vec / r, e_vec / e))
 
 # [section-8]
-r_w = h ** 2 / mu / (1 + e * np.cos(nu)) * np.array((np.cos(nu), np.sin(nu), 0))
+r_w = h**2 / mu / (1 + e * np.cos(nu)) * np.array((np.cos(nu), np.sin(nu), 0))
 v_w = mu / h * np.array((-np.sin(nu), e + np.cos(nu), 0))
 
 # [section-9]
