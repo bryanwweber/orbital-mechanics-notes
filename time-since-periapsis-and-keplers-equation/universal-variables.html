@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'time-since-periapsis-and-keplers-equation/universal-variables';</script>
@@ -592,7 +584,7 @@ document.write(`
 <span class="eqno">(250)<a class="headerlink" href="#equation-eq-stumpff-function-1" title="Link to this equation">#</a></span>\[\begin{split}S(z) =\begin{cases}\displaystyle \frac{\sqrt{z} - \sin\sqrt{z}}{\left(\sqrt{z}\right)^3} &amp; \left(z &gt; 0\right)\\ \displaystyle \frac{\sinh\sqrt{-z} - \sqrt{-z}}{\left(\sqrt{-z}\right)^3} &amp; \left(z &lt; 0\right) \\ \displaystyle \frac{1}{6} &amp; \left(z = 0\right)\end{cases}\end{split}\]</div>
 <p>The two Stumpff functions are plotted in <a class="reference internal" href="#fig-stumpff-functions-plot"><span class="std std-numref">Fig. 59</span></a>. Notice that both <span class="math notranslate nohighlight">\(C(z)\)</span> and <span class="math notranslate nohighlight">\(S(z)\)</span> tend toward infinity as <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(-\infty\)</span>, and they approach zero as <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(+\infty\)</span>.</p>
 <figure class="align-default" id="fig-stumpff-functions-plot">
-<img alt="../_images/66d02df9f3a1e4effb2ddeb1f7576918fc521c2e302855dd18dedcad55bc9fea.png" src="../_images/66d02df9f3a1e4effb2ddeb1f7576918fc521c2e302855dd18dedcad55bc9fea.png" />
+<img alt="../_images/f4ffc3623ae8117a458c6acb2fdecf1ac9dac5fdedf671f61b3af7ee7de8b9bf.png" src="../_images/f4ffc3623ae8117a458c6acb2fdecf1ac9dac5fdedf671f61b3af7ee7de8b9bf.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 59 </span><span class="caption-text">The Stumpff functions defined by Eqs. <a class="reference internal" href="#equation-eq-stumpff-function-0">(249)</a> and <a class="reference internal" href="#equation-eq-stumpff-function-1">(250)</a>. Note the varying <span class="math notranslate nohighlight">\(x\)</span> axes on the plots.</span><a class="headerlink" href="#fig-stumpff-functions-plot" title="Link to this image">#</a></p>
 </figcaption>
@@ -649,7 +641,7 @@ document.write(`
 <p>The last thing we need for a solution using Newton’s algorithm is an initial guess. There are several methods suggested for this. In <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Howard D Curtis. Orbital Mechanics for Engineering Students. Elsevier, fourth edition, 2020. ISBN 978-0-08-102133-0.">Cur20</a>]</span>, they suggest using:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-variables-12">
 <span class="eqno">(262)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-variables-12" title="Link to this equation">#</a></span>\[\chi_{i = 0} = \sqrt{\mu} \left\lvert\alpha\right\rvert \Delta t\]</div>
-<p>In <span id="id2">[<a class="reference internal" href="../bibliography.html#id24" title="John E. Prussing and Bruce A. Conway. Orbital Mechanics. Oxford University Press, New York, second edition edition, 2013. ISBN 978-0-19-983770-0.">PC13</a>]</span>, they suggest a couple of different options. First, Prussing and Conway show that the solution lies in the interval:</p>
+<p>In <span id="id2">[<a class="reference internal" href="../bibliography.html#id24" title="John E. Prussing and Bruce A. Conway. Orbital Mechanics. Oxford University Press, New York, second edition, 2013. ISBN 978-0-19-983770-0.">PC13</a>]</span>, they suggest a couple of different options. First, Prussing and Conway show that the solution lies in the interval:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-variables-13">
 <span class="eqno">(263)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-variables-13" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}\chi^{+} &amp;= \frac{\sqrt{\mu}\Delta t}{r^{-}}\\\chi^{-} &amp;= \frac{\sqrt{\mu}\Delta t}{r^{+}}\end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r^{+}\)</span> and <span class="math notranslate nohighlight">\(r^{-}\)</span> are the largest and smallest values of the radius. The most conservative choice of <span class="math notranslate nohighlight">\(r^{-}\)</span> is the radius at periapsis for all the orbits:</p>
@@ -670,7 +662,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(f(\chi^{+})\)</span> is the solution of Kepler’s equation with the <span class="math notranslate nohighlight">\(\chi^{+}\)</span> value.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Prussing and Conway <span id="id3">[<a class="reference internal" href="../bibliography.html#id24" title="John E. Prussing and Bruce A. Conway. Orbital Mechanics. Oxford University Press, New York, second edition edition, 2013. ISBN 978-0-19-983770-0.">PC13</a>]</span>, citing Conway <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="Bruce A. Conway. An improved algorithm due to Laguerre for the solution of Kepler's equation. Celestial Mechanics, 39(2):199–211, June 1986. doi:10.1007/BF01230852.">Con86</a>]</span> suggest that faster convergence in the solution of Kepler’s equation can be achieved by using the <strong>Laguerre algorithm</strong>, rather than Newton’s algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.</p>
+<p>Prussing and Conway <span id="id3">[<a class="reference internal" href="../bibliography.html#id24" title="John E. Prussing and Bruce A. Conway. Orbital Mechanics. Oxford University Press, New York, second edition, 2013. ISBN 978-0-19-983770-0.">PC13</a>]</span>, citing Conway <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="Bruce A. Conway. An improved algorithm due to Laguerre for the solution of Kepler's equation. Celestial Mechanics, 39(2):199–211, June 1986. doi:10.1007/BF01230852.">Con86</a>]</span> suggest that faster convergence in the solution of Kepler’s equation can be achieved by using the <strong>Laguerre algorithm</strong>, rather than Newton’s algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.</p>
 <p>The Laguerre algorithm can be implemented as:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-variables-19">
 <span class="eqno">(269)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-variables-19" title="Link to this equation">#</a></span>\[\chi_{i + 1} = \chi_{i} - \frac{n f(\chi_i)}{f'(\chi_i) \pm \left[\left(n - 1\right)^2 \left(f'(\chi_i\right)^2 - n\left(n - 1\right) f(\chi_i)f''(\chi_i)\right]}\]</div>

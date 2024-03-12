@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'time-since-periapsis-and-keplers-equation/hyperbolic-trajectories';</script>
@@ -521,7 +513,7 @@ document.write(`
 <span class="eqno">(220)<a class="headerlink" href="#equation-eq-hyperbolic-mean-anomaly" title="Link to this equation">#</a></span>\[M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}\]</div>
 <p>The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic function of the true anomaly, as shown in <a class="reference internal" href="#fig-mean-anomaly-hyperbola-function"><span class="std std-numref">Fig. 54</span></a>.</p>
 <figure class="align-default" id="fig-mean-anomaly-hyperbola-function">
-<img alt="../_images/e8503dfb8bd01ca9b6fa8d44ac2f0d4b8817bc7c99b81336e59329920c686690.png" src="../_images/e8503dfb8bd01ca9b6fa8d44ac2f0d4b8817bc7c99b81336e59329920c686690.png" />
+<img alt="../_images/c86eec989a90c069aa849e477506117ac878c807aab2f6a36d8d90f8a4b3a706.png" src="../_images/c86eec989a90c069aa849e477506117ac878c807aab2f6a36d8d90f8a4b3a706.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 54 </span><span class="caption-text">The hyperbolic mean anomaly as a function of true anomaly. Note that the <span class="math notranslate nohighlight">\(y\)</span>-scale is a log scale.</span><a class="headerlink" href="#fig-mean-anomaly-hyperbola-function" title="Link to this image">#</a></p>
 </figcaption>
@@ -531,7 +523,7 @@ document.write(`
 <h2>Hyperbolic Eccentric Anomaly<a class="headerlink" href="#hyperbolic-eccentric-anomaly" title="Link to this heading">#</a></h2>
 <p>Similar to the ellipse, we will define an auxiliary angle <span class="math notranslate nohighlight">\(F\)</span> to simplify the equations. <span class="math notranslate nohighlight">\(F\)</span> is defined with reference to the hyperbola in <a class="reference internal" href="#fig-hyperbolic-eccentric-anomaly-figure"><span class="std std-numref">Fig. 55</span></a>.</p>
 <figure class="align-default" id="fig-hyperbolic-eccentric-anomaly-figure">
-<img alt="../_images/9f5d7e6be194a0c58d80a6cc5258a838becf98a584c98bc66bddbd81013f9481.png" src="../_images/9f5d7e6be194a0c58d80a6cc5258a838becf98a584c98bc66bddbd81013f9481.png" />
+<img alt="../_images/064438163c412797ea5f2f000431f24c56d2502b102fbe4d4713ec0c2ba8b460.png" src="../_images/064438163c412797ea5f2f000431f24c56d2502b102fbe4d4713ec0c2ba8b460.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 55 </span><span class="caption-text">A hyperbolic trajectory with definitions for distances used in the derivation of Kepler’s law for hyperbolic.</span><a class="headerlink" href="#fig-hyperbolic-eccentric-anomaly-figure" title="Link to this image">#</a></p>
 </figcaption>
@@ -591,7 +583,7 @@ document.write(`
 <span class="eqno">(231)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-hyperbolic-trajectories-8" title="Link to this equation">#</a></span>\[f'(F) = e \cosh F - 1\]</div>
 <p>In addition, we can estimate an initial value for the guess of <span class="math notranslate nohighlight">\(F\)</span> from <a class="reference internal" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly"><span class="std std-numref">Fig. 58</span></a>, with a known <span class="math notranslate nohighlight">\(M_h\)</span> value.</p>
 <figure class="align-default" id="fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly">
-<img alt="../_images/768c409e7d7e245c6cd7d68e1af9e6227b71ac9cacbccefe7f47fd5442f30a3c.png" src="../_images/768c409e7d7e245c6cd7d68e1af9e6227b71ac9cacbccefe7f47fd5442f30a3c.png" />
+<img alt="../_images/4bd2364065838554aa540cc4e001ca14fa068f0e2680ef4c67fbeddce93b9a7a.png" src="../_images/4bd2364065838554aa540cc4e001ca14fa068f0e2680ef4c67fbeddce93b9a7a.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 58 </span><span class="caption-text">The hyperbolic mean anomaly as a function of the eccentric anomaly</span><a class="headerlink" href="#fig-hyperbolic-mean-anomaly-vs-eccentric-anomaly" title="Link to this image">#</a></p>
 </figcaption>

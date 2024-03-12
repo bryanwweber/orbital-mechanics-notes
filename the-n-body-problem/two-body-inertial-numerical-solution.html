@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/two-body-inertial-numerical-solution';</script>
@@ -608,12 +600,12 @@ PYTHON</label><div class="sd-tab-content docutils">
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="n">ddotX_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">ddotY_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">ddotZ_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">ddotX_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">ddotY_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">ddotZ_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="n">ddotX_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotY_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotZ_1</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">m_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotX_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">X_2</span> <span class="o">-</span> <span class="n">X_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotY_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y_2</span> <span class="o">-</span> <span class="n">Y_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">ddotZ_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span> <span class="o">*</span> <span class="n">m_1</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_2</span> <span class="o">-</span> <span class="n">Z_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
 
 </pre></div>
 </div>
@@ -654,7 +646,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <span class="n">R_2</span> <span class="o">=</span> <span class="n">y_0</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)))</span>
-<span class="n">ddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="n">ddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
 <span class="n">ddotR_1_0</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">*</span> <span class="n">ddot</span>
 <span class="n">ddotR_2_0</span> <span class="o">=</span> <span class="o">-</span><span class="n">m_1</span> <span class="o">*</span> <span class="n">ddot</span>
 
@@ -723,9 +715,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
 </input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-8">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 
 
 </pre></div>
@@ -764,7 +755,7 @@ PYTHON</label><div class="sd-tab-content docutils">
     <span class="c1"># Calculate the acceleration terms and fill them in to the rest</span>
     <span class="c1"># of the derivative array</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)))</span>
-    <span class="n">ddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">3</span>
+    <span class="n">ddot</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="p">(</span><span class="n">R_2</span> <span class="o">-</span> <span class="n">R_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
     <span class="n">ddotR_1</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">*</span> <span class="n">ddot</span>
     <span class="n">ddotR_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">m_1</span> <span class="o">*</span> <span class="n">ddot</span>
 

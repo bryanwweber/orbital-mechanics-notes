@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/planetary-parameters';</script>
@@ -592,7 +584,6 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="kn">import</span> <span class="nn">pint</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
@@ -610,8 +601,8 @@ document.write(`
     <span class="n">GM_in_au</span><span class="p">:</span> <span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span>
     <span class="n">GM_ratio</span><span class="p">:</span> <span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span>
     <span class="n">GM_in_km</span><span class="p">:</span> <span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span>
-    <span class="n">mass</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">mass_fraction</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mass</span><span class="p">:</span> <span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">mass_fraction</span><span class="p">:</span> <span class="n">pint</span><span class="o">.</span><span class="n">Quantity</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">compute_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mass</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GM_in_km</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;kg&quot;</span><span class="p">)</span>
@@ -628,7 +619,7 @@ document.write(`
 
         <span class="n">sign</span> <span class="o">=</span> <span class="n">exponent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">exponent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">exponent</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mantissa</span><span class="si">}</span><span class="s2"> × 10&lt;sup&gt;</span><span class="si">{</span><span class="n">sign</span><span class="si">}{</span><span class="n">value</span><span class="si">}</span><span class="s2">&lt;/sup&gt;</span><span class="si">{</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mantissa</span><span class="si">}</span><span class="s2"> × 10&lt;sup&gt;</span><span class="si">{</span><span class="n">sign</span><span class="si">}{</span><span class="n">value</span><span class="si">}</span><span class="s2">&lt;/sup&gt;</span><span class="si">{</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># noqa: RUF001</span>
 
     <span class="k">def</span> <span class="nf">glue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">mass</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Mass has not been computed&quot;</span>
@@ -781,8 +772,9 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">from</span> <span class="nn">myst_nb.ext.glue</span> <span class="kn">import</span> <span class="n">GLUE_PREFIX</span>
+
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">myst_nb.ext.glue</span> <span class="kn">import</span> <span class="n">GLUE_PREFIX</span>
 
 <span class="c1"># Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/5</span>
 <span class="n">planet_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
@@ -798,7 +790,7 @@ document.write(`
 <span class="s2">Saturn,58232 ± 6,60268 ± 4,54364 ± 10,102.9,8,205</span>
 <span class="s2">Uranus,25362 ± 7,25559 ± 4,24973 ± 20,16.8,28,0</span>
 <span class="s2">Neptune,24622 ± 19,24764 ± 15,24341 ± 30,8.0,14,0</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
 
 <span class="c1"># Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/6</span>
 <span class="n">moon_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
@@ -869,7 +861,7 @@ document.write(`
 <span class="s2">Neptune,VIII,Proteus,208 ± 8,218,208,201,7.9,18.0,13.0</span>
 <span class="s2">Neptune,I,Triton,1352.6 ± 2.4,,,,,,</span>
 <span class="s2">Neptune,II,Nereid,170 ± 25,,,,,,</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
 
 <span class="c1"># Data source: https://link.springer.com/article/10.1007/s10569-017-9805-5/tables/7</span>
 <span class="n">dwarf_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
@@ -895,7 +887,7 @@ document.write(`
 <span class="s2">67P/Churyumov–Gerasimenko,1.65,2.40,1.55,1.20,(f)</span>
 <span class="s2">81P/Wild 2,1.975,2.7,1.9,1.5,</span>
 <span class="s2">103P/Hartley 2,0.58,0.34,1.16,1.16,(g)</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>  <span class="c1"># noqa: E501, RUF001</span>
 
 
 <span class="k">def</span> <span class="nf">glue</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1052,20 +1044,19 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<span class="kn">from</span> <span class="nn">dateutil.rrule</span> <span class="kn">import</span> <span class="n">rrule</span><span class="p">,</span> <span class="n">DAILY</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">tz</span>
-<span class="kn">from</span> <span class="nn">skyfield.iokit</span> <span class="kn">import</span> <span class="n">load_file</span><span class="p">,</span> <span class="n">Loader</span>
+<span class="kn">from</span> <span class="nn">dateutil.rrule</span> <span class="kn">import</span> <span class="n">DAILY</span><span class="p">,</span> <span class="n">rrule</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">myst_nb.ext.glue</span> <span class="kn">import</span> <span class="n">GLUE_PREFIX</span>
 <span class="kn">from</span> <span class="nn">skyfield.elementslib</span> <span class="kn">import</span> <span class="n">OsculatingElements</span><span class="p">,</span> <span class="n">osculating_elements_of</span>
 <span class="kn">from</span> <span class="nn">skyfield.framelib</span> <span class="kn">import</span> <span class="n">build_ecliptic_matrix</span>
+<span class="kn">from</span> <span class="nn">skyfield.iokit</span> <span class="kn">import</span> <span class="n">Loader</span><span class="p">,</span> <span class="n">load_file</span>
 <span class="kn">from</span> <span class="nn">skyfield.units</span> <span class="kn">import</span> <span class="n">Distance</span><span class="p">,</span> <span class="n">Velocity</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">myst_nb.ext.glue</span> <span class="kn">import</span> <span class="n">GLUE_PREFIX</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
 
 <span class="k">class</span> <span class="nc">CelestialObject</span><span class="p">:</span>
@@ -1087,7 +1078,7 @@ document.write(`
         <span class="n">mantissa</span><span class="p">,</span> <span class="n">exponent</span> <span class="o">=</span> <span class="n">initial_format</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">)</span>
         <span class="n">sign</span> <span class="o">=</span> <span class="n">exponent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">exponent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">exponent</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mantissa</span><span class="si">}</span><span class="s2"> × 10&lt;sup&gt;</span><span class="si">{</span><span class="n">sign</span><span class="si">}{</span><span class="n">value</span><span class="si">}</span><span class="s2">&lt;/sup&gt;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mantissa</span><span class="si">}</span><span class="s2"> × 10&lt;sup&gt;</span><span class="si">{</span><span class="n">sign</span><span class="si">}{</span><span class="n">value</span><span class="si">}</span><span class="s2">&lt;/sup&gt;&quot;</span>  <span class="c1"># noqa: RUF001</span>
 
     <span class="k">def</span> <span class="nf">glue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;scrapbook&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mime_prefix&quot;</span><span class="p">:</span> <span class="n">GLUE_PREFIX</span><span class="p">}}</span>

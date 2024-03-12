@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'time-since-periapsis-and-keplers-equation/elliptical-orbits';</script>
@@ -531,7 +523,7 @@ document.write(`
 <span class="eqno">(194)<a class="headerlink" href="#equation-eq-mean-anomaly-ellipse" title="Link to this equation">#</a></span>\[M_e = \left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]\]</div>
 <p>The mean anomaly is a monotonically increasing function of the true anomaly, as shown in <a class="reference internal" href="#fig-mean-vs-true-anomaly-ellipse"><span class="std std-numref">Fig. 48</span></a>. This is good because it means that <span class="math notranslate nohighlight">\(M_e\)</span> can be used in place of <span class="math notranslate nohighlight">\(\nu\)</span> for all four quadrants on the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane. If <span class="math notranslate nohighlight">\(M_e\)</span> had a peak, we would have to be concerned about which quadrant we were in.</p>
 <figure class="align-default" id="fig-mean-vs-true-anomaly-ellipse">
-<img alt="../_images/578b259f5940d71f71f0bd312e80e5df5a0bc3afa9d560dd5da65ea730970095.png" src="../_images/578b259f5940d71f71f0bd312e80e5df5a0bc3afa9d560dd5da65ea730970095.png" />
+<img alt="../_images/385ab3a008fc205bc92e8cac192da52911a7e0192c473800a2077b4a03a50a63.png" src="../_images/385ab3a008fc205bc92e8cac192da52911a7e0192c473800a2077b4a03a50a63.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 48 </span><span class="caption-text">Mean anomaly as a function of true anomaly for a range of eccentricities. Note that <span class="math notranslate nohighlight">\(e &lt; 1\)</span>.</span><a class="headerlink" href="#fig-mean-vs-true-anomaly-ellipse" title="Link to this image">#</a></p>
 </figcaption>
@@ -588,7 +580,7 @@ document.write(`
 <span class="eqno">(204)<a class="headerlink" href="#equation-eq-keplers-equation-ellipse" title="Link to this equation">#</a></span>\[M_e = E - e \sin E\]</div>
 <p>This gives the relationship between mean anomaly and eccentric anomaly. The value of <span class="math notranslate nohighlight">\(M_e\)</span> monotonically increases as a function of <span class="math notranslate nohighlight">\(E\)</span>, as shown in <a class="reference internal" href="#fig-mean-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 50</span></a> for several values of <span class="math notranslate nohighlight">\(e\)</span>.</p>
 <figure class="align-default" id="fig-mean-eccentric-anomaly-ellipse">
-<img alt="../_images/84af9ce50b876e9e0c3b0a7e8bb164702e43e619e1bb7edb44e0d037a1c4e086.png" src="../_images/84af9ce50b876e9e0c3b0a7e8bb164702e43e619e1bb7edb44e0d037a1c4e086.png" />
+<img alt="../_images/bcc0f51cfbbaa519ac74b257a88ac98170e4e9b7989112db434cf1c3f55a4fd3.png" src="../_images/bcc0f51cfbbaa519ac74b257a88ac98170e4e9b7989112db434cf1c3f55a4fd3.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 50 </span><span class="caption-text">The mean anomaly as a function of eccentric anomaly for several values of the eccentricity. Note that <span class="math notranslate nohighlight">\(e &lt; 1\)</span>.</span><a class="headerlink" href="#fig-mean-eccentric-anomaly-ellipse" title="Link to this image">#</a></p>
 </figcaption>

@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/Equations-of-Motion-CR3BP';</script>
@@ -534,9 +526,9 @@ document.write(`
 <p>We need to provide <span class="math notranslate nohighlight">\(\pi_2\)</span>, the mass ratio, as the parameter of the system, along with the initial position and velocity. Let’s solve this system of equations numerically to find the position of <span class="math notranslate nohighlight">\(m\)</span> as a function of non-dimensional time in the rotating frame of reference. First, we import the appropriate libraries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 </pre></div>
 </div>
 </div>
@@ -544,9 +536,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These masses represent the Earth-Moon system</span>
-<span class="n">m_1</span> <span class="o">=</span> <span class="mf">5.974E24</span>  <span class="c1"># kg</span>
-<span class="n">m_2</span> <span class="o">=</span> <span class="mf">7.348E22</span> <span class="c1"># kg</span>
-<span class="n">pi_2</span> <span class="o">=</span> <span class="n">m_2</span><span class="o">/</span><span class="p">(</span><span class="n">m_1</span> <span class="o">+</span> <span class="n">m_2</span><span class="p">)</span>
+<span class="n">m_1</span> <span class="o">=</span> <span class="mf">5.974e24</span>  <span class="c1"># kg</span>
+<span class="n">m_2</span> <span class="o">=</span> <span class="mf">7.348e22</span>  <span class="c1"># kg</span>
+<span class="n">pi_2</span> <span class="o">=</span> <span class="n">m_2</span> <span class="o">/</span> <span class="p">(</span><span class="n">m_1</span> <span class="o">+</span> <span class="n">m_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -555,7 +547,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span>
-<span class="n">y_0</span> <span class="o">=</span> <span class="mf">.0455</span>
+<span class="n">y_0</span> <span class="o">=</span> <span class="mf">0.0455</span>
 <span class="n">z_0</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">vx_0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
 <span class="n">vy_0</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -574,10 +566,10 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nondim_cr3bp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the CR3BP in nondimensional coordinates.</span>
-<span class="sd">    </span>
+
 <span class="sd">    The state vector is Y, with the first three components as the</span>
 <span class="sd">    position of $m$, and the second three components its velocity.</span>
-<span class="sd">    </span>
+
 <span class="sd">    The solution is parameterized on $\\pi_2$, the mass ratio.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Get the position and velocity from the solution vector</span>
@@ -590,9 +582,14 @@ document.write(`
 
     <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])))</span>
     <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">([</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])))</span>
-    <span class="n">Ydot</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ydot</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">psi</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">Ydot</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="mi">2</span> <span class="o">*</span> <span class="n">ydot</span>
+        <span class="o">+</span> <span class="n">x</span>
+        <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">3</span>
+        <span class="o">-</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">psi</span><span class="o">**</span><span class="mi">3</span>
+    <span class="p">)</span>
     <span class="n">Ydot</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">xdot</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">psi</span><span class="o">**</span><span class="mi">3</span>
-    <span class="n">Ydot</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">z</span> <span class="o">-</span> <span class="n">pi_2</span><span class="o">/</span><span class="n">psi</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">z</span>
+    <span class="n">Ydot</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">z</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">z</span>
     <span class="k">return</span> <span class="n">Ydot</span>
 </pre></div>
 </div>
@@ -618,28 +615,27 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">y_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 
 <span class="c1"># Plot the orbits</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Trajectory&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Trajectory&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x_2</span><span class="p">,</span> <span class="n">x_2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">y_2</span><span class="p">,</span> <span class="o">-</span><span class="n">y_2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$m_1$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$m_2$&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$m_1$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;go&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$m_2$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <figure class="align-default" id="fig-cr3bp-example-trajectory">
-<img alt="../_images/de181586cafee31fbc7d91cc322b5e6d32a81225f70436beb64f73ecd9e231e1.png" src="../_images/de181586cafee31fbc7d91cc322b5e6d32a81225f70436beb64f73ecd9e231e1.png" />
+<img alt="../_images/7acd0f8c91ba06d5432c654d088451fa57a778aac064258410a61176d185d00e.png" src="../_images/7acd0f8c91ba06d5432c654d088451fa57a778aac064258410a61176d185d00e.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 22 </span><span class="caption-text">The trajectory of <span class="math notranslate nohighlight">\(m\)</span> in the rotating frame of reference, in non-dimensional coordinates.</span><a class="headerlink" href="#fig-cr3bp-example-trajectory" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As shown in <a class="reference internal" href="#fig-cr3bp-example-trajectory"><span class="std std-numref">Fig. 22</span></a>, we can get some very interesting behavior of <span class="math notranslate nohighlight">\(m\)</span> in the rotating frame of reference. The behavior of <span class="math notranslate nohighlight">\(m\)</span> depends very strongly on the initial conditions that we set.</p>
-<p><strong>See what interesting patterns you can get, and post your efforts on Piazza!</strong></p>
 <section id="calculating-the-jacobi-constant">
 <h2>Calculating the Jacobi Constant<a class="headerlink" href="#calculating-the-jacobi-constant" title="Link to this heading">#</a></h2>
 <p>In the nondimensional coordinates, the Jacobi constant is given by Eq. <a class="reference internal" href="jacobi-constant.html#equation-eq-jacobi-constant-cr3bp">(90)</a>, repeated here for reference:</p>
@@ -656,7 +652,12 @@ document.write(`
 <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">pi_2</span>
 
-<span class="n">J</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq</span>
+    <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span>
+    <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi</span>
+    <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,7 +665,7 @@ document.write(`
 <p>Now that we have calculated <span class="math notranslate nohighlight">\(J\)</span> as a function of time, let’s plot it! Hopefully it’s constant…</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Jacobi Constant&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">J</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Jacobi Constant&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">)</span>
@@ -675,7 +676,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-runge-kutta-jacobi-constant">
-<img alt="../_images/8136e5931f1266ecc2b4fab49ca2c88cbb911326b4f326f85c716b967efee5fe.png" src="../_images/8136e5931f1266ecc2b4fab49ca2c88cbb911326b4f326f85c716b967efee5fe.png" />
+<img alt="../_images/543948165a02c95768716281cb5700c37c3a09a42dcc85f9f7408582cb95b252.png" src="../_images/543948165a02c95768716281cb5700c37c3a09a42dcc85f9f7408582cb95b252.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 23 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time. The horizontal line is the initial Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-jacobi-constant" title="Link to this image">#</a></p>
 </figcaption>
@@ -701,9 +702,14 @@ document.write(`
 <span class="n">psi_hp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">r_hp</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span>
 
-<span class="n">J_hp</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq_hp</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_hp</span> <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi_hp</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma_hp</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">J_hp</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">0.5</span> <span class="o">*</span> <span class="n">speed_sq_hp</span>
+    <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma_hp</span>
+    <span class="o">-</span> <span class="n">pi_2</span> <span class="o">/</span> <span class="n">psi_hp</span>
+    <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma_hp</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pi_2</span> <span class="o">*</span> <span class="n">psi_hp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">J_hp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Jacobi Constant&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">J_hp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Jacobi Constant&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4988</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.49886</span><span class="p">)</span>
@@ -716,7 +722,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-runge-kutta-small-tolerance">
-<img alt="../_images/b0296d6cd9709067ad74960e07f6814ecb985bac8d3863fd10189bf7407da3c7.png" src="../_images/b0296d6cd9709067ad74960e07f6814ecb985bac8d3863fd10189bf7407da3c7.png" />
+<img alt="../_images/892b6a47568687c4a0c6b3c6301e124c4e629e00be3e0d899cf71a7a90c5a699.png" src="../_images/892b6a47568687c4a0c6b3c6301e124c4e629e00be3e0d899cf71a7a90c5a699.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 24 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, as a function of non-dimensional time using a solver with reduced tolerances. The horizontal line is the initial value of the Jacobi constant.</span><a class="headerlink" href="#fig-runge-kutta-small-tolerance" title="Link to this image">#</a></p>
 </figcaption>
@@ -728,20 +734,20 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 
 <span class="c1"># Plot the orbits</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Reduced Tolerances Trajectory&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_hp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Reduced Tolerances Trajectory&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x_2</span><span class="p">,</span> <span class="n">x_2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">y_2</span><span class="p">,</span> <span class="o">-</span><span class="n">y_2</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original Trajectory&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pi_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;go&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original Trajectory&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <figure class="align-default" id="fig-trajectory-comparison-cr3bp">
-<img alt="../_images/9e47787c55906f7faa63bf5de4b00496ad76e6d7db91cc784c090bb805b162cf.png" src="../_images/9e47787c55906f7faa63bf5de4b00496ad76e6d7db91cc784c090bb805b162cf.png" />
+<img alt="../_images/78fbd64be709258fa34cb2cda2ffa73d585ffeccbdb94a2de620cf05de1bf43f.png" src="../_images/78fbd64be709258fa34cb2cda2ffa73d585ffeccbdb94a2de620cf05de1bf43f.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 25 </span><span class="caption-text">The two trajectories for the solutions to this problem, in the co-rotating frame.</span><a class="headerlink" href="#fig-trajectory-comparison-cr3bp" title="Link to this image">#</a></p>
 </figcaption>
@@ -754,9 +760,9 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">J_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
 <span class="n">Jacobi_plot</span> <span class="o">=</span> <span class="n">J_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">J_hp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Jacobi Constant&quot;</span><span class="p">)</span>
-<span class="n">initial_Jacobi</span> <span class="o">=</span> <span class="n">J_ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">J_hp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Jacobi Constant&quot;</span><span class="p">)</span>
+<span class="n">initial_Jacobi</span> <span class="o">=</span> <span class="n">J_ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">J_hp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial Jacobi Constant&quot;</span><span class="p">)</span>
 <span class="n">s_ax</span> <span class="o">=</span> <span class="n">J_ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">sigma_plot</span> <span class="o">=</span> <span class="n">s_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sigma_hp</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$\sigma$&quot;</span><span class="p">)</span>
+<span class="n">sigma_plot</span> <span class="o">=</span> <span class="n">s_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_hp</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sigma_hp</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma$&quot;</span><span class="p">)</span>
 <span class="n">s_ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">)</span>
 <span class="n">J_ax</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">,</span> <span class="n">useOffset</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">J_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">tau$&quot;</span><span class="p">)</span>
@@ -767,7 +773,7 @@ document.write(`
 </div>
 </div>
 <figure class="align-default" id="fig-jacobi-constant-with-sigma">
-<img alt="../_images/49f2588e6305dc0f96b73a5c625e74f9679779c3e1bc552e1d0f97448c963001.png" src="../_images/49f2588e6305dc0f96b73a5c625e74f9679779c3e1bc552e1d0f97448c963001.png" />
+<img alt="../_images/0483957d49c37badd01b78c248aeb18bac1e80d9840294d3e7a29e4ca8d01122.png" src="../_images/0483957d49c37badd01b78c248aeb18bac1e80d9840294d3e7a29e4ca8d01122.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 26 </span><span class="caption-text">The Jacobi constant, <span class="math notranslate nohighlight">\(J\)</span>, and the non-dimensional position relative to <span class="math notranslate nohighlight">\(m_1\)</span>, plotted as a function of non-dimensional time.</span><a class="headerlink" href="#fig-jacobi-constant-with-sigma" title="Link to this image">#</a></p>
 </figcaption>

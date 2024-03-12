@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'orbital-maneuvers/plane-change-example';</script>
@@ -612,7 +604,7 @@ document.write(`
 <span class="eqno">(323)<a class="headerlink" href="#equation-eq-plane-change-example-optimal-delta-v" title="Link to this equation">#</a></span>\[\Delta v_{\text{total}} = \sqrt{v_1^2 + v_{t1}^2 - 2 v_1 v_{t1}\cos\Delta i} + \sqrt{v_2^2 + v_{t2}^2 - 2 v_2 v_{t2}\cos\left(28.6° - \Delta i\right)}\]</div>
 <p>We can take the derivative of this equation with respect to <span class="math notranslate nohighlight">\(\Delta i\)</span> to find the minimum, but it’s usually easier to plot a function to see if anything obvious pops out. The plot of this function is shown in <a class="reference internal" href="#fig-plane-change-optimize-delta-v"><span class="std std-numref">Fig. 74</span></a>.</p>
 <figure class="align-default" id="fig-plane-change-optimize-delta-v">
-<img alt="../_images/91da95a01bc36cbdaf504e63cb68eb917fe14f654447e0c0e1538315007c4547.png" src="../_images/91da95a01bc36cbdaf504e63cb68eb917fe14f654447e0c0e1538315007c4547.png" />
+<img alt="../_images/b4368690db11464b10c3d5fcaea13dd1406fe94e383ccb77f033a54f475b9902.png" src="../_images/b4368690db11464b10c3d5fcaea13dd1406fe94e383ccb77f033a54f475b9902.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 74 </span><span class="caption-text">The total <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement for a Hohmann transfer from LEO to GEO, including a plane change. <span class="math notranslate nohighlight">\(\Delta i\)</span> is the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-optimize-delta-v" title="Link to this image">#</a></p>
 </figcaption>
@@ -623,7 +615,7 @@ document.write(`
 <span class="eqno">(324)<a class="headerlink" href="#equation-eq-plane-change-delta-v-derivative" title="Link to this equation">#</a></span>\[\frac{d\Delta v}{d\Delta i} = \frac{v_1 v_{t1}\sin\Delta i}{\sqrt{v_1^2 + v_{t1}^2 - 2v_1v_{t1}\cos\Delta i}} - \frac{v_2 v_{t2}\sin\left(28.6° - \Delta i\right)}{\sqrt{v_2^2 + v_{t2}^2 - 2v_2v_{t2}\cos\left(28.6° - \Delta i\right)}} = 0\]</div>
 <p>This equation must be solved numerically, but we can plot it to verify the behavior.</p>
 <figure class="align-default" id="fig-plane-change-delta-v-derivative">
-<img alt="../_images/499aef80860230c0c843048ba377cec1050c2e99747e69828f356057e69fb4d4.png" src="../_images/499aef80860230c0c843048ba377cec1050c2e99747e69828f356057e69fb4d4.png" />
+<img alt="../_images/026225659424cb55fa67da2a85d449f52d4f25ba77c32dccb9f7715a36722f3d.png" src="../_images/026225659424cb55fa67da2a85d449f52d4f25ba77c32dccb9f7715a36722f3d.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 75 </span><span class="caption-text">The derivative of the total <span class="math notranslate nohighlight">\(\Delta v\)</span> as a function of the fraction of the plane change occuring at LEO.</span><a class="headerlink" href="#fig-plane-change-delta-v-derivative" title="Link to this image">#</a></p>
 </figcaption>

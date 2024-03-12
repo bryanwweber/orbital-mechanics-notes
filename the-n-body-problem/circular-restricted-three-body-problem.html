@@ -54,18 +54,10 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vector": ["\\boldsymbol{#1}", 1], "uvec": ["\\boldsymbol{\\hat{#1}}", 1], "mag": ["\\lVert#1\\rVert", 1], "cross": "\\times", "unit": ["#1~\\mathrm{#2}", 2], "pf": ["{#1}_{\\omega}", 1], "mat": ["\\left[\\mathbf{#1}\\right]", 1], "COG": "\\mathrm{COG}", "KE": "\\mathrm{KE}", "PE": "V"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'the-n-body-problem/circular-restricted-three-body-problem';</script>
@@ -665,9 +657,9 @@ document.write(`
 <p>The characteristic length is the circular orbit radius, <span class="math notranslate nohighlight">\(r_{12}\)</span>. Using this, we define the non-dimensional position vectors by dividing the dimensional position vectors, <span class="math notranslate nohighlight">\(\vector{r}_1\)</span>, <span class="math notranslate nohighlight">\(\vector{r}_2\)</span>, and <span class="math notranslate nohighlight">\(\vector{r}\)</span> by <span class="math notranslate nohighlight">\(r_{12}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-dim-r-vectors-cr3bp">
 <span class="eqno">(66)<a class="headerlink" href="#equation-eq-non-dim-r-vectors-cr3bp" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
-  \vector{\rho} &amp;= \frac{\vector{r}}{r_{12}} = x^*\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k} \\
-  \vector{\sigma} &amp;= \frac{\vector{r}_1}{r_{12}} = \left(x^* + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k} \\
-  \vector{\psi} &amp;= \frac{\vector{r}_2}{r_{12}} = \left(x^* - 1 + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k}
+  \vector{\rho} &amp;= \frac{\vector{r}}{r_{12}} = x^_\uvec{\imath} + y^_\uvec{\jmath} + z^_\uvec{k} \\
+  \vector{\sigma} &amp;= \frac{\vector{r}_1}{r_{12}} = \left(x^_ + \pi_2\right)\uvec{\imath} + y^_\uvec{\jmath} + z^_\uvec{k} \\
+  \vector{\psi} &amp;= \frac{\vector{r}_2}{r_{12}} = \left(x^* - 1 + \pi_2\right)\uvec{\imath} + y^_\uvec{\jmath} + z^_\uvec{k}
 \end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x^* = x/r_{12}\)</span>, and similar for <span class="math notranslate nohighlight">\(y^*\)</span> and <span class="math notranslate nohighlight">\(z^*\)</span>.</p>
 <p>The natural unit of time in this problem is the period of the circular orbit, Eq. <a class="reference internal" href="#equation-eq-circular-orbit-period-cr3bp">(44)</a>. We will ignore the constant factor of <span class="math notranslate nohighlight">\(2\pi\)</span> because it doesn’t change the dimensions available in the equation. Therefore, the characteristic time is:</p>
@@ -678,7 +670,7 @@ document.write(`
 <span class="eqno">(68)<a class="headerlink" href="#equation-eq-non-dimensional-acceleration-cr3bp" title="Link to this equation">#</a></span>\[\ddot{\vector{\rho}} = \frac{d^2\vector{r}}{dt^2}\frac{t_C^2}{r_{12}} = \frac{d^2\vector{\rho}}{d\tau^2}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau = t/t_C\)</span>. Making the terms on the right hand side of Eq. <a class="reference internal" href="#equation-eq-five-term-acceleration-cr3bp">(56)</a> non-dimensional is also the result of multiplying by <span class="math notranslate nohighlight">\(t_C^2/r_{12}\)</span>. Note that the dimensions of <span class="math notranslate nohighlight">\(\varOmega\)</span> are <span class="math notranslate nohighlight">\(t^{-1}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-dim-five-term-accel-cr3bp">
-<span class="eqno">(69)<a class="headerlink" href="#equation-eq-non-dim-five-term-accel-cr3bp" title="Link to this equation">#</a></span>\[\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}\]</div>
+<span class="eqno">(69)<a class="headerlink" href="#equation-eq-non-dim-five-term-accel-cr3bp" title="Link to this equation">#</a></span>\[\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^_\right)\uvec{\imath} + \left(\ddot{y}^_ + 2\dot{x}^* - y^_\right)\uvec{\jmath} + \ddot{z}^_\uvec{k}\]</div>
 <p>Now we have the non-dimensional inertial acceleration, we need to make Eq. <a class="reference internal" href="#equation-eq-vector-eom-cr3bp">(64)</a>, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:</p>
 <div class="math notranslate nohighlight" id="equation-eq-non-dim-vector-eom-cr3bp">
 <span class="eqno">(70)<a class="headerlink" href="#equation-eq-non-dim-vector-eom-cr3bp" title="Link to this equation">#</a></span>\[\ddot{\vector{\rho}} = -\frac{1 - \pi_2}{\sigma^3}\vector{\sigma} - \frac{\pi_2}{\psi^3}\vector{\psi}\]</div>

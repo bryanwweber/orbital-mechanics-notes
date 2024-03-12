@@ -187,7 +187,7 @@ The forbidden regions in the Earth-Moon system, for varying values of the Jacobi
 
 At a given instant, assume that the position and and velocity of the satellite are known, such that $J$ can be calculated. {numref}`fig:jacobi-forbidden-regions` tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.
 
-One example of a use for these data is to determine whether or not a spacecraft can complete a [**free return trajectory**](https://en.wikipedia.org/wiki/Free-return_trajectory) from the moon back to Earth. A free return trajectory requires no additional propulsion. Depending on the exact trajectory, the return can result in the spacecraft entering Earth's atmosphere for a safe landing, as was done in the _Apollo 13_ mission.
+One example of a use for these data is to determine whether or not a spacecraft can complete a [**free return trajectory**](https://en.wikipedia.org/wiki/Free-return_trajectory) from the moon back to Earth. A free return trajectory requires no additional propulsion. Depending on the exact trajectory, the return can result in the spacecraft entering Earth's atmosphere for a safe landing, as was done in the *Apollo 13* mission.
 
 Imagine a spacecraft in orbit around the moon. The spacecraft has $J =$ -1.797, corresponding to the upper left axis in {numref}`fig:jacobi-forbidden-regions`. With this value of $J$, the spacecraft cannot leave orbit around the moon, because it does not have enough energy to enter any of the gray areas.
 
