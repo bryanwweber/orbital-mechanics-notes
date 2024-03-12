@@ -27,7 +27,7 @@ license = { text = "CC-BY-SA-4.0" }
 distribution = false
 
 [tool.pdm.dev-dependencies]
-dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "ruff>=0.3.2"]
+dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "ruff>=0.3.2", "requests>=2.31.0"]
 
 [tool.pdm.resolution.overrides]
 # Unfortunately, poliastro is no longer maintained. I updated some dependencies on my
