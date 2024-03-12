@@ -41,7 +41,7 @@ services:
       - ..:/workspaces/orbital-mechanics-notes:cached
     command: /bin/sh -c "while sleep 1000; do :; done"
   http-server:
-    image: python:3.10-alpine
+    image: python:3.12-alpine
     ports: ["8080:8080"]
     command: python3 -m http.server 8080 -d /html
     volumes:

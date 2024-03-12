@@ -1,71 +1,51 @@
-FROM python:3.10-alpine as pdm
+FROM julia:1.10-bookworm as julia-builder
 
-RUN mkdir -p /tmp/pdm
-COPY pyproject.toml pdm.lock /tmp/pdm/
+COPY Project.toml Manifest.toml /root/.julia/environments/v1.10/
 
-WORKDIR /tmp/pdm
+RUN julia -e "using Pkg; Pkg.instantiate(); Pkg.precompile();"
+
+FROM python:3.12-slim-bookworm as python-builder
+
+ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN --mount=type=cache,target=/root/.cache \
-    pip3 --disable-pip-version-check install pdm \
-    && pdm export -f requirements > /tmp/pdm/requirements.txt
+    python -m pip install pdm
 
-FROM alpine:3 as julia
-ARG JULIA_VERSION=1.9.0-rc1
-ARG JULIA_ARCH="x86_64"
+COPY pyproject.toml pdm.lock /project/
+WORKDIR /project
+RUN --mount=type=cache,target=/root/.cache \
+    mkdir __pypackages__ \
+    && pdm sync
 
-RUN mkdir -p /tmp/julia
-WORKDIR /tmp
-
-RUN set -x && \
-    if [ "$JULIA_ARCH" == "aarm64" ]; then \
-      JULIA_ARCH="aarch64"; \
-      S3_ARCH="aarch64"; \
-    elif [ "$JULIA_ARCH" == "aarch64" ]; then \
-      S3_ARCH="aarch64"; \
-    elif [ "$JULIA_ARCH" == "x86_64" ]; then \
-      S3_ARCH="x64"; \
-    fi; \
-    JULIA_INSTALLER="julia-${JULIA_VERSION}-linux-${JULIA_ARCH}.tar.gz" \
-    && wget --quiet "https://julialang-s3.julialang.org/bin/checksums/julia-${JULIA_VERSION}.sha256" \
-    && wget --quiet "https://julialang-s3.julialang.org/bin/linux/${S3_ARCH}/${JULIA_VERSION:0:3}/${JULIA_INSTALLER}" \
-    && grep ${JULIA_INSTALLER} "julia-${JULIA_VERSION}.sha256" | sha256sum -cs \
-    && tar -xf "${JULIA_INSTALLER}" -C /tmp/julia --strip-components=1 \
-    && rm "${JULIA_INSTALLER}"
-
-FROM python:3.10-bullseye as workspace
+FROM python:3.12-bookworm as workspace
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-ARG JULIA_DIR=/opt/julia
 
-ENV PATH="${JULIA_DIR}/bin:${PATH}" \
-    HOME="/home/${USERNAME}"
+ENV HOME="/home/${USERNAME}" \
+    PYTHONPATH=/project/pkgs \
+    JULIA_PATH=/usr/local/julia \
+    JULIA_HOME=/home/${USERNAME}/.julia
+
+# Has to be a separate instruction to get the JULIA_PATH variable
+ENV PATH="${JULIA_PATH}/bin:${PATH}"
+
 COPY .devcontainer/fix-permissions /usr/local/bin/fix-permissions
 RUN chmod a+rx /usr/local/bin/fix-permissions
 
-# Create USERNAME with name vscode user with UID=1000 and in the 'users' group
-# and make sure these dirs are writable by the `users` group.
+# Create USERNAME with name vscode with UID=1000 and in the 'users' group
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
-    && useradd --uid $USER_UID --gid ${USERNAME} --shell /bin/bash --create-home ${USERNAME} \
-    && mkdir -p "${JULIA_DIR}" \
-    && chown "${USER_UID}:${USER_GID}" "${JULIA_DIR}" \
-    && chmod g+w /etc/passwd \
-    && fix-permissions "${HOME}" \
-    && fix-permissions "${JULIA_DIR}"
+    && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash --create-home ${USERNAME}
 
-COPY --from=pdm /tmp/pdm/requirements.txt /tmp/pip-tmp/
-RUN --mount=type=cache,target=/root/.cache \
-    pip3 --disable-pip-version-check install -r /tmp/pip-tmp/requirements.txt \
-    && rm -rf /tmp/pip-tmp
+COPY --from=python-builder /project/__pypackages__/3.12/lib /project/pkgs
+COPY --from=python-builder /project/__pypackages__/3.12/bin/* /bin/
+COPY --from=julia-builder /usr/local/julia ${JULIA_PATH}
+COPY --from=julia-builder /root/.julia ${HOME}/.julia
+
+RUN chown -R "${USER_UID}:${USER_GID}" "${JULIA_HOME}" \
+    && fix-permissions "${JULIA_HOME}"
 
 USER ${USERNAME}
-
-COPY --from=julia /tmp/julia/ "${JULIA_DIR}/"
-COPY .devcontainer/packages.jl /tmp/packages.jl
-
-RUN fix-permissions "${JULIA_DIR}"
-RUN julia "/tmp/packages.jl" \
-    && fix-permissions "${HOME}/.julia"
 
 WORKDIR /workspaces/orbital-mechanics-notes
