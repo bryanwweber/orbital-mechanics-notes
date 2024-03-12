@@ -20,7 +20,7 @@ jobs:
         uses: pdm-project/setup-pdm@v4
         with:
           cache: true
-          python-version: "3.11"
+          python-version: "3.12"
       - name: Install dependencies
         run: pdm sync --prod
       # Build the book

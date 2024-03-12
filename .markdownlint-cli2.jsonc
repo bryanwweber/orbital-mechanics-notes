@@ -1,7 +1,18 @@
 {
-    "globs": ["**/*.md", "!.venv"],
+    "globs": [
+        "**/*.md",
+        "!.venv",
+        "!_build",
+        "!_static"
+    ],
     "config": {
+        "MD003": false,
         "MD013": false,
-        "MD037": false
+        "MD024": false,
+        "MD033": false,
+        "MD037": false,
+        "MD041": false,
+        "MD055": false,
+        "MD056": false
     }
 }

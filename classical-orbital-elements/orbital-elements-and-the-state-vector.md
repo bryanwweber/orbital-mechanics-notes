@@ -83,7 +83,9 @@ Next, we need to calculate the orbital angular momentum. By definition, $\vector
 :::
 ::::
 
+<!-- markdownlint-disable MD033 -->
 We find $\vector{h} =$ {glue:text}`orbital-elements-h_vec-I:.0f` $\uvec{I}$ + {glue:text}`orbital-elements-h_vec-J:.0f` $\uvec{J}$ - {glue:text}`orbital-elements-h_vec-K:.0f` $\uvec{K}$ km<sup>2</sup>/s and $h =$ {glue:text}`orbital-elements-h:.3f` km<sup>2</sup>/s. Notice that the $Z$ component of the angular momentum is negative. This means the momentum vector is pointing down and the orbit is retrograde. The magnitude of the orbital angular momentum is the first orbital element.
+<!-- markdownlint-enable MD033 -->
 
 ### Step 3—Inclination
 
@@ -328,8 +330,10 @@ The sequence of rotations to convert from the perifocal frame to the inertial fr
 
 ::::{grid} 1
 ---
+
 gutter: 2
 ---
+
 :::{grid-item-card} Step 2.1—Rotate Until $\uvec{p}$ is Aligned With the Node Line
 
 By definition, the $\uvec{p}$ vector points towards periapsis. Therefore, it is also aligned with the eccentricity vector. If we rotate the frame around the $\uvec{w}$ axis until $\uvec{p}$ is aligned with the node line, this will align $\vector{e}$ with $\vector{N}$. This rotation is the negative of the argument of periapsis, $\omega$.
@@ -353,6 +357,7 @@ These three angles ($\omega$, $i$, and $\Omega$) are called [**Euler angles**](h
 
 ::::{tab-item} PYTHON
 ---
+
 sync: PYTHON
 ---
 
@@ -371,8 +376,10 @@ To actually perform the rotation, we need to multiply the position and velocity 
 
 ::::{tab-item} MATLAB
 ---
+
 sync: MATLAB
 ---
+
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
 :start-after: "[section-9]"
 :end-before: "[section-10]"

@@ -1,7 +1,8 @@
 from pathlib import Path
-from doit.action import CmdAction
-import yaml
 from textwrap import dedent
+
+import yaml
+from doit.action import CmdAction
 
 from raw_svg import render_math_svg
 

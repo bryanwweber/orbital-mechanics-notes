@@ -80,7 +80,7 @@ Then we can use the definition of $\psi$ to find $r_2$ in dimensional coordinate
 
 :::{math}
 :label: eq:r_2-equilateral-lagrange
-\psi = \frac{\mag{\vector{r}_2}}{r_{12}} \Rightarrow r_2 = r_{12}
+\psi = \frac{\mag{\vector{r}*2}}{r*{12}} \Rightarrow r_2 = r_{12}
 :::
 
 Plugging the result of Eq. {eq}`eq:psi-equilateral-lagrange` back into Eq. {eq}`eq:y-star-equilateral-lagrange` equation, we find:
@@ -94,7 +94,7 @@ Then we can use the definition of $\sigma$ to find $r_1$ in dimensional coordina
 
 :::{math}
 :label: eq:r_1-equilateral-lagrange
-\sigma = \frac{\mag{\vector{r}_1}}{r_{12}} \Rightarrow r_1 = r_{12}
+\sigma = \frac{\mag{\vector{r}*1}}{r*{12}} \Rightarrow r_1 = r_{12}
 :::
 
 Since if $a = b$ and $b = c$, then $a = c$, we find:
@@ -104,7 +104,7 @@ Since if $a = b$ and $b = c$, then $a = c$, we find:
 r_1 = r_2 = r_{12}\qquad \text{and}\qquad \psi = \sigma
 :::
 
-for the _equilateral Lagrange points_. Eq. {eq}`eq:equilateral-lagrange-distances` shows that the distance from $m_1$ to $m$ is the same as the distance from $m_2$ to $m$ and from $m_1$ to $m_2$. This defines an equilateral triangle, giving these Lagrange points their name.
+for the *equilateral Lagrange points*. Eq. {eq}`eq:equilateral-lagrange-distances` shows that the distance from $m_1$ to $m$ is the same as the distance from $m_2$ to $m$ and from $m_1$ to $m_2$. This defines an equilateral triangle, giving these Lagrange points their name.
 
 From the definition of $\vector{\sigma}$ and $\vector{\psi}$, we can take their magnitudes and equate them to solve for the values of $x^*$ and $y^{*}$ at the equilibrium points:
 
@@ -335,7 +335,7 @@ For the Earth-Moon system, the value of $\pi_2$ is approximately 0.012.
 
 ## Lagrange Point Stability
 
-Although all the Lagrange points are equilibrium points, they may not be _stable_ equilibrium points. Stability is the ability of the system to return to its initial position after being perturbed.
+Although all the Lagrange points are equilibrium points, they may not be *stable* equilibrium points. Stability is the ability of the system to return to its initial position after being perturbed.
 
 To analyze the stability of the Lagrange points, we will use the potential energy function for the CR3BP.
 

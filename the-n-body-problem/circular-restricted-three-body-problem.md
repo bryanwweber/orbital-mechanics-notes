@@ -255,9 +255,9 @@ The characteristic length is the circular orbit radius, $r_{12}$. Using this, we
 :::{math}
 :label: eq:non-dim-r-vectors-cr3bp
 \begin{aligned}
-  \vector{\rho} &= \frac{\vector{r}}{r_{12}} = x^*\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k} \\
-  \vector{\sigma} &= \frac{\vector{r}_1}{r_{12}} = \left(x^* + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k} \\
-  \vector{\psi} &= \frac{\vector{r}_2}{r_{12}} = \left(x^* - 1 + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*\uvec{k}
+  \vector{\rho} &= \frac{\vector{r}}{r_{12}} = x^_\uvec{\imath} + y^_\uvec{\jmath} + z^_\uvec{k} \\
+  \vector{\sigma} &= \frac{\vector{r}_1}{r_{12}} = \left(x^_ + \pi_2\right)\uvec{\imath} + y^_\uvec{\jmath} + z^_\uvec{k} \\
+  \vector{\psi} &= \frac{\vector{r}_2}{r_{12}} = \left(x^* - 1 + \pi_2\right)\uvec{\imath} + y^_\uvec{\jmath} + z^_\uvec{k}
 \end{aligned}
 :::
 
@@ -281,7 +281,7 @@ where $\tau = t/t_C$. Making the terms on the right hand side of Eq. {eq}`eq:fiv
 
 :::{math}
 :label: eq:non-dim-five-term-accel-cr3bp
-\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}
+\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^_\right)\uvec{\imath} + \left(\ddot{y}^_ + 2\dot{x}^* - y^_\right)\uvec{\jmath} + \ddot{z}^_\uvec{k}
 :::
 
 Now we have the non-dimensional inertial acceleration, we need to make Eq. {eq}`eq:vector-eom-cr3bp`, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:

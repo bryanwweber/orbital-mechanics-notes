@@ -1,17 +1,16 @@
-from __future__ import annotations
-from pathlib import Path
 import re
 from datetime import datetime
+from pathlib import Path
 
-from dateutil.rrule import rrule, DAILY
+import numpy as np
 from dateutil import tz
-from skyfield.iokit import load_file, Loader
+from dateutil.rrule import DAILY, rrule
+from IPython.display import display
+from myst_nb.ext.glue import GLUE_PREFIX
 from skyfield.elementslib import OsculatingElements, osculating_elements_of
 from skyfield.framelib import build_ecliptic_matrix
+from skyfield.iokit import Loader, load_file
 from skyfield.units import Distance, Velocity
-import numpy as np
-from myst_nb.ext.glue import GLUE_PREFIX
-from IPython.display import display
 
 
 class CelestialObject:
@@ -33,7 +32,7 @@ class CelestialObject:
         mantissa, exponent = initial_format.split("E")
         sign = exponent[0] if exponent[0] == "-" else ""
         value = int(exponent[1:])
-        return f"{mantissa} × 10<sup>{sign}{value}</sup>"
+        return f"{mantissa} × 10<sup>{sign}{value}</sup>"  # noqa: RUF001
 
     def glue(self):
         metadata = {"scrapbook": {"mime_prefix": GLUE_PREFIX}}

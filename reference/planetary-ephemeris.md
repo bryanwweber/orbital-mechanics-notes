@@ -359,10 +359,10 @@ The default interface of HORIZONS is shown in {numref}`fig:horizons-default`
 The default web interface for HORIZONS.
 :::
 
-Each of the options can be changed by clicking the *Edit* buttons. For our purposes, we can change the following:
+Each of the options can be changed by clicking the _Edit_ buttons. For our purposes, we can change the following:
 
 1. _Ephemeris Type_: Either _Vector Table_ or _Osculating Orbital Elements_ is suitable, although the latter is more direct for this example
-2. _Target Body_: This option opens a pop-up where we can search for the body of interest. In the drop-down menu under *Choose a method for specifying the target body*, you can choose *Select from a list of major bodies*, then choose *Mercury*
+2. _Target Body_: This option opens a pop-up where we can search for the body of interest. In the drop-down menu under _Choose a method for specifying the target body_, you can choose _Select from a list of major bodies_, then choose *Mercury*
 3. _Center_: The default selection here is _Solar System Barycenter_, the center of gravity of the entire solar system. This is usually a little bit outside the sun, depending on the relative locations of the planets, especially Jupiter. In our case, we want the center of the Sun as the focus of the orbit, so click _Edit_ and then type `@sun` into the search box.
 4. _Time Span_: This can be used to generate a range of dates, or to input specific dates. We will choose _Specify a list of times_ for this example, and then input the date of interest, in JDT, {glue:text}`planetary-ephemeris-JDT`.
 5. _Table Settings_: Here, we want to change the units to _km and seconds_. Another useful option is the _Reference plane_. The default of _ecliptic x-y plane derived from reference plane_ is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.

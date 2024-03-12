@@ -30,6 +30,7 @@ Therefore, it is sufficient to define any two of $a$, $b$, or $f$ to define the 
 
 The parameters specified in the WGS84 standard are:
 
+<!-- markdownlint-disable MD033 -->
 | Parameter      | Value                                                                            |
 |----------------|----------------------------------------------------------------------------------|
 | $a$            | 6,378,137.0 m                                                                    |
@@ -38,6 +39,7 @@ The parameters specified in the WGS84 standard are:
 | Zero Longitude | [IERS Reference Meridian](https://en.wikipedia.org/wiki/IERS_Reference_Meridian) |
 | $\mu$          | 3986004.418×10<sup>8</sup> m³/s².                                              |
 | $\omega_E$     | 72.92115×10<sup>−6</sup> rad/s                                                   |
+<!-- markdownline-enable MD033 -->
 
 For even more accurate orbit calculations, particularly over longer time scales, it is necessary to map the variations in the earth's gravitational field due to things such as the tides, mountain ranges, oceans, and more. These effects are represented in a model called the [**Earth Gravitational Model**](https://en.wikipedia.org/wiki/Earth_Gravitational_Model) (EGM). The most recent EGM is from 2008 and relies on high accuracy satellite measurements of Earth's gravitational field.
 
@@ -45,7 +47,9 @@ For even more accurate orbit calculations, particularly over longer time scales,
 
 ## Effect of Oblateness on Orbits
 
+<!-- markdownlint-disable MD033 -->
 The effect of planetary oblateness on orbits is captured in the dimensionless parameter called $J_2$, the **second zonal harmonic**. The zonal harmonics are values that depend on the particular planet. For Earth, $J_2 =$ 1.08263×10<sup>-3</sup> {cite}`Vallado2013` (Page 1039).
+<!-- markdownlint-enable MD033 -->
 
 The effect of oblateness is to cause the right ascension of the ascending node and the argument of the periapsis to change as a function of time. The average rate of change of these variables is:
 

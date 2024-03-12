@@ -153,7 +153,7 @@ glue("plane-change-pure-rotation", fig, display=False)
 The required velocity increment as a function of dihedral angle for pure rotation maneuvers.
 :::
 
-As we can see from {numref}`fig:plane-change-pure-rotation`, plane change of about 24° requires the same $\Delta v$ as is needed to increase the speed to the escape velocity from a circular orbit, $\Delta v / v \approx$ 0.414. 
+As we can see from {numref}`fig:plane-change-pure-rotation`, plane change of about 24° requires the same $\Delta v$ as is needed to increase the speed to the escape velocity from a circular orbit, $\Delta v / v \approx$ 0.414.
 
 Similarly, a plane change of 60° requires a $\Delta v$ equal to the current spacecraft velocity! In LEO, the velocity is approximately 7.5 km/s. A plane change of 60°, with an $I_{sp}$ of 300, would require over 90% of the spacecraft mass to be propellant.
 

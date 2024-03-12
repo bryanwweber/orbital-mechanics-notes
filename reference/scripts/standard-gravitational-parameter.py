@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Optional
 
 import pint
 from IPython.display import display
@@ -17,8 +16,8 @@ class CelestialObject:
     GM_in_au: pint.Quantity
     GM_ratio: pint.Quantity
     GM_in_km: pint.Quantity
-    mass: Optional[pint.Quantity] = None
-    mass_fraction: Optional[pint.Quantity] = None
+    mass: pint.Quantity | None = None
+    mass_fraction: pint.Quantity | None = None
 
     def compute_mass(self):
         self.mass = (self.GM_in_km / self.G).to("kg")
@@ -35,7 +34,7 @@ class CelestialObject:
 
         sign = exponent[0] if exponent[0] == "-" else ""
         value = int(exponent[1:])
-        return f"{mantissa} × 10<sup>{sign}{value}</sup>{units}"
+        return f"{mantissa} × 10<sup>{sign}{value}</sup>{units}"  # noqa: RUF001
 
     def glue(self):
         assert self.mass is not None, "Mass has not been computed"
