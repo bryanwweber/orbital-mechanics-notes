@@ -529,6 +529,7 @@ document.write(`
 
 <span class="n">r_p</span> <span class="o">=</span> <span class="mi">6378</span> <span class="o">+</span> <span class="mi">500</span>  <span class="c1"># km</span>
 <span class="n">r_a</span> <span class="o">=</span> <span class="mi">6378</span> <span class="o">+</span> <span class="mi">5000</span>  <span class="c1"># km</span>
+<span class="n">R_E</span> <span class="o">=</span> <span class="mi">6378</span> <span class="c1"># km</span>
 <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_a</span> <span class="o">-</span> <span class="n">r_p</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_p</span> <span class="o">+</span> <span class="n">r_a</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_a</span> <span class="o">+</span> <span class="n">r_p</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
