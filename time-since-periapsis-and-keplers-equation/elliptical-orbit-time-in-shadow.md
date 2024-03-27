@@ -112,6 +112,7 @@ mu = 3.986004418E5  # km**3/s**2
 
 r_p = 6378 + 500  # km
 r_a = 6378 + 5000  # km
+R_E = 6378 # km
 e = (r_a - r_p) / (r_p + r_a)
 a = (r_a + r_p) / 2
 T = 2 * np.pi / np.sqrt(mu) * a**(3/2)
