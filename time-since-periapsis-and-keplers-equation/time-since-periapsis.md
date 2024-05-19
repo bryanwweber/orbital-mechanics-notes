@@ -15,9 +15,81 @@ kernelspec:
 
 In the last chapter, we derived equations for the position of an object in a two-body system as a function of the true anomaly. However, humans don't really think in terms of true anomaly, we think in terms of time. The only place time appeared in the last chapter was in the calculation of the orbital period.
 
-As we'll find in this chapter, the equations to relate the orbital position to time are **transcendental** for all but the circular orbit. This means we will need to use Newton's method to solve them. Initially, we will derive separate equations each for the elliptical, parabolic, and hyperbolic orbits. Next, we will combine these using a universal variable formulation.
+As we'll find in this chapter, the equations to relate the orbital position to time are **transcendental** for all but the circular orbit. This means we will need to use Newton's method to solve them. Initially, we will derive separate equations each for the elliptical, parabolic, and hyperbolic orbits. Then, we will combine these using a universal variable formulation.
 
 ## Time Since Periapsis
+
+The goal of this section is to relate the time since periapsis, $t$, to an object's position in the orbit defined by the true anomaly, $\nu$. We know that the direct relationship between $t$ and $\nu$ is complex because the object speeds up near periapsis and slows down near apoapsis. This phenomenon is one of the insights from Kepler's second law, which states that equal areas are swept out in equal times.
+
+Instead of trying to find this direct relationship between $t$ and $\nu$, we're going to take a different route that has three main steps:
+
+1. Calculate the area that the object sweeps out inside the orbit during a time interval $t$
+2. Calculate the area that the object sweeps out inside an imaginary circle around the true orbit during the same time interval
+3. Relate these two areas to each other to find an indirect relationship between $t$ and $\nu$
+
+Let's start with the first area inside the orbit.
+
+### Swept Area Inside the Orbit
+
+Since Kepler's second law says that equal areas are swept in equal times, the swept area is _directly proportional_ to the time. Let's define a variable to capture this idea and call it the **Mean anomaly**, $M_e$:
+
+:::{math}
+M_e = C t
+:::
+
+where $C$ is the constant of proporionality. For an elliptical orbit, the swept area is the elapsed fraction of the orbital period multiplied by the total area of the ellipse:
+
+:::{math}
+M_e = C t = \frac{1}{2} a b \frac{t}{T}
+:::
+
+where $a$ and $b$ are the semimajor and semiminor axes, and $T$ is the orbial period. This is really convenient because linear relationships are much easier to work with than non-linear relationships.
+
+:::{margin}
+We'll use the example of an ellipse here, but the procedure shown here is the similar for a parabola or hyperbola.
+:::
+
+### Swept Area Inside a Circumscribing Circle
+
+Step two is to relate the true anomaly to a circle that touches the ellipse at either end of the major axis. The reason we use a circle for this is that we know the swept area of a circular sector is directly proportional to the included angle. Directly proportional relationships are very convenient. We can also think of creating this circle as _stretching_ the ellipse along its minor axis until it becomes a circle.
+
+:::{margin}
+The circle here is called an **circumscribing circle** because it is tangent to the ellipse at two points, on both ends of the major axis. These positions are also the periapsis and apoapsis.
+:::
+
+As we imagine stretching the ellipse into the circle, we also need to bring the object with us. The object will move along a line perpendicular to the major axis since we're only stretching in the minor axis direction. Once the object touches the circumscribing circle, we've defined a sector that is related to the original position of the object, and therefore to its true anomaly.
+
+Let's define a variable called the **Eccentric area**, $A_E$, to be the area inside the cicrumscribing circle for the sector we just found:
+
+:::{math}
+A_E = a^2 \frac{E}{2}
+:::
+
+where $E$ is the included angle inside the circumscribing circle and $a$ is the radius of the circle and the semimajor axis of the ellipse.
+
+### Relating the Two Areas Together
+
+Now we've defined two areas:
+
+1. The Mean anomaly, $M_e$, the swept area inside the orbit
+2. The Eccentric area, $E$, the area of a circular sector on the circumscribing circle
+
+We can turn the eccentric area into the mean anomaly by subtracting out the triangle from the origin to the focus and up to the circle, then squishing the remaining part back down into an ellipse.
+
+The base of the triangle we want to subtract is the length from the origin to the focus, $ae$ and its height is $a\sin E$, so the area of the leftover part is:
+
+:::{math}
+\frac{1}{2} a^2 E - \frac{1}{2} a^2 e \sin E = \frac{1}{2} a^2\left(E - e \sin E\right)
+:::
+
+Then we need to scale this leftover area back into an ellipse so it matches the mean anomaly. To scale back into the ellipse we need to multiply the circle by a factor $b/a$:
+
+:::{math}
+\frac{1}{2}a b \left(E - e \sin E\right) = \frac{1}{2} a b \frac{t}{T}
+:::
+
+
+## An Alternative Interpretation
 
 Recall the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, defined in terms of the true anomaly:
 
