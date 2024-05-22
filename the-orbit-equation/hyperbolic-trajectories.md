@@ -26,9 +26,9 @@ From the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, we see that the den
 
 As the true anomaly approaches $\nu_{\infty}$, $r$ approaches infinity. $\nu_{\infty}$ is restricted to be between 90° and 180°.
 
-For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
+For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory shown on the left in {numref}`fig:hyperbolic-trajectory-animation`. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory on the figure below. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
 
-<!-- ```{code-cell} ipython3
+```{code-cell} ipython3
 :tags: [remove-cell]
 
 from IPython.display import HTML
@@ -42,7 +42,7 @@ glue("hyperbolic-trajectory-animation", HTML(anim.to_jshtml()), display=False)
 :name: fig:hyperbolic-trajectory-animation
 
 Animation showing the hyperbolic trajectory and the value of the true anomaly for various positions on the occupied and virtual trajectories.
-::: -->
+:::
 
 Periapsis lies on the apse line, as usual, of the occupied trajectory. Interestingly, apoapsis lies on the virtual trajectory. Halfway between periapsis and apoapsis lies the center of a Cartesian coordinate system.
 

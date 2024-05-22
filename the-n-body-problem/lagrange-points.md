@@ -207,7 +207,7 @@ ax.plot([0, 1], [0, -1], lw=1.0, color="silver", ls="--", label="$m_2$")
 ax.set_xticks(np.arange(0, 1.1, 0.1))
 ax.set_yticks(np.arange(-1.5, 1.75, 0.25))
 ax.grid()
-ax.set_xlabel(r"$\pi_2$")
+ax.set_xlabel("$\pi_2$")
 ax.set_ylabel("$x^*$")
 ax.annotate("$m_2$", xy=(0.55, 0.5), ha="center", va="bottom")
 ax.annotate("$m_1$", xy=(0.55, -0.5), ha="center", va="bottom")
@@ -228,7 +228,7 @@ On this figure, the $x$ axis is $\pi_2$ and the $y$ axis is $x^*$. For a given v
 The solutions for $x^*$ for the collinear Lagrange points lie on the S-curve shape. For a given value of $\pi_2$, we can see there are 3 solutions of the function, corresponding to the three collinear Lagrange points for that system.
 
 By convention, the Lagrange points are numbered such that $L_1$ lies between $m_1$ and $m_2$, $L_2$ lies to the right of $m_2$, and $L_3$ lies to the left of $m_1$. Thus, we can see on the figure that the upper part of the S-curve is the solution for $L_2$. Below $x^{*} = 1.0$, the solution is for $L_1$, since that lies between $m_1$ and $m_2$. Finally, below $x^{*} = -1.0$, the solution is for $L_3$.
-<!--
+
 {numref}`fig:lagrange-points-animation` plots the five Lagrange points in non-dimensional coordinates as a function of the mass ratio $\pi_2$.
 
 ```{code-cell}
@@ -282,6 +282,7 @@ ann = ax.annotate("", xy=(1, 0.85), ha="center", va="center", fontsize=20)
 
 ax.legend(bbox_to_anchor=(0, 1, 1, 0), loc="lower left", mode="expand", ncol=7)
 
+
 def init():
     m2_orb.set_data([], [])
     m1_orb.set_data([], [])
@@ -289,12 +290,12 @@ def init():
     ann.set_text("")
     return (com, l, m2_orb, m1_orb, equil, ann)
 
-# Precompute the arrays, then index by "time step" to return lines, rather than solving on each one.
+
 def animate(pi_2):
-    m_1 = [-pi_2]
-    m_2 = [1 - pi_2]
-    m1_line.set_data(m_1, [0])
-    m2_line.set_data(m_2, [0])
+    m_1 = -pi_2
+    m_2 = 1 - pi_2
+    m1_line.set_data(m_1, 0)
+    m2_line.set_data(m_2, 0)
     x_2 = m_2 * cos
     y_2 = m_2 * sin
     x_1 = m_1 * cos
@@ -305,11 +306,11 @@ def animate(pi_2):
     L_1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
     L_3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
     L_4 = L_5 = 0.5 - pi_2
-    L1_line.set_data([L_1], [0])
-    L2_line.set_data([L_2], [0])
-    L3_line.set_data([L_3], [0])
-    L4_line.set_data([L_4], [np.sqrt(3) / 2])
-    L5_line.set_data([L_5], [-np.sqrt(3) / 2])
+    L1_line.set_data(L_1, 0)
+    L2_line.set_data(L_2, 0)
+    L3_line.set_data(L_3, 0)
+    L4_line.set_data(L_4, np.sqrt(3) / 2)
+    L5_line.set_data(L_5, -np.sqrt(3) / 2)
     equil.set_data([m_1, L_4, m_2, L_5, m_1], [0, np.sqrt(3) / 2, 0, -np.sqrt(3) / 2, 0])
     ann.set_text(fr"$\pi_2$ = {pi_2:.4G}")
 
@@ -328,7 +329,7 @@ glue("lagrange-points-animation", HTML(anim.to_jshtml()), display=False)
 Animation showing the position of the five Lagrange points as the value of $\pi_2$ goes from 0 to 1.
 :::
 
-{numref}`fig:lagrange-points-animation` shows that the solution of the equations of motion for the equilibrium points is symmetrical. We chose $m_1$ to be the larger mass at the start of the problem, but we can interchange $m_1$ and $m_2$ without any problems. -->
+{numref}`fig:lagrange-points-animation` shows that the solution of the equations of motion for the equilibrium points is symmetrical. We chose $m_1$ to be the larger mass at the start of the problem, but we can interchange $m_1$ and $m_2$ without any problems.
 
 For the Earth-Moon system, the value of $\pi_2$ is approximately 0.012.
 
