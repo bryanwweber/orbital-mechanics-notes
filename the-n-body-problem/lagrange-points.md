@@ -207,7 +207,7 @@ ax.plot([0, 1], [0, -1], lw=1.0, color="silver", ls="--", label="$m_2$")
 ax.set_xticks(np.arange(0, 1.1, 0.1))
 ax.set_yticks(np.arange(-1.5, 1.75, 0.25))
 ax.grid()
-ax.set_xlabel("$\pi_2$")
+ax.set_xlabel(r"$\pi_2$")
 ax.set_ylabel("$x^*$")
 ax.annotate("$m_2$", xy=(0.55, 0.5), ha="center", va="bottom")
 ax.annotate("$m_1$", xy=(0.55, -0.5), ha="center", va="bottom")
@@ -228,7 +228,7 @@ On this figure, the $x$ axis is $\pi_2$ and the $y$ axis is $x^*$. For a given v
 The solutions for $x^*$ for the collinear Lagrange points lie on the S-curve shape. For a given value of $\pi_2$, we can see there are 3 solutions of the function, corresponding to the three collinear Lagrange points for that system.
 
 By convention, the Lagrange points are numbered such that $L_1$ lies between $m_1$ and $m_2$, $L_2$ lies to the right of $m_2$, and $L_3$ lies to the left of $m_1$. Thus, we can see on the figure that the upper part of the S-curve is the solution for $L_2$. Below $x^{*} = 1.0$, the solution is for $L_1$, since that lies between $m_1$ and $m_2$. Finally, below $x^{*} = -1.0$, the solution is for $L_3$.
-
+<!--
 {numref}`fig:lagrange-points-animation` plots the five Lagrange points in non-dimensional coordinates as a function of the mass ratio $\pi_2$.
 
 ```{code-cell}
@@ -282,7 +282,6 @@ ann = ax.annotate("", xy=(1, 0.85), ha="center", va="center", fontsize=20)
 
 ax.legend(bbox_to_anchor=(0, 1, 1, 0), loc="lower left", mode="expand", ncol=7)
 
-
 def init():
     m2_orb.set_data([], [])
     m1_orb.set_data([], [])
@@ -290,12 +289,12 @@ def init():
     ann.set_text("")
     return (com, l, m2_orb, m1_orb, equil, ann)
 
-
+# Precompute the arrays, then index by "time step" to return lines, rather than solving on each one.
 def animate(pi_2):
-    m_1 = -pi_2
-    m_2 = 1 - pi_2
-    m1_line.set_data(m_1, 0)
-    m2_line.set_data(m_2, 0)
+    m_1 = [-pi_2]
+    m_2 = [1 - pi_2]
+    m1_line.set_data(m_1, [0])
+    m2_line.set_data(m_2, [0])
     x_2 = m_2 * cos
     y_2 = m_2 * sin
     x_1 = m_1 * cos
@@ -306,11 +305,11 @@ def animate(pi_2):
     L_1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
     L_3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
     L_4 = L_5 = 0.5 - pi_2
-    L1_line.set_data(L_1, 0)
-    L2_line.set_data(L_2, 0)
-    L3_line.set_data(L_3, 0)
-    L4_line.set_data(L_4, np.sqrt(3) / 2)
-    L5_line.set_data(L_5, -np.sqrt(3) / 2)
+    L1_line.set_data([L_1], [0])
+    L2_line.set_data([L_2], [0])
+    L3_line.set_data([L_3], [0])
+    L4_line.set_data([L_4], [np.sqrt(3) / 2])
+    L5_line.set_data([L_5], [-np.sqrt(3) / 2])
     equil.set_data([m_1, L_4, m_2, L_5, m_1], [0, np.sqrt(3) / 2, 0, -np.sqrt(3) / 2, 0])
     ann.set_text(fr"$\pi_2$ = {pi_2:.4G}")
 
@@ -329,7 +328,7 @@ glue("lagrange-points-animation", HTML(anim.to_jshtml()), display=False)
 Animation showing the position of the five Lagrange points as the value of $\pi_2$ goes from 0 to 1.
 :::
 
-{numref}`fig:lagrange-points-animation` shows that the solution of the equations of motion for the equilibrium points is symmetrical. We chose $m_1$ to be the larger mass at the start of the problem, but we can interchange $m_1$ and $m_2$ without any problems.
+{numref}`fig:lagrange-points-animation` shows that the solution of the equations of motion for the equilibrium points is symmetrical. We chose $m_1$ to be the larger mass at the start of the problem, but we can interchange $m_1$ and $m_2$ without any problems. -->
 
 For the Earth-Moon system, the value of $\pi_2$ is approximately 0.012.
 
@@ -499,7 +498,7 @@ The Trojan and the Greek asteroids are clusters of asteroids that have collected
 
 The collinear Lagrange points, $L_1$, $L_2$, and $L_3$ are all **saddle points** in {numref}`fig:pseudo-potential-energy-cr3bp`, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
 
-Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope is planned to launch to the $L_2$ of the Earth-Sun system sometime ~this year~ in 2022.
+Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope (JWST) is located at the $L_2$ point in the Earth-Sun system specifically to avoid sunlight interefering with observations.
 
 These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in {numref}`fig:wmap-trajectory`.
 
@@ -507,6 +506,14 @@ These satellites orbit around the unstable Lagrange points in a [Lissajous orbit
 :name: fig:wmap-trajectory
 
 The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
+:::
+
+Another example is the JWST, mentioned previously. JWST has a simpler [halo orbit](https://en.wikipedia.org/wiki/Halo_orbit) around $L_2$. The orbit of JWST is shown in {numref}`fig:jwst-trajectory`.
+
+:::{figure} ../images/jwst-trajectory.gif
+:name: fig:jwst-trajectory
+
+The trajectory of the [James Webb Space Telescope](https://en.wikipedia.org/wiki/James_Webb_Space_Telescope) (JWST) as viewed from above the ecliptic plane with Earth fixed. Note again the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_James_Webb_Space_Telescope_trajectory_-_Polar_view.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
 :::
 
 $L_1$ and $L_2$ in the Earth-Sun system are about 1.5 million km towards the Sun and away from the Sun, starting at the Earth, respectively. $L_3$ lies on the other side of the Sun, and has long been the predicted location of a hidden planet, since it could not be observed from Earth prior to the advent of satellite observation. Now, of course, we know there is no planet at that location.
