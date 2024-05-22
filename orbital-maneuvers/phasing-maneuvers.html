@@ -516,11 +516,11 @@ document.write(`
 <p>We assume that the velocity change is applied parallel to the velocity vector at the impulse point. This gives the minimum propellant usage for such a maneuver, but is relatively slow. More general orbital transfers, including rendezvous maneuvers that require less than a full orbit, will be covered in <a class="reference internal" href="non-hohmann-transfers.html"><span class="std std-doc">Non-Hohmann Transfers with a Common Apse Line</span></a>.</p>
 <section id="returning-at-a-later-time">
 <h2>Returning At A Later Time<a class="headerlink" href="#returning-at-a-later-time" title="Link to this heading">#</a></h2>
-<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-increase-period"><span class="std std-numref">Fig. 63</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
+<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-increase-period"><span class="std std-numref">Fig. 64</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
 <figure class="align-default" id="fig-phasing-orbit-increase-period">
 <a class="reference internal image-reference" href="../_images/phasing-orbit-increase-period.svg"><img alt="../_images/phasing-orbit-increase-period.svg" src="../_images/phasing-orbit-increase-period.svg" width="75%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 63 </span><span class="caption-text">A phasing orbit to allow a target spacecraft to catch up to the interceptor spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is larger than the initial orbit, so the period of the phasing orbit is longer.</span><a class="headerlink" href="#fig-phasing-orbit-increase-period" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">A phasing orbit to allow a target spacecraft to catch up to the interceptor spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is larger than the initial orbit, so the period of the phasing orbit is longer.</span><a class="headerlink" href="#fig-phasing-orbit-increase-period" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>At the impulse point, the interceptor spacecraft increases its velocity to place itself on Orbit 2. The period of Orbit 2 is:</p>
@@ -533,11 +533,11 @@ document.write(`
 </section>
 <section id="returning-at-an-earlier-time">
 <h2>Returning At An Earlier Time<a class="headerlink" href="#returning-at-an-earlier-time" title="Link to this heading">#</a></h2>
-<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-decrease-period"><span class="std std-numref">Fig. 64</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
+<p>As shown in <a class="reference internal" href="#fig-phasing-orbit-decrease-period"><span class="std std-numref">Fig. 65</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
 <figure class="align-default" id="fig-phasing-orbit-decrease-period">
 <a class="reference internal image-reference" href="../_images/phasing-orbit-decrease-period.svg"><img alt="../_images/phasing-orbit-decrease-period.svg" src="../_images/phasing-orbit-decrease-period.svg" width="75%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 64 </span><span class="caption-text">A phasing orbit to allow an interceptor spacecraft to catch up to the target spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is smaller than the initial orbit, so the period of the phasing orbit is shorter.</span><a class="headerlink" href="#fig-phasing-orbit-decrease-period" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">A phasing orbit to allow an interceptor spacecraft to catch up to the target spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is smaller than the initial orbit, so the period of the phasing orbit is shorter.</span><a class="headerlink" href="#fig-phasing-orbit-decrease-period" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>At the impulse point, the interceptor spacecraft decreases its velocity to place itself on Orbit 2. The period of Orbit 2 is given by Eq. <a class="reference internal" href="#equation-eq-phasing-orbit-2-period">(292)</a> while the period of Orbit 1 is given by Eq. <a class="reference internal" href="#equation-eq-phasing-orbit-1-period">(293)</a>.</p>
@@ -546,11 +546,11 @@ document.write(`
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>Although we’ve treated phasing maneuvers as useful to rendezvous two spacecraft, they can also be used to change the longitude above which a satellite orbits. Assume a satellite is in GEO above the prime meridian, a longitude of 0°E. The target longitude is 137.2°W. Determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement if the phasing maneuver takes 1, 2, and 5 rotations of Earth.</p>
-<p><a class="reference internal" href="#fig-phasing-maneuver-example"><span class="std std-numref">Fig. 65</span></a> shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth’s rotation.</p>
+<p><a class="reference internal" href="#fig-phasing-maneuver-example"><span class="std std-numref">Fig. 66</span></a> shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth’s rotation.</p>
 <figure class="align-default" id="fig-phasing-maneuver-example">
 <a class="reference internal image-reference" href="../_images/phasing-maneuver-example.svg"><img alt="../_images/phasing-maneuver-example.svg" src="../_images/phasing-maneuver-example.svg" width="70%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 65 </span><span class="caption-text">The initial conditions for the phasing maneuver to 137.2°W longitude. Not to scale.</span><a class="headerlink" href="#fig-phasing-maneuver-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">The initial conditions for the phasing maneuver to 137.2°W longitude. Not to scale.</span><a class="headerlink" href="#fig-phasing-maneuver-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To find the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement, we need to know how much <span class="math notranslate nohighlight">\(\Delta v\)</span> is required to get onto the phasing orbit and then return back to GEO. This is determined by the GEO velocity as well as the velocity at the impulse point on the phasing orbit.</p>

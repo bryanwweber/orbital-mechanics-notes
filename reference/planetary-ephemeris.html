@@ -832,11 +832,11 @@ document.write(`
 <h2>Using JPL HORIZONS Web Interface<a class="headerlink" href="#using-jpl-horizons-web-interface" title="Link to this heading">#</a></h2>
 <p>JPL also maintains a web browser based interface to the HORIZONS database. This interface can be used to determine all the same information as the previous methods, with a similar level of accuracy as the SPICE-focused methods in the previous section. The web interface is located at:</p>
 <p><a class="reference external" href="https://ssd.jpl.nasa.gov/horizons/app.html#/">https://ssd.jpl.nasa.gov/horizons/app.html#/</a></p>
-<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#fig-horizons-default"><span class="std std-numref">Fig. 91</span></a></p>
+<p>The default interface of HORIZONS is shown in <a class="reference internal" href="#fig-horizons-default"><span class="std std-numref">Fig. 92</span></a></p>
 <figure class="align-default" id="fig-horizons-default">
 <img alt="../_images/horizons-default.png" src="../_images/horizons-default.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 91 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#fig-horizons-default" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 92 </span><span class="caption-text">The default web interface for HORIZONS.</span><a class="headerlink" href="#fig-horizons-default" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Each of the options can be changed by clicking the <em>Edit</em> buttons. For our purposes, we can change the following:</p>
@@ -847,21 +847,21 @@ document.write(`
 <li><p><em>Time Span</em>: This can be used to generate a range of dates, or to input specific dates. We will choose <em>Specify a list of times</em> for this example, and then input the date of interest, in JDT, <span class="pasted-text">2,459,192.3958</span>.</p></li>
 <li><p><em>Table Settings</em>: Here, we want to change the units to <em>km and seconds</em>. Another useful option is the <em>Reference plane</em>. The default of <em>ecliptic x-y plane derived from reference plane</em> is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.</p></li>
 </ol>
-<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#fig-horizons-mercury"><span class="std std-numref">Fig. 92</span></a>.</p>
+<p>When you’ve set the options for this example, the screen should appear as in <a class="reference internal" href="#fig-horizons-mercury"><span class="std std-numref">Fig. 93</span></a>.</p>
 <figure class="align-default" id="fig-horizons-mercury">
 <a class="reference internal image-reference" href="../_images/horizons-mercury.png"><img alt="../_images/horizons-mercury.png" src="../_images/horizons-mercury.png" style="width: 75%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 92 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#fig-horizons-mercury" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 93 </span><span class="caption-text">The settings used in this example for the ephemerides of Mercury.</span><a class="headerlink" href="#fig-horizons-mercury" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 93</span></a>.</p>
+<p>After clicking <em>Generate Ephemeris</em>, the output looks like <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 94</span></a>.</p>
 <figure class="align-default" id="fig-mercury-output">
 <img alt="../_images/mercury-output.png" src="../_images/mercury-output.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 93 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#fig-mercury-output" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 94 </span><span class="caption-text">A subset of the output from HORIZONS for Mercury showing the orbital elements.</span><a class="headerlink" href="#fig-mercury-output" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 93</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
+<p>The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in <a class="reference internal" href="#fig-mercury-output"><span class="std std-numref">Fig. 94</span></a>, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. <code class="docutils literal notranslate"><span class="pre">IN</span></code> stands for inclination and <code class="docutils literal notranslate"><span class="pre">TA</span></code> is the true anomaly. Both of these elements match our previous calculated results for the date given.</p>
 </section>
 </section>
 

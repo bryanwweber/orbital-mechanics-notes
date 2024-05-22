@@ -523,17 +523,17 @@ document.write(`
 <h2>Arrival Trajectory<a class="headerlink" href="#arrival-trajectory" title="Link to this heading">#</a></h2>
 <p>When the spacecraft arrives at the target planet, it’s trajectory will be a hyperbola relative to the planet. When crossing the sphere of influence of the planet, the spacecraft can be in one of two orientations:</p>
 <ol class="arabic">
-<li><p>crossing in front of the planet, as shown in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 85</span></a>, called a <strong>leading-side flyby</strong>.</p>
+<li><p>crossing in front of the planet, as shown in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 86</span></a>, called a <strong>leading-side flyby</strong>.</p>
 <figure class="align-default" id="fig-interplanetary-leading-flyby">
 <img alt="../_images/interplanetary-leading-flyby.svg" src="../_images/interplanetary-leading-flyby.svg" /><figcaption>
-<p><span class="caption-number">Fig. 85 </span><span class="caption-text">A leading-side planetary flyby. Notice that the spacecraft crosses in front of the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-leading-flyby" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 86 </span><span class="caption-text">A leading-side planetary flyby. Notice that the spacecraft crosses in front of the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-leading-flyby" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
-<li><p>crossing behind the planet, as shown in <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 86</span></a>, called a <strong>trailing-side flyby</strong></p>
+<li><p>crossing behind the planet, as shown in <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 87</span></a>, called a <strong>trailing-side flyby</strong></p>
 <figure class="align-default" id="fig-interplanetary-trailing-flyby">
 <img alt="../_images/interplanetary-trailing-flyby.svg" src="../_images/interplanetary-trailing-flyby.svg" /><figcaption>
-<p><span class="caption-number">Fig. 86 </span><span class="caption-text">A trailing-side planetary flyby. Notice that the spacecraft crosses behind the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-trailing-flyby" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 87 </span><span class="caption-text">A trailing-side planetary flyby. Notice that the spacecraft crosses behind the planet along the planet’s direction of motion.</span><a class="headerlink" href="#fig-interplanetary-trailing-flyby" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -544,7 +544,7 @@ document.write(`
 <p>To determine the spacecraft’s hyperbolic orbital elements, we need to find <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1}\)</span>, the excess velocity vector at arrival. The excess velocity vector can be found by taking the vector difference of the planet and spacecraft heliocentric velocity vectors:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-arrival-excess-velocity-vector">
 <span class="eqno">(370)<a class="headerlink" href="#equation-eq-interplanetary-flyby-arrival-excess-velocity-vector" title="Link to this equation">#</a></span>\[\vector{v}_{\infty,1} = \vector{V}_1^s - \vector{V}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\vector{V}\)</span> is the orbital velocity of the planet and <span class="math notranslate nohighlight">\(\vector{V}_1^s\)</span> is the spacecraft’s heliocentric velocity vector. This vector sum is shown visually in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 85</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 86</span></a> in the inset figure.</p>
+<p>where <span class="math notranslate nohighlight">\(\vector{V}\)</span> is the orbital velocity of the planet and <span class="math notranslate nohighlight">\(\vector{V}_1^s\)</span> is the spacecraft’s heliocentric velocity vector. This vector sum is shown visually in <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 86</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 87</span></a> in the inset figure.</p>
 <p>In the heliocentric frame, the spacecraft’s velocity can be split into two components:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-arrival-heliocentric-components">
 <span class="eqno">(371)<a class="headerlink" href="#equation-eq-interplanetary-flyby-arrival-heliocentric-components" title="Link to this equation">#</a></span>\[\vector{V}_1^s = V_{1,r}^s \uvec{u}_r + V_{1,\perp}^s \uvec{u}_{\perp} = \frac{\mu_{\text{sun}}}{h_1} e_1 \sin\nu_1 \uvec{u}_r + \frac{\mu_{\text{sun}}}{h_1}\left(1 + e_1 \cos\nu_1\right) \uvec{u}_{\perp}\]</div>
@@ -571,7 +571,7 @@ document.write(`
 </section>
 <section id="arrival-excess-velocity-vector">
 <h3>Arrival Excess Velocity Vector<a class="headerlink" href="#arrival-excess-velocity-vector" title="Link to this heading">#</a></h3>
-<p>In <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 85</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 86</span></a>, we can break the excess velocity vector into the geocentric coordinate system:</p>
+<p>In <a class="reference internal" href="#fig-interplanetary-leading-flyby"><span class="std std-numref">Fig. 86</span></a> and <a class="reference internal" href="#fig-interplanetary-trailing-flyby"><span class="std std-numref">Fig. 87</span></a>, we can break the excess velocity vector into the geocentric coordinate system:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-flyby-excess-velocity-geocentric">
 <span class="eqno">(377)<a class="headerlink" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric" title="Link to this equation">#</a></span>\[\vector{v}_{\infty,1} = \left(V_1^s\cos\alpha_1 - V\right) \uvec{u}_V + V_1^s \sin\alpha_1 \uvec{u}_S\]</div>
 <p>Finally, we can compute the magnitude of the excess velocity:</p>
@@ -589,11 +589,11 @@ document.write(`
 <section id="departure-trajectory">
 <h2>Departure Trajectory<a class="headerlink" href="#departure-trajectory" title="Link to this heading">#</a></h2>
 <p>Now that we have <span class="math notranslate nohighlight">\(\vector{v}_{\infty,1}\)</span> from Eq. <a class="reference internal" href="#equation-eq-interplanetary-flyby-excess-velocity-geocentric">(377)</a>, we are ready to calculate the departure trajectory. The <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span> vector is rotated through the turn angle <span class="math notranslate nohighlight">\(\delta\)</span>. We need a consistent reference line from which the angle of the <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span> vector can be measured.</p>
-<p>The easiest choice for a reference line is the planet’s heliocentric velocity vector. As shown in <a class="reference internal" href="#fig-interplanetary-flyby-phi-angle"><span class="std std-numref">Fig. 87</span></a>, we can define an angle <span class="math notranslate nohighlight">\(\phi\)</span> from the planet’s velocity vector <span class="math notranslate nohighlight">\(\vector{V}\)</span> to <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span>. <span class="math notranslate nohighlight">\(\phi_1\)</span> is defined for the angle at arrival and <span class="math notranslate nohighlight">\(\phi_2\)</span> is the angle at departure.</p>
+<p>The easiest choice for a reference line is the planet’s heliocentric velocity vector. As shown in <a class="reference internal" href="#fig-interplanetary-flyby-phi-angle"><span class="std std-numref">Fig. 88</span></a>, we can define an angle <span class="math notranslate nohighlight">\(\phi\)</span> from the planet’s velocity vector <span class="math notranslate nohighlight">\(\vector{V}\)</span> to <span class="math notranslate nohighlight">\(\vector{v}_{\infty}\)</span>. <span class="math notranslate nohighlight">\(\phi_1\)</span> is defined for the angle at arrival and <span class="math notranslate nohighlight">\(\phi_2\)</span> is the angle at departure.</p>
 <figure class="align-default" id="fig-interplanetary-flyby-phi-angle">
 <a class="reference internal image-reference" href="../_images/interplanetary-flyby-phi-angle.svg"><img alt="../_images/interplanetary-flyby-phi-angle.svg" src="../_images/interplanetary-flyby-phi-angle.svg" width="75%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 87 </span><span class="caption-text">The angles <span class="math notranslate nohighlight">\(\phi_1\)</span> and <span class="math notranslate nohighlight">\(\phi_2\)</span> are defined from the planet’s velocity vector to the excess velocity vector.</span><a class="headerlink" href="#fig-interplanetary-flyby-phi-angle" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 88 </span><span class="caption-text">The angles <span class="math notranslate nohighlight">\(\phi_1\)</span> and <span class="math notranslate nohighlight">\(\phi_2\)</span> are defined from the planet’s velocity vector to the excess velocity vector.</span><a class="headerlink" href="#fig-interplanetary-flyby-phi-angle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The relationship between the <span class="math notranslate nohighlight">\(\phi\)</span> angles is:</p>

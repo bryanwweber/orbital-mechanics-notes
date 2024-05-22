@@ -520,11 +520,11 @@ document.write(`
 <li><p>The total time of the transfer orbit</p></li>
 <li><p>The angular distance between two planets, relative to the Sun</p></li>
 </ol>
-<p>The first item can be determined from the orbital elements of the transfer orbit, so we will not discuss how to calculate it here. The second item, the angular distance between two planets, is commonly called the <strong>phase angle</strong>. This is the angle formed by drawing radii from the initial planet to the Sun and then to the final planet, as shown in <a class="reference internal" href="#fig-interplanetary-phase-angle"><span class="std std-numref">Fig. 77</span></a>.</p>
+<p>The first item can be determined from the orbital elements of the transfer orbit, so we will not discuss how to calculate it here. The second item, the angular distance between two planets, is commonly called the <strong>phase angle</strong>. This is the angle formed by drawing radii from the initial planet to the Sun and then to the final planet, as shown in <a class="reference internal" href="#fig-interplanetary-phase-angle"><span class="std std-numref">Fig. 78</span></a>.</p>
 <figure class="align-default" id="fig-interplanetary-phase-angle">
 <a class="reference internal image-reference" href="../_images/interplanetary-phase-angle.svg"><img alt="../_images/interplanetary-phase-angle.svg" src="../_images/interplanetary-phase-angle.svg" width="75%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 77 </span><span class="caption-text">A hypothetical Hohmann transfer with increasing radius. The initial phase angle between the initial and final planets is <span class="math notranslate nohighlight">\(\gamma_1\)</span> and the phase angle after the transfer is complete is <span class="math notranslate nohighlight">\(\gamma_2\)</span>. Note that while the spacecraft travels 180° of true anomaly on the transfer trajectory (green), the initial planet (blue) travels more than 180° and the final planet (red) travels less than 180°.</span><a class="headerlink" href="#fig-interplanetary-phase-angle" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">A hypothetical Hohmann transfer with increasing radius. The initial phase angle between the initial and final planets is <span class="math notranslate nohighlight">\(\gamma_1\)</span> and the phase angle after the transfer is complete is <span class="math notranslate nohighlight">\(\gamma_2\)</span>. Note that while the spacecraft travels 180° of true anomaly on the transfer trajectory (green), the initial planet (blue) travels more than 180° and the final planet (red) travels less than 180°.</span><a class="headerlink" href="#fig-interplanetary-phase-angle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the previous section, we assumed that the orbits of the planets are circular. This allows us to define the angluar distance traversed by the planet in a time interval by its average angular velocity, also called the <em>mean motion</em>:</p>
@@ -556,11 +556,11 @@ document.write(`
 <section id="phase-angle-at-departure">
 <h2>Phase Angle at Departure<a class="headerlink" href="#phase-angle-at-departure" title="Link to this heading">#</a></h2>
 <p>We now have enough information to determine the required phase angle at departure from the initial planet. Given the transfer trajectory, we can compute the transfer time, <span class="math notranslate nohighlight">\(t_{12}\)</span>. For a Hohmann transfer, this is given by Eq. <a class="reference internal" href="../orbital-maneuvers/hohmann-transfer.html#equation-eq-hohmann-transfer-time">(289)</a>.</p>
-<p>During the transfer, the final planet moves an angular distance <span class="math notranslate nohighlight">\(n_f t_{12}\)</span> radians, since <span class="math notranslate nohighlight">\(n_f\)</span> is constant. This is shown in <a class="reference internal" href="#fig-interplanetary-initial-phase-angle"><span class="std std-numref">Fig. 78</span></a>.</p>
+<p>During the transfer, the final planet moves an angular distance <span class="math notranslate nohighlight">\(n_f t_{12}\)</span> radians, since <span class="math notranslate nohighlight">\(n_f\)</span> is constant. This is shown in <a class="reference internal" href="#fig-interplanetary-initial-phase-angle"><span class="std std-numref">Fig. 79</span></a>.</p>
 <figure class="align-default" id="fig-interplanetary-initial-phase-angle">
 <a class="reference internal image-reference" href="../_images/interplanetary-initial-phase-angle.svg"><img alt="../_images/interplanetary-initial-phase-angle.svg" src="../_images/interplanetary-initial-phase-angle.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 78 </span><span class="caption-text">The initial phase angle <span class="math notranslate nohighlight">\(\gamma_1\)</span> and final phase angle <span class="math notranslate nohighlight">\(\gamma_2\)</span> are related to the angular travel distances.</span><a class="headerlink" href="#fig-interplanetary-initial-phase-angle" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">The initial phase angle <span class="math notranslate nohighlight">\(\gamma_1\)</span> and final phase angle <span class="math notranslate nohighlight">\(\gamma_2\)</span> are related to the angular travel distances.</span><a class="headerlink" href="#fig-interplanetary-initial-phase-angle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The initial true anomaly of the final planet is <span class="math notranslate nohighlight">\(\nu_{f,1}\)</span> and its final anomaly is <span class="math notranslate nohighlight">\(\nu_{f,2}\)</span>, such that:</p>
@@ -587,7 +587,7 @@ document.write(`
 </section>
 <section id="phase-angle-at-arrival">
 <h2>Phase Angle at Arrival<a class="headerlink" href="#phase-angle-at-arrival" title="Link to this heading">#</a></h2>
-<p><a class="reference internal" href="#fig-interplanetary-initial-phase-angle"><span class="std std-numref">Fig. 78</span></a> can also be used to determine the phase angle at arrival, <span class="math notranslate nohighlight">\(\gamma_2\)</span>. Similar to Eq. <a class="reference internal" href="#equation-eq-interplanetary-initial-true-anomaly">(333)</a>, we can write the final phase angle in terms of the true anomalies of the planets:</p>
+<p><a class="reference internal" href="#fig-interplanetary-initial-phase-angle"><span class="std std-numref">Fig. 79</span></a> can also be used to determine the phase angle at arrival, <span class="math notranslate nohighlight">\(\gamma_2\)</span>. Similar to Eq. <a class="reference internal" href="#equation-eq-interplanetary-initial-true-anomaly">(333)</a>, we can write the final phase angle in terms of the true anomalies of the planets:</p>
 <div class="math notranslate nohighlight" id="equation-eq-interplanetary-final-true-anomaly">
 <span class="eqno">(336)<a class="headerlink" href="#equation-eq-interplanetary-final-true-anomaly" title="Link to this equation">#</a></span>\[\gamma_2 = \nu_{f,2} - \nu_{i,2}\]</div>
 <p>Plugging this relationship into Eq. <a class="reference internal" href="#equation-eq-interplanetary-initial-planet-arrival-true-anomaly">(332)</a>, subtracting <span class="math notranslate nohighlight">\(\nu_A\)</span> from both sides, and using Eq. <a class="reference internal" href="#equation-eq-interplanetary-transfer-true-anomaly">(334)</a>, we find:</p>
@@ -655,11 +655,11 @@ t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if 
 </div>
 </div>
 </div>
-<p>The phase angle at arrival is <span class="math notranslate nohighlight">\(\gamma_2 =\)</span> <span class="pasted-text">114.07</span>°. These angles are shown in <a class="reference internal" href="#fig-interplanetary-phase-angle-example"><span class="std std-numref">Fig. 79</span></a>.</p>
+<p>The phase angle at arrival is <span class="math notranslate nohighlight">\(\gamma_2 =\)</span> <span class="pasted-text">114.07</span>°. These angles are shown in <a class="reference internal" href="#fig-interplanetary-phase-angle-example"><span class="std std-numref">Fig. 80</span></a>.</p>
 <figure class="align-default" id="fig-interplanetary-phase-angle-example">
 <a class="reference internal image-reference" href="../_images/interplanetary-phase-angle-example.svg"><img alt="../_images/interplanetary-phase-angle-example.svg" src="../_images/interplanetary-phase-angle-example.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 79 </span><span class="caption-text">The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the sun, while Neptune completes less than half of one orbit during this entire process.</span><a class="headerlink" href="#fig-interplanetary-phase-angle-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the sun, while Neptune completes less than half of one orbit during this entire process.</span><a class="headerlink" href="#fig-interplanetary-phase-angle-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since <span class="math notranslate nohighlight">\(n_f &gt; n_i\)</span>, we choose the positive version of Eq. <a class="reference internal" href="#equation-eq-interplanetary-wait-time">(340)</a>.</p>
@@ -683,16 +683,16 @@ t_{\text{wait}} &amp;= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &amp;&amp;\text{if 
 </thead>
 <tbody>
 <tr class="row-even"><td><p>0</p></td>
-<td><p><span class="pasted-text">-0.3915607229097631</span></p></td>
+<td><p><span class="pasted-text">-0.3916</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>1</p></td>
-<td><p><span class="pasted-text">0.22633515451712943</span></p></td>
+<td><p><span class="pasted-text">0.2263</span></p></td>
 </tr>
 <tr class="row-even"><td><p>2</p></td>
-<td><p><span class="pasted-text">0.8442310319440219</span></p></td>
+<td><p><span class="pasted-text">0.8442</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>3</p></td>
-<td><p><span class="pasted-text">1.4621269093709144</span></p></td>
+<td><p><span class="pasted-text">1.4621</span></p></td>
 </tr>
 </tbody>
 </table>

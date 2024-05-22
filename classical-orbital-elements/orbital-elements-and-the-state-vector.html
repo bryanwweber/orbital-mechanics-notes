@@ -789,7 +789,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <p>The first step is rather simple, but the derivation of the second step requires a long digression on the topic of <a class="reference external" href="https://en.wikipedia.org/wiki/Rotation_of_axes">coordinate transformations</a>. So, we’ll skip the derivation and get right to the point.</p>
 <section id="step-1transform-to-perifocal-frame">
 <h3>Step 1—Transform to Perifocal Frame<a class="headerlink" href="#step-1transform-to-perifocal-frame" title="Link to this heading">#</a></h3>
-<p>Remember that the perifocal frame is defined in the orbital plane with the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span>, <span class="math notranslate nohighlight">\(\uvec{q}\)</span>, and <span class="math notranslate nohighlight">\(\uvec{w}\)</span>, as shown in <a class="reference internal" href="perifocal-frame.html#fig-definition-of-perifocal-frame"><span class="std std-numref">Fig. 41</span></a>. The position and velocity components in the perifocal frame are given by Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-vector-orbit-equation">(167)</a> and Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-simplified-velocity-vector">(170)</a>, respectively.</p>
+<p>Remember that the perifocal frame is defined in the orbital plane with the unit vectors <span class="math notranslate nohighlight">\(\uvec{p}\)</span>, <span class="math notranslate nohighlight">\(\uvec{q}\)</span>, and <span class="math notranslate nohighlight">\(\uvec{w}\)</span>, as shown in <a class="reference internal" href="perifocal-frame.html#fig-definition-of-perifocal-frame"><span class="std std-numref">Fig. 42</span></a>. The position and velocity components in the perifocal frame are given by Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-vector-orbit-equation">(167)</a> and Eq. <a class="reference internal" href="perifocal-frame.html#equation-eq-perifocal-simplified-velocity-vector">(170)</a>, respectively.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
 </input><label class="sd-tab-label" data-sync-id="tabcode-python" for="sd-tab-item-14">
@@ -813,7 +813,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 </section>
 <section id="step-2rotate-the-perifocal-frame">
 <h3>Step 2—Rotate the Perifocal Frame<a class="headerlink" href="#step-2rotate-the-perifocal-frame" title="Link to this heading">#</a></h3>
-<p>The second step of this algorithm is to apply the set of coordinate transformations that converts the perifocal frame into the inertial frame. It turns out that a set of three rotations applied sequentially will accomplish this goal. These steps are shown in <a class="reference internal" href="#fig-euler-angle-rotation"><span class="std std-numref">Fig. 46</span></a>.</p>
+<p>The second step of this algorithm is to apply the set of coordinate transformations that converts the perifocal frame into the inertial frame. It turns out that a set of three rotations applied sequentially will accomplish this goal. These steps are shown in <a class="reference internal" href="#fig-euler-angle-rotation"><span class="std std-numref">Fig. 47</span></a>.</p>
 <ol class="arabic simple">
 <li><p>Rotate around the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis until the <span class="math notranslate nohighlight">\(\uvec{p}\)</span> axis is aligned with the node line</p></li>
 <li><p>Rotate around the node line until the <span class="math notranslate nohighlight">\(\uvec{w}\)</span> axis is aligned with the <span class="math notranslate nohighlight">\(Z\)</span> axis</p></li>
@@ -822,7 +822,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <figure class="align-default" id="fig-euler-angle-rotation">
 <img alt="../_images/Euler.gif" src="../_images/Euler.gif" />
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The sequence of rotations to convert from the perifocal frame to the inertial frame. Adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Euler2.gif">Juansempere</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-euler-angle-rotation" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">The sequence of rotations to convert from the perifocal frame to the inertial frame. Adapted from <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Euler2.gif">Juansempere</a>, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons.</span><a class="headerlink" href="#fig-euler-angle-rotation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
