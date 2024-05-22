@@ -277,10 +277,10 @@ The wait times are shown in {numref}`tab:heliocentric-hohmann-wait-times`. The t
 
 | N | $t_{\text{wait}}$ (years) |
 |---|-----------------------|
-| 0 | {glue:text}`heliocentric-hohmann-t_wait_0` |
-| 1 | {glue:text}`heliocentric-hohmann-t_wait_1` |
-| 2 | {glue:text}`heliocentric-hohmann-t_wait_2` |
-| 3 | {glue:text}`heliocentric-hohmann-t_wait_3` |
+| 0 | {glue:text}`heliocentric-hohmann-t_wait_0:.4f` |
+| 1 | {glue:text}`heliocentric-hohmann-t_wait_1:.4f` |
+| 2 | {glue:text}`heliocentric-hohmann-t_wait_2:.4f` |
+| 3 | {glue:text}`heliocentric-hohmann-t_wait_3:.4f` |
 :::
 
 Clearly, the total mission time is dominated by the transfer time. This is because the synodic period of Venus relative to Neptune is quite small, at only {glue:text}`heliocentric-hohmann-T_syn:.2f` Earth years. Since Venus whips around the Sun, relative to Neptune, the same phase angle occurs relatively often.

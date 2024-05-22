@@ -499,7 +499,7 @@ The Trojan and the Greek asteroids are clusters of asteroids that have collected
 
 The collinear Lagrange points, $L_1$, $L_2$, and $L_3$ are all **saddle points** in {numref}`fig:pseudo-potential-energy-cr3bp`, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
 
-Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope is planned to launch to the $L_2$ of the Earth-Sun system sometime ~this year~ in 2022.
+Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope (JWST) is located at the $L_2$ point in the Earth-Sun system specifically to avoid sunlight interefering with observations.
 
 These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in {numref}`fig:wmap-trajectory`.
 
@@ -507,6 +507,14 @@ These satellites orbit around the unstable Lagrange points in a [Lissajous orbit
 :name: fig:wmap-trajectory
 
 The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
+:::
+
+Another example is the JWST, mentioned previously. JWST has a simpler [halo orbit](https://en.wikipedia.org/wiki/Halo_orbit) around $L_2$. The orbit of JWST is shown in {numref}`fig:jwst-trajectory`.
+
+:::{figure} ../images/jwst-trajectory.gif
+:name: fig:jwst-trajectory
+
+The trajectory of the [James Webb Space Telescope](https://en.wikipedia.org/wiki/James_Webb_Space_Telescope) (JWST) as viewed from above the ecliptic plane with Earth fixed. Note again the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_James_Webb_Space_Telescope_trajectory_-_Polar_view.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
 :::
 
 $L_1$ and $L_2$ in the Earth-Sun system are about 1.5 million km towards the Sun and away from the Sun, starting at the Earth, respectively. $L_3$ lies on the other side of the Sun, and has long been the predicted location of a hidden planet, since it could not be observed from Earth prior to the advent of satellite observation. Now, of course, we know there is no planet at that location.
