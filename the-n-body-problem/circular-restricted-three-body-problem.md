@@ -281,7 +281,7 @@ where $\tau = t/t_C$. Making the terms on the right hand side of Eq. {eq}`eq:fiv
 
 :::{math}
 :label: eq:non-dim-five-term-accel-cr3bp
-\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^_\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}
+\ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}
 :::
 
 Now we have the non-dimensional inertial acceleration, we need to make Eq. {eq}`eq:vector-eom-cr3bp`, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:
