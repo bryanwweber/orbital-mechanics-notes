@@ -1,27 +1,29 @@
 #:schema https://json.schemastore.org/pyproject.json
 [project]
 dependencies = [
-    "astropy>=6.0.0",
-    "docutils>=0.20.1",
-    "ipympl>=0.9.3",
-    "jupyter-book>=1.0",
-    "matplotlib>=3.8.3",
-    "myst-nb-bokeh>=2024.1.0",
-    "myst-nb>=1.0.0",
-    "numpy>=1.26.4",
-    "pint>=0.23",
-    "plotly>=5.19.0",
-    "poliastro>=0.18.dev0",
-    "scipy>=1.12.0",
-    "skyfield>=1.48",
-    "sphinx-design>=0.5.0",
-    "sympy>=1.12",
-    "wheel>=0.42.0",
+  "astropy>=6.0.0",
+  "docutils>=0.20.1",
+  "ipympl>=0.9.3",
+  "jupyter-book>=1.0",
+  "matplotlib>=3.8.3",
+  "myst-nb-bokeh>=2024.1.0",
+  "myst-nb>=1.0.0",
+  "numpy>=1.26.4",
+  "pint>=0.23",
+  "plotly>=5.19.0",
+  "poliastro>=0.18.dev0",
+  "scipy>=1.12.0",
+  "skyfield>=1.48",
+  "sphinx-design>=0.5.0",
+  "sympy>=1.12",
+  "wheel>=0.42.0",
 ]
 requires-python = ">=3.10,<3.13"
 name = "orbital-mechanics-notes"
 authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
 license = { text = "CC-BY-SA-4.0" }
+description = "A book for Orbital Mechanics"
+version = "0.0.0"
 
 [tool.pdm]
 distribution = false
