@@ -306,13 +306,13 @@ Alternatively, a more refined estimate can be determined using a secant estimate
 where $f(\chi^{+})$ is the solution of Kepler's equation with the $\chi^{+}$ value.
 
 ::::{note}
-Prussing and Conway {cite}`Prussing2013`, citing Conway {cite}`Conway1986` suggest that faster convergence in the solution of Kepler's equation can be achieved by using the **Laguerre algorithm**, rather than Newton's algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.
+Prussing and Conway {cite}`Prussing2013`, citing Conway {cite}`Conway1986` suggest that faster convergence in the solution of Kepler's equation can be achieved by using the [**Laguerre algorithm**](https://en.wikipedia.org/wiki/Laguerre%27s_method), rather than Newton's algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.
 
 The Laguerre algorithm can be implemented as:
 
 :::{math}
 :label:
-\chi_{i + 1} = \chi_{i} - \frac{n f(\chi_i)}{f'(\chi_i) \pm \left[\left(n - 1\right)^2 \left(f'(\chi_i)\right)^2 - n\left(n - 1\right) f(\chi_i)f''(\chi_i)\right]^{1/2}}
+\chi_{i + 1} = \chi_{i} - \frac{n f(\chi_i)}{f'(\chi_i) \pm \sqrt{\left(n - 1\right)^2 \left[f'(\chi_i)\right]^2 - n\left(n - 1\right) f(\chi_i)f''(\chi_i)}}
 :::
 
 The sign ambiguity in the denominator is determined by taking the sign of the numerical value of $f'(\chi_i)$. In addition, the solution is relatively insensitive to the choice of the value of $n$, which is an integer constant. It seems as though $n = 5$ is a reasonable value. Choosing $n = 1$ gives the standard Newton's algorithm.
