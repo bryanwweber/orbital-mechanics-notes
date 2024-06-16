@@ -41,6 +41,7 @@ v_3 = np.sqrt(mu / r_3)  # km/s
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+np.set_printoptions(legacy="1.25")
 glue("moon_circle_velocity", v_1)
 glue("leo_circle_velocity", v_3)
 ```

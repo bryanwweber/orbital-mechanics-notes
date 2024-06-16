@@ -35,7 +35,6 @@ e = \frac{r_a - r_p}{r_a + r_p}
 :::
 
 ```{code-cell} ipython3
-# %matplotlib notebook
 import numpy as np
 from scipy.optimize import newton
 
@@ -51,6 +50,7 @@ e = (r_a - r_p)/(r_a + r_p)
 :tags: [remove-cell]
 from functools import partial
 from myst_nb import glue as myst_glue
+np.set_printoptions(legacy="1.25")
 glue = partial(myst_glue, display=False)
 glue("ellipse-time-since-periapsis-e", e)
 ```
@@ -149,7 +149,7 @@ def kepler(E, M_e, e):
 
 def d_kepler_d_E(E, M_e, e):
     """The derivative of Kepler's equation, to be used in a Newton solver.
-    
+
     Note that the argument M_e is unused, but must be present so the function
     arguments are consistent with the kepler function.
     """

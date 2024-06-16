@@ -250,6 +250,7 @@ h_1 = np.sqrt(mu_sun * R_Neptune * (1 - e_1))
 from functools import partial
 from myst_nb import glue as myst_glue
 glue = partial(myst_glue, display=False)
+np.set_printoptions(legacy="1.25")
 glue("interplanetary-flyby-e_1", e_1)
 glue("interplanetary-flyby-h_1", h_1)
 ```
