@@ -294,8 +294,8 @@ def init():
 def animate(pi_2):
     m_1 = -pi_2
     m_2 = 1 - pi_2
-    m1_line.set_data(m_1, 0)
-    m2_line.set_data(m_2, 0)
+    m1_line.set_data([m_1], [0])
+    m2_line.set_data([m_2], [0])
     x_2 = m_2 * cos
     y_2 = m_2 * sin
     x_1 = m_1 * cos
@@ -306,11 +306,11 @@ def animate(pi_2):
     L_1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
     L_3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
     L_4 = L_5 = 0.5 - pi_2
-    L1_line.set_data(L_1, 0)
-    L2_line.set_data(L_2, 0)
-    L3_line.set_data(L_3, 0)
-    L4_line.set_data(L_4, np.sqrt(3) / 2)
-    L5_line.set_data(L_5, -np.sqrt(3) / 2)
+    L1_line.set_data([L_1], [0])
+    L2_line.set_data([L_2], [0])
+    L3_line.set_data([L_3], [0])
+    L4_line.set_data([L_4], [np.sqrt(3) / 2])
+    L5_line.set_data([L_5], [-np.sqrt(3) / 2])
     equil.set_data([m_1, L_4, m_2, L_5, m_1], [0, np.sqrt(3) / 2, 0, -np.sqrt(3) / 2, 0])
     ann.set_text(fr"$\pi_2$ = {pi_2:.4G}")
 

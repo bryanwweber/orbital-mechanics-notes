@@ -59,7 +59,7 @@ def plot_figure():
 
     def animate(t):
         r = a * (e**2 - 1) / (1 + e * np.cos(t))
-        point.set_data(-a - r_p + r * np.cos(t), r * np.sin(t))
+        point.set_data([-a - r_p + r * np.cos(t)], [r * np.sin(t)])
         ann.set_text(rf"$\nu$ = {np.degrees(t):.2F}°")
         return (point, ann)
 
