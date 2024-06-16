@@ -1,31 +1,39 @@
 {
-    "cSpell.words": [
-        "apoapsis",
-        "deorbit",
-        "Hohmann",
-        "Kármán",
-        "periapsis",
-        "semimajor",
-        "Storrs"
-    ],
-    "cSpell.ignoreWords": ["devcontainer"],
-    "cSpell.languageSettings": [
-        {
-          // use with Markdown files
-          "languageId": "markdown",
-          "dictionaries": ["latex"],
-          // Exclude code
-        //   "ignoreRegExpList": [
-        //     "\\$.*\\$",
-        //     "\\$\\$([\\n\\(\\)]|[^(\\$\\$)])*\\$\\$",
-        //     "`.*`",
-        //     "```([\\n\\(\\)]|[^(\\$\\$)])*```",
-        //     "\\{\\w+\\}`.+`",
-        //     ":::\\{math\\}([\\n\\(\\)]|[^(\\$\\$)])*:::",
-        //     "---([\\n\\(\\)]|[^(\\$\\$)])*---"
-        //   ]
-        }
+  "cSpell.words": [
+    "apoapse",
+    "apoapsis",
+    "deorbit",
+    "Hohmann",
+    "Kármán",
+    "Laguerre",
+    "periapsis",
+    "Prussing",
+    "semimajor",
+    "Semiminor",
+    "Storrs",
+    "Stumpff"
+  ],
+  "cSpell.ignoreWords": [
+    "devcontainer"
+  ],
+  "cSpell.languageSettings": [
+    {
+      // use with Markdown files
+      "languageId": "markdown",
+      "dictionaries": [
+        "latex"
       ],
-      "editor.formatOnSave": true
-
+      // Exclude code
+      //   "ignoreRegExpList": [
+      //     "\\$.*\\$",
+      //     "\\$\\$([\\n\\(\\)]|[^(\\$\\$)])*\\$\\$",
+      //     "`.*`",
+      //     "```([\\n\\(\\)]|[^(\\$\\$)])*```",
+      //     "\\{\\w+\\}`.+`",
+      //     ":::\\{math\\}([\\n\\(\\)]|[^(\\$\\$)])*:::",
+      //     "---([\\n\\(\\)]|[^(\\$\\$)])*---"
+      //   ]
+    }
+  ],
+  "editor.formatOnSave": true
 }

@@ -4,7 +4,7 @@ dependencies = [
   "astropy>=6.0.0",
   "docutils>=0.20.1",
   "ipympl>=0.9.3",
-  "jupyter-book>=1.0.0",
+  "jupyter-book>=1.0",
   "matplotlib>=3.8.3",
   "myst-nb-bokeh>=2024.1.0",
   "myst-nb>=1.0.0",
@@ -22,6 +22,8 @@ requires-python = ">=3.10,<3.13"
 name = "orbital-mechanics-notes"
 authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
 license = { text = "CC-BY-SA-4.0" }
+description = "A book for Orbital Mechanics"
+version = "0.0.0"
 
 [tool.pdm]
 distribution = false

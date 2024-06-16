@@ -29,6 +29,8 @@ from matplotlib.patches import Circle, Arc
 import numpy as np
 from myst_nb import glue
 
+np.set_printoptions(legacy="1.25")
+
 R_E = 6378  # km
 orbit_radius = 1000  # km
 mu = 398_600  # km**2/s**3

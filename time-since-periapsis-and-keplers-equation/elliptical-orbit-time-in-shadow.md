@@ -29,6 +29,7 @@ from matplotlib.patches import Ellipse, Circle, Arc, Rectangle
 import numpy as np
 
 glue = partial(myst_glue, display=False)
+np.set_printoptions(legacy="1.25")
 
 mu = 3.986004418E5  # km**3/s**2
 R_E = 6378  # km
