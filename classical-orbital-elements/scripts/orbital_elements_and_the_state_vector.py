@@ -51,6 +51,7 @@ try:
     warnings.simplefilter("ignore")
     from myst_nb import glue
 
+    np.set_printoptions(legacy="1.25")
     glue("orbital-elements-radius", r, display=False)
     glue("orbital-elements-velocity", v, display=False)
     glue("orbital-elements-v_r", v_r, display=False)

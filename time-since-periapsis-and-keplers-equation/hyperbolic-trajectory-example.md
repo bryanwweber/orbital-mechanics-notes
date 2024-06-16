@@ -41,6 +41,8 @@ e = h**2 / (r_p * mu) - 1
 :tags: [remove-cell]
 from functools import partial
 from myst_nb import glue as myst_glue
+
+np.set_printoptions(legacy="1.25")
 glue = partial(myst_glue, display=False)
 
 glue("hyperbolic-time-since-perigee-h", h)
@@ -117,7 +119,7 @@ def kepler(F, M_h, e):
 
 def d_kepler_d_F(F, M_h, e):
     """The derivative of Kepler's equation, to be used in a Newton solver.
-    
+
     Note that the argument M_h is unused, but must be present so the function
     arguments are consistent with the kepler function.
     """
@@ -129,7 +131,7 @@ F_2 = newton(func=kepler, fprime=d_kepler_d_F, x0=np.pi, args=(M_h2, e))
 With this value for $F$, we can calculate the value for $\nu$. To avoid quadrant ambiguity problems, we will use Eq. {eq}`eq:eccentric-anomaly-true-anomaly-hyperbola`.
 
 ```{code-cell} ipython3
-sqrt_e = np.sqrt((e + 1) / (e - 1)) 
+sqrt_e = np.sqrt((e + 1) / (e - 1))
 nu_2 = (2 * np.arctan(sqrt_e * np.tanh(F_2 / 2))) % (2 * np.pi)
 ```
 
@@ -181,12 +183,12 @@ function kepler
     v_p = 15; % km/s
     h = r_p * v_p;
     e = h^2 / (mu * r_p) - 1;
-    
+
     nu_1 = deg2rad(100);
     F_1 = 2 * atanh(sqrt((e - 1) / (e + 1)) * tan(nu_1 / 2));
     M_h1 = e * sinh(F_1) - F_1;
     t_1 = h^3 / mu^2 * 1 / (e^2 - 1)^(3 / 2) * M_h1;
-    
+
     t_2 = t_1 + 3 * 3600;
     M_h2 = mu^2 / h^3 * (e^2 - 1)^(3 / 2) * t_2;
 
@@ -198,7 +200,7 @@ function kepler
     t2 = 2 * atan(sqrt((e + 1) / (e - 1)) * tanh(F_2 / 2));
     nu_2 = mod(t2, 2 * pi);
     disp(rad2deg(nu_2))
-    
+
     r_2 = h^2 / mu * 1 / (1 + e * cos(nu_2));
     v_perp = h / r_2;
     v_r = mu / h * e * sin(nu_2);

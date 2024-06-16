@@ -66,6 +66,7 @@ Delta_v_1 = Delta_v_1_LEO + Delta_v_1_GEO
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+np.set_printoptions(legacy="1.25")
 from functools import partial
 from myst_nb import glue as myst_glue
 glue = partial(myst_glue, display=False)
