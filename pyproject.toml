@@ -1,22 +1,22 @@
 #:schema https://json.schemastore.org/pyproject.json
 [project]
 dependencies = [
-  "astropy>=6.0.0",
+  "astropy>=6.1.1",
   "docutils>=0.20.1",
-  "ipympl>=0.9.3",
-  "jupyter-book>=1.0",
-  "matplotlib>=3.8.3",
+  "ipympl>=0.9.4",
+  "jupyter-book>=1.0.2",
+  "matplotlib>=3.9.0",
   "myst-nb-bokeh>=2024.1.0",
-  "myst-nb>=1.0.0",
+  "myst-nb>=1.1.1",
   "numpy>=1.26.4",
-  "pint>=0.23",
-  "plotly>=5.19.0",
+  "pint>=1.24.1",
+  "plotly>=5.22.0",
   "poliastro>=0.18.dev0",
-  "scipy>=1.12.0",
-  "skyfield>=1.48",
-  "sphinx-design>=0.5.0",
-  "sympy>=1.12",
-  "wheel>=0.42.0",
+  "scipy>=1.14.0",
+  "skyfield>=1.49",
+  "sphinx-design>=0.6.0",
+  "sympy>=1.12.1",
+  "wheel>=0.43.0",
 ]
 requires-python = ">=3.10,<3.13"
 name = "orbital-mechanics-notes"
@@ -29,7 +29,7 @@ version = "0.0.0"
 distribution = false
 
 [tool.pdm.dev-dependencies]
-dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "ruff>=0.3.2", "requests>=2.31.0"]
+dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "ruff>=0.5.0", "requests>=2.32.3"]
 
 [tool.pdm.resolution.overrides]
 # Unfortunately, poliastro is no longer maintained. I updated some dependencies on my
