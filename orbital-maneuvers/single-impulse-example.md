@@ -33,7 +33,7 @@ np.set_printoptions(legacy="1.25")
 
 R_E = 6378  # km
 orbit_radius = 1000  # km
-mu = 398_600  # km**2/s**3
+mu = 398_600  # km**3/s**2
 theta = np.radians(35)
 earth = Circle((0, 0), R_E, facecolor="paleturquoise", edgecolor="None")
 orbit = Circle((0, 0), R_E + orbit_radius, facecolor="None", edgecolor="black")
@@ -130,7 +130,7 @@ Then, Eq. {eq}`eq:distance-to-apoapsis` is used to find $h$.
 import numpy as np
 
 R_E = 6378  # km
-mu = 398_600  # km**2/s**3
+mu = 398_600  # km**3/s**2
 
 z_0 = 1000 # km
 impact_point = np.radians(145)
