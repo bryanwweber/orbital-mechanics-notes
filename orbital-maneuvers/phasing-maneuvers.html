@@ -16,31 +16,34 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -70,6 +73,7 @@
     <link rel="prev" title="Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers" href="comparison-of-bielliptic-and-hohmann.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,19 +89,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -105,7 +98,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -113,8 +105,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -130,7 +122,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -160,21 +153,17 @@
     
     
     <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Orbital Mechanics & Astrodynamics - Home"/>
-    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Orbital Mechanics & Astrodynamics - Home"/>`);</script>
+    <img src="../_static/hohmann-dark.svg" class="logo__image only-dark pst-js-only" alt="Orbital Mechanics & Astrodynamics - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
@@ -289,9 +278,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -452,24 +446,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -521,7 +507,7 @@ document.write(`
 <h2>Returning At A Later Time<a class="headerlink" href="#returning-at-a-later-time" title="Link to this heading">#</a></h2>
 <p>As shown in <a class="reference internal" href="#fig-phasing-orbit-increase-period"><span class="std std-numref">Fig. 64</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
 <figure class="align-default" id="fig-phasing-orbit-increase-period">
-<a class="reference internal image-reference" href="../_images/phasing-orbit-increase-period.svg"><img alt="../_images/phasing-orbit-increase-period.svg" src="../_images/phasing-orbit-increase-period.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/phasing-orbit-increase-period.svg"><img alt="../_images/phasing-orbit-increase-period.svg" src="../_images/phasing-orbit-increase-period.svg" style="width: 75%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 64 </span><span class="caption-text">A phasing orbit to allow a target spacecraft to catch up to the interceptor spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is larger than the initial orbit, so the period of the phasing orbit is longer.</span><a class="headerlink" href="#fig-phasing-orbit-increase-period" title="Link to this image">#</a></p>
 </figcaption>
@@ -538,7 +524,7 @@ document.write(`
 <h2>Returning At An Earlier Time<a class="headerlink" href="#returning-at-an-earlier-time" title="Link to this heading">#</a></h2>
 <p>As shown in <a class="reference internal" href="#fig-phasing-orbit-decrease-period"><span class="std std-numref">Fig. 65</span></a>, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked <em>Impulse Point</em> and the target spacecraft is <em>behind</em> the chase craft in the orbit.</p>
 <figure class="align-default" id="fig-phasing-orbit-decrease-period">
-<a class="reference internal image-reference" href="../_images/phasing-orbit-decrease-period.svg"><img alt="../_images/phasing-orbit-decrease-period.svg" src="../_images/phasing-orbit-decrease-period.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="../_images/phasing-orbit-decrease-period.svg"><img alt="../_images/phasing-orbit-decrease-period.svg" src="../_images/phasing-orbit-decrease-period.svg" style="width: 75%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 65 </span><span class="caption-text">A phasing orbit to allow an interceptor spacecraft to catch up to the target spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is smaller than the initial orbit, so the period of the phasing orbit is shorter.</span><a class="headerlink" href="#fig-phasing-orbit-decrease-period" title="Link to this image">#</a></p>
 </figcaption>
@@ -551,7 +537,7 @@ document.write(`
 <p>Although we’ve treated phasing maneuvers as useful to rendezvous two spacecraft, they can also be used to change the longitude above which a satellite orbits. Assume a satellite is in GEO above the prime meridian, a longitude of 0°E. The target longitude is 137.2°W. Determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement if the phasing maneuver takes 1, 2, and 5 rotations of Earth.</p>
 <p><a class="reference internal" href="#fig-phasing-maneuver-example"><span class="std std-numref">Fig. 66</span></a> shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth’s rotation.</p>
 <figure class="align-default" id="fig-phasing-maneuver-example">
-<a class="reference internal image-reference" href="../_images/phasing-maneuver-example.svg"><img alt="../_images/phasing-maneuver-example.svg" src="../_images/phasing-maneuver-example.svg" width="70%" /></a>
+<a class="reference internal image-reference" href="../_images/phasing-maneuver-example.svg"><img alt="../_images/phasing-maneuver-example.svg" src="../_images/phasing-maneuver-example.svg" style="width: 70%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 66 </span><span class="caption-text">The initial conditions for the phasing maneuver to 137.2°W longitude. Not to scale.</span><a class="headerlink" href="#fig-phasing-maneuver-example" title="Link to this image">#</a></p>
 </figcaption>
@@ -564,7 +550,7 @@ document.write(`
 <p>The parameters of the phasing orbit depend on its period. For the satellite to be at the target longitude after the maneuver, the period of the phasing orbit has to be the same as the amount of time it takes for Earth to rotate 137.2°. After this amount of rotation, the target longitude will be pointing at the impulse point, and the satellite also needs to be at the impulse point at that moment to perform its second impulse and get back on GEO.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">m</span>
 
 <span class="n">sidereal_day</span> <span class="o">=</span> <span class="mf">86_164.0905</span>  <span class="c1"># s</span>
 <span class="n">omega_E</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">sidereal_day</span>  <span class="c1"># rad/s</span>
@@ -623,7 +609,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_p</span> <span class="o">=</span> <span class="n">r_geo</span>
-<span class="k">def</span> <span class="nf">delta_v</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">delta_v</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="n">E</span> <span class="o">=</span> <span class="o">-</span><span class="n">mu</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
     <span class="n">v_p</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">E</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">/</span> <span class="n">r_p</span><span class="p">))</span>
     <span class="n">delta_v</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_p</span> <span class="o">-</span> <span class="n">v_geo</span><span class="p">)</span>
@@ -734,7 +720,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -791,8 +778,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

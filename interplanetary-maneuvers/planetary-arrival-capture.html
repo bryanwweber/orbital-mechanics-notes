@@ -16,31 +16,34 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/copyHeaderPermalink.css?v=efcfb0aa" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -76,6 +79,7 @@
     <link rel="prev" title="Planetary Departure for Interplanetary Transfer" href="planetary-departure-trajectory.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -91,19 +95,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -111,7 +104,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -119,8 +111,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -136,7 +128,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -166,21 +159,17 @@
     
     
     <img src="../_static/hohmann-light.svg" class="logo__image only-light" alt="Orbital Mechanics & Astrodynamics - Home"/>
-    <script>document.write(`<img src="../_static/hohmann-dark.svg" class="logo__image only-dark" alt="Orbital Mechanics & Astrodynamics - Home"/>`);</script>
+    <img src="../_static/hohmann-dark.svg" class="logo__image only-dark pst-js-only" alt="Orbital Mechanics & Astrodynamics - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
@@ -295,9 +284,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -458,24 +452,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -537,7 +523,7 @@ document.write(`
 <ul>
 <li><p><strong>Inner to Outer Planet</strong>: The spacecraft velocity is lower than the planet’s orbital velocity. The spacecraft crosses the sphere of influence <em>in front</em> of the planet. This is shown in <a class="reference internal" href="#fig-interplanetary-arrival"><span class="std std-numref">Fig. 83</span></a>.</p>
 <figure class="align-default" id="fig-interplanetary-arrival">
-<a class="reference internal image-reference" href="../_images/interplanetary-arrival.svg"><img alt="../_images/interplanetary-arrival.svg" src="../_images/interplanetary-arrival.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="../_images/interplanetary-arrival.svg"><img alt="../_images/interplanetary-arrival.svg" src="../_images/interplanetary-arrival.svg" style="width: 50%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 83 </span><span class="caption-text">Arrival phase of a trajectory from an inner planet to an outer planet.</span><a class="headerlink" href="#fig-interplanetary-arrival" title="Link to this image">#</a></p>
 </figcaption>
@@ -545,7 +531,7 @@ document.write(`
 </li>
 <li><p><strong>Outer to Inner Planet</strong>: The spacecraft velocity is higher than the planet’s orbital velocity. The spacecraft crosses the sphere of influence <em>behind</em> the planet. This is shown in <a class="reference internal" href="#fig-interplanetary-arrival-inward-transfer"><span class="std std-numref">Fig. 84</span></a>.</p>
 <figure class="align-default" id="fig-interplanetary-arrival-inward-transfer">
-<a class="reference internal image-reference" href="../_images/interplanetary-arrival-inward-transfer.svg"><img alt="../_images/interplanetary-arrival-inward-transfer.svg" src="../_images/interplanetary-arrival-inward-transfer.svg" width="50%" /></a>
+<a class="reference internal image-reference" href="../_images/interplanetary-arrival-inward-transfer.svg"><img alt="../_images/interplanetary-arrival-inward-transfer.svg" src="../_images/interplanetary-arrival-inward-transfer.svg" style="width: 50%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 84 </span><span class="caption-text">Arrival phase of a trajectory from an outer planet to an inner planet.</span><a class="headerlink" href="#fig-interplanetary-arrival-inward-transfer" title="Link to this image">#</a></p>
 </figcaption>
@@ -588,7 +574,7 @@ document.write(`
 <p>Next, let’s compute <span class="math notranslate nohighlight">\(v_{\infty}\)</span> for an arrival from Mars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">m</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">1.32712E11</span>  <span class="c1"># km**3/s**2, Sun</span>
 
 <span class="n">r_i</span> <span class="o">=</span> <span class="mf">2.27939E8</span>  <span class="c1"># km, Mars</span>
@@ -681,7 +667,7 @@ document.write(`
 <p>To determine the <span class="math notranslate nohighlight">\(\Delta v\)</span> for the spacecraft, we first need to determine the parameters of the heliocentric transfer trajectory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">m</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">1.32712E11</span>  <span class="c1"># km**3/s**2, Sun</span>
 
 <span class="n">r_i</span> <span class="o">=</span> <span class="mf">4.53239E9</span>  <span class="c1"># km, Neptune</span>
@@ -734,8 +720,8 @@ document.write(`
 <p>To extend the problem, we can plot the <span class="math notranslate nohighlight">\(\Delta v\)</span> for several <span class="math notranslate nohighlight">\(r_p\)</span> values, as a function of capture orbit eccentricity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">r_p_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">r_Venus</span><span class="p">,</span> <span class="n">r_Venus</span> <span class="o">+</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">e_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -775,9 +761,9 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 </div>
 <figure class="align-default" id="fig-hohmann-arrival-r-p-e-plot">
-<div id="hohmann-arrival-r_p_e_plot-fdbcf632-25a0-4a35-91fe-821e01945d76"></div><script type="text/javascript">
+<div id="hohmann-arrival-r_p_e_plot-7d199423-b8b4-4f01-838e-4118d597a6c5"></div><script type="text/javascript">
 Bokeh.embed.embed_item(
-    {"target_id":null,"root_id":"p1001","doc":{"version":"3.4.2","title":"","roots":[{"type":"object","name":"Figure","id":"p1001","attributes":{"height":350,"x_range":{"type":"object","name":"DataRange1d","id":"p1002"},"y_range":{"type":"object","name":"DataRange1d","id":"p1003"},"x_scale":{"type":"object","name":"LinearScale","id":"p1010"},"y_scale":{"type":"object","name":"LinearScale","id":"p1011"},"title":{"type":"object","name":"Title","id":"p1008"},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1039","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1033","attributes":{"selected":{"type":"object","name":"Selection","id":"p1034","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1035"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"VcZb7ZoPJECs3/5H5fwjQGxkzUlH6iNA4nLymcDXI0Cgz7/hUMUjQJtom8z3siNAjKLtB7WgI0BQZhBDiI4jQEzkPi9xfCNAlQSGf29qI0BEe7XoglgjQKp4USGrRiNAtO2E4ec0I0BOXRTjOCMjQNYzUeGdESNANp4NmRYAI0CI2pDIou4iQJT8iy9C3SJAlCAPj/TLIkBNB3+puboiQHoWi0KRqSJAB7kjH3uYIkC6GnEFd4ciQDM7yryEdiJAWlSsDaRlIkCJkLLB1FQiQPYMjqMWRCJAACX+fmkzIkBKA8kgzSIiQJF1tFZBEiJAegB/78UBIkCRMNm6WvEhQPklX4n/4CFAWViSLLTQIUCkkNN2eMAhQJsWXTtMsCFA7w89Ti+gIUDmDlCEIZAhQMLOO7MigCFA+xtqsTJwIUCi5gNWUWAhQDl97Hh+UCFAd+688rlAIUBxkL+cAzEhQLqr61BbISFAHEnh6cARIUCaIOVCNAIhQHSo3De18iBACUNKpUPjIEBriklo39MgQH24i16IxCBAsipUZj61IEBLAHVeAaYgQC7SSybRliBAbIO+na2HIECSKTillnggQOULph2MaSBAzbh06I1aIECXMI3nm0sgQNMkUv21PCBAp0udDNwtIEBUxrz4DR8gQEiacKVLECBAMjzo9pQBIEC4WICj0+UfQJxH/zWUyB9ATKMscGurH0AsULQdWY4fQBBxCgtdcR9A2DxnBXdUH0Bm8MLapjcfQPrb0VnsGh9ALIsAUkf+HkCOBnCTt+EeQEIu8u48xR5AkiwGNteoHkAGANU6howeQOwbLtBJcB5A+h6EySFUHkAMn+n6DTgeQIoJDjkOHB5Avpc6WSIAHkCMVk8xSuQdQOJAwJeFyB1AdmySY9SsHUASSFlsNpEdQBrrM4qrdR1ArHXKlTNaHUDmgEtozj4dQNKeadt7Ix1AoulYyTsIHUCQocwMDu0cQDbZ9IDy0RxA0i98Aem2HEACmYVq8ZscQMYxqpgLgRxAPiL3aDdmHEDSi+u4dEscQICDdmbDMBxA3hf1TyMWHEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1040","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1041"}}},"glyph":{"type":"object","name":"Line","id":"p1036","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1037","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1038","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1050","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1044","attributes":{"selected":{"type":"object","name":"Selection","id":"p1045","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1046"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"4g9Xz5KHJEAM5KWg1XckQNpUu1csaCRAaCDdqZZYJECMPSBOFEkkQFxOWf2kOSRA+LwNckgqJEC4eWVo/hokQIRSHZ7GCyRAjtt50qD8I0AK4jrGjO0jQCZijzuK3iNAl/kJ9pjPI0DI0JW6uMAjQM70a0/psSNAwhwJfCqjI0Ba1SMJfJQjQOwNo8DdhSNARAKVbU93I0AOfSbc0GgjQKFumtlhWiNAatRBNAJMI0BA7XO7sT0jQDC3hj9wLyNAcbPHkT0hI0B67XSEGRMjQDFCtuoDBSNAauSWmPz2IkAoHP9iA+kiQPo9rh8Y2yJAJdg0pTrNIkBUE+/Kar8iQJhE/2iosSJAwK5IWPOjIkACcWpyS5YiQCKhupGwiCJAUI9BkSJ7IkAUMrVMoW0iQKS4dKAsYCJAIEKEacRSIkBEuIiFaEUiQCTMw9IYOCJApBMQMNUqIkBkRt18nR0iQPKYLJlxECJAEzWNZVEDIkAKzhjDPPYhQNdPcJMz6SFAWqi4uDXcIUCEqZcVQ88hQIIDMY1bwiFAIlYjA3+1IUCJWIVbraghQHIW43rmmyFAJkI7RiqPIUCImvyieIIhQFxkA3fRdSFAOPaWqDRpIUByVmceolwhQF7qir8ZUCFATzZ8c5tDIUDMrRciJzchQFqTmbO8KiFAZOebEFweIUC2ZRQiBRIhQBaRUtG3BSFAc8z9B3T5IEBQgROwOe0gQN9S5bMI4SBAeV0X/uDUIEAAgp55wsggQMe8vhGtvCBAsocJsqCwIEAXR1xGnaQgQCHB3rqimCBAV58B/LCMIEDu+Xz2x4AgQKbsTpfndCBA3jS6yw9pIECU2ESBQF0gQA/WtqV5USBA9dsYJ7tFIEB8CbPzBDogQIa2C/pWLiBAZEPmKLEiIEAJ8EFvExcgQHG6WLx9CyBAEIg8/9//H0Cye31R1OgfQLa2O0/Y0R9APper2Ou6H0BucWzODqQfQFKahhFBjR9AeH5pg4J2H0Dyw+kF018fQGp3P3sySR9AAkQExqAyH0CYtTHJHRwfQEKFH2ipBR9AsO+BhkPvHkA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1051","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1052"}}},"glyph":{"type":"object","name":"Line","id":"p1047","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1048","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1049","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1060","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1054","attributes":{"selected":{"type":"object","name":"Selection","id":"p1055","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1056"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"wIh8fCDzJECLv2AySOUkQFKXCGmB1yRAcAq43svJJEDdjEpTJ7wkQOBdJYiTriRAfG8qQBChJEDd26s/nZMkQILhX0w6hiRAQV9VLed4JEC4yeiqo2skQCiUuY5vXiRA8Aago0pRJEBefqO1NEQkQLUM8ZEtNyRArHrSBjUqJEDaoaXjSh0kQNgc1PhuECRACknLF6EDJEBOlvQS4fYjQOwgrr0u6iNAapJD7IndI0AORudz8tAjQPutqypoxCNADPZ85+q3I0C24RqCeqsjQEriEtMWnyNANWO6s7+SI0DcSSn+dIYjQOCmNI02eiNAtZZpPARuI0CCTwjo3WEjQHNa/2zDVSNAm/bmqLRJI0DEo/x5sT0jQHzTHr+5MSNAzr7IV80lI0BCXw4k7BkjQJqJmAQWDiNAFCmh2koCI0DNme+HivYiQCQh1e7U6iJA2oIp8infIkDxsUd1idMiQBScClzzxyJAqg7Kime8IkB6tFfm5bAiQBQr/FNupSJA/C50uQCaIkDY3e38nI4iQMANBgVDgyJA+LjFuPJ3IkBMfZ//q2wiQFgubcFuYSJAFnpt5jpWIkAIn0FXEEsiQFwz6/zuPyJAa/zJwNY0IkAW1pmMxykiQFapcErBHiJAmnG85MMTIkBIUEFGzwgiQBSuF1rj/SFAj2mqCwDzIUCOErVGJeghQPsxQvdS3SFAnp2pCYnSIUB+145qx8chQHt43wYOvSFAv6XRy1yyIUCokOKms6chQN8A1YUSnSFAPeivVnmSIUA5AL0H6IchQIhwh4defSFApX7axNxyIUAIRsCuYmghQK94gDTwXSFAyCefRYVTIUA+lNvRIUkhQNYGL8nFPiFAva/LG3E0IUA4jRu6IyohQEhZv5TdHyFACH6NnJ4VIUCaEJHCZgshQGbSCPg1ASFAiThmLgz3IEAteUxX6ewgQMKej2TN4iBAy6AzSLjYIEAmgmv0qc4gQKZ0mFuixCBA0gFJcKG6IECuODglp7AgQFjgTG2zpiBAaa+YO8acIEDyh1eD35IgQOS37jf/iCBA5D3sTCV/IEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1061","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1062"}}},"glyph":{"type":"object","name":"Line","id":"p1057","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1058","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1059","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1009","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1022"},{"type":"object","name":"WheelZoomTool","id":"p1023","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1024","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1025","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"SaveTool","id":"p1030"},{"type":"object","name":"ResetTool","id":"p1031"},{"type":"object","name":"HelpTool","id":"p1032"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1017","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1018","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1019"},"axis_label":"\ud835\udee5v [km/s]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1020"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1012","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1013","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1014"},"axis_label":"Eccentricity [-]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1015"}}}],"center":[{"type":"object","name":"Grid","id":"p1016","attributes":{"axis":{"id":"p1012"}}},{"type":"object","name":"Grid","id":"p1021","attributes":{"dimension":1,"axis":{"id":"p1017"}}},{"type":"object","name":"Legend","id":"p1042","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p1043","attributes":{"label":{"type":"value","value":"r_p = 6052 km"},"renderers":[{"id":"p1039"}]}},{"type":"object","name":"LegendItem","id":"p1053","attributes":{"label":{"type":"value","value":"r_p = 8552 km"},"renderers":[{"id":"p1050"}]}},{"type":"object","name":"LegendItem","id":"p1063","attributes":{"label":{"type":"value","value":"r_p = 11052 km"},"renderers":[{"id":"p1060"}]}}]}}]}}]},"version":"3.4.2"}, "hohmann-arrival-r_p_e_plot-fdbcf632-25a0-4a35-91fe-821e01945d76"
+    {"target_id":null,"root_id":"p1001","doc":{"version":"3.4.2","title":"","roots":[{"type":"object","name":"Figure","id":"p1001","attributes":{"height":350,"x_range":{"type":"object","name":"DataRange1d","id":"p1002"},"y_range":{"type":"object","name":"DataRange1d","id":"p1003"},"x_scale":{"type":"object","name":"LinearScale","id":"p1010"},"y_scale":{"type":"object","name":"LinearScale","id":"p1011"},"title":{"type":"object","name":"Title","id":"p1008"},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1039","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1033","attributes":{"selected":{"type":"object","name":"Selection","id":"p1034","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1035"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"VcZb7ZoPJECs3/5H5fwjQGxkzUlH6iNA4nLymcDXI0Cgz7/hUMUjQJtom8z3siNAjKLtB7WgI0BQZhBDiI4jQEzkPi9xfCNAlQSGf29qI0BEe7XoglgjQKp4USGrRiNAtO2E4ec0I0BOXRTjOCMjQNYzUeGdESNANp4NmRYAI0CI2pDIou4iQJT8iy9C3SJAlCAPj/TLIkBNB3+puboiQHoWi0KRqSJAB7kjH3uYIkC6GnEFd4ciQDM7yryEdiJAWlSsDaRlIkCJkLLB1FQiQPYMjqMWRCJAACX+fmkzIkBKA8kgzSIiQJF1tFZBEiJAegB/78UBIkCRMNm6WvEhQPklX4n/4CFAWViSLLTQIUCkkNN2eMAhQJsWXTtMsCFA7w89Ti+gIUDmDlCEIZAhQMLOO7MigCFA+xtqsTJwIUCi5gNWUWAhQDl97Hh+UCFAd+688rlAIUBxkL+cAzEhQLqr61BbISFAHEnh6cARIUCaIOVCNAIhQHSo3De18iBACUNKpUPjIEBriklo39MgQH24i16IxCBAsipUZj61IEBLAHVeAaYgQC7SSybRliBAbIO+na2HIECSKTillnggQOULph2MaSBAzbh06I1aIECXMI3nm0sgQNMkUv21PCBAp0udDNwtIEBUxrz4DR8gQEiacKVLECBAMjzo9pQBIEC4WICj0+UfQJxH/zWUyB9ATKMscGurH0AsULQdWY4fQBBxCgtdcR9A2DxnBXdUH0Bm8MLapjcfQPrb0VnsGh9ALIsAUkf+HkCOBnCTt+EeQEIu8u48xR5AkiwGNteoHkAGANU6howeQOwbLtBJcB5A+h6EySFUHkAMn+n6DTgeQIoJDjkOHB5Avpc6WSIAHkCMVk8xSuQdQOJAwJeFyB1AdmySY9SsHUASSFlsNpEdQBrrM4qrdR1ArHXKlTNaHUDmgEtozj4dQNKeadt7Ix1AoulYyTsIHUCQocwMDu0cQDbZ9IDy0RxA0i98Aem2HEACmYVq8ZscQMYxqpgLgRxAPiL3aDdmHEDSi+u4dEscQICDdmbDMBxA3hf1TyMWHEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1040","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1041"}}},"glyph":{"type":"object","name":"Line","id":"p1036","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1037","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1038","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#66c2a5","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1050","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1044","attributes":{"selected":{"type":"object","name":"Selection","id":"p1045","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1046"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"4g9Xz5KHJEAM5KWg1XckQNpUu1csaCRAaCDdqZZYJECMPSBOFEkkQFxOWf2kOSRA+LwNckgqJEC4eWVo/hokQIRSHZ7GCyRAjtt50qD8I0AK4jrGjO0jQCZijzuK3iNAl/kJ9pjPI0DI0JW6uMAjQM70a0/psSNAwhwJfCqjI0Ba1SMJfJQjQOwNo8DdhSNARAKVbU93I0AOfSbc0GgjQKFumtlhWiNAatRBNAJMI0BA7XO7sT0jQDC3hj9wLyNAcbPHkT0hI0B67XSEGRMjQDFCtuoDBSNAauSWmPz2IkAoHP9iA+kiQPo9rh8Y2yJAJdg0pTrNIkBUE+/Kar8iQJhE/2iosSJAwK5IWPOjIkACcWpyS5YiQCKhupGwiCJAUI9BkSJ7IkAUMrVMoW0iQKS4dKAsYCJAIEKEacRSIkBEuIiFaEUiQCTMw9IYOCJApBMQMNUqIkBkRt18nR0iQPKYLJlxECJAEzWNZVEDIkAKzhjDPPYhQNdPcJMz6SFAWqi4uDXcIUCEqZcVQ88hQIIDMY1bwiFAIlYjA3+1IUCJWIVbraghQHIW43rmmyFAJkI7RiqPIUCImvyieIIhQFxkA3fRdSFAOPaWqDRpIUByVmceolwhQF7qir8ZUCFATzZ8c5tDIUDMrRciJzchQFqTmbO8KiFAZOebEFweIUC2ZRQiBRIhQBaRUtG3BSFAc8z9B3T5IEBQgROwOe0gQN9S5bMI4SBAeV0X/uDUIEAAgp55wsggQMe8vhGtvCBAsocJsqCwIEAXR1xGnaQgQCHB3rqimCBAV58B/LCMIEDu+Xz2x4AgQKbsTpfndCBA3jS6yw9pIECU2ESBQF0gQA/WtqV5USBA9dsYJ7tFIEB8CbPzBDogQIa2C/pWLiBAZEPmKLEiIEAJ8EFvExcgQHG6WLx9CyBAEIg8/9//H0Cye31R1OgfQLa2O0/Y0R9APper2Ou6H0BucWzODqQfQFKahhFBjR9AeH5pg4J2H0Dyw+kF018fQGp3P3sySR9AAkQExqAyH0CYtTHJHRwfQEKFH2ipBR9AsO+BhkPvHkA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1051","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1052"}}},"glyph":{"type":"object","name":"Line","id":"p1047","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1048","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1049","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#fc8d62","line_alpha":0.2}}}},{"type":"object","name":"GlyphRenderer","id":"p1060","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1054","attributes":{"selected":{"type":"object","name":"Selection","id":"p1055","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1056"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAAAAB7FK5H4XqEP3sUrkfhepQ/uB6F61G4nj97FK5H4XqkP5qZmZmZmak/uB6F61G4rj/sUbgeheuxP3sUrkfherQ/CtejcD0Ktz+amZmZmZm5Pylcj8L1KLw/uB6F61G4vj+kcD0K16PAP+xRuB6F68E/MzMzMzMzwz97FK5H4XrEP8P1KFyPwsU/CtejcD0Kxz9SuB6F61HIP5qZmZmZmck/4XoUrkfhyj8pXI/C9SjMP3E9CtejcM0/uB6F61G4zj8AAAAAAADQP6RwPQrXo9A/SOF6FK5H0T/sUbgehevRP4/C9Shcj9I/MzMzMzMz0z/Xo3A9CtfTP3sUrkfhetQ/H4XrUbge1T/D9Shcj8LVP2dmZmZmZtY/CtejcD0K1z+uR+F6FK7XP1K4HoXrUdg/9ihcj8L12D+amZmZmZnZPz4K16NwPdo/4XoUrkfh2j+F61G4HoXbPylcj8L1KNw/zczMzMzM3D9xPQrXo3DdPxWuR+F6FN4/uB6F61G43j9cj8L1KFzfPwAAAAAAAOA/UrgehetR4D+kcD0K16PgP/YoXI/C9eA/SOF6FK5H4T+amZmZmZnhP+xRuB6F6+E/PgrXo3A94j+PwvUoXI/iP+F6FK5H4eI/MzMzMzMz4z+F61G4HoXjP9ejcD0K1+M/KVyPwvUo5D97FK5H4XrkP83MzMzMzOQ/H4XrUbge5T9xPQrXo3DlP8P1KFyPwuU/Fa5H4XoU5j9nZmZmZmbmP7gehetRuOY/CtejcD0K5z9cj8L1KFznP65H4XoUruc/AAAAAAAA6D9SuB6F61HoP6RwPQrXo+g/9ihcj8L16D9I4XoUrkfpP5qZmZmZmek/7FG4HoXr6T8+CtejcD3qP5DC9Shcj+o/4XoUrkfh6j8zMzMzMzPrP4XrUbgehes/16NwPQrX6z8pXI/C9SjsP3sUrkfheuw/zczMzMzM7D8fhetRuB7tP3E9CtejcO0/w/UoXI/C7T8VrkfhehTuP2dmZmZmZu4/uB6F61G47j8K16NwPQrvP1yPwvUoXO8/rkfhehSu7z8="},"shape":[100],"dtype":"float64","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"wIh8fCDzJECLv2AySOUkQFKXCGmB1yRAcAq43svJJEDdjEpTJ7wkQOBdJYiTriRAfG8qQBChJEDd26s/nZMkQILhX0w6hiRAQV9VLed4JEC4yeiqo2skQCiUuY5vXiRA8Aago0pRJEBefqO1NEQkQLUM8ZEtNyRArHrSBjUqJEDaoaXjSh0kQNgc1PhuECRACknLF6EDJEBOlvQS4fYjQOwgrr0u6iNAapJD7IndI0AORudz8tAjQPutqypoxCNADPZ85+q3I0C24RqCeqsjQEriEtMWnyNANWO6s7+SI0DcSSn+dIYjQOCmNI02eiNAtZZpPARuI0CCTwjo3WEjQHNa/2zDVSNAm/bmqLRJI0DEo/x5sT0jQHzTHr+5MSNAzr7IV80lI0BCXw4k7BkjQJqJmAQWDiNAFCmh2koCI0DNme+HivYiQCQh1e7U6iJA2oIp8infIkDxsUd1idMiQBScClzzxyJAqg7Kime8IkB6tFfm5bAiQBQr/FNupSJA/C50uQCaIkDY3e38nI4iQMANBgVDgyJA+LjFuPJ3IkBMfZ//q2wiQFgubcFuYSJAFnpt5jpWIkAIn0FXEEsiQFwz6/zuPyJAa/zJwNY0IkAW1pmMxykiQFapcErBHiJAmnG85MMTIkBIUEFGzwgiQBSuF1rj/SFAj2mqCwDzIUCOErVGJeghQPsxQvdS3SFAnp2pCYnSIUB+145qx8chQHt43wYOvSFAv6XRy1yyIUCokOKms6chQN8A1YUSnSFAPeivVnmSIUA5AL0H6IchQIhwh4defSFApX7axNxyIUAIRsCuYmghQK94gDTwXSFAyCefRYVTIUA+lNvRIUkhQNYGL8nFPiFAva/LG3E0IUA4jRu6IyohQEhZv5TdHyFACH6NnJ4VIUCaEJHCZgshQGbSCPg1ASFAiThmLgz3IEAteUxX6ewgQMKej2TN4iBAy6AzSLjYIEAmgmv0qc4gQKZ0mFuixCBA0gFJcKG6IECuODglp7AgQFjgTG2zpiBAaa+YO8acIEDyh1eD35IgQOS37jf/iCBA5D3sTCV/IEA="},"shape":[100],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1061","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1062"}}},"glyph":{"type":"object","name":"Line","id":"p1057","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb"}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1058","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.1}},"muted_glyph":{"type":"object","name":"Line","id":"p1059","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#8da0cb","line_alpha":0.2}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1009","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1022"},{"type":"object","name":"WheelZoomTool","id":"p1023","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1024","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1025","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"SaveTool","id":"p1030"},{"type":"object","name":"ResetTool","id":"p1031"},{"type":"object","name":"HelpTool","id":"p1032"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1017","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1018","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1019"},"axis_label":"\ud835\udee5v [km/s]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1020"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1012","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1013","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1014"},"axis_label":"Eccentricity [-]","major_label_policy":{"type":"object","name":"AllLabels","id":"p1015"}}}],"center":[{"type":"object","name":"Grid","id":"p1016","attributes":{"axis":{"id":"p1012"}}},{"type":"object","name":"Grid","id":"p1021","attributes":{"dimension":1,"axis":{"id":"p1017"}}},{"type":"object","name":"Legend","id":"p1042","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p1043","attributes":{"label":{"type":"value","value":"r_p = 6052 km"},"renderers":[{"id":"p1039"}]}},{"type":"object","name":"LegendItem","id":"p1053","attributes":{"label":{"type":"value","value":"r_p = 8552 km"},"renderers":[{"id":"p1050"}]}},{"type":"object","name":"LegendItem","id":"p1063","attributes":{"label":{"type":"value","value":"r_p = 11052 km"},"renderers":[{"id":"p1060"}]}}]}}]}}]},"version":"3.4.2"}, "hohmann-arrival-r_p_e_plot-7d199423-b8b4-4f01-838e-4118d597a6c5"
 );
 </script><figcaption>
 <p><span class="caption-number">Fig. 85 </span><span class="caption-text">The required <span class="math notranslate nohighlight">\(\Delta v\)</span> to enter a capture orbit of the given periapsis radius. The eccentricity is plotted on the x-axis of the chart. For this range of <span class="math notranslate nohighlight">\(r_p\)</span> values, the <span class="math notranslate nohighlight">\(\Delta v\)</span> increases at fixed <span class="math notranslate nohighlight">\(e\)</span>. For a fixed <span class="math notranslate nohighlight">\(r_p\)</span>, <span class="math notranslate nohighlight">\(\Delta v\)</span> decreases as <span class="math notranslate nohighlight">\(e\)</span> increases.</span><a class="headerlink" href="#fig-hohmann-arrival-r-p-e-plot" title="Link to this image">#</a></p>
@@ -885,7 +871,8 @@ Bokeh.embed.embed_item(
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -951,8 +938,8 @@ By Bryan Weber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
