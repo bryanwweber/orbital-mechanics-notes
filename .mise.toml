@@ -1,13 +1,19 @@
 [tools]
-python = { version = "3.12", virtualenv = ".venv" }
-markdownlint-cli2 = "latest"
-pdm = "latest"
+python = "3.12"
+"npm:markdownlint-cli2" = "latest"
+uv = "latest"
 julia = "latest"
+bun = "latest"
 
-[plugins]
-pdm = "https://github.com/1oglop1/asdf-pdm"
-markdownlint-cli2 = "https://github.com/paulo-ferraz-oliveira/asdf-markdownlint-cli2"
-julia = "https://github.com/rkyleg/asdf-julia.git"
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[alias]
+julia = "asdf:rkyleg/asdf-julia"
+
+[settings]
+npm = { bun = true }
+python = { uv_venv_auto = true }
 
 [tasks]
 lint = { depends = [

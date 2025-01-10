@@ -195,7 +195,7 @@ def kepler(E, M_e, e):
 
 def d_kepler_d_E(E, M_e, e):
     """The derivative of Kepler's equation, to be used in a Newton solver.
-    
+
     Note that the argument M_e is unused, but must be present so the function
     arguments are consistent with the kepler function.
     """
@@ -236,22 +236,12 @@ epoch = time.Time(T_eph)
 Next, we will set Astropy to use the JPL ephemerides.
 
 ```{code-cell} ipython3
-:tags: [remove-output]
+:tags: [remove-output,raises-exception]
 from astropy.coordinates import solar_system_ephemeris
 solar_system_ephemeris.set("jpl")
 ```
 
 Then, we'll compute the ephemerides using poliastro.
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-# Fake the Numba module, not available for 3.10
-import sys
-if sys.version_info.minor == 10:
-    if "numba" in sys.modules:
-        del sys.modules["numba"]
-    sys.modules["numba"] = getattr(__import__("scripts.numba"), "numba")
-```
 
 ```{code-cell} ipython3
 from poliastro.ephem import Ephem

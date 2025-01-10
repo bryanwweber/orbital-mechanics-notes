@@ -1,0 +1,3 @@
+[submodule "vendor/poliastro"]
+	path = vendor/poliastro
+	url = https://github.com/bryanwweber/poliastro
