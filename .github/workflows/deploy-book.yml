@@ -28,10 +28,10 @@ jobs:
       - name: Check the lock file
         run: uv lock --check
       - name: Install dependencies
-        run: uv sync --prod
+        run: uv sync --frozen --no-dev --no-editable
       # Build the book
       - name: Build the book
-        run: uv run jupyter-book build -vv -W .
+        run: uv run --frozen jupyter-book build -vv -W .
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
         if: github.ref == 'refs/heads/main'
