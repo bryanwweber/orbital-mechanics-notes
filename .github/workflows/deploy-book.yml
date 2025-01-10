@@ -13,19 +13,25 @@ env:
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
   deploy-book:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PDM
-        uses: pdm-project/setup-pdm@v4
         with:
-          cache: true
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
           python-version: "3.12"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Check the lock file
+        run: uv lock --check
       - name: Install dependencies
-        run: pdm sync --prod
+        run: uv sync --prod
       # Build the book
       - name: Build the book
-        run: pdm run jupyter-book build -vv -W .
+        run: uv run jupyter-book build -vv -W .
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
         if: github.ref == 'refs/heads/main'
