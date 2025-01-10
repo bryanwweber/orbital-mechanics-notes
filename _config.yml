@@ -13,6 +13,7 @@ exclude_patterns:
   - .venv
   - .pytest_cache
   - INSTALL.md
+  - vendor
 
 latex:
   latex_engine: xelatex
