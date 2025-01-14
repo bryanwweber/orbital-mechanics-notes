@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="450pt" height="250pt" viewBox="0 0 450 250" version="1.1">
-<g id="surface36">
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 225 225 C 250.4375 163.953125 251.652344 95.503906 228.402344 33.589844 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,100%);fill-opacity:1;" d="M 224.664062 34.996094 L 225 25 L 231.832031 32.304688 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 85 175 C 85 180.523438 80.523438 185 75 185 C 69.476562 185 65 180.523438 65 175 C 65 169.476562 69.476562 165 75 165 C 80.523438 165 85 169.476562 85 175 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 248.332031 125 C 248.332031 129.445312 241.667969 129.445312 241.667969 125 C 241.667969 120.554688 248.332031 120.554688 248.332031 125 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 75 175 L 236.136719 127.605469 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 235.058594 123.933594 L 245 125 L 237.214844 131.277344 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 255.277344 121.976562 L 308.089844 106.445312 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 307.007812 102.773438 L 316.953125 103.835938 L 309.167969 110.117188 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 241.976562 114.722656 L 228.367188 68.453125 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 224.695312 69.53125 L 225.761719 59.589844 L 232.039062 67.371094 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 250.570312 115.847656 L 292.910156 46.316406 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.640625 44.328125 L 297.714844 38.425781 L 296.175781 48.308594 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 327.230469 100.8125 L 356.058594 92.335938 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,0%,0%);fill-opacity:1;" d="M 354.976562 88.664062 L 364.921875 89.730469 L 357.136719 96.007812 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 222.738281 49.308594 L 214.261719 20.484375 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,0%,0%);fill-opacity:1;" d="M 210.589844 21.5625 L 211.652344 11.621094 L 217.929688 19.402344 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-dasharray:4,4;stroke-miterlimit:10;" d="M 225.761719 59.589844 L 297.714844 38.425781 "/>
-<path style="fill:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-dasharray:4,4;stroke-miterlimit:10;" d="M 297.714844 38.425781 L 316.953125 103.835938 "/>
-</g>
-<text class="math" x="143.0pt" y="110.0pt">\boldsymbol{r}</text><text class="math" x="227.71379961842138pt" y="13.426241502592546pt">\dot{\boldsymbol{r}}</text><text class="math" x="175.0pt" y="175.0pt">\text{Path of } m_2</text><text class="math" x="55.0pt" y="145.0pt">m_1</text><text class="math" x="185.0pt" y="100.0pt">m_2</text><text class="math" x="221.95241261784528pt" y="88.8375257006337pt">v_r</text><text class="math" x="155.76138700057612pt" y="49.58871580195884pt">v_{\perp}</text><text class="math" x="274.9206876964088pt" y="69.72920950105619pt">\hat{\boldsymbol{u}}_{r}</text><text class="math" x="141.6530708009986pt" y="1.620440723395319pt">\hat{\boldsymbol{u}}_{\perp}</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="450" height="250" viewBox="0 0 450 250">
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 100%)" stroke-opacity="1" stroke-miterlimit="10" d="M 225 225 C 250.4375 163.953125 251.652344 95.503906 228.402344 33.589844 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 100%)" fill-opacity="1" d="M 224.84375 35 L 225 25 L 231.960938 32.179688 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 85 175 C 85 180.523438 80.523438 185 75 185 C 69.476562 185 65 180.523438 65 175 C 65 169.476562 69.476562 165 75 165 C 80.523438 165 85 169.476562 85 175 Z M 85 175 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 248.332031 125 C 248.332031 126.839844 246.839844 128.332031 245 128.332031 C 243.160156 128.332031 241.667969 126.839844 241.667969 125 C 241.667969 123.160156 243.160156 121.667969 245 121.667969 C 246.839844 121.667969 248.332031 123.160156 248.332031 125 Z M 248.332031 125 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 75 175 L 236.136719 127.605469 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 235.058594 123.933594 L 245 125 L 237.214844 131.277344 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 255.277344 121.976562 L 308.089844 106.445312 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 307.007812 102.773438 L 316.953125 103.835938 L 309.167969 110.117188 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 241.976562 114.722656 L 228.367188 68.453125 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 224.695312 69.53125 L 225.761719 59.589844 L 232.039062 67.371094 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 250.570312 115.847656 L 292.910156 46.316406 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 289.640625 44.328125 L 297.714844 38.425781 L 296.175781 48.308594 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 327.230469 100.8125 L 356.058594 92.335938 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 0%, 0%)" fill-opacity="1" d="M 354.976562 88.664062 L 364.921875 89.730469 L 357.136719 96.007812 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(100%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 222.738281 49.308594 L 214.261719 20.484375 "/>
+<path fill-rule="nonzero" fill="rgb(100%, 0%, 0%)" fill-opacity="1" d="M 210.589844 21.5625 L 211.652344 11.621094 L 217.929688 19.402344 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="4 4" stroke-miterlimit="10" d="M 225.761719 59.589844 L 297.714844 38.425781 "/>
+<path fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="4 4" stroke-miterlimit="10" d="M 297.714844 38.425781 L 316.953125 103.835938 "/>
+<text class="math" x="143.0pt" y="110.0pt">\boldsymbol{r}</text><text class="math" x="227.71379961842138pt" y="13.426241502592546pt">\dot{\boldsymbol{r}}_1</text><text class="math" x="175.0pt" y="175.0pt">\text{Path of } m_2</text><text class="math" x="55.0pt" y="145.0pt">m_1</text><text class="math" x="185.0pt" y="100.0pt">m_2</text><text class="math" x="221.95241261784528pt" y="88.8375257006337pt">v_r</text><text class="math" x="155.76138700057612pt" y="49.58871580195884pt">v_{\perp}</text><text class="math" x="274.9206876964088pt" y="69.72920950105619pt">\hat{\boldsymbol{u}}_{r}</text><text class="math" x="141.6530708009986pt" y="1.620440723395319pt">\hat{\boldsymbol{u}}_{\perp}</text></svg>

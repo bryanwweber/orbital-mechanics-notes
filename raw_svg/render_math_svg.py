@@ -151,9 +151,7 @@ def main(svg_file: Path | None = None) -> None:
     if svg_file is None:
         for svg_f in HERE.glob("*.svg"):
             main(svg_f)
-
-    # This is here for typing. Without this, mypy complains that svg_file might be None
-    assert svg_file is not None, "svg_file cannot be None at this point"
+            return
 
     for prefix, uri in NAMESPACES.items():
         ET.register_namespace(prefix, uri)
