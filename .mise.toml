@@ -33,3 +33,10 @@ format = { depends = [
   "ruff_format_format",
   "markdownlint_format",
 ], description = "Run all the formatting tools", env = { MISE_JOBS = "1" } }
+julia_upgrade = { run = "julia --project=. -e 'using Pkg; Pkg.update()'", description = "Upgrade Julia dependencies" }
+julia_install = { run = "julia --project=. -e 'using Pkg; Pkg.instantiate()'", description = "Install Julia dependencies", depends = [
+  "julia_upgrade",
+] }
+julia = { depends = [
+  "julia_install",
+], description = "Upgrade and install Julia dependencies", env = { MISE_JOBS = "1" } }
