@@ -4,6 +4,7 @@ python = "3.12"
 uv = "latest"
 julia = "latest"
 bun = "latest"
+node = "22"
 
 [env]
 _.python.venv = { path = ".venv", create = true }
