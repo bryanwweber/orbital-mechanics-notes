@@ -1204,6 +1204,23 @@ wheels = [
 ]
 
 [[package]]
+name = "jupytext"
+version = "1.16.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markdown-it-py" },
+    { name = "mdit-py-plugins" },
+    { name = "nbformat" },
+    { name = "packaging" },
+    { name = "pyyaml" },
+    { name = "tomli", marker = "python_full_version < '3.11'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/10/e7/58d6fd374e1065d2bccefd07953d2f1f911d8de03fd7dc33dd5a25ac659c/jupytext-1.16.6.tar.gz", hash = "sha256:dbd03f9263c34b737003f388fc069e9030834fb7136879c4c32c32473557baa0", size = 3726029 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f4/02/27191f18564d4f2c0e543643aa94b54567de58f359cd6a3bed33adb723ac/jupytext-1.16.6-py3-none-any.whl", hash = "sha256:900132031f73fee15a1c9ebd862e05eb5f51e1ad6ab3a2c6fdd97ce2f9c913b4", size = 154200 },
+]
+
+[[package]]
 name = "keyring"
 version = "25.6.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1698,6 +1715,7 @@ dev = [
 ]
 lab = [
     { name = "jupyterlab" },
+    { name = "jupytext" },
 ]
 
 [package.metadata]
@@ -1728,7 +1746,10 @@ dev = [
     { name = "requests", specifier = ">=2.32.3" },
     { name = "ruff", specifier = ">=0.5.0" },
 ]
-lab = [{ name = "jupyterlab", specifier = ">=4.1.4" }]
+lab = [
+    { name = "jupyterlab", specifier = ">=4.1.4" },
+    { name = "jupytext", specifier = ">=1.16.6" },
+]
 
 [[package]]
 name = "overrides"

@@ -31,7 +31,10 @@ python-preference = "only-system"
 
 [dependency-groups]
 dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "ruff>=0.5.0", "requests>=2.32.3"]
-lab = ["jupyterlab>=4.1.4"]
+lab = [
+    "jupyterlab>=4.1.4",
+    "jupytext>=1.16.6",
+]
 
 [tool.uv.sources]
 # Unfortunately, poliastro is no longer maintained. I updated some dependencies on my
