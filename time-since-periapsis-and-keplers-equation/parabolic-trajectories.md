@@ -1,5 +1,20 @@
 # Parabolic Trajectories ($e = 1$)
 
+In the {ref}`section for ellipses <sec:alternate-keplers-equation-derivation>`, we found Eq. {eq}`eq:time-since-periapsis`:
+
+:::{math}
+\frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
+:::
+
+The second solution to the right hand side, when $e = 1$ is:
+
+:::{math}
+:label: eq:time-since-periapsis-rhs-e-eq-1
+\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \left(\frac{1}{2}\tan \frac{\nu}{2}+\frac{1}{6}\tan^{3}\frac{\nu}{2}\right)
+:::
+
+In Eq. {eq}`eq:time-since-periapsis-rhs-e-eq-1`, $e = 1$, so it will apply for parabolic trajectories.
+
 Combining Eq. {eq}`eq:time-since-periapsis` and Eq. {eq}`eq:time-since-periapsis-rhs-e-eq-1` results in:
 
 :::{math}

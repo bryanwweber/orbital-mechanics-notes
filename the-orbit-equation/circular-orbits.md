@@ -45,11 +45,11 @@ A comparison of satellite navigation orbits. [cmglee](https://commons.wikimedia.
 
 If a satellite remains at a constant location above the earth's equator, then the orbit is a circular **geostationary equatorial orbit**, or GEO. For GEO, the radial vector from the center of the earth to the satellite must have the same angular velocity as the surface of the earth.
 
-The angular velocity of the earth is calculated by dividing the complete revolution, $2\pi$ radians by the length of the [**sidereal day**](https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day). The familiar, 24-hour, day is called the [**synodic day**](https://en.wikipedia.org/wiki/Synodic_day) or **solar day**. The solar day is the time that it takes for the Sun to apparently make one revolution around the Earth.
+The angular velocity of the earth's surface is calculated by dividing the circular distance for one revolution, $2\pi$ radians, by the time taken for one rotation about the axis through the poles. This length of time is called the the [**sidereal day**](https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day) and is equal to approximately 23.93 hours.
 
-However, for GEO, we are interested in the time it takes for the Earth to complete one rotation around its axis. This is slightly shorter than the synodic day, because the Earth is also moving around the sun as it rotates. If the Earth were fixed in space, the synodic and sidereal days would be equal length.
+The familiar, 24-hour, day is called the [**synodic day**](https://en.wikipedia.org/wiki/Synodic_day) or **solar day**. The solar day is the time that it takes for the Sun to reach its maximum height in the sky on consecutive days. This is slightly longer than the sidereal day, because the Earth is also moving around the sun as it rotates. If the Earth were fixed in space relative to the sun, the synodic and sidereal days would be equal length.
 
-The sidereal day is approximately 23.93 hours, giving an inertial angular velocity of the Earth of:
+Using the duration of the sidereal day, we find an inertial angular velocity of the Earth of:
 
 :::{math}
 :label: eq:earth-angular-velocity
@@ -63,7 +63,7 @@ The radius of GEO is
 r_{\text{GEO}} = \sqrt[3]{\frac{\mu}{\left(\omega_E\right)^2}} = \sqrt[3]{\frac{398,600}{\left(72.9218\times10^{-6}\right)^2}} = \unit{42,164}{km}
 :::
 
-The altitude is then:
+The altitude of GEO is then:
 
 :::{math}
 :label: eq:geo-altitude

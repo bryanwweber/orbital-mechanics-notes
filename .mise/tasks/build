@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# mise description="Build the book"
-# mise env={PYDEVD_DISABLE_FILE_VALIDATION = "1"}
-# mise source=["**/*.md", "**/*.ipynb", "**/*.svg"]
-# mise outputs=["_build/html/**/*.html"]
-jupyter-book build -W .

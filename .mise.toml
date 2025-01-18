@@ -1,9 +1,13 @@
 [tools]
-python = "3.12"
+bun                     = "latest"
+cargo-binstall          = "latest"
+"cargo:taplo-cli"       = "latest"
+julia                   = "latest"
+node                    = "22"
 "npm:markdownlint-cli2" = "latest"
-uv = "latest"
-julia = "latest"
-bun = "latest"
+python                  = "3.12"
+uv                      = "latest"
+watchexec               = "latest"
 
 [env]
 _.python.venv = { path = ".venv", create = true }
@@ -12,23 +16,60 @@ _.python.venv = { path = ".venv", create = true }
 julia = "asdf:rkyleg/asdf-julia"
 
 [settings]
-npm = { bun = true }
+cargo  = { binstall = true }
+npm    = { bun = true }
 python = { uv_venv_auto = true }
 
-[tasks]
-lint = { depends = [
-  "ruff_check_lint",
-  "ruff_format_lint",
-  "markdownlint_lint",
-], description = "Run all the linter tools", env = { MISE_JOBS = "1" } }
-ruff_check_lint = { description = "Run the ruff linter", run = "ruff check ." }
-ruff_format_lint = { run = "ruff format --check .", description = "Run the ruff formatter in check mode" }
-markdownlint_lint = { run = "markdownlint-cli2", description = "Run markdownlint" }
-ruff_check_format = { run = "ruff check --fix .", description = "Run the ruff linter in fix mode" }
-ruff_format_format = { run = "ruff format .", description = "Run the ruff formatter" }
-markdownlint_format = { run = "markdownlint-cli2 --fix", description = "Run markdownlint in fix mode" }
-format = { depends = [
-  "ruff_check_format",
-  "ruff_format_format",
-  "markdownlint_format",
-], description = "Run all the formatting tools", env = { MISE_JOBS = "1" } }
+[tasks.build_book]
+description = "Build the book"
+outputs     = ["_build/html/**/*.html"]
+run         = "uv run jb build -W --nitpick -v ."
+sources     = ["time-since-periapsis-and-keplers-equation/*.md"]
+
+[tasks.format]
+depends     = ["markdownlint_format", "ruff_check_format", "ruff_format_format"]
+description = "Run all the formatting tools"
+env         = { MISE_JOBS = "1" }
+
+[tasks.julia]
+depends     = ["julia_install"]
+description = "Upgrade and install Julia dependencies"
+env         = { MISE_JOBS = "1" }
+
+[tasks.julia_install]
+depends     = ["julia_upgrade"]
+description = "Install Julia dependencies"
+run         = "julia --project=. -e 'using Pkg; Pkg.instantiate()'"
+
+[tasks.julia_upgrade]
+description = "Upgrade Julia dependencies"
+run         = "julia --project=. -e 'using Pkg; Pkg.update()'"
+
+[tasks.lint]
+depends     = ["markdownlint_lint", "ruff_check_lint", "ruff_format_lint"]
+description = "Run all the linter tools"
+env         = { MISE_JOBS = "1" }
+
+[tasks.markdownlint_format]
+description = "Run markdownlint in fix mode"
+run         = "markdownlint-cli2 --fix"
+
+[tasks.markdownlint_lint]
+description = "Run markdownlint"
+run         = "markdownlint-cli2"
+
+[tasks.ruff_check_format]
+description = "Run the ruff linter in fix mode"
+run         = "ruff check --fix ."
+
+[tasks.ruff_check_lint]
+description = "Run the ruff linter"
+run         = "ruff check ."
+
+[tasks.ruff_format_format]
+description = "Run the ruff formatter"
+run         = "ruff format ."
+
+[tasks.ruff_format_lint]
+description = "Run the ruff formatter in check mode"
+run         = "ruff format --check ."
