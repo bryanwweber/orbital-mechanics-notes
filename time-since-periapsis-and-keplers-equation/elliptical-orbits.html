@@ -479,8 +479,14 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-anomaly">Mean Anomaly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swept-area-inside-the-orbit">Swept Area Inside the Orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swept-area-inside-a-circumscribing-circle">Swept Area Inside a Circumscribing Circle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relating-the-two-areas-together">Relating the Two Areas Together</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eccentric-anomaly">Eccentric Anomaly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-derivation">An Alternative Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-anomaly">Mean Anomaly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-equation">Kepler’s Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-procedures">Solution Procedures</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#given-true-anomaly-find-time-since-periapsis">Given True Anomaly, Find Time Since Periapsis</a></li>
@@ -502,76 +508,344 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="circular-and-elliptical-orbits-e-1">
 <h1>Circular and Elliptical Orbits (<span class="math notranslate nohighlight">\(e &lt; 1\)</span>)<a class="headerlink" href="#circular-and-elliptical-orbits-e-1" title="Link to this heading">#</a></h1>
-<p>For circular and elliptical orbits, combining Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis">(189)</a> and Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis-rhs-e-lt-1">(190)</a> results in:</p>
-<div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis-ellipse">
-<span class="eqno">(193)<a class="headerlink" href="#equation-eq-time-since-periapsis-ellipse" title="Link to this equation">#</a></span>\[\frac{\mu}{h^3}t = \frac{1}{\left(1 - e^2\right)^{3/2}}\left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]\]</div>
-<section id="mean-anomaly">
-<h2>Mean Anomaly<a class="headerlink" href="#mean-anomaly" title="Link to this heading">#</a></h2>
-<p>We define the term in the square brackets in Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-ellipse">(193)</a> to be the <strong>mean anomaly</strong>, <span class="math notranslate nohighlight">\(M_e\)</span>, where the subscript <span class="math notranslate nohighlight">\(e\)</span> indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.</p>
-<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-ellipse">
-<span class="eqno">(194)<a class="headerlink" href="#equation-eq-mean-anomaly-ellipse" title="Link to this equation">#</a></span>\[M_e = \left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]\]</div>
-<p>The mean anomaly is a monotonically increasing function of the true anomaly, as shown in <a class="reference internal" href="#fig-mean-vs-true-anomaly-ellipse"><span class="std std-numref">Fig. 49</span></a>. This is good because it means that <span class="math notranslate nohighlight">\(M_e\)</span> can be used in place of <span class="math notranslate nohighlight">\(\nu\)</span> for all four quadrants on the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane. If <span class="math notranslate nohighlight">\(M_e\)</span> had a peak, we would have to be concerned about which quadrant we were in.</p>
-<figure class="align-default" id="fig-mean-vs-true-anomaly-ellipse">
-<img alt="../_images/46982384cc2845e8b996d04ccf038ad816db14e91df0617a6dd6ac70d86a82fe.png" src="../_images/46982384cc2845e8b996d04ccf038ad816db14e91df0617a6dd6ac70d86a82fe.png" />
+<p>As we discussed in the last section, we need to find equations for the mean anomaly and eccentric anomaly. In this section we’ll find three equations that we need:</p>
+<ol class="arabic">
+<li><p>An equation relating the mean anomaly to the time since periapsis:</p>
+<div class="math notranslate nohighlight">
+\[M_e = \frac{2\pi t}{T} = \frac{\mu^2}{h^3} t \left(1 - e^2\right)^{3/2}\]</div>
+</li>
+<li><p>An equation relating the eccentric anomaly to the true anomaly</p>
+<div class="math notranslate nohighlight">
+\[\tan\frac{E}{2} = \sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\]</div>
+</li>
+<li><p>An equation relating the mean anomaly to the eccentric anomaly</p>
+<div class="math notranslate nohighlight">
+\[M_e = E - e \sin{E}\]</div>
+</li>
+</ol>
+<p>With these three equations, we can solve either of the cases of knowing the time since periapsis; or knowing the true anomaly.</p>
+<p>For the circle and ellipse, we will follow two methods to derive the appropriate equations:</p>
+<ol class="arabic simple">
+<li><p>Using a geometric argument to relate swept areas on the orbit and a circumscribing circle</p></li>
+<li><p>Using calculus and trigonometric transformations starting from the orbit equation</p></li>
+</ol>
+<p>These methods result in the same result, but some people may find one easier to follow than the other.</p>
+<section id="swept-area-inside-the-orbit">
+<h2>Swept Area Inside the Orbit<a class="headerlink" href="#swept-area-inside-the-orbit" title="Link to this heading">#</a></h2>
+<p>Since Kepler’s second law says that equal areas are swept in equal times, the swept area is <em>directly proportional</em> to the elapsed time. Let’s define a variable to capture this idea and call it the <strong>Mean Area</strong>, <span class="math notranslate nohighlight">\(A_m\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-0">
+<span class="eqno">(185)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-0" title="Link to this equation">#</a></span>\[A_m = C t\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> is the constant of proportionality. For an elliptical orbit, the swept area is the elapsed fraction of the orbital period (<span class="math notranslate nohighlight">\(t/T\)</span>) multiplied by the total area of the ellipse (<span class="math notranslate nohighlight">\(\pi a b\)</span>):</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>We’ll use the example of an ellipse here, but the procedure shown here is similar for a parabola or hyperbola. They just end up with different values for <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</aside>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-area">
+<span class="eqno">(186)<a class="headerlink" href="#equation-eq-mean-anomaly-area" title="Link to this equation">#</a></span>\[A_m = C t = \pi a b \frac{t}{T}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the semimajor and semiminor axes, and <span class="math notranslate nohighlight">\(T\)</span> is the orbital period.</p>
+<figure class="align-default" id="fig-time-since-periapsis-area-ellipse">
+<a class="reference internal image-reference" href="../_images/time-since-periapsis-area-ellipse.svg"><img alt="../_images/time-since-periapsis-area-ellipse.svg" src="../_images/time-since-periapsis-area-ellipse.svg" style="width: 75%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Mean anomaly as a function of true anomaly for a range of eccentricities. Note that <span class="math notranslate nohighlight">\(e &lt; 1\)</span>.</span><a class="headerlink" href="#fig-mean-vs-true-anomaly-ellipse" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">The swept area <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(B\)</span> inside the elliptical orbit corresponding to time <span class="math notranslate nohighlight">\(t\)</span> with true anomaly <span class="math notranslate nohighlight">\(\nu\)</span></span><a class="headerlink" href="#fig-time-since-periapsis-area-ellipse" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Notice that when <span class="math notranslate nohighlight">\(e = 0\)</span> (a circular orbit), the mean anomaly and true anomaly are equal.</p>
-<p>Plugging Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-ellipse">(194)</a> into Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-ellipse">(193)</a> and solving for <span class="math notranslate nohighlight">\(M_e\)</span>, we find:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-0">
-<span class="eqno">(195)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-0" title="Link to this equation">#</a></span>\[M_e = \frac{\mu^2}{h^3} t \left(1 - e^2\right)^{3/2}\]</div>
-<p>If we know the period of the orbit, we can simplify the equation for the mean anomaly:</p>
-<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-ellipse-period">
-<span class="eqno">(196)<a class="headerlink" href="#equation-eq-mean-anomaly-ellipse-period" title="Link to this equation">#</a></span>\[M_e = \frac{2\pi}{T}t\]</div>
-<p>For a circle, the mean anomaly equals the true anomaly:</p>
-<div class="math notranslate nohighlight" id="equation-eq-true-anomaly-time-circle">
-<span class="eqno">(197)<a class="headerlink" href="#equation-eq-true-anomaly-time-circle" title="Link to this equation">#</a></span>\[\nu_{\text{circle}} = \frac{2\pi}{T} t\]</div>
-<p>Further solution is not needed if the orbit is circular.</p>
+<p>This area is shown in <a class="reference internal" href="#fig-time-since-periapsis-area-ellipse"><span class="std std-numref">Fig. 49</span></a> as <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(B\)</span>.</p>
+<section id="swept-area-inside-a-circumscribing-circle">
+<h3>Swept Area Inside a Circumscribing Circle<a class="headerlink" href="#swept-area-inside-a-circumscribing-circle" title="Link to this heading">#</a></h3>
+<p>The next step is find another equation for <span class="math notranslate nohighlight">\(A_m\)</span> so that we can solve for <span class="math notranslate nohighlight">\(t\)</span> in Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-area">(186)</a>. We already used Kepler’s second law to define Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-area">(186)</a>, so continuing to work with the ellipse will be kind of a pain.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>The circle here is called an <strong>circumscribing circle</strong> because it is tangent to the ellipse at two points, on both ends of the major axis. These positions are also the periapsis and apoapsis.</p>
+</aside>
+<p>Instead, we can work with a circle, where it’s much easier to calculate areas. We are going to transform the ellipse into a circle by stretching it in the vertical direction, ensuring that the circle and ellipse continue to touch at the point <span class="math notranslate nohighlight">\(P\)</span>. While the ellipse is stretching, the swept area is also stretching. This process is animated in <a class="reference internal" href="#fig-ellipse-area-animate"><span class="std std-numref">Fig. 50</span></a>.</p>
+<figure class="align-default" id="fig-ellipse-area-animate">
+<div class="output text_html"><div style="display: flex; flex-direction: column; align-items: center; gap: 10px;" class="animation">
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="500" height="400" viewBox="0 0 500 400" id="ellipse-animate">
+  <g id="bounding-box-and-axes">
+    <path fill="white" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 0 400 L 0 0 L 500 0 L 500 400 Z M 0 400 " />
+    <path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-dasharray="4 4" stroke-miterlimit="10" d="M 500 325 L 0 325 " />
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:title>time-since-periapsis-area-animate.svg</dc:title>
+        <dc:date>2025-01-16T11:18:16.491274</dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Bryan Weber</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path id="filled-area" fill-rule="nonzero" fill="rgb(100%, 89.411765%, 88.235294%)" fill-opacity="0.8" d="M 183.699219 145.925781 L 192.707031 147.644531 L 201.621094 149.542969 L 210.4375 151.613281 L 219.144531 153.855469 L 227.734375 156.265625 L 236.195312 158.84375 L 244.527344 161.585938 L 252.710938 164.488281 L 260.746094 167.550781 L 268.625 170.765625 L 276.335938 174.132812 L 283.871094 177.652344 L 291.226562 181.3125 L 298.394531 185.117188 L 305.363281 189.0625 L 312.132812 193.136719 L 318.691406 197.34375 L 325.035156 201.679688 L 331.152344 206.132812 L 337.046875 210.703125 L 342.707031 215.390625 L 348.125 220.183594 L 353.296875 225.078125 L 358.222656 230.074219 L 362.890625 235.164062 L 367.300781 240.339844 L 371.449219 245.601562 L 375.328125 250.941406 L 378.933594 256.351562 L 382.265625 261.832031 L 385.316406 267.375 L 388.089844 272.972656 L 390.574219 278.625 L 392.773438 284.320312 L 394.6875 290.058594 L 396.304688 295.828125 L 397.632812 301.628906 L 398.667969 307.449219 L 399.40625 313.289062 L 399.851562 319.140625 L 400 325 L 335 325 L 183.699219 145.925781 " />
+  <path id="original-ellipse" fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(55.294118%, 62.745098%, 79.607843%)" stroke-opacity="0.7" stroke-miterlimit="10" d="M -200 325 L -199.851562 319.140625 L -199.40625 313.289062 L -198.667969 307.449219 L -197.632812 301.628906 L -196.304688 295.828125 L -194.6875 290.058594 L -192.773438 284.320312 L -190.574219 278.625 L -188.089844 272.972656 L -185.316406 267.375 L -182.265625 261.832031 L -178.933594 256.351562 L -175.328125 250.941406 L -171.449219 245.601562 L -167.300781 240.339844 L -162.890625 235.164062 L -158.222656 230.074219 L -153.296875 225.078125 L -148.125 220.183594 L -142.707031 215.390625 L -137.046875 210.703125 L -131.152344 206.132812 L -125.035156 201.679688 L -118.691406 197.34375 L -112.132812 193.136719 L -105.363281 189.0625 L -98.394531 185.117188 L -91.226562 181.3125 L -83.871094 177.652344 L -76.335938 174.132812 L -68.625 170.765625 L -60.746094 167.550781 L -52.710938 164.488281 L -44.527344 161.585938 L -36.195312 158.84375 L -27.734375 156.265625 L -19.144531 153.855469 L -10.4375 151.613281 L -1.621094 149.542969 L 7.292969 147.644531 L 16.300781 145.925781 L 25.394531 144.378906 L 34.558594 143.011719 L 43.785156 141.824219 L 53.070312 140.816406 L 62.398438 139.988281 L 71.765625 139.347656 L 81.164062 138.886719 L 90.578125 138.613281 L 100 138.519531 L 109.421875 138.613281 L 118.835938 138.886719 L 128.234375 139.347656 L 137.601562 139.988281 L 146.929688 140.816406 L 156.214844 141.824219 L 165.441406 143.011719 L 174.605469 144.378906 L 183.699219 145.925781 L 192.707031 147.644531 L 201.621094 149.542969 L 210.4375 151.613281 L 219.144531 153.855469 L 227.734375 156.265625 L 236.195312 158.84375 L 244.527344 161.585938 L 252.710938 164.488281 L 260.746094 167.550781 L 268.625 170.765625 L 276.335938 174.132812 L 283.871094 177.652344 L 291.226562 181.3125 L 298.394531 185.117188 L 305.363281 189.0625 L 312.132812 193.136719 L 318.691406 197.34375 L 325.035156 201.679688 L 331.152344 206.132812 L 337.046875 210.703125 L 342.707031 215.390625 L 348.125 220.183594 L 353.296875 225.078125 L 358.222656 230.074219 L 362.890625 235.164062 L 367.300781 240.339844 L 371.449219 245.601562 L 375.328125 250.941406 L 378.933594 256.351562 L 382.265625 261.832031 L 385.316406 267.375 L 388.089844 272.972656 L 390.574219 278.625 L 392.773438 284.320312 L 394.6875 290.058594 L 396.304688 295.828125 L 397.632812 301.628906 L 398.667969 307.449219 L 399.40625 313.289062 L 399.851562 319.140625 L 400 325 L 399.851562 330.859375 L 399.40625 336.710938 L 398.667969 342.550781 L 397.632812 348.371094 L 396.304688 354.171875 L 394.6875 359.941406 L 392.773438 365.679688 L 390.574219 371.375 L 388.089844 377.027344 L 385.316406 382.625 L 382.265625 388.167969 L 378.933594 393.648438 L 375.328125 399.058594 L 371.449219 404.398438 L 367.300781 409.660156 L 362.890625 414.835938 L 358.222656 419.925781 L 353.296875 424.921875 L 348.125 429.816406 L 342.707031 434.609375 L 337.046875 439.296875 L 331.152344 443.867188 L 325.035156 448.320312 L 318.691406 452.65625 L 312.132812 456.863281 L 305.363281 460.9375 L 298.394531 464.882812 L 291.226562 468.6875 L 283.871094 472.347656 L 276.335938 475.867188 L 268.625 479.234375 L 260.746094 482.449219 L 252.710938 485.511719 L 244.527344 488.414062 L 236.195312 491.15625 L 227.734375 493.734375 L 219.144531 496.144531 L 210.4375 498.386719 L 201.621094 500.457031 L 192.707031 502.355469 L 183.699219 504.074219 L 174.605469 505.621094 L 165.441406 506.988281 L 156.214844 508.175781 L 146.929688 509.183594 L 137.601562 510.011719 L 128.234375 510.652344 L 118.835938 511.113281 L 109.421875 511.386719 L 100 511.480469 L 90.578125 511.386719 L 81.164062 511.113281 L 71.765625 510.652344 L 62.398438 510.011719 L 53.070312 509.183594 L 43.785156 508.175781 L 34.558594 506.988281 L 25.394531 505.621094 L 16.300781 504.074219 L 7.292969 502.355469 L -1.621094 500.457031 L -10.4375 498.386719 L -19.144531 496.144531 L -27.734375 493.734375 L -36.195312 491.15625 L -44.527344 488.414062 L -52.710938 485.511719 L -60.746094 482.449219 L -68.625 479.234375 L -76.335938 475.867188 L -83.871094 472.347656 L -91.226562 468.6875 L -98.394531 464.882812 L -105.363281 460.9375 L -112.132812 456.863281 L -118.691406 452.65625 L -125.035156 448.320312 L -131.152344 443.867188 L -137.046875 439.296875 L -142.707031 434.609375 L -148.125 429.816406 L -153.296875 424.921875 L -158.222656 419.925781 L -162.890625 414.835938 L -167.300781 409.660156 L -171.449219 404.398438 L -175.328125 399.058594 L -178.933594 393.648438 L -182.265625 388.167969 L -185.316406 382.625 L -188.089844 377.027344 L -190.574219 371.375 L -192.773438 365.679688 L -194.6875 359.941406 L -196.304688 354.171875 L -197.632812 348.371094 L -198.667969 342.550781 L -199.40625 336.710938 L -199.851562 330.859375 " />
+  <path id="m1-to-B" fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 335 325 L 183.699219 145.925781 " />
+  <path id="axis-to-B" fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 183.699219 325 L 183.699219 145.925781 " />
+  <path id="animated-ellipse" fill="none" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(85.490196%, 64.705882%, 12.54902%)" stroke-opacity="1" stroke-miterlimit="10" d="M -200 325 L -199.851562 319.140625 L -199.40625 313.289062 L -198.667969 307.449219 L -197.632812 301.628906 L -196.304688 295.828125 L -194.6875 290.058594 L -192.773438 284.320312 L -190.574219 278.625 L -188.089844 272.972656 L -185.316406 267.375 L -182.265625 261.832031 L -178.933594 256.351562 L -175.328125 250.941406 L -171.449219 245.601562 L -167.300781 240.339844 L -162.890625 235.164062 L -158.222656 230.074219 L -153.296875 225.078125 L -148.125 220.183594 L -142.707031 215.390625 L -137.046875 210.703125 L -131.152344 206.132812 L -125.035156 201.679688 L -118.691406 197.34375 L -112.132812 193.136719 L -105.363281 189.0625 L -98.394531 185.117188 L -91.226562 181.3125 L -83.871094 177.652344 L -76.335938 174.132812 L -68.625 170.765625 L -60.746094 167.550781 L -52.710938 164.488281 L -44.527344 161.585938 L -36.195312 158.84375 L -27.734375 156.265625 L -19.144531 153.855469 L -10.4375 151.613281 L -1.621094 149.542969 L 7.292969 147.644531 L 16.300781 145.925781 L 25.394531 144.378906 L 34.558594 143.011719 L 43.785156 141.824219 L 53.070312 140.816406 L 62.398438 139.988281 L 71.765625 139.347656 L 81.164062 138.886719 L 90.578125 138.613281 L 100 138.519531 L 109.421875 138.613281 L 118.835938 138.886719 L 128.234375 139.347656 L 137.601562 139.988281 L 146.929688 140.816406 L 156.214844 141.824219 L 165.441406 143.011719 L 174.605469 144.378906 L 183.699219 145.925781 L 192.707031 147.644531 L 201.621094 149.542969 L 210.4375 151.613281 L 219.144531 153.855469 L 227.734375 156.265625 L 236.195312 158.84375 L 244.527344 161.585938 L 252.710938 164.488281 L 260.746094 167.550781 L 268.625 170.765625 L 276.335938 174.132812 L 283.871094 177.652344 L 291.226562 181.3125 L 298.394531 185.117188 L 305.363281 189.0625 L 312.132812 193.136719 L 318.691406 197.34375 L 325.035156 201.679688 L 331.152344 206.132812 L 337.046875 210.703125 L 342.707031 215.390625 L 348.125 220.183594 L 353.296875 225.078125 L 358.222656 230.074219 L 362.890625 235.164062 L 367.300781 240.339844 L 371.449219 245.601562 L 375.328125 250.941406 L 378.933594 256.351562 L 382.265625 261.832031 L 385.316406 267.375 L 388.089844 272.972656 L 390.574219 278.625 L 392.773438 284.320312 L 394.6875 290.058594 L 396.304688 295.828125 L 397.632812 301.628906 L 398.667969 307.449219 L 399.40625 313.289062 L 399.851562 319.140625 L 400 325 L 399.851562 330.859375 L 399.40625 336.710938 L 398.667969 342.550781 L 397.632812 348.371094 L 396.304688 354.171875 L 394.6875 359.941406 L 392.773438 365.679688 L 390.574219 371.375 L 388.089844 377.027344 L 385.316406 382.625 L 382.265625 388.167969 L 378.933594 393.648438 L 375.328125 399.058594 L 371.449219 404.398438 L 367.300781 409.660156 L 362.890625 414.835938 L 358.222656 419.925781 L 353.296875 424.921875 L 348.125 429.816406 L 342.707031 434.609375 L 337.046875 439.296875 L 331.152344 443.867188 L 325.035156 448.320312 L 318.691406 452.65625 L 312.132812 456.863281 L 305.363281 460.9375 L 298.394531 464.882812 L 291.226562 468.6875 L 283.871094 472.347656 L 276.335938 475.867188 L 268.625 479.234375 L 260.746094 482.449219 L 252.710938 485.511719 L 244.527344 488.414062 L 236.195312 491.15625 L 227.734375 493.734375 L 219.144531 496.144531 L 210.4375 498.386719 L 201.621094 500.457031 L 192.707031 502.355469 L 183.699219 504.074219 L 174.605469 505.621094 L 165.441406 506.988281 L 156.214844 508.175781 L 146.929688 509.183594 L 137.601562 510.011719 L 128.234375 510.652344 L 118.835938 511.113281 L 109.421875 511.386719 L 100 511.480469 L 90.578125 511.386719 L 81.164062 511.113281 L 71.765625 510.652344 L 62.398438 510.011719 L 53.070312 509.183594 L 43.785156 508.175781 L 34.558594 506.988281 L 25.394531 505.621094 L 16.300781 504.074219 L 7.292969 502.355469 L -1.621094 500.457031 L -10.4375 498.386719 L -19.144531 496.144531 L -27.734375 493.734375 L -36.195312 491.15625 L -44.527344 488.414062 L -52.710938 485.511719 L -60.746094 482.449219 L -68.625 479.234375 L -76.335938 475.867188 L -83.871094 472.347656 L -91.226562 468.6875 L -98.394531 464.882812 L -105.363281 460.9375 L -112.132812 456.863281 L -118.691406 452.65625 L -125.035156 448.320312 L -131.152344 443.867188 L -137.046875 439.296875 L -142.707031 434.609375 L -148.125 429.816406 L -153.296875 424.921875 L -158.222656 419.925781 L -162.890625 414.835938 L -167.300781 409.660156 L -171.449219 404.398438 L -175.328125 399.058594 L -178.933594 393.648438 L -182.265625 388.167969 L -185.316406 382.625 L -188.089844 377.027344 L -190.574219 371.375 L -192.773438 365.679688 L -194.6875 359.941406 L -196.304688 354.171875 L -197.632812 348.371094 L -198.667969 342.550781 L -199.40625 336.710938 L -199.851562 330.859375 " />
+  <circle id="m1-point" fill="rgb(80%, 80%, 80%)" fill-opacity="1" cx="335" cy="325" r="4" />
+  <path id="B-point" fill-rule="nonzero" fill="rgb(80%, 80%, 80%)" fill-opacity="1" d="M 187.699219 145.925781 C 187.699219 148.132812 185.90625 149.925781 183.699219 149.925781 C 181.488281 149.925781 179.699219 148.132812 179.699219 145.925781 C 179.699219 143.714844 181.488281 141.925781 183.699219 141.925781 C 185.90625 141.925781 187.699219 143.714844 187.699219 145.925781 Z M 187.699219 145.925781 " />
+  <circle id="Q-point" fill="rgb(80%, 80%, 80%)" fill-opacity="1" cx="183.699219" cy="145.925781" r="4" />
+  <path id="O" fill-rule="nonzero" fill="rgb(80%, 80%, 80%)" fill-opacity="1" d="M 104 325 C 104 327.210938 102.210938 329 100 329 C 97.789062 329 96 327.210938 96 325 C 96 322.789062 97.789062 321 100 321 C 102.210938 321 104 322.789062 104 325 Z M 104 325 " />
+  <path id="P" fill-rule="nonzero" fill="rgb(80%, 80%, 80%)" fill-opacity="1" d="M 404 325 C 404 327.210938 402.210938 329 400 329 C 397.789062 329 396 327.210938 396 325 C 396 322.789062 397.789062 321 400 321 C 402.210938 321 404 322.789062 404 325 Z M 404 325 " />
+  <image x="77.0pt" y="250.0pt" height="1.643ex" width="1.726ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: -0.05ex&quot; width=&quot;1.726ex&quot; height=&quot;1.643ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -704 763 726&quot;&gt;&#10;&lt;style&gt;&#10;  * {&#10;    fill: black;&#10;    background-color: transparent;&#10;  }&#10;&lt;/style&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D442&quot; d=&quot;M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  <image x="235.0pt" y="250.0pt" height="1.339ex" width="2.974ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: -0.339ex&quot; width=&quot;2.974ex&quot; height=&quot;1.339ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -442 1314.6 592&quot;&gt;&#10;&lt;style&gt;&#10;  * {&#10;    fill: black;&#10;    background-color: transparent;&#10;  }&#10;&lt;/style&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;msub&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D45A&quot; d=&quot;M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z&quot; /&gt;&lt;/g&gt;&lt;g data-mml-node=&quot;mn&quot; transform=&quot;translate(911,-150) scale(0.707)&quot;&gt;&lt;path data-c=&quot;31&quot; d=&quot;M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  <image x="143.69733181176886pt" y="98.92389381978879pt" height="1.545ex" width="1.717ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: 0&quot; width=&quot;1.717ex&quot; height=&quot;1.545ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -683 759 683&quot;&gt;&#10;&lt;style&gt;&#10;  * {&#10;    fill: black;&#10;    background-color: transparent;&#10;  }&#10;&lt;/style&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D435&quot; d=&quot;M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  <image display="none" id="Q" x="143.69733181176886pt" y="10.08810570308287pt" height="2.032ex" width="1.79ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: -0.439ex&quot; width=&quot;1.79ex&quot; height=&quot;2.032ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -704 791 898&quot;&gt;&#10;&lt;style&gt;&#10;  * {&#10;    fill: black;&#10;    background-color: transparent;&#10;  }&#10;&lt;/style&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D444&quot; d=&quot;M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+  <image x="300.0pt" y="250.0pt" height="1.545ex" width="1.699ex" object-fit="contain" href="data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; style=&quot;vertical-align: 0&quot; width=&quot;1.699ex&quot; height=&quot;1.545ex&quot; role=&quot;img&quot; focusable=&quot;false&quot; viewBox=&quot;0 -683 751 683&quot;&gt;&#10;&lt;style&gt;&#10;  * {&#10;    fill: black;&#10;    background-color: transparent;&#10;  }&#10;&lt;/style&gt;&lt;g stroke=&quot;currentColor&quot; fill=&quot;currentColor&quot; stroke-width=&quot;0&quot; transform=&quot;scale(1,-1)&quot;&gt;&lt;g data-mml-node=&quot;math&quot;&gt;&lt;g data-mml-node=&quot;mi&quot;&gt;&lt;path data-c=&quot;1D443&quot; d=&quot;M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;" />
+</svg><input id="ellipse-slider" type="range" min="0" max="1000" step="1" value="0" style="width: 200px;">
+</div>
+<script>
+// Get the ellipse path element
+const svg = document.querySelector('#ellipse-animate');
+const ellipsePath = svg.querySelector('#animated-ellipse');
+const QPoint = svg.querySelector('#Q-point');
+const Q = svg.querySelector('#Q');
+const axisToB = svg.querySelector('#axis-to-B');
+const m1ToB = svg.querySelector('#m1-to-B');
+const filledArea = svg.querySelector('#filled-area');
+
+// Create slider input
+const slider = document.querySelector('#ellipse-slider');
+
+// Parse the path data into coordinates
+const pathData = ellipsePath.getAttribute('d');
+const coords = pathData.split(' ')
+  .filter(s => !isNaN(parseFloat(s)))
+  .map(parseFloat);
+
+const axisToBData = axisToB.getAttribute('d');
+const axisToBCoords = axisToBData.split(' ')
+  .filter(s => !isNaN(parseFloat(s)))
+  .map(parseFloat);
+
+const m1ToBData = m1ToB.getAttribute('d');
+const m1ToBCoords = m1ToBData.split(' ')
+  .filter(s => !isNaN(parseFloat(s)))
+  .map(parseFloat);
+
+// Store original y-coordinates
+const originalY = coords.filter((_, i) => i % 2 === 1);
+const originalQY = parseFloat(QPoint.getAttribute('cy'));
+const x = coords.filter((_, i) => i % 2 === 0);
+
+// Calculate center and target radius
+const minY = Math.min(...originalY);
+const maxY = Math.max(...originalY);
+const centerY = 13/16 * 400;
+const currentRadius = (maxY - minY) / 2;
+const targetRadius = 300;
+const scaleFactor = targetRadius / currentRadius;
+
+function animate() {
+  if (slider.value >= 990 && Q.getAttribute('display') === 'none') {
+    Q.setAttribute('display', 'inline');
+  } else if (slider.value < 990 && Q.getAttribute('display') === 'inline') {
+    Q.setAttribute('display', 'none');
+  }
+  const t = slider.value / 1000;
+  const newY = originalY.map(y => {
+    const distanceFromCenter = y - centerY;
+    return centerY + (distanceFromCenter * (1 + (scaleFactor - 1) * t));
+  });
+
+
+  const newQY = newY[60] - 2;
+
+  // Build new path data string
+  let newPath = 'M ';
+  for(let i = 0; i < x.length; i++) {
+    newPath += `${x[i]} ${newY[i]} `;
+    if(i < x.length-1) newPath += 'L ';
+  }
+
+  let newLine = `M ${axisToBCoords[0]} ${axisToBCoords[1]} L ${axisToBCoords[2]} ${newQY}`;
+  let newm1ToB = `M ${m1ToBCoords[0]} ${m1ToBCoords[1]} L ${m1ToBCoords[2]} ${newQY}`;
+
+  let newArea = 'M ';
+  for(let i = 60; i < 102; i++) {
+    newArea += `${x[i]} ${newY[i]} `;
+    if(i < 101) newArea += 'L ';
+  }
+  newArea += `L 400 325 L 335 325 L 183.699219 ${newQY}`;
+  // Update the path
+  ellipsePath.setAttribute('d', newPath);
+  QPoint.setAttribute('cy', newQY);
+  axisToB.setAttribute('d', newLine);
+  m1ToB.setAttribute('d', newm1ToB);
+  filledArea.setAttribute('d', newArea);
+}
+
+// Listen for slider changes
+slider.addEventListener('input', animate);
+</script>
+</div><figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Transforming the original elliptical orbit into a circumscribing circle by stretching the ellipse in the vertical direction. Note that the point <span class="math notranslate nohighlight">\(B\)</span> translates vertically to point <span class="math notranslate nohighlight">\(Q\)</span>.</span><a class="headerlink" href="#fig-ellipse-area-animate" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Notice that the original area <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(B\)</span> has been transformed to the area <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>. Our goal now is to find the new area, then scale that area back down to the right size for Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-area">(186)</a>. To find the area <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>, we make two observations:</p>
+<ol class="arabic simple">
+<li><p>The region <span class="math notranslate nohighlight">\(O\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_sector">circular sector</a></p></li>
+<li><p>The region <span class="math notranslate nohighlight">\(O\)</span>-<span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> is a triangle</p></li>
+</ol>
+<p>These regions are shown on <a class="reference internal" href="#fig-circle-eccentric-anomaly-areas"><span class="std std-numref">Fig. 51</span></a>.</p>
+<figure class="align-default" id="fig-circle-eccentric-anomaly-areas">
+<a class="reference internal image-reference" href="../_images/time-since-periapsis-area-circle.svg"><img alt="../_images/time-since-periapsis-area-circle.svg" src="../_images/time-since-periapsis-area-circle.svg" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Areas within the circular sector formed by transforming the original ellipse. Note that the original ellipse has been removed from this figure for clarity and only the circumscribing circle is present.</span><a class="headerlink" href="#fig-circle-eccentric-anomaly-areas" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Using these regions, we can find the area <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(Q\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-circular-chord-area">
+<span class="eqno">(187)<a class="headerlink" href="#equation-eq-circular-chord-area" title="Link to this equation">#</a></span>\[m_1\text{-}P\text{-}Q = O\text{-}P\text{-}Q - O\text{-}m_1\text{-}Q = \frac{a^2 E}{2} - \frac{a^2 e \sin{E}}{2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the semimajor axis of the ellipse and the radius of the circle, <span class="math notranslate nohighlight">\(E\)</span> is the included angle in the circular sector, and <span class="math notranslate nohighlight">\(e\)</span> is the eccentricity of the ellipse.</p>
+</section>
+<section id="relating-the-two-areas-together">
+<h3>Relating the Two Areas Together<a class="headerlink" href="#relating-the-two-areas-together" title="Link to this heading">#</a></h3>
+<p>The final step is to scale the area <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> back down to the right size and then equate it with <span class="math notranslate nohighlight">\(A_m\)</span>. The scaling factor for <span class="math notranslate nohighlight">\(m_1\)</span>-<span class="math notranslate nohighlight">\(P\)</span>-<span class="math notranslate nohighlight">\(Q\)</span> is the ratio of the semi-minor axis, <span class="math notranslate nohighlight">\(b\)</span>, to the semi-major axis, <span class="math notranslate nohighlight">\(a\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A_m = \frac{b}{a} \left(m_1\text{-}P\text{-}Q\right) = \frac{abE}{2} - \frac{abe \sin{E}}{2} = \frac{1}{2} a b \left(E - e \sin{E}\right)\]</div>
+<p>where we have substituted the result of Eq. <a class="reference internal" href="#equation-eq-circular-chord-area">(187)</a> and simplified. Finally, substituting Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-area">(186)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-keplers-equation-area">
+<span class="eqno">(188)<a class="headerlink" href="#equation-eq-keplers-equation-area" title="Link to this equation">#</a></span>\[\pi a b \frac{t}{T} = \frac{1}{2}a b \left(E - e \sin{E}\right) \rightarrow 2\pi\frac{t}{T} = E - e \sin{E}\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-keplers-equation-area">(188)</a>, we can define the left side of the equation as the <strong>mean anomaly</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-definition">
+<span class="eqno">(189)<a class="headerlink" href="#equation-eq-mean-anomaly-definition" title="Link to this equation">#</a></span>\[M_e = 2\pi\frac{t}{T} = \frac{\mu^2}{h^3} t \left(1 - e^2\right)^{3/2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the orbital period, <span class="math notranslate nohighlight">\(\mu\)</span> is the specific gravitational constant, <span class="math notranslate nohighlight">\(h\)</span> is the specific angular momentum, and <span class="math notranslate nohighlight">\(e\)</span> is the eccentricity of the orbit. The last equality comes from the definition of the orbital period, Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-period-useful">(138)</a>.</p>
+<p>Substituting Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-definition">(189)</a> into Eq. <a class="reference internal" href="#equation-eq-keplers-equation-area">(188)</a>, we find <strong>Kepler’s Equation</strong> for an ellipse:</p>
+<div class="math notranslate nohighlight" id="equation-eq-keplers-equation-ellipse">
+<span class="eqno">(190)<a class="headerlink" href="#equation-eq-keplers-equation-ellipse" title="Link to this equation">#</a></span>\[M_e = E - e \sin{E}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This equation is super important in the field of orbital mechanics, which is why it’s named for Kepler. Make sure to remember this equation!</p>
+</div>
+<p>Now we have two of the three equations we need to solve problems relating elapsed time and true anomaly:</p>
+<ol class="arabic simple">
+<li><p>Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-definition">(189)</a> gives us a relationship between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(M_e\)</span></p></li>
+<li><p>Kepler’s equation, Eq. <a class="reference internal" href="#equation-eq-keplers-equation-ellipse">(190)</a> gives us the relationship between <span class="math notranslate nohighlight">\(M_e\)</span> and <span class="math notranslate nohighlight">\(E\)</span></p></li>
+</ol>
+<p>The last step is to relate the eccentric anomaly to the true anomaly.</p>
+</section>
 </section>
 <section id="eccentric-anomaly">
-<h2>Eccentric Anomaly<a class="headerlink" href="#eccentric-anomaly" title="Link to this heading">#</a></h2>
-<p>We can simplify the equation for <span class="math notranslate nohighlight">\(M_e\)</span> even further by using an auxiliary angle, <span class="math notranslate nohighlight">\(E\)</span>, called the eccentric anomaly. <span class="math notranslate nohighlight">\(E\)</span> is defined as the angle from the <span class="math notranslate nohighlight">\(x\)</span> axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly <span class="math notranslate nohighlight">\(\nu\)</span> on the ellipse. This is shown in <a class="reference internal" href="time-since-periapsis.html#fig-true-mean-eccentric-anomalies"><span class="std std-numref">Fig. 48</span></a> and <a class="reference internal" href="#fig-definition-of-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 50</span></a>.</p>
+<span id="sec-ellipse-eccentric-anomaly"></span><h2>Eccentric Anomaly<a class="headerlink" href="#eccentric-anomaly" title="Link to this heading">#</a></h2>
+<p>The eccentric anomaly, <span class="math notranslate nohighlight">\(E\)</span>, is defined as the angle from the <span class="math notranslate nohighlight">\(x\)</span> axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly <span class="math notranslate nohighlight">\(\nu\)</span> on the ellipse. This is shown in <a class="reference internal" href="time-since-periapsis.html#fig-true-mean-eccentric-anomalies"><span class="std std-numref">Fig. 48</span></a> and <a class="reference internal" href="#fig-definition-of-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 52</span></a>.</p>
 <figure class="align-default" id="fig-definition-of-eccentric-anomaly-ellipse">
 <a class="reference internal image-reference" href="../_images/definition-of-eccentric-anomaly-ellipse.svg"><img alt="../_images/definition-of-eccentric-anomaly-ellipse.svg" src="../_images/definition-of-eccentric-anomaly-ellipse.svg" style="width: 75%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 50 </span><span class="caption-text">The eccentric anomaly. The blue ellipse is the trajectory of the spacecraft; the green circle is circumscribed around the ellipse. Point <span class="math notranslate nohighlight">\(O\)</span> is the origin, point <span class="math notranslate nohighlight">\(F\)</span> is the focus of the ellipse, point <span class="math notranslate nohighlight">\(S\)</span> is the spacecraft, point <span class="math notranslate nohighlight">\(P\)</span> is the intersection of the apse line and a perpendicular line through <span class="math notranslate nohighlight">\(S\)</span>, and point <span class="math notranslate nohighlight">\(Q\)</span> is the intersection of the circle and the perpendicular line through <span class="math notranslate nohighlight">\(S\)</span>.</span><a class="headerlink" href="#fig-definition-of-eccentric-anomaly-ellipse" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">The eccentric anomaly. The blue ellipse is the trajectory of the spacecraft; the green circle is circumscribed around the ellipse. Point <span class="math notranslate nohighlight">\(O\)</span> is the origin, point <span class="math notranslate nohighlight">\(F\)</span> is the focus of the ellipse, point <span class="math notranslate nohighlight">\(S\)</span> is the spacecraft, point <span class="math notranslate nohighlight">\(P\)</span> is the intersection of the apse line and a perpendicular line through <span class="math notranslate nohighlight">\(S\)</span>, and point <span class="math notranslate nohighlight">\(Q\)</span> is the intersection of the circle and the perpendicular line through <span class="math notranslate nohighlight">\(S\)</span>.</span><a class="headerlink" href="#fig-definition-of-eccentric-anomaly-ellipse" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>From <a class="reference internal" href="#fig-definition-of-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 50</span></a>, we see that the distance <span class="math notranslate nohighlight">\(OP\)</span> is equal to:</p>
+<p>From <a class="reference internal" href="#fig-definition-of-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 52</span></a>, we see that the distance <span class="math notranslate nohighlight">\(OP\)</span> is equal to:</p>
 <div class="math notranslate nohighlight" id="equation-eq-op-distance-ellipse">
-<span class="eqno">(198)<a class="headerlink" href="#equation-eq-op-distance-ellipse" title="Link to this equation">#</a></span>\[OP = ae + FP = a \cos E\]</div>
+<span class="eqno">(191)<a class="headerlink" href="#equation-eq-op-distance-ellipse" title="Link to this equation">#</a></span>\[OP = ae + FP = a \cos E\]</div>
 <p>where <span class="math notranslate nohighlight">\(a\)</span> is the semimajor axis of the ellipse, <span class="math notranslate nohighlight">\(e\)</span> is the eccentricity, and the distance <span class="math notranslate nohighlight">\(FP\)</span> is related to the true anomaly:</p>
 <div class="math notranslate nohighlight" id="equation-eq-fp-distance-ellipse">
-<span class="eqno">(199)<a class="headerlink" href="#equation-eq-fp-distance-ellipse" title="Link to this equation">#</a></span>\[FP = r \cos\nu\]</div>
-<p>Combining Eq. <a class="reference internal" href="#equation-eq-op-distance-ellipse">(198)</a> and Eq. <a class="reference internal" href="#equation-eq-fp-distance-ellipse">(199)</a>, we find:</p>
+<span class="eqno">(192)<a class="headerlink" href="#equation-eq-fp-distance-ellipse" title="Link to this equation">#</a></span>\[FP = r \cos\nu\]</div>
+<p>Combining Eq. <a class="reference internal" href="#equation-eq-op-distance-ellipse">(191)</a> and Eq. <a class="reference internal" href="#equation-eq-fp-distance-ellipse">(192)</a>, we find:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-1">
-<span class="eqno">(200)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-1" title="Link to this equation">#</a></span>\[a\cos E = ae + r\cos\nu\]</div>
+<span class="eqno">(193)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-1" title="Link to this equation">#</a></span>\[a\cos E = ae + r\cos\nu\]</div>
 <p>Replacing <span class="math notranslate nohighlight">\(r\)</span> with the orbit equation in terms of the semimajor axis and simplifying, we find:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cos-eccentric-anomaly-ellipse">
-<span class="eqno">(201)<a class="headerlink" href="#equation-eq-cos-eccentric-anomaly-ellipse" title="Link to this equation">#</a></span>\[\cos E = \frac{e + \cos\nu}{1 + e\cos\nu}\]</div>
+<span class="eqno">(194)<a class="headerlink" href="#equation-eq-cos-eccentric-anomaly-ellipse" title="Link to this equation">#</a></span>\[\cos E = \frac{e + \cos\nu}{1 + e\cos\nu}\]</div>
 <p>or, solving for <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-2">
-<span class="eqno">(202)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-2" title="Link to this equation">#</a></span>\[\cos\nu = \frac{e - \cos E}{e\cos E - 1}\]</div>
-<p>Unfortunately, these equations result in a quadrant ambiguity. We can resolve this by some further trigonometric transformations:</p>
+<span class="eqno">(195)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-2" title="Link to this equation">#</a></span>\[\cos\nu = \frac{e - \cos E}{e\cos E - 1}\]</div>
+<p>Unfortunately, these equations result in a quadrant ambiguity. We can resolve this by some further trigonometric transformations, which result in the equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-eccentric-anomaly-true-anomaly-ellipse">
-<span class="eqno">(203)<a class="headerlink" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse" title="Link to this equation">#</a></span>\[\tan\frac{E}{2} = \sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\]</div>
-<p>The inverse tangent function is not multivalued for a given value of <span class="math notranslate nohighlight">\(\nu\)</span> or <span class="math notranslate nohighlight">\(E\)</span>, so this resolves the quadrant ambiguity.</p>
+<span class="eqno">(196)<a class="headerlink" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse" title="Link to this equation">#</a></span>\[\tan\frac{E}{2} = \sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\]</div>
+<p>The inverse tangent function is not multi-valued for a given value of <span class="math notranslate nohighlight">\(\nu\)</span> or <span class="math notranslate nohighlight">\(E\)</span>, so this resolves the quadrant ambiguity.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
+<p><strong>Note:</strong> Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a> can be solved in Python with <code class="docutils literal notranslate"><span class="pre">np.arctan()</span></code> and in Matlab with <code class="docutils literal notranslate"><span class="pre">atan()</span></code>. It is not necessary to use <code class="docutils literal notranslate"><span class="pre">np.arctan2()</span></code> or <code class="docutils literal notranslate"><span class="pre">atan2()</span></code>. Make sure all your arguments are in terms of radians!</p>
 </div>
+<p>Now with Eqs. <a class="reference internal" href="#equation-eq-keplers-equation-ellipse">(190)</a>, <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a>, and <a class="reference internal" href="#equation-eq-mean-anomaly-definition">(189)</a> we have the three equations we need to solve time since periapsis problems!</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The next section describes an alternate means of deriving these equations from calculus and trigonometric manipulations. I find these derivations interesting, but you may not! Feel free to skip to the examples in the next pages, starting with <a class="reference internal" href="elliptical-orbit-example.html"><span class="std std-doc">Example: Elliptical Orbit</span></a>.</p>
+</div>
+</section>
+<section id="an-alternative-derivation">
+<span id="sec-alternate-keplers-equation-derivation"></span><h2>An Alternative Derivation<a class="headerlink" href="#an-alternative-derivation" title="Link to this heading">#</a></h2>
+<p>Now we will pursue the second way to derive Kepler’s equation and the related equations for mean and eccentric anomaly. Recall the orbit equation, Eq. <a class="reference internal" href="../the-orbit-equation/the-orbit-equation.html#equation-eq-scalar-orbit-equation">(113)</a>, defined in terms of the true anomaly:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}\]</div>
+<p>We now want to relate the true anomaly, <span class="math notranslate nohighlight">\(\nu\)</span>, to time. The rate of change of the true anomaly, <span class="math notranslate nohighlight">\(\dot{\nu}\)</span> is equal to the angular velocity of the position vector. This is exactly the azimuthal, also called the perpendicular, component of the velocity:</p>
+<div class="math notranslate nohighlight" id="equation-eq-rate-of-change-of-true-anomaly">
+<span class="eqno">(197)<a class="headerlink" href="#equation-eq-rate-of-change-of-true-anomaly" title="Link to this equation">#</a></span>\[v_{\perp} = r \dot{\nu} = r \frac{d\nu}{dt}\]</div>
+<p>The <span class="math notranslate nohighlight">\(v_{\perp}\)</span> term in Eq. <a class="reference internal" href="#equation-eq-rate-of-change-of-true-anomaly">(197)</a> makes the equation more complicated than it needs to be, so we’d like to replace it. A more convenient form of Eq. <a class="reference internal" href="#equation-eq-rate-of-change-of-true-anomaly">(197)</a> is found by using the specific angular momentum to replace <span class="math notranslate nohighlight">\(v_{\perp}\)</span>, since <span class="math notranslate nohighlight">\(h\)</span> is constant:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-3">
+<span class="eqno">(198)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-3" title="Link to this equation">#</a></span>\[h = r v_{\perp} = r^2\dot{\nu} \Rightarrow \frac{d\nu}{dt} = \frac{h}{r^2}\]</div>
+<p>Substituting the orbit equation to eliminate <span class="math notranslate nohighlight">\(r\)</span> and separating variables, we find:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-4">
+<span class="eqno">(199)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-4" title="Link to this equation">#</a></span>\[\frac{\mu^2}{h^3}dt = \frac{d\nu}{\left(1 + e\cos\nu\right)^2}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are constant, the left side can be directly integrated:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-5">
+<span class="eqno">(200)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-5" title="Link to this equation">#</a></span>\[\frac{\mu^2}{h^3}\int_{t_p}^{t} dt = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t_p\)</span> is defined as the <strong>time since periapsis</strong>. Remember that periapsis is when <span class="math notranslate nohighlight">\(\nu = 0\)</span> by convention. Typically we will set <span class="math notranslate nohighlight">\(t_p = 0\)</span>, such that:</p>
+<div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis">
+<span class="eqno">(201)<a class="headerlink" href="#equation-eq-time-since-periapsis" title="Link to this equation">#</a></span>\[\frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}\]</div>
+<p>The integral on the right-hand side of Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis">(201)</a> can be found in standard tables of integrals <span id="id1">[<a class="reference internal" href="../bibliography.html#id12" title="I. S. Gradshteĭn, I. M. Ryzhik, and Alan Jeffrey. Table of Integrals, Series, and Products. Academic Press, Amsterdam ; Boston, seventh edition, 2007. ISBN 978-0-12-373637-6.">GradshteuinRJ07</a>, <a class="reference internal" href="../bibliography.html#id39" title="Daniel Zwillinger. CRC Standard Mathematical Tables and Formulae. Chapman &amp; Hall/CRC, Boca Raton, 2003. ISBN 978-1-4200-3534-6.">Zwi03</a>]</span>. There are three forms of the equation, depending on the value of <span class="math notranslate nohighlight">\(e\)</span>. In this section, we’ll show the equation for <span class="math notranslate nohighlight">\(e &lt; 1\)</span> and the other equations will be shown in the sections for the <a class="reference internal" href="parabolic-trajectories.html"><span class="std std-doc">parabola</span></a> and <a class="reference internal" href="hyperbolic-trajectories.html"><span class="std std-doc">hyperbola</span></a>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>In <span id="id2">[<a class="reference internal" href="../bibliography.html#id12" title="I. S. Gradshteĭn, I. M. Ryzhik, and Alan Jeffrey. Table of Integrals, Series, and Products. Academic Press, Amsterdam ; Boston, seventh edition, 2007. ISBN 978-0-12-373637-6.">GradshteuinRJ07</a>]</span> (available <a class="reference external" href="http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf">here</a>), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for Eqs. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-lt-1">(202)</a> and <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-time-since-periapsis-rhs-e-gt-1">(223)</a>. In <span id="id3">[<a class="reference internal" href="../bibliography.html#id39" title="Daniel Zwillinger. CRC Standard Mathematical Tables and Formulae. Chapman &amp; Hall/CRC, Boca Raton, 2003. ISBN 978-1-4200-3534-6.">Zwi03</a>]</span> (available <a class="reference external" href="https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&amp;amp;gbpv=1&amp;amp;pg=PA434&amp;amp;printsec=frontcover">here</a>), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for Eqs. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-lt-1">(202)</a> and <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-time-since-periapsis-rhs-e-gt-1">(223)</a>. I couldn’t find the form for <a class="reference internal" href="parabolic-trajectories.html#equation-eq-time-since-periapsis-rhs-e-eq-1">(217)</a> in those references. Note that <span class="math notranslate nohighlight">\(a = 1\)</span> and <span class="math notranslate nohighlight">\(b = e\)</span> to relate the reference equations to Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis">(201)</a>.</p>
+</aside>
+<div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis-rhs-e-lt-1">
+<span class="eqno">(202)<a class="headerlink" href="#equation-eq-time-since-periapsis-rhs-e-lt-1" title="Link to this equation">#</a></span>\[\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(1 - e^2\right)^{3/2}}\left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-lt-1">(202)</a>, <span class="math notranslate nohighlight">\(e &lt; 1\)</span>, so it will apply for circular and elliptical orbits.</p>
+<p>When Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis">(201)</a> is combined with Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-lt-1">(202)</a> we have a relationship where time is related to the true anomaly.</p>
+<p>For circular and elliptical orbits, combining Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis">(201)</a> and Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-lt-1">(202)</a> results in:</p>
+<div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis-ellipse">
+<span class="eqno">(203)<a class="headerlink" href="#equation-eq-time-since-periapsis-ellipse" title="Link to this equation">#</a></span>\[\frac{\mu}{h^3}t = \frac{1}{\left(1 - e^2\right)^{3/2}}\left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]\]</div>
+</section>
+<section id="mean-anomaly">
+<h2>Mean Anomaly<a class="headerlink" href="#mean-anomaly" title="Link to this heading">#</a></h2>
+<p>We define the term in the square brackets in Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-ellipse">(203)</a> to be the <strong>mean anomaly</strong>, <span class="math notranslate nohighlight">\(M_e\)</span>, where the subscript <span class="math notranslate nohighlight">\(e\)</span> indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-ellipse-with-nu">
+<span class="eqno">(204)<a class="headerlink" href="#equation-eq-mean-anomaly-ellipse-with-nu" title="Link to this equation">#</a></span>\[M_e = \left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]\]</div>
+<p>The mean anomaly is a monotonically increasing function of the true anomaly, as shown in <a class="reference internal" href="#fig-mean-vs-true-anomaly-ellipse"><span class="std std-numref">Fig. 53</span></a>. This is good because it means that <span class="math notranslate nohighlight">\(M_e\)</span> can be used in place of <span class="math notranslate nohighlight">\(\nu\)</span> for all four quadrants on the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane. If <span class="math notranslate nohighlight">\(M_e\)</span> had a peak, we would have to be concerned about which quadrant we were in.</p>
+<figure class="align-default" id="fig-mean-vs-true-anomaly-ellipse">
+<img alt="../_images/46982384cc2845e8b996d04ccf038ad816db14e91df0617a6dd6ac70d86a82fe.png" src="../_images/46982384cc2845e8b996d04ccf038ad816db14e91df0617a6dd6ac70d86a82fe.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Mean anomaly as a function of true anomaly for a range of eccentricities. Note that <span class="math notranslate nohighlight">\(e &lt; 1\)</span>.</span><a class="headerlink" href="#fig-mean-vs-true-anomaly-ellipse" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Notice that when <span class="math notranslate nohighlight">\(e = 0\)</span> (a circular orbit), the mean anomaly and true anomaly are equal.</p>
+<p>Plugging Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-ellipse-with-nu">(204)</a> into Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-ellipse">(203)</a> and solving for <span class="math notranslate nohighlight">\(M_e\)</span>, we find:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-ellipse">
+<span class="eqno">(205)<a class="headerlink" href="#equation-eq-mean-anomaly-ellipse" title="Link to this equation">#</a></span>\[M_e = \frac{\mu^2}{h^3} t \left(1 - e^2\right)^{3/2}\]</div>
+<p>If we know the period of the orbit, we can simplify the equation for the mean anomaly:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-ellipse-period">
+<span class="eqno">(206)<a class="headerlink" href="#equation-eq-mean-anomaly-ellipse-period" title="Link to this equation">#</a></span>\[M_e = \frac{2\pi}{T}t\]</div>
+<p>For a circle, the mean anomaly equals the true anomaly:</p>
+<div class="math notranslate nohighlight" id="equation-eq-true-anomaly-time-circle">
+<span class="eqno">(207)<a class="headerlink" href="#equation-eq-true-anomaly-time-circle" title="Link to this equation">#</a></span>\[\nu_{\text{circle}} = \frac{2\pi}{T} t\]</div>
+<p>Further solution is not needed if the orbit is circular. Now we have the relationship between mean anomaly and time that we need for solution of these problems. Note that Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-definition">(189)</a> and Eqs. <a class="reference internal" href="#equation-eq-mean-anomaly-ellipse">(205)</a> and <a class="reference internal" href="#equation-eq-mean-anomaly-ellipse-period">(206)</a> are exactly identical.</p>
+<p>The procedure to find the eccentric anomaly is the same as in the <a class="reference internal" href="#sec-ellipse-eccentric-anomaly"><span class="std std-ref">previous section</span></a>, so we can move on to deriving Kepler’s equation.</p>
 </section>
 <section id="kepler-s-equation">
 <h2>Kepler’s Equation<a class="headerlink" href="#kepler-s-equation" title="Link to this heading">#</a></h2>
-<p>Some further trigonometry with Eq. <a class="reference internal" href="#equation-eq-cos-eccentric-anomaly-ellipse">(201)</a> and Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a> yields <strong>Kepler’s Equation</strong>:</p>
-<div class="math notranslate nohighlight" id="equation-eq-keplers-equation-ellipse">
-<span class="eqno">(204)<a class="headerlink" href="#equation-eq-keplers-equation-ellipse" title="Link to this equation">#</a></span>\[M_e = E - e \sin E\]</div>
-<p>This gives the relationship between mean anomaly and eccentric anomaly. The value of <span class="math notranslate nohighlight">\(M_e\)</span> monotonically increases as a function of <span class="math notranslate nohighlight">\(E\)</span>, as shown in <a class="reference internal" href="#fig-mean-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 51</span></a> for several values of <span class="math notranslate nohighlight">\(e\)</span>.</p>
+<p>Some further trigonometry with Eq. <a class="reference internal" href="#equation-eq-cos-eccentric-anomaly-ellipse">(194)</a>, Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a>, and Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-ellipse">(203)</a> yields <strong>Kepler’s Equation</strong>:</p>
+<div class="math notranslate nohighlight">
+\[M_e = E - e \sin E\]</div>
+<p>This gives the relationship between mean anomaly and eccentric anomaly. The value of <span class="math notranslate nohighlight">\(M_e\)</span> monotonically increases as a function of <span class="math notranslate nohighlight">\(E\)</span>, as shown in <a class="reference internal" href="#fig-mean-eccentric-anomaly-ellipse"><span class="std std-numref">Fig. 54</span></a> for several values of <span class="math notranslate nohighlight">\(e\)</span>.</p>
 <figure class="align-default" id="fig-mean-eccentric-anomaly-ellipse">
 <img alt="../_images/c37be030d76777363dfeca08cf0645740f1772338c584d88589397f547548ddb.png" src="../_images/c37be030d76777363dfeca08cf0645740f1772338c584d88589397f547548ddb.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 51 </span><span class="caption-text">The mean anomaly as a function of eccentric anomaly for several values of the eccentricity. Note that <span class="math notranslate nohighlight">\(e &lt; 1\)</span>.</span><a class="headerlink" href="#fig-mean-eccentric-anomaly-ellipse" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">The mean anomaly as a function of eccentric anomaly for several values of the eccentricity. Note that <span class="math notranslate nohighlight">\(e &lt; 1\)</span>.</span><a class="headerlink" href="#fig-mean-eccentric-anomaly-ellipse" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -580,46 +854,46 @@
 <p>Now we have all the pieces we need to apply the solution procedures discussed in <a class="reference internal" href="time-since-periapsis.html#sec-time-since-periapsis-solution-procedures"><span class="std std-ref">the introductory section</span></a>.</p>
 <section id="given-true-anomaly-find-time-since-periapsis">
 <h3>Given True Anomaly, Find Time Since Periapsis<a class="headerlink" href="#given-true-anomaly-find-time-since-periapsis" title="Link to this heading">#</a></h3>
-<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\nu\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-3">
-<span class="eqno">(205)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-3" title="Link to this equation">#</a></span>\[t = \frac{M_e}{2\pi} T\]</div>
+<p>Given a value of the true anomaly <span class="math notranslate nohighlight">\(\nu\)</span>, the eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span> can be calculated from Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a>. Then, Kepler’s Equation can be solved to find <span class="math notranslate nohighlight">\(M_e\)</span>, and the time since periapsis is found by:</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-6">
+<span class="eqno">(208)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-6" title="Link to this equation">#</a></span>\[t = \frac{M_e}{2\pi} T\]</div>
 </section>
 <section id="given-time-since-periapsis-find-true-anomaly">
 <h3>Given Time Since Periapsis, Find True Anomaly<a class="headerlink" href="#given-time-since-periapsis-find-true-anomaly" title="Link to this heading">#</a></h3>
-<p>If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we must first solve Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-ellipse-period">(196)</a> for <span class="math notranslate nohighlight">\(M_e\)</span>. Then we need to solve Kepler’s equation for <span class="math notranslate nohighlight">\(E\)</span>. Unfortunately, this equation is transcendental in <span class="math notranslate nohighlight">\(E\)</span>, so it cannot be solved analytically. There are several methods to solve Kepler’s equation, depending on the level of accuracy required and the access to computational tools.</p>
-<p>Once <span class="math notranslate nohighlight">\(E\)</span> is determined, Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a> can be solved for <span class="math notranslate nohighlight">\(\nu\)</span>.</p>
+<p>If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we must first solve Eq. <a class="reference internal" href="#equation-eq-mean-anomaly-ellipse-period">(206)</a> for <span class="math notranslate nohighlight">\(M_e\)</span>. Then we need to solve Kepler’s equation for <span class="math notranslate nohighlight">\(E\)</span>. Unfortunately, this equation is transcendental in <span class="math notranslate nohighlight">\(E\)</span>, so it cannot be solved analytically. There are several methods to solve Kepler’s equation, depending on the level of accuracy required and the access to computational tools.</p>
+<p>Once <span class="math notranslate nohighlight">\(E\)</span> is determined, Eq. <a class="reference internal" href="#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a> can be solved for <span class="math notranslate nohighlight">\(\nu\)</span>.</p>
 </section>
 <section id="newton-s-method-to-solve-kepler-s-equation">
 <h3>Newton’s Method to Solve Kepler’s Equation<a class="headerlink" href="#newton-s-method-to-solve-kepler-s-equation" title="Link to this heading">#</a></h3>
 <p>For Newton’s method, we seek the roots of a function, <span class="math notranslate nohighlight">\(f(E) = 0\)</span>. In this case, we can rearrange Kepler’s equation as:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-4">
-<span class="eqno">(206)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-4" title="Link to this equation">#</a></span>\[f(E) = E - e\sin E - M_e\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-7">
+<span class="eqno">(209)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-7" title="Link to this equation">#</a></span>\[f(E) = E - e\sin E - M_e\]</div>
 <p>It is also convenient to supply the derivative, when it is available, since this improves the convergence rate of the algorithm. The derivative is:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-5">
-<span class="eqno">(207)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-5" title="Link to this equation">#</a></span>\[\frac{d f(E)}{d E} = f'(E) = 1 - e\cos E\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-8">
+<span class="eqno">(210)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-8" title="Link to this equation">#</a></span>\[\frac{d f(E)}{d E} = f'(E) = 1 - e\cos E\]</div>
 <p>These equations can be provided to standard computational solvers for root finding algorithms.</p>
 </section>
 <section id="infinite-series-solutions-of-kepler-s-equation">
 <h3>Infinite Series Solutions of Kepler’s Equation<a class="headerlink" href="#infinite-series-solutions-of-kepler-s-equation" title="Link to this heading">#</a></h3>
 <p>Although there are no analytical solutions for Kepler’s equation, several people have developed infinite series solutions. The first was developed by Lagrange:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-6">
-<span class="eqno">(208)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-6" title="Link to this equation">#</a></span>\[E = M_e + \sum_{n = 1}^{\infty}a_n e^n\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-9">
+<span class="eqno">(211)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-9" title="Link to this equation">#</a></span>\[E = M_e + \sum_{n = 1}^{\infty}a_n e^n\]</div>
 <p>where the coefficients <span class="math notranslate nohighlight">\(a_n\)</span> are given by:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-7">
-<span class="eqno">(209)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-7" title="Link to this equation">#</a></span>\[a_n = \frac{1}{2^{n - 1}} \sum_{k=0}^{\mathrm{floor}(n/2)}(-1)^k\frac{1}{\left(n - k\right)!k!}\left(n - 2k\right)^{n - 1}\sin\left[\left(n - 2k\right)M_e\right]\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-10">
+<span class="eqno">(212)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-10" title="Link to this equation">#</a></span>\[a_n = \frac{1}{2^{n - 1}} \sum_{k=0}^{\mathrm{floor}(n/2)}(-1)^k\frac{1}{\left(n - k\right)!k!}\left(n - 2k\right)^{n - 1}\sin\left[\left(n - 2k\right)M_e\right]\]</div>
 <p>and where <span class="math notranslate nohighlight">\(\mathrm{floor}(x)\)</span> means to take the next lowest integer relative to <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p><strong>Note:</strong> Sacchetti <span id="id1">[<a class="reference internal" href="../bibliography.html#id31" title="Andrea Sacchetti. Francesco Carlini: kepler's equation and the asymptotic solution to singular differential equations. Historia Mathematica, pages S0315086020300446, July 2020. doi:10.1016/j.hm.2020.06.001.">Sac20</a>]</span> states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series five years before Laplace completed his work. DRAMA!</p>
+<p><strong>Note:</strong> Sacchetti <span id="id4">[<a class="reference internal" href="../bibliography.html#id31" title="Andrea Sacchetti. Francesco Carlini: kepler's equation and the asymptotic solution to singular differential equations. Historia Mathematica, pages S0315086020300446, July 2020. doi:10.1016/j.hm.2020.06.001.">Sac20</a>]</span> states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series five years before Laplace completed his work. DRAMA!</p>
 </aside>
 <p>This infinite series converges for <span class="math notranslate nohighlight">\(e &lt; 0.6627434193\)</span>, a limit that was proven by Laplace, and is therefore typically called the Laplace limit. For larger values of <span class="math notranslate nohighlight">\(e\)</span>, the series diverges.</p>
 <p>Another infinite series was developed by Bessel, which converges for all <span class="math notranslate nohighlight">\(e &lt; 1\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-8">
-<span class="eqno">(210)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-8" title="Link to this equation">#</a></span>\[E = M_e + \sum_{n=1}^{\infty}\frac{2}{n} J_n(ne)\sin n M_e\]</div>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-11">
+<span class="eqno">(213)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-11" title="Link to this equation">#</a></span>\[E = M_e + \sum_{n=1}^{\infty}\frac{2}{n} J_n(ne)\sin n M_e\]</div>
 <p>where <span class="math notranslate nohighlight">\(J_n\)</span> are the <strong>Bessel functions of the first kind</strong>, defined by their own infinite series:</p>
-<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-9">
-<span class="eqno">(211)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-9" title="Link to this equation">#</a></span>\[J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n+ k}\]</div>
-<p>There are other feasible series solutions to Kepler’s equation, some of which are discussed by Colwell <span id="id2">[<a class="reference internal" href="../bibliography.html#id7" title="Peter Colwell. Bessel Functions and Kepler's Equation. The American Mathematical Monthly, 99(1):45, January 1992. doi:10.2307/2324547.">Col92</a>]</span>.</p>
+<div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-12">
+<span class="eqno">(214)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-elliptical-orbits-12" title="Link to this equation">#</a></span>\[J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n+ k}\]</div>
+<p>There are other feasible series solutions to Kepler’s equation, some of which are discussed by Colwell <span id="id5">[<a class="reference internal" href="../bibliography.html#id7" title="Peter Colwell. Bessel Functions and Kepler's Equation. The American Mathematical Monthly, 99(1):45, January 1992. doi:10.2307/2324547.">Col92</a>]</span>.</p>
 </section>
 </section>
 </section>
@@ -689,8 +963,14 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-anomaly">Mean Anomaly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swept-area-inside-the-orbit">Swept Area Inside the Orbit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#swept-area-inside-a-circumscribing-circle">Swept Area Inside a Circumscribing Circle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relating-the-two-areas-together">Relating the Two Areas Together</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eccentric-anomaly">Eccentric Anomaly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-alternative-derivation">An Alternative Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-anomaly">Mean Anomaly</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-equation">Kepler’s Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-procedures">Solution Procedures</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#given-true-anomaly-find-time-since-periapsis">Given True Anomaly, Find Time Since Periapsis</a></li>

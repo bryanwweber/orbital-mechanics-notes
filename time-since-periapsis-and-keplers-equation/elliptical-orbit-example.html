@@ -514,7 +514,7 @@
 <li><p><strong>eccentricity</strong>, <span class="math notranslate nohighlight">\(e\)</span></p></li>
 <li><p><strong>semimajor axis</strong>, <span class="math notranslate nohighlight">\(a\)</span></p></li>
 </ol>
-<p>Let’s find <span class="math notranslate nohighlight">\(e\)</span> first, since it is the only orbital element that appears in Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a> to find <span class="math notranslate nohighlight">\(E\)</span>. We can find <span class="math notranslate nohighlight">\(e\)</span> directly using Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-eccentricity-periapsis-apoapsis">(140)</a>, repeated here for reference:</p>
+<p>Let’s find <span class="math notranslate nohighlight">\(e\)</span> first, since it is the only orbital element that appears in Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a> to find <span class="math notranslate nohighlight">\(E\)</span>. We can find <span class="math notranslate nohighlight">\(e\)</span> directly using Eq. <a class="reference internal" href="../the-orbit-equation/elliptical-orbits.html#equation-eq-ellipse-eccentricity-periapsis-apoapsis">(140)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[e = \frac{r_a - r_p}{r_a + r_p}\]</div>
 <div class="cell docutils container">
@@ -532,7 +532,7 @@
 </div>
 </div>
 </div>
-<p>The eccentricity of this orbit is <span class="math notranslate nohighlight">\(e =\)</span> <span class="pasted-text">0.3725</span>. Then, the eccentric anomaly found from Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a> is:</p>
+<p>The eccentricity of this orbit is <span class="math notranslate nohighlight">\(e =\)</span> <span class="pasted-text">0.3725</span>. Then, the eccentric anomaly found from Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a> is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E_1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">nu_1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
@@ -541,7 +541,7 @@
 </div>
 </div>
 <p>The eccentric anomaly is <span class="math notranslate nohighlight">\(E_1 =\)</span> <span class="pasted-text">1.73</span> radians. The subscript 1 indicates this is the first part of this example.</p>
-<p>Now, to find the time to fly to the true anomaly of 120°, we need to find <span class="math notranslate nohighlight">\(M_e\)</span>. This is done with Kepler’s equation, Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-keplers-equation-ellipse">(204)</a>.</p>
+<p>Now, to find the time to fly to the true anomaly of 120°, we need to find <span class="math notranslate nohighlight">\(M_e\)</span>. This is done with Kepler’s equation, Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-keplers-equation-ellipse">(190)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_e1</span> <span class="o">=</span> <span class="n">E_1</span> <span class="o">-</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">E_1</span><span class="p">)</span>
@@ -622,7 +622,7 @@
 </div>
 </div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">newton()</span></code> function, we passed the function to solve, <code class="docutils literal notranslate"><span class="pre">kepler</span></code>, the derivative of that function, an initial guess, and the additional arguments. We chose <span class="math notranslate nohighlight">\(\pi\)</span> radians as the initial guess because it’s in the middle of the expected range. The eccentric anomaly is <span class="math notranslate nohighlight">\(E_2 =\)</span> <span class="pasted-text">3.48</span> radians.</p>
-<p>Now, we can calculate the value for <span class="math notranslate nohighlight">\(\nu\)</span>. To avoid the quadrant ambiguity, we will use Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(203)</a>.</p>
+<p>Now, we can calculate the value for <span class="math notranslate nohighlight">\(\nu\)</span>. To avoid the quadrant ambiguity, we will use Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-eccentric-anomaly-true-anomaly-ellipse">(196)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt_e_ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span>
@@ -659,11 +659,11 @@
 </pre></div>
 </div>
 <p>We are using <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> again to solve Kepler’s equation. I’m not sure how sensitive <code class="docutils literal notranslate"><span class="pre">fzero()</span></code> will be to the initial guess.</p>
-<p><a class="reference internal" href="#fig-ellipse-time-since-perigee-figure"><span class="std std-numref">Fig. 52</span></a> shows a plot of this orbit.</p>
+<p><a class="reference internal" href="#fig-ellipse-time-since-perigee-figure"><span class="std std-numref">Fig. 55</span></a> shows a plot of this orbit.</p>
 <figure class="align-default" id="fig-ellipse-time-since-perigee-figure">
 <img alt="../_images/81b5a477f4159aa42209fd6322030db3daee66b6ead73e501f2747e435d0233a.png" src="../_images/81b5a477f4159aa42209fd6322030db3daee66b6ead73e501f2747e435d0233a.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 52 </span><span class="caption-text">The orbit in this example showing the two time points, at 120° true anomaly and 3 hours after perigee.</span><a class="headerlink" href="#fig-ellipse-time-since-perigee-figure" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">The orbit in this example showing the two time points, at 120° true anomaly and 3 hours after perigee.</span><a class="headerlink" href="#fig-ellipse-time-since-perigee-figure" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

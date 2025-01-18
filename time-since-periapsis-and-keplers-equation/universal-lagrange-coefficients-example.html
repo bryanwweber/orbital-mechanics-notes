@@ -495,19 +495,19 @@
 <h1>Example: Universal Lagrange Coefficients<a class="headerlink" href="#example-universal-lagrange-coefficients" title="Link to this heading">#</a></h1>
 <p>An Earth satellite moves in an inertial frame with the origin at the earth’s center. Relative to that frame, the initial position and velocity of the satellite are measured as:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-0">
-<span class="eqno">(270)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-0" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}\vector{r}_0 &amp;= 7000.0\uvec{\imath} - 12124\uvec{\jmath}\\\vector{v}_0 &amp;= 2.6679\uvec{\imath} + 4.6210\uvec{\jmath}\end{aligned}\end{split}\]</div>
+<span class="eqno">(275)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-0" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}\vector{r}_0 &amp;= 7000.0\uvec{\imath} - 12124\uvec{\jmath}\\\vector{v}_0 &amp;= 2.6679\uvec{\imath} + 4.6210\uvec{\jmath}\end{aligned}\end{split}\]</div>
 <p>Compute <span class="math notranslate nohighlight">\(\vector{r}\)</span> and <span class="math notranslate nohighlight">\(\vector{v}\)</span> 60 minutes later.</p>
 <section id="solution">
 <h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
-<p>In this problem, our objective is to calculate <span class="math notranslate nohighlight">\(\chi\)</span> so that we can calculate the universal Lagrange coefficients and determine the vectors at the later time. We will find <span class="math notranslate nohighlight">\(\chi\)</span> by solving the universal Kepler’s equation, Eq. <a class="reference internal" href="universal-variables.html#equation-eq-universal-keplers-equation">(247)</a>, repeated here for reference:</p>
+<p>In this problem, our objective is to calculate <span class="math notranslate nohighlight">\(\chi\)</span> so that we can calculate the universal Lagrange coefficients and determine the vectors at the later time. We will find <span class="math notranslate nohighlight">\(\chi\)</span> by solving the universal Kepler’s equation, Eq. <a class="reference internal" href="universal-variables.html#equation-eq-universal-keplers-equation">(252)</a>, repeated here for reference:</p>
 <div class="math notranslate nohighlight">
 \[f(\chi) = 0 = \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3 S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)\]</div>
 <p>First, we need to find the magnitude of the initial position, and the magnitude of the initial radial velocity. The former is found from:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-1">
-<span class="eqno">(271)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-1" title="Link to this equation">#</a></span>\[r = \sqrt{\vector{r}\cdot\vector{r}}\]</div>
+<span class="eqno">(276)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-1" title="Link to this equation">#</a></span>\[r = \sqrt{\vector{r}\cdot\vector{r}}\]</div>
 <p>and the latter by projecting the velocity vector onto a unit vector pointing in the direction of <span class="math notranslate nohighlight">\(\vector{r}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-2">
-<span class="eqno">(272)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-2" title="Link to this equation">#</a></span>\[v_{r,0} = \vector{v}\cdot\uvec{u}_r = \vector{v}\cdot\frac{\vector{r}}{r}\]</div>
+<span class="eqno">(277)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-2" title="Link to this equation">#</a></span>\[v_{r,0} = \vector{v}\cdot\uvec{u}_r = \vector{v}\cdot\frac{\vector{r}}{r}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -532,10 +532,10 @@
 </div>
 <p>Then, we need to find <span class="math notranslate nohighlight">\(\alpha\)</span>, which we can find from the energy equation:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-3">
-<span class="eqno">(273)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-3" title="Link to this equation">#</a></span>\[\alpha = \frac{1}{a} = \frac{2}{r_0} - \frac{v_0^2}{\mu}\]</div>
+<span class="eqno">(278)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-3" title="Link to this equation">#</a></span>\[\alpha = \frac{1}{a} = \frac{2}{r_0} - \frac{v_0^2}{\mu}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-4">
-<span class="eqno">(274)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-4" title="Link to this equation">#</a></span>\[v_0^2 = \vector{v}_0 \cdot\vector{v}_0\]</div>
+<span class="eqno">(279)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-4" title="Link to this equation">#</a></span>\[v_0^2 = \vector{v}_0 \cdot\vector{v}_0\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">r_0</span> <span class="o">-</span> <span class="n">vec_v_0</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec_v_0</span><span class="p">)</span> <span class="o">/</span> <span class="n">mu</span>
@@ -657,19 +657,19 @@
 </div>
 <p>We can also compute the distance to perigee. First, we calculate the orbital angular momentum via:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-5">
-<span class="eqno">(275)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-5" title="Link to this equation">#</a></span>\[h = \left.v_{\perp}\right)_0 r_0\]</div>
+<span class="eqno">(280)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-5" title="Link to this equation">#</a></span>\[h = \left.v_{\perp}\right)_0 r_0\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-6">
-<span class="eqno">(276)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-6" title="Link to this equation">#</a></span>\[\left.v_{\perp}\right)_0 = \sqrt{v_0^2 - v_{r,0}^2}\]</div>
+<span class="eqno">(281)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-6" title="Link to this equation">#</a></span>\[\left.v_{\perp}\right)_0 = \sqrt{v_0^2 - v_{r,0}^2}\]</div>
 <p>Then, since this is an elliptical orbit and we know the semimajor axis, we can find the eccentricity via:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-7">
-<span class="eqno">(277)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-7" title="Link to this equation">#</a></span>\[a = \frac{h^2}{\mu} \frac{1}{1 - e^2}\]</div>
+<span class="eqno">(282)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-7" title="Link to this equation">#</a></span>\[a = \frac{h^2}{\mu} \frac{1}{1 - e^2}\]</div>
 <p>Finally, the distance to perigee is found from:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-8">
-<span class="eqno">(278)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-8" title="Link to this equation">#</a></span>\[r_p = a\left(1 - e\right)\]</div>
+<span class="eqno">(283)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-8" title="Link to this equation">#</a></span>\[r_p = a\left(1 - e\right)\]</div>
 <p>Alternatively, we can find the eccentricity from the energy equation:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-9">
-<span class="eqno">(279)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-9" title="Link to this equation">#</a></span>\[\varepsilon = \frac{1}{2}\frac{\mu^2}{h^2}\left(1 - e^2\right)\]</div>
+<span class="eqno">(284)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-universal-lagrange-coefficients-example-9" title="Link to this equation">#</a></span>\[\varepsilon = \frac{1}{2}\frac{\mu^2}{h^2}\left(1 - e^2\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\varepsilon\)</span> can be determined from the initial velocity and position vectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

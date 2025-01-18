@@ -505,7 +505,7 @@
 <li><p>Find the hyperbolic mean anomaly, <span class="math notranslate nohighlight">\(M_h\)</span>, from the eccentric anomaly</p></li>
 <li><p>Find the time since perigee, <span class="math notranslate nohighlight">\(t\)</span>, from the mean anomaly</p></li>
 </ol>
-<p>Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-eccentric-anomaly-true-anomaly-hyperbola">(228)</a> gives the eccentric anomaly in terms of the true anomaly. The only unknown parameter is the eccentricity of the hyperbola, which we need to find from the given orbital elements. Since we have <span class="math notranslate nohighlight">\(v_p\)</span> and <span class="math notranslate nohighlight">\(r_p\)</span> in the problem statement, we can calculate the angular momentum followed by the eccentricity.</p>
+<p>Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-eccentric-anomaly-true-anomaly-hyperbola">(233)</a> gives the eccentric anomaly in terms of the true anomaly. The only unknown parameter is the eccentricity of the hyperbola, which we need to find from the given orbital elements. Since we have <span class="math notranslate nohighlight">\(v_p\)</span> and <span class="math notranslate nohighlight">\(r_p\)</span> in the problem statement, we can calculate the angular momentum followed by the eccentricity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -538,7 +538,7 @@
 </div>
 </div>
 </div>
-<p>Then, the mean anomaly is found from Kepler’s equation, Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-hyperbolic-keplers-equation">(229)</a>:</p>
+<p>Then, the mean anomaly is found from Kepler’s equation, Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-hyperbolic-keplers-equation">(234)</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M_h1</span> <span class="o">=</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">F_1</span><span class="p">)</span> <span class="o">-</span> <span class="n">F_1</span>
@@ -546,7 +546,7 @@
 </div>
 </div>
 </div>
-<p>Finally, calculating the time from the mean anomaly is done from the definition of the mean anomaly, Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-hyperbolic-mean-anomaly">(220)</a>:</p>
+<p>Finally, calculating the time from the mean anomaly is done from the definition of the mean anomaly, Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-hyperbolic-mean-anomaly">(225)</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_1</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="n">mu</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">M_h1</span>
@@ -597,7 +597,7 @@
 </div>
 </div>
 </div>
-<p>With this value for <span class="math notranslate nohighlight">\(F\)</span>, we can calculate the value for <span class="math notranslate nohighlight">\(\nu\)</span>. To avoid quadrant ambiguity problems, we will use Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-eccentric-anomaly-true-anomaly-hyperbola">(228)</a>.</p>
+<p>With this value for <span class="math notranslate nohighlight">\(F\)</span>, we can calculate the value for <span class="math notranslate nohighlight">\(\nu\)</span>. To avoid quadrant ambiguity problems, we will use Eq. <a class="reference internal" href="hyperbolic-trajectories.html#equation-eq-eccentric-anomaly-true-anomaly-hyperbola">(233)</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>

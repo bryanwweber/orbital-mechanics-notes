@@ -13,6 +13,21 @@ kernelspec:
 
 # Hyperbolic Trajectories ($e > 1$)
 
+In the {ref}`section for ellipses <sec:alternate-keplers-equation-derivation>`, we found Eq. {eq}`eq:time-since-periapsis`:
+
+:::{math}
+\frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
+:::
+
+The third solution to the right hand side, when $e > 1$ is:
+
+:::{math}
+:label: eq:time-since-periapsis-rhs-e-gt-1
+\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(e^2 - 1\right)^{3/2}}\left[\frac{e\sqrt{e^2 - 1}\sin \nu}{1 + e\cos \nu} - \ln\left(\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right)\right]
+:::
+
+In Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1`, $e > 1$, so it will apply for hyperbolic trajectories.
+
 For the hyperbola, combining Eq. {eq}`eq:time-since-periapsis` and Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1` results in:
 
 :::{math}
@@ -53,7 +68,8 @@ ax.xaxis.grid(which="both")
 ax.yaxis.grid(which="major")
 for e in e_vals:
     nu_inf = np.arccos(-1 / e)
-    nu = np.linspace(0.1, nu_inf - 1.0E-3)
+    nu = np.linspace(0.1, np.pi / 2)
+    nu = np.hstack((nu, np.linspace(np.pi / 2, nu_inf - 1.0E-3, 150)))
     M_h = e * np.sqrt(e**2 - 1) * np.sin(nu) / (1 + e * np.cos(nu))
     sqrt_e_p_1 = np.sqrt(e + 1)
     sqrt_e_m_1_t = np.sqrt(e - 1) * np.tan(nu / 2)
@@ -135,7 +151,7 @@ glue("hyperbolic-eccentric-anomaly-figure", fig)
 :::{glue:figure} hyperbolic-eccentric-anomaly-figure
 :name: fig:hyperbolic-eccentric-anomaly-figure
 
-A hyperbolic trajectory with definitions for distances used in the derivation of Kepler's law for hyperbolic.
+A hyperbolic trajectory with definitions for distances used in the derivation of Kepler's law for hyperbolic trajectories.
 :::
 
 The ratio $y/b$ is the definition of the hyperbolic sine of the angle $F$:
@@ -272,4 +288,4 @@ The hyperbolic mean anomaly as a function of the eccentric anomaly
  \log_{10}(40.69) = 1.6
  :::
 
-From {numref}`fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly`, we estimate that $F =$ 4, and we can use this as the initial guess for a Newton solver.
+From {numref}`fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly`, we estimate that $F =$ 4, and we can use this as the initial guess for a Newton solver. Remember that for your guess it is not important to be very precise, since the solver just needs a hint about where to start finding the root.

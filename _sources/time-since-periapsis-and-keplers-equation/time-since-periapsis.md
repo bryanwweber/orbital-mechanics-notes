@@ -15,83 +15,21 @@ kernelspec:
 
 In the last chapter, we derived equations for the position of an object in a two-body system as a function of the true anomaly. However, humans don't really think in terms of true anomaly, we think in terms of time. The only place time appeared in the last chapter was in the calculation of the orbital period.
 
-As we'll find in this chapter, the equations to relate the orbital position to time are **transcendental** for all but the circular orbit. This means we will need to use Newton's method to solve them. Initially, we will derive separate equations each for the elliptical, parabolic, and hyperbolic orbits. Next, we will combine these using a universal variable formulation.
+As we'll find in this chapter, the equations to relate the orbital position to time are [**transcendental**](https://en.wikipedia.org/wiki/Transcendental_equation) for all but the circular orbit. This means we will need to use an approximation such as Newton's method to solve them. Initially, we will derive separate equations each for the elliptical, parabolic, and hyperbolic orbits. Then, we will combine these using a universal variable formulation.
 
 ## Time Since Periapsis
 
-Recall the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, defined in terms of the true anomaly:
+The goal of this chapter is to relate the time since periapsis, $t$, to an object's position in the orbit defined by the true anomaly, $\nu$. We know that the direct relationship between $t$ and $\nu$ is complex because the object speeds up near periapsis and slows down near apoapsis. This phenomenon is one of the insights from Kepler's second law, which states that equal areas are swept out in equal times.
 
-:::{math}
-r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}
-:::
+Instead of trying to find this direct relationship between $t$ and $\nu$, we're going to take a different route that has three main steps:
 
-We now want to relate the true anomaly, $\nu$, to time. The rate of change of the true anomaly, $\dot{\nu}$ is equal to the angular velocity of the position vector. This is exactly the azimuthal, also called the perpendicular, component of the velocity:
+1. Calculate an auxiliary angle from the true anomaly
+2. Calculate another auxiliary angle from the orbital parameters such as the period, eccentricity, angular momentum, and time since periapsis
+3. Relate these angle to each other so we can solve in either direction
 
-:::{math}
-:label: eq:rate-of-change-of-true-anomaly
-v_{\perp} = r \dot{\nu} = r \frac{d\nu}{dt}
-:::
+### Mean and Eccentric Anomalies
 
-The $v_{\perp}$ term in Eq. {eq}`eq:rate-of-change-of-true-anomaly` makes the equation more complicated than it needs to be, so we'd like to replace it. A more convenient form of Eq. {eq}`eq:rate-of-change-of-true-anomaly` is found by using the specific angular momentum to replace $v_{\perp}$, since $h$ is constant:
-
-:::{math}
-:label:
-h = r v_{\perp} = r^2\dot{\nu} \Rightarrow \frac{d\nu}{dt} = \frac{h}{r^2}
-:::
-
-Substituting the orbit equation to eliminate $r$ and separating variables, we find:
-
-:::{math}
-:label:
-\frac{\mu^2}{h^3}dt = \frac{d\nu}{\left(1 + e\cos\nu\right)^2}
-:::
-
-Since $\mu$ and $h$ are constant, the left side can be directly integrated:
-
-:::{math}
-:label:
-\frac{\mu^2}{h^3}\int_{t_p}^{t} dt = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
-:::
-
-where $t_p$ is defined as the **time since periapsis**. Remember that periapsis is when $\nu = 0$ by convention. Typically we will set $t_p = 0$, such that:
-
-:::{math}
-:label: eq:time-since-periapsis
-\frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
-:::
-
-The integral on the right-hand side of Eq. {eq}`eq:time-since-periapsis` can be found in standard tables of integrals {cite}`Gradshtein2007,Zwillinger2003`. There are three forms of the equation, depending on the value of $e$.
-
-:::{margin}
-In {cite}`Gradshtein2007` (available [here](http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf)), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for Eqs. {eq}`eq:time-since-periapsis-rhs-e-lt-1` and {eq}`eq:time-since-periapsis-rhs-e-gt-1`. In {cite}`Zwillinger2003` (available [here](https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&gbpv=1&pg=PA434&printsec=frontcover)), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for Eqs. {eq}`eq:time-since-periapsis-rhs-e-lt-1` and {eq}`eq:time-since-periapsis-rhs-e-gt-1`. I couldn't find the form for {eq}`eq:time-since-periapsis-rhs-e-eq-1` in those references. Note that $a = 1$ and $b = e$ to relate the reference equations to Eq. {eq}`eq:time-since-periapsis`.
-:::
-
-:::{math}
-:label: eq:time-since-periapsis-rhs-e-lt-1
-\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(1 - e^2\right)^{3/2}}\left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]
-:::
-
-In Eq. {eq}`eq:time-since-periapsis-rhs-e-lt-1`, $e < 1$, so it will apply for circular and elliptical orbits.
-
-:::{math}
-:label: eq:time-since-periapsis-rhs-e-eq-1
-\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \left(\frac{1}{2}\tan \frac{\nu}{2}+\frac{1}{6}\tan^{3}\frac{\nu}{2}\right)
-:::
-
-In Eq. {eq}`eq:time-since-periapsis-rhs-e-eq-1`, $e = 1$, so it will apply for parabolic trajectories.
-
-:::{math}
-:label: eq:time-since-periapsis-rhs-e-gt-1
-\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(e^2 - 1\right)^{3/2}}\left[\frac{e\sqrt{e^2 - 1}\sin \nu}{1 + e\cos \nu} - \ln\left(\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right)\right]
-:::
-
-In Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1`, $e > 1$, so it will apply for hyperbolic trajectories.
-
-When Eq. {eq}`eq:time-since-periapsis` is combined with one of Eq. {eq}`eq:time-since-periapsis-rhs-e-lt-1`, Eq. {eq}`eq:time-since-periapsis-rhs-e-eq-1`, or Eq. {eq}`eq:time-since-periapsis-rhs-e-eq-1`, we have a relationship where time is related to the true anomaly.
-
-## Mean and Eccentric Anomalies
-
-As we can see, Eqs. {eq}`eq:time-since-periapsis-rhs-e-lt-1`, {eq}`eq:time-since-periapsis-rhs-e-eq-1`, and {eq}`eq:time-since-periapsis-rhs-e-gt-1` are rather complicated functions of the true anomaly. To simplify handling them, we are going to define two other anomalies:
+Without providing any particular motivation yet for why these are useful, let's define the two auxiliary angles for any orbit. They will be called the:
 
 1. **Mean anomaly**
 2. **Eccentric anomaly**
@@ -114,32 +52,20 @@ The three anomalies: true, mean, and eccentric, are shown in {numref}`fig:true-m
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-from scipy.optimize import newton
-plt.ioff()
-fig, ax = plt.subplots(figsize=(9, 9))
-ax.set_xlim((-1.1, 1.1))
-ax.set_ylim((-1.1, 1.1))
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
-ax.xaxis.set_tick_params(bottom=False, top=False, which="both", labelbottom=False)
-ax.yaxis.set_tick_params(left=False, right=False, which="both", labelleft=False)
+import json
+from pathlib import Path
 
-# Move remaining spines to the center
-ax.spines["bottom"].set_position("zero")  # spine for xaxis
-ax.spines["left"].set_position("zero")  # spine for yaxis
-a = 1
+import numpy as np
+from IPython.display import HTML
+from scipy.optimize import newton
+
+a = 175
 e = 0.7
 p = a * (1 - e**2)
 b = a * np.sqrt(1 - e**2)
 r_a = p / (1 - e)
 r_p = 2 * a - r_a
-M_e = np.linspace(0, 2 * np.pi, 300)
-Me_ann = ax.annotate("True anomaly", xy=(a*e, 0.21), ha="center", va="bottom", fontsize=20, color="C0")
-Me_ann = ax.annotate("Mean anomaly", xy=(-0.01, -0.01), ha="right", va="top", fontsize=20, color="C1")
-Me_ann = ax.annotate("Eccentric anomaly", xy=(0, 0.41), ha="center", va="bottom", fontsize=20, color="C2")
+M_e = np.linspace(0, 2 * np.pi, 361)[::-1]
 
 def kepler(E, M_e, e):
     """Kepler's equation, to be used in a Newton solver."""
@@ -158,56 +84,134 @@ def d_kepler_d_E(E, M_e, e):
 E = newton(func=kepler, fprime=d_kepler_d_E, x0=np.ones_like(M_e) * np.pi, args=(M_e, e))
 nu = (2 * np.arctan(np.sqrt((1 + e) / (1 - e)) * np.tan(E / 2))) % (2 * np.pi)
 r = p / (1 + e * np.cos(nu))
+# Scale and translate x, y coordinates to fit 400x400 SVG view
 x = a * e + r * np.cos(nu)
 y = r * np.sin(nu)
-(ellipse,) = ax.plot(x, y)
-(circle,) = ax.plot(a * np.cos(M_e), a * np.sin(M_e))
-(ecc_line,) = ax.plot([], [], "ko-")
-(spacecraft,) = ax.plot([], [], color="C0", marker="o", ls="-")
-(true_anomaly_arc,) = ax.plot([], [], color="C0", ls="-")
-(mean_anomaly,) = ax.plot([], [], color="C1", marker="o", ls="-")
-(mean_anomaly_arc,) = ax.plot([], [], color="C1", ls="-")
-(eccentric_anomaly,) = ax.plot([], [], color="C2", marker="o", ls="-")
-(eccentric_anomaly_arc,) = ax.plot([], [], color="C2", ls="-")
+width = 450
+height = 400
 
+ellipse = np.vstack((x, y))
+circle = np.vstack((a * np.cos(M_e), a * np.sin(M_e)))
+eccentric = np.vstack((a * np.cos(E), a * np.sin(E)))
+all_data_array = np.vstack((ellipse, circle, eccentric)).T + np.array([[width / 2, height / 2] * 3])
+all_angles_array = np.vstack((nu[::-1], M_e[::-1], E[::-1])).T
+all_data = json.dumps(np.hstack((all_data_array, all_angles_array)).tolist())
+svg = f"""
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" id="all-the-anomalies">
+<path fill="white" stroke="none" d="M 0 0 L {width} 0 L {width} {height} L 0 {height}" />
+<line stroke="black" stroke-width="1" x1="{width/2}" y1="5" x2="{width/2}" y2="{height-5}" />
+<line stroke="black" stroke-width="1" x1="5" y1="{height/2}" x2="{width-5}" y2="{height/2}" />
+<path stroke="black" fill="none" stroke-width="2" id="m1-to-E" d="M {width/2 + a - r_p} {height/2} L {width/2 + a - r_p} {height/2}" />
+<g stroke="rgb(141,160,203)" fill="rgb(141,160,203)" stroke-width="2">
+  <ellipse cx="{width/2}" cy="{height/2}" rx="{a}" ry="{b}" fill="none" />
+  <circle id="m2" cx="{width/2 + a}" cy="{height/2}" r="4" stroke="none" />
+  <path fill="none" id="true-anomaly" d="M {width/2 + a - r_p} {height/2} L {width/2 + a} {height/2}" />
+  <path id="true-arc" fill="none" d="M {width/2 + a - r_p + 20} {height/2} A 20 20 0 0 0 {width/2 + a - r_p + 20} {height/2}" />
+  <text x="0" y="10" font-size="16" text-anchor="start" dominant-baseline="hanging" stroke-width="1" id="true-text">True Anomaly</text>
+</g>
+<g stroke="rgb(252,141,98)" fill="rgb(252,141,98)" stroke-width="2">
+  <circle cx="{width/2}" cy="{height/2}" r="{a}" fill="none" />
+  <circle id="M" cx="{width/2 + a}" cy="{height/2}" r="4" stroke="none" />
+  <path fill="none" id="mean-anomaly" d="M {width/2} {height/2} L {width/2 + a - r_p} {height/2}" />
+  <path id="mean-arc" fill="none" d="M {width/2 + 50} {height/2} A 50 50 0 0 0 {width/2 + 50} {height/2}" />
+  <text x="{width}" y="10" id="mean-text" font-size="16" stroke-width="1" dominant-baseline="hanging" text-anchor="end">Mean Anomaly</text>
+</g>
+<g stroke="rgb(102,194,165)" fill="rgb(102,194,165)" stroke-width="2">
+  <circle id="E" cx="{width/2 + a}" cy="{height/2}" r="4" stroke="none"/>
+  <path fill="none" id="eccentric-anomaly" d="M {width/2} {height/2} L {width/2 + a - r_p} {height/2}" />
+  <path id="ecc-arc" fill="none" d="M {width/2 + 25} {height/2} A 25 25 0 0 0 {width/2 + 25} {height/2}" />
+  <text x="0" y="{height - 5}" id="ecc-text" font-size="16" text-anchor="start" stroke-width="1" dominant-baseline="text-bottom">Eccentric Anomaly</text>
+</g>
+<circle cx="{width/2}" cy="{height/2}" r="4" fill="rgb(80%, 80%, 80%)" />
+<circle cx="{width/2 + a - r_p}" cy="{height/2}" r="4" fill="rgb(80%, 80%, 80%)" />
+</svg>
+"""
+js = f"""
+<script>
+const data = {all_data};
+const slider = document.querySelector('#ellipse-slider');
+const svg = document.querySelector('#all-the-anomalies');
+const trueAnomaly = svg.querySelector('#true-anomaly');
+const meanAnomaly = svg.querySelector('#mean-anomaly');
+const eccentricAnomaly = svg.querySelector('#eccentric-anomaly');
+const m1ToE = svg.querySelector('#m1-to-E');
 
-def init():
-    spacecraft.set_data([], [])
-    mean_anomaly.set_data([], [])
-    eccentric_anomaly.set_data([], [])
-    ecc_line.set_data([], [])
-    true_anomaly_arc.set_data([], [])
-    mean_anomaly_arc.set_data([], [])
-    eccentric_anomaly_arc.set_data([], [])
-    return (ellipse, circle, spacecraft, mean_anomaly, eccentric_anomaly, ecc_line, true_anomaly_arc, mean_anomaly_arc, eccentric_anomaly_arc)
+const m2 = svg.querySelector('#m2');
+const MPoint = svg.querySelector('#M');
+const EPoint = svg.querySelector('#E');
 
+const width = {width};
+const half_width = {width / 2};
+const height = {height};
+const half_height = {height / 2};
+const a = {a};
+const r_p = {r_p};
 
-def animate(t):
-    E = newton(func=kepler, fprime=d_kepler_d_E, x0=np.pi, args=(t, e))
-    M_e = t
-    nu = (2 * np.arctan(np.sqrt((1 + e) / (1 - e)) * np.tan(E / 2))) % (2 * np.pi)
-    r = p / (1 + e * np.cos(nu))
-    spacecraft.set_data([a * e, a * e + r * np.cos(nu)], [0, r * np.sin(nu)])
-    mean_anomaly.set_data([0, a * np.cos(M_e)], [0, a * np.sin(M_e)])
-    eccentric_anomaly.set_data([0, a * np.cos(E)], [0, a * np.sin(E)])
-    ecc_line.set_data([a * np.cos(E), a * np.cos(E)], [r * np.sin(nu), a * np.sin(E)])
+const eccArc = svg.querySelector('#ecc-arc');
+const eccArcRadius = 25;
+const eccArcInitialPoint = [half_width + eccArcRadius, half_height];
+const eccArcPathStart = `M ${{eccArcInitialPoint.join(' ')}} A ${{eccArcRadius}} ${{eccArcRadius}} 0`;
 
-    nu_arc = np.linspace(0, nu, 50)
-    true_anomaly_arc.set_data(a * e + 0.2 * np.cos(nu_arc), 0.2 * np.sin(nu_arc))
+const trueArc = svg.querySelector('#true-arc');
+const trueArcRadius = 20;
+const trueArcInitialPoint = [half_width + a - r_p + trueArcRadius, half_height];
+const trueArcPathStart = `M ${{trueArcInitialPoint.join(' ')}} A ${{trueArcRadius}} ${{trueArcRadius}} 0`;
 
-    Me_arc = np.linspace(0, M_e, 50)
-    mean_anomaly_arc.set_data(0.1 * np.cos(Me_arc), 0.1 * np.sin(Me_arc))
+const meanArc = svg.querySelector('#mean-arc');
+const meanArcRadius = 50;
+const meanArcInitialPoint = [half_width + meanArcRadius, half_height];
+const meanArcPathStart = `M ${{meanArcInitialPoint.join(' ')}} A ${{meanArcRadius}} ${{meanArcRadius}} 0`;
 
-    ecc_arc = np.linspace(0, E, 50)
-    eccentric_anomaly_arc.set_data(0.4 * np.cos(ecc_arc), 0.4 * np.sin(ecc_arc))
-    return (ecc_line, spacecraft, mean_anomaly, eccentric_anomaly, true_anomaly_arc, mean_anomaly_arc, eccentric_anomaly_arc)
+function animate() {{
+  const row = data[slider.value - 1];
+  const true_x = row[0];
+  const true_y = row[1];
+  const mean_x = row[2];
+  const mean_y = row[3];
+  const ecc_x = row[4];
+  const ecc_y = row[5];
+  const nu = row[6];
+  const M = row[7];
+  const E = row[8];
+  const newTrueAnomaly = `M {width/2 + a - r_p} {height/2} L ${{true_x}} ${{true_y}}`;
+  const newMeanAnomaly = `M {width/2} {height/2} L ${{mean_x}} ${{mean_y}}`;
+  const newEccentricAnomaly = `M {width/2} {height/2} L ${{ecc_x}} ${{ecc_y}}`;
 
-anim = animation.FuncAnimation(
-    fig, animate, init_func=init, frames=M_e, blit=True, interval=16
+  trueAnomaly.setAttribute('d', newTrueAnomaly);
+  meanAnomaly.setAttribute('d', newMeanAnomaly);
+  eccentricAnomaly.setAttribute('d', newEccentricAnomaly);
+  m1ToE.setAttribute('d', `M ${{true_x}} ${{true_y}} L ${{ecc_x}} ${{ecc_y}}`);
+
+  const largeArcFlag = E > Math.PI ? 1 : 0;
+  const newEccArc = `${{eccArcPathStart}} ${{largeArcFlag}} 0 ${{half_width + eccArcRadius*Math.cos(E)}} ${{half_height - eccArcRadius*Math.sin(E)}}`;
+  const newMeanArc = `${{meanArcPathStart}} ${{largeArcFlag}} 0 ${{half_width + meanArcRadius*Math.cos(M)}} ${{half_height - meanArcRadius*Math.sin(M)}}`;
+  const newTrueArc = `${{trueArcPathStart}} ${{largeArcFlag}} 0 ${{half_width + a - r_p + trueArcRadius*Math.cos(nu)}} ${{half_height - trueArcRadius*Math.sin(nu)}}`;
+
+  m2.setAttribute('cx', true_x);
+  m2.setAttribute('cy', true_y);
+  MPoint.setAttribute('cx', mean_x);
+  MPoint.setAttribute('cy', mean_y);
+  EPoint.setAttribute('cx', ecc_x);
+  EPoint.setAttribute('cy', ecc_y);
+  eccArc.setAttribute('d', newEccArc);
+  meanArc.setAttribute('d', newMeanArc);
+  trueArc.setAttribute('d', newTrueArc);
+}}
+slider.addEventListener('input', animate);
+
+</script>
+"""
+hh = HTML("""\
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px;" class="animation">
+"""
+    + svg
+    + f"""\
+<input id="ellipse-slider" type="range" min="1" max="{len(x)}" step="1" value="1" style="width: 200px;">
+</div>"""
+    + js
 )
-from IPython.display import HTML
 from myst_nb import glue
-glue("true-mean-eccentric-anomalies", HTML(anim.to_jshtml()), display=False)
+glue("true-mean-eccentric-anomalies", hh, display=False)
 ```
 
 :::{glue:figure} true-mean-eccentric-anomalies
@@ -225,7 +229,7 @@ There are now two cases that we want to consider:
 1. We know the current true anomaly and want to find the time since periapsis
 2. We know the current time since periapsis and want to know the true anomaly
 
-Each case is solved slightly differently, and the equations depend on the type of trajectory, so this will just be a general overview. Specific solutions for each type of trajectory will be in the following sections.
+Each case is solved slightly differently, and the equations depend on the type of trajectory, so specific solutions for each type of trajectory will be shown in the following sections.
 
 ### Given True Anomaly, Find Time Since Periapsis
 
@@ -238,3 +242,5 @@ Each case is solved slightly differently, and the equations depend on the type o
 1. Use the time since periapsis to find the mean anomaly
 2. Use the mean anomaly to find the eccentric anomaly
 3. Use the eccentric anomaly to find the true anomaly
+
+In the next sections, we will develop equations that relate the three anomalies and time since periapsis to each other.

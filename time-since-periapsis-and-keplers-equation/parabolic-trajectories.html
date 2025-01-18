@@ -483,21 +483,28 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="parabolic-trajectories-e-1">
 <h1>Parabolic Trajectories (<span class="math notranslate nohighlight">\(e = 1\)</span>)<a class="headerlink" href="#parabolic-trajectories-e-1" title="Link to this heading">#</a></h1>
-<p>Combining Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis">(189)</a> and Eq. <a class="reference internal" href="time-since-periapsis.html#equation-eq-time-since-periapsis-rhs-e-eq-1">(191)</a> results in:</p>
+<p>In the <a class="reference internal" href="elliptical-orbits.html#sec-alternate-keplers-equation-derivation"><span class="std std-ref">section for ellipses</span></a>, we found Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-time-since-periapsis">(201)</a>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}\]</div>
+<p>The second solution to the right hand side, when <span class="math notranslate nohighlight">\(e = 1\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis-rhs-e-eq-1">
+<span class="eqno">(217)<a class="headerlink" href="#equation-eq-time-since-periapsis-rhs-e-eq-1" title="Link to this equation">#</a></span>\[\int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \left(\frac{1}{2}\tan \frac{\nu}{2}+\frac{1}{6}\tan^{3}\frac{\nu}{2}\right)\]</div>
+<p>In Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-eq-1">(217)</a>, <span class="math notranslate nohighlight">\(e = 1\)</span>, so it will apply for parabolic trajectories.</p>
+<p>Combining Eq. <a class="reference internal" href="elliptical-orbits.html#equation-eq-time-since-periapsis">(201)</a> and Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-rhs-e-eq-1">(217)</a> results in:</p>
 <div class="math notranslate nohighlight" id="equation-eq-time-since-periapsis-parabola">
-<span class="eqno">(214)<a class="headerlink" href="#equation-eq-time-since-periapsis-parabola" title="Link to this equation">#</a></span>\[\frac{\mu^2}{h^3}t = \frac{1}{2}\tan\frac{\nu}{2} + \frac{1}{6}\tan^3\frac{\nu}{2}\]</div>
-<p>We define the left hand side of Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-parabola">(214)</a> as <span class="math notranslate nohighlight">\(M_p\)</span>, the mean anomaly of the parabolic trajectory:</p>
+<span class="eqno">(218)<a class="headerlink" href="#equation-eq-time-since-periapsis-parabola" title="Link to this equation">#</a></span>\[\frac{\mu^2}{h^3}t = \frac{1}{2}\tan\frac{\nu}{2} + \frac{1}{6}\tan^3\frac{\nu}{2}\]</div>
+<p>We define the left hand side of Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-parabola">(218)</a> as <span class="math notranslate nohighlight">\(M_p\)</span>, the mean anomaly of the parabolic trajectory:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mean-anomaly-parabola">
-<span class="eqno">(215)<a class="headerlink" href="#equation-eq-mean-anomaly-parabola" title="Link to this equation">#</a></span>\[M_p = \frac{\mu^2}{h^3}t\]</div>
-<p>Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-parabola">(214)</a> is known as <strong>Barker’s equation</strong> and gives us the time since periapsis in terms of the true anomaly. If, instead, we know the time since periapsis and want to solve for the true anomaly, we need to solve the cubic equation <span id="id1">[<a class="reference internal" href="../bibliography.html#id20" title="R. Meire. An Efficient Method for Solving Barker's Equation. Journal of the British Astronomical Association, 95:113, April 1985.">Mei85</a>]</span>:</p>
+<span class="eqno">(219)<a class="headerlink" href="#equation-eq-mean-anomaly-parabola" title="Link to this equation">#</a></span>\[M_p = \frac{\mu^2}{h^3}t\]</div>
+<p>Eq. <a class="reference internal" href="#equation-eq-time-since-periapsis-parabola">(218)</a> is known as <strong>Barker’s equation</strong> and gives us the time since periapsis in terms of the true anomaly. If, instead, we know the time since periapsis and want to solve for the true anomaly, we need to solve the cubic equation <span id="id1">[<a class="reference internal" href="../bibliography.html#id20" title="R. Meire. An Efficient Method for Solving Barker's Equation. Journal of the British Astronomical Association, 95:113, April 1985.">Mei85</a>]</span>:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-0">
-<span class="eqno">(216)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-0" title="Link to this equation">#</a></span>\[0 = \frac{1}{2}\tan\frac{\nu}{2} + \frac{1}{6}\tan^3\frac{\nu}{2} - M_p\]</div>
+<span class="eqno">(220)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-0" title="Link to this equation">#</a></span>\[0 = \frac{1}{2}\tan\frac{\nu}{2} + \frac{1}{6}\tan^3\frac{\nu}{2} - M_p\]</div>
 <p>which has one real root:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-1">
-<span class="eqno">(217)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-1" title="Link to this equation">#</a></span>\[\tan\frac{\nu}{2} = z - \frac{1}{z}\]</div>
+<span class="eqno">(221)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-1" title="Link to this equation">#</a></span>\[\tan\frac{\nu}{2} = z - \frac{1}{z}\]</div>
 <p>where:</p>
 <div class="math notranslate nohighlight" id="equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-2">
-<span class="eqno">(218)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-2" title="Link to this equation">#</a></span>\[z = \sqrt[3]{3M_p + \sqrt{1 + \left(3 M_p\right)^2}}\]</div>
+<span class="eqno">(222)<a class="headerlink" href="#equation-time-since-periapsis-and-keplers-equation-parabolic-trajectories-2" title="Link to this equation">#</a></span>\[z = \sqrt[3]{3M_p + \sqrt{1 + \left(3 M_p\right)^2}}\]</div>
 </section>
 
     <script type="text/x-thebe-config">
