@@ -221,7 +221,11 @@ if __name__ == "__main__":
         if svg_file.exists():
             main(svg_file)
         else:
-            print("The given file does not exist", file=sys.stderr)
-            sys.exit(1)
+            svg_file = Path("raw_svg") / svg_file
+            if svg_file.exists():
+                main(svg_file)
+            else:
+                print("The given file does not exist", file=sys.stderr)
+                sys.exit(1)
     else:
         main()
