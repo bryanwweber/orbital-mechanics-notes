@@ -1,5 +1,6 @@
 #:schema https://json.schemastore.org/pyproject.json
 [project]
+authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
 dependencies = [
   "astropy==6.1.1",
   "bokeh==3.4.2",
@@ -19,22 +20,18 @@ dependencies = [
   "sympy>=1.12.1",
   "wheel>=0.43.0",
 ]
-requires-python = ">=3.10,<3.13"
-name = "orbital-mechanics-notes"
-authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
-license = { text = "CC-BY-SA-4.0" }
 description = "A book for Orbital Mechanics"
+license = { text = "CC-BY-SA-4.0" }
+name = "orbital-mechanics-notes"
+requires-python = ">=3.10,<3.13"
 version = "0.0.0"
 
 [tool.uv]
 python-preference = "only-system"
 
 [dependency-groups]
-dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "ruff>=0.5.0", "requests>=2.32.3"]
-lab = [
-    "jupyterlab>=4.1.4",
-    "jupytext>=1.16.6",
-]
+dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "requests>=2.32.3", "ruff>=0.5.0"]
+lab = ["jupyterlab>=4.1.4", "jupytext>=1.16.6"]
 
 [tool.uv.sources]
 # Unfortunately, poliastro is no longer maintained. I updated some dependencies on my
@@ -46,16 +43,17 @@ poliastro = { workspace = true }
 members = ["vendor/*"]
 
 [tool.ruff]
+extend-exclude = ["vendor"]
 extend-include = ["*.ipynb"]
 
 [tool.ruff.lint]
+ignore = ["E402"]
 select = [
   "E",   # pycodestyle
-  "W",   # pycodestyle
   "F",   # pyflakes
   "I",   # isort
-  "UP",  # pyupgrade
   "NPY", # NumPy rules
   "RUF", # Ruff rules
+  "UP",  # pyupgrade
+  "W",   # pycodestyle
 ]
-ignore = ["E402"]

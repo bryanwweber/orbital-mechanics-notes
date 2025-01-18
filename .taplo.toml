@@ -1,0 +1,9 @@
+include = [".mise.toml", ".taplo.toml", "pyproject.toml"]
+
+[formatting]
+align_entries         = true
+column_width          = 88
+indent_string         = "  "
+reorder_arrays        = true
+reorder_inline_tables = true
+reorder_keys          = true
