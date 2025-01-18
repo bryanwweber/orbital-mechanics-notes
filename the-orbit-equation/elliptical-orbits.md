@@ -69,7 +69,7 @@ which is the same formula as the circular orbit, with the radius equal to the se
 ## Period
 
 :::{margin}
-Interestingly, there is no formula to calculate the perimeter of an ellipse. This was discussed recently by [Stand Up Maths](https://youtu.be/5nW3nJhBHL0), where I first found out about it.
+Interestingly, there is no formula to calculate the perimeter of an ellipse. This was discussed recently by Matt Parker on [Stand Up Maths](https://youtu.be/5nW3nJhBHL0), where I first found out about it.
 :::
 
 The period of the elliptical orbit can be found in terms of the semi-major and semi-minor axes. The area of an ellipse is given by:
