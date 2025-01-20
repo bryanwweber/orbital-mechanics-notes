@@ -5,7 +5,7 @@ cargo-binstall          = "latest"
 julia                   = "latest"
 node                    = "22"
 "npm:markdownlint-cli2" = "latest"
-python                  = "3.12"
+python                  = "3.13"
 uv                      = "latest"
 watchexec               = "latest"
 
