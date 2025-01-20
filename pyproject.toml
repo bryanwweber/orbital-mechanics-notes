@@ -2,14 +2,14 @@
 [project]
 authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
 dependencies = [
-  "astropy==6.1.1",
+  "astropy>=6.1.1",
   "bokeh==3.4.2",
   "docutils>=0.20.1",
   "ipympl>=0.9.4",
-  "jupyter-book>=1.0.2",
+  "jupyter-book>=2.0.0a0",
   "matplotlib>=3.9.0",
-  "myst-nb-bokeh>=2024.1.0",
-  "myst-nb>=1.1.1",
+  # "myst-nb-bokeh>=2024.1.0",
+  # "myst-nb>=1.1.1",
   "numpy>=1.26.4",
   "pint>=0.24.1",
   "plotly>=5.22.0",
@@ -23,7 +23,7 @@ dependencies = [
 description = "A book for Orbital Mechanics"
 license = { text = "CC-BY-SA-4.0" }
 name = "orbital-mechanics-notes"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.10,<3.14"
 version = "0.0.0"
 
 [tool.uv]
