@@ -1,0 +1,143 @@
+version: 1
+project:
+  title: Orbital Mechanics & Astrodynamics
+  authors:
+    - name: Bryan Weber
+      orcid: "0000-0003-0815-9270"
+      email: "bryan@bryanwweber.com"
+      github: bryanwweber
+      url: https://bryanwweber.com
+  exclude:
+    - homework
+    - raw_svg
+    - drawing-scripts
+    - docker
+    - assets
+    - blender
+    - chapter-4
+    - .venv
+    - .pytest_cache
+    - INSTALL.md
+    - vendor
+  bibliography:
+    - references.bib
+  license: CC-BY-4.0
+  open_access: true
+  github: bryanwweber/orbital-mechanics-notes
+  math:
+    '\vector': "\\boldsymbol{#1}"
+    '\uvec': "\\boldsymbol{\\hat{#1}}"
+    '\mag': "\\lVert#1\\rVert"
+    '\cross': "\\times"
+    '\unit': "#1~\\mathrm{#2}"
+    '\pf': "{#1}_{\\omega}" # This is for the perifocal frame
+    '\mat': "\\left[\\mathbf{#1}\\right]" # A matrix
+    '\COG': "\\mathrm{COG}" # Center of gravity
+    '\KE': "\\mathrm{KE}" # Kinetic energy
+    '\PE': "V" # Potential energy
+
+  toc:
+    - file: intro.md
+    - title: Introduction
+      children:
+        - file: intro/reference-frames.md
+        - file: intro/mass-force-and-newtons-law-of-gravitation.md
+        - file: intro/force-acceleration-and-momentum.md
+    - title: The N-Body Problem
+      children:
+        - file: the-n-body-problem/two-body-inertial-motion.md
+        - file: the-n-body-problem/two-body-inertial-numerical-solution.md
+        - file: the-n-body-problem/motion-of-the-barycenter.md
+        - file: the-n-body-problem/two-body-relative-motion.md
+        - file: the-n-body-problem/two-body-relative-numerical-solution.md
+        - file: the-n-body-problem/circular-restricted-three-body-problem.md
+        - file: the-n-body-problem/lagrange-points.md
+        - file: the-n-body-problem/Lagrange-points-example.ipynb
+        - file: the-n-body-problem/jacobi-constant.md
+        - file: the-n-body-problem/Equations-of-Motion-CR3BP.ipynb
+        - file: the-n-body-problem/many-body-problems.md
+    - title: Constants of Orbital Motion
+      children:
+        - file: constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.md
+        - file: constants-of-orbital-motion/angular-momentum-is-conserved.md
+        - file: constants-of-orbital-motion/orbital-plane-and-keplers-second-law.md
+    - title: The Orbit Equation
+      children:
+        - file: the-orbit-equation/the-orbit-equation.md
+        - file: the-orbit-equation/orbital-nomenclature.md
+        - file: the-orbit-equation/circular-orbits.md
+        - file: the-orbit-equation/elliptical-orbits.md
+        - file: the-orbit-equation/parabolic-trajectories.md
+        - file: the-orbit-equation/hyperbolic-trajectories.md
+    - title: The Classical Orbital Elements
+      children:
+        - file: classical-orbital-elements/perifocal-frame.md
+        - file: classical-orbital-elements/right-ascension-declination.md
+        - file: classical-orbital-elements/classical-orbital-elements.md
+        - file: classical-orbital-elements/orbital-elements-and-the-state-vector.md
+    - title: Time Since Periapsis & Kepler's Equation
+      children:
+        - file: time-since-periapsis-and-keplers-equation/time-since-periapsis.md
+        - file: time-since-periapsis-and-keplers-equation/elliptical-orbits.md
+        - file: >-
+            time-since-periapsis-and-keplers-equation/elliptical-orbit-example.md
+        - file: >-
+            time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.md
+        - file: time-since-periapsis-and-keplers-equation/parabolic-trajectories.md
+        - file: time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md
+        - file: >-
+            time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.md
+        - file: >-
+            time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.md
+        - file: time-since-periapsis-and-keplers-equation/universal-variables.md
+        - file: >-
+            time-since-periapsis-and-keplers-equation/universal-variables-example.md
+        - file: >-
+            time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.md
+    - title: Orbital Maneuvers
+      children:
+        - file: orbital-maneuvers/impulsive-maneuvers.md
+        - file: orbital-maneuvers/single-impulse-example.md
+        - file: orbital-maneuvers/hohmann-transfer.md
+        - file: orbital-maneuvers/hohmann-transfer-example.md
+        - file: orbital-maneuvers/bielliptic-hohmann-transfer.md
+        - file: orbital-maneuvers/comparison-of-bielliptic-and-hohmann.md
+        - file: orbital-maneuvers/phasing-maneuvers.md
+        - file: orbital-maneuvers/non-hohmann-transfers.md
+        - file: orbital-maneuvers/common-apse-line-example.md
+        - file: orbital-maneuvers/apse-line-rotation-example.md
+        - file: orbital-maneuvers/plane-change-maneuvers.md
+        - file: orbital-maneuvers/plane-change-example.md
+    - title: Interplanetary Trajectories
+      children:
+        - file: interplanetary-maneuvers/introduction.md
+        - file: interplanetary-maneuvers/heliocentric-trajectories.md
+        - file: interplanetary-maneuvers/interplanetary-transfer-phasing.md
+        - file: interplanetary-maneuvers/sphere-of-influence.md
+        - file: interplanetary-maneuvers/planetary-departure-trajectory.md
+        - file: interplanetary-maneuvers/planetary-arrival-capture.md
+        - file: interplanetary-maneuvers/planetary-arrival-flyby.md
+    - title: Review of Vectors, Kinematics, and Newtonian Mechanics
+      children:
+        - file: review/kinematics.md
+        - file: review/time-derivatives-of-moving-vectors.md
+    - title: Reference
+      children:
+        - file: reference/celestial-sphere.md
+        - file: reference/relative-motion.md
+        - file: reference/planetary-parameters.md
+        - file: reference/julian-date.md
+        - file: reference/planetary-ephemeris.md
+        - file: reference/gravity-and-spherical-symmetry.md
+    - title: Bibliography
+      children:
+        - file: bibliography.md
+    - title: Postscript
+      children:
+        - file: interplanetary-maneuvers/planetary-depahture-trajectory.md
+        - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers.md
+        - file: orbital-maneuvers/nonimpulsive-maneuver-example.ipynb
+site:
+  options:
+    favicon: _static/favicon-16x16.png
+  template: book-theme
