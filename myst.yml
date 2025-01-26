@@ -129,9 +129,6 @@ project:
         - file: reference/julian-date.md
         - file: reference/planetary-ephemeris.md
         - file: reference/gravity-and-spherical-symmetry.md
-    - title: Bibliography
-      children:
-        - file: bibliography.md
     - title: Postscript
       children:
         - file: interplanetary-maneuvers/planetary-depahture-trajectory.md
