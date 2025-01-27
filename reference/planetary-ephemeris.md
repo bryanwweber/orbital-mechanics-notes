@@ -103,7 +103,7 @@ Finally, we can calculate the argument of perihelion from the longitude of perih
 
 We now have $a$, $e$, $i$, $\Omega$, $\omega$, and $\nu$, from which we can also calculate $h$ if necessary. In addition, we can convert the classical orbital elements to a state vector $\vector{r}$ and $\vector{v}$ for the planet, if needed.
 
-The data shown in {numref}`tab:standish-keplerian-elements` are valid from AD 1800-AD 2050. If the data for 3000 BC-AD 3000 are used instead, there are a few extra terms, given in {numref}`tab:standish-long-term-elements`, which must be used in the equation for the mean anomaly, for the planets from Jupiter to Pluto.
+The data shown in @tab:standish-keplerian-elements are valid from AD 1800-AD 2050. If the data for 3000 BC-AD 3000 are used instead, there are a few extra terms, given in @tab:standish-long-term-elements, which must be used in the equation for the mean anomaly, for the planets from Jupiter to Pluto.
 
 :::{table} Additional terms which must be added to the computation of $M_e$ for Jupiter through Pluto, 3000 BC to AD 3000 {cite}`Standish1992,Standish2021`. The subset here is for demonstration only.
 :name: tab:standish-long-term-elements
@@ -341,7 +341,7 @@ JPL also maintains a web browser based interface to the HORIZONS database. This 
 
 <https://ssd.jpl.nasa.gov/horizons/app.html#/>
 
-The default interface of HORIZONS is shown in {numref}`fig:horizons-default`
+The default interface of HORIZONS is shown in @fig:horizons-default
 
 :::{figure} ../images/horizons-default.png
 :name: fig:horizons-default
@@ -357,7 +357,7 @@ Each of the options can be changed by clicking the _Edit_ buttons. For our purpo
 4. _Time Span_: This can be used to generate a range of dates, or to input specific dates. We will choose _Specify a list of times_ for this example, and then input the date of interest, in JDT, {glue:text}`planetary-ephemeris-JDT`.
 5. _Table Settings_: Here, we want to change the units to _km and seconds_. Another useful option is the _Reference plane_. The default of _ecliptic x-y plane derived from reference plane_ is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.
 
-When you've set the options for this example, the screen should appear as in {numref}`fig:horizons-mercury`.
+When you've set the options for this example, the screen should appear as in @fig:horizons-mercury.
 
 :::{figure} ../images/horizons-mercury.png
 :name: fig:horizons-mercury
@@ -365,7 +365,7 @@ When you've set the options for this example, the screen should appear as in {nu
 The settings used in this example for the ephemerides of Mercury.
 :::
 
-After clicking _Generate Ephemeris_, the output looks like {numref}`fig:mercury-output`.
+After clicking _Generate Ephemeris_, the output looks like @fig:mercury-output.
 
 :::{figure} ../images/mercury-output.png
 :name: fig:mercury-output
@@ -373,4 +373,4 @@ After clicking _Generate Ephemeris_, the output looks like {numref}`fig:mercury-
 A subset of the output from HORIZONS for Mercury showing the orbital elements.
 :::
 
-The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in {numref}`fig:mercury-output`, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. `IN` stands for inclination and `TA` is the true anomaly. Both of these elements match our previous calculated results for the date given.
+The HORIZONS output includes data about Mercury itself, the dates for which the ephemeris were calculated, and as shown in @fig:mercury-output, the orbital elements of interest. Right below the orbital elements output is an explanation of what the acronyms mean. `IN` stands for inclination and `TA` is the true anomaly. Both of these elements match our previous calculated results for the date given.

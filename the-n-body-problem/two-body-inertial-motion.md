@@ -35,7 +35,7 @@ Let $\vector{r}$ be the vector pointing from $m_1$ to $m_2$, which we also phras
 \end{aligned}
 :::
 
-We also define a **unit vector** pointing from $m_1$ toward $m_2$:
+We also define a [**unit vector**](https://en.wikipedia.org/wiki/Unit_vector) pointing from $m_1$ toward $m_2$:
 
 :::{math}
 :label: eq:relative-unit-vector
@@ -65,7 +65,7 @@ Newton's second law says that the force is equal to the mass times the accelerat
 
 where $\ddot{\vector{R}}$ is the **absolute acceleration** of the subscripted mass. Absolute means that the acceleration is taken relative to an inertial reference frame. This is important because Newton's second law only applies for absolute accelerations.
 
-Since the only force in this system is the gravitational attraction, the force may be computed by Newton's law of gravitation, {eq}`eq:newtons-law-of-gravitation`. The force of $m_2$ on $m_1$, $F_{12}$, points in the _positive_ direction of $\uvec{u}_r$. Because of Newton's third law, as represented by {eq}`eq:newtons-third-law-for-two-body`, the force of $m_1$ on $m_2$, $F_{21}$, points in the negative direction of $\uvec{u}_r$. This is shown in {eq}`eq:gravitational-force-two-body`:
+Since the only force in this system is the gravitational attraction, the force is also equal to Newton's law of gravitation, @eq:newtons-law-of-gravitation. The force of $m_2$ on $m_1$, $F_{12}$, points in the _positive_ direction of $\uvec{u}_r$. Because of Newton's third law, as represented by @eq:newtons-third-law-for-two-body, the force of $m_1$ on $m_2$, $F_{21}$, points in the negative direction of $\uvec{u}_r$. This is shown in @eq:gravitational-force-two-body:
 
 :::{math}
 :label: eq:gravitational-force-two-body
@@ -77,7 +77,7 @@ Since the only force in this system is the gravitational attraction, the force m
 
 ## Finding the Equations of Motion
 
-Combining {eq}`eq:newtons-second-law-two-body` and {eq}`eq:gravitational-force-two-body`, we find:
+Combining @eq:newtons-second-law-two-body and @eq:gravitational-force-two-body, we find:
 
 :::{math}
 :label: eq:second-law-and-gravity-two-body
@@ -87,7 +87,7 @@ Combining {eq}`eq:newtons-second-law-two-body` and {eq}`eq:gravitational-force-t
 \end{aligned}
 :::
 
-Finally, we divide through by the mass on the left side of each equation and replace $\uvec{u}_r$ with its definition, {eq}`eq:relative-unit-vector` to arrive at the **two-body inertial equations of motion**:
+Finally, we divide through by the mass on the left side of each equation and replace $\uvec{u}_r$ with its definition, @eq:relative-unit-vector to arrive at the **two-body inertial equations of motion**:
 
 :::{math}
 :label: eq:two-body-inertial-equation-of-motion
@@ -101,7 +101,7 @@ This is a coupled, nonlinear, vector system of ordinary differential equations.
 
 ## Finding the System State as a Function of Time
 
-Our goal is now to determine equations that will let us solve for the position, velocity, and acceleration of the two masses as a function of time. We split {eq}`eq:two-body-inertial-equation-of-motion` into components to find the absolute acceleration of each mass:
+Our goal is now to determine equations that will let us solve for the position, velocity, and acceleration of the two masses as a function of time. We split @eq:two-body-inertial-equation-of-motion into components to find the absolute acceleration of each mass:
 
 :::{math}
 :label: eq:two-body-inertial-components
@@ -115,7 +115,7 @@ Now we have a system of six nonlinear ordinary differential equations. Since the
 
 These components are called the **state vector** of the system. This is because when all 12 values are known, the state of the system is completely determined. This happens in two steps:
 
-1. By using the positions, we can find all the acceleration components using {eq}`eq:two-body-inertial-components`
+1. By using the positions, we can find all the acceleration components using @eq:two-body-inertial-components
 2. By integrating the acceleration from step 1 and adding the known velocity components, we can find the absolute velocity
 
 Although these steps can be done by hand, in practice it is more convenient to solve them with a computer, numerically.

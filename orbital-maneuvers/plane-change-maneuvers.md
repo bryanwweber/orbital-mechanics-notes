@@ -29,7 +29,7 @@ Due to the geometry of this maneuver, it is most convenient to use a coordinate 
 \vector{v} = v_r \uvec{u}_r + v_{\perp} \uvec{u}_{\perp}
 :::
 
-This is shown in {numref}`fig:plane-change-maneuver-3d-zoom`.
+This is shown in @fig:plane-change-maneuver-3d-zoom.
 
 :::{figure} ../images/plane-change-maneuver-3d-zoom.svg
 :name: fig:plane-change-maneuver-3d-zoom
@@ -39,7 +39,7 @@ A single-impulse plane change maneuver. The orbital planes intersect at a line t
 
 For a single impulse maneuver, there are up to two locations on the line of intersection where the maneuver can be performed. The plane rotation takes place around the line of intersection. For an impulsive maneuver, the position of the spacecraft doesn't change.
 
-Therefore, the radial velocity does not change _direction_ during a plane change maneuver, although it may change _magnitude_. This is shown in {numref}`fig:plane-change-maneuver-3d-zoom`. In other words, if orbit 1 is the initial orbit and orbit 2 is the target, we can say:
+Therefore, the radial velocity does not change _direction_ during a plane change maneuver, although it may change _magnitude_. This is shown in @fig:plane-change-maneuver-3d-zoom. In other words, if orbit 1 is the initial orbit and orbit 2 is the target, we can say:
 
 :::{math}
 :label: eq:plane-change-uvec-r-equality
@@ -49,10 +49,10 @@ Therefore, the radial velocity does not change _direction_ during a plane change
 :::{figure} ../images/plane-change-maneuver-2d.svg
 :name: fig:plane-change-maneuver-2d
 
-The plane change maneuver from {numref}`fig:plane-change-maneuver-3d-zoom` shown looking down the line of intersection. The circle at the intersection of the orbits represents the focus of the orbits. The radial velocity vector is projecting out of the screen.
+The plane change maneuver from @fig:plane-change-maneuver-3d-zoom shown looking down the line of intersection. The circle at the intersection of the orbits represents the focus of the orbits. The radial velocity vector is projecting out of the screen.
 :::
 
-The plane change is accomplished by changing the direction of the perpendicular velocity component. The angle between the initial and final perpendicular components of the velocity is the **dihedral angle**, $\delta$. This is shown on {numref}`fig:plane-change-maneuver-2d`. Like the radial velocity, the perpendicular velocity may also change its magnitude during a plane change maneuver.
+The plane change is accomplished by changing the direction of the perpendicular velocity component. The angle between the initial and final perpendicular components of the velocity is the **dihedral angle**, $\delta$. This is shown on @fig:plane-change-maneuver-2d. Like the radial velocity, the perpendicular velocity may also change its magnitude during a plane change maneuver.
 
 ## Required Change of Velocity
 
@@ -82,7 +82,7 @@ There are four terms in this equation that can be changed by the maneuver. To ke
 1. The radial velocity component should be constant, so that $v_{r,2} - v_{r,1} = 0$
 2. The perpendicular velocity should be as small as possible
 
-This occurs when the initial and target orbit intersect at their apoapsis. If the maneuver occurs at apoapsis, the radial velocity component will be zero in both orbits, $v_{r,2} = v_{r,1} = 0$. In addition, the azimuthal velocity components will be the smallest on the orbit. From Eq. {eq}`eq:plane-change-velocity-vector` with $v_{r} = 0$, $v_1 = v_{\perp,1}$ and $v_2 = v_{\perp,2}$, so Eq. {eq}`eq:plane-change-delta-v-scalar` reduces to:
+This occurs when the initial and target orbit intersect at their apoapsis. If the maneuver occurs at apoapsis, the radial velocity component will be zero in both orbits, $v_{r,2} = v_{r,1} = 0$. In addition, the azimuthal velocity components will be the smallest on the orbit. From @eq:plane-change-velocity-vector with $v_{r} = 0$, $v_1 = v_{\perp,1}$ and $v_2 = v_{\perp,2}$, so @eq:plane-change-delta-v-scalar reduces to:
 
 :::{math}
 :label: eq:plane-change-delta-v-apsis
@@ -91,7 +91,7 @@ This occurs when the initial and target orbit intersect at their apoapsis. If th
 
 ### In Terms of Flight Path Angle
 
-If the maneuver does not occur at apoapsis, then we need to use Eq. {eq}`eq:plane-change-delta-v-scalar` to find $\Delta v$. However, it may be more convenient to work with the velocity magnitude and the flight path angle, rather than the two velocity components. In that case, since:
+If the maneuver does not occur at apoapsis, then we need to use @eq:plane-change-delta-v-scalar to find $\Delta v$. However, it may be more convenient to work with the velocity magnitude and the flight path angle, rather than the two velocity components. In that case, since:
 
 :::{math}
 :label: eq:plane-change-flight-path-components
@@ -100,14 +100,14 @@ If the maneuver does not occur at apoapsis, then we need to use Eq. {eq}`eq:plan
 \end{aligned}
 :::
 
-where $\phi$ is the flight path angle, Eq. {eq}`eq:plane-change-delta-v-scalar` becomes:
+where $\phi$ is the flight path angle, @eq:plane-change-delta-v-scalar becomes:
 
 :::{math}
 :label: eq:plane-change-delta-v-flight-path
 \Delta v^2 = v_1^2 + v_2^2 - 2 v_1 v_2\left[\cos\Delta\phi - \cos\phi_2\cos\phi_1\left(1 - \cos\delta\right)\right]
 :::
 
-If $\delta$ = 0° and there is no plane change, then this equation reduces to the same equation we developed previously for non-Hohmann transfer trajectories, Eq. {eq}`eq:non-hohmann-delta-v-scalar`.
+If $\delta$ = 0° and there is no plane change, then this equation reduces to the same equation we developed previously for non-Hohmann transfer trajectories, @eq:non-hohmann-delta-v-scalar.
 
 ### Pure Rotation of the Orbital Plane
 
@@ -118,7 +118,7 @@ In some cases, it may only be necessary to rotate the orbital plane, without cha
 \cos\delta = 1 - 2\sin^2\frac{\delta}{2}
 :::
 
-and setting $v_1 = v_2 = v$ (that is, no speed change), Eq. {eq}`eq:plane-change-delta-v-scalar` for $\Delta v$ reduces to:
+and setting $v_1 = v_2 = v$ (that is, no speed change), @eq:plane-change-delta-v-scalar for $\Delta v$ reduces to:
 
 :::{math}
 :label: eq:plane-change-delta-v-pure-rotation
@@ -127,7 +127,7 @@ and setting $v_1 = v_2 = v$ (that is, no speed change), Eq. {eq}`eq:plane-change
 
 where the subscript $\delta$ indicates this is for pure rotation of the orbital plane.
 
-By dividing both sides of this equation by $v$, we can plot the relative $\Delta v$ versus $\delta$. On {numref}`fig:plane-change-pure-rotation`, a value of $\Delta v / v$ of 1.0 means that the $\Delta v$ required is equal to the spacecraft speed, whatever that happens to be.
+By dividing both sides of this equation by $v$, we can plot the relative $\Delta v$ versus $\delta$. On @fig:plane-change-pure-rotation, a value of $\Delta v / v$ of 1.0 means that the $\Delta v$ required is equal to the spacecraft speed, whatever that happens to be.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -153,7 +153,7 @@ glue("plane-change-pure-rotation", fig, display=False)
 The required velocity increment as a function of dihedral angle for pure rotation maneuvers.
 :::
 
-As we can see from {numref}`fig:plane-change-pure-rotation`, plane change of about 24° requires the same $\Delta v$ as is needed to increase the speed to the escape velocity from a circular orbit, $\Delta v / v \approx$ 0.414.
+As we can see from @fig:plane-change-pure-rotation, plane change of about 24° requires the same $\Delta v$ as is needed to increase the speed to the escape velocity from a circular orbit, $\Delta v / v \approx$ 0.414.
 
 Similarly, a plane change of 60° requires a $\Delta v$ equal to the current spacecraft velocity! In LEO, the velocity is approximately 7.5 km/s. A plane change of 60°, with an $I_{sp}$ of 300, would require over 90% of the spacecraft mass to be propellant.
 
@@ -198,7 +198,7 @@ Launches to the west, with $180° < A < 360°$, are called **retrograde** orbits
 
 To produce an inclination of 90° requires a launch due North or due South, respectively. These are the polar orbits.
 
-{numref}`fig:launch-azimuth-vs-inclination` shows a plot of the orbital inclination obtained for a range of latitudes and launch azimuths. We can see that the only way to achieve an inclination of 0° or 180°, an equatorial orbit, is to launch from the equator ($\phi$ = 0°) with a launch azimuth of $A$ = 90° (due East) to make a prograde orbit or $A$ = 270° (due West) for a retrograde orbit.
+@fig:launch-azimuth-vs-inclination shows a plot of the orbital inclination obtained for a range of latitudes and launch azimuths. We can see that the only way to achieve an inclination of 0° or 180°, an equatorial orbit, is to launch from the equator ($\phi$ = 0°) with a launch azimuth of $A$ = 90° (due East) to make a prograde orbit or $A$ = 270° (due West) for a retrograde orbit.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

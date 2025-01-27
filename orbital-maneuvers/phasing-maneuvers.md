@@ -26,7 +26,7 @@ We assume that the velocity change is applied parallel to the velocity vector at
 
 ## Returning At A Later Time
 
-As shown in {numref}`fig:phasing-orbit-increase-period`, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked _Impulse Point_ and the target spacecraft is _behind_ the chase craft in the orbit.
+As shown in @fig:phasing-orbit-increase-period, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked _Impulse Point_ and the target spacecraft is _behind_ the chase craft in the orbit.
 
 :::{figure} ../images/phasing-orbit-increase-period.svg
 :width: 75%
@@ -55,7 +55,7 @@ Since $a_1 < a_2$, the period of Orbit 2 is greater. Therefore, while the interc
 
 ## Returning At An Earlier Time
 
-As shown in {numref}`fig:phasing-orbit-decrease-period`, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked _Impulse Point_ and the target spacecraft is _behind_ the chase craft in the orbit.
+As shown in @fig:phasing-orbit-decrease-period, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked _Impulse Point_ and the target spacecraft is _behind_ the chase craft in the orbit.
 
 :::{figure} ../images/phasing-orbit-decrease-period.svg
 :width: 75%
@@ -64,7 +64,7 @@ As shown in {numref}`fig:phasing-orbit-decrease-period`, two spacecraft are init
 A phasing orbit to allow an interceptor spacecraft to catch up to the target spacecraft. The semi-major axis of the phasing orbit (Orbit 2, blue) is smaller than the initial orbit, so the period of the phasing orbit is shorter.
 :::
 
-At the impulse point, the interceptor spacecraft decreases its velocity to place itself on Orbit 2. The period of Orbit 2 is given by Eq. {eq}`eq:phasing-orbit-2-period` while the period of Orbit 1 is given by Eq. {eq}`eq:phasing-orbit-1-period`.
+At the impulse point, the interceptor spacecraft decreases its velocity to place itself on Orbit 2. The period of Orbit 2 is given by @eq:phasing-orbit-2-period while the period of Orbit 1 is given by @eq:phasing-orbit-1-period.
 
 Since $a_1 > a_2$, the period of Orbit 2 is smaller. Therefore, while the interceptor craft travels 360° of true anomaly in time $T_2$, the target spacecraft travels less than_ 360° of true anomaly. This allows the interceptor spacecraft to catch up and reach the impulse point at the same time that the target returns there.
 
@@ -72,7 +72,7 @@ Since $a_1 > a_2$, the period of Orbit 2 is smaller. Therefore, while the interc
 
 Although we've treated phasing maneuvers as useful to rendezvous two spacecraft, they can also be used to change the longitude above which a satellite orbits. Assume a satellite is in GEO above the prime meridian, a longitude of 0°E. The target longitude is 137.2°W. Determine the $\Delta v$ requirement if the phasing maneuver takes 1, 2, and 5 rotations of Earth.
 
-{numref}`fig:phasing-maneuver-example` shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth's rotation.
+@fig:phasing-maneuver-example shows the impulse point and the target longitude at the initial state. Earth is rotating counterclockwise and the orbit of the satellite is prograde, the same as Earth's rotation.
 
 :::{figure} ../images/phasing-maneuver-example.svg
 :name: fig:phasing-maneuver-example
@@ -227,4 +227,4 @@ for n in (1, 2, 5):
 | 5 | {glue:text}`phasing_orbit_hours_5:.2f` | {glue:text}`phasing_orbit_delta_v_5:.3f` |
 :::
 
-A comparison of the results is shown in {numref}`tab:phasing-orbit-comparison`. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the Earth, has the highest $\Delta v$ requirement. The smallest $\Delta v$ requirement is for the case of a single complete rotation of the Earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional $\Delta v$ to do so.
+A comparison of the results is shown in @tab:phasing-orbit-comparison. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the Earth, has the highest $\Delta v$ requirement. The smallest $\Delta v$ requirement is for the case of a single complete rotation of the Earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional $\Delta v$ to do so.

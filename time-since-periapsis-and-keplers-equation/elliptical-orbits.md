@@ -66,20 +66,21 @@ where $a$ and $b$ are the semimajor and semiminor axes, and $T$ is the orbital p
 The swept area $m_1$-$P$-$B$ inside the elliptical orbit corresponding to time $t$ with true anomaly $\nu$
 :::
 
-This area is shown in {numref}`fig:time-since-periapsis-area-ellipse` as $m_1$-$P$-$B$.
+This area is shown in @fig:time-since-periapsis-area-ellipse as $m_1$-$P$-$B$.
 
 ### Swept Area Inside a Circumscribing Circle
 
-The next step is find another equation for $A_m$ so that we can solve for $t$ in Eq. {eq}`eq:mean-anomaly-area`. We already used Kepler's second law to define Eq. {eq}`eq:mean-anomaly-area`, so continuing to work with the ellipse will be kind of a pain.
+The next step is find another equation for $A_m$ so that we can solve for $t$ in @eq:mean-anomaly-area. We already used Kepler's second law to define @eq:mean-anomaly-area, so continuing to work with the ellipse will be kind of a pain.
 
 :::{margin}
 The circle here is called an **circumscribing circle** because it is tangent to the ellipse at two points, on both ends of the major axis. These positions are also the periapsis and apoapsis.
 :::
 
-Instead, we can work with a circle, where it's much easier to calculate areas. We are going to transform the ellipse into a circle by stretching it in the vertical direction, ensuring that the circle and ellipse continue to touch at the point $P$. While the ellipse is stretching, the swept area is also stretching. This process is animated in {numref}`fig:ellipse-area-animate`.
+Instead, we can work with a circle, where it's much easier to calculate areas. We are going to transform the ellipse into a circle by stretching it in the vertical direction, ensuring that the circle and ellipse continue to touch at the point $P$. While the ellipse is stretching, the swept area is also stretching. This process is animated in @fig:ellipse-area-animate.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+:label: ellipse-area-animate
 from pathlib import Path
 
 svg_file = Path("../images/time-since-periapsis-area-animate.svg")
@@ -173,7 +174,7 @@ slider.addEventListener('input', animate);
 """
 from IPython.display import HTML
 
-hh = HTML("""\
+HTML("""\
 <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;" class="animation">
 """
     + svg
@@ -181,23 +182,21 @@ hh = HTML("""\
 <input id="ellipse-slider" type="range" min="0" max="1000" step="1" value="0" style="width: 200px;">
 </div>"""
     + js )
-from myst_nb import glue
-glue("ellipse-area-animate", hh, display=False)
 ```
 
-:::{glue:figure} ellipse-area-animate
+:::{figure} #ellipse-area-animate
 :name: fig:ellipse-area-animate
 :width: 75%
 
 Transforming the original elliptical orbit into a circumscribing circle by stretching the ellipse in the vertical direction. Note that the point $B$ translates vertically to point $Q$.
 :::
 
-Notice that the original area $m_1$-$P$-$B$ has been transformed to the area $m_1$-$P$-$Q$. Our goal now is to find the new area, then scale that area back down to the right size for Eq. {eq}`eq:mean-anomaly-area`. To find the area $m_1$-$P$-$Q$, we make two observations:
+Notice that the original area $m_1$-$P$-$B$ has been transformed to the area $m_1$-$P$-$Q$. Our goal now is to find the new area, then scale that area back down to the right size for @eq:mean-anomaly-area. To find the area $m_1$-$P$-$Q$, we make two observations:
 
 1. The region $O$-$P$-$Q$ is a [circular sector](https://en.wikipedia.org/wiki/Circular_sector)
 2. The region $O$-$m_1$-$Q$ is a triangle
 
-These regions are shown on {numref}`fig:circle-eccentric-anomaly-areas`.
+These regions are shown on @fig:circle-eccentric-anomaly-areas.
 
 :::{figure} ../images/time-since-periapsis-area-circle.svg
 :name: fig:circle-eccentric-anomaly-areas
@@ -223,23 +222,23 @@ The final step is to scale the area $m_1$-$P$-$Q$ back down to the right size an
 A_m = \frac{b}{a} \left(m_1\text{-}P\text{-}Q\right) = \frac{abE}{2} - \frac{abe \sin{E}}{2} = \frac{1}{2} a b \left(E - e \sin{E}\right)
 :::
 
-where we have substituted the result of Eq. {eq}`eq:circular-chord-area` and simplified. Finally, substituting Eq. {eq}`eq:mean-anomaly-area`:
+where we have substituted the result of @eq:circular-chord-area and simplified. Finally, substituting @eq:mean-anomaly-area:
 
 :::{math}
 :label: eq:keplers-equation-area
 \pi a b \frac{t}{T} = \frac{1}{2}a b \left(E - e \sin{E}\right) \rightarrow 2\pi\frac{t}{T} = E - e \sin{E}
 :::
 
-In Eq. {eq}`eq:keplers-equation-area`, we can define the left side of the equation as the **mean anomaly**:
+In @eq:keplers-equation-area, we can define the left side of the equation as the **mean anomaly**:
 
 :::{math}
 :label: eq:mean-anomaly-definition
 M_e = 2\pi\frac{t}{T} = \frac{\mu^2}{h^3} t \left(1 - e^2\right)^{3/2}
 :::
 
-where $T$ is the orbital period, $\mu$ is the specific gravitational constant, $h$ is the specific angular momentum, and $e$ is the eccentricity of the orbit. The last equality comes from the definition of the orbital period, Eq. {eq}`eq:ellipse-period-useful`.
+where $T$ is the orbital period, $\mu$ is the specific gravitational constant, $h$ is the specific angular momentum, and $e$ is the eccentricity of the orbit. The last equality comes from the definition of the orbital period, @eq:ellipse-period-useful.
 
-Substituting Eq. {eq}`eq:mean-anomaly-definition` into Eq. {eq}`eq:keplers-equation-area`, we find **Kepler's Equation** for an ellipse:
+Substituting @eq:mean-anomaly-definition into @eq:keplers-equation-area, we find **Kepler's Equation** for an ellipse:
 
 :::{math}
 :label: eq:keplers-equation-ellipse
@@ -252,8 +251,8 @@ This equation is super important in the field of orbital mechanics, which is why
 
 Now we have two of the three equations we need to solve problems relating elapsed time and true anomaly:
 
-1. Eq. {eq}`eq:mean-anomaly-definition` gives us a relationship between $t$ and $M_e$
-2. Kepler's equation, Eq. {eq}`eq:keplers-equation-ellipse` gives us the relationship between $M_e$ and $E$
+1. @eq:mean-anomaly-definition gives us a relationship between $t$ and $M_e$
+2. Kepler's equation, @eq:keplers-equation-ellipse gives us the relationship between $M_e$ and $E$
 
 The last step is to relate the eccentric anomaly to the true anomaly.
 
@@ -261,7 +260,7 @@ The last step is to relate the eccentric anomaly to the true anomaly.
 
 ## Eccentric Anomaly
 
-The eccentric anomaly, $E$, is defined as the angle from the $x$ axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly $\nu$ on the ellipse. This is shown in {numref}`fig:true-mean-eccentric-anomalies` and {numref}`fig:definition-of-eccentric-anomaly-ellipse`.
+The eccentric anomaly, $E$, is defined as the angle from the $x$ axis to a point on a circle that circumscribes the orbital ellipse and where the point is located vertically above a point with true anomaly $\nu$ on the ellipse. This is shown in @fig:true-mean-eccentric-anomalies and @fig:definition-of-eccentric-anomaly-ellipse.
 
 :::{figure} ../images/definition-of-eccentric-anomaly-ellipse.svg
 :name: fig:definition-of-eccentric-anomaly-ellipse
@@ -270,7 +269,7 @@ The eccentric anomaly, $E$, is defined as the angle from the $x$ axis to a point
 The eccentric anomaly. The blue ellipse is the trajectory of the spacecraft; the green circle is circumscribed around the ellipse. Point $O$ is the origin, point $F$ is the focus of the ellipse, point $S$ is the spacecraft, point $P$ is the intersection of the apse line and a perpendicular line through $S$, and point $Q$ is the intersection of the circle and the perpendicular line through $S$.
 :::
 
-From {numref}`fig:definition-of-eccentric-anomaly-ellipse`, we see that the distance $OP$ is equal to:
+From @fig:definition-of-eccentric-anomaly-ellipse, we see that the distance $OP$ is equal to:
 
 :::{math}
 :label: eq:OP-distance-ellipse
@@ -284,7 +283,7 @@ where $a$ is the semimajor axis of the ellipse, $e$ is the eccentricity, and the
 FP = r \cos\nu
 :::
 
-Combining Eq. {eq}`eq:OP-distance-ellipse` and Eq. {eq}`eq:FP-distance-ellipse`, we find:
+Combining @eq:OP-distance-ellipse and @eq:FP-distance-ellipse, we find:
 
 :::{math}
 :label:
@@ -315,10 +314,10 @@ Unfortunately, these equations result in a quadrant ambiguity. We can resolve th
 The inverse tangent function is not multi-valued for a given value of $\nu$ or $E$, so this resolves the quadrant ambiguity.
 
 ```{note}
-**Note:** Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse` can be solved in Python with `np.arctan()` and in Matlab with `atan()`. It is not necessary to use `np.arctan2()` or `atan2()`. Make sure all your arguments are in terms of radians!
+**Note:** @eq:eccentric-anomaly-true-anomaly-ellipse can be solved in Python with `np.arctan()` and in Matlab with `atan()`. It is not necessary to use `np.arctan2()` or `atan2()`. Make sure all your arguments are in terms of radians!
 ```
 
-Now with Eqs. {eq}`eq:keplers-equation-ellipse`, {eq}`eq:eccentric-anomaly-true-anomaly-ellipse`, and {eq}`eq:mean-anomaly-definition` we have the three equations we need to solve time since periapsis problems!
+Now with Eqs. @eq:keplers-equation-ellipse, @eq:eccentric-anomaly-true-anomaly-ellipse, and @eq:mean-anomaly-definition we have the three equations we need to solve time since periapsis problems!
 
 :::{hint}
 The next section describes an alternate means of deriving these equations from calculus and trigonometric manipulations. I find these derivations interesting, but you may not! Feel free to skip to the examples in the next pages, starting with [](./elliptical-orbit-example.md).
@@ -328,7 +327,7 @@ The next section describes an alternate means of deriving these equations from c
 
 ## An Alternative Derivation
 
-Now we will pursue the second way to derive Kepler's equation and the related equations for mean and eccentric anomaly. Recall the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, defined in terms of the true anomaly:
+Now we will pursue the second way to derive Kepler's equation and the related equations for mean and eccentric anomaly. Recall the orbit equation, @eq:scalar-orbit-equation, defined in terms of the true anomaly:
 
 :::{math}
 r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}
@@ -341,7 +340,7 @@ We now want to relate the true anomaly, $\nu$, to time. The rate of change of th
 v_{\perp} = r \dot{\nu} = r \frac{d\nu}{dt}
 :::
 
-The $v_{\perp}$ term in Eq. {eq}`eq:rate-of-change-of-true-anomaly` makes the equation more complicated than it needs to be, so we'd like to replace it. A more convenient form of Eq. {eq}`eq:rate-of-change-of-true-anomaly` is found by using the specific angular momentum to replace $v_{\perp}$, since $h$ is constant:
+The $v_{\perp}$ term in @eq:rate-of-change-of-true-anomaly makes the equation more complicated than it needs to be, so we'd like to replace it. A more convenient form of @eq:rate-of-change-of-true-anomaly is found by using the specific angular momentum to replace $v_{\perp}$, since $h$ is constant:
 
 :::{math}
 :label:
@@ -369,10 +368,10 @@ where $t_p$ is defined as the **time since periapsis**. Remember that periapsis 
 \frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
 :::
 
-The integral on the right-hand side of Eq. {eq}`eq:time-since-periapsis` can be found in standard tables of integrals {cite}`Gradshtein2007,Zwillinger2003`. There are three forms of the equation, depending on the value of $e$. In this section, we'll show the equation for $e < 1$ and the other equations will be shown in the sections for the [parabola](./parabolic-trajectories.md) and [hyperbola](./hyperbolic-trajectories.md).
+The integral on the right-hand side of @eq:time-since-periapsis can be found in standard tables of integrals {cite}`Gradshtein2007,Zwillinger2003`. There are three forms of the equation, depending on the value of $e$. In this section, we'll show the equation for $e < 1$ and the other equations will be shown in the sections for the [parabola](./parabolic-trajectories.md) and [hyperbola](./hyperbolic-trajectories.md).
 
 :::{margin}
-In {cite}`Gradshtein2007` (available [here](http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf)), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for Eqs. {eq}`eq:time-since-periapsis-rhs-e-lt-1` and {eq}`eq:time-since-periapsis-rhs-e-gt-1`. In {cite}`Zwillinger2003` (available [here](https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&gbpv=1&pg=PA434&printsec=frontcover)), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for Eqs. {eq}`eq:time-since-periapsis-rhs-e-lt-1` and {eq}`eq:time-since-periapsis-rhs-e-gt-1`. I couldn't find the form for {eq}`eq:time-since-periapsis-rhs-e-eq-1` in those references. Note that $a = 1$ and $b = e$ to relate the reference equations to Eq. {eq}`eq:time-since-periapsis`.
+In {cite}`Gradshtein2007` (available [here](http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf)), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for Eqs. @eq:time-since-periapsis-rhs-e-lt-1 and @eq:time-since-periapsis-rhs-e-gt-1. In {cite}`Zwillinger2003` (available [here](https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&gbpv=1&pg=PA434&printsec=frontcover)), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for Eqs. @eq:time-since-periapsis-rhs-e-lt-1 and @eq:time-since-periapsis-rhs-e-gt-1. I couldn't find the form for @eq:time-since-periapsis-rhs-e-eq-1 in those references. Note that $a = 1$ and $b = e$ to relate the reference equations to @eq:time-since-periapsis.
 :::
 
 :::{math}
@@ -380,11 +379,11 @@ In {cite}`Gradshtein2007` (available [here](http://fisica.ciens.ucv.ve/~svincenz
 \int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(1 - e^2\right)^{3/2}}\left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]
 :::
 
-In Eq. {eq}`eq:time-since-periapsis-rhs-e-lt-1`, $e < 1$, so it will apply for circular and elliptical orbits.
+In @eq:time-since-periapsis-rhs-e-lt-1, $e < 1$, so it will apply for circular and elliptical orbits.
 
-When Eq. {eq}`eq:time-since-periapsis` is combined with Eq. {eq}`eq:time-since-periapsis-rhs-e-lt-1` we have a relationship where time is related to the true anomaly.
+When @eq:time-since-periapsis is combined with @eq:time-since-periapsis-rhs-e-lt-1 we have a relationship where time is related to the true anomaly.
 
-For circular and elliptical orbits, combining Eq. {eq}`eq:time-since-periapsis` and Eq. {eq}`eq:time-since-periapsis-rhs-e-lt-1` results in:
+For circular and elliptical orbits, combining @eq:time-since-periapsis and @eq:time-since-periapsis-rhs-e-lt-1 results in:
 
 :::{math}
 :label: eq:time-since-periapsis-ellipse
@@ -393,14 +392,14 @@ For circular and elliptical orbits, combining Eq. {eq}`eq:time-since-periapsis` 
 
 ## Mean Anomaly
 
-We define the term in the square brackets in Eq. {eq}`eq:time-since-periapsis-ellipse` to be the **mean anomaly**, $M_e$, where the subscript $e$ indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.
+We define the term in the square brackets in @eq:time-since-periapsis-ellipse to be the **mean anomaly**, $M_e$, where the subscript $e$ indicates that this is for the ellipse. We will have different equations for the parabola and hyperbola.
 
 :::{math}
 :label: eq:mean-anomaly-ellipse-with-nu
 M_e = \left[2\tan^{-1}\left(\sqrt{\frac{1 - e}{1 + e}}\tan\frac{\nu}{2}\right)-\frac{e\sqrt{1 - e^2}\sin \nu}{1 + e \cos \nu}\right]
 :::
 
-The mean anomaly is a monotonically increasing function of the true anomaly, as shown in {numref}`fig:mean-vs-true-anomaly-ellipse`. This is good because it means that $M_e$ can be used in place of $\nu$ for all four quadrants on the $x$-$y$ plane. If $M_e$ had a peak, we would have to be concerned about which quadrant we were in.
+The mean anomaly is a monotonically increasing function of the true anomaly, as shown in @fig:mean-vs-true-anomaly-ellipse. This is good because it means that $M_e$ can be used in place of $\nu$ for all four quadrants on the $x$-$y$ plane. If $M_e$ had a peak, we would have to be concerned about which quadrant we were in.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -444,7 +443,7 @@ Mean anomaly as a function of true anomaly for a range of eccentricities. Note t
 
 Notice that when $e = 0$ (a circular orbit), the mean anomaly and true anomaly are equal.
 
-Plugging Eq. {eq}`eq:mean-anomaly-ellipse-with-nu` into Eq. {eq}`eq:time-since-periapsis-ellipse` and solving for $M_e$, we find:
+Plugging @eq:mean-anomaly-ellipse-with-nu into @eq:time-since-periapsis-ellipse and solving for $M_e$, we find:
 
 :::{math}
 :label: eq:mean-anomaly-ellipse
@@ -465,19 +464,19 @@ For a circle, the mean anomaly equals the true anomaly:
 \nu_{\text{circle}} = \frac{2\pi}{T} t
 :::
 
-Further solution is not needed if the orbit is circular. Now we have the relationship between mean anomaly and time that we need for solution of these problems. Note that Eq. {eq}`eq:mean-anomaly-definition` and Eqs. {eq}`eq:mean-anomaly-ellipse` and {eq}`eq:mean-anomaly-ellipse-period` are exactly identical.
+Further solution is not needed if the orbit is circular. Now we have the relationship between mean anomaly and time that we need for solution of these problems. Note that @eq:mean-anomaly-definition and Eqs. @eq:mean-anomaly-ellipse and @eq:mean-anomaly-ellipse-period are exactly identical.
 
 The procedure to find the eccentric anomaly is the same as in the {ref}`previous section <sec:ellipse-eccentric-anomaly>`, so we can move on to deriving Kepler's equation.
 
 ## Kepler's Equation
 
-Some further trigonometry with Eq. {eq}`eq:cos-eccentric-anomaly-ellipse`, Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse`, and Eq. {eq}`eq:time-since-periapsis-ellipse` yields **Kepler's Equation**:
+Some further trigonometry with @eq:cos-eccentric-anomaly-ellipse, @eq:eccentric-anomaly-true-anomaly-ellipse, and @eq:time-since-periapsis-ellipse yields **Kepler's Equation**:
 
 :::{math}
 M_e = E - e \sin E
 :::
 
-This gives the relationship between mean anomaly and eccentric anomaly. The value of $M_e$ monotonically increases as a function of $E$, as shown in {numref}`fig:mean-eccentric-anomaly-ellipse` for several values of $e$.
+This gives the relationship between mean anomaly and eccentric anomaly. The value of $M_e$ monotonically increases as a function of $E$, as shown in @fig:mean-eccentric-anomaly-ellipse for several values of $e$.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -517,7 +516,7 @@ Now we have all the pieces we need to apply the solution procedures discussed in
 
 ### Given True Anomaly, Find Time Since Periapsis
 
-Given a value of the true anomaly $\nu$, the eccentric anomaly $E$ can be calculated from Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse`. Then, Kepler's Equation can be solved to find $M_e$, and the time since periapsis is found by:
+Given a value of the true anomaly $\nu$, the eccentric anomaly $E$ can be calculated from @eq:eccentric-anomaly-true-anomaly-ellipse. Then, Kepler's Equation can be solved to find $M_e$, and the time since periapsis is found by:
 
 :::{math}
 :label:
@@ -526,9 +525,9 @@ t = \frac{M_e}{2\pi} T
 
 ### Given Time Since Periapsis, Find True Anomaly
 
-If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we must first solve Eq. {eq}`eq:mean-anomaly-ellipse-period` for $M_e$. Then we need to solve Kepler's equation for $E$. Unfortunately, this equation is transcendental in $E$, so it cannot be solved analytically. There are several methods to solve Kepler's equation, depending on the level of accuracy required and the access to computational tools.
+If, on the other hand, we are given the time since periapsis and want to find the true anomaly, we must first solve @eq:mean-anomaly-ellipse-period for $M_e$. Then we need to solve Kepler's equation for $E$. Unfortunately, this equation is transcendental in $E$, so it cannot be solved analytically. There are several methods to solve Kepler's equation, depending on the level of accuracy required and the access to computational tools.
 
-Once $E$ is determined, Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse` can be solved for $\nu$.
+Once $E$ is determined, @eq:eccentric-anomaly-true-anomaly-ellipse can be solved for $\nu$.
 
 ### Newton's Method to Solve Kepler's Equation
 

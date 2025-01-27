@@ -13,12 +13,12 @@ kernelspec:
 
 # Example: Time in Earth's Shadow
 
-A satellite is in a 500 km by 5000 km orbit with its apse line parallel to the line from the Earth to the Sun, as in {numref}`fig:ellipse-time-in-shadow-figure`. Find the time that the satellite is in the Earth's shadow if:
+A satellite is in a 500 km by 5000 km orbit with its apse line parallel to the line from the Earth to the Sun, as in @fig:ellipse-time-in-shadow-figure. Find the time that the satellite is in the Earth's shadow if:
 
 1. the apogee is toward the Sun
 2. the perigee is toward the Sun
 
-{numref}`fig:ellipse-time-in-shadow-figure` shows the shaded and sunlit regions of the orbit. The satellite will be in shade when its orbit intersects the lines at the edge of the Earth, on the other side from the Sun. When apogee is towards the Sun, the satellite is in the shade from $a$ to $b$, and when perigee is towards the Sun, the satellite is in the shade from $c$ to $d$.
+@fig:ellipse-time-in-shadow-figure shows the shaded and sunlit regions of the orbit. The satellite will be in shade when its orbit intersects the lines at the edge of the Earth, on the other side from the Sun. When apogee is towards the Sun, the satellite is in the shade from $a$ to $b$, and when perigee is towards the Sun, the satellite is in the shade from $c$ to $d$.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -128,16 +128,16 @@ glue("ellipse-time-in-shadow-T", T/3600)
 
 The eccentricity of the orbit is $e =$ {glue:text}`ellipse-time-in-shadow-e:.4f`, the semimajor axis distance is $a =$ {glue:text}`ellipse-time-in-shadow-a:.2f` km, and the period is $T =$ {glue:text}`ellipse-time-in-shadow-T:.2f` hr. Then, we need to solve for the value of $\nu$ at $b$ and $c$. With this value of $\nu$, we can find the time to fly between the two points. This will tell us the time the satellite is in the shade.
 
-From {numref}`fig:ellipse-time-in-shadow-figure`, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the Earth. This gives:
+From @fig:ellipse-time-in-shadow-figure, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the Earth. This gives:
 
 :::{math}
 :label: eq:ellipse-time-in-shadow-right-triangle
 r = \frac{R_E}{\sin\nu}
 :::
 
-However, we don't know $r_a$ or $r_b$ to be able to find $\nu$. We need another equation, and the orbit equation Eq. {eq}`eq:scalar-orbit-equation` will serve.
+However, we don't know $r_a$ or $r_b$ to be able to find $\nu$. We need another equation, and the orbit equation @eq:scalar-orbit-equation will serve.
 
-Now, we can set Eq. {eq}`eq:scalar-orbit-equation` and Eq. {eq}`eq:ellipse-time-in-shadow-right-triangle` equal to each other and solve for $\nu$. We end up with a complicated equation for $\nu$:
+Now, we can set @eq:scalar-orbit-equation and @eq:ellipse-time-in-shadow-right-triangle equal to each other and solve for $\nu$. We end up with a complicated equation for $\nu$:
 
 :::{math}
 :label: eq:ellipse-shadow-function
@@ -173,10 +173,10 @@ glue("ellipse-time-in-shadow-nu-function", fig)
 :::{glue:figure} ellipse-time-in-shadow-nu-function
 :name: fig:ellipse-time-in-shadow-nu-function
 
-The solution of Eq. {eq}`eq:ellipse-shadow-function`.
+The solution of @eq:ellipse-shadow-function.
 :::
 
-From {numref}`fig:ellipse-time-in-shadow-nu-function`, we can see there are two roots, one near $\nu =$ 1 and one near $\nu =$ 2.5, both in radians. Now we can use `scipy.optimize.newton()` to solve the equation. Since we know the approximate roots from {numref}`fig:ellipse-time-in-shadow-nu-function`, we can use those as initial guesses for the result. Examining {numref}`fig:ellipse-time-in-shadow-figure`, we see that $\nu \approx$ 1 radians, or approximately 60°, corresponds to point b. $\nu \approx$ 2.5, or approximately 140°, corresponds to point c.
+From @fig:ellipse-time-in-shadow-nu-function, we can see there are two roots, one near $\nu =$ 1 and one near $\nu =$ 2.5, both in radians. Now we can use `scipy.optimize.newton()` to solve the equation. Since we know the approximate roots from @fig:ellipse-time-in-shadow-nu-function, we can use those as initial guesses for the result. Examining @fig:ellipse-time-in-shadow-figure, we see that $\nu \approx$ 1 radians, or approximately 60°, corresponds to point b. $\nu \approx$ 2.5, or approximately 140°, corresponds to point c.
 
 ```{code-cell} ipython3
 nu_b = newton(func=shadow, x0=1, args=(e, a, R_E))  # rad

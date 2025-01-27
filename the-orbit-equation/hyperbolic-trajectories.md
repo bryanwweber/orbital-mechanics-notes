@@ -17,7 +17,7 @@ When $e > 1$, the geometry of the trajectory is a hyperbola. The shape of a hype
 
 All interplanetary bodies such as comets or asteroids that approach the Earth, or any spacecraft we want to send to other planets, must be on a hyperbolic trajectory. Whereas a parabolic trajectory has zero velocity at infinite radius, the hyperbolic trajectory has some non-zero velocity.
 
-From the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, we see that the denominator goes to zero when $1 + e\cos\nu$ goes to zero. The true anomaly when this happens is called the **true anomaly of the asymptote**:
+From the orbit equation, @eq:scalar-orbit-equation, we see that the denominator goes to zero when $1 + e\cos\nu$ goes to zero. The true anomaly when this happens is called the **true anomaly of the asymptote**:
 
 :::{math}
 :label: eq:hyperbolic-true-anomaly-asymptote
@@ -26,7 +26,7 @@ From the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, we see that the den
 
 As the true anomaly approaches $\nu_{\infty}$, $r$ approaches infinity. $\nu_{\infty}$ is restricted to be between 90° and 180°.
 
-For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory shown on the left in {numref}`fig:hyperbolic-trajectory-animation`. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory on the figure below. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
+For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory shown on the left in @fig:hyperbolic-trajectory-animation. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory on the figure below. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -78,7 +78,7 @@ We can determine the semi-major axis of the orbit by inspection from a drawing:
 a = \frac{-r_a - r_p}{2} = \frac{h^2}{\mu}\frac{1}{e^2 - 1}
 :::
 
-Note that since $a$ is a distance, it is positive even though $r_a$ is negative. Then, we can rearrange the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, to find:
+Note that since $a$ is a distance, it is positive even though $r_a$ is negative. Then, we can rearrange the orbit equation, @eq:scalar-orbit-equation, to find:
 
 :::{math}
 :label: eq:hyperbolic-orbit-equation
@@ -110,7 +110,7 @@ The specific energy of a hyperbolic trajectory is:
 E = \frac{\mu}{2a}
 :::
 
-Note tha the specific energy is positive. Plugging this in to Eq. {eq}`eq:integrate-energy-equation`, we find:
+Note tha the specific energy is positive. Plugging this in to @eq:integrate-energy-equation, we find:
 
 :::{math}
 :label: eq:hyperbolic-energy-equation
@@ -124,7 +124,7 @@ If we denote $v_{\infty}$ as the speed of an object as $r\rightarrow\infty$, the
 v_{\infty} = \sqrt{\frac{\mu}{a}}
 :::
 
-$v_{\infty}$ is called the **hyperbolic excess speed**. By putting Eq. {eq}`eq:integrate-energy-equation` in terms of $v_{\infty}$, we find that the excess speed is the kinetic energy in excess of that required to simply escape the gravity well of the primary mass:
+$v_{\infty}$ is called the **hyperbolic excess speed**. By putting @eq:integrate-energy-equation in terms of $v_{\infty}$, we find that the excess speed is the kinetic energy in excess of that required to simply escape the gravity well of the primary mass:
 
 :::{math}
 :label: eq:hyperbolic-velocity-excess-escape

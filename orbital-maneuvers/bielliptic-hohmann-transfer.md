@@ -4,7 +4,7 @@ Hohmann {cite}`Hohmann1960` showed that the Hohmann transfer is the most efficie
 
 Assume that the initial and target orbits are circular. A [Bi-elliptic Hohmann transfer](https://en.wikipedia.org/wiki/Bi-elliptic_transfer) starts by departing the initial orbit onto an elliptical transfer orbit whose apoapsis is at a _higher altitude_ than the target orbit. Upon reaching apoapsis of the first transfer orbit, the velocity is boosted again onto a second transfer orbit. This second transfer orbit has the same periapsis altitude as the target orbit.
 
-This situation is shown in {numref}`fig:bi-elliptic-hohmann-transfer`. The upper, green, transfer orbit is the first ellipse. Point 2 is at a higher altitude than the target, red, orbit. The lower, orange, transfer orbit has the same periapsis altitude as the target orbit.
+This situation is shown in @fig:bi-elliptic-hohmann-transfer. The upper, green, transfer orbit is the first ellipse. Point 2 is at a higher altitude than the target, red, orbit. The lower, orange, transfer orbit has the same periapsis altitude as the target orbit.
 
 :::{figure} ../images/Bi-elliptic_transfer.svg
 :width: 50%

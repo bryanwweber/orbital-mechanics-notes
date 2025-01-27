@@ -13,7 +13,7 @@ kernelspec:
 
 # Hyperbolic Trajectories ($e > 1$)
 
-In the {ref}`section for ellipses <sec:alternate-keplers-equation-derivation>`, we found Eq. {eq}`eq:time-since-periapsis`:
+In the {ref}`section for ellipses <sec:alternate-keplers-equation-derivation>`, we found @eq:time-since-periapsis:
 
 :::{math}
 \frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
@@ -26,9 +26,9 @@ The third solution to the right hand side, when $e > 1$ is:
 \int\frac{d\nu}{\left(1 + e\cos \nu\right)^2} = \frac{1}{\left(e^2 - 1\right)^{3/2}}\left[\frac{e\sqrt{e^2 - 1}\sin \nu}{1 + e\cos \nu} - \ln\left(\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right)\right]
 :::
 
-In Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1`, $e > 1$, so it will apply for hyperbolic trajectories.
+In @eq:time-since-periapsis-rhs-e-gt-1, $e > 1$, so it will apply for hyperbolic trajectories.
 
-For the hyperbola, combining Eq. {eq}`eq:time-since-periapsis` and Eq. {eq}`eq:time-since-periapsis-rhs-e-gt-1` results in:
+For the hyperbola, combining @eq:time-since-periapsis and @eq:time-since-periapsis-rhs-e-gt-1 results in:
 
 :::{math}
 :label: eq:mean-anomaly-hyperbola
@@ -42,7 +42,7 @@ where
 M_h = \frac{\mu^2}{h^3} t \left(e^2 - 1\right)^{3/2}
 :::
 
-The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic function of the true anomaly, as shown in {numref}`fig:mean-anomaly-hyperbola-function`.
+The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic function of the true anomaly, as shown in @fig:mean-anomaly-hyperbola-function.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -89,7 +89,7 @@ Notice that $\nu$ cannot exceed $\nu_{\infty} = \cos^{-1}(-1 / e)$.
 
 ## Hyperbolic Eccentric Anomaly
 
-Similar to the ellipse, we will define an auxiliary angle $F$ to simplify the equations. $F$ is defined with reference to the hyperbola in {numref}`fig:hyperbolic-eccentric-anomaly-figure`.
+Similar to the ellipse, we will define an auxiliary angle $F$ to simplify the equations. $F$ is defined with reference to the hyperbola in @fig:hyperbolic-eccentric-anomaly-figure.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -234,7 +234,7 @@ And, with a little more algebra and trigonometry, we find an equation for $F$ in
 
 ## Kepler's Equation for the Hyperbola
 
-Substituting this back into Eq. {eq}`eq:mean-anomaly-hyperbola`, we find **Kepler's equation for the hyperbola**:
+Substituting this back into @eq:mean-anomaly-hyperbola, we find **Kepler's equation for the hyperbola**:
 
 :::{math}
 :label: eq:hyperbolic-keplers-equation
@@ -255,7 +255,7 @@ To aid in the numerical solution, the derivative of Kepler's equation for the hy
 f'(F) = e \cosh F - 1
 :::
 
-In addition, we can estimate an initial value for the guess of $F$ from {numref}`fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly`, with a known $M_h$ value.
+In addition, we can estimate an initial value for the guess of $F$ from @fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly, with a known $M_h$ value.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -288,4 +288,4 @@ The hyperbolic mean anomaly as a function of the eccentric anomaly
  \log_{10}(40.69) = 1.6
  :::
 
-From {numref}`fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly`, we estimate that $F =$ 4, and we can use this as the initial guess for a Newton solver. Remember that for your guess it is not important to be very precise, since the solver just needs a hint about where to start finding the root.
+From @fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly, we estimate that $F =$ 4, and we can use this as the initial guess for a Newton solver. Remember that for your guess it is not important to be very precise, since the solver just needs a hint about where to start finding the root.

@@ -1,6 +1,6 @@
 # The Orbit Equation
 
-Now, we'll return to the equation of relative motion, Eq. {eq}`eq:two-body-relative-motion`, repeated here for reference:
+Now, we'll return to the equation of relative motion, @eq:two-body-relative-motion, repeated here for reference:
 
 :::{math}
 \ddot{\vector{r}} = -\left(\frac{\mu}{r^3}\right)\vector{r}
@@ -22,7 +22,7 @@ To make this easy to integrate, we want both sides to be $d/dt(\ldots)$. Let's t
 \frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \ddot{\vector{r}}\cross\vector{h} + \dot{\vector{r}}\cross\dot{\vector{h}}
 :::
 
-But the angular momentum is constant, so its derivative $\dot{\vector{h}} = \vector{0}$ and the second term in Eq. {eq}`eq:relative-motion-cross-h-lhs` is zero. Therefore:
+But the angular momentum is constant, so its derivative $\dot{\vector{h}} = \vector{0}$ and the second term in @eq:relative-motion-cross-h-lhs is zero. Therefore:
 
 :::{math}
 \frac{d}{dt}\left(\dot{\vector{r}}\cross\vector{h}\right) = \ddot{\vector{r}}\cross\vector{h} = -\left(\frac{\mu}{r^3}\right)\vector{r}\cross\vector{h}
@@ -59,7 +59,7 @@ where $\vector{B}$ is called the **Laplace vector** and is the constant of integ
 \frac{\vector{r}}{r} + \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu}
 :::
 
-where $\vector{e} = \vector{B}/\mu$ and is called the **eccentricity vector**. Since $\vector{B}$ lies in the orbital plane, $\vector{e}$ also lies in the orbital plane. The line along $\vector{e}$ is called the **apse line**. These coordinates are shown in {numref}`fig:apse-line`.
+where $\vector{e} = \vector{B}/\mu$ and is called the **eccentricity vector**. Since $\vector{B}$ lies in the orbital plane, $\vector{e}$ also lies in the orbital plane. The line along $\vector{e}$ is called the **apse line**. These coordinates are shown in @fig:apse-line.
 
 :::{figure} ../images/apse-line.svg
 :name: fig:apse-line
@@ -67,26 +67,26 @@ where $\vector{e} = \vector{B}/\mu$ and is called the **eccentricity vector**. S
 The eccentricity vector lies in the plane of the orbit, starting at the occupied focus and pointing towards the point of closest approach. A line through this vector is the apse line. The true anomaly is the angle from the apse line to the current position vector from $m_1$ to $m_2$.
 :::
 
-We now want to transform Eq. {eq}`eq:vector-orbit-equation` to be in terms of $r$ and $\nu$, which is called the **true anomaly**, defined as the angle from the apse line to the $m_2$. This will result in a scalar equation, which is easier to work with than the vector equation.
+We now want to transform @eq:vector-orbit-equation to be in terms of $r$ and $\nu$, which is called the **true anomaly**, defined as the angle from the apse line to the $m_2$. This will result in a scalar equation, which is easier to work with than the vector equation.
 
-To obtain a scalar equation, we take the dot product of Eq. {eq}`eq:vector-orbit-equation` with $\vector{r}$. After some algebra, we end up at:
+To obtain a scalar equation, we take the dot product of @eq:vector-orbit-equation with $\vector{r}$. After some algebra, we end up at:
 
 :::{math}
 :label: eq:scalar-orbit-equation
 r = \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu}
 :::
 
-where $e = \mag{\vector{e}}$ is called the **eccentricity**. Eq. {eq}`eq:scalar-orbit-equation` is called the **orbit equation** and it defines the path of $m_2$ around $m_1$, relative to $m_1$. In this equation, $h$, $e$, and $\mu$ are all constant. Since $e$ is the magnitude of $\vector{e}$, it is strictly positive, $e \geq 0$.
+where $e = \mag{\vector{e}}$ is called the **eccentricity**. @eq:scalar-orbit-equation is called the **orbit equation** and it defines the path of $m_2$ around $m_1$, relative to $m_1$. In this equation, $h$, $e$, and $\mu$ are all constant. Since $e$ is the magnitude of $\vector{e}$, it is strictly positive, $e \geq 0$.
 
 :::{important}
-Put a big star next to Eq. {eq}`eq:scalar-orbit-equation`. We are going to use it for the rest of the course!
+Put a big star next to @eq:scalar-orbit-equation. We are going to use it for the rest of the course!
 :::
 
 ```{margin}
 **Conic sections** are the curve formed by the intersection of a plane and a cone. 3Blue1Brown has an awesome [video](https://youtu.be/pQa_tWZmlGs) covering why ellipses are formed from the intersection of a cone and a plane.
 ```
 
-The orbit equation describes [**conic sections**](https://en.wikipedia.org/wiki/Conic_section), meaning that all orbits are one of four types, as shown in {numref}`fig:TypesOfConicSections`. The particular type of orbit is determined by the magnitude of the eccentricity:
+The orbit equation describes [**conic sections**](https://en.wikipedia.org/wiki/Conic_section), meaning that all orbits are one of four types, as shown in @fig:TypesOfConicSections. The particular type of orbit is determined by the magnitude of the eccentricity:
 
 1. Circles: $e = 0$
 2. Ellipses: $0 < e < 1$

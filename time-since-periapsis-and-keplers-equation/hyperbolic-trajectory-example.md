@@ -23,7 +23,7 @@ As for the elliptical case, the solution has three steps:
 2. Find the hyperbolic mean anomaly, $M_h$, from the eccentric anomaly
 3. Find the time since perigee, $t$, from the mean anomaly
 
-Eq. {eq}`eq:eccentric-anomaly-true-anomaly-hyperbola` gives the eccentric anomaly in terms of the true anomaly. The only unknown parameter is the eccentricity of the hyperbola, which we need to find from the given orbital elements. Since we have $v_p$ and $r_p$ in the problem statement, we can calculate the angular momentum followed by the eccentricity.
+@eq:eccentric-anomaly-true-anomaly-hyperbola gives the eccentric anomaly in terms of the true anomaly. The only unknown parameter is the eccentricity of the hyperbola, which we need to find from the given orbital elements. Since we have $v_p$ and $r_p$ in the problem statement, we can calculate the angular momentum followed by the eccentricity.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -51,7 +51,7 @@ glue("hyperbolic-time-since-perigee-e", e)
 
 The eccentricity is $e =$ {glue:text}`hyperbolic-time-since-perigee-e:.4f`. Since $e > 1$, this trajectory is a hyperbola.
 
-We should find the true anomaly of the asymptote from Eq. {eq}`eq:hyperbolic-true-anomaly-asymptote`, to ensure that our desired true anomaly is valid.
+We should find the true anomaly of the asymptote from @eq:hyperbolic-true-anomaly-asymptote, to ensure that our desired true anomaly is valid.
 
 ```{code-cell} ipython3
 nu_infty = np.arccos(-1 / e)
@@ -68,13 +68,13 @@ The true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`hyperbolic-tim
 F_1 = 2 * np.arctanh(np.sqrt((e - 1)/(e + 1)) * np.tan(nu_1 / 2))
 ```
 
-Then, the mean anomaly is found from Kepler's equation, Eq. {eq}`eq:hyperbolic-keplers-equation`:
+Then, the mean anomaly is found from Kepler's equation, @eq:hyperbolic-keplers-equation:
 
 ```{code-cell} ipython3
 M_h1 = e * np.sinh(F_1) - F_1
 ```
 
-Finally, calculating the time from the mean anomaly is done from the definition of the mean anomaly, Eq. {eq}`eq:hyperbolic-mean-anomaly`:
+Finally, calculating the time from the mean anomaly is done from the definition of the mean anomaly, @eq:hyperbolic-mean-anomaly:
 
 ```{code-cell} ipython3
 t_1 = h**3 / mu**2 * 1 / (e**2 - 1)**(3/2) * M_h1
@@ -128,7 +128,7 @@ def d_kepler_d_F(F, M_h, e):
 F_2 = newton(func=kepler, fprime=d_kepler_d_F, x0=np.pi, args=(M_h2, e))
 ```
 
-With this value for $F$, we can calculate the value for $\nu$. To avoid quadrant ambiguity problems, we will use Eq. {eq}`eq:eccentric-anomaly-true-anomaly-hyperbola`.
+With this value for $F$, we can calculate the value for $\nu$. To avoid quadrant ambiguity problems, we will use @eq:eccentric-anomaly-true-anomaly-hyperbola.
 
 ```{code-cell} ipython3
 sqrt_e = np.sqrt((e + 1) / (e - 1))
@@ -148,13 +148,13 @@ The true anomaly after {glue:text}`hyperbolic-time-since-perigee-t_2:.2f` hr is 
 
 ## Calculate the Speed of the Spacecraft
 
-To find the speed, we will calculate the velocity components. The radius at $\nu_2 =$ {glue:text}`hyperbolic-time-since-perigee-nu_2:.2f`° can be found from the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`.
+To find the speed, we will calculate the velocity components. The radius at $\nu_2 =$ {glue:text}`hyperbolic-time-since-perigee-nu_2:.2f`° can be found from the orbit equation, @eq:scalar-orbit-equation.
 
 ```{code-cell} ipython3
 r_2 = h**2 / mu / (1 + e * np.cos(nu_2))
 ```
 
-The velocity components can be found from Eqs. {eq}`eq:perpendicular-velocity-component` and {eq}`eq:parallel-velocity-component`.
+The velocity components can be found from Eqs. @eq:perpendicular-velocity-component and @eq:parallel-velocity-component.
 
 ```{code-cell} ipython3
 v_perp = h / r_2

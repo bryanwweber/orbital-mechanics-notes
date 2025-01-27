@@ -12,7 +12,7 @@ According to Prussing and Conway {cite}`Prussing2013`:
 
 ## Equation of Relative Motion
 
-Recall the equation for the position of $m_2$ relative to $m_1$, Eq. {eq}`eq:relative-position-vector`, and repeated here:
+Recall the equation for the position of $m_2$ relative to $m_1$, @eq:relative-position-vector, and repeated here:
 
 :::{math}
 \begin{aligned}
@@ -22,14 +22,14 @@ Recall the equation for the position of $m_2$ relative to $m_1$, Eq. {eq}`eq:rel
 
 where lowercase $\vector{r}$ indicates that the vector is relative and uppercase $\vector{R}$ indicates that the vector is absolute.
 
-The equation of motion is derived from {eq}`eq:relative-position-vector` by differentiating twice:
+The equation of motion is derived from @eq:relative-position-vector by differentiating twice:
 
 :::{math}
 :label: eq:relative-acceleration-vector
 \ddot{\vector{r}} = \ddot{\vector{R}}_2 - \ddot{\vector{R}}_1
 :::
 
-The absolute acceleration is found from Eq. {eq}`eq:two-body-inertial-equation-of-motion`. Plugging in the results for the two absolute acceleration vectors:
+The absolute acceleration is found from @eq:two-body-inertial-equation-of-motion. Plugging in the results for the two absolute acceleration vectors:
 
 :::{math}
 \ddot{\vector{r}} = -G m_1 \frac{\vector{r}}{r^3} - G m_2 \frac{\vector{r}}{r^3}
@@ -56,9 +56,9 @@ The utility of this parameter is mostly for the case where $m_1 \gg m_2$. Fortun
 \mu \approx G m_1
 :::
 
-Therefore, we can tabulate values of $\mu$ for various celestial bodies, as shown in {numref}`tab:standard-gravitational-parameter`. To use any of the values here in your code, replace the `× 10^{<number>}` with `E<number>`, so `1.32712 × 10^{11}` becomes `1.32712E11`.
+Therefore, we can tabulate values of $\mu$ for various celestial bodies, as shown in @tab:standard-gravitational-parameter. To use any of the values here in your code, replace the `× 10^{<number>}` with `E<number>`, so `1.32712 × 10^{11}` becomes `1.32712E11`.
 
-Notice that the smallest object in {numref}`tab:standard-gravitational-parameter` is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in Eq. {eq}`eq:definition-of-mu`.
+Notice that the smallest object in @tab:standard-gravitational-parameter is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in @eq:definition-of-mu.
 
 :::{list-table} The standard gravitational parameter ($\mu$) and the mass for major celestial objects in the Solar System. See also: {ref}`sec:planetary-parameters` and {cite}`Park2021`
 :name: tab:standard-gravitational-parameter
@@ -114,7 +114,7 @@ Notice that the smallest object in {numref}`tab:standard-gravitational-parameter
   - {glue}`../reference/planetary-parameters.md::Pluto_GM_in_km`
 :::
 
-Returning to Eq. {eq}`eq:two-body-relative-motion-literal` and substituting $\mu$, we find:
+Returning to @eq:two-body-relative-motion-literal and substituting $\mu$, we find:
 
 :::{math}
 :label: eq:two-body-relative-motion
@@ -124,7 +124,7 @@ Returning to Eq. {eq}`eq:two-body-relative-motion-literal` and substituting $\mu
 This is a nonlinear, second-order ordinary differential equation. It can be solved analytically, if we can find the constants of integration. There are two vector constants of integration, each of which have three scalar components. Thus, there are six constants of integration that must be determined from the initial conditions.
 
 ```{note}
-Interestingly, the roles of $m_1$ and $m_2$ can be interchanged by multiplying Eq. {eq}`eq:two-body-relative-motion` by -1. Thus, the motion of $m_1$ relative to $m_2$ has the same shape as the reverse. In other words, if you were standing on the Moon, the Earth would appear to be orbiting you!
+Interestingly, the roles of $m_1$ and $m_2$ can be interchanged by multiplying @eq:two-body-relative-motion by -1. Thus, the motion of $m_1$ relative to $m_2$ has the same shape as the reverse. In other words, if you were standing on the Moon, the Earth would appear to be orbiting you!
 ```
 
 ## Motion Relative to the Center of Mass
@@ -161,19 +161,19 @@ where
 
 Thus, we can see that all three equations of relative motion:
 
-1. $m_2$ relative to $m_1$, Eq. {eq}`eq:two-body-relative-motion`
-2. $m_2$ relative to $\COG$, Eq. {eq}`eq:motion-of-m_2-relative-to-COG`
-3. $m_1$ relative to $\COG$, Eq. {eq}`eq:motion-of-m_1-relative-to-COG`
+1. $m_2$ relative to $m_1$, @eq:two-body-relative-motion
+2. $m_2$ relative to $\COG$, @eq:motion-of-m_2-relative-to-COG
+3. $m_1$ relative to $\COG$, @eq:motion-of-m_1-relative-to-COG
 
 have the same form, differing only in the constants. The solutions to these equations will all have the same shape! This means that if we find the solution in one reference frame, the solution will be the same shape in any other reference frame.
 
 ## Equation of Motion in a Co-moving Frame
 
-Now we are going to transform Eq. {eq}`eq:relative-position-vector` into a more convenient form. Since it is hard to define an inertial reference frame, the vectors $\vector{R}_1$ and $\vector{R}_2$ are unknown in general.
+Now we are going to transform @eq:relative-position-vector into a more convenient form. Since it is hard to define an inertial reference frame, the vectors $\vector{R}_1$ and $\vector{R}_2$ are unknown in general.
 
 In most of the problems that we work with, it is convenient to treat $m_1$ as the origin of the coordinate system. For example, in solving the motion of a satellite around Earth, we are most interested in where the satellite is relative to Earth. So a reference frame attached to the center of the Earth and moving with the Earth is quite convenient.
 
-A reference frame attached to, and moving with, $m_1$ is shown in {numref}`fig:coordinate-relative-to-m1`. In this reference frame, the components of $\vector{r}$ are:
+A reference frame attached to, and moving with, $m_1$ is shown in @fig:coordinate-relative-to-m1. In this reference frame, the components of $\vector{r}$ are:
 
 :::{math}
 :label: eq:position-vector-in-comoving-frame
@@ -203,7 +203,7 @@ We can find the relative velocity and acceleration:
 
 The absolute acceleration is equal to the relative acceleration only in the case where $\vector{\Omega}$ and $\dot{\vector{\Omega}}$, the angular velocity and angular acceleration respectively, of the moving reference frame, are zero. Therefore, this reference frame attached to $m_1$ cannot be rotating.
 
-Using the definition of $\vector{r}$ from Eq. {eq}`eq:position-vector-in-comoving-frame` and $\ddot{\vector{r}}$ from Eq. {eq}`eq:relative-velocity-and-acceleration`, we can rewrite the equation of relative motion, Eq. {eq}`eq:two-body-relative-motion`:
+Using the definition of $\vector{r}$ from @eq:position-vector-in-comoving-frame and $\ddot{\vector{r}}$ from @eq:relative-velocity-and-acceleration, we can rewrite the equation of relative motion, @eq:two-body-relative-motion:
 
 :::{math}
 :label: eq:two-body-relative-motion-components
@@ -214,4 +214,4 @@ Using the definition of $\vector{r}$ from Eq. {eq}`eq:position-vector-in-comovin
 \end{aligned}
 :::
 
-In the reference frame attached to $m_1$, Eq. {eq}`eq:two-body-relative-motion` can be solved numerically in exactly the same way as Eq. {eq}`eq:two-body-inertial-equation-of-motion` from [](./two-body-inertial-motion.md). Since the relative position, velocity, and acceleration vectors only have three components ($x$, $y$, $z$, etc.) the state vector will have 6 components instead of 12.
+In the reference frame attached to $m_1$, @eq:two-body-relative-motion can be solved numerically in exactly the same way as @eq:two-body-inertial-equation-of-motion from [](./two-body-inertial-motion.md). Since the relative position, velocity, and acceleration vectors only have three components ($x$, $y$, $z$, etc.) the state vector will have 6 components instead of 12.

@@ -9,7 +9,7 @@ r = \frac{h^2}{\mu}\frac{1}{1 + \cos\nu}
 
 For $\nu\rightarrow\pi$, then $\cos\nu\rightarrow -1$ and the bottom of that fraction goes to zero. Therefore, as $\nu\rightarrow\pi$, $r\rightarrow\infty$!
 
-When $e = 1$, the trajectory is a parabolic shape. By convention, the apse line lies along the $x$-axis and the parabola opens to the left, as shown in {numref}`fig:parabolic-orbit-definitions`.
+When $e = 1$, the trajectory is a parabolic shape. By convention, the apse line lies along the $x$-axis and the parabola opens to the left, as shown in @fig:parabolic-orbit-definitions.
 
 :::{figure} ../images/parabolic-orbit-definitions.svg
 :name: fig:parabolic-orbit-definitions
@@ -36,7 +36,7 @@ As $r\rightarrow\infty$, then $v\rightarrow 0$! Basically, $m_2$ will coast out 
 
 Since the path leads out and never comes back, the trajectory with $e = 1$ is also called an **escape trajectory**. The velocity necessary to escape from $m_1$ on a parabolic trajectory can then be found from the previous equation based on the current orbital radius of $m_2$.
 
-Let's start with a circular orbit with a radius $r$. The velocity is given by Eq. {eq}`eq:circular-orbit-velocity`. Assuming that we can instantaneously boost the spacecraft velocity to a parabolic trajectory, the velocity on the parabolic trajectory at the point where it is tangent to the circle is:
+Let's start with a circular orbit with a radius $r$. The velocity is given by @eq:circular-orbit-velocity. Assuming that we can instantaneously boost the spacecraft velocity to a parabolic trajectory, the velocity on the parabolic trajectory at the point where it is tangent to the circle is:
 
 :::{math}
 :label: eq:parabola-velocity-relative-to-circle
@@ -66,7 +66,7 @@ These equations can be combined and simplified to find that the flight path angl
 
 ## Orbital Parameter
 
-The orbital parameter $p$, also called the semi-latus rectum, is the distance perpendicular to the apse line from the focus to the trajectory. The value is given by Eq. {eq}`eq:semi-latus-rectum`. Plugging in $e = 1$ to the equation for the periapsis distance, Eq. {eq}`eq:distance-to-periapsis`, we find:
+The orbital parameter $p$, also called the semi-latus rectum, is the distance perpendicular to the apse line from the focus to the trajectory. The value is given by @eq:semi-latus-rectum. Plugging in $e = 1$ to the equation for the periapsis distance, @eq:distance-to-periapsis, we find:
 
 :::{math}
 :label: eq:parabolic-periapsis-distance

@@ -39,7 +39,7 @@ The eccentricity describes the deviation of the trajectory from a circle. When $
 
 ## $i$, the Inclination
 
-The [inclination](https://en.wikipedia.org/wiki/Orbital_inclination) is the angle from the $\uvec{K}$ axis in the reference frame to the angular momentum vector, $\vector{h}$, as shown in {numref}`fig:definition-of-inclination`. The inclination ranges from 0° to 180°.
+The [inclination](https://en.wikipedia.org/wiki/Orbital_inclination) is the angle from the $\uvec{K}$ axis in the reference frame to the angular momentum vector, $\vector{h}$, as shown in @fig:definition-of-inclination. The inclination ranges from 0° to 180°.
 
 ```{code-cell} python
 :tags: ["remove-input"]
@@ -64,7 +64,7 @@ Orbits from 90° to 180° are called **retrograde** orbits because they rotate c
 
 ## $\Omega$, the Right Ascension of the Ascending Node
 
-Consider an orbit inclined at angle $i$ to the reference plane of the coordinate system, as shown in {numref}`fig:definition-of-raan`. The spacecraft spends part of its time above the reference plane and part of the time below the reference plane.
+Consider an orbit inclined at angle $i$ to the reference plane of the coordinate system, as shown in @fig:definition-of-raan. The spacecraft spends part of its time above the reference plane and part of the time below the reference plane.
 
 ```{code-cell} python
 :tags: ["remove-input"]
@@ -94,7 +94,7 @@ If the orbit has an inclination of 0° or 180°, the right ascension of the asce
 
 ## $\omega$, the Argument of Periapsis
 
-In the [perifocal reference frame](./perifocal-frame.md), periapsis occurs at a true anomaly of 0°. The argument of periapsis determines how far around the orbit you have to go, starting at the ascending node, before you get to periapsis. This definition is shown in {numref}`fig:definition-of-argument-of-periapsis`.
+In the [perifocal reference frame](./perifocal-frame.md), periapsis occurs at a true anomaly of 0°. The argument of periapsis determines how far around the orbit you have to go, starting at the ascending node, before you get to periapsis. This definition is shown in @fig:definition-of-argument-of-periapsis.
 
 ```{code-cell} python
 :tags: ["remove-input"]

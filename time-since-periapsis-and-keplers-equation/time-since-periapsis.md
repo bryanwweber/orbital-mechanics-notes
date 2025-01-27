@@ -48,7 +48,7 @@ The **mean anomaly** for an ellipse is defined such that it is a constant rate t
 
 The **eccentric anomaly** is defined slightly differently. Imagine the same circle that touches the ellipse at periapsis and apoapsis. Now draw a line perpendicular to the semimajor axis from the orbit to the circle, at the current true anomaly. The angle to the point defined in this way on the circle is the eccentric anomaly.
 
-The three anomalies: true, mean, and eccentric, are shown in {numref}`fig:true-mean-eccentric-anomalies`.
+The three anomalies: true, mean, and eccentric, are shown in @fig:true-mean-eccentric-anomalies.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

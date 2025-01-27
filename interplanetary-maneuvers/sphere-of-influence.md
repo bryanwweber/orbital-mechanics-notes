@@ -4,7 +4,7 @@ As we discussed in the [introduction](./introduction.md) to this chapter, the me
 
 In this context, it is helpful to define where the planetary trajectories start and end. Newton's law of motion shows us that the force on a spacecraft varies inversely with the distance from all of the masses in a system. However, the method of patched conics requires us to have distinct starting and ending points for the trajectories.
 
-To define the start and end of the planetary trajectories, we define the [**sphere of influence**](https://en.wikipedia.org/wiki/Sphere_of_influence_(astrodynamics)) of each planet. The sphere of influence is illustrated by the dashed gray lines in {numref}`fig:interplanetary-transfer`, repeated here for reference.
+To define the start and end of the planetary trajectories, we define the [**sphere of influence**](https://en.wikipedia.org/wiki/Sphere_of_influence_(astrodynamics)) of each planet. The sphere of influence is illustrated by the dashed gray lines in @fig:interplanetary-transfer, repeated here for reference.
 
 :::{image} ../images/interplanetary-transfer.svg
 :width: 100%
@@ -30,7 +30,7 @@ where $m$ is the mass of the spacecraft and $\vector{F}_s$ and $\vector{F}_p$ ar
 \ddot{\vector{R}} = \vector{A}_s + \vector{P}_p
 :::
 
-In Eq. {eq}`eq:sphere-of-influence-accel-inertial`, $\vector{A}$ is the primary acceleration vector, which is due to the Sun in the inertial frame. On the other hand, $\vector{P}$ represents the perturbing acceleration vector, which is due to the planet.
+In @eq:sphere-of-influence-accel-inertial, $\vector{A}$ is the primary acceleration vector, which is due to the Sun in the inertial frame. On the other hand, $\vector{P}$ represents the perturbing acceleration vector, which is due to the planet.
 
 Next, we need to write the equations of motion of the spacecraft in a moving reference frame relative to the planet:
 
@@ -46,9 +46,9 @@ Dividing through by the mass again, we find:
 \ddot{\vector{r}} = \vector{a}_p + \vector{p}_s
 :::
 
-In Eq. {eq}`eq:sphere-of-influence-accel-relative`, $\vector{a}$ is the primary acceleration vector, which is due to the planet in the relative frame. On the other hand, $\vector{p}$ represents the perturbing acceleration vector, which is due to the Sun.
+In @eq:sphere-of-influence-accel-relative, $\vector{a}$ is the primary acceleration vector, which is due to the planet in the relative frame. On the other hand, $\vector{p}$ represents the perturbing acceleration vector, which is due to the Sun.
 
-Eq. {eq}`eq:sphere-of-influence-accel-inertial` and Eq. {eq}`eq:sphere-of-influence-accel-relative` show us that we can think of the accelerations of the spacecraft in terms of a primary acceleration and a perturbing acceleration. Taking the ratio of the magnitudes of these accelerations, we can draw two main conclusions:
+@eq:sphere-of-influence-accel-inertial and @eq:sphere-of-influence-accel-relative show us that we can think of the accelerations of the spacecraft in terms of a primary acceleration and a perturbing acceleration. Taking the ratio of the magnitudes of these accelerations, we can draw two main conclusions:
 
 1. When $p_s/a_p$ is large, then the spacecraft trajectory is significantly perturbed by the gravity of the Sun
 2. When $P_p/A_s$ is large, then the spacecraft trajectory is significantly perturbed by the gravity of the planet
@@ -71,11 +71,11 @@ The acceleration magnitudes are given by:
 
 where $m_p$ is the mass of the planet and $m_s$ is the mass of the Sun. Note that we are assuming that $R = R_p$. In other words, inside the sphere of radius, the distance from the Sun to the spacecraft is the same as the distance from the Sun to the planet. In addition, we are interested in the situation where the position of the spacecraft *relative to the planet*, given by $r$, is equal to the sphere of influence radius, such that $r = r_{\text{SOI}}$.
 
-Plugging Eq. {eq}`eq:sphere-of-influence-accel-magnitudes` into Eq. {eq}`eq:sphere-of-influence-ratios` and simplifying, we find:
+Plugging @eq:sphere-of-influence-accel-magnitudes into @eq:sphere-of-influence-ratios and simplifying, we find:
 
 :::{math}
 :label: eq:sphere-of-influence-radius
 r_{\text{SOI}} = R \left(\frac{m_p}{m_s}\right)^{2/5}
 :::
 
-where $R$ is the radius of the planet's orbit around the Sun. Eq. {eq}`eq:sphere-of-influence-radius` shows that $r_{\text{SOI}}$ is proportional to the orbital radius and the planet's mass. Larger planets or planets that are further away from the Sun have larger spheres of influence. Since the sphere of influence is based on a balance between the planet and the Sun, this interpretation makes sense.
+where $R$ is the radius of the planet's orbit around the Sun. @eq:sphere-of-influence-radius shows that $r_{\text{SOI}}$ is proportional to the orbital radius and the planet's mass. Larger planets or planets that are further away from the Sun have larger spheres of influence. Since the sphere of influence is based on a balance between the planet and the Sun, this interpretation makes sense.

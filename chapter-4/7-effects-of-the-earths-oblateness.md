@@ -90,7 +90,7 @@ $$\dot{\Omega} = 0.9856°/\mathrm{day} = 1.991\times 10^{-7} rad/s$$
 
 Notice that the node line must move eastward, so the orbital inclination must be greater than 90°.
 
-Returning to Eq. {eq}`regression-of-nodes`, we can see that if $\dot{\Omega}$ is specified, we have three free parameters: $a$, $e$, and $i$. This allows some choice of perigee and period, and inclination can then be solved for.
+Returning to @regression-of-nodes, we can see that if $\dot{\Omega}$ is specified, we have three free parameters: $a$, $e$, and $i$. This allows some choice of perigee and period, and inclination can then be solved for.
 
 ### High-Latitude Observation
 

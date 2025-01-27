@@ -24,7 +24,7 @@ Compute $\vector{r}$ and $\vector{v}$ 60 minutes later.
 
 ## Solution
 
-In this problem, our objective is to calculate $\chi$ so that we can calculate the universal Lagrange coefficients and determine the vectors at the later time. We will find $\chi$ by solving the universal Kepler's equation, Eq. {eq}`eq:universal-keplers-equation`, repeated here for reference:
+In this problem, our objective is to calculate $\chi$ so that we can calculate the universal Lagrange coefficients and determine the vectors at the later time. We will find $\chi$ by solving the universal Kepler's equation, @eq:universal-keplers-equation, repeated here for reference:
 
 :::{math}
 f(\chi) = 0 = \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3 S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)

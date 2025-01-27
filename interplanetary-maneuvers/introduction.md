@@ -14,7 +14,7 @@ In this chapter, we will focus on using the unperturbed patched conics method to
 2. An [**elliptical**](../the-orbit-equation/elliptical-orbits.md) or [**hyperbolic**](../the-orbit-equation/hyperbolic-trajectories.md) trajectory to transfer from the orbit of the initial planet to the orbit of the final planet. The focus of this trajectory is the Sun.
 3. A [**hyperbolic trajectory**](../the-orbit-equation/hyperbolic-trajectories.md) on arrival at the final planet. The focus of this trajectory is the final planet. This trajectory starts at the point where the gravitational influence of the final planet is stronger than the Sun.
 
-These three trajectories are shown in {numref}`fig:interplanetary-transfer`, which shows a Hohmann transfer from the initial planet to the final planet. The Hohmann transfer is the most efficient type of orbital transfer, so it's a good basis for comparison. However, any trajectory that intersects the orbits of the initial and final planets can be used for the transfer.
+These three trajectories are shown in @fig:interplanetary-transfer, which shows a Hohmann transfer from the initial planet to the final planet. The Hohmann transfer is the most efficient type of orbital transfer, so it's a good basis for comparison. However, any trajectory that intersects the orbits of the initial and final planets can be used for the transfer.
 
 :::{figure} ../images/interplanetary-transfer.svg
 :name: fig:interplanetary-transfer
@@ -23,7 +23,7 @@ These three trajectories are shown in {numref}`fig:interplanetary-transfer`, whi
 The three trajectories in the method of patched conics. The initial planet is shown on the left of the figure. The spacecraft departs the planet on a hyperbola relative to the initial planet. When the spacecraft reaches the radius of the initial planet's sphere of influence (shown as the dashed gray line), its velocity is such that the trajectory becomes an ellipse relative to the Sun. This is shown in the center of the figure by the green line. After traversing 180° in a Hohmann transfer, the spacecraft arrives at the final planet's sphere of influence. Relative to the final planet, the spacecraft is approaching on a hyperbolic trajectory.
 :::
 
-The dashed gray circles on {numref}`fig:interplanetary-transfer` represent the [**sphere of influence**](https://en.wikipedia.org/wiki/Sphere_of_influence_(astrodynamics)) of each planet. This represents the boundary of where the planet's gravitational influence on the spacecraft is stronger than the Sun's. Although there is no true boundary and the influence of the planet and Sun vary smoothly along the trajectory, the sphere of influence represents a useful way to divide the transfers.
+The dashed gray circles on @fig:interplanetary-transfer represent the [**sphere of influence**](https://en.wikipedia.org/wiki/Sphere_of_influence_(astrodynamics)) of each planet. This represents the boundary of where the planet's gravitational influence on the spacecraft is stronger than the Sun's. Although there is no true boundary and the influence of the planet and Sun vary smoothly along the trajectory, the sphere of influence represents a useful way to divide the transfers.
 
 Inside a planet's sphere of influence, the focus of the trajectory is the planet. Outside the sphere of influence, the focus of the trajectory is the Sun. Therefore, the edge of the sphere of influence is the _patch point_ where our analysis will from planet-centric to heliocentric on departure, and from heliocentric to planet-centric at arrival.
 

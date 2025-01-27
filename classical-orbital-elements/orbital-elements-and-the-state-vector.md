@@ -89,7 +89,7 @@ We find $\vector{h} =$ {glue:text}`orbital-elements-h_vec-I:.0f` $\uvec{I}$ + {g
 
 ### Step 3—Inclination
 
-Once the angular momentum is calculated, we can calculate the inclination, $i$. Let's form a right triangle with one leg as the $Z$ component of the angular momentum and the hypotenuse as the magnitude of the angular momentum. Then the inclination is the angle adjacent to $h_Z$ and can be found by the inverse cosine, as shown in Eq. {eq}`eq:orbital-elements-inclination`.
+Once the angular momentum is calculated, we can calculate the inclination, $i$. Let's form a right triangle with one leg as the $Z$ component of the angular momentum and the hypotenuse as the magnitude of the angular momentum. Then the inclination is the angle adjacent to $h_Z$ and can be found by the inverse cosine, as shown in @eq:orbital-elements-inclination.
 
 :::{math}
 :label: eq:orbital-elements-inclination
@@ -118,14 +118,14 @@ The inclination of this orbit is $i =$ {glue:text}`orbital-elements-i:.2f`°. We
 
 Next, we will calculate the right ascension of the ascending node. The ascending node is the point on the line of nodes where the spacecraft ascends above the reference plane. Since the line of nodes is defined by the intersection of the orbital plane and the reference plane, it must lie in both planes.
 
-Therefore, the node line is perpendicular to the normal vectors of both the reference plane and the orbital plane. We can find the perpendicular vector by taking the cross product of a vector normal to the reference plane and a vector normal to the orbital plane. For convenience, we choose the $\uvec{K}$ vector and the $\vector{h}$ vector, as shown in Eq. {eq}`eq:orbital-elements-node-line`.
+Therefore, the node line is perpendicular to the normal vectors of both the reference plane and the orbital plane. We can find the perpendicular vector by taking the cross product of a vector normal to the reference plane and a vector normal to the orbital plane. For convenience, we choose the $\uvec{K}$ vector and the $\vector{h}$ vector, as shown in @eq:orbital-elements-node-line.
 
 :::{math}
 :label: eq:orbital-elements-node-line
 \vector{N} = \uvec{K}\cross\vector{h}
 :::
 
-Then, similar to the inclination, we form a right triangle where the $X$ component of $\vector{N}$ is one leg and the magnitude of $\vector{N}$ is the hypotenuse. The right ascension of the ascending node is the angle adjacent to $N_X$ so it can be found by the inverse cosine, as shown in Eq. {eq}`eq:orbital-elements-Omega`.
+Then, similar to the inclination, we form a right triangle where the $X$ component of $\vector{N}$ is one leg and the magnitude of $\vector{N}$ is the hypotenuse. The right ascension of the ascending node is the angle adjacent to $N_X$ so it can be found by the inverse cosine, as shown in @eq:orbital-elements-Omega.
 
 :::{math}
 :label: eq:orbital-elements-Omega
@@ -134,7 +134,7 @@ Then, similar to the inclination, we form a right triangle where the $X$ compone
 
 However, unlike the inclination, $\Omega$ can vary from 0° to 360°, so we need to determine the appropriate quadrant for the resulting angle. We can do this by comparing the sign of the $Y$ component of $\vector{N}$.
 
-If $N_Y \geq 0$, then $\vector{N}$ must be pointing to the first or second quadrant and 0° ≤ $\Omega$ ≤ 180°. If $N_Y < 0$, then $\vector{N}$ must be pointing to the third or fourth quadrant, so 180° < $\Omega$ < 360°. We can express this fully with the conditions in Eq. {eq}`eq:orbital-elements-raan`.
+If $N_Y \geq 0$, then $\vector{N}$ must be pointing to the first or second quadrant and 0° ≤ $\Omega$ ≤ 180°. If $N_Y < 0$, then $\vector{N}$ must be pointing to the third or fourth quadrant, so 180° < $\Omega$ < 360°. We can express this fully with the conditions in @eq:orbital-elements-raan.
 
 :::{math}
 :label: eq:orbital-elements-raan
@@ -162,29 +162,29 @@ For this problem, we find $N_Y =$ {glue:text}`orbital-elements-N_Y:.0F`, so the 
 
 ### Step 5—Eccentricity
 
-The fourth orbital element is the eccentricity. Way back in Eq. {eq}`eq:vector-orbit-equation`, we found the eccentricity vector as the constant of integration of the equation of motion. Repeating the equation here:
+The fourth orbital element is the eccentricity. Way back in @eq:vector-orbit-equation, we found the eccentricity vector as the constant of integration of the equation of motion. Repeating the equation here:
 
 :::{math}
 \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu} - \frac{\vector{r}}{r}
 :::
 
-If you're using a computer to do calculations, this form is the simplest to use. However, we can replace the cross product and simplify Eq. {eq}`eq:vector-orbit-equation` somewhat.
+If you're using a computer to do calculations, this form is the simplest to use. However, we can replace the cross product and simplify @eq:vector-orbit-equation somewhat.
 
 :::{math}
 :label: eq:simplified-eccentricity-vector
 \vector{e} = \frac{1}{\mu}\left[\left(v^2 - \frac{\mu}{r}\right)\vector{r} - r v_r \vector{v}\right]
 :::
 
-Eq. {eq}`eq:simplified-eccentricity-vector` is useful if you're doing calculations out by hand, since you don't have to do any cross products, only scalar multiplications of the vectors.
+@eq:simplified-eccentricity-vector is useful if you're doing calculations out by hand, since you don't have to do any cross products, only scalar multiplications of the vectors.
 
-The magnitude of the eccentricity can be found in the usual method programmatically, or with a form simplified from Eq. {eq}`eq:simplified-eccentricity-vector`, as shown in Eq. {eq}`eq:simplified-eccentricity-magnitude`.
+The magnitude of the eccentricity can be found in the usual method programmatically, or with a form simplified from @eq:simplified-eccentricity-vector, as shown in @eq:simplified-eccentricity-magnitude.
 
 :::{math}
 :label: eq:simplified-eccentricity-magnitude
 e = \sqrt{1 + \frac{h^2}{\mu^2}\left(v^2 - \frac{2\mu}{r}\right)}
 :::
 
-Again, Eq. {eq}`eq:simplified-eccentricity-magnitude` is useful for hand calculations.
+Again, @eq:simplified-eccentricity-magnitude is useful for hand calculations.
 
 ::::{tab-set-code}
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
@@ -204,7 +204,7 @@ The eccentricity of this orbit is $e =$ {glue:text}`orbital-elements-e:.3f`, so 
 
 ### Step 6—Argument of Periapsis
 
-The last two orbital elements are found using the algebraic definition of the dot product, Eq. {eq}`eq:dot-product-definition`.
+The last two orbital elements are found using the algebraic definition of the dot product, @eq:dot-product-definition.
 
 :::{math}
 :label: eq:dot-product-definition
@@ -213,7 +213,7 @@ The last two orbital elements are found using the algebraic definition of the do
 
 where $\vector{A}$ and $\vector{B}$ are arbitrary vectors, $A$ and $B$ are their magnitudes, and $\theta$ is the angle between the vectors.
 
-By definition, the eccentricity vector points towards periapsis. Moreover, the argument of periapsis is the angle from the ascending node to periapsis following around the orbit. In other words, the argument of periapsis is the angle between the eccentricity vector $\vector{e}$ and the node line $\vector{N}$. We can solve for $\omega$ by using Eq. {eq}`eq:dot-product-definition`.
+By definition, the eccentricity vector points towards periapsis. Moreover, the argument of periapsis is the angle from the ascending node to periapsis following around the orbit. In other words, the argument of periapsis is the angle between the eccentricity vector $\vector{e}$ and the node line $\vector{N}$. We can solve for $\omega$ by using @eq:dot-product-definition.
 
 :::{math}
 :label: eq:orbital-elements-omega-lowercase
@@ -222,7 +222,7 @@ By definition, the eccentricity vector points towards periapsis. Moreover, the a
 
 Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the $Z$ component of $\vector{e}$.
 
-If $e_Z \geq 0$, then $\vector{e}$ points up and periapsis must be between the ascending node and descending node, so 0° ≤ $\omega$ ≤ 180°. On the other hand, if $e_Z < 0$, then periapsis must be between the descending and ascending nodes, and 180° < $\omega$ < 360°. We can express this fully with the conditions in Eq. {eq}`eq:orbital-elements-aop`.
+If $e_Z \geq 0$, then $\vector{e}$ points up and periapsis must be between the ascending node and descending node, so 0° ≤ $\omega$ ≤ 180°. On the other hand, if $e_Z < 0$, then periapsis must be between the descending and ascending nodes, and 180° < $\omega$ < 360°. We can express this fully with the conditions in @eq:orbital-elements-aop.
 
 :::{math}
 :label: eq:orbital-elements-aop
@@ -250,7 +250,7 @@ For this problem, we find $e_Z =$ {glue:text}`orbital-elements-e_Z:.4F`, so the 
 
 ### Step 7—True Anomaly
 
-The final orbital element is the true anomaly, $\nu$. The true anomaly is the angle from the apse line to the position vector. In other words, it is the angle between $\vector{e}$ and $\vector{r}$. We can solve for $\nu$ by using Eq. {eq}`eq:dot-product-definition`.
+The final orbital element is the true anomaly, $\nu$. The true anomaly is the angle from the apse line to the position vector. In other words, it is the angle between $\vector{e}$ and $\vector{r}$. We can solve for $\nu$ by using @eq:dot-product-definition.
 
 :::{math}
 :label: eq:orbital-elements-nu
@@ -259,7 +259,7 @@ The final orbital element is the true anomaly, $\nu$. The true anomaly is the an
 
 Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the radial component of the velocity, $v_r$.
 
-If $v_r \geq 0$, then $\vector{r}$ is increasing in length and the spacecraft must be flying away from periapsis, so 0° ≤ $\nu$ < 180°. On the other hand, if $v_r < 0$, then $\vector{r}$ must be getting shorter and the spacecraft must be flying towards periapsis, such that 180° ≤ $\nu$ < 360°. We can express this fully with the conditions in Eq. {eq}`eq:orbital-elements-true-anomaly`.
+If $v_r \geq 0$, then $\vector{r}$ is increasing in length and the spacecraft must be flying away from periapsis, so 0° ≤ $\nu$ < 180°. On the other hand, if $v_r < 0$, then $\vector{r}$ must be getting shorter and the spacecraft must be flying towards periapsis, such that 180° ≤ $\nu$ < 360°. We can express this fully with the conditions in @eq:orbital-elements-true-anomaly.
 
 :::{math}
 :label: eq:orbital-elements-true-anomaly
@@ -296,7 +296,7 @@ The first step is rather simple, but the derivation of the second step requires 
 
 ### Step 1—Transform to Perifocal Frame
 
-Remember that the perifocal frame is defined in the orbital plane with the unit vectors $\uvec{p}$, $\uvec{q}$, and $\uvec{w}$, as shown in {numref}`fig:definition-of-perifocal-frame`. The position and velocity components in the perifocal frame are given by Eq. {eq}`eq:perifocal-vector-orbit-equation` and Eq. {eq}`eq:perifocal-simplified-velocity-vector`, respectively.
+Remember that the perifocal frame is defined in the orbital plane with the unit vectors $\uvec{p}$, $\uvec{q}$, and $\uvec{w}$, as shown in @fig:definition-of-perifocal-frame. The position and velocity components in the perifocal frame are given by @eq:perifocal-vector-orbit-equation and @eq:perifocal-simplified-velocity-vector, respectively.
 
 ::::{tab-set-code}
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
@@ -316,7 +316,7 @@ For this example, we find $\vector{r}_{\omega} =$ {glue:text}`orbital-elements-r
 
 ### Step 2—Rotate the Perifocal Frame
 
-The second step of this algorithm is to apply the set of coordinate transformations that converts the perifocal frame into the inertial frame. It turns out that a set of three rotations applied sequentially will accomplish this goal. These steps are shown in {numref}`fig:euler-angle-rotation`.
+The second step of this algorithm is to apply the set of coordinate transformations that converts the perifocal frame into the inertial frame. It turns out that a set of three rotations applied sequentially will accomplish this goal. These steps are shown in @fig:euler-angle-rotation.
 
 1. Rotate around the $\uvec{w}$ axis until the $\uvec{p}$ axis is aligned with the node line
 2. Rotate around the node line until the $\uvec{w}$ axis is aligned with the $Z$ axis

@@ -20,7 +20,7 @@ Unlike the two-body problem, there is no general closed-form solution to this pr
 
 ## Orbit of Primary Masses
 
-We first attach a _non-inertial_ coordinate system to the barycenter of the system of $m_1$ and $m_2$, such that the $x$-axis of this coordinate system points towards $m_2$. The distance from $m_1$ to $m_2$ is $r_{12}$, which is also the radius of the circular orbit, as shown in {numref}`fig:circular-restricted-three-body-problem`.
+We first attach a _non-inertial_ coordinate system to the barycenter of the system of $m_1$ and $m_2$, such that the $x$-axis of this coordinate system points towards $m_2$. The distance from $m_1$ to $m_2$ is $r_{12}$, which is also the radius of the circular orbit, as shown in @fig:circular-restricted-three-body-problem.
 
 :::{figure} ../images/circular-restricted-three-body-problem.svg
 :name: fig:circular-restricted-three-body-problem
@@ -152,7 +152,7 @@ Then we can find the absolute acceleration of $m$:
 \ddot{\vector{r}} = \vector{a}_{\COG} + \dot{\vector{\Omega}}\cross\vector{r} + \vector{\Omega}\cross\left(\vector{\Omega}\cross\vector{r}\right) + 2\vector{\Omega}\cross\vector{v}_{\text{rel}} + \vector{a}_{\text{rel}}
 :::
 
-This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, $\vector{a}_{\COG} = 0$. In addition, the angular velocity is constant since the orbit is circular, so $\dot{\vector{\Omega}} = 0$. Then, Eq. {eq}`eq:five-term-acceleration-cr3bp` can be simplified to:
+This equation can be simplified because we showed that the acceleration of the barycenter is zero for the two-body problem, $\vector{a}_{\COG} = 0$. In addition, the angular velocity is constant since the orbit is circular, so $\dot{\vector{\Omega}} = 0$. Then, @eq:five-term-acceleration-cr3bp can be simplified to:
 
 :::{math}
 :label: eq:three-term-acceleration-cr3bp
@@ -212,14 +212,14 @@ and
 \end{aligned}
 :::
 
-Combining Eq. {eq}`eq:net-force-cr3bp` and Eq. {eq}`eq:nlog-cr3bp`, and dividing through by $m$, we find:
+Combining @eq:net-force-cr3bp and @eq:nlog-cr3bp, and dividing through by $m$, we find:
 
 :::{math}
 :label: eq:vector-eom-cr3bp
 \ddot{\vector{r}} = -\frac{\mu_1}{r_1^3}\vector{r}_1 - \frac{\mu_2}{r_2^3}\vector{r}_2
 :::
 
-Now we substitute for $\ddot{\vector{r}}$ from Eq. {eq}`eq:inertial-acceleration-cr3bp` and split out by components to have three scalar equations of motion for the CR3BP:
+Now we substitute for $\ddot{\vector{r}}$ from @eq:inertial-acceleration-cr3bp and split out by components to have three scalar equations of motion for the CR3BP:
 
 :::{math}
 :label: eq:components-eom-cr3bp
@@ -248,7 +248,7 @@ In this problem, we have 3 dimensions:
 2. Length
 3. Time
 
-The characteristic mass is the sum of the primary and secondary masses, $m_1 + m_2$. To create the non-dimensional masses, we divide $m_1$ and $m_2$ by the characteristic mass, which gives the definitions of $\pi_1$ and $\pi_2$ from Eq. {eq}`eq:non-dimensional-masses-cr3bp`.
+The characteristic mass is the sum of the primary and secondary masses, $m_1 + m_2$. To create the non-dimensional masses, we divide $m_1$ and $m_2$ by the characteristic mass, which gives the definitions of $\pi_1$ and $\pi_2$ from @eq:non-dimensional-masses-cr3bp.
 
 The characteristic length is the circular orbit radius, $r_{12}$. Using this, we define the non-dimensional position vectors by dividing the dimensional position vectors, $\vector{r}_1$, $\vector{r}_2$, and $\vector{r}$ by $r_{12}$:
 
@@ -263,28 +263,28 @@ The characteristic length is the circular orbit radius, $r_{12}$. Using this, we
 
 where $x^* = x/r_{12}$, and similar for $y^*$ and $z^*$.
 
-The natural unit of time in this problem is the period of the circular orbit, Eq. {eq}`eq:circular-orbit-period-cr3bp`. We will ignore the constant factor of $2\pi$ because it doesn't change the dimensions available in the equation. Therefore, the characteristic time is:
+The natural unit of time in this problem is the period of the circular orbit, @eq:circular-orbit-period-cr3bp. We will ignore the constant factor of $2\pi$ because it doesn't change the dimensions available in the equation. Therefore, the characteristic time is:
 
 :::{math}
 :label: eq:characteristic-time-cr3bp
 t_C = \sqrt{\frac{r_{12}^3}{\mu}}
 :::
 
-To make Eq. {eq}`eq:five-term-acceleration-cr3bp` non-dimensional, we need to multiply both sides of the equation by $t_C^2/r_{12}$. For the left side of Eq. {eq}`eq:five-term-acceleration-cr3bp`, this makes:
+To make @eq:five-term-acceleration-cr3bp non-dimensional, we need to multiply both sides of the equation by $t_C^2/r_{12}$. For the left side of @eq:five-term-acceleration-cr3bp, this makes:
 
 :::{math}
 :label: eq:non-dimensional-acceleration-cr3bp
 \ddot{\vector{\rho}} = \frac{d^2\vector{r}}{dt^2}\frac{t_C^2}{r_{12}} = \frac{d^2\vector{\rho}}{d\tau^2}
 :::
 
-where $\tau = t/t_C$. Making the terms on the right hand side of Eq. {eq}`eq:five-term-acceleration-cr3bp` non-dimensional is also the result of multiplying by $t_C^2/r_{12}$. Note that the dimensions of $\varOmega$ are $t^{-1}$:
+where $\tau = t/t_C$. Making the terms on the right hand side of @eq:five-term-acceleration-cr3bp non-dimensional is also the result of multiplying by $t_C^2/r_{12}$. Note that the dimensions of $\varOmega$ are $t^{-1}$:
 
 :::{math}
 :label: eq:non-dim-five-term-accel-cr3bp
 \ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}
 :::
 
-Now we have the non-dimensional inertial acceleration, we need to make Eq. {eq}`eq:vector-eom-cr3bp`, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:
+Now we have the non-dimensional inertial acceleration, we need to make @eq:vector-eom-cr3bp, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:
 
 :::{math}
 :label: eq:non-dim-vector-eom-cr3bp

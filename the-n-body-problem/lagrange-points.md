@@ -14,7 +14,7 @@ execution:
 
 # Application of the CR3BP: Lagrange Points
 
-The equations of motion of the circular restricted three body problem (CR3BP) were shown in Eq. {eq}`eq:non-dim-scalar-eom-cr3bp`. These non-dimensional equations of motion do not have a general analytical solution.
+The equations of motion of the circular restricted three body problem (CR3BP) were shown in @eq:non-dim-scalar-eom-cr3bp. These non-dimensional equations of motion do not have a general analytical solution.
 
 :::{margin}
 Lagrange himself called them **libration points** so you will see them called that too.
@@ -55,14 +55,14 @@ The collinear Lagrange points lie along the $x^*$ axis, between $m_1$ and $m_2$.
 Remember that $z^*$ is zero for all the equilibrium points.
 :::
 
-To find the equilateral Lagrange points, we assume $y^*\neq 0$. Now we have 2 equations and 2 unknowns. Since $y^*\neq 0$, the $y^*$ in the second equation of motion (Eq. {eq}`eq:non-dim-equilibrium-eom-lagrange`) will cancel from both sides, and we end up with:
+To find the equilateral Lagrange points, we assume $y^*\neq 0$. Now we have 2 equations and 2 unknowns. Since $y^*\neq 0$, the $y^*$ in the second equation of motion (@eq:non-dim-equilibrium-eom-lagrange) will cancel from both sides, and we end up with:
 
 :::{math}
 :label: eq:y-star-equilateral-lagrange
 1 = \frac{1 - \pi_2}{\sigma_3} + \frac{\pi_2}{\psi^3}
 :::
 
-The equation for $x^*$ in Eq. {eq}`eq:non-dim-equilibrium-eom-lagrange` we see the $\left(1 - \pi_2\right)/\sigma^3$ term, so let's solve the $y^*$ equation for that and plug into the $x^*$ equation:
+The equation for $x^*$ in @eq:non-dim-equilibrium-eom-lagrange we see the $\left(1 - \pi_2\right)/\sigma^3$ term, so let's solve the $y^*$ equation for that and plug into the $x^*$ equation:
 
 :::{math}
 :label: eq:x-star-equilateral-lagrange
@@ -83,7 +83,7 @@ Then we can use the definition of $\psi$ to find $r_2$ in dimensional coordinate
 \psi = \frac{\mag{\vector{r}*2}}{r*{12}} \Rightarrow r_2 = r_{12}
 :::
 
-Plugging the result of Eq. {eq}`eq:psi-equilateral-lagrange` back into Eq. {eq}`eq:y-star-equilateral-lagrange` equation, we find:
+Plugging the result of @eq:psi-equilateral-lagrange back into @eq:y-star-equilateral-lagrange equation, we find:
 
 :::{math}
 :label: eq:sigma-equilateral-lagrange
@@ -104,7 +104,7 @@ Since if $a = b$ and $b = c$, then $a = c$, we find:
 r_1 = r_2 = r_{12}\qquad \text{and}\qquad \psi = \sigma
 :::
 
-for the *equilateral Lagrange points*. Eq. {eq}`eq:equilateral-lagrange-distances` shows that the distance from $m_1$ to $m$ is the same as the distance from $m_2$ to $m$ and from $m_1$ to $m_2$. This defines an equilateral triangle, giving these Lagrange points their name.
+for the *equilateral Lagrange points*. @eq:equilateral-lagrange-distances shows that the distance from $m_1$ to $m$ is the same as the distance from $m_2$ to $m$ and from $m_1$ to $m_2$. This defines an equilateral triangle, giving these Lagrange points their name.
 
 From the definition of $\vector{\sigma}$ and $\vector{\psi}$, we can take their magnitudes and equate them to solve for the values of $x^*$ and $y^{*}$ at the equilibrium points:
 
@@ -116,7 +116,7 @@ From the definition of $\vector{\sigma}$ and $\vector{\psi}$, we can take their 
 \end{aligned}
 :::
 
-where we have also used the fact that $z^* = 0$ for the Lagrange points. Using the result from Eq. {eq}`eq:equilateral-lagrange-distances` that $\sigma = \psi$ for the equilateral points, we find:
+where we have also used the fact that $z^* = 0$ for the Lagrange points. Using the result from @eq:equilateral-lagrange-distances that $\sigma = \psi$ for the equilateral points, we find:
 
 :::{math}
 :label: eq:x-star-y-star-equilateral-lagrange
@@ -140,9 +140,9 @@ To convert these to dimensional $x$ and $y$ coordinates, you should multiply by 
 
 ## Collinear Lagrange Points
 
-For the collinear Lagrange points, we set $y = z = y^{*} = z^* = 0$ in the equations of motion, Eq. {eq}`eq:non-dim-scalar-eom-cr3bp`. We make this choice by inspection, seeing that setting $y = y^{*} = 0$ is one possible solution (the other case, $y^*\neq 0$ we just handled).
+For the collinear Lagrange points, we set $y = z = y^{*} = z^* = 0$ in the equations of motion, @eq:non-dim-scalar-eom-cr3bp. We make this choice by inspection, seeing that setting $y = y^{*} = 0$ is one possible solution (the other case, $y^*\neq 0$ we just handled).
 
-This leaves only the $x^*$ equation of motion, since the other two are trivially $0=0$. For $x^*$, we have from Eq. {eq}`eq:non-dim-equilibrium-eom-lagrange`:
+This leaves only the $x^*$ equation of motion, since the other two are trivially $0=0$. For $x^*$, we have from @eq:non-dim-equilibrium-eom-lagrange:
 
 :::{math}
 :label: eq:x-star-collinear-lagrange
@@ -155,7 +155,7 @@ The vectors $\vector{\sigma}$ and $\vector{\psi}$ are the non-dimensional versio
 
 The terms $\sigma^3$ and $\psi^3$ in the bottom of both terms are found by cubing the magnitude of the vectors $\vector{\sigma}$ and $\vector{\psi}$. To find the vector magnitude, we necessarily have to take the square root, so we do not know the sign of the magnitude. Cubing a negative number will result in another negative and cubing a positive number will result in another positive.
 
-Therefore, we do not know what the sign of $\sigma^3$ or $\psi^3$ will be, we have to include that as part of the solution of this equation. Cubing the magnitudes of $\vector{\sigma}$ and $\vector{psi}$ from Eq. {eq}`eq:non-dim-r-vectors-cr3bp` with $y^* = 0$ for the collinear points, we find:
+Therefore, we do not know what the sign of $\sigma^3$ or $\psi^3$ will be, we have to include that as part of the solution of this equation. Cubing the magnitudes of $\vector{\sigma}$ and $\vector{psi}$ from @eq:non-dim-r-vectors-cr3bp with $y^* = 0$ for the collinear points, we find:
 
 :::{math}
 :label: eq:sigma-psi-collinear-lagrange
@@ -164,7 +164,7 @@ Therefore, we do not know what the sign of $\sigma^3$ or $\psi^3$ will be, we ha
 \end{aligned}
 :::
 
-where the single vertical lines indicate that we're taking the absolute value. Substituting these into Eq. {eq}`eq:x-star-collinear-lagrange`, we find:
+where the single vertical lines indicate that we're taking the absolute value. Substituting these into @eq:x-star-collinear-lagrange, we find:
 
 :::{math}
 :label: eq:collinear-lagrange-solution
@@ -177,7 +177,7 @@ This equation is cubic in $x^*$, so it will have three separate values of $x^*$ 
 
 There is no analytical solution to this equation, it must be solved numerically. There are many methods to solve the equation numerically, my suggestions are to use [`scipy.optimize.newton()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html) in Python and [`fzero`](https://www.mathworks.com/help/matlab/ref/fzero.html) in Matlab. We will see how to use these functions in the [next example](./Lagrange-points-example.ipynb).
 
-In the meantime, {numref}`fig:collinear-lagrange-solution` shows the solution of Eq. {eq}`eq:collinear-lagrange-solution`:
+In the meantime, @fig:collinear-lagrange-solution shows the solution of @eq:collinear-lagrange-solution:
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -220,7 +220,7 @@ glue("collinear-lagrange-solution", fig, display=False);
 :::{glue:figure} collinear-lagrange-solution
 :name: fig:collinear-lagrange-solution
 
-The solutions of Eq. {eq}`eq:collinear-lagrange-solution`, showing the dimensionless positions of the collinear Lagrange points as a function of the dimensionless mass.
+The solutions of @eq:collinear-lagrange-solution, showing the dimensionless positions of the collinear Lagrange points as a function of the dimensionless mass.
 :::
 
 On this figure, the $x$ axis is $\pi_2$ and the $y$ axis is $x^*$. For a given value of $\pi_2$, we can locate the three values of $x^*$ that solve the equation. The gray dashed lines give the corresponding positions of $m_1$ and $m_2$ at the given value of $\pi_2$.
@@ -229,7 +229,7 @@ The solutions for $x^*$ for the collinear Lagrange points lie on the S-curve sha
 
 By convention, the Lagrange points are numbered such that $L_1$ lies between $m_1$ and $m_2$, $L_2$ lies to the right of $m_2$, and $L_3$ lies to the left of $m_1$. Thus, we can see on the figure that the upper part of the S-curve is the solution for $L_2$. Below $x^{*} = 1.0$, the solution is for $L_1$, since that lies between $m_1$ and $m_2$. Finally, below $x^{*} = -1.0$, the solution is for $L_3$.
 
-{numref}`fig:lagrange-points-animation` plots the five Lagrange points in non-dimensional coordinates as a function of the mass ratio $\pi_2$.
+@fig:lagrange-points-animation plots the five Lagrange points in non-dimensional coordinates as a function of the mass ratio $\pi_2$.
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -329,7 +329,7 @@ glue("lagrange-points-animation", HTML(anim.to_jshtml()), display=False)
 Animation showing the position of the five Lagrange points as the value of $\pi_2$ goes from 0 to 1.
 :::
 
-{numref}`fig:lagrange-points-animation` shows that the solution of the equations of motion for the equilibrium points is symmetrical. We chose $m_1$ to be the larger mass at the start of the problem, but we can interchange $m_1$ and $m_2$ without any problems.
+@fig:lagrange-points-animation shows that the solution of the equations of motion for the equilibrium points is symmetrical. We chose $m_1$ to be the larger mass at the start of the problem, but we can interchange $m_1$ and $m_2$ without any problems.
 
 For the Earth-Moon system, the value of $\pi_2$ is approximately 0.012.
 
@@ -346,7 +346,7 @@ As we discussed previously, gravity is a conservative force. As such, the force 
 U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]
 :::
 
-A plot of this function is shown in {numref}`fig:pseudo-potential-energy-cr3bp`, including the positions of the five Lagrange points, for $\pi_2 =$ 0.3.
+A plot of this function is shown in @fig:pseudo-potential-energy-cr3bp, including the positions of the five Lagrange points, for $\pi_2 =$ 0.3.
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -428,12 +428,12 @@ Since the equilateral Lagrange points are stable, objects placed in a small orbi
 :::
 
 :::{margin}
-Note that {numref}`fig:pseudo-potential-energy-cr3bp` shows the potential surface for $\pi_2 = 0.3$, which does not satisfy the numerical stability criteria here for $L_4$ and $L_5$ from Eq. {eq}`eq:lagrange-point-stability-criterion`. We're plotting $\pi_2 = 0.3$ to exaggerate the shape of the potential function for clarity.
+Note that @fig:pseudo-potential-energy-cr3bp shows the potential surface for $\pi_2 = 0.3$, which does not satisfy the numerical stability criteria here for $L_4$ and $L_5$ from @eq:lagrange-point-stability-criterion. We're plotting $\pi_2 = 0.3$ to exaggerate the shape of the potential function for clarity.
 :::
 
 which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Earth-Moon system, that ratio is $m_1/m_2 \approx 81.3$, so $L_4$ and $L_5$ are nominally stable. However, the $L_4$ and $L_5$ points for the Earth-Moon system are slightly destabilized by the influence of the Sun and they aren't completely stable. Nonetheless, there are clouds of dust which have collected at these points because they are kinda stable.
 
-Other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points. In particular, the orbit of Jupiter around the Sun has stable equilateral Lagrange points. There are groups of asteroids, called **Trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in {numref}`fig:trojan-asteroids-jupiter`.
+Other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points. In particular, the orbit of Jupiter around the Sun has stable equilateral Lagrange points. There are groups of asteroids, called **Trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in @fig:trojan-asteroids-jupiter.
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -497,11 +497,11 @@ The Trojan and the Greek asteroids are clusters of asteroids that have collected
 
 ### The Collinear Lagrange Points
 
-The collinear Lagrange points, $L_1$, $L_2$, and $L_3$ are all **saddle points** in {numref}`fig:pseudo-potential-energy-cr3bp`, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
+The collinear Lagrange points, $L_1$, $L_2$, and $L_3$ are all **saddle points** in @fig:pseudo-potential-energy-cr3bp, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
 
 Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope (JWST) is located at the $L_2$ point in the Earth-Sun system specifically to avoid sunlight interefering with observations.
 
-These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in {numref}`fig:wmap-trajectory`.
+These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in @fig:wmap-trajectory.
 
 :::{figure} ../images/wmap-trajectory.gif
 :name: fig:wmap-trajectory
@@ -509,7 +509,7 @@ These satellites orbit around the unstable Lagrange points in a [Lissajous orbit
 The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the Earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
 :::
 
-Another example is the JWST, mentioned previously. JWST has a simpler [halo orbit](https://en.wikipedia.org/wiki/Halo_orbit) around $L_2$. The orbit of JWST is shown in {numref}`fig:jwst-trajectory`.
+Another example is the JWST, mentioned previously. JWST has a simpler [halo orbit](https://en.wikipedia.org/wiki/Halo_orbit) around $L_2$. The orbit of JWST is shown in @fig:jwst-trajectory.
 
 :::{figure} ../images/jwst-trajectory.gif
 :name: fig:jwst-trajectory

@@ -18,7 +18,7 @@ Thus, the attractive force between $m_1$ and $m_2$ is:
 \vector{F} = \frac{V \vector{r}}{r^2}
 :::
 
-By plugging in the definition of $V$, Eq. {eq}`eq:gravitational-potential-energy-function`, we recover the two-body relative equation of motion.
+By plugging in the definition of $V$, @eq:gravitational-potential-energy-function, we recover the two-body relative equation of motion.
 
 In the book, they show that the gravitational potential energy field of a sphere is equivalent to the field of an equivalent point mass located at the center of the sphere. As long as the spheres don't come into contact, we can substitute point masses for spheres with no difference in the equations!
 
