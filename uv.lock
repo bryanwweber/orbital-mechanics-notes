@@ -1181,6 +1181,18 @@ wheels = [
 ]
 
 [[package]]
+name = "jupyterlab-myst"
+version = "2.4.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jupyter-server", marker = "sys_platform != 'emscripten'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5c/dc/4034f4f4e60e484094b96cde80bd3a387d5d1ad1d43e9918f6c5fde297b7/jupyterlab_myst-2.4.2.tar.gz", hash = "sha256:1b06de66d20dc3a865b07d37f54bff8b4ed01501999cc0683f336f0bcb8c6902", size = 12754014 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ac/7c/98ad14b3cf7a7987d3c6ef5fc83609458739f28a1a34a91a9bb1b12c5f8a/jupyterlab_myst-2.4.2-py3-none-any.whl", hash = "sha256:2aa406d4754dcd2ec4fe749b6a2e15f0bc8a6c5c8f6b549419583715d8146230", size = 2689537 },
+]
+
+[[package]]
 name = "jupyterlab-pygments"
 version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1762,6 +1774,7 @@ dev = [
 ]
 lab = [
     { name = "jupyterlab" },
+    { name = "jupyterlab-myst" },
     { name = "jupytext" },
 ]
 
@@ -1793,6 +1806,7 @@ dev = [
 ]
 lab = [
     { name = "jupyterlab", specifier = ">=4.1.4" },
+    { name = "jupyterlab-myst", specifier = ">=2.4.2" },
     { name = "jupytext", specifier = ">=1.16.6" },
 ]
 
@@ -1998,6 +2012,7 @@ wheels = [
 
 [[package]]
 name = "poliastro"
+version = "0.18.dev0"
 source = { editable = "vendor/poliastro" }
 dependencies = [
     { name = "astropy", version = "6.1.7", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
