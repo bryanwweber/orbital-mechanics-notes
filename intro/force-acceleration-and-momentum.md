@@ -13,7 +13,7 @@ Newton's second law can be expressed mathematically as:
 \vector{F} = m \ddot{\vector{r}}
 :::
 
-In this equation, $\vector{\ddot{r}}$ is the **absolute acceleration** of the center of mass of the system. The absolute acceleration is measured in an [**inertial frame of reference**](sec:inertial-reference-frame) that is not accelerating relative to the fixed stars.
+In this equation, $\vector{\ddot{r}}$ is the **absolute acceleration** of the center of mass of the system. The absolute acceleration is measured in an [**inertial frame of reference**](#sec:inertial-reference-frame) that is not accelerating relative to the fixed stars.
 
 ## Impulse and Linear Momentum
 
