@@ -17,16 +17,16 @@ Profound.
 
 An **inertial** reference frame is one that is not _accelerating_. It may be moving at constant velocity, but there can be absolutely no acceleration, _including rotation!_
 
+Therefore, in an inertial reference frame, an object obeys Newton's First Law of Motion and its velocity remains constant unless an external force acts on it. Inertial reference frames are always our first choice if possible, because the laws of mechanics tend to take their simplest form in this frame.
+
 :::{margin}
 An object in motion tends to stay in motion unless acted upon by an external force.
 :::
 
-Therefore, in an inertial reference frame, an object obeys Newton's First Law of Motion and its velocity remains constant unless an external force acts on it. Inertial reference frames are always our first choice if possible, because the laws of mechanics tend to take their simplest form in this frame.
-
 In orbital mechanics, we usually define an inertial reference frame with respect to the **fixed stars**. Of course, the stars are not really fixed—our Sun orbits the center of the galaxy, as do other stars in the Milky Way, and other galaxies may be approaching or receding at some velocity.
 
 :::{margin}
-According to Graneau and Graneau {cite}`Graneau2006` (pg. 147), the centrifugal acceleration due to the Sun's orbit around the galactic center is about thirty million times less than that of the Earth about the Sun. The effect of the motion of other stars is presumably even smaller still.
+According to @Graneau2006 [pg. 147], the centrifugal acceleration due to the Sun's orbit around the galactic center is about thirty million times less than that of the Earth about the Sun. The effect of the motion of other stars is presumably even smaller still.
 :::
 
 However, on the scale of most orbital mechanics problems we have to deal with (on the order of a few days to a few years), assuming the stars are fixed is reasonable.
@@ -59,9 +59,9 @@ All reference frames are either inertial or non-inertial, and deciding which typ
 
 With respect to the Earth, we will define three separate reference frames:
 
-1. [](sec:earth-centered-inertial)
-2. [](sec:earth-centered-earth-fixed)
-3. [](sec:topocentric-horizon)
+1. [](#sec:earth-centered-inertial)
+2. [](#sec:earth-centered-earth-fixed)
+3. [](#sec:topocentric-horizon)
 
 For now, we will assume that the Earth is a sphere. We use the Earth here since most human spaceflight takes place near the Earth.
 
