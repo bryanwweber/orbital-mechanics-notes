@@ -28,7 +28,7 @@ To complete these steps, we require two other orbital elements besides the true 
 1. **eccentricity**, $e$
 2. **semimajor axis**, $a$
 
-Let's find $e$ first, since it is the only orbital element that appears in Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse` to find $E$. We can find $e$ directly using Eq. {eq}`eq:ellipse-eccentricity-periapsis-apoapsis`, repeated here for reference:
+Let's find $e$ first, since it is the only orbital element that appears in @eq:eccentric-anomaly-true-anomaly-ellipse to find $E$. We can find $e$ directly using @eq:ellipse-eccentricity-periapsis-apoapsis, repeated here for reference:
 
 :::{math}
 e = \frac{r_a - r_p}{r_a + r_p}
@@ -55,7 +55,7 @@ glue = partial(myst_glue, display=False)
 glue("ellipse-time-since-periapsis-e", e)
 ```
 
-The eccentricity of this orbit is $e =$ {glue:text}`ellipse-time-since-periapsis-e:.4f`. Then, the eccentric anomaly found from Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse` is:
+The eccentricity of this orbit is $e =$ {glue:text}`ellipse-time-since-periapsis-e:.4f`. Then, the eccentric anomaly found from @eq:eccentric-anomaly-true-anomaly-ellipse is:
 
 ```{code-cell} ipython3
 E_1 = 2 * np.arctan(np.sqrt((1 - e)/(1 + e)) * np.tan(nu_1 / 2))
@@ -68,7 +68,7 @@ glue("ellipse-time-since-perigee-E_1", E_1)
 
 The eccentric anomaly is $E_1 =$ {glue:text}`ellipse-time-since-perigee-E_1:.2f` radians. The subscript 1 indicates this is the first part of this example.
 
-Now, to find the time to fly to the true anomaly of 120°, we need to find $M_e$. This is done with Kepler's equation, Eq. {eq}`eq:keplers-equation-ellipse`.
+Now, to find the time to fly to the true anomaly of 120°, we need to find $M_e$. This is done with Kepler's equation, @eq:keplers-equation-ellipse.
 
 ```{code-cell} ipython3
 M_e1 = E_1 - e * np.sin(E_1)
@@ -165,7 +165,7 @@ glue("ellipse-time-since-perigee-E_2", E_2)
 
 In the `newton()` function, we passed the function to solve, `kepler`, the derivative of that function, an initial guess, and the additional arguments. We chose $\pi$ radians as the initial guess because it's in the middle of the expected range. The eccentric anomaly is $E_2 =$ {glue:text}`ellipse-time-since-perigee-E_2:.2f` radians.
 
-Now, we can calculate the value for $\nu$. To avoid the quadrant ambiguity, we will use Eq. {eq}`eq:eccentric-anomaly-true-anomaly-ellipse`.
+Now, we can calculate the value for $\nu$. To avoid the quadrant ambiguity, we will use @eq:eccentric-anomaly-true-anomaly-ellipse.
 
 ```{code-cell} ipython3
 sqrt_e_ratio = np.sqrt((1 + e) / (1 - e))
@@ -213,7 +213,7 @@ We are using `fzero()` again to solve Kepler's equation. I'm not sure how sensit
 
 +++
 
-{numref}`fig:ellipse-time-since-perigee-figure` shows a plot of this orbit.
+@fig:ellipse-time-since-perigee-figure shows a plot of this orbit.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

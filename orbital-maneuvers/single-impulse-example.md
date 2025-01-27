@@ -15,11 +15,11 @@ kernelspec:
 
 The simplest case of an orbit change is one that only requires a single impulse. Examples of this kind of maneuver are [orbit insertion](https://en.wikipedia.org/wiki/Orbit_insertion) and deorbit burns.
 
-For any single-impulse orbital maneuver, the initial and final orbits must intersect at some point. The two velocities required for Eq. {eq}`eq:single-impulse-delta-v` are determined at the point of intersection of the two orbits. Eq. {eq}`eq:single-impulse-delta-v` can be simplified to involve only velocity magnitudes when the velocity vectors are parallel at the point of intersection.
+For any single-impulse orbital maneuver, the initial and final orbits must intersect at some point. The two velocities required for @eq:single-impulse-delta-v are determined at the point of intersection of the two orbits. @eq:single-impulse-delta-v can be simplified to involve only velocity magnitudes when the velocity vectors are parallel at the point of intersection.
 
 Let's consider a case where we want to deorbit a spacecraft from low Earth orbit. To deorbit a spacecraft, we need to place it in an orbit that will intersect the atmosphere. Once in the atmosphere, drag will take over and reduce the velocity to the terminal velocity. As a simplification, we will neglect the atmosphere. This means we will determine the true anomaly when the spacecraft reaches the surface of the Earth, or when the orbital radius is equal to the Earth's radius.
 
-Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the $x$ axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in {numref}`fig:single-impulse-example-orbit`.
+Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the $x$ axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in @fig:single-impulse-example-orbit.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -83,7 +83,7 @@ To find $\Delta v$, we need to calculate two velocities:
 1. The velocity on the circular orbit, $v_1$
 2. The velocity on the impact orbit at the impulse point, $v_2$
 
-The initial orbit is a circular orbit, with velocity given by Eq. {eq}`eq:circular-orbit-velocity`:
+The initial orbit is a circular orbit, with velocity given by @eq:circular-orbit-velocity:
 
 :::{math}
 v_1 = \sqrt{\frac{\mu}{z_0 + R_E}}
@@ -103,13 +103,13 @@ v_2 = v_a = \frac{h}{r_a} = \frac{h}{R_E + z_0}
 
 where $r_a = R_E + z_0$ is the distance at apogee. Since $R_E$ and $z_0$ are known, we only need to find $h$ for the impact orbit to solve the problem.
 
-To find the specific angular momentum, we can use the equations for an elliptical orbit. The radial coordinate at apogee is given by Eq. {eq}`eq:distance-to-apoapsis`, repeated here for reference:
+To find the specific angular momentum, we can use the equations for an elliptical orbit. The radial coordinate at apogee is given by @eq:distance-to-apoapsis, repeated here for reference:
 
 :::{math}
 r_a = \frac{h^2}{\mu}\frac{1}{1 - e}
 :::
 
-The choice of location of perigee means that the apse line of the impact orbit actually points to the _left_ on {numref}`fig:single-impulse-example-orbit`. From apogee of the impact orbit until the time of impact, the satellite will be approaching perigee. Thus, the true anomaly will be larger than 180°.
+The choice of location of perigee means that the apse line of the impact orbit actually points to the _left_ on @fig:single-impulse-example-orbit. From apogee of the impact orbit until the time of impact, the satellite will be approaching perigee. Thus, the true anomaly will be larger than 180°.
 
 At the impact point, $\nu =$ 180° + 145° and $r = R_E$. Thus:
 
@@ -124,7 +124,7 @@ Now we have two equations and two unknowns, $h$ and $e$. It turns out to be easi
 e = \frac{z_0}{R_E \left(1 + \cos\nu\right) + z_0}
 :::
 
-Then, Eq. {eq}`eq:distance-to-apoapsis` is used to find $h$.
+Then, @eq:distance-to-apoapsis is used to find $h$.
 
 ```{code-cell} ipython3
 import numpy as np

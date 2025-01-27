@@ -31,7 +31,7 @@ From the definition of the $\uvec{w}$ unit vector, we can see that the magnitude
 h = x_0\dot{y}_0 - y_0\dot{x}_0
 :::
 
-Now we want to write the unit vectors $\uvec{p}$ and $\uvec{q}$ in terms of the initial conditions. Equation {eq}`eq:lagrange-coefficients-initial-conditions` contains two equations, and $\uvec{p}$ and $\uvec{q}$ are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:
+Now we want to write the unit vectors $\uvec{p}$ and $\uvec{q}$ in terms of the initial conditions. Equation @eq:lagrange-coefficients-initial-conditions contains two equations, and $\uvec{p}$ and $\uvec{q}$ are the two unknowns. We will use the magnitude of the angular momentum to help simplify. We end up with:
 
 :::{math}
 :label:

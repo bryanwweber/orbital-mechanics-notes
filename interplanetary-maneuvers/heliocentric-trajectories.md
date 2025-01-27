@@ -31,9 +31,9 @@ However, the Hohmann transfer is still the most efficient transfer, so it is a u
 
 To calculate the orbital parameters for a transfer, we will simplify the calculations with three assumptions:
 
-1. All the planetary orbits are coplanar. With the exceptions of Mercury and Pluto, the orbital inclinations of the planets range from 0° for Earth to 3.4° for Venus, as shown in {numref}`tab:planetary-orbital-elements`.
-2. The planetary orbits are circular. Again with the exceptions of Mercury and Pluto, the eccentricities of the planets’ orbits range from 6.7×10<sup>-3</sup> for Venus to 9.3×10<sup>-2</sup>, as shown in {numref}`tab:planetary-orbital-elements`.
-3. The radius of the circular orbit is equal to the mean semimajor axis of the orbit. The semimajor axis can be found in {numref}`tab:planetary-orbital-elements`.
+1. All the planetary orbits are coplanar. With the exceptions of Mercury and Pluto, the orbital inclinations of the planets range from 0° for Earth to 3.4° for Venus, as shown in @tab:planetary-orbital-elements.
+2. The planetary orbits are circular. Again with the exceptions of Mercury and Pluto, the eccentricities of the planets’ orbits range from 6.7×10<sup>-3</sup> for Venus to 9.3×10<sup>-2</sup>, as shown in @tab:planetary-orbital-elements.
+3. The radius of the circular orbit is equal to the mean semimajor axis of the orbit. The semimajor axis can be found in @tab:planetary-orbital-elements.
 
 With these three assumptions, the calculation of the required velocities can be completed by the methods discussed in [](../orbital-maneuvers/hohmann-transfer.md) and [](../orbital-maneuvers/non-hohmann-transfers.md).
 
@@ -50,7 +50,7 @@ As with the single-planet Hohmann transfer, there are multiple approaches to com
 
 The spacecraft will start on the same orbit as Neptune, with Neptune's orbital velocity, before providing an impulse to get onto the transfer orbit. Upon reaching Venus's orbit, the spacecraft will provide another impulse to change its velocity to match Venus's orbital velocity.
 
-The value for $\mu_{\text{Sun}}$ comes from {numref}`tab:planetary-mass-parameters` and the orbital radii for the planets are assumed to be equal to the semimajor axes given in {numref}`tab:planetary-orbital-elements`.
+The value for $\mu_{\text{Sun}}$ comes from @tab:planetary-mass-parameters and the orbital radii for the planets are assumed to be equal to the semimajor axes given in @tab:planetary-orbital-elements.
 
 ```{code-cell} ipython3
 import math as m
@@ -72,7 +72,7 @@ glue("heliocentric-hohmann-v_1", v_1)
 glue("heliocentric-hohmann-v_2", v_2)
 ```
 
-This gives orbital velocities of $v_1 =$ {glue:text}`heliocentric-hohmann-v_1:.3f` km/s for Neptune and $v_2 =$ {glue:text}`heliocentric-hohmann-v_2:.3f` km/s for Venus. These match the values from {numref}`tab:planetary-orbital-elements`, as expected.
+This gives orbital velocities of $v_1 =$ {glue:text}`heliocentric-hohmann-v_1:.3f` km/s for Neptune and $v_2 =$ {glue:text}`heliocentric-hohmann-v_2:.3f` km/s for Venus. These match the values from @tab:planetary-orbital-elements, as expected.
 
 Next, we'll use the orbital energy of the transfer orbit to determine the velocities at aphelion and perihelion of the transfer orbit.
 

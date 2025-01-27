@@ -70,7 +70,7 @@ The gravitational potential energy function for a spherically-symmetrical shape 
 \PE = -\frac{G m_1 m_2}{r} = -\frac{G m_1 m_2}{\sqrt{x^2 + y^2 + z^2}}
 :::
 
-In Eq. {eq}`eq:gravitational-potential-energy-function`, the coordinates $x$, $y$, and $z$ are functions of time. This mildly complicates taking the derivative $d\PE/dt$:
+In @eq:gravitational-potential-energy-function, the coordinates $x$, $y$, and $z$ are functions of time. This mildly complicates taking the derivative $d\PE/dt$:
 
 :::{math}
 :label: eq:derivative-of-gpe
@@ -104,17 +104,17 @@ where $a_x$, $a_y$, and $a_z$ are the relative acceleration components.
 
 ## Application to Two-Body Relative Motion
 
-In this section, we are going to prove that the two-body equation of motion, Eq. {eq}`eq:two-body-relative-motion`, satisfies conservation of energy. Eq. {eq}`eq:two-body-relative-motion` is a _vector_ equation, while energy is a **scalar quantity**. This means that energy is represented by a single number, it has a magnitude but no direction.
+In this section, we are going to prove that the two-body equation of motion, @eq:two-body-relative-motion, satisfies conservation of energy. @eq:two-body-relative-motion is a _vector_ equation, while energy is a **scalar quantity**. This means that energy is represented by a single number, it has a magnitude but no direction.
 
 ```{margin}
 This is why the dot product is also called the scalar product.
 ```
 
-To convert between vectors and scalars mathematically, we have to use the vector dot product. We are going to take the dot product of Eq. {eq}`eq:two-body-relative-motion` with something, and now we have to decide what that something is.
+To convert between vectors and scalars mathematically, we have to use the vector dot product. We are going to take the dot product of @eq:two-body-relative-motion with something, and now we have to decide what that something is.
 
-As $m_2$ orbits around $m_1$, the conversion between kinetic and potential energy is done by work. The rate at which work is done is the power, and is in turn equal to the rate of change of the energy, $dE/dt$. We already saw $dE/dt$ in Eq. {eq}`eq:derivative-of-energy-equation`, so that is probably a good place to start.
+As $m_2$ orbits around $m_1$, the conversion between kinetic and potential energy is done by work. The rate at which work is done is the power, and is in turn equal to the rate of change of the energy, $dE/dt$. We already saw $dE/dt$ in @eq:derivative-of-energy-equation, so that is probably a good place to start.
 
-Finally, the power is calculated by taking the dot product of the force and velocity vectors. So, we will take the dot product of the _velocity_ vector and Eq. {eq}`eq:two-body-relative-motion`.
+Finally, the power is calculated by taking the dot product of the force and velocity vectors. So, we will take the dot product of the _velocity_ vector and @eq:two-body-relative-motion.
 
 :::{math}
 :label: eq:dot-product-velocity-two-body-eom
@@ -126,10 +126,10 @@ Finally, the power is calculated by taking the dot product of the force and velo
 
 Now, if we multiply through by $m_2$ (which doesn't change anything), we see two things:
 
-1. The first term on the left is identical to $d\KE/dt$, Eq. {eq}`eq:derivative-of-ke`
-2. The second term on the left is identical to $d\PE/dt$, Eq. {eq}`eq:derivative-of-gpe-simplified`
+1. The first term on the left is identical to $d\KE/dt$, @eq:derivative-of-ke
+2. The second term on the left is identical to $d\PE/dt$, @eq:derivative-of-gpe-simplified
 
-Therefore, Eq. {eq}`eq:dot-product-velocity-two-body-eom` shows that the two-body equation of motion can be converted into power, and the sum of the power is zero. This precisely satisfies the condition in Eq. {eq}`eq:derivative-of-energy-equation`!
+Therefore, @eq:dot-product-velocity-two-body-eom shows that the two-body equation of motion can be converted into power, and the sum of the power is zero. This precisely satisfies the condition in @eq:derivative-of-energy-equation!
 
 :::{note}
 I'm not sure I've given this result enough oomph. What we have here is a proof that the two-body equation of motion satisfies the law of conservation of energy!
@@ -137,7 +137,7 @@ I'm not sure I've given this result enough oomph. What we have here is a proof t
 
 ## The _vis viva_ Equation
 
-Now that we have proven that the two-body equation of motion satisfies conservation of energy, we can use the conservation law to derive another useful equation. Starting from Eq. {eq}`eq:derivative-of-energy-equation`, let's integrate with respect to time:
+Now that we have proven that the two-body equation of motion satisfies conservation of energy, we can use the conservation law to derive another useful equation. Starting from @eq:derivative-of-energy-equation, let's integrate with respect to time:
 
 :::{math}
 :label: eq:integrate-energy-equation
@@ -149,4 +149,4 @@ Now that we have proven that the two-body equation of motion satisfies conservat
 
 where $C$ is an arbitrary constant of integration. By choosing a value for $C$, we are setting the **reference point** for the potential energy. For instance, we could choose the reference point at $r = R_E$, the radius of the Earth, which would give some finite value for $C$. However, it is most convenient to choose $C=0$, corresponding to a reference point at infinite radius.
 
-Equation {eq}`eq:integrate-energy-equation` is a statement of the conservation of energy of the system. It is called the _vis viva_ equation, which translates as the _living force_ equation due to its central role in understanding how objects orbit each other.
+Equation @eq:integrate-energy-equation is a statement of the conservation of energy of the system. It is called the _vis viva_ equation, which translates as the _living force_ equation due to its central role in understanding how objects orbit each other.

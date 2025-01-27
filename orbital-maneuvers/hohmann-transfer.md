@@ -9,13 +9,13 @@ If the initial orbit and final, or target, orbit do not intersect, we need at le
 The Hohmann transfer orbit. [Leafnode](https://commons.wikimedia.org/wiki/File:Hohmann_transfer_orbit.svg) [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5), via Wikimedia Commons.
 :::
 
-In {numref}`fig:hohmann-transfer`, the spacecraft is initially in orbit 1 with radius $\mathsf{R}$ and is targeting orbit 3 with radius $\mathsf{R}'$. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. When the spacecraft arrives at the far side of the ellipse, it boosts its velocity again to move into orbit 3.
+In @fig:hohmann-transfer, the spacecraft is initially in orbit 1 with radius $\mathsf{R}$ and is targeting orbit 3 with radius $\mathsf{R}'$. To achieve the transfer, the spacecraft boosts its velocity into an elliptical orbit, 2. When the spacecraft arrives at the far side of the ellipse, it boosts its velocity again to move into orbit 3.
 
 The periapsis distance of this **transfer orbit** is equal to $\mathsf{R}$ and the apoapsis distance is $\mathsf{R}'$. This means that the transfer orbit intersects both orbits 1 and 3. By providing impulses at both intersection points, it is possible to move from orbit 1 to orbit 3.
 
 ## Energy Considerations
 
-The specific energy of the initial and final orbits are given by Eq. {eq}`eq:circular-orbit-energy`, repeated here for reference:
+The specific energy of the initial and final orbits are given by @eq:circular-orbit-energy, repeated here for reference:
 
 :::{math}
 E = -\frac{\mu}{2r}
@@ -23,7 +23,7 @@ E = -\frac{\mu}{2r}
 
 where $r$ is the radius of the circular orbit. Let subscripts $i$ and $f$ represent the initial and final orbits, respectively. Then, if $r_i < r_f$, the specific energy increases (gets closer to zero) as a result of the transfer. On the other hand, if $r_i > r_f$, the specific energy decreases (gets more negative).
 
-The specific energy of the elliptical transfer orbit is given by Eq. {eq}`eq:ellipse-specific-energy`, repeated here for reference:
+The specific energy of the elliptical transfer orbit is given by @eq:ellipse-specific-energy, repeated here for reference:
 
 :::{math}
 E = -\frac{\mu}{2a}
@@ -36,7 +36,7 @@ For the Hohmann transfer, the semi-major axis of the transfer orbit is between t
 
 In this case, the semi-major axis of the transfer orbit is larger than the initial radius. Therefore, the specific energy of the transfer orbit is also larger, $E_i < E_t$.
 
-The intersection between the initial and transfer orbits is at the _periapsis_ of the transfer orbit. Since the orbits intersect, their radius must be the same, $r_i = r_{t,p}$. For the energy of the elliptical orbit to be larger at the intersection point, its velocity must be higher, according to the _vis viva_ equation, Eq. {eq}`eq:vis-viva-equation`.
+The intersection between the initial and transfer orbits is at the _periapsis_ of the transfer orbit. Since the orbits intersect, their radius must be the same, $r_i = r_{t,p}$. For the energy of the elliptical orbit to be larger at the intersection point, its velocity must be higher, according to the _vis viva_ equation, @eq:vis-viva-equation.
 
 Therefore, the spacecraft conducts an impulsive burn to increase its speed from $v_i$ to $v_{t,p}$. In doing so, the apoapsis of the orbit increases from $r_i$ to $r_{t,a}$. This kind of impulse is referred to as **raising the apoapsis** of the orbit. Since the velocity is increasing, the spacecraft must have its engine pointing anti-parallel to the direction of the velocity vector.
 
@@ -52,7 +52,7 @@ Once again, the spacecraft conducts an impulsive burn to increase its speed from
 
 In this case, the semi-major axis of the transfer orbit is smaller than the initial radius. Therefore, the specific energy of the transfer orbit is also smaller, $E_t < E_i$.
 
-The intersection between the initial and transfer orbits is at the _apoapsis_ of the transfer orbit. Since the orbits intersect, their radius must be the same, $r_i = r_{t,a}$. For the energy of the elliptical orbit to be smaller at the intersection point, its velocity must be smaller, according to the _vis viva_ equation, Eq. {eq}`eq:vis-viva-equation`.
+The intersection between the initial and transfer orbits is at the _apoapsis_ of the transfer orbit. Since the orbits intersect, their radius must be the same, $r_i = r_{t,a}$. For the energy of the elliptical orbit to be smaller at the intersection point, its velocity must be smaller, according to the _vis viva_ equation, @eq:vis-viva-equation.
 
 Therefore, the spacecraft conducts an impulsive burn to decrease its speed from $v_i$ to $v_{t,a}$. In doing so, the periapsis of the orbit decreases from $r_i$ to $r_{t,p}$. This kind of impulse is referred to as **lowering the periapsis** of the orbit. Since the velocity is decreasing, the spacecraft must have its engine pointing in the direction of the velocity vector, and this is called a **retrofire**.
 
@@ -71,7 +71,7 @@ For multiple-impulse maneuvers, we are interested in determining the **total** $
 
 For each impulse, we need to calculate the difference in velocity between the circular orbits and the transfer orbit. Since the velocity vectors are parallel at both impulse locations we can work entirely with velocity magnitudes.
 
-The velocity on the circular orbits is given by Eq. {eq}`eq:circular-orbit-velocity`:
+The velocity on the circular orbits is given by @eq:circular-orbit-velocity:
 
 :::{math}
 v_{\text{circular}} = \sqrt{\frac{\mu}{r}}
@@ -93,7 +93,7 @@ From the equations for elliptical orbits, we can solve for the specific angular 
 h_t = \sqrt{2\mu \frac{r_a r_p}{r_a + r_p}}
 :::
 
-Alternatively, we can use the _vis viva_ equation, Eq. {eq}`eq:vis-viva-equation`, to find the velocity on the transfer orbit
+Alternatively, we can use the _vis viva_ equation, @eq:vis-viva-equation, to find the velocity on the transfer orbit
 
 :::{math}
 :label:
@@ -121,7 +121,7 @@ Finally, the total $\Delta v$ required for the Hohmann transfer is:
 
 ### Transit Time
 
-Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit from Eq. {eq}`eq:ellipse-period-useful`:
+Since the Hohmann transfer traverses half of the ellipse, the transfer time is given as half the period of the elliptical orbit from @eq:ellipse-period-useful:
 
 :::{math}
 :label: eq:hohmann-transfer-time

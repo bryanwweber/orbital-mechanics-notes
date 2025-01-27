@@ -13,7 +13,7 @@ kernelspec:
 
 # Two-Body Numerical Solution in an Inertial Frame
 
-The equations of motion for the two-body problem in an inertial frame are given by {eq}`eq:two-body-inertial-components`, repeated here:
+The equations of motion for the two-body problem in an inertial frame are given by @eq:two-body-inertial-components, repeated here:
 
 :::{math}
 \begin{aligned}
@@ -76,7 +76,7 @@ These code samples first set the constants in the problem, $G$ and $m_1 = m_2$. 
 
 ## Transforming the System of Ordinary Differential Equations
 
-The system of ordinary differential equations (ODEs) in {eq}`eq:two-body-inertial-equation-of-motion` or {eq}`eq:two-body-inertial-components` is a second order system. However, it can be transformed to a system of first-order ODEs by recognizing the acceleration as the first derivative of the velocity. Solving a first-order system is much simpler than solving a second-order system.
+The system of ordinary differential equations (ODEs) in @eq:two-body-inertial-equation-of-motion or @eq:two-body-inertial-components is a second order system. However, it can be transformed to a system of first-order ODEs by recognizing the acceleration as the first derivative of the velocity. Solving a first-order system is much simpler than solving a second-order system.
 
 We know that the system of equations requires the
 
@@ -87,18 +87,18 @@ We know that the system of equations requires the
 
 where $\vector{y}$ is the state vector, $t$ is time, and $f$ is a function that depends on the current time and the current state vector.
 
-The left hand side of {eq}`eq:numerical-solution` is the time-derivative of the state vector, which we find by taking the time derivative of each element of the state vector:
+The left hand side of @eq:numerical-solution is the time-derivative of the state vector, which we find by taking the time derivative of each element of the state vector:
 
 :::{math}
 :label: eq:state-vector-derivative
 \dot{\vector{y}} = \left[\dot{X}_1\ \dot{Y}_1\ \dot{Z}_1\ \dot{X}_2\ \dot{Y}_2\ \dot{Z}_2\ \ddot{X}_1\ \ddot{Y}_1\ \ddot{Z}_1\ \ddot{X}_2\ \ddot{Y}_2\ \ddot{Z}_2\right]
 :::
 
-In words, the left side of {eq}`eq:numerical-solution` is another array, where the first six elements are the velocity components (the first derivative of position) and the second six are the acceleration (the first derivative of velocity).
+In words, the left side of @eq:numerical-solution is another array, where the first six elements are the velocity components (the first derivative of position) and the second six are the acceleration (the first derivative of velocity).
 
 ## Solution Algorithm
 
-We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using {eq}`eq:two-body-inertial-components`. This can be done for one direction at a time, as shown in the following code:
+We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using @eq:two-body-inertial-components. This can be done for one direction at a time, as shown in the following code:
 
 ::::{tab-set-code}
 :::{literalinclude} scripts/two-body-inertial-numerical-solution.py
@@ -231,7 +231,7 @@ Then we extract the position and velocity of each mass as a function of time, an
 :::
 ::::
 
-Finally, we construct some plots of the situation. In {numref}`fig:two-body-inertial`, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the [next section](./motion-of-the-barycenter.md).
+Finally, we construct some plots of the situation. In @fig:two-body-inertial, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the [next section](./motion-of-the-barycenter.md).
 
 The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.
 
@@ -251,7 +251,7 @@ glue("two_body_inertial", js, display=False)
 The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.
 :::
 
-Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in {numref}`fig:two-body-inertial-cg-relative`. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.
+Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in @fig:two-body-inertial-cg-relative. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.
 
 ```{code-cell} python
 :tags: ["remove-input"]
@@ -268,7 +268,7 @@ glue("two_body_inertial_cg_relative", js, display=False)
 The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of $m_1$ and $m_2$ appear to be ellipses with the barycenter at one of the foci.
 :::
 
-{numref}`fig:two-body-inertial-m1-relative` fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.
+@fig:two-body-inertial-m1-relative fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.
 
 ```{code-cell} python
 :tags: ["remove-input"]
@@ -285,7 +285,7 @@ glue("two_body_inertial_m1_relative", js, display=False)
 The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to $m_1$. In this reference frame, the orbits of the barycenter and $m_2$ appear to be ellipses with $m_1$ at one of the foci.
 :::
 
-Interestingly, the equations for this solution are symmetric. We can reverse the roles of $m_1$ and $m_2$ and have exactly the same plot as {numref}`fig:two-body-inertial-m1-relative`. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!
+Interestingly, the equations for this solution are symmetric. We can reverse the roles of $m_1$ and $m_2$ and have exactly the same plot as @fig:two-body-inertial-m1-relative. This means that sitting on the Moon watching the Earth orbit is the same as sitting on the Earth watching the Moon orbit. Just like the Moon has phases when viewed from Earth, the Earth has phases when viewed from the Moon!
 
 The code to generate the plots is shown below.
 

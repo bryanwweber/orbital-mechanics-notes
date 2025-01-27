@@ -13,7 +13,7 @@ kernelspec:
 
 # Two-Body Problem in the Co-Moving Frame
 
-Recall the equations of motion for the two-body problem in a reference frame attached to $m_1$, Eq. {eq}`eq:two-body-relative-motion-components`, repeated here for reference:
+Recall the equations of motion for the two-body problem in a reference frame attached to $m_1$, @eq:two-body-relative-motion-components, repeated here for reference:
 
 :::{math}
 \begin{aligned}

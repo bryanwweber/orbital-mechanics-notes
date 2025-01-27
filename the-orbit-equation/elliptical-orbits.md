@@ -1,10 +1,10 @@
 # Elliptical Orbits ($0 < e < 1$)
 
-If the eccentricity is between 0 and 1, then the radius of the orbit varies with the true anomaly. However, the magnitude of the product $e \cos\nu$ is never greater than one. This means that the bottom of the fraction in the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, is never zero and the orbit is an elliptical shape. The minimum value of $r$ occurs at periapsis where $\nu = 0$ and the maximum value of $r$ is at apoapsis where $\nu = \pi$. The distance to periapsis and apoapsis are given by Eq. {eq}`eq:distance-to-periapsis` and Eq. {eq}`eq:distance-to-apoapsis`, respectively.
+If the eccentricity is between 0 and 1, then the radius of the orbit varies with the true anomaly. However, the magnitude of the product $e \cos\nu$ is never greater than one. This means that the bottom of the fraction in the orbit equation, @eq:scalar-orbit-equation, is never zero and the orbit is an elliptical shape. The minimum value of $r$ occurs at periapsis where $\nu = 0$ and the maximum value of $r$ is at apoapsis where $\nu = \pi$. The distance to periapsis and apoapsis are given by @eq:distance-to-periapsis and @eq:distance-to-apoapsis, respectively.
 
 ## Major and Minor Axes
 
-The geometry of the ellipse is shown in {numref}`fig:elliptical-orbit-definitions`.
+The geometry of the ellipse is shown in @fig:elliptical-orbit-definitions.
 
 :::{figure} ../images/elliptical-orbit-definitions.svg
 :name: fig:elliptical-orbit-definitions
@@ -20,14 +20,14 @@ Let $2a$ denote the total distance from periapsis to apoapsis along the apse lin
 a = \frac{h^2}{\mu} \frac{1}{1 - e^2}
 :::
 
-where $a$ is the **semi-major axis** of the ellipse. We can then write the orbit equation, Eq. {eq}`eq:scalar-orbit-equation` in terms of the semi-major axis:
+where $a$ is the **semi-major axis** of the ellipse. We can then write the orbit equation, @eq:scalar-orbit-equation in terms of the semi-major axis:
 
 :::{math}
 :label: eq:ellipse-orbit-equation-semi-major-axis
 r = a\frac{1 - e^2}{1 + e\cos\nu}
 :::
 
-From the definition of the parameter of the orbit in Eq. {eq}`eq:semi-latus-rectum`, we can see that:
+From the definition of the parameter of the orbit in @eq:semi-latus-rectum, we can see that:
 
 :::{math}
 :label: eq:ellipse-parameter-of-orbit
@@ -79,7 +79,7 @@ The period of the elliptical orbit can be found in terms of the semi-major and s
 A = \pi a b
 :::
 
-From Kepler's second law (equal areas in equal times), given by Eq. {eq}`eq:areal-velocity-definition`, we find:
+From Kepler's second law (equal areas in equal times), given by @eq:areal-velocity-definition, we find:
 
 :::{math}
 :label: eq:ellipse-area-time-relation
@@ -103,7 +103,7 @@ T = \frac{2\pi}{\sqrt{\mu}}a^{3/2}
 which is also the same formula as a circle, with the semi-major axis in the role of the radius. Note that this formula is also independent of the eccentricity. This equation represents Kepler's third law:
 
 :::{note}
-**Kepler's Third Law:** The period of a planet is proportional to the 3/2 power of the semi-major axis of its orbit. This is shown in {numref}`fig:Solar_system_orbital_period_vs_semimajor_axis`.
+**Kepler's Third Law:** The period of a planet is proportional to the 3/2 power of the semi-major axis of its orbit. This is shown in @fig:Solar_system_orbital_period_vs_semimajor_axis.
 
 :::{figure} ../images/Solar_system_orbital_period_vs_semimajor_axis.svg
 :name: fig:Solar_system_orbital_period_vs_semimajor_axis
@@ -121,7 +121,7 @@ The eccentricity of the orbit can be determined if the distances to periapsis an
 \frac{r_p}{r_a} = \frac{1 - e}{1 + e}
 :::
 
-Solving Eq. {eq}`eq:ellipse-periapsis-apoapsis-ratio` for the eccentricity:
+Solving @eq:ellipse-periapsis-apoapsis-ratio for the eccentricity:
 
 :::{math}
 :label: eq:ellipse-eccentricity-periapsis-apoapsis

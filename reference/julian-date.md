@@ -207,7 +207,7 @@ glue("julian-date-gregorian_evening", gregorian_evening.strftime("%B %e, %Y at %
 glue("julian-date-gregorian_morning", gregorian_morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z"))
 ```
 
-{numref}`tab:julian-date-conversion-results` shows that the reverse conversion gives back nearly identical results. The difference is most likely due to floating point error in the microsecond calculation.
+@tab:julian-date-conversion-results shows that the reverse conversion gives back nearly identical results. The difference is most likely due to floating point error in the microsecond calculation.
 
 :::{table} Julian date conversion results using an evening and a morning time.
 :name: tab:julian-date-conversion-results
@@ -236,7 +236,7 @@ MATLAB has a function called [`juliandate`](https://www.mathworks.com/help/matla
 >> t1.TimeZone = 'UTC';
 >> t1
 
-t1 = 
+t1 =
 
   datetime
 
@@ -255,7 +255,7 @@ This gives the same result as the Python code above. MATLAB also allows the reve
 >> jd1 = juliandate(datetime('2020-12-07 18:12:43.674805'));
 >> datetime(jd1,'ConvertFrom','JulianDate')
 
-ans = 
+ans =
 
   datetime
 
@@ -267,7 +267,7 @@ Note that the default time zone is UTC, to convert to a different time zone, the
 ```matlab
 >> datetime(jd1,'ConvertFrom','JulianDate','TimeZone','America/New_York')
 
-ans = 
+ans =
 
   datetime
 
@@ -279,7 +279,7 @@ MATLAB also uses the proleptic Gregorian calendar for dates prior to 1583, so JD
 ```matlab
 >> datetime(0,'ConvertFrom','JulianDate')
 
-ans = 
+ans =
 
   datetime
 

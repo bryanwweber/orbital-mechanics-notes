@@ -6,7 +6,7 @@ Instead, it would be more convenient if we could transfer to or from any point i
 
 For now, we will assume that the initial and target orbits have a common apse line. In addition, the two orbits will have the same focus. Assume that we want to leave the initial orbit at the true anomaly $\nu_A$ and arrive at the target orbit at the true anomaly $\nu_B$.
 
-Since the two orbits have the same focus, the transfer orbit will also have the same focus. In addition, since the apse lines are in common, the departure and arrival true anomalies are the same in the transfer orbit. This situation is shown in {numref}`fig:common-apse-line-transfer`.
+Since the two orbits have the same focus, the transfer orbit will also have the same focus. In addition, since the apse lines are in common, the departure and arrival true anomalies are the same in the transfer orbit. This situation is shown in @fig:common-apse-line-transfer.
 
 :::{figure} ../images/common-apse-line-transfer.svg
 :name: fig:common-apse-line-transfer
@@ -65,9 +65,9 @@ Expanding the product and simplifying with the law of cosines, we find:
 \Delta v = \sqrt{v_A^2 + v_{A_t}^2 - 2 v_A v_{A_t} \cos\Delta\phi}
 :::
 
-where $\Delta\phi = \phi_{A_t} - \phi_A$ is the change of flight path angle. The flight path angle is given by Eq. {eq}`eq:flight-path-angle`.
+where $\Delta\phi = \phi_{A_t} - \phi_A$ is the change of flight path angle. The flight path angle is given by @eq:flight-path-angle.
 
-This situation is shown in {numref}`fig:non-hohmann-delta-v` for the departure point.
+This situation is shown in @fig:non-hohmann-delta-v for the departure point.
 
 :::{figure} ../images/non-hohmann-delta-v.svg
 :name: fig:non-hohmann-delta-v
@@ -90,7 +90,7 @@ where $\Delta v_r$ is the change in the radial component of velocity and $\Delta
 
 ## Relation to Specific Energy
 
-The _vis viva_ equation determines the specific energy of the spacecraft due to its kinetic and potential energy by Eq. {eq}`eq:vis-viva-equation`. The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:
+The _vis viva_ equation determines the specific energy of the spacecraft due to its kinetic and potential energy by @eq:vis-viva-equation. The impulsive maneuver in this transfer changes the velocity but not the position (by definition). Then, we can calculate the change in specific energy due to the impulse:
 
 :::{math}
 :label:

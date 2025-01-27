@@ -27,21 +27,21 @@ Let $\eta$ be the rotation angle of the apse line. Then, in terms of the true an
 \eta = \nu_i - \nu_f
 :::
 
-Since the initial and final orbits both have their elements specified, we can use the orbit equation, Eq. {eq}`eq:scalar-orbit-equation` applied at the intersection point to solve for $\nu_i$ and $\nu_f$. We find:
+Since the initial and final orbits both have their elements specified, we can use the orbit equation, @eq:scalar-orbit-equation applied at the intersection point to solve for $\nu_i$ and $\nu_f$. We find:
 
 :::{math}
 :label: eq:apse-line-rotation-orbit-equation
 e_i p_f \cos\nu_i - e_f p_i \cos\nu_f = p_i - p_f
 :::
 
-We can use a trigonometric identity to further simplify Eq. {eq}`eq:apse-line-rotation-orbit-equation` to be in terms of $\nu_i$ only:
+We can use a trigonometric identity to further simplify @eq:apse-line-rotation-orbit-equation to be in terms of $\nu_i$ only:
 
 :::{math}
 :label: eq:apse-line-rotation-in-nu_i
 e_i p_f \cos\nu_i - e_f p_i \cos\nu_i \cos\eta - e_f p_i \sin\nu_i \sin\eta = p_i - p_f
 :::
 
-In Eq. {eq}`eq:apse-line-rotation-in-nu_i`, $e_i$, $e_f$, $p_i$, $p_f$, and $\eta$ are all known, so the equation can be solved for $\nu_i$. There are two roots of Eq. {eq}`eq:apse-line-rotation-in-nu_i`. Letting:
+In @eq:apse-line-rotation-in-nu_i, $e_i$, $e_f$, $p_i$, $p_f$, and $\eta$ are all known, so the equation can be solved for $\nu_i$. There are two roots of @eq:apse-line-rotation-in-nu_i. Letting:
 
 :::{math}
 :label: eq:apse-line-rotation-a-b-c
@@ -50,14 +50,14 @@ In Eq. {eq}`eq:apse-line-rotation-in-nu_i`, $e_i$, $e_f$, $p_i$, $p_f$, and $\et
 \end{aligned}
 :::
 
-the two roots of Eq. {eq}`eq:apse-line-rotation-in-nu_i` are given by:
+the two roots of @eq:apse-line-rotation-in-nu_i are given by:
 
 :::{math}
 :label: eq:apse-line-rotation-nu-roots
 \nu_i = \alpha \pm \cos^{-1}\left(\frac{c}{a}\cos\alpha\right)
 :::
 
-where $a$, $b$, and $c$ are given by Eq. {eq}`eq:apse-line-rotation-a-b-c` and $\alpha$ is given by:
+where $a$, $b$, and $c$ are given by @eq:apse-line-rotation-a-b-c and $\alpha$ is given by:
 
 :::{math}
 :label: eq:apse-line-rotation-alpha
@@ -65,7 +65,7 @@ where $a$, $b$, and $c$ are given by Eq. {eq}`eq:apse-line-rotation-a-b-c` and $
 \alpha = \tan^{-1}\frac{b}{a}
 :::
 
-Subsequently, $\nu_f$ can be found from Eq. {eq}`eq:apse-line-rotation-angle`.
+Subsequently, $\nu_f$ can be found from @eq:apse-line-rotation-angle.
 
 ## Example
 
@@ -116,7 +116,7 @@ glue("apse-line-rotation-nu_i", m.degrees(nu_i))
 glue("apse-line-rotation-nu_f", m.degrees(nu_f))
 ```
 
-The results are shown in {numref}`tab:apse-line-rotation-nu-results`. We chose the negative sign in Eq. {eq}`eq:apse-line-rotation-nu-roots` for convenience. Choosing the positive sign would give a different, although valid, result.
+The results are shown in @tab:apse-line-rotation-nu-results. We chose the negative sign in @eq:apse-line-rotation-nu-roots for convenience. Choosing the positive sign would give a different, although valid, result.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
 :name: tab:apse-line-rotation-nu-results
@@ -166,7 +166,7 @@ for n in ("v_p", "v_r", "v", "phi"):
     glue("apse-line-rotation-" + name, loc[name])
 ```
 
-The radius at the impulse point is $r =$ {glue:text}`apse-line-rotation-r:.2f` km, the $\Delta v=$ {glue:text}`apse-line-rotation-delta-v:.2f` km/s, and the thrust vector angle is $\gamma =$ {glue:text}`apse-line-rotation-gamma:.2f`°. The velocity components and flight path angles are shown in {numref}`tab:apse-line-rotation`.
+The radius at the impulse point is $r =$ {glue:text}`apse-line-rotation-r:.2f` km, the $\Delta v=$ {glue:text}`apse-line-rotation-delta-v:.2f` km/s, and the thrust vector angle is $\gamma =$ {glue:text}`apse-line-rotation-gamma:.2f`°. The velocity components and flight path angles are shown in @tab:apse-line-rotation.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
 :name: tab:apse-line-rotation

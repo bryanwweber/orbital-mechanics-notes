@@ -25,7 +25,7 @@ To calculate the departure velocity vector, we will treat the arrival and depart
 
 When the spacecraft arrives at the target planet, it's trajectory will be a hyperbola relative to the planet. When crossing the sphere of influence of the planet, the spacecraft can be in one of two orientations:
 
-1. crossing in front of the planet, as shown in {numref}`fig:interplanetary-leading-flyby`, called a **leading-side flyby**.
+1. crossing in front of the planet, as shown in @fig:interplanetary-leading-flyby, called a **leading-side flyby**.
 
    :::{figure} ../images/interplanetary-leading-flyby.svg
    :name: fig:interplanetary-leading-flyby
@@ -33,7 +33,7 @@ When the spacecraft arrives at the target planet, it's trajectory will be a hype
    A leading-side planetary flyby. Notice that the spacecraft crosses in front of the planet along the planet's direction of motion.
    :::
 
-2. crossing behind the planet, as shown in {numref}`fig:interplanetary-trailing-flyby`, called a **trailing-side flyby**
+2. crossing behind the planet, as shown in @fig:interplanetary-trailing-flyby, called a **trailing-side flyby**
 
    :::{figure} ../images/interplanetary-trailing-flyby.svg
    :name: fig:interplanetary-trailing-flyby
@@ -41,7 +41,7 @@ When the spacecraft arrives at the target planet, it's trajectory will be a hype
    A trailing-side planetary flyby. Notice that the spacecraft crosses behind the planet along the planet's direction of motion.
    :::
 
-The angle $\delta$, given by Eq. {eq}`eq:hyperbolic-turn-angle`, is the turn angle. Note that $\delta$ is positive counterclockwise, so it is negative for the trailing-side flyby.
+The angle $\delta$, given by @eq:hyperbolic-turn-angle, is the turn angle. Note that $\delta$ is positive counterclockwise, so it is negative for the trailing-side flyby.
 
 ### Arrival Heliocentric Velocity
 
@@ -53,7 +53,7 @@ To determine the spacecraft's hyperbolic orbital elements, we need to find $\vec
 \vector{v}_{\infty,1} = \vector{V}_1^s - \vector{V}
 :::
 
-where $\vector{V}$ is the orbital velocity of the planet and $\vector{V}_1^s$ is the spacecraft's heliocentric velocity vector. This vector sum is shown visually in {numref}`fig:interplanetary-leading-flyby` and {numref}`fig:interplanetary-trailing-flyby` in the inset figure.
+where $\vector{V}$ is the orbital velocity of the planet and $\vector{V}_1^s$ is the spacecraft's heliocentric velocity vector. This vector sum is shown visually in @fig:interplanetary-leading-flyby and @fig:interplanetary-trailing-flyby in the inset figure.
 
 In the heliocentric frame, the spacecraft's velocity can be split into two components:
 
@@ -97,7 +97,7 @@ where $R$ is the planet's orbital radius around the Sun. Similarly, the spacecra
 \vector{V}_1^s = V_1^s \cos\alpha_1 \uvec{u}_V + V_1^s \sin\alpha_1 \uvec{u}_S
 :::
 
-where $V_1^s$ is the magnitude of the spacecraft's heliocentric velocity and $\alpha_1$ is the angle that $\vector{V}_1^s$ makes with $\vector{V}$. Thus, $\alpha_1$ is the flight path angle of the spacecraft, and its value is found from Eq. {eq}`eq:flight-path-angle`:
+where $V_1^s$ is the magnitude of the spacecraft's heliocentric velocity and $\alpha_1$ is the angle that $\vector{V}_1^s$ makes with $\vector{V}$. Thus, $\alpha_1$ is the flight path angle of the spacecraft, and its value is found from @eq:flight-path-angle:
 
 :::{math}
 :label:
@@ -106,7 +106,7 @@ where $V_1^s$ is the magnitude of the spacecraft's heliocentric velocity and $\a
 
 ### Arrival Excess Velocity Vector
 
-In {numref}`fig:interplanetary-leading-flyby` and {numref}`fig:interplanetary-trailing-flyby`, we can break the excess velocity vector into the geocentric coordinate system:
+In @fig:interplanetary-leading-flyby and @fig:interplanetary-trailing-flyby, we can break the excess velocity vector into the geocentric coordinate system:
 
 :::{math}
 :label: eq:interplanetary-flyby-excess-velocity-geocentric
@@ -122,7 +122,7 @@ Finally, we can compute the magnitude of the excess velocity:
 v_{\infty} = \sqrt{\left(V_1^s\right)^2 + V^2 - 2 V_1^s V \cos\alpha_1}
 :::
 
-The magnitude $V_1^s$ can be found from the velocity components in Eq. {eq}`eq:interplanetary-flyby-arrival-heliocentric-components`, and $V$ is given by Eq. {eq}`eq:interplanetary-flyby-planet-velocity`.
+The magnitude $V_1^s$ can be found from the velocity components in @eq:interplanetary-flyby-arrival-heliocentric-components, and $V$ is given by @eq:interplanetary-flyby-planet-velocity.
 
 The magnitude of the excess velocity depends only on the semimajor axis of the hyperbola. Since the semimajor axis is constant, the magnitude of the excess velocity is also constant. Thus, we drop the subscript for arrival and departure for the magntiude.
 
@@ -134,9 +134,9 @@ The techniques described in this section can also be used for a capture orbit if
 
 ## Departure Trajectory
 
-Now that we have $\vector{v}_{\infty,1}$ from Eq. {eq}`eq:interplanetary-flyby-excess-velocity-geocentric`, we are ready to calculate the departure trajectory. The $\vector{v}_{\infty}$ vector is rotated through the turn angle $\delta$. We need a consistent reference line from which the angle of the $\vector{v}_{\infty}$ vector can be measured.
+Now that we have $\vector{v}_{\infty,1}$ from @eq:interplanetary-flyby-excess-velocity-geocentric, we are ready to calculate the departure trajectory. The $\vector{v}_{\infty}$ vector is rotated through the turn angle $\delta$. We need a consistent reference line from which the angle of the $\vector{v}_{\infty}$ vector can be measured.
 
-The easiest choice for a reference line is the planet's heliocentric velocity vector. As shown in {numref}`fig:interplanetary-flyby-phi-angle`, we can define an angle $\phi$ from the planet's velocity vector $\vector{V}$ to $\vector{v}_{\infty}$. $\phi_1$ is defined for the angle at arrival and $\phi_2$ is the angle at departure.
+The easiest choice for a reference line is the planet's heliocentric velocity vector. As shown in @fig:interplanetary-flyby-phi-angle, we can define an angle $\phi$ from the planet's velocity vector $\vector{V}$ to $\vector{v}_{\infty}$. $\phi_1$ is defined for the angle at arrival and $\phi_2$ is the angle at departure.
 
 :::{figure} ../images/interplanetary-flyby-phi-angle.svg
 :name: fig:interplanetary-flyby-phi-angle
@@ -154,7 +154,7 @@ The relationship between the $\phi$ angles is:
 
 Note that the sign of $\delta$ is important. For a leading-side flyby $\delta$ is positive, while for a trailing-side flyby $\delta$ is negative.
 
-In the geocentric coordinate system, the excess velocity vector has components given by Eq. {eq}`eq:interplanetary-flyby-excess-velocity-geocentric`. From a right triangle, the angle $\phi_1$ is found by:
+In the geocentric coordinate system, the excess velocity vector has components given by @eq:interplanetary-flyby-excess-velocity-geocentric. From a right triangle, the angle $\phi_1$ is found by:
 
 :::{math}
 :label:
@@ -175,7 +175,7 @@ Then, finally, the heliocentric velocity vector at departure is found by the vec
 \vector{V}_{2}^s = \vector{V} + \vector{v}_{\infty,2} = V + v_{\infty} \cos\phi_2\uvec{u}_V + v_{\infty}\sin\phi_2 \uvec{u}_S
 :::
 
-From Eqs. {eq}`eq:interplanetary-flyby-uvec-perp` and {eq}`eq:interplanetary-flyby-uvec-r`, we see that the perpendicular and radial components of the heliocentric velocity are:
+From Eqs. @eq:interplanetary-flyby-uvec-perp and @eq:interplanetary-flyby-uvec-r, we see that the perpendicular and radial components of the heliocentric velocity are:
 
 :::{math}
 :label:
@@ -191,7 +191,7 @@ Using these two velocity components and the known radial distance of the planet 
 h_2 = R V_{\perp,2}
 :::
 
-where $R$ is the planet's orbital radius. Using the orbit equation, Eq. {eq}`eq:scalar-orbit-equation` and Eq. {eq}`eq:parallel-velocity-component`, we can solve for the eccentricity and true anomaly:
+where $R$ is the planet's orbital radius. Using the orbit equation, @eq:scalar-orbit-equation and @eq:parallel-velocity-component, we can solve for the eccentricity and true anomaly:
 
 :::{math}
 :label: eq:interplanetary-flyby-departure-orbit-equation
@@ -209,7 +209,7 @@ V_{r,2}^s = \frac{\mu_{\text{sun}}}{h_2}e_2\sin\nu_2
 
 A spacecraft will use a flyby manuever around Venus to change its heliocentric orbit. The spacecraft departs the orbit of Neptune on a velocity perpendicular to a line to the Sun, and meets Venus at a true anomaly of 120° relative to the departure point. The periapsis altitude is 300 km. Calculate the spacecraft's new heliocentric orbital elements after a leading-side flyby and a trailing-side flyby.
 
-First, we need to calculate the arrival heliocentric velocity vector. The spacecraft departs Neptune's orbit at aphelion of the transfer orbit. We know the departure point is aphelion because the velocity vector is perpendicular to the radius vector. We can find the orbital elements of the transfer orbit by using the orbit equation, Eq. {eq}`eq:scalar-orbit-equation` at the departure and arrival points.
+First, we need to calculate the arrival heliocentric velocity vector. The spacecraft departs Neptune's orbit at aphelion of the transfer orbit. We know the departure point is aphelion because the velocity vector is perpendicular to the radius vector. We can find the orbital elements of the transfer orbit by using the orbit equation, @eq:scalar-orbit-equation at the departure and arrival points.
 
 :::{math}
 :label:
@@ -255,7 +255,7 @@ glue("interplanetary-flyby-e_1", e_1)
 glue("interplanetary-flyby-h_1", h_1)
 ```
 
-This give an eccentricity of $e_1 =$ {glue:text}`interplanetary-flyby-e_1:.4f` and $h_1 =$ {glue:text}`interplanetary-flyby-h_1:.2E` km<sup>2</sup>/s. With $e_1$, $nu_1$, and $h_1$, we can find the heliocentric velocity components at Venus using Eq. {eq}`eq:perpendicular-velocity-component` and Eq. {eq}`eq:parallel-velocity-component`:
+This give an eccentricity of $e_1 =$ {glue:text}`interplanetary-flyby-e_1:.4f` and $h_1 =$ {glue:text}`interplanetary-flyby-h_1:.2E` km<sup>2</sup>/s. With $e_1$, $nu_1$, and $h_1$, we can find the heliocentric velocity components at Venus using @eq:perpendicular-velocity-component and @eq:parallel-velocity-component:
 
 ```{code-cell} ipython3
 V_p1 = h_1 / R_Venus
@@ -293,7 +293,7 @@ glue("interplanetary-flyby-v_infty", v_infty)
 
 The spacecraft heliocentric velocity magnitude is $V_1^s =$ {glue:text}`interplanetary-flyby-V_1:.2f` km/s, the flight path angle is $\alpha_1 =$ {glue:text}`interplanetary-flyby-alpha_1:.2f`°, and the velocity of Venus is $V_{\text{Venus}} =$ {glue:text}`interplanetary-flyby-V_Venus:.2f` km/s. The excess velocity vector is $\vector{v}_{\infty,1} =$ {glue:text}`interplanetary-flyby-v_infty1_V:.2f` $\uvec{u}_V$ - {glue:text}`interplanetary-flyby-v_infty1_S:.2f` $\uvec{u}_S$ km/s, and its magnitude is $v_{\infty} =$ {glue:text}`interplanetary-flyby-v_infty:.2f` km/s.
 
-Now we can compute the geocentric orbital elements of the flyby trajectory. In particular, we need to calculate the turn angle $\delta$ using Eq. {eq}`eq:hyperbolic-turn-angle`, which requires the eccentricity $e$ from Eq. {eq}`eq:interplanetary-arrival-eccentricity`. Then, we can calculate the $\phi$ angles.
+Now we can compute the geocentric orbital elements of the flyby trajectory. In particular, we need to calculate the turn angle $\delta$ using @eq:hyperbolic-turn-angle, which requires the eccentricity $e$ from @eq:interplanetary-arrival-eccentricity. Then, we can calculate the $\phi$ angles.
 
 ```{code-cell} ipython3
 r_p = 300 + 6051.8  # km
@@ -343,21 +343,21 @@ glue("interplanetary-flyby-leading-Delta_V", abs(V_2 - V_1))
 
 This gives a heliocentric velocity of $V_2^s =$ {glue:text}`interplanetary-flyby-leading-V_2:.2f` km/s, with components $V_{\perp,2}^s =$ {glue:text}`interplanetary-flyby-leading-V_p2:.2f` km/s and $V_{r,2}^s =$ {glue:text}`interplanetary-flyby-leading-V_r2:.2f` km/s. This is a decrease of about {glue:text}`interplanetary-flyby-leading-Delta_V:.2f` km/s in heliocentric speed, as expected for a leading-side flyby.
 
-The departure angular momentum is found by Eq. {eq}`eq:interplanetary-flyby-departure-ang-mom`. From Eq. {eq}`eq:interplanetary-flyby-departure-orbit-equation`, we find:
+The departure angular momentum is found by @eq:interplanetary-flyby-departure-ang-mom. From @eq:interplanetary-flyby-departure-orbit-equation, we find:
 
 :::{math}
 :label: eq:interplanetary-flyby-e-cos
 e_2 \cos\nu_2 = \frac{h_2^2}{\mu_{\text{sun}} R} - 1
 :::
 
-Similarly, from Eq. {eq}`eq:interplanetary-flyby-departure-radial-velocity`, we find:
+Similarly, from @eq:interplanetary-flyby-departure-radial-velocity, we find:
 
 :::{math}
 :label: eq:interplanetary-flyby-e-sin
 e_2 \sin\nu_2 = \frac{V_{r,2}^s h_2}{\mu_{\text{sun}}}
 :::
 
-Taking the ratio of Eqs. {eq}`eq:interplanetary-flyby-e-cos` and {eq}`eq:interplanetary-flyby-e-sin`, we find:
+Taking the ratio of Eqs. @eq:interplanetary-flyby-e-cos and @eq:interplanetary-flyby-e-sin, we find:
 
 :::{math}
 :label:
@@ -428,4 +428,4 @@ glue("interplanetary-flyby-trailing-nu_infty_2" , d(nu_infty_2))
 
 For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the Sun and the true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°. This means the spacecraft is now on a trajectory to escape the solar system!
 
-The current true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.0f` km. Unfortunately, this is inside the equatorial radius of the Sun as shown in {numref}`tab:planetary-radius-parameters`, so the spacecraft would most likely not survive the encounter.
+The current true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.0f` km. Unfortunately, this is inside the equatorial radius of the Sun as shown in @tab:planetary-radius-parameters, so the spacecraft would most likely not survive the encounter.

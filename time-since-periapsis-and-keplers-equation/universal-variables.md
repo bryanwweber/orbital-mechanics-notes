@@ -15,7 +15,7 @@ execution:
 
 You may have noticed that the equations for the ellipse and the hyperbola are quite similar. In many cases, they differ only by a negative sign or a change from circular to hyperbolic trigonometric functions. This is largely due to the fact that all of the orbits are conic sections, so they share a similar mathematical genealogy.
 
-The equations for an ellipse and a hyperbola are summarized in {numref}`tab:ellipse-hyperbola-comparison`.
+The equations for an ellipse and a hyperbola are summarized in @tab:ellipse-hyperbola-comparison.
 
 :::{table} The equations representing the ellipse and hyperbola trajectories
 :name: tab:ellipse-hyperbola-comparison
@@ -54,7 +54,7 @@ Using the universal anomaly, we can find the position and velocity of the orbiti
 
 where $\alpha = 1/a$ and we will define $C(z)$ and $S(z)$ shortly. Note that $\alpha < 0$ for hyperbolas, $\alpha = 0$ for parabolas ($a\rightarrow\infty$) and $\alpha > 0$ for ellipses. This gives $\chi$ dimensions of square root of length, such that $\alpha\chi^2$ is dimensionless.
 
-In a [previous section](./the-lagrange-coefficients.md), we identified the coefficients of $\vector{r}_0$ and $\vector{v}_0$ in equations similar to {eq}`eq:radius-velocity-universal-anomaly` as the **Lagrange coefficients**, in that case, in terms of the change of true anomaly. Eqs. {eq}`eq:radius-velocity-universal-anomaly` give the Lagrange coefficients in terms of the universal anomaly.
+In a [previous section](./the-lagrange-coefficients.md), we identified the coefficients of $\vector{r}_0$ and $\vector{v}_0$ in equations similar to @eq:radius-velocity-universal-anomaly as the **Lagrange coefficients**, in that case, in terms of the change of true anomaly. Eqs. @eq:radius-velocity-universal-anomaly give the Lagrange coefficients in terms of the universal anomaly.
 
 Now, we need a way to solve for $\chi$, the universal anomaly. We can write Kepler's equation in terms of the universal anomaly as:
 
@@ -78,7 +78,7 @@ c_k(z) = \frac{1}{k!} - \frac{z}{\left(k + 2\right)!} + \frac{z^2}{\left(k + 4\r
 
 where $k$ is an integer that indicates the type of Stumpff function.
 
-To solve Eq. {eq}`eq:universal-keplers-equation`, we don't want to work with the infinite series forms of the Stumpff equations. Instead, we will convert the Stumpff functions to trigonometric functions using the Taylor series expansions of the [circular](https://en.wikipedia.org/wiki/Trigonometric_functions#Power_series_expansion) and [hyperbolic](https://en.wikipedia.org/wiki/Hyperbolic_functions#Taylor_series_expressions) trigonometric functions. The first third and fourth Stumpff functions, $k=2$ and $k=3$ respectively, define our $C(z)$ and $S(z)$ functions from above.
+To solve @eq:universal-keplers-equation, we don't want to work with the infinite series forms of the Stumpff equations. Instead, we will convert the Stumpff functions to trigonometric functions using the Taylor series expansions of the [circular](https://en.wikipedia.org/wiki/Trigonometric_functions#Power_series_expansion) and [hyperbolic](https://en.wikipedia.org/wiki/Hyperbolic_functions#Taylor_series_expressions) trigonometric functions. The first third and fourth Stumpff functions, $k=2$ and $k=3$ respectively, define our $C(z)$ and $S(z)$ functions from above.
 
 :::{math}
 :label: eq:stumpff-function-0
@@ -92,7 +92,7 @@ and
 S(z) =\begin{cases}\displaystyle \frac{\sqrt{z} - \sin\sqrt{z}}{\left(\sqrt{z}\right)^3} & \left(z > 0\right)\\ \displaystyle \frac{\sinh\sqrt{-z} - \sqrt{-z}}{\left(\sqrt{-z}\right)^3} & \left(z < 0\right) \\ \displaystyle \frac{1}{6} & \left(z = 0\right)\end{cases}
 :::
 
-The two Stumpff functions are plotted in {numref}`fig:stumpff-functions-plot`. Notice that both $C(z)$ and $S(z)$ tend toward infinity as $z$ approaches $-\infty$, and they approach zero as $z$ approaches $+\infty$.
+The two Stumpff functions are plotted in @fig:stumpff-functions-plot. Notice that both $C(z)$ and $S(z)$ tend toward infinity as $z$ approaches $-\infty$, and they approach zero as $z$ approaches $+\infty$.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -158,7 +158,7 @@ glue("stumpff-functions-plot", fig)
 :::{glue:figure} stumpff-functions-plot
 :name: fig:stumpff-functions-plot
 
-The Stumpff functions defined by Eqs. {eq}`eq:stumpff-function-0` and {eq}`eq:stumpff-function-1`. Note the varying $x$ axes on the plots.
+The Stumpff functions defined by Eqs. @eq:stumpff-function-0 and @eq:stumpff-function-1. Note the varying $x$ axes on the plots.
 :::
 
 ## Relation of $\chi$ to Other Anomalies
@@ -247,7 +247,7 @@ and
 \begin{aligned}\frac{d S(z)}{dz} &= \frac{1}{2z}\left[C(z) - 3S(z)\right] \\\frac{d C(z)}{dz} &= \frac{1}{2z}\left[1 - z S(z) - 2C(z)\right]\end{aligned}
 :::
 
-Substituting these results back into Eq. {eq}`eq:universal-kepler-derivative` gives:
+Substituting these results back into @eq:universal-kepler-derivative gives:
 
 :::{math}
 :label:

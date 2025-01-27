@@ -24,7 +24,7 @@ To correctly determine when a spacecraft should be launched, we need to know two
 1. The total time of the transfer orbit
 2. The angular distance between two planets, relative to the Sun
 
-The first item can be determined from the orbital elements of the transfer orbit, so we will not discuss how to calculate it here. The second item, the angular distance between two planets, is commonly called the **phase angle**. This is the angle formed by drawing radii from the initial planet to the Sun and then to the final planet, as shown in {numref}`fig:interplanetary-phase-angle`.
+The first item can be determined from the orbital elements of the transfer orbit, so we will not discuss how to calculate it here. The second item, the angular distance between two planets, is commonly called the **phase angle**. This is the angle formed by drawing radii from the initial planet to the Sun and then to the final planet, as shown in @fig:interplanetary-phase-angle.
 
 :::{figure} ../images/interplanetary-phase-angle.svg
 :name: fig:interplanetary-phase-angle
@@ -63,21 +63,21 @@ The question naturally arises, if the phase angle is $\gamma_0$ at $t = 0$, how 
 
 If we want the phase angle to change from $\gamma_0$, through all the values, and come back to $\gamma_0$, then the phase angle will have changed by 2𝜋 radians. If the initial planet has a smaller orbital radius, then the apparent motion is clockwise and the final phase angle is $\gamma_0 - 2\pi$. On the other hand, if the initial planet has a larger orbital radius, then the final phase angle will be $\gamma_0 + 2\pi$ because the apparent motion is counterclockwise.
 
-In either case, we can use Eq. {eq}`eq:planetary-phase-angle` to calculate the time it takes for the initial phase angle to reoccur:
+In either case, we can use @eq:planetary-phase-angle to calculate the time it takes for the initial phase angle to reoccur:
 
 :::{math}
 :label: eq:synodic-period-1
 \gamma_0 \pm 2\pi = \gamma_0 + \left(n_f - n_i\right) T_{syn}
 :::
 
-where $T_{syn}$ is the synodic period. Solving Eq. {eq}`eq:synodic-period-1` for $T_{syn}$ would result in two equations, depending on whether $n_f > n_i$ or vice versa. We can unify the equations by taking the absolute value of the difference $n_f - n_i$:
+where $T_{syn}$ is the synodic period. Solving @eq:synodic-period-1 for $T_{syn}$ would result in two equations, depending on whether $n_f > n_i$ or vice versa. We can unify the equations by taking the absolute value of the difference $n_f - n_i$:
 
 :::{math}
 :label: eq:synodic-period-2
 T_{syn} = \frac{2\pi}{\lvert n_f - n_i\rvert}
 :::
 
-Finally, by plugging Eq. {eq}`eq:mean-motion` into Eq. {eq}`eq:synodic-period-2`, we can write the synodic period in terms of the planets' orbital periods, $T_i$ and $T_f$:
+Finally, by plugging @eq:mean-motion into @eq:synodic-period-2, we can write the synodic period in terms of the planets' orbital periods, $T_i$ and $T_f$:
 
 :::{math}
 :label: eq:synodic-period-3
@@ -88,9 +88,9 @@ The synodic period is the period of the orbit of one planet relative to another,
 
 ## Phase Angle at Departure
 
-We now have enough information to determine the required phase angle at departure from the initial planet. Given the transfer trajectory, we can compute the transfer time, $t_{12}$. For a Hohmann transfer, this is given by Eq. {eq}`eq:hohmann-transfer-time`.
+We now have enough information to determine the required phase angle at departure from the initial planet. Given the transfer trajectory, we can compute the transfer time, $t_{12}$. For a Hohmann transfer, this is given by @eq:hohmann-transfer-time.
 
-During the transfer, the final planet moves an angular distance $n_f t_{12}$ radians, since $n_f$ is constant. This is shown in {numref}`fig:interplanetary-initial-phase-angle`.
+During the transfer, the final planet moves an angular distance $n_f t_{12}$ radians, since $n_f$ is constant. This is shown in @fig:interplanetary-initial-phase-angle.
 
 :::{figure} ../images/interplanetary-initial-phase-angle.svg
 :name: fig:interplanetary-initial-phase-angle
@@ -113,7 +113,7 @@ Similarly, the initial true anomaly of the initial planet is $\nu_{i,1}$ and its
 \nu_{i,2} = \nu_{i,1} + n_i t_{12}
 :::
 
-where $n_i t_{12}$ is the angular distance traveled by the initial planet during the transfer. The phase angle at departure, $\gamma_1$ is given by Eq. {eq}`eq:planetary-phase-angle`:
+where $n_i t_{12}$ is the angular distance traveled by the initial planet during the transfer. The phase angle at departure, $\gamma_1$ is given by @eq:planetary-phase-angle:
 
 :::{math}
 :label: eq:interplanetary-initial-true-anomaly
@@ -129,7 +129,7 @@ Meanwhilie, the spacecraft travels an angular distance of $\Gamma$ radians durin
 
 where $\nu_B$ and $\nu_A$ are the true anomalies of the arrival and departure points, respectively. For a Hohmann transfer, $\nu_B - \nu_A = \pi$.
 
-Note that $\nu_{f,2} = \nu_B$ and $\nu_{i,1} = \nu_A$. For the spacecraft to rendezvous with the planet at arrival, the true anomaly of the planet and the spacecraft must match. Plugging this relationship into Eq. {eq}`eq:interplanetary-final-planet-arrival-true-anomaly`, subtracting $\nu_A$ from both sides, and using Eq. {eq}`eq:interplanetary-initial-true-anomaly` and Eq. {eq}`eq:interplanetary-transfer-true-anomaly`, we find:
+Note that $\nu_{f,2} = \nu_B$ and $\nu_{i,1} = \nu_A$. For the spacecraft to rendezvous with the planet at arrival, the true anomaly of the planet and the spacecraft must match. Plugging this relationship into @eq:interplanetary-final-planet-arrival-true-anomaly, subtracting $\nu_A$ from both sides, and using @eq:interplanetary-initial-true-anomaly and @eq:interplanetary-transfer-true-anomaly, we find:
 
 :::{math}
 :label: eq:interplanetary-initial-phase-angle
@@ -143,14 +143,14 @@ Note that $\nu_{f,2} = \nu_B$ and $\nu_{i,1} = \nu_A$. For the spacecraft to ren
 
 ## Phase Angle at Arrival
 
-{numref}`fig:interplanetary-initial-phase-angle` can also be used to determine the phase angle at arrival, $\gamma_2$. Similar to Eq. {eq}`eq:interplanetary-initial-true-anomaly`, we can write the final phase angle in terms of the true anomalies of the planets:
+@fig:interplanetary-initial-phase-angle can also be used to determine the phase angle at arrival, $\gamma_2$. Similar to @eq:interplanetary-initial-true-anomaly, we can write the final phase angle in terms of the true anomalies of the planets:
 
 :::{math}
 :label: eq:interplanetary-final-true-anomaly
 \gamma_2 = \nu_{f,2} - \nu_{i,2}
 :::
 
-Plugging this relationship into Eq. {eq}`eq:interplanetary-initial-planet-arrival-true-anomaly`, subtracting $\nu_A$ from both sides, and using Eq. {eq}`eq:interplanetary-transfer-true-anomaly`, we find:
+Plugging this relationship into @eq:interplanetary-initial-planet-arrival-true-anomaly, subtracting $\nu_A$ from both sides, and using @eq:interplanetary-transfer-true-anomaly, we find:
 
 :::{math}
 :label: eq:interplanetary-final-phase-angle
@@ -163,14 +163,14 @@ Plugging this relationship into Eq. {eq}`eq:interplanetary-initial-planet-arriva
 
 ## Phase Angles for a Return Trip
 
-Now let's assume that the spacecraft is located at the final planet and wants to return to the initial planet. What should the phase angle at departure from the final planet be? Assuming that the transfer time is the same for the return trip, we can see from Eq. {eq}`eq:interplanetary-final-phase-angle` that the phase angle for the return trip must be:
+Now let's assume that the spacecraft is located at the final planet and wants to return to the initial planet. What should the phase angle at departure from the final planet be? Assuming that the transfer time is the same for the return trip, we can see from @eq:interplanetary-final-phase-angle that the phase angle for the return trip must be:
 
 :::{math}
 :label: eq:interplanetary-return-phase-angle
 \gamma'_1 = - \gamma_2
 :::
 
-where the prime superscript indicates that this is for the return trip. At arrival to the final planet, the phase angle is equal to $\gamma_2$, so how long must the spacecraft wait for the phase angle to become equal to $\gamma'_1$? Using Eq. {eq}`eq:planetary-phase-angle`, where $\gamma_0 = \gamma_2$, we can solve for the wait time:
+where the prime superscript indicates that this is for the return trip. At arrival to the final planet, the phase angle is equal to $\gamma_2$, so how long must the spacecraft wait for the phase angle to become equal to $\gamma'_1$? Using @eq:planetary-phase-angle, where $\gamma_0 = \gamma_2$, we can solve for the wait time:
 
 :::{math}
 :label: eq:interplanetary-wait-time-1
@@ -180,7 +180,7 @@ t_{\text{wait}} = \frac{-2\gamma_2}{n_f - n_i}
 \end{gathered}
 :::
 
-Depending on the value of $\gamma_2$, Eq. {eq}`eq:interplanetary-wait-time-1` may give a negative result. Therefore, we must add or subtract integer multiples of 2𝜋 until $t_{\text{wait}}$ becomes positive.
+Depending on the value of $\gamma_2$, @eq:interplanetary-wait-time-1 may give a negative result. Therefore, we must add or subtract integer multiples of 2𝜋 until $t_{\text{wait}}$ becomes positive.
 
 :::{math}
 :label: eq:interplanetary-wait-time
@@ -217,7 +217,7 @@ glue("heliocentric-hohmann-n_i", n_i)
 glue("heliocentric-hohmann-n_f", n_f)
 ```
 
-The mean motion of Neptune is $n_i =$ {glue:text}`heliocentric-hohmann-n_i:.2e` rad/s and of Venus is $n_f =$ {glue:text}`heliocentric-hohmann-n_f:.2e` rad/s. For a Hohmann transfer, $\Gamma = \pi$ and the transfer time is found from Eq. {eq}`eq:hohmann-transfer-time`. Then, we can find the initial phase angle required.
+The mean motion of Neptune is $n_i =$ {glue:text}`heliocentric-hohmann-n_i:.2e` rad/s and of Venus is $n_f =$ {glue:text}`heliocentric-hohmann-n_f:.2e` rad/s. For a Hohmann transfer, $\Gamma = \pi$ and the transfer time is found from @eq:hohmann-transfer-time. Then, we can find the initial phase angle required.
 
 ```{code-cell} ipython3
 r_i = 4.53239E9  # km
@@ -244,7 +244,7 @@ gamma_2 = (m.pi - n_i * t_12) % (2 * m.pi)
 glue("heliocentric-hohmann-gamma_2", m.degrees(gamma_2))
 ```
 
-The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamma_2:.2f`°. These angles are shown in {numref}`fig:interplanetary-phase-angle-example`.
+The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamma_2:.2f`°. These angles are shown in @fig:interplanetary-phase-angle-example.
 
 :::{figure} ../images/interplanetary-phase-angle-example.svg
 :name: fig:interplanetary-phase-angle-example
@@ -253,7 +253,7 @@ The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamm
 The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the Sun, while Neptune completes less than half of one orbit during this entire process.
 :::
 
-Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since $n_f > n_i$, we choose the positive version of Eq. {eq}`eq:interplanetary-wait-time`.
+Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since $n_f > n_i$, we choose the positive version of @eq:interplanetary-wait-time.
 
 ```{code-cell} ipython3
 t_wait = []
@@ -270,7 +270,7 @@ for N in (0, 1, 2, 3):
         glue("heliocentric-hohmann-t_total", (2 * t_12 + t_wait[N]) / (525600 * 60))
 ```
 
-The wait times are shown in {numref}`tab:heliocentric-hohmann-wait-times`. The total mission time, including the wait time, is {glue:text}`heliocentric-hohmann-t_total:.2f` years.
+The wait times are shown in @tab:heliocentric-hohmann-wait-times. The total mission time, including the wait time, is {glue:text}`heliocentric-hohmann-t_total:.2f` years.
 
 :::{table} The wait times for heliocentric Hohmann transfers from Neptune to Venus and back.
 :name: tab:heliocentric-hohmann-wait-times

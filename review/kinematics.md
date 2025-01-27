@@ -102,7 +102,7 @@ The normal unit vector is perpendicular to the tangent unit vector and points to
 The center of curvature of a path $s$ is a distance $\rho$ from the particle.
 :::
 
-Since the particle is pivoting around the center of curvature, it sweeps out areas on a plane as it moves. In a small time $dt$, the particle moves a distance $ds$. This motion is associated with a small swept angle $d\phi$, as shown in {numref}`fig-swept-angle`:
+Since the particle is pivoting around the center of curvature, it sweeps out areas on a plane as it moves. In a small time $dt$, the particle moves a distance $ds$. This motion is associated with a small swept angle $d\phi$, as shown in @fig-swept-angle:
 
 :::{math}
 :label: eq:differential-path-length

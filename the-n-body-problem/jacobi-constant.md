@@ -14,13 +14,13 @@ execution:
 
 # The Jacobi Constant
 
-Let's return now to the graph of the potential function, {numref}`fig:pseudo-potential-energy-cr3bp`. The potential function represents the **potential energy** that the tertiary mass will have if it is located at a given $x^*$-$y^*$ point in the orbital plane. The tertiary mass will also have some speed, $v^*$, with a corresponding **kinetic energy**.
+Let's return now to the graph of the potential function, @fig:pseudo-potential-energy-cr3bp. The potential function represents the **potential energy** that the tertiary mass will have if it is located at a given $x^*$-$y^*$ point in the orbital plane. The tertiary mass will also have some speed, $v^*$, with a corresponding **kinetic energy**.
 
 From the law of conservation of energy, we know that the sum of the kinetic and potential energies of the tertiary mass will be constant. We will use the fact that energy is constant to determine what areas of space are accessible for the tertiary mass with a certain initial condition.
 
 ## Potential Energy
 
-The potential energy is given in Eq. {eq}`eq:pseudo-potential-energy-cr3bp` and repeated here:
+The potential energy is given in @eq:pseudo-potential-energy-cr3bp and repeated here:
 
 :::{math}
 U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[\left(1 - \pi_2\right)\sigma^2 + \pi_2 \psi^2\right]
@@ -41,7 +41,7 @@ The mass-specific kinetic energy is:
 \frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]
 :::
 
-Combining Eqs. {eq}`eq:pseudo-potential-energy-cr3bp` and {eq}`eq:mass-specific-ke-cr3bp`, we find from conservation of energy:
+Combining Eqs. @eq:pseudo-potential-energy-cr3bp and @eq:mass-specific-ke-cr3bp, we find from conservation of energy:
 
 :::{math}
 :label: eq:jacobi-constant-cr3bp
@@ -67,11 +67,11 @@ Assume now that the velocity of the mass is $v^*_2$ and the position is $\left(x
 Koon et al. {cite}`Koon2011` also refer to the area where a particle cannot enter as the **Hill's region**.
 :::
 
-Now, let's turn this problem around. We want to know, for a given value of $J$, what regions of space will be inaccessible. Consider the tertiary mass with a certain value of $J$ and at a particular location. Since $J$ and the position are known, the velocity can be calculated from Eq. {eq}`eq:jacobi-constant-cr3bp`.
+Now, let's turn this problem around. We want to know, for a given value of $J$, what regions of space will be inaccessible. Consider the tertiary mass with a certain value of $J$ and at a particular location. Since $J$ and the position are known, the velocity can be calculated from @eq:jacobi-constant-cr3bp.
 
 As the mass moves, it exchanges energy between kinetic energy (velocity) and potential energy (position). At some position, the $J$ will be equal to $U$, and the velocity will be (by definition) zero. Thus, the mass cannot travel any further in that direction.
 
-For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting $v^* =$ 0 in Eq. {eq}`eq:jacobi-constant-cr3bp`:
+For a given value of the Jacobi constant, we can calculate the contours of zero velocity positions by setting $v^* =$ 0 in @eq:jacobi-constant-cr3bp:
 
 :::{math}
 :label: eq:jacobi-contours-zero-velocity
@@ -80,7 +80,7 @@ For a given value of the Jacobi constant, we can calculate the contours of zero 
 
 Since the first three terms on the left are all positive, zero velocity curves correspond to negative values of the Jacobi constant.
 
-{numref}`fig:jacobi-forbidden-regions` plots the forbidden regions, shown as shaded areas, for several values of $J$.
+@fig:jacobi-forbidden-regions plots the forbidden regions, shown as shaded areas, for several values of $J$.
 
 ```{code-cell}
 :tags: [remove-cell]
@@ -185,11 +185,11 @@ glue("jacobi-forbidden-regions", fig, display=False)
 The forbidden regions in the Earth-Moon system, for varying values of the Jacobi constant, $J$.
 :::
 
-At a given instant, assume that the position and and velocity of the satellite are known, such that $J$ can be calculated. {numref}`fig:jacobi-forbidden-regions` tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.
+At a given instant, assume that the position and and velocity of the satellite are known, such that $J$ can be calculated. @fig:jacobi-forbidden-regions tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.
 
 One example of a use for these data is to determine whether or not a spacecraft can complete a [**free return trajectory**](https://en.wikipedia.org/wiki/Free-return_trajectory) from the moon back to Earth. A free return trajectory requires no additional propulsion. Depending on the exact trajectory, the return can result in the spacecraft entering Earth's atmosphere for a safe landing, as was done in the *Apollo 13* mission.
 
-Imagine a spacecraft in orbit around the moon. The spacecraft has $J =$ -1.797, corresponding to the upper left axis in {numref}`fig:jacobi-forbidden-regions`. With this value of $J$, the spacecraft cannot leave orbit around the moon, because it does not have enough energy to enter any of the gray areas.
+Imagine a spacecraft in orbit around the moon. The spacecraft has $J =$ -1.797, corresponding to the upper left axis in @fig:jacobi-forbidden-regions. With this value of $J$, the spacecraft cannot leave orbit around the moon, because it does not have enough energy to enter any of the gray areas.
 
 Now, imagine the same spacecraft has $J =$ -1.592. If the spacecraft is at the same position as before, its speed will have increased. This gives the spacecraft access to more of the space between the Earth and the moon. Now, if the spacecraft has the right initial position and speed for it, there is a possible trajectory that connects the moon and the Earth.
 

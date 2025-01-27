@@ -1,6 +1,6 @@
 # Circular Orbits ($e = 0$)
 
-Setting $e = 0$ in the orbit equation, Eq. {eq}`eq:scalar-orbit-equation` yields:
+Setting $e = 0$ in the orbit equation, @eq:scalar-orbit-equation yields:
 
 :::{math}
 :label: eq:circular-orbit-equation

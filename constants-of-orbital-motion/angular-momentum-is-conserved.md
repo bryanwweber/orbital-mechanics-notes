@@ -52,7 +52,7 @@ The orbital angular momentum of $m_2$ relative to $m_1$ is found by taking the c
 
 where $\vector{h}$ is the specific angular momentum. Note that the angular momentum is a vector. As such, it has both a magnitude and a direction. When we say that the angular momentum is constant, this requires _both_ the magnitude _and_ direction to remain constant.
 
-The relative position and velocity vectors lie in the same plane, because any two lines form a plane. Because it is defined by a cross product, the specific angular momentum is perpendicular to both $\vector{r}$ and $\dot{\vector{r}}$, as shown in {numref}`fig:orbital-angular-momentum`.
+The relative position and velocity vectors lie in the same plane, because any two lines form a plane. Because it is defined by a cross product, the specific angular momentum is perpendicular to both $\vector{r}$ and $\dot{\vector{r}}$, as shown in @fig:orbital-angular-momentum.
 
 :::{figure} ../images/orbital-angular-momentum.svg
 :name: fig:orbital-angular-momentum
@@ -69,7 +69,7 @@ For the angular momentum to be constant, its time derivative must be zero:
 \frac{d\vector{h}}{dt} = \dot{\vector{r}}\cross\dot{\vector{r}} + \vector{r}\cross\ddot{\vector{r}}
 :::
 
-The first term in Eq. {eq}`eq:derivative-of-angular-momentum` is zero by the definition of the cross product. In the second term, we can replace $\ddot{\vector{r}}$ using the two-body equation of motion, Eq. {eq}`eq:two-body-relative-motion`:
+The first term in @eq:derivative-of-angular-momentum is zero by the definition of the cross product. In the second term, we can replace $\ddot{\vector{r}}$ using the two-body equation of motion, @eq:two-body-relative-motion:
 
 :::{math}
 \frac{d\vector{h}}{dt} = \vector{0} - \frac{\mu}{r^3}\left(\vector{r}\cross\vector{r}\right) = \vector{0}
@@ -78,5 +78,5 @@ The first term in Eq. {eq}`eq:derivative-of-angular-momentum` is zero by the def
 Thus, the system satisfies conservation of angular momentum.
 
 :::{tip}
-You can also verify this by taking the cross product of the relative position vector with Eq. {eq}`eq:two-body-relative-motion`.
+You can also verify this by taking the cross product of the relative position vector with @eq:two-body-relative-motion.
 :::

@@ -69,7 +69,7 @@ For now, we will assume that the Earth is a sphere. We use the Earth here since 
 
 ### Earth-Centered Inertial
 
-The [**Earth-Centered Inertial**](https://en.wikipedia.org/wiki/Earth-centered_inertial) (ECI) frame is an inertial frame with the origin fixed to the center of the Earth, $C$. This frame uses **capital letters** for the axes and unit vectors, as shown in {numref}`fig-earth-centered-inertial-frame`.
+The [**Earth-Centered Inertial**](https://en.wikipedia.org/wiki/Earth-centered_inertial) (ECI) frame is an inertial frame with the origin fixed to the center of the Earth, $C$. This frame uses **capital letters** for the axes and unit vectors, as shown in @fig-earth-centered-inertial-frame.
 
 In the ECI, the $Z$ axis points towards the North pole and the $X$-$Y$ plane is in the same plane as the equator. Since this is an inertial frame, it is fixed in place with respect to the [**celestial sphere**](https://en.wikipedia.org/wiki/Celestial_sphere), the stars surrounding the Earth.
 

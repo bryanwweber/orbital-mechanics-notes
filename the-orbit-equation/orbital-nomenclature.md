@@ -1,6 +1,6 @@
 # Orbital Nomenclature
 
-In this section, we will introduce some common nomenclature for orbits that are conical sections. {numref}`fig:periapsis-and-apoapsis-ellipse`, {numref}`fig:periapsis-and-apoapsis-circle`, {numref}`fig:periapsis-and-apoapsis-parabola`, and {numref}`fig:periapsis-and-apoapsis-hyperbola` show the four possible types of conical orbits. All conical sections have two **foci** (singular: **focus**). For all the orbits, one of the foci is *occupied* by the primary mass $m_1$ and the other is *unoccupied*.
+In this section, we will introduce some common nomenclature for orbits that are conical sections. @fig:periapsis-and-apoapsis-ellipse, @fig:periapsis-and-apoapsis-circle, @fig:periapsis-and-apoapsis-parabola, and @fig:periapsis-and-apoapsis-hyperbola show the four possible types of conical orbits. All conical sections have two **foci** (singular: **focus**). For all the orbits, one of the foci is *occupied* by the primary mass $m_1$ and the other is *unoccupied*.
 
 ## Periapsis and Apoapsis
 
@@ -96,16 +96,16 @@ v_r = \dot{r} = \frac{\mu}{h} e \sin\nu
 
 ## Distance to Periapsis and Apoapsis
 
-The distance to periapsis is given by setting $\nu = 0$ in the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`:
+The distance to periapsis is given by setting $\nu = 0$ in the orbit equation, @eq:scalar-orbit-equation:
 
 :::{math}
 :label: eq:distance-to-periapsis
 r_p = \frac{h^2}{\mu}\frac{1}{1 + e}
 :::
 
-Notice that $\cos 0 = 1$. This gives the largest value in the bottom of the fraction in Eq. {eq}`eq:scalar-orbit-equation`, which results in the shortest distance.
+Notice that $\cos 0 = 1$. This gives the largest value in the bottom of the fraction in @eq:scalar-orbit-equation, which results in the shortest distance.
 
-At periapsis, the radial velocity component from Eq. {eq}`eq:parallel-velocity-component` is zero, since $\sin 0 = 0$. For $0 < \nu < \pi$, the radial velocity is positive. This means the position vector is getting longer and $m_2$ is moving away from periapsis.
+At periapsis, the radial velocity component from @eq:parallel-velocity-component is zero, since $\sin 0 = 0$. For $0 < \nu < \pi$, the radial velocity is positive. This means the position vector is getting longer and $m_2$ is moving away from periapsis.
 
 Notice that only the circle and ellipse have apoapsis positions that can be occupied by $m_2$. We will discuss apoapsis more thoroughly in the context of each conical orbit type. For now, we note that apoapsis occurs at $\nu = \pi$, such that:
 
@@ -118,7 +118,7 @@ After apoapsis, the radial velocity is negative, which means $m_2$ is moving tow
 
 ## Flight Path Angle
 
-The **flight path angle** is the angle that the velocity vector makes with the normal to the position vector, as shown in {numref}`fig:flight-path-angle`.
+The **flight path angle** is the angle that the velocity vector makes with the normal to the position vector, as shown in @fig:flight-path-angle.
 
 :::{figure} ../images/flight-path-angle.svg
 :width: 50%
@@ -149,4 +149,4 @@ The trajectory of $m_2$ around $m_1$ is symmetrical about the apse line. A chord
 p = \frac{h^2}{\mu}
 :::
 
-This gives a hint why the semi-latus rectum is called the parameter of the orbit. The semi-latus rectum is the numerator of Eq. {eq}`eq:scalar-orbit-equation`.
+This gives a hint why the semi-latus rectum is called the parameter of the orbit. The semi-latus rectum is the numerator of @eq:scalar-orbit-equation.

@@ -25,7 +25,7 @@ In this section, we'll talk about the first two options, and discuss flyby traje
 
 When arriving at the target planet, the spacecraft will cross the sphere of influence *ahead of* or *behind* the planet on the planet's orbital path.
 
-- **Inner to Outer Planet**: The spacecraft velocity is lower than the planet's orbital velocity. The spacecraft crosses the sphere of influence *in front* of the planet. This is shown in {numref}`fig:interplanetary-arrival`.
+- **Inner to Outer Planet**: The spacecraft velocity is lower than the planet's orbital velocity. The spacecraft crosses the sphere of influence *in front* of the planet. This is shown in @fig:interplanetary-arrival.
   :::{figure} ../images/interplanetary-arrival.svg
   :name: fig:interplanetary-arrival
   :width: 50%
@@ -33,7 +33,7 @@ When arriving at the target planet, the spacecraft will cross the sphere of infl
   Arrival phase of a trajectory from an inner planet to an outer planet.
   :::
 
-- **Outer to Inner Planet**: The spacecraft velocity is higher than the planet's orbital velocity. The spacecraft crosses the sphere of influence *behind* the planet. This is shown in {numref}`fig:interplanetary-arrival-inward-transfer`.
+- **Outer to Inner Planet**: The spacecraft velocity is higher than the planet's orbital velocity. The spacecraft crosses the sphere of influence *behind* the planet. This is shown in @fig:interplanetary-arrival-inward-transfer.
 
   :::{figure} ../images/interplanetary-arrival-inward-transfer.svg
   :name: fig:interplanetary-arrival-inward-transfer
@@ -42,7 +42,7 @@ When arriving at the target planet, the spacecraft will cross the sphere of infl
   Arrival phase of a trajectory from an outer planet to an inner planet.
   :::
 
-In {numref}`fig:interplanetary-arrival` and {numref}`fig:interplanetary-arrival-inward-transfer`, we see that the spacecraft crosses the sphere of influence at some **offset distance** or **aiming radius**, $y$, perpendicular to the planet's orbital path. The offset distance is determined by the desired periapsis radius of the arrival hyperbola, $r_p$.
+In @fig:interplanetary-arrival and @fig:interplanetary-arrival-inward-transfer, we see that the spacecraft crosses the sphere of influence at some **offset distance** or **aiming radius**, $y$, perpendicular to the planet's orbital path. The offset distance is determined by the desired periapsis radius of the arrival hyperbola, $r_p$.
 
 ## Orbital Elements of Arrival Trajectory
 
@@ -50,7 +50,7 @@ As with the [departure trajectory](./planetary-departure-trajectory.md), we must
 
 On the other hand, we may want to enter an orbit around the planet, either to conduct a science mission or perform system checks before a deorbit burn. In this case, $r_p$ should be well above the atmosphere.
 
-In either case, once $r_p$ is chosen, we can calculate the eccentricity of the arrival trajectory using Eq. {eq}`eq:interplanetary-hyperbola-eccentricity`:
+In either case, once $r_p$ is chosen, we can calculate the eccentricity of the arrival trajectory using @eq:interplanetary-hyperbola-eccentricity:
 
 :::{math}
 :label: eq:interplanetary-arrival-eccentricity
@@ -66,7 +66,7 @@ where $\mu_f$ is the gravitational parameter of the target planet and $v_{\infty
 v_{\infty} = \lvert v_{t,f} - v_f \rvert
 :::
 
-With the eccentricity determined, we can calculate the semimajor axis of the hyperbola using Eq. {eq}`eq:interplanetary-hyperbola-semimajor-axis`:
+With the eccentricity determined, we can calculate the semimajor axis of the hyperbola using @eq:interplanetary-hyperbola-semimajor-axis:
 
 :::{math}
 :label: eq:interplanetary-arrival-semimajor-axis
@@ -74,7 +74,7 @@ With the eccentricity determined, we can calculate the semimajor axis of the hyp
 a = \frac{\mu_f}{v_{\infty}^2}
 :::
 
-Finally, it turns out that the offset distance is equal to the semiminor axis distance of the hyperbola, given by Eq. {eq}`eq:hyperbolic-semi-minor-axis`:
+Finally, it turns out that the offset distance is equal to the semiminor axis distance of the hyperbola, given by @eq:hyperbolic-semi-minor-axis:
 
 :::{math}
 :label: eq:interplanetary-arrival-offset-distance
@@ -303,7 +303,7 @@ glue("hohmann-arrival-v_p", v_p)
 
 The eccentricity of the arrival hyperbola is $e =$ {glue:text}`hohmann-arrival-e:.5f`, the offset distance is {glue:text}`hohmann-arrival-y:.2f` km, and the speed at periapsis is $v_p =$ {glue:text}`hohmann-arrival-v_p:.3f` km/s.
 
-Next, we need to calculate the velocity on the circular capture orbit. Since the radius of the capture orbit is the same as the hyperbolic periapsis radius, calculating the speed can be done by Eq. {eq}`eq:circular-orbit-velocity`. Then, we can calculate $\Delta v$.
+Next, we need to calculate the velocity on the circular capture orbit. Since the radius of the capture orbit is the same as the hyperbolic periapsis radius, calculating the speed can be done by @eq:circular-orbit-velocity. Then, we can calculate $\Delta v$.
 
 ```{code-cell} ipython3
 v_p_capture = m.sqrt(mu_f / r_p)
@@ -370,13 +370,13 @@ glue_bokeh("hohmann-arrival-r_p_e_plot", p)
 The required $\Delta v$ to enter a capture orbit of the given periapsis radius. The eccentricity is plotted on the x-axis of the chart. For this range of $r_p$ values, the $\Delta v$ increases at fixed $e$. For a fixed $r_p$, $\Delta v$ decreases as $e$ increases.
 :::
 
-{numref}`fig:hohmann-arrival-r_p_e_plot` shows the required $\Delta v$ to enter a capture orbit as a function of the eccentricity. For each value of $r_p$, $\Delta v$ decreases as $e$ increases, as we discussed earlier. In addition, for a given value of $e$, $\Delta v$ increases as $r_p$ increases.
+@fig:hohmann-arrival-r_p_e_plot shows the required $\Delta v$ to enter a capture orbit as a function of the eccentricity. For each value of $r_p$, $\Delta v$ decreases as $e$ increases, as we discussed earlier. In addition, for a given value of $e$, $\Delta v$ increases as $r_p$ increases.
 
 :::{margin}
 Page 409, 4th edition.
 :::
 
-As it happens, there is a minimum of $\Delta v$ with respect to $r_p$. Following {cite:t}`Curtis2020`, we can take derivatives of Eq. {eq}`eq:interplanetary-arrival-delta-v` to find the optimal value of $r_p$ to minimize $\Delta v$. This turns out to be:
+As it happens, there is a minimum of $\Delta v$ with respect to $r_p$. Following {cite:t}`Curtis2020`, we can take derivatives of @eq:interplanetary-arrival-delta-v to find the optimal value of $r_p$ to minimize $\Delta v$. This turns out to be:
 
 :::{math}
 :label: eq:interplanetary-arrival-minimum-delta-v-r_p
@@ -384,7 +384,7 @@ As it happens, there is a minimum of $\Delta v$ with respect to $r_p$. Following
 r_{p,\text{optimal}} = \frac{2 \mu_f}{v_{\infty}^2}\frac{1 - e}{1 + e}
 :::
 
-Plugging this relationship into Eq. {eq}`eq:ellipse-periapsis-apoapsis-ratio`, we can find the optimal apoapsis radius:
+Plugging this relationship into @eq:ellipse-periapsis-apoapsis-ratio, we can find the optimal apoapsis radius:
 
 :::{math}
 :label: eq:interplanetary-arrival-minimum-delta-v-r_a
@@ -408,7 +408,7 @@ Finally, we can solve for the offset distance required to achieve the minimum $\
 y_{\text{optimal}} = r_{p,\text{optimal}}\sqrt{\frac{2}{1 - e}}
 :::
 
-Notice that Eqs. {eq}`eq:interplanetary-arrival-minimum-delta-v-r_p`, {eq}`eq:interplanetary-arrival-optimal-delta-v`, and {eq}`eq:interplanetary-arrival-optimal-offset-distance` all depend on the eccentricity of the capture orbit.
+Notice that Eqs. @eq:interplanetary-arrival-minimum-delta-v-r_p, @eq:interplanetary-arrival-optimal-delta-v, and @eq:interplanetary-arrival-optimal-offset-distance all depend on the eccentricity of the capture orbit.
 
 ---
 

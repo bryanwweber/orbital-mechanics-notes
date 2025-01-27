@@ -35,6 +35,12 @@ project:
     '\COG': "\\mathrm{COG}" # Center of gravity
     '\KE': "\\mathrm{KE}" # Kinetic energy
     '\PE': "V" # Potential energy
+  numbering:
+    figure:
+      template: Fig. %s
+    equation:
+      template: Eq. %s
+      continue: true
 
   toc:
     - file: intro.md

@@ -11,7 +11,7 @@ where $h$ is the magnitude of the specific angular momentum.
 
 Since the angular momentum is constant for all time, it cannot change direction and it cannot change magnitude. Therefore, the unit vector perpendicular to the plane is constant for all time. This means that $m_2$ always orbits in the same plane around $m_1$.
 
-In this situation, it is convenient to observe the plane looking in the same direction as $-\uvec{h}$, that is, looking down onto the orbit. This is shown in {numref}`fig:definition-of-vr-vp`.
+In this situation, it is convenient to observe the plane looking in the same direction as $-\uvec{h}$, that is, looking down onto the orbit. This is shown in @fig:definition-of-vr-vp.
 
 :::{figure} ../images/definition-of-vr-vp.svg
 :name: fig:definition-of-vr-vp
@@ -61,7 +61,7 @@ This is called the **areal velocity**. Since $h$ is constant, because of conserv
 Equal areas are swept out in equal times
 :::
 
-This can be shown by integrating Eq. {eq}`eq:areal-velocity-definition`:
+This can be shown by integrating @eq:areal-velocity-definition:
 
 :::{math}
 A_2 - A_1 = \int_{t_1}^{t_2} \frac{h}{2} dt = \frac{h}{2}\left(t_2 - t_1\right)

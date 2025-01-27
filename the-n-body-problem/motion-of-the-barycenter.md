@@ -11,7 +11,7 @@ The **barycenter** or center of mass for the two-body system is found by using t
 \vector{R}_{\COG} = \frac{m_1 \vector{R}_1 + m_2 \vector{R}_2}{m_1 + m_2}
 :::
 
-By taking derivatives of {eq}`eq:barycenter-definition`, we can find the absolute velocity and acceleration of the barycenter:
+By taking derivatives of @eq:barycenter-definition, we can find the absolute velocity and acceleration of the barycenter:
 
 :::{math}
 :label: eq:barycenter-velocity-and-acceleration
@@ -25,7 +25,7 @@ By taking derivatives of {eq}`eq:barycenter-definition`, we can find the absolut
 Assuming that the only forces are the mutual gravitational attraction of the two masses.
 ```
 
-The top of the acceleration fraction, $m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2$, can be found in Eq. {eq}`eq:second-law-and-gravity-two-body`. In Eq. {eq}`eq:second-law-and-gravity-two-body`, we saw that the two forces of $m_1$ on $m_2$ and vice versa, were equal and opposite. In other words, the acceleration of the two masses must sum to zero:
+The top of the acceleration fraction, $m_1 \ddot{\vector{R}}_1 + m_2 \ddot{\vector{R}}_2$, can be found in @eq:second-law-and-gravity-two-body. In @eq:second-law-and-gravity-two-body, we saw that the two forces of $m_1$ on $m_2$ and vice versa, were equal and opposite. In other words, the acceleration of the two masses must sum to zero:
 
 :::{math}
 :label: eq:sum-of-accelerations

@@ -15,7 +15,7 @@ kernelspec:
 
 A satellite is in a 3,500 km by 14,500 km orbit around Earth. At 150° of true anomaly, the satellite conducts an impulsive maneuver for reentry at the apse line. Determine the $\Delta v$ and the angle relative to local horizontal that the thrust vector makes.
 
-Note that in this case there will only be a single impulse and we will assume that reentry occurs at the radius of Earth, 6378.1 km. The original and the transfer orbit have the same apse line and the same focus. We will use Eq. {eq}`eq:non-hohmann-delta-v-scalar` to determine $\Delta v$ and Eq. {eq}`eq:non-hohmann-thrust-direction` to determine $\gamma$. These equations both require the velocity vector at 150° true anomaly on the original orbit and the transfer orbit.
+Note that in this case there will only be a single impulse and we will assume that reentry occurs at the radius of Earth, 6378.1 km. The original and the transfer orbit have the same apse line and the same focus. We will use @eq:non-hohmann-delta-v-scalar to determine $\Delta v$ and @eq:non-hohmann-thrust-direction to determine $\gamma$. These equations both require the velocity vector at 150° true anomaly on the original orbit and the transfer orbit.
 
 First we will find the orbital elements for the original orbit.
 
@@ -45,7 +45,7 @@ glue("common-apse-line-e_i", e_i)
 
 The semimajor axis is $a_i =$ {glue:text}`common-apse-line-a_i:.2f` km and the eccentricity is $e_i =$ {glue:text}`common-apse-line-e_i:.4f`. Next, we need to calculate $r_A$ and $r_B$ to determine the orbital parameters for the transfer orbit.
 
-There is no target orbit; rather, the target is a point on the apse line at the radius of Earth. Thus, $r_B =$ 6378.1 km and $\nu_B =$ 0°. $r_A$ is found from the orbit equation on the initial orbit. Then, Eq. {eq}`eq:non-hohmann-orbital-elements` is used to find the orbital elements.
+There is no target orbit; rather, the target is a point on the apse line at the radius of Earth. Thus, $r_B =$ 6378.1 km and $\nu_B =$ 0°. $r_A$ is found from the orbit equation on the initial orbit. Then, @eq:non-hohmann-orbital-elements is used to find the orbital elements.
 
 ```{code-cell} ipython3
 r_A = p_i / (1 + e_i * m.cos(nu_A))
@@ -92,7 +92,7 @@ for n in ("v_p", "v_r", "v", "phi"):
     glue("common-apse-line-" + name, loc[name])
 ```
 
-The velocities and flight path angles are shown in {numref}`tab:common-apse-line`.
+The velocities and flight path angles are shown in @tab:common-apse-line.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
 :name: tab:common-apse-line

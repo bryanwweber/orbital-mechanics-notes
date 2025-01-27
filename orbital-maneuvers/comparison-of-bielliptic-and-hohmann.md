@@ -17,7 +17,7 @@ As we discussed, bi-elliptic transfers can save $\Delta v$ requirement when the 
 
 In this example, we will explore this with some numbers, and also discuss the tradeoffs of a bielliptic transfer.
 
-Let's start the initial orbit at the radius of the Moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using Eq. {eq}`eq:circular-orbit-velocity`:
+Let's start the initial orbit at the radius of the Moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using @eq:circular-orbit-velocity:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -163,7 +163,7 @@ The difference is {glue:text}`delta_m_diff:.1f` kg per 1000 kg of spacecraft mas
 
 Although those numbers seem small, let's put them in context. For the Falcon 9, the [Full Thrust](https://en.wikipedia.org/wiki/Falcon_9_Full_Thrust) variant has a mass of 549,000 kg. The savings from the bi-elliptic transfer means that about 7,000 kg of fuel can be diverted to another use. The total payload capacity to Low Earth Orbit is about [23,000 kg](https://www.spacex.com/vehicles/falcon-9/), so this is a significant savings. Although this is a simplistic model of the rocket, we can at least see the order of magnitude of savings that are possible.
 
-On the other hand, the downside of the bielliptic transfer is the transit time. The period of an ellipse is given by Eq. {eq}`eq:ellipse-period-useful`.
+On the other hand, the downside of the bielliptic transfer is the transit time. The period of an ellipse is given by @eq:ellipse-period-useful.
 
 ```{code-cell} ipython3
 t_h = np.pi / np.sqrt(mu) * a_t**(3/2)

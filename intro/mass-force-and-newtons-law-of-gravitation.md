@@ -42,7 +42,7 @@ In a gravitational field, the sources are **masses**. Therefore, the magnitude o
 F = G \frac{m_1 m_2}{r^2}
 :::
 
-where $m_1$ and $m_2$ are the two masses, $r$ is the distance between them, and $G$ is **Newton's gravitational constant**. Eq. {eq}`eq:newtons-law-of-gravitation` is called _Newton's law of gravitation_, first published by Isaac Newton in the 1680s @Bate1971. In SI units, $G$ has the value {eval}`G`.
+where $m_1$ and $m_2$ are the two masses, $r$ is the distance between them, and $G$ is **Newton's gravitational constant**. @eq:newtons-law-of-gravitation is called _Newton's law of gravitation_, first published by Isaac Newton in the 1680s @Bate1971. In SI units, $G$ has the value {eval}`G`.
 
 Due to the extremely small size of $G$, masses either have to be very large or very close together to generate a significant gravitational force.
 
@@ -53,7 +53,7 @@ When one of the masses is much larger than the other, we usually group the large
 F = m \left(\frac{GM}{r^2}\right)
 :::
 
-The second term on the right side of {eq}`eq:mod-nlog` is typically called the **acceleration due to gravity**:
+The second term on the right side of @eq:mod-nlog is typically called the **acceleration due to gravity**:
 
 :::{math}
 :label: eq:gravity-acceleration
@@ -76,7 +76,7 @@ We can also determine the variation of $g$ with altitude for the Earth. Referenc
 \frac{g}{g_0} = \frac{1}{\left(1 + z/R_E\right)^2}
 :::
 
-where $z$ is the height above the surface of the Earth. This variation is plotted in [@fig:g/g_0].
+where $z$ is the height above the surface of the Earth. This variation is plotted in @fig:g/g_0.
 
 ```{code-cell} python
 :label: code:g/g_0
@@ -99,6 +99,6 @@ ax.legend();
 Variation of $g/g_0$ with altitude.
 ```
 
-In [@fig:g/g_0] you can see that gravity varies significantly with altitude. However, for most normal altitudes, there isn't much variation. At 10 km, a typical cruise altitude, the value of $g$ is almost the same as $g_0$. Even at the height of the ISS (400 km), $g$ is still 90% of the value of $g_0$.
+In @fig:g/g_0 you can see that gravity varies significantly with altitude. However, for most normal altitudes, there isn't much variation. At 10 km, a typical cruise altitude, the value of $g$ is almost the same as $g_0$. Even at the height of the ISS (400 km), $g$ is still 90% of the value of $g_0$.
 
 Using the value of $g$ at the ISS, we find that an astronaut still has a weight, $mg\neq 0$. That is, the force of gravity is still acting on them. However, there is no support under their feet, so they do not feel their weight and we say they are experiencing **weightlessness** although they are not **weightless**.
