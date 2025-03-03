@@ -1,3 +1,16 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.6
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Relative Motion in the Two-Body Problem
 
 In this section, we will solve the two-body problem in _relative coordinates_, rather than absolute or inertial coordinates. There are several advantages to this approach:
@@ -6,15 +19,16 @@ In this section, we will solve the two-body problem in _relative coordinates_, r
 2. We remove the problem of finding an inertial reference frame
 3. We can convert the vector equation for relative motion to a scalar equation which is easier to work with
 
-According to Prussing and Conway {cite}`Prussing2013`:
+According to @Prussing2013 [pg. 11]:
 
-> The solution for the allowed relative motion [in the two-body problem] was first obtained by Isaac Newton in 1683. Newton was arguably the first person capable of obtaining it since the solution requires a law of gravitation, a law of motion, and differential calculus, all of which he invented. **pp. 11**
+> The solution for the allowed relative motion [in the two-body problem] was first obtained by Isaac Newton in 1683. Newton was arguably the first person capable of obtaining it since the solution requires a law of gravitation, a law of motion, and differential calculus, all of which he invented.
 
 ## Equation of Relative Motion
 
 Recall the equation for the position of $m_2$ relative to $m_1$, @eq:relative-position-vector, and repeated here:
 
 :::{math}
+:enumerated: false
 \begin{aligned}
   \vector{r} &= \vector{R}_2 - \vector{R}_1
 \end{aligned}
@@ -56,62 +70,11 @@ The utility of this parameter is mostly for the case where $m_1 \gg m_2$. Fortun
 \mu \approx G m_1
 :::
 
-Therefore, we can tabulate values of $\mu$ for various celestial bodies, as shown in @tab:standard-gravitational-parameter. To use any of the values here in your code, replace the `× 10^{<number>}` with `E<number>`, so `1.32712 × 10^{11}` becomes `1.32712E11`.
+Therefore, we can tabulate values of $\mu$ for various celestial bodies, as shown in @tab:standard-gravitational-parameter. Notice that the smallest object in @tab:standard-gravitational-parameter is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in @eq:definition-of-mu.
 
-Notice that the smallest object in @tab:standard-gravitational-parameter is Pluto, whose mass is on the order of 10<sup>22</sup> kg. Any human-made object is currently no more than 10<sup>6</sup> kg (1,000,000 kg), so there are at least 16 orders of magnitude difference in masses. This justifies the assumptions in @eq:definition-of-mu.
-
-:::{list-table} The standard gravitational parameter ($\mu$) and the mass for major celestial objects in the Solar System. See also: {ref}`sec:planetary-parameters` and {cite}`Park2021`
+:::{table} The standard gravitational parameter ($\mu$) and the mass for major celestial objects in the Solar System. See also: @sec:planetary-parameters and @Park2021
 :name: tab:standard-gravitational-parameter
-:header-rows: 1
-
--
-  - Celestial Body
-  - Mass [kg]
-  - $\mu$ [km<sup>3</sup>/s<sup>2</sup>]
--
-  - Sun
-  - {glue}`../reference/planetary-parameters.md::Sun_mass`
-  - {glue}`../reference/planetary-parameters.md::Sun_GM_in_km`
--
-  - Mercury
-  - {glue}`../reference/planetary-parameters.md::Mercury_mass`
-  - {glue}`../reference/planetary-parameters.md::Mercury_GM_in_km`
--
-  - Venus
-  - {glue}`../reference/planetary-parameters.md::Venus_mass`
-  - {glue}`../reference/planetary-parameters.md::Venus_GM_in_km`
--
-  - Earth
-  - {glue}`../reference/planetary-parameters.md::Earth_mass`
-  - {glue}`../reference/planetary-parameters.md::Earth_GM_in_km`
--
-  - Moon
-  - {glue}`../reference/planetary-parameters.md::Moon_mass`
-  - {glue}`../reference/planetary-parameters.md::Moon_GM_in_km`
--
-  - Mars
-  - {glue}`../reference/planetary-parameters.md::Mars_mass`
-  - {glue}`../reference/planetary-parameters.md::Mars_GM_in_km`
--
-  - Jupiter
-  - {glue}`../reference/planetary-parameters.md::Jupiter_mass`
-  - {glue}`../reference/planetary-parameters.md::Jupiter_GM_in_km`
--
-  - Saturn
-  - {glue}`../reference/planetary-parameters.md::Saturn_mass`
-  - {glue}`../reference/planetary-parameters.md::Saturn_GM_in_km`
--
-  - Uranus
-  - {glue}`../reference/planetary-parameters.md::Uranus_mass`
-  - {glue}`../reference/planetary-parameters.md::Uranus_GM_in_km`
--
-  - Neptune
-  - {glue}`../reference/planetary-parameters.md::Neptune_mass`
-  - {glue}`../reference/planetary-parameters.md::Neptune_GM_in_km`
--
-  - Pluto
-  - {glue}`../reference/planetary-parameters.md::Pluto_mass`
-  - {glue}`../reference/planetary-parameters.md::Pluto_GM_in_km`
+![](#code:planetary-mass-parameters)
 :::
 
 Returning to @eq:two-body-relative-motion-literal and substituting $\mu$, we find:
@@ -131,7 +94,7 @@ Interestingly, the roles of $m_1$ and $m_2$ can be interchanged by multiplying @
 
 Now, referring to the [](./motion-of-the-barycenter.md), we will find the motion of the masses relative to the center of mass, $\COG$, of the system. Let $\vector{r}_1$ and $\vector{r}_2$ be the position vectors of $m_1$ and $m_2$ relative to the center of mass, respectively. We also note that, in this definition, $\uvec{u}_r$ points in the same direction as $\vector{r}_2$.
 
-Skipping all the algebra, it turns out that the equation of motion for $m_2$ relative to $G$ is:
+Skipping all the algebra, it turns out that the equation of motion for $m_2$ relative to $\COG$ is:
 
 :::{math}
 :label: eq:motion-of-m_2-relative-to-COG
