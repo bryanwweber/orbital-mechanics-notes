@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.10, <3.14"
 resolution-markers = [
     "python_full_version >= '3.12'",
@@ -1755,7 +1756,9 @@ dependencies = [
     { name = "jupyter-book" },
     { name = "matplotlib" },
     { name = "numpy" },
+    { name = "pandas" },
     { name = "pint" },
+    { name = "pint-pandas" },
     { name = "plotly" },
     { name = "poliastro" },
     { name = "scipy" },
@@ -1787,7 +1790,9 @@ requires-dist = [
     { name = "jupyter-book", specifier = ">=2.0.0a0" },
     { name = "matplotlib", specifier = ">=3.9.0" },
     { name = "numpy", specifier = ">=1.26.4" },
+    { name = "pandas", specifier = ">=2.2.3" },
     { name = "pint", specifier = ">=0.24.1" },
+    { name = "pint-pandas", specifier = ">=0.7.1" },
     { name = "plotly", specifier = ">=5.22.0" },
     { name = "poliastro", editable = "vendor/poliastro" },
     { name = "scipy", specifier = ">=1.14.0" },
@@ -1989,6 +1994,19 @@ wheels = [
 ]
 
 [[package]]
+name = "pint-pandas"
+version = "0.7.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pandas" },
+    { name = "pint" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3e/d4/1623f45236859c88d196c5f7307b675f59e17a7a7d7a70114dba4a422af2/pint_pandas-0.7.1.tar.gz", hash = "sha256:f1106215a682593f535a89696688fec88a6fac3b32ffa9fe94c307e252bcb588", size = 60693 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/97/19/5af93cae70c2e42f3ac568906f8f3909174450bdbf4d70ec420e1daef816/Pint_Pandas-0.7.1-py3-none-any.whl", hash = "sha256:785312752eba35cbc55f4fa788c9f3d315839157d94254c5c79b91c5690ba11e", size = 28675 },
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.3.6"
 source = { registry = "https://pypi.org/simple" }
@@ -2012,7 +2030,6 @@ wheels = [
 
 [[package]]
 name = "poliastro"
-version = "0.18.dev0"
 source = { editable = "vendor/poliastro" }
 dependencies = [
     { name = "astropy", version = "6.1.7", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -2623,7 +2640,7 @@ wheels = [
 
 [[package]]
 name = "skyfield"
-version = "1.49"
+version = "1.51"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "certifi" },
@@ -2631,9 +2648,9 @@ dependencies = [
     { name = "numpy" },
     { name = "sgp4" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/3a/4abd429158980d639f474ba39c22ddd75f90be1d16b05361bef494518ecf/skyfield-1.49.tar.gz", hash = "sha256:20883027b2bbf4017dd916b64faaeb3713a8f88d7c8e353c15cd030ac63be92c", size = 311074 }
+sdist = { url = "https://files.pythonhosted.org/packages/cc/75/505142c1d6d295b21f90738f493e2700dd904cc709696f4ee0c4d5387cdf/skyfield-1.51.tar.gz", hash = "sha256:afebb71a86ff1049885133120f9149a54ed2d8b38721307eeb0e0a93ca73aafc", size = 439733 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f5/e9/0f3818de7684d9ea4b3e41740a22e407898fecd544af5724ef39b5a12104/skyfield-1.49-py3-none-any.whl", hash = "sha256:4986b7d5368f159050106282dec0f97e193c32689605ee4077d7d49465aaf13e", size = 336226 },
+    { url = "https://files.pythonhosted.org/packages/2b/57/e4ea352cad15e9b764a4b14e86d7e7e833a79c32e17c5fbd0248ec67d41e/skyfield-1.51-py3-none-any.whl", hash = "sha256:7c9ef83b62377e4badc11ebfb3e41504ecbae747c939d168d06778ac519848aa", size = 466764 },
 ]
 
 [[package]]

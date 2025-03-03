@@ -16,15 +16,19 @@ kernelspec:
 The equations of motion for the two-body problem in an inertial frame are given by @eq:two-body-inertial-components, repeated here:
 
 :::{math}
+:enumerated: false
+
 \begin{aligned}
   \ddot{X}_1 &= G m_2 \frac{X_2 - X_1}{r^3} & \ddot{Y}_1 &= G m_2 \frac{Y_2 - Y_1}{r^3} & \ddot{Z}_1 &= G m_2 \frac{Z_2 - Z_1}{r^3}\\
   \ddot{X}_2 &= G m_1 \frac{X_1 - X_2}{r^3} & \ddot{Y}_2 &= G m_1 \frac{Y_1 - Y_2}{r^3} & \ddot{Z}_2 &= G m_1 \frac{Z_1 - Z_2}{r^3}
 \end{aligned}
 :::
 
-The initial positions of the masses are:
+In this example, the initial positions of the masses are:
 
 :::{math}
+:enumerated: false
+
 \begin{aligned}
   \vector{R}_{1,0} &= \left(0 \uvec{I} + 0 \uvec{J} + 0 \uvec{K}\right) \mathrm{km} \\
   \vector{R}_{2,0} &= \left(3000 \uvec{I} + 0 \uvec{J} + 0 \uvec{K}\right) \mathrm{km}
@@ -34,6 +38,8 @@ The initial positions of the masses are:
 and the initial velocities are:
 
 :::{math}
+:enumerated: false
+
 \begin{aligned}
   \dot{\vector{R}}_{1,0} &= \left(10 \uvec{I} + 20 \uvec{J} + 30 \uvec{K}\right) \mathrm{km/s} \\
   \dot{\vector{R}}_{2,0} &= \left(0 \uvec{I} + 40 \uvec{J} + 0 \uvec{K}\right) \mathrm{km/s}
@@ -57,20 +63,34 @@ The array is indicated by using square brackets, $[\dots]$, and lists all the co
 
 In the following code samples we use arrays to store the initial positions and velocities of both masses and then construct the state vector.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-1]"
-:end-before: "[section-2]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+import numpy as np
 
+G = 6.67430e-20  # km**3/(kg * s**2)
+m_1 = m_2 = 1.0e26  # kg
+
+R_1_0 = np.array((0, 0, 0))  # km
+R_2_0 = np.array((3000, 0, 0))  # km
+dotR_1_0 = np.array((10, 20, 30))  # km/s
+dotR_2_0 = np.array((0, 40, 0))  # km/s
+
+y_0 = np.hstack((R_1_0, R_2_0, dotR_1_0, dotR_2_0))
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-1]"
-:end-before: "[section-2]"
+:start-after: [section-1]
+:end-before: [section-2]
 :language: matlab
 :dedent: 4
+:lineno-match: true
 :::
 ::::
+:::::
 
 These code samples first set the constants in the problem, $G$ and $m_1 = m_2$. Then, they create the initial position and velocity arrays. Finally, the arrays are stuck together into the initial state vector, `y_0`.
 
@@ -100,20 +120,38 @@ In words, the left side of @eq:numerical-solution is another array, where the fi
 
 We now have enough information to start to solve the problem. The first step is to calculate the initial acceleration using @eq:two-body-inertial-components. This can be done for one direction at a time, as shown in the following code:
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-2]"
-:end-before: "[section-3]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+X_1 = y_0[0]
+Y_1 = y_0[1]
+Z_1 = y_0[2]
+X_2 = y_0[3]
+Y_2 = y_0[4]
+Z_2 = y_0[5]
 
+r = np.sqrt((X_2 - X_1) ** 2 + (Y_2 - Y_1) ** 2 + (Z_2 - Z_1) ** 2)
+
+ddotX_1 = G * m_2 * (X_2 - X_1) / r**3
+ddotY_1 = G * m_2 * (Y_2 - Y_1) / r**3
+ddotZ_1 = G * m_2 * (Z_2 - Z_1) / r**3
+ddotX_2 = -G * m_1 * (X_2 - X_1) / r**3
+ddotY_2 = -G * m_1 * (Y_2 - Y_1) / r**3
+ddotZ_2 = -G * m_1 * (Z_2 - Z_1) / r**3
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-2]"
-:end-before: "[section-3]"
+:start-after: [section-2]
+:end-before: [section-3]
 :language: matlab
 :dedent: 4
+:lineno-match: true
 :::
 ::::
+:::::
 
 :::{margin}
 We'll see in a little bit why we're using the state vector to get positions rather than the position vectors.
@@ -123,20 +161,30 @@ This code first retrieves the position components from the state vector. Then it
 
 This code is pretty long, and we've created a bunch of variables to keep track of. Fortunately, there are simpler ways to approach this calculation. The next code samples show how to take advantage of the nature of array computations:
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-3]"
-:end-before: "[section-4]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+R_1 = y_0[:3]
+R_2 = y_0[3:6]
 
+r = np.sqrt(np.sum(np.square(R_2 - R_1)))
+ddot = G * (R_2 - R_1) / r**3
+ddotR_1_0 = m_2 * ddot
+ddotR_2_0 = -m_1 * ddot
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-3]"
-:end-before: "[section-4]"
+:start-after: [section-3]
+:end-before: [section-4]
 :language: matlab
 :dedent: 4
+:lineno-match: true
 :::
 ::::
+:::::
 
 In this code, you retrieve the position of each mass as an array instead of into a single variable. Then, using array functions, you compute the distance and the accelerations.
 
@@ -156,38 +204,48 @@ Assuming that the acceleration and velocity are constant over some time interval
 
 Let's choose $\Delta t = 1\text{ s}$. Then, to compute the state vector at the next time step:
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-4]"
-:end-before: "[section-5]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+Delta_t = 1  # s
+dotR_1_1 = ddotR_1_0 * Delta_t + dotR_1_0
+dotR_2_1 = ddotR_2_0 * Delta_t + dotR_2_0
 
+R_1_1 = dotR_1_0 * Delta_t + R_1_0
+R_2_1 = dotR_2_0 * Delta_t + R_2_0
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-4]"
-:end-before: "[section-5]"
+:start-after: [section-4]
+:end-before: [section-5]
 :language: matlab
 :dedent: 4
 :::
 ::::
+:::::
 
 However, it would be inefficient to do this by hand and there are more accurate methods available. I don't see a reason to re-implement standard functions, so we are going to use the functions built-in to SciPy or Matlab, depending on which software you're using.
 
 ## Numerical Solution Using Pre-Built Libraries
 
-In SciPy, the function is called [`solve_ivp`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp). In Matlab, the function is called [`ode45`](https://www.mathworks.com/help/matlab/ref/ode45.html).
+In SciPy, the function is called [`solve_ivp()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp). In Matlab, the function is called [`ode45`](https://www.mathworks.com/help/matlab/ref/ode45.html).
 
 First, you need to start by importing the appropriate Python libraries. In Matlab, all the functions you need are built-in.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-5]"
-:end-before: "[section-6]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+```
 ::::
+:::::
 
-The two imports from `matplotlib` will plot the solution of the problem.
+The import from `matplotlib` will plot the solution of the problem.
 
 Then, we need to define the function that describes the motion of our system. This function needs to compute the left hand side of the equation above ($\dot{\vector{y}}$) and return it to the solver, so that the solver can calculate the value of the state vector at time $t + \Delta t$.
 
@@ -195,20 +253,53 @@ The function takes the time $t$ and current value of the state vector $y$ as inp
 
 Inside the function, we use the values in the state vector to fill the `ydot` vector. Then, we return `ydot` back to the solver.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-6]"
-:end-before: "[section-7]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+def absolute_motion(t, y):
+    """Calculate the motion of a two-body system in an inertial reference frame.
 
+    The state vector ``y`` should be in the order:
+
+    1. Coordinates of $m_1$
+    2. Coordinates of $m_2$
+    3. Velocity components of $m_1$
+    4. Velocity components of $m_2$
+    """
+    # Get the six coordinates for m_1 and m_2 from the state vector
+    R_1 = y[:3]
+    R_2 = y[3:6]
+
+    # Fill the derivative vector with zeros
+    ydot = np.zeros_like(y)
+
+    # Set the first 6 elements of the derivative equal to the last
+    # 6 elements of the state vector, which are the velocities
+    ydot[:6] = y[6:]
+
+    # Calculate the acceleration terms and fill them in to the rest
+    # of the derivative array
+    r = np.sqrt(np.sum(np.square(R_2 - R_1)))
+    ddot = G * (R_2 - R_1) / r**3
+    ddotR_1 = m_2 * ddot
+    ddotR_2 = -m_1 * ddot
+
+    ydot[6:9] = ddotR_1
+    ydot[9:] = ddotR_2
+    return ydot
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-6]"
-:end-before: "[section-7]"
+:start-after: [section-6]
+:end-before: [section-7]
 :language: matlab
 :dedent: 4
 :::
 ::::
+:::::
 
 With the function defined, we can call `solve_ivp()` or `ode45()`. We need to tell it the function it should solve, the beginning and end times, the initial state vector, and then some information to help control the output.
 
@@ -216,36 +307,52 @@ Once the solver finishes, the solution is stored in `sol.y` in Python or just `y
 
 Then we extract the position and velocity of each mass as a function of time, and compute the barycenter (the center of gravity of the system).
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-7]"
-:end-before: "[section-8]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} python
+t_0 = 0  # seconds
+t_f = 480  # seconds
+t_points = np.linspace(t_0, t_f, 1000)
 
+sol = solve_ivp(absolute_motion, [t_0, t_f], y_0, t_eval=t_points)
+
+y = sol.y.T
+R_1 = y[:, :3]  # km
+R_2 = y[:, 3:6]  # km
+V_1 = y[:, 6:9]  # km/s
+V_2 = y[:, 9:]  # km/s
+barycenter = (m_1 * R_1 + m_2 * R_2) / (m_1 + m_2)  # km
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-7]"
-:end-before: "[section-8]"
+:start-after: [section-7]
+:end-before: [section-8]
 :language: matlab
 :dedent: 4
 :::
 ::::
+:::::
 
-Finally, we construct some plots of the situation. In @fig:two-body-inertial, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the [next section](./motion-of-the-barycenter.md).
+Finally, we construct some plots of the situation. In @fig:two-body-inertial, we are plotting the absolute motion of each of the two masses as well as the barycenter. Notice that the barycenter moves in a straight line. We will discuss this further in the [](./motion-of-the-barycenter.md) section.
 
 The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.
 
 ```{code-cell} python
-:tags: ["remove-input"]
-from IPython.display import display, HTML
-from myst_nb import glue
+:label: code:two-body-inertial
+:tags: ["remove-cell"]
 
-js = HTML(filename="scripts/two-body-inertial.html")
-glue("two_body_inertial", js, display=False)
-"change the code";
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+ax.plot(R_1[:, 0], R_1[:, 1], R_1[:, 2], label="m_1")
+ax.plot(R_2[:, 0], R_2[:, 1], R_2[:, 2], label="m_2")
+ax.plot(barycenter[:, 0], barycenter[:, 1], barycenter[:, 2], label="COG")
+ax.legend();
 ```
 
-:::{glue:figure} two_body_inertial
+:::{figure} #code:two-body-inertial
 :name: fig:two-body-inertial
 
 The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.
@@ -253,16 +360,25 @@ The motion of two bodies subject to mutual gravitational attraction, viewed from
 
 Another way to view this system is by setting the barycenter to be the origin of the coordinate system, as shown in @fig:two-body-inertial-cg-relative. Remember that since the barycenter is moving with constant velocity, it is allowed to be used as an inertial reference frame. This is kind of like sitting above the barycenter of the Earth-Moon system. You would see them orbit around the barycenter, and the orbits would be ellipses.
 
-```{code-cell} python
-:tags: ["remove-input"]
-from IPython.display import display, HTML
-from myst_nb import glue
+:::{margin}
+Note, though, that the barycenter of the real Earth-Moon system is located below the Earth's surface, at about three-quarters of the radius of the Earth. So this picture isn't totally accurate.
+:::
 
-js = HTML(filename="scripts/two-body-inertial-cg-relative.html")
-glue("two_body_inertial_cg_relative", js, display=False)
+```{code-cell} python
+:tags: ["remove-cell"]
+:label: code:two-body-inertial-cg-relative
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+R1_rel_COG = R_1 - barycenter
+R2_rel_COG = R_2 - barycenter
+ax.plot(R1_rel_COG[:, 0], R1_rel_COG[:, 1], R1_rel_COG[:, 2], label="m_1")
+ax.plot(R2_rel_COG[:, 0], R2_rel_COG[:, 1], R2_rel_COG[:, 2], label="m_2")
+ax.plot(0, 0, 0, "ro", label="COG")
+ax.legend();
 ```
 
-:::{glue:figure} two_body_inertial_cg_relative
+:::{figure} #code:two-body-inertial-cg-relative
 :name: fig:two-body-inertial-cg-relative
 
 The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of $m_1$ and $m_2$ appear to be ellipses with the barycenter at one of the foci.
@@ -271,15 +387,20 @@ The motion of two bodies subject to mutual gravitational attraction, viewed from
 @fig:two-body-inertial-m1-relative fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.
 
 ```{code-cell} python
-:tags: ["remove-input"]
-from IPython.display import display, HTML
-from myst_nb import glue
+:label: code:two-body-inertial-m1-relative
+:tags: ["remove-cell"]
 
-js = HTML(filename="scripts/two-body-inertial-m1-relative.html")
-glue("two_body_inertial_m1_relative", js, display=False)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+R2_rel_R1 = R_2 - R_1
+COG_rel_R1 = barycenter - R_1
+ax.plot(R2_rel_R1[:, 0], R2_rel_R1[:, 1], R2_rel_R1[:, 2], label="m_2")
+ax.plot(COG_rel_R1[:, 0], COG_rel_R1[:, 1], COG_rel_R1[:, 2], label="COG")
+ax.plot(0, 0, 0, "ro", label="m_1")
+ax.legend();
 ```
 
-:::{glue:figure} two_body_inertial_m1_relative
+:::{figure} #code:two-body-inertial-m1-relative
 :name: fig:two-body-inertial-m1-relative
 
 The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to $m_1$. In this reference frame, the orbits of the barycenter and $m_2$ appear to be ellipses with $m_1$ at one of the foci.
@@ -289,16 +410,44 @@ Interestingly, the equations for this solution are symmetric. We can reverse the
 
 The code to generate the plots is shown below.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/two-body-inertial-numerical-solution.py
-:start-after: "[section-8]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```python
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+ax.plot(R_1[:, 0], R_1[:, 1], R_1[:, 2], label="m_1")
+ax.plot(R_2[:, 0], R_2[:, 1], R_2[:, 2], label="m_2")
+ax.plot(barycenter[:, 0], barycenter[:, 1], barycenter[:, 2], label="COG")
+ax.legend();
 
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+R1_rel_COG = R_1 - barycenter
+R2_rel_COG = R_2 - barycenter
+ax.plot(R1_rel_COG[:, 0], R1_rel_COG[:, 1], R1_rel_COG[:, 2], label="m_1")
+ax.plot(R2_rel_COG[:, 0], R2_rel_COG[:, 1], R2_rel_COG[:, 2], label="m_2")
+ax.plot(0, 0, 0, "ro", label="COG")
+ax.legend();
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+R2_rel_R1 = R_2 - R_1
+COG_rel_R1 = barycenter - R_1
+ax.plot(R2_rel_R1[:, 0], R2_rel_R1[:, 1], R2_rel_R1[:, 2], label="m_2")
+ax.plot(COG_rel_R1[:, 0], COG_rel_R1[:, 1], COG_rel_R1[:, 2], label="COG")
+ax.plot(0, 0, 0, "ro", label="m_1")
+ax.legend();
+```
+::::
+::::{tab-item} MATLAB
+:sync: matlab
 :::{literalinclude} scripts/two_body_inertial_numerical_solution.m
-:start-after: "[section-8]"
-:end-before: "[end-here]"
+:start-after: [section-8]
+:end-before: [end-here]
 :language: matlab
 :dedent: 4
+:lineno-match: true
 :::
 ::::
+:::::

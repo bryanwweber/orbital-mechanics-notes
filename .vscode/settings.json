@@ -35,5 +35,6 @@
       //   ]
     }
   ],
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "python.analysis.typeCheckingMode": "basic"
 }
