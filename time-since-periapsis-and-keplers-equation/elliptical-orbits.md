@@ -431,11 +431,16 @@ for e in e_vals:
     ax_2.plot(nu, M_e, label=f"$e$ = {e:.2F}")
 
 ax_2.legend()
-from myst_nb import glue
-glue("mean-vs-true-anomaly-ellipse", fig_2, display=False)
 ```
 
-:::{glue:figure} mean-vs-true-anomaly-ellipse
+```{code-cell} ipython3
+:label: code:mean-vs-true-anomaly-ellipse
+:tags: [remove-cell]
+
+fig_2
+```
+
+:::{figure} #code:mean-vs-true-anomaly-ellipse
 :name: fig:mean-vs-true-anomaly-ellipse
 
 Mean anomaly as a function of true anomaly for a range of eccentricities. Note that $e < 1$.
@@ -501,10 +506,16 @@ for e in e_vals:
     ax_1.plot(np.hstack((E, 2 * np.pi - E[::-1])), M_e, label=f"$e$ = {e:.2F}")
 
 ax_1.legend()
-glue("mean-eccentric-anomaly-ellipse", fig_1, display=False)
 ```
 
-:::{glue:figure} mean-eccentric-anomaly-ellipse
+```{code-cell} ipython3
+:label: code:mean-eccentric-anomaly-ellipse
+:tags: [remove-cell]
+
+fig_1
+```
+
+:::{figure} #code:mean-eccentric-anomaly-ellipse
 :name: fig:mean-eccentric-anomaly-ellipse
 
 The mean anomaly as a function of eccentric anomaly for several values of the eccentricity. Note that $e < 1$.
@@ -582,7 +593,7 @@ where $J_n$ are the **Bessel functions of the first kind**, defined by their own
 
 :::{math}
 :label:
-J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n+ k}
+J_n(x) = \sum_{k=0}^{\infty}\frac{\left(-1\right)^k}{k!\left(n + k\right)!}\left(\frac{x}{2}\right)^{n + k}
 :::
 
-There are other feasible series solutions to Kepler's equation, some of which are discussed by Colwell {cite}`Colwell1992`.
+There are other feasible series solutions to Kepler's equation, some of which are discussed by @Colwell1992.

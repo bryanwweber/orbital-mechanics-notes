@@ -46,15 +46,13 @@ The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic fu
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as myst_glue
-
+from matplotlib.ticker import (
+    MultipleLocator,
+    FuncFormatter,
+    AutoMinorLocator,
+)
 import matplotlib.pyplot as plt
-from matplotlib.ticker import (MultipleLocator, FuncFormatter,
-                               AutoMinorLocator)
 import numpy as np
-
-glue = partial(myst_glue, display=False)
 
 fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
 ax.set_ylabel("$M_h$")
@@ -75,11 +73,17 @@ for e in e_vals:
     sqrt_e_m_1_t = np.sqrt(e - 1) * np.tan(nu / 2)
     M_h -= np.log((sqrt_e_p_1 + sqrt_e_m_1_t) / (sqrt_e_p_1 - sqrt_e_m_1_t))
     ax.semilogy(nu, M_h, label=f"$e$ = {e}")
-ax.legend()
-glue("mean-anomaly-hyperbola-function", fig)
+ax.legend();
 ```
 
-:::{glue:figure} mean-anomaly-hyperbola-function
+```{code-cell} ipython3
+:label: code:mean-anomaly-hyperbola-function
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:mean-anomaly-hyperbola-function
 :name: fig:mean-anomaly-hyperbola-function
 
 The hyperbolic mean anomaly as a function of true anomaly. Note that the $y$-scale is a log scale.
@@ -145,10 +149,16 @@ ax.plot((-a - r_p, -a - r_p), (-0.1, -0.3), lw=0.5, color="black")
 ax.plot((-a , -a), (-0.1, -0.3), lw=0.5, color="black")
 ax.annotate("$r$", xy=((x_1 + hyperbola_focus) / 2, y_1 / 2), ha="right", va="top")
 ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white")
-glue("hyperbolic-eccentric-anomaly-figure", fig)
 ```
 
-:::{glue:figure} hyperbolic-eccentric-anomaly-figure
+```{code-cell}
+:label: code:hyperbolic-eccentric-anomaly-figure
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:hyperbolic-eccentric-anomaly-figure
 :name: fig:hyperbolic-eccentric-anomaly-figure
 
 A hyperbolic trajectory with definitions for distances used in the derivation of Kepler's law for hyperbolic trajectories.
@@ -157,21 +167,21 @@ A hyperbolic trajectory with definitions for distances used in the derivation of
 The ratio $y/b$ is the definition of the hyperbolic sine of the angle $F$:
 
 :::{math}
-:label:
+:label: hyperbolic-sinh
 \sinh F = \frac{y}{b}
 :::
 
 Then, using the hyperbolic trigonometric identity:
 
 :::{math}
-:label:
+:label: hyperbolic-sinh-cosh-identity
 \cosh^2 c - \sinh^2 c = 1
 :::
 
 we also define
 
 :::{math}
-:label:
+:label: hyperbolic-cosh
 \cosh F = \frac{x}{a}
 :::
 
@@ -181,7 +191,7 @@ The hyperbolic angle $F$ is weird. The reason we don't draw it on the figure is 
 Another way of thinking about this is by analogy to a circle. For a circle, we can draw any two lines from the center of the circle to the perimeter. These two lines will have an angle $\phi$ between them, and the area between them will be:
 
 :::{math}
-:label:
+:label: circular-sector-area-comparison
 A_{\text{circular sector}} = \frac{r^2 \phi}{2}
 :::
 
@@ -194,7 +204,7 @@ The highlighted area is a **circular sector**. Modified from [Wikimedia](https:/
 If the circle is a unit circle ($r = 1$), then the area of the sector will be equal to the angle divided by two. Turned around, the angle is equal to twice the area:
 
 :::{math}
-:label:
+:label: circular-sector-area
 \phi = \frac{2A}{1^2}
 :::
 
@@ -214,14 +224,14 @@ You can read more about hyperbolic angles on [Brilliant](https://brilliant.org/w
 We can relate $F$ to the true anomaly $\nu$ by plugging in $y = r\sin\nu$, and the orbit equation for $r$. We also note that $b = a\sqrt{e^2 - 1}$. Then:
 
 :::{math}
-:label:
+:label: hyperbolic-equation-1
 F = \sinh^{-1}\left(\frac{\sin\nu\sqrt{e^2 - 1}}{1 + e\cos\nu}\right) = \ln\left(\frac{\sin\nu\sqrt{e^2 - 1} + \cos\nu + e}{1 + e\cos\nu}\right)
 :::
 
 After some more trigonometry and algebra, we find:
 
 :::{math}
-:label:
+:label: hyperbolic-equation-2
 F= \ln\left[\frac{\sqrt{e + 1} + \sqrt{e - 1}\tan\frac{\nu}{2}}{\sqrt{e + 1} - \sqrt{e - 1}\tan\frac{\nu}{2}}\right]
 :::
 
@@ -244,14 +254,14 @@ M_h = e\sinh F - F
 As with the ellipse, Kepler's equation can be solved easily if $F$ is known. However, if time is the known quantity, then Kepler's equation is transcendental and must be solved numerically. The form of the equation for the Newton solver is $f(F) = 0$, or:
 
 :::{math}
-:label:
+:label: hyperbolic-kepler-for-newton
 f(F) = 0 = e\sinh F - F - M_h
 :::
 
 To aid in the numerical solution, the derivative of Kepler's equation for the hyperbola is:
 
 :::{math}
-:label:
+:label: hyperbolic-kepler-derivative
 f'(F) = e \cosh F - 1
 :::
 
@@ -273,10 +283,16 @@ for e in e_vals:
     M_h = np.log10(e * np.sinh(F) - F)
     ax.plot(F, M_h, label=f"$e$ = {e}")
 ax.legend()
-glue("hyperbolic-mean-anomaly-vs-eccentric-anomaly", fig)
 ```
 
-:::{glue:figure} hyperbolic-mean-anomaly-vs-eccentric-anomaly
+```{code-cell} ipython3
+:label: code:hyperbolic-mean-anomaly-vs-eccentric-anomaly
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:hyperbolic-mean-anomaly-vs-eccentric-anomaly
 :name: fig:hyperbolic-mean-anomaly-vs-eccentric-anomaly
 
 The hyperbolic mean anomaly as a function of the eccentric anomaly

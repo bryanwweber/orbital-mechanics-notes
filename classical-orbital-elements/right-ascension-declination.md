@@ -2,7 +2,7 @@
 
 To the human eye, from the surface of the Earth, stars and other objects in the night sky appear as points on a sphere surrounding the Earth. This sphere is called the [celestial sphere](../reference/celestial-sphere.md). The points on the celestial sphere appear in the same location at the same time of night throughout the year, even as the Earth orbits the Sun. This is because most stars are so far away that the scale of motion in the solar system is not enough to change our perspective on them, so they appear to be fixed to the sphere.
 
-Since the stars are fixed, we can identify their positions on the celestial sphere and use them as reference points to determine orbital parameters. The reference frame used to describe these positions is similar to the [Earth-Centered Inertial](sec:earth-centered-inertial) frame. However, the celestial sphere uses spherical coordinates rather than Cartesian. Due to the huge distances to the visible stars, the radial distance is not important, and we only care about the angular position.
+Since the stars are fixed, we can identify their positions on the celestial sphere and use them as reference points to determine orbital parameters. The reference frame used to describe these positions is similar to the [](#sec:earth-centered-inertial) frame. However, the celestial sphere uses spherical coordinates rather than Cartesian. Due to the huge distances to the visible stars, the radial distance is not important, and we only care about the angular position.
 
 ## Celestial Coordinate System
 
