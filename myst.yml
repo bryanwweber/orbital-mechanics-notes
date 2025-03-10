@@ -58,9 +58,9 @@ project:
         - file: the-n-body-problem/two-body-relative-numerical-solution.md
         - file: the-n-body-problem/circular-restricted-three-body-problem.md
         - file: the-n-body-problem/lagrange-points.md
-        - file: the-n-body-problem/Lagrange-points-example.ipynb
+        - file: the-n-body-problem/lagrange-points-example.md
         - file: the-n-body-problem/jacobi-constant.md
-        - file: the-n-body-problem/Equations-of-Motion-CR3BP.ipynb
+        - file: the-n-body-problem/equations-of-motion-CR3BP.md
         - file: the-n-body-problem/many-body-problems.md
     - title: Constants of Orbital Motion
       children:

@@ -86,7 +86,6 @@ y_0 = np.hstack((R_1_0, R_2_0, dotR_1_0, dotR_2_0))
 :start-after: [section-1]
 :end-before: [section-2]
 :language: matlab
-:dedent: 4
 :lineno-match: true
 :::
 ::::
@@ -147,7 +146,6 @@ ddotZ_2 = -G * m_1 * (Z_2 - Z_1) / r**3
 :start-after: [section-2]
 :end-before: [section-3]
 :language: matlab
-:dedent: 4
 :lineno-match: true
 :::
 ::::
@@ -180,7 +178,6 @@ ddotR_2_0 = -m_1 * ddot
 :start-after: [section-3]
 :end-before: [section-4]
 :language: matlab
-:dedent: 4
 :lineno-match: true
 :::
 ::::
@@ -222,7 +219,6 @@ R_2_1 = dotR_2_0 * Delta_t + R_2_0
 :start-after: [section-4]
 :end-before: [section-5]
 :language: matlab
-:dedent: 4
 :::
 ::::
 :::::
@@ -296,7 +292,6 @@ def absolute_motion(t, y):
 :start-after: [section-6]
 :end-before: [section-7]
 :language: matlab
-:dedent: 4
 :::
 ::::
 :::::
@@ -331,7 +326,6 @@ barycenter = (m_1 * R_1 + m_2 * R_2) / (m_1 + m_2)  # km
 :start-after: [section-7]
 :end-before: [section-8]
 :language: matlab
-:dedent: 4
 :::
 ::::
 :::::
@@ -446,7 +440,6 @@ ax.legend();
 :start-after: [section-8]
 :end-before: [end-here]
 :language: matlab
-:dedent: 4
 :lineno-match: true
 :::
 ::::

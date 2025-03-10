@@ -51,11 +51,11 @@ The collinear Lagrange points lie along the $x^*$ axis, between $m_1$ and $m_2$.
 
 ## Equilateral Lagrange Points
 
+To find the equilateral Lagrange points, we assume $y^*\neq 0$. Now we have 2 equations and 2 unknowns. Since $y^*\neq 0$, the $y^*$ in the second equation of motion (@eq:non-dim-equilibrium-eom-lagrange) will cancel from both sides, and we end up with:
+
 :::{margin}
 Remember that $z^*$ is zero for all the equilibrium points.
 :::
-
-To find the equilateral Lagrange points, we assume $y^*\neq 0$. Now we have 2 equations and 2 unknowns. Since $y^*\neq 0$, the $y^*$ in the second equation of motion (@eq:non-dim-equilibrium-eom-lagrange) will cancel from both sides, and we end up with:
 
 :::{math}
 :label: eq:y-star-equilateral-lagrange
@@ -179,12 +179,13 @@ There is no analytical solution to this equation, it must be solved numerically.
 
 In the meantime, @fig:collinear-lagrange-solution shows the solution of @eq:collinear-lagrange-solution:
 
-```{code-cell}
-:tags: [remove-input, remove-output]
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import newton
-import matplotlib.pyplot as plt
-from myst_nb import glue
+
 plt.rc("font", size=20)
 
 
@@ -213,11 +214,17 @@ ax.annotate("$m_2$", xy=(0.55, 0.5), ha="center", va="bottom")
 ax.annotate("$m_1$", xy=(0.55, -0.5), ha="center", va="bottom")
 ax.annotate("$L_2$", xy=(0.55, 1.25), ha="center", va="bottom", color="C0")
 ax.annotate("$L_1$", xy=(0.55, 0.05), ha="center", va="bottom", color="C1")
-ax.annotate("$L_3$", xy=(0.55, -1.25), ha="center", va="top", color="C2")
-glue("collinear-lagrange-solution", fig, display=False);
+ax.annotate("$L_3$", xy=(0.55, -1.25), ha="center", va="top", color="C2");
 ```
 
-:::{glue:figure} collinear-lagrange-solution
+```{code-cell} ipython3
+:label: code:collinear-lagrange-solution
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:collinear-lagrange-solution
 :name: fig:collinear-lagrange-solution
 
 The solutions of @eq:collinear-lagrange-solution, showing the dimensionless positions of the collinear Lagrange points as a function of the dimensionless mass.
@@ -232,14 +239,13 @@ By convention, the Lagrange points are numbered such that $L_1$ lies between $m_
 @fig:lagrange-points-animation plots the five Lagrange points in non-dimensional coordinates as a function of the mass ratio $\pi_2$.
 
 ```{code-cell}
-:tags: [remove-input, remove-output]
-from scipy.optimize import newton
-import numpy as np
-from myst_nb import glue
+:tags: [remove-cell]
+
 import matplotlib.pyplot as plt
 import matplotlib.path as mpath
 import matplotlib.animation as animation
-from IPython.display import HTML
+import numpy as np
+from scipy.optimize import newton
 
 def collinear_lagrange(xstar, pi_2):
     return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
@@ -320,10 +326,16 @@ pi_2 = np.hstack((np.logspace(-5, -1, 25), np.linspace(0.1, 0.8, 50), np.logspac
 anim = animation.FuncAnimation(
     fig, animate, init_func=init, frames=pi_2, blit=True
 )
-glue("lagrange-points-animation", HTML(anim.to_jshtml()), display=False)
 ```
 
-:::{glue:figure} lagrange-points-animation
+```{code-cell} ipython3
+:label: code:lagrange-points-animation
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:lagrange-points-animation
 :name: fig:lagrange-points-animation
 
 Animation showing the position of the five Lagrange points as the value of $\pi_2$ goes from 0 to 1.
@@ -339,7 +351,7 @@ Although all the Lagrange points are equilibrium points, they may not be *stable
 
 To analyze the stability of the Lagrange points, we will use the potential energy function for the CR3BP.
 
-As we discussed previously, gravity is a conservative force. As such, the force field can be defined in terms of a potential energy function. For the CR3BP, the pseudo-potential function in the rotating frame is given by Koon et al. {cite}`Koon2011`:
+As we discussed previously, gravity is a conservative force. As such, the force field can be defined in terms of a potential energy function. For the CR3BP, the pseudo-potential function in the rotating frame is given by @Koon2011:
 
 :::{math}
 :label: eq:pseudo-potential-energy-cr3bp
@@ -349,13 +361,14 @@ U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[
 A plot of this function is shown in @fig:pseudo-potential-energy-cr3bp, including the positions of the five Lagrange points, for $\pi_2 =$ 0.3.
 
 ```{code-cell}
-:tags: [remove-input, remove-output]
-import numpy as np
+:tags: [remove-cell]
+
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
+import numpy as np
 from scipy.optimize import newton
-from myst_nb import glue
+from mpl_toolkits.mplot3d import Axes3D
+
 pi_2 = 0.3
 m_1 = -pi_2
 m_2 = 1 - pi_2
@@ -403,10 +416,17 @@ ax.plot(L_3, 0, U_L3, 'rp', zorder=10, label="$L_3$", markersize=15)
 ax.plot(0.5 - pi_2, np.sqrt(3)/2, L_45, 'rX', zorder=10, label="$L_4$", markersize=15)
 ax.plot(0.5 - pi_2, -np.sqrt(3)/2, L_45, 'rs', zorder=10, label="$L_5$", markersize=15)
 ax.legend()
-glue("pseudo-potential-energy-cr3bp", fig, display=False)
 ```
 
-:::{glue:figure} pseudo-potential-energy-cr3bp
+```{code-cell} ipython3
+:label: code:pseudo-potential-energy-cr3bp
+:tags: [remove-cell]
+
+fig
+```
+
+
+:::{figure} #code:pseudo-potential-energy-cr3bp
 :name: fig:pseudo-potential-energy-cr3bp
 
 The pseudo-potential energy function in the rotation reference frame used for the CR3BP, with $\pi_2 =$ 0.3. The five Lagrange points for this system are labeled on the figure.
@@ -427,20 +447,20 @@ Since the equilateral Lagrange points are stable, objects placed in a small orbi
 \frac{m_1}{m_2} + \frac{m_2}{m_1} \geq 25
 :::
 
-:::{margin}
-Note that @fig:pseudo-potential-energy-cr3bp shows the potential surface for $\pi_2 = 0.3$, which does not satisfy the numerical stability criteria here for $L_4$ and $L_5$ from @eq:lagrange-point-stability-criterion. We're plotting $\pi_2 = 0.3$ to exaggerate the shape of the potential function for clarity.
-:::
-
 which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Earth-Moon system, that ratio is $m_1/m_2 \approx 81.3$, so $L_4$ and $L_5$ are nominally stable. However, the $L_4$ and $L_5$ points for the Earth-Moon system are slightly destabilized by the influence of the Sun and they aren't completely stable. Nonetheless, there are clouds of dust which have collected at these points because they are kinda stable.
 
 Other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points. In particular, the orbit of Jupiter around the Sun has stable equilateral Lagrange points. There are groups of asteroids, called **Trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in @fig:trojan-asteroids-jupiter.
 
+:::{margin}
+Note that @fig:pseudo-potential-energy-cr3bp shows the potential surface for $\pi_2 = 0.3$, which does not satisfy the numerical stability criteria here for $L_4$ and $L_5$ from @eq:lagrange-point-stability-criterion. We're plotting $\pi_2 = 0.3$ to exaggerate the shape of the potential function for clarity.
+:::
+
 ```{code-cell}
-:tags: [remove-input, remove-output]
-import numpy as np
+:tags: [remove-cell]
+
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-from myst_nb import glue
+import numpy as np
 
 plt.rcdefaults()
 
@@ -486,10 +506,16 @@ x_arc_G = 3*r_J/4 * np.cos(theta_J - arc) + 300
 y_arc_G = 3*r_J/4 * np.sin(theta_J - arc) + 300
 ax.plot(x_arc_G, y_arc_G, lw=3, color="r")
 ax.annotate("60°", xy=(7*r_J/8*np.cos(theta_J - np.pi/6) + 300, 7*r_J/8*np.sin(theta_J - np.pi/6) + 300), fontsize=30, color='r', ha="center", va="center")
-glue("trojan-asteroids-jupiter", fig, display=False)
 ```
 
-:::{glue:figure} trojan-asteroids-jupiter
+```{code-cell} ipython3
+:label: code:trojan-asteroids-jupiter
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:trojan-asteroids-jupiter
 :name: fig:trojan-asteroids-jupiter
 
 The Trojan and the Greek asteroids are clusters of asteroids that have collected at the stable $L_4$ and $L_5$ Lagrange points in the Sun-Jupiter system.
