@@ -31,6 +31,7 @@ To complete these steps, we require two other orbital elements besides the true 
 Let's find $e$ first, since it is the only orbital element that appears in @eq:eccentric-anomaly-true-anomaly-ellipse to find $E$. We can find $e$ directly using @eq:ellipse-eccentricity-periapsis-apoapsis, repeated here for reference:
 
 :::{math}
+:enumerated: false
 e = \frac{r_a - r_p}{r_a + r_p}
 :::
 
@@ -49,24 +50,16 @@ e = (r_a - r_p)/(r_a + r_p)
 ```{code-cell} ipython3
 :tags: [remove-cell]
 from functools import partial
-from myst_nb import glue as myst_glue
 np.set_printoptions(legacy="1.25")
-glue = partial(myst_glue, display=False)
-glue("ellipse-time-since-periapsis-e", e)
 ```
 
-The eccentricity of this orbit is $e =$ {glue:text}`ellipse-time-since-periapsis-e:.4f`. Then, the eccentric anomaly found from @eq:eccentric-anomaly-true-anomaly-ellipse is:
+The eccentricity of this orbit is $e =$ {eval}`f"{e:.4F}"`. Then, the eccentric anomaly found from @eq:eccentric-anomaly-true-anomaly-ellipse is:
 
 ```{code-cell} ipython3
 E_1 = 2 * np.arctan(np.sqrt((1 - e)/(1 + e)) * np.tan(nu_1 / 2))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("ellipse-time-since-perigee-E_1", E_1)
-```
-
-The eccentric anomaly is $E_1 =$ {glue:text}`ellipse-time-since-perigee-E_1:.2f` radians. The subscript 1 indicates this is the first part of this example.
+The eccentric anomaly is $E_1 =$ {eval}`f"{E_1:.2f}"` radians. The subscript 1 indicates this is the first part of this example.
 
 Now, to find the time to fly to the true anomaly of 120°, we need to find $M_e$. This is done with Kepler's equation, @eq:keplers-equation-ellipse.
 
@@ -74,12 +67,7 @@ Now, to find the time to fly to the true anomaly of 120°, we need to find $M_e$
 M_e1 = E_1 - e * np.sin(E_1)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("ellipse-time-since-perigee-M_e1", M_e1)
-```
-
-The mean anomaly is $M_{e,1} =$ {glue:text}`ellipse-time-since-perigee-M_e1:.2f` radians. Finally, calculating the time from the mean anomaly requires the period.
+The mean anomaly is $M_{e,1} =$ {eval}`f"{M_e1:.2f}"` radians. Finally, calculating the time from the mean anomaly requires the period.
 
 ```{code-cell} ipython3
 a = (r_a + r_p) / 2
@@ -87,15 +75,7 @@ T = 2 * np.pi / np.sqrt(mu) * a**(3 / 2)
 t_1 = M_e1 * T / (2 * np.pi)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("ellipse-time-since-perigee-a", a)
-glue("ellipse-time-since-perigee-T", T / 3600)
-glue("ellipse-time-since-perigee-t_1", t_1)
-glue("ellipse-time-since-perigee-t_1-hr", t_1 / 3600)
-```
-
-The semimajor axis of the orbit is $a =$ {glue:text}`ellipse-time-since-perigee-a:.2f` km, the period is $T =$ {glue:text}`ellipse-time-since-perigee-T:.2f` hr, and the transit time is $t_1 =$ {glue:text}`ellipse-time-since-perigee-t_1-hr:.2f` hr.
+The semimajor axis of the orbit is $a =$ {eval}`f"{a:.2f}"` km, the period is $T =$ {eval}`f"{T/3600:.2f}"` hr, and the transit time is $t_1 =$ {eval}`f"{t_1/3600:.2f}"` hr.
 
 ### MATLAB Solution
 
@@ -132,12 +112,7 @@ t_2 = 3 * 3600  # hr
 M_e2 = 2 * np.pi * t_2 / T
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("ellipse-time-since-perigee-M_e2", M_e2)
-```
-
-The mean anomaly is $M_{e,2} =$ {glue:text}`ellipse-time-since-perigee-M_e2:.2f` radians. Now, we need to solve Kepler's equation to find the eccentric anomaly, $E$. Since the equation is transcendental in $E$, we need to use the Newton solver in SciPy. Since we know the derivative, we will define two Python functions:
+The mean anomaly is $M_{e,2} =$ {eval}`f"{M_e2:.2f}"` radians. Now, we need to solve Kepler's equation to find the eccentric anomaly, $E$. Since the equation is transcendental in $E$, we need to use the Newton solver in SciPy. Since we know the derivative, we will define two Python functions:
 
 1. Kepler's equation, $f(E) = 0$
 2. The derivative of Kepler's equation with respect to $E$, $f'(E)$
@@ -158,12 +133,7 @@ def d_kepler_d_E(E, M_e, e):
 E_2 = newton(func=kepler, fprime=d_kepler_d_E, x0=np.pi, args=(M_e2, e))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("ellipse-time-since-perigee-E_2", E_2)
-```
-
-In the `newton()` function, we passed the function to solve, `kepler`, the derivative of that function, an initial guess, and the additional arguments. We chose $\pi$ radians as the initial guess because it's in the middle of the expected range. The eccentric anomaly is $E_2 =$ {glue:text}`ellipse-time-since-perigee-E_2:.2f` radians.
+In the `newton()` function, we passed the function to solve, `kepler`, the derivative of that function, an initial guess, and the additional arguments. We chose $\pi$ radians as the initial guess because it's in the middle of the expected range. The eccentric anomaly is $E_2 =$ {eval}`f"{E_2:.2f}"` radians.
 
 Now, we can calculate the value for $\nu$. To avoid the quadrant ambiguity, we will use @eq:eccentric-anomaly-true-anomaly-ellipse.
 
@@ -172,12 +142,7 @@ sqrt_e_ratio = np.sqrt((1 + e) / (1 - e))
 nu_2 = (2 * np.arctan(sqrt_e_ratio * np.tan(E_2 / 2))) % (2 * np.pi)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("ellipse-time-since-perigee-nu_2", np.degrees(nu_2))
-```
-
-The true anomaly after 3 hours since perigee passage is $\nu_2 =$ {glue:text}`ellipse-time-since-perigee-nu_2:.2f`°.
+The true anomaly after 3 hours since perigee passage is $\nu_2 =$ {eval}`f"{np.degrees(nu_2):.2f}"`°.
 
 To convert $\nu_2$ to the range $[0, 2\pi)$, we take the modulus with $2\pi$. In most programming languages, Python and MATLAB included, `arctan()` returns a value between $-\pi/2$ and $\pi/2$. When the result is multiplied by 2, it gives the range from $-\pi$ to $\pi$. We want to transform this angle to be in the range of $0$ to $2\pi$. To do so, we take the **modulus** of the angle with $2\pi$.
 
@@ -211,12 +176,11 @@ end
 
 We are using `fzero()` again to solve Kepler's equation. I'm not sure how sensitive `fzero()` will be to the initial guess.
 
-+++
-
 @fig:ellipse-time-since-perigee-figure shows a plot of this orbit.
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
+:tags: [remove-input]
+
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse, Circle, Arc, Rectangle
 fig, ax = plt.subplots(figsize=(3, 3), dpi=200)
@@ -243,10 +207,16 @@ ax.annotate("$t_1$", xy=(x_1, y_1 + 500), ha="center", va="bottom")
 ax.plot((ellipse_focus, x_2), (0, y_2), "ko-")
 ax.annotate("$t_2$", xy=(x_2 - 500, y_2), ha="right", va="center")
 ax.annotate("Earth", xy=(ellipse_focus, -5000), ha="center", va="center");
-glue("ellipse-time-since-perigee-figure", fig)
 ```
 
-:::{glue:figure} ellipse-time-since-perigee-figure
+```{code-cell} ipython3
+:label: code:ellipse-time-since-perigee
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:ellipse-time-since-perigee-figure
 :name: fig:ellipse-time-since-perigee-figure
 
 The orbit in this example showing the two time points, at 120° true anomaly and 3 hours after perigee.

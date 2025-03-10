@@ -210,11 +210,9 @@ hh = HTML("""\
 </div>"""
     + js
 )
-from myst_nb import glue
-glue("true-mean-eccentric-anomalies", hh, display=False)
 ```
 
-:::{glue:figure} true-mean-eccentric-anomalies
+:::{figure} #code:true-mean-eccentric-anomalies
 :name: fig:true-mean-eccentric-anomalies
 
 The true, mean, and eccentric anomalies for an elliptical orbit. The true anomaly is shown in blue, the mean anomaly is shown in orange, and the eccentric anomaly is shown in green. The mean anomaly proceeds around the orange circle at a constant rate, while the rates of the true and eccentric anomalies vary with position. Nonetheless, they all meet at periapsis and apoapsis. Note the vertical line connecting the true and eccentric anomalies.

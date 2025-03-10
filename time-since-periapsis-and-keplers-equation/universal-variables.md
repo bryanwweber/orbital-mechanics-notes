@@ -22,14 +22,14 @@ The equations for an ellipse and a hyperbola are summarized in @tab:ellipse-hype
 
 | Equation                           | Ellipse ($e < 1$)                                      | Hyperbola ($e > 1$)                                    |
 |------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| Orbit equation (true anomaly)      | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$      | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$      |
-| Cartesian Coordinates              | $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$              | $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$              |
-| Semimajor axis                     | $a = \frac{h^2}{\mu}\frac{1}{1 - e^2}$               | $a = \frac{h^2}{\mu}\frac{1}{e^2 - 1}$               |
-| Semiminor Axis                     | $b = a\sqrt{1 - e^2}$                                | $b = a\sqrt{e^2 - 1}$                                |
-| Energy Equation                    | $\frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a}$    | $\frac{v^2}{2} - \frac{\mu}{r} = \frac{\mu}{2a}$     |
-| Mean anomaly                       | $M_e = \frac{\mu^2}{h^3}\left(1 - e^2\right)^{3/2}t$ | $M_h = \frac{\mu^2}{h^3}\left(e^2 - 1\right)^{3/2}t$ |
-| Kepler's Equation                  | $M_e = E - e \sin E$                                 | $M_h = e\sinh F - F$                                 |
-| Orbit equation (eccentric anomaly) | $r = a\left(1 - e\cos E\right)$                      | $r = a\left(e\cosh F - 1\right)$                     |
+| Orbit equation (true anomaly)      | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$           | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$      |
+| Cartesian Coordinates              | $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$                | $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$              |
+| Semimajor axis                     | $a = \frac{h^2}{\mu}\frac{1}{1 - e^2}$                 | $a = \frac{h^2}{\mu}\frac{1}{e^2 - 1}$               |
+| Semiminor Axis                     | $b = a\sqrt{1 - e^2}$                                  | $b = a\sqrt{e^2 - 1}$                                |
+| Energy Equation                    | $\frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a}$      | $\frac{v^2}{2} - \frac{\mu}{r} = \frac{\mu}{2a}$     |
+| Mean anomaly                       | $M_e = \frac{\mu^2}{h^3}\left(1 - e^2\right)^{3/2}t$   | $M_h = \frac{\mu^2}{h^3}\left(e^2 - 1\right)^{3/2}t$ |
+| Kepler's Equation                  | $M_e = E - e \sin E$                                   | $M_h = e\sinh F - F$                                 |
+| Orbit equation (eccentric anomaly) | $r = a\left(1 - e\cos E\right)$                        | $r = a\left(e\cosh F - 1\right)$                     |
 :::
 
 ## The Universal Variable
@@ -78,7 +78,7 @@ c_k(z) = \frac{1}{k!} - \frac{z}{\left(k + 2\right)!} + \frac{z^2}{\left(k + 4\r
 
 where $k$ is an integer that indicates the type of Stumpff function.
 
-To solve @eq:universal-keplers-equation, we don't want to work with the infinite series forms of the Stumpff equations. Instead, we will convert the Stumpff functions to trigonometric functions using the Taylor series expansions of the [circular](https://en.wikipedia.org/wiki/Trigonometric_functions#Power_series_expansion) and [hyperbolic](https://en.wikipedia.org/wiki/Hyperbolic_functions#Taylor_series_expressions) trigonometric functions. The first third and fourth Stumpff functions, $k=2$ and $k=3$ respectively, define our $C(z)$ and $S(z)$ functions from above.
+To solve @eq:universal-keplers-equation, we don't want to work with the infinite series forms of the Stumpff equations. Instead, we will convert the Stumpff functions to trigonometric functions using the Taylor series expansions of the [circular](https://en.wikipedia.org/wiki/Trigonometric_functions#Power_series_expansion) and [hyperbolic](https://en.wikipedia.org/wiki/Hyperbolic_functions#Taylor_series_expressions) trigonometric functions. The third and fourth Stumpff functions, $k=2$ and $k=3$ respectively, define our $C(z)$ and $S(z)$ functions from above.
 
 :::{math}
 :label: eq:stumpff-function-0
@@ -96,12 +96,9 @@ The two Stumpff functions are plotted in @fig:stumpff-functions-plot. Notice tha
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
+import matplotlib.pyplot as plt
 import numpy as np
-from functools import partial
-from myst_nb import glue as myst_glue
-glue = partial(myst_glue, display=False)
 
 def stumpff_2(z):
     x = np.full_like(z, np.nan)
@@ -151,11 +148,16 @@ ax_3.grid(which="both")
 ax_3.xaxis.set_minor_locator(AutoMinorLocator(2))
 ax_3.yaxis.set_minor_locator(AutoMinorLocator(2))
 ax_3.legend()
-
-glue("stumpff-functions-plot", fig)
 ```
 
-:::{glue:figure} stumpff-functions-plot
+```{code-cell}
+:label: code:stumpff-functions-plot
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:stumpff-functions-plot
 :name: fig:stumpff-functions-plot
 
 The Stumpff functions defined by Eqs. @eq:stumpff-function-0 and @eq:stumpff-function-1. Note the varying $x$ axes on the plots.
@@ -198,7 +200,7 @@ Summarizing these results, the universal anomaly $\chi$ is related to our previo
 \chi =\begin{cases}\displaystyle\frac{h}{\sqrt{\mu}}\tan\frac{\nu}{2} & \text{parabola} \\\displaystyle\sqrt{a}E & \text{ellipse} \\\displaystyle \sqrt{-a}F & \text{hyperbola}\end{cases}
 :::
 
-Generalizing from this to the case where $t_0\neq 0$, and does not occur at periapse, we find:
+Generalizing from this to the case where $t_0\neq 0$, and does not occur at periapsis, we find:
 
 :::{math}
 :label:
@@ -219,7 +221,7 @@ where $\nu_0$, $E_0$, and $F_0$ are the true anomaly and eccentric anomalies at 
 To formulate the numerical solution of Kepler's equation in terms of the universal anomaly, we move everything over to one side of the equation, and seek the roots of:
 
 :::{math}
-:label:
+:label: universal-anomaly-for-newton
 f(\chi) = 0 = \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 C\left(\alpha\chi^2\right) + \left(1 - \alpha r_0\right) \chi^3S\left(\alpha\chi^2\right) + r_0 \chi - \sqrt{\mu}\left(t - t_0\right)
 :::
 
@@ -227,23 +229,23 @@ The derivative of this function is also useful:
 
 :::{math}
 :label: eq:universal-kepler-derivative
-\begin{multline}
-\frac{d f(\chi)}{d\chi} = 2\frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi C(z) + \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} \\
-\qquad+ 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0
-\end{multline}
+\begin{aligned}
+\frac{d f(\chi)}{d\chi} = & 2\frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi C(z) + \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 \frac{d C(z)}{dz} \frac{dz}{d\chi} \\
+&+ 3\left(1 - \alpha r_0\right)\chi^2 S(z) + \left(1 - \alpha r_0\right)\chi^3 \frac{d S(z)}{dz}\frac{dz}{d\chi} + r_0
+\end{aligned}
 :::
 
 where $z = \alpha\chi^2$, such that:
 
 :::{math}
-:label:
+:label: eq:definition-of-dz-dchi
 \frac{dz}{d\chi} = 2\alpha\chi
 :::
 
 and
 
 :::{math}
-:label:
+:label: eq:stumpff-function-derivatives
 \begin{aligned}\frac{d S(z)}{dz} &= \frac{1}{2z}\left[C(z) - 3S(z)\right] \\\frac{d C(z)}{dz} &= \frac{1}{2z}\left[1 - z S(z) - 2C(z)\right]\end{aligned}
 :::
 
@@ -254,14 +256,14 @@ Substituting these results back into @eq:universal-kepler-derivative gives:
 \frac{d f(\chi)}{d\chi} = \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi\left[1 - \alpha\chi^2 S(z)\right] + \left(1 - \alpha r_0\right)\chi^2 C(z) + r_0
 :::
 
-The last thing we need for a solution using Newton's algorithm is an initial guess. There are several methods suggested for this. In {cite}`Curtis2020`, they suggest using:
+The last thing we need for a solution using Newton's algorithm is an initial guess. There are several methods suggested for this. In @Curtis2020, they suggest using:
 
 :::{math}
 :label:
 \chi_{i = 0} = \sqrt{\mu} \left\lvert\alpha\right\rvert \Delta t
 :::
 
-In {cite}`Prussing2013`, they suggest a couple of different options. First, Prussing and Conway show that the solution lies in the interval:
+In @Prussing2013, they suggest a couple of different options. First, @Prussing2013 show that the solution lies in the interval:
 
 :::{math}
 :label:
@@ -306,12 +308,12 @@ Alternatively, a more refined estimate can be determined using a secant estimate
 where $f(\chi^{+})$ is the solution of Kepler's equation with the $\chi^{+}$ value.
 
 ::::{note}
-Prussing and Conway {cite}`Prussing2013`, citing Conway {cite}`Conway1986` suggest that faster convergence in the solution of Kepler's equation can be achieved by using the [**Laguerre algorithm**](https://en.wikipedia.org/wiki/Laguerre%27s_method), rather than Newton's algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.
+@Prussing2013, citing @Conway1986, suggest that faster convergence in the solution of Kepler's equation can be achieved by using the [**Laguerre algorithm**](https://en.wikipedia.org/wiki/Laguerre%27s_method), rather than Newton's algorithm. Another advantage of the Laguerre algorithm is that it is relatively insensitive to the value of the initial guess.
 
 The Laguerre algorithm can be implemented as:
 
 :::{math}
-:label:
+:label: eq:laguerre-algorithm
 \chi_{i + 1} = \chi_{i} - \frac{n f(\chi_i)}{f'(\chi_i) \pm \sqrt{\left(n - 1\right)^2 \left[f'(\chi_i)\right]^2 - n\left(n - 1\right) f(\chi_i)f''(\chi_i)}}
 :::
 
