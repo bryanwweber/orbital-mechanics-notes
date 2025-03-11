@@ -24,12 +24,9 @@ Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define 
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
-import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Arc
+import matplotlib.pyplot as plt
 import numpy as np
-from myst_nb import glue
-
-np.set_printoptions(legacy="1.25")
 
 R_E = 6378  # km
 orbit_radius = 1000  # km
@@ -66,11 +63,17 @@ ax.plot([0, (R_E + orbit_radius + 500) * np.cos(np.pi - theta)], [0, (R_E + orbi
 ax.plot([0, R_E + orbit_radius + 500], [0, 0], color="black", lw=1)
 ax.add_patch(Arc((0, 0), 2000, 2000, theta2=np.degrees(np.pi - theta)))
 ann = (np.pi - theta) / 2
-ax.annotate(f"{np.degrees(np.pi - theta):.0F}°", xy=(1250 * np.cos(ann), 1250*np.sin(ann)))
-glue("single-impulse-example-orbit", fig, display=False)
+ax.annotate(f"{np.degrees(np.pi - theta):.0F}°", xy=(1250 * np.cos(ann), 1250*np.sin(ann)));
 ```
 
-:::{glue:figure} single-impulse-example-orbit
+```{code-cell} ipython3
+:label: code:single-impulse-example-orbit
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:single-impulse-example-orbit
 :name: fig:single-impulse-example-orbit
 
 A deorbit maneuver conducted by a providing a single impulse to the spacecraft.
@@ -86,6 +89,7 @@ To find $\Delta v$, we need to calculate two velocities:
 The initial orbit is a circular orbit, with velocity given by @eq:circular-orbit-velocity:
 
 :::{math}
+:enumerated: false
 v_1 = \sqrt{\frac{\mu}{z_0 + R_E}}
 :::
 
@@ -98,6 +102,7 @@ If the impulse point is at perigee of the impact orbit, then apogee would be _fu
 Thus, the velocity on the impact orbit at the impulse point is the apogee velocity, given by:
 
 :::{math}
+:enumerated: false
 v_2 = v_a = \frac{h}{r_a} = \frac{h}{R_E + z_0}
 :::
 
@@ -106,6 +111,7 @@ where $r_a = R_E + z_0$ is the distance at apogee. Since $R_E$ and $z_0$ are kno
 To find the specific angular momentum, we can use the equations for an elliptical orbit. The radial coordinate at apogee is given by @eq:distance-to-apoapsis, repeated here for reference:
 
 :::{math}
+:enumerated: false
 r_a = \frac{h^2}{\mu}\frac{1}{1 - e}
 :::
 
@@ -114,6 +120,7 @@ The choice of location of perigee means that the apse line of the impact orbit a
 At the impact point, $\nu =$ 180° + 145° and $r = R_E$. Thus:
 
 :::{math}
+:label: eq:impact-radius
 R_E = \frac{h^2}{\mu}\frac{1}{1 + e\cos\nu}
 :::
 
@@ -150,10 +157,4 @@ v_2 = h / r_a
 propellant_fraction = 1 - np.exp(-abs(Δv) / (250 * 9.81E-3))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("single-impulse-delta-v", Δv, display=False)
-glue("single-impulse-propellant-fraction", propellant_fraction, display=False)
-```
-
-The required velocity change is $\Delta v =$ {glue:text}`single-impulse-delta-v:.4f` km/s, meaning the spacecraft must slow down by that amount to transfer to the impact orbit. This requires an expenditure of $\Delta m / m =$ {glue:text}`single-impulse-propellant-fraction:.2%` of the spacecraft mass, assuming the specific impulse is $I_{sp} =$ 250 s, a typical value for chemical propulsion.
+The required velocity change is $\Delta v =$ {eval}`f"{Δv:.4f}"` km/s, meaning the spacecraft must slow down by that amount to transfer to the impact orbit. This requires an expenditure of $\Delta m / m =$ {eval}`f"{propellant_fraction:.2%}"` of the spacecraft mass, assuming the specific impulse is $I_{sp} =$ 250 s, a typical value for chemical propulsion.

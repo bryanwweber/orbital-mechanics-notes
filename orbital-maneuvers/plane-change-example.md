@@ -21,7 +21,7 @@ Find the $\Delta v$ requirement for an orbital transfer from a 300 km circular L
 
 ## Solution
 
-From our analysis @eq:plane-change-delta-v-scalar for $\Delta v$, we expect that plane changes at altitude will be more efficient than in LEO because the speed decreases for higher altitude orbits. Likewise, we expect that the maneuvers that require a plane change will require more $\Delta v$ than the one that doesn't.
+From our analysis of @eq:plane-change-delta-v-scalar for $\Delta v$, we expect that plane changes at altitude will be more efficient than in LEO because the speed decreases for higher altitude orbits. Likewise, we expect that the maneuvers that require a plane change will require more $\Delta v$ than the one that doesn't.
 
 To start, we need to define the various radii, specific orbital energies, and speeds of the initial and final orbits.
 
@@ -64,18 +64,7 @@ Delta_v_1_GEO = abs(v_t2 - v_2)
 Delta_v_1 = Delta_v_1_LEO + Delta_v_1_GEO
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-np.set_printoptions(legacy="1.25")
-from functools import partial
-from myst_nb import glue as myst_glue
-glue = partial(myst_glue, display=False)
-glue("plane-change-Delta_v_1", Delta_v_1)
-glue("plane-change-Delta_v_1_LEO", Delta_v_1_LEO)
-glue("plane-change-Delta_v_1_GEO", Delta_v_1_GEO)
-```
-
-The $\Delta v$ to change plane and enter the Hohmann transfer is {glue:text}`plane-change-Delta_v_1_LEO:.3f` km/s, the $\Delta v$ to circularize the orbit at GEO is {glue:text}`plane-change-Delta_v_1_GEO:.3f` km/s, and the total $\Delta v$ is {glue:text}`plane-change-Delta_v_1:.3f` km/s.
+The $\Delta v$ to change plane and enter the Hohmann transfer is {eval}`f"{Delta_v_1_LEO:.3f}"` km/s, the $\Delta v$ to circularize the orbit at GEO is {eval}`f"{Delta_v_1_GEO:.3f}"` km/s, and the total $\Delta v$ is {eval}`f"{Delta_v_1:.3f}"` km/s.
 
 ### Case 2: Plane Change at GEO
 
@@ -91,14 +80,7 @@ Delta_v_2_LEO = abs(v_t1 - v_1)
 Delta_v_2 = Delta_v_2_LEO + Delta_v_2_GEO
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("plane-change-Delta_v_2", Delta_v_2)
-glue("plane-change-Delta_v_2_LEO", Delta_v_2_LEO)
-glue("plane-change-Delta_v_2_GEO", Delta_v_2_GEO)
-```
-
-The $\Delta v$ to center the Hohmann transfer is {glue:text}`plane-change-Delta_v_2_LEO:.3f` km/s, the $\Delta v$ to circularize the orbit at GEO and change the plane is {glue:text}`plane-change-Delta_v_2_GEO:.3f` km/s, and the total $\Delta v$ is {glue:text}`plane-change-Delta_v_2:.3f` km/s.
+The $\Delta v$ to enter the Hohmann transfer is {eval}`f"{Delta_v_2_LEO:.3f}"` km/s, the $\Delta v$ to circularize the orbit at GEO and change the plane is {eval}`f"{Delta_v_2_GEO:.3f}"` km/s, and the total $\Delta v$ is {eval}`f"{Delta_v_2:.3f}"` km/s.
 
 As expected, doing the plane change in LEO required a larger $\Delta v$, because the speed of the spacecraft is higher in LEO than GEO.
 
@@ -110,12 +92,7 @@ If there is no plane change, the $\Delta v$ is given by @eq:hohmann-transfer-del
 Delta_v = abs(v_t1 - v_1) + abs(v_2 - v_t2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("plane-change-Delta_v", Delta_v)
-```
-
-Without a plane change, $\Delta v =$ {glue:text}`plane-change-Delta_v:.3f` km/s. We can see that the plane change adds about 0.37 km/s of $\Delta v$ requirement for this orbital transfer.
+Without a plane change, $\Delta v =$ {eval}`f"{Delta_v:.3f}"` km/s. We can see that the plane change adds about 0.37 km/s of $\Delta v$ requirement for this orbital transfer.
 
 ## Optimizing the Plane Change
 
@@ -139,10 +116,16 @@ fig, ax = plt.subplots(figsize=(12, 9))
 ax.plot(np.degrees(delta_i), delta_v_total)
 ax.set_xlabel(r"$\Delta i$, degrees")
 ax.set_ylabel(r"$\Delta v$, km/s");
-glue("plane-change-optimize-delta-v", fig)
 ```
 
-:::{glue:figure} plane-change-optimize-delta-v
+```{code-cell} ipython3
+:label: code:plane-change-optimize-delta-v
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:plane-change-optimize-delta-v
 :name: fig:plane-change-optimize-delta-v
 
 The total $\Delta v$ requirement for a Hohmann transfer from LEO to GEO, including a plane change. $\Delta i$ is the fraction of the plane change occuring at LEO.
@@ -150,7 +133,7 @@ The total $\Delta v$ requirement for a Hohmann transfer from LEO to GEO, includi
 
 In @fig:plane-change-optimize-delta-v, $\Delta i$ = 28.6° shows Case 1 (plane change at LEO) and $\Delta i$ = 0° shows Case 2 (plane change at GEO). We can see that there appears to be a minimum in the $\Delta v$ around $\Delta i$ = 2.5°. This means that about 2.5° of plane change should happen when transferring into the Hohmann trajectory, and the remainder should happen at altitude.
 
-We can determine the value of this optimium by taking the derivative with respect to $\Delta i$ and setting it equal to zero:
+We can determine the value of this optimum by taking the derivative with respect to $\Delta i$ and setting it equal to zero:
 
 :::{math}
 :label: eq:plane-change-delta-v-derivative
@@ -167,11 +150,18 @@ fig, ax = plt.subplots(figsize=(12, 9))
 ax.plot(np.degrees(delta_i), d_v_d_i)
 ax.axhline(0)
 ax.set_xlabel(r"$\Delta i$, degrees")
-ax.set_ylabel(r"$d\Delta v/d \Delta i$")
-glue("plane-change-delta-v-derivative", fig)
+ax.set_ylabel(r"$d\Delta v/d \Delta i$");
 ```
 
-:::{glue:figure} plane-change-delta-v-derivative
+```{code-cell} ipython3
+:label: code:plane-change-delta-v-derivative
+:tags: [remove-cell]
+
+fig
+```
+
+
+:::{figure} #code:plane-change-delta-v-derivative
 :name: fig:plane-change-delta-v-derivative
 
 The derivative of the total $\Delta v$ as a function of the fraction of the plane change occuring at LEO.
@@ -190,10 +180,4 @@ delta_i_opt = newton(func, x0=np.radians(2.5), args=(v_1, v_t1, v_2, v_t2))
 delta_v_opt = np.sqrt(v_1**2 + v_t1**2 - 2 * v_1 * v_t1 * np.cos(delta_i_opt)) + np.sqrt(v_2**2 + v_t2**2 - 2 * v_2 * v_t2 * np.cos(total_inclination_change - delta_i_opt))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("plane-change-delta_i_opt", np.degrees(delta_i_opt))
-glue("plane-change-delta_v_opt", delta_v_opt)
-```
-
-The result with the entire plane change at altitude was {glue:text}`plane-change-Delta_v_2:.3f` km/s, whereas the optimized value is {glue:text}`plane-change-delta_v_opt:.3f` km/s, so the optimized value offers less than 1% improvement in $\Delta v$ required. Depending on the mission design, it may or may not be worth the additional control overhead to save this propellant.
+The result with the entire plane change at altitude was {eval}`f"{Delta_v_2:.3f}"` km/s, whereas the optimized value is {eval}`f"{delta_v_opt:.3f}"` km/s, so the optimized value offers less than 1% improvement in $\Delta v$ required. Depending on the mission design, it may or may not be worth the additional control overhead to save this propellant.

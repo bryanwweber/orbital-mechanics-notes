@@ -131,10 +131,10 @@ By dividing both sides of this equation by $v$, we can plot the relative $\Delta
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-import numpy as np
+
 import matplotlib.pyplot as plt
-from myst_nb import glue
-plt.rc("font", size=20)
+import numpy as np
+
 delta = np.radians(np.linspace(0, 180, 200))
 rel_delta_v = 2 * np.sin(delta / 2)
 fig, ax = plt.subplots(figsize=(12, 9))
@@ -143,11 +143,17 @@ ax.set_xticks(np.arange(0, 200, 20))
 ax.set_yticks(np.arange(0, 2.5, 0.5))
 ax.grid()
 ax.set_xlabel(r"$\delta$, degrees")
-ax.set_ylabel(r"$\Delta v/v$")
-glue("plane-change-pure-rotation", fig, display=False)
+ax.set_ylabel(r"$\Delta v/v$");
 ```
 
-:::{glue:figure} plane-change-pure-rotation
+```{code-cell} ipython3
+:label: code:plane-change-pure-rotation
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:plane-change-pure-rotation
 :name: fig:plane-change-pure-rotation
 
 The required velocity increment as a function of dihedral angle for pure rotation maneuvers.
@@ -202,6 +208,7 @@ To produce an inclination of 90° requires a launch due North or due South, resp
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 phi = np.radians(np.arange(0, 70, 10))
 A = np.radians(np.linspace(0, 360, 200))
 fig, ax = plt.subplots(figsize=(12, 9))
@@ -212,11 +219,17 @@ ax.set_ylabel("$i$, degrees")
 ax.grid()
 for p in phi:
     ax.plot(np.degrees(A), np.degrees(np.arccos(np.cos(p) * np.sin(A))), label=rf"$\phi$ = {np.degrees(p):.0F}°")
-ax.legend()
-glue("launch-azimuth-vs-inclination", fig, display=False)
+ax.legend();
 ```
 
-:::{glue:figure} launch-azimuth-vs-inclination
+```{code-cell} ipython3
+:label: code:launch-azimuth-vs-inclination
+:tags: [remove-cell]
+
+fig
+```
+
+:::{figure} #code:launch-azimuth-vs-inclination
 :name: fig:launch-azimuth-vs-inclination
 
 The launch azimuth, $A$, in combination with the latitude $\phi$ determines the inclination of the orbit after launch.
@@ -228,48 +241,80 @@ As a practical consideration, launch azimuths are limited by the geography surro
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-from bokeh.plotting import figure
-from bokeh.tile_providers import get_provider, OSM
-from myst_nb_bokeh import glue_bokeh
-tile_provider = get_provider(OSM)
-y_center, x_center = 28.626407252553207, -80.6204675295687
-def wgs84_to_web_mercator(lon, lat):
-    """Converts decimal longitude/latitude to Web Mercator format"""
-    k = 6378137
-    x_center = lon * (k * np.pi/180.0)
-    y_center = np.log(np.tan((90 + lat) * np.pi/360.0)) * k
-    return x_center, y_center
-x_center, y_center = wgs84_to_web_mercator(x_center, y_center)
-scale = 20000
-x_range = (int(x_center - scale), int(x_center + scale))
-y_range = (int(y_center - scale), int(y_center + scale))
-plot = figure(match_aspect=True, x_axis_type="mercator", y_axis_type="mercator", x_range=x_range, y_range=y_range)
-map = plot.add_tile(tile_provider)
-map.level = "underlay"
-plot.grid.visible = True
-# plot.xaxis.visible = False
-# plot.yaxis.visible = False
 
-# Revert to the original values
-y_center, x_center = 28.626407252553207, -80.6204675295687
+from bokeh.io import output_notebook
+from bokeh.models import ColumnDataSource, HoverTool
+from bokeh.plotting import figure, show
+import numpy as np
+from pyproj import Transformer
+import xyzservices.providers as xyz
+
+output_notebook(hide_banner=True)
+
+ksc_lat, ksc_lon = 28.626407252553207, -80.6204675295687
+north_lat, north_lon = 50, ksc_lon
+south_lat, south_lon = 0, ksc_lon
+
+transformer = Transformer.from_crs("EPSG:4326", "EPSG:3857")
+
+# Convert lat/lon to Web Mercator for plotting
+ksc_x, ksc_y = transformer.transform(ksc_lat, ksc_lon)
+north_x, north_y = transformer.transform(north_lat, north_lon)
+south_x, south_y = transformer.transform(south_lat, south_lon)
+
+# Directly use xyzservices.providers tile source with p.add_tile
+tile_source = xyz.OpenStreetMap.Mapnik
+
+scale = 20000
+x_range = (int(ksc_x - scale), int(ksc_x + scale))
+y_range = (int(ksc_y - scale), int(ksc_y + scale))
+# Create the Bokeh plot figure with Web Mercator projection
+p = figure(
+    x_axis_type="mercator", y_axis_type="mercator",
+    match_aspect=True,
+    x_range=x_range, y_range=y_range,
+)
+
+map = p.add_tile(tile_source)
+map.level = "underlay"
+p.grid.visible = True
+
+p.line(x=(south_x, ksc_x, north_x), y=(south_y, ksc_y, north_y), line_color="red", line_width=2)
 distance = 50
-n_s_y = np.array((y_center - distance, y_center + distance))
-n_s_x = np.array((x_center, x_center))
-plot.line(*wgs84_to_web_mercator(n_s_x, n_s_y), line_width=2, line_color="black")
 
 theta_1 = np.radians(35)
-x_line = np.linspace(x_center, distance * np.sin(theta_1) + x_center, 1000)
-y_line = np.linspace(y_center, y_center + distance * np.cos(theta_1), 1000)
-plot.line(*wgs84_to_web_mercator(x_line, y_line), line_width=5, line_color="#66C2A5")
-theta_2 = np.radians(120)
-x_line = np.linspace(x_center, distance * np.sin(theta_2) + x_center, 200)
-y_line = np.linspace(y_center, y_center + distance * np.cos(theta_2), 200)
-plot.line(*wgs84_to_web_mercator(x_line, y_line), line_width=5, line_color="#FC8D62")
+line_35_lon = np.linspace(ksc_lon, distance * np.sin(theta_1) + ksc_lon, 1000)
+line_35_lat = np.linspace(ksc_lat, ksc_lat + distance * np.cos(theta_1), 1000)
+line_35_x, line_35_y = transformer.transform(line_35_lat, line_35_lon)
+p.line(x=line_35_x, y=line_35_y, line_width=5, line_color="#66C2A5");
 
-glue_bokeh("kennedy-launch-angles", plot)
+theta_2 = np.radians(120)
+line_120_lon = np.linspace(ksc_lon, distance * np.sin(theta_2) + ksc_lon, 200)
+line_120_lat = np.linspace(ksc_lat, ksc_lat + distance * np.cos(theta_2), 200)
+line_120_x, line_120_y = transformer.transform(line_120_lat, line_120_lon)
+p.line(x=line_120_x, y=line_120_y, line_width=5, line_color="#FC8D62");
+
+source = ColumnDataSource({"latitude": [ksc_lat], "longitude": [ksc_lon], "x": [ksc_x], "y": [ksc_y], "point_name": ["Launch Pad 39A, Kennedy Space Center"]})
+s = p.scatter(x="x", y="y", source=source, size=10, color="red", fill_color="red")
+
+# Add hover tool to display point names
+hover = HoverTool()
+hover.tooltips = [
+    ("Point", "@point_name"),
+    ("(Lat, Lon)", "(@latitude, @longitude)")
+]
+p.add_tools(hover)
+p.hover.renderers = [s]
 ```
 
-:::{glue:figure} kennedy-launch-angles
+```{code-cell} ipython3
+:label: code:kennedy-launch-angles
+:tags: [remove-cell]
+
+show(p)
+```
+
+:::{figure} #code:kennedy-launch-angles
 :name: fig:kennedy-launch-angles
 
 The permitted launch angles from Kennedy Space Center on the East coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
@@ -279,38 +324,65 @@ The other major launch site in the US is Vandenberg Space Force Base in southern
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-tile_provider_2 = get_provider(OSM)
-y_center, x_center = 34.58275238653322, -120.62596633922566
-x_center, y_center = wgs84_to_web_mercator(x_center, y_center)
-scale = 20000
-x_range = (int(x_center - scale), int(x_center + scale))
-y_range = (int(y_center - scale), int(y_center + scale))
-plot = figure(match_aspect=True, x_axis_type="mercator", y_axis_type="mercator", x_range=x_range, y_range=y_range)
-map = plot.add_tile(tile_provider_2)
-map.level = "underlay"
-plot.grid.visible = True
-# plot.xaxis.visible = False
-# plot.yaxis.visible = False
 
-y_center, x_center = 34.58275238653322, -120.62596633922566
+van_lat, van_lon = 34.58275238653322, -120.62596633922566
+north_lat, north_lon = 50, van_lon
+south_lat, south_lon = 0, van_lon
+
+van_x, van_y = transformer.transform(van_lat, van_lon)
+north_x, north_y = transformer.transform(north_lat, north_lon)
+south_x, south_y = transformer.transform(south_lat, south_lon)
+
+scale = 20000
+x_range = (int(van_x - scale), int(van_x + scale))
+y_range = (int(van_y - scale), int(van_y + scale))
+# Create the Bokeh plot figure with Web Mercator projection
+p = figure(
+    x_axis_type="mercator", y_axis_type="mercator",
+    match_aspect=True,
+    x_range=x_range, y_range=y_range,
+)
+
+map = p.add_tile(tile_source)
+map.level = "underlay"
+p.grid.visible = True
+
+p.line(x=(south_x, van_x, north_x), y=(south_y, van_y, north_y), line_color="red", line_width=2)
 distance = 50
-n_s_y = np.array((y_center - distance, y_center + distance))
-n_s_x = np.array((x_center, x_center))
-plot.line(*wgs84_to_web_mercator(n_s_x, n_s_y), line_width=2, line_color="black")
 
 theta_1 = np.radians(158)
-x_line = np.linspace(x_center, distance * np.sin(theta_1) + x_center, 1000)
-y_line = np.linspace(y_center, y_center + distance * np.cos(theta_1), 1000)
-plot.line(*wgs84_to_web_mercator(x_line, y_line), line_width=5, line_color="#66C2A5")
-theta_2 = np.radians(201)
-x_line = np.linspace(x_center, distance * np.sin(theta_2) + x_center, 200)
-y_line = np.linspace(y_center, y_center + distance * np.cos(theta_2), 200)
-plot.line(*wgs84_to_web_mercator(x_line, y_line), line_width=5, line_color="#FC8D62")
+line_158_lon = np.linspace(van_lon, distance * np.sin(theta_1) + van_lon, 1000)
+line_158_lat = np.linspace(van_lat, van_lat + distance * np.cos(theta_1), 1000)
+line_158_x, line_158_y = transformer.transform(line_158_lat, line_158_lon)
+p.line(x=line_158_x, y=line_158_y, line_width=5, line_color="#66C2A5");
 
-glue_bokeh("vandenberg-launch-angles", plot)
+theta_2 = np.radians(201)
+line_201_lon = np.linspace(van_lon, distance * np.sin(theta_2) + van_lon, 200)
+line_201_lat = np.linspace(van_lat, van_lat + distance * np.cos(theta_2), 200)
+line_201_x, line_201_y = transformer.transform(line_201_lat, line_201_lon)
+p.line(x=line_201_x, y=line_201_y, line_width=5, line_color="#FC8D62");
+
+source = ColumnDataSource({"latitude": [van_lat], "longitude": [van_lon], "x": [van_x], "y": [van_y], "point_name": ["Vandenberg Space Center"]})
+s = p.scatter(x="x", y="y", source=source, size=10, color="red", fill_color="red")
+
+# Add hover tool to display point names
+hover = HoverTool()
+hover.tooltips = [
+    ("Point", "@point_name"),
+    ("(Lat, Lon)", "(@latitude, @longitude)")
+]
+p.add_tools(hover)
+p.hover.renderers = [s]
 ```
 
-:::{glue:figure} vandenberg-launch-angles
+```{code-cell} ipython3
+:label: code:vandenberg-launch-angles
+:tags: remove-cell
+
+show(p)
+```
+
+:::{figure} #code:vandenberg-launch-angles
 :name: fig:vandenberg-launch-angles
 
 The permitted launch angles from Vandenberg Space Force Base on the West coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
