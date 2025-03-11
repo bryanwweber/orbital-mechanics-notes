@@ -8,8 +8,6 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-execution:
-  timeout: 100
 ---
 
 # Application of the CR3BP: Lagrange Points
