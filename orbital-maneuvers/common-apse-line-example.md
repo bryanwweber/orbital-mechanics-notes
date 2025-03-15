@@ -33,17 +33,7 @@ e_i = (r_a_i - r_p_i) / (r_a_i + r_p_i)
 p_i = a_i * (1 - e_i**2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from myst_nb import glue as myst_glue
-from functools import partial
-glue = partial(myst_glue, display=False)
-
-glue("common-apse-line-a_i", a_i)
-glue("common-apse-line-e_i", e_i)
-```
-
-The semimajor axis is $a_i =$ {glue:text}`common-apse-line-a_i:.2f` km and the eccentricity is $e_i =$ {glue:text}`common-apse-line-e_i:.4f`. Next, we need to calculate $r_A$ and $r_B$ to determine the orbital parameters for the transfer orbit.
+The semimajor axis is $a_i =$ {eval}`a_i:.2f` km and the eccentricity is $e_i =$ {eval}`e_i:.4f`. Next, we need to calculate $r_A$ and $r_B$ to determine the orbital parameters for the transfer orbit.
 
 There is no target orbit; rather, the target is a point on the apse line at the radius of Earth. Thus, $r_B =$ 6378.1 km and $\nu_B =$ 0°. $r_A$ is found from the orbit equation on the initial orbit. Then, @eq:non-hohmann-orbital-elements is used to find the orbital elements.
 
@@ -57,13 +47,7 @@ p_t = r_A * r_B * (m.cos(nu_A) - m.cos(nu_B)) / (r_A * m.cos(nu_A) - r_B * m.cos
 a_t = p_t / (1 - e_t**2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("common-apse-line-e_t", e_t)
-glue("common-apse-line-a_t", a_t)
-```
-
-The semimajor axis is $a_t =$ {glue:text}`common-apse-line-a_t:.2f` km and the eccentricity is $e_t =$ {glue:text}`common-apse-line-e_t:.4f`. Now we have enough information to determine the velocity components and the flight path angles on the original orbit and the transfer orbit.
+The semimajor axis is $a_t =$ {eval}`a_t:.2f` km and the eccentricity is $e_t =$ {eval}`e_t:.4f`. Now we have enough information to determine the velocity components and the flight path angles on the original orbit and the transfer orbit.
 
 ```{code-cell} ipython3
 h_i = m.sqrt(p_i * mu)
@@ -82,16 +66,6 @@ phi_i = m.degrees(m.atan2(v_r_i, v_p_i))
 phi_t = m.degrees(m.atan2(v_r_t, v_p_t))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-loc = locals()
-for n in ("v_p", "v_r", "v", "phi"):
-    name = n + "_i"
-    glue("common-apse-line-" + name, loc[name])
-    name = n + "_t"
-    glue("common-apse-line-" + name, loc[name])
-```
-
 The velocities and flight path angles are shown in @tab:common-apse-line.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
@@ -100,10 +74,10 @@ The velocities and flight path angles are shown in @tab:common-apse-line.
 
 |  | Initial | Transfer |
 |:-|:--------|:---------|
-| $v_{\perp}$ (km/s) | {glue:text}`common-apse-line-v_p_i:.2f` | {glue:text}`common-apse-line-v_p_t:.2f` |
-| $v_{r}$ (km/s) | {glue:text}`common-apse-line-v_r_i:.2f` | {glue:text}`common-apse-line-v_r_t:.2f` |
-| $v$ (km/s) | {glue:text}`common-apse-line-v_i:.2f` | {glue:text}`common-apse-line-v_t:.2f` |
-| $\phi$ (deg.) | {glue:text}`common-apse-line-phi_i:.2f` | {glue:text}`common-apse-line-phi_t:.2f` |
+| $v_{\perp}$ (km/s) | {glue:text}`v_p_i:.2f` | {glue:text}`v_p_t:.2f` |
+| $v_{r}$ (km/s) | {glue:text}`v_r_i:.2f` | {glue:text}`v_r_t:.2f` |
+| $v$ (km/s) | {glue:text}`v_i:.2f` | {glue:text}`v_t:.2f` |
+| $\phi$ (deg.) | {eval}`phi_i:.2f` | {eval}`phi_t:.2f` |
 
 :::
 
@@ -114,10 +88,4 @@ Delta_v = m.sqrt(v_i**2 + v_t**2 - 2 * v_i * v_t * m.cos(m.radians(phi_t - phi_i
 gamma = m.degrees(m.atan2(v_r_t - v_r_i, v_p_t - v_p_i))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("common-apse-line-Delta_v", Delta_v)
-glue("common-apse-line-gamma", gamma)
-```
-
-The required $\Delta v=$ {glue:text}`common-apse-line-Delta_v:.4f` km/s and the angle of the thrust vector is $\gamma =$ {glue:text}`common-apse-line-gamma:.2f`°.
+The required $\Delta v=$ {eval}`Delta_v:.4f` km/s and the angle of the thrust vector is $\gamma =$ {eval}`gamma:.2f`°.
