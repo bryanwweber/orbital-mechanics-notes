@@ -83,11 +83,11 @@ The initial conditions for the phasing maneuver to 137.2°W longitude. Not to sc
 
 To find the $\Delta v$ requirement, we need to know how much $\Delta v$ is required to get onto the phasing orbit and then return back to GEO. This is determined by the GEO velocity as well as the velocity at the impulse point on the phasing orbit.
 
+The parameters of the phasing orbit depend on its period. For the satellite to be at the target longitude after the maneuver, the period of the phasing orbit has to be the same as the amount of time it takes for Earth to rotate 137.2°. After this amount of rotation, the target longitude will be pointing at the impulse point, and the satellite also needs to be at the impulse point at that moment to perform its second impulse and get back on GEO.
+
 :::{margin}
 If we wanted to get to a point in East longitude, we'd need to add 180° to find the total rotation that Earth has to do to reach the impulse point.
 :::
-
-The parameters of the phasing orbit depend on its period. For the satellite to be at the target longitude after the maneuver, the period of the phasing orbit has to be the same as the amount of time it takes for Earth to rotate 137.2°. After this amount of rotation, the target longitude will be pointing at the impulse point, and the satellite also needs to be at the impulse point at that moment to perform its second impulse and get back on GEO.
 
 ```{code-cell} ipython3
 import math as m
@@ -99,16 +99,7 @@ target_longitude = 137.2  # °W longitude
 period_0 = m.radians(target_longitude) / omega_E  # s
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as mystglue
-glue = partial(mystglue, display=False)
-glue("phasing_orbit_period_0", period_0)
-glue("phasing_orbit_hours_0", period_0 / 3600)
-```
-
-The period of the phasing orbit has to be $T =$ {glue:text}`phasing_orbit_period_0:.3f` s = {glue:text}`phasing_orbit_hours_0:.3f` h. With the period, we can calculate the semi-major axis distance of the phasing orbit.
+The period of the phasing orbit has to be $T =$ {eval}`period_0:.3f` s = {eval}`period_0/3600:.3f` h. With the period, we can calculate the semi-major axis distance of the phasing orbit.
 
 ```{code-cell} ipython3
 mu = 3.986E5  # km**3/s**2
@@ -116,12 +107,7 @@ period_constant = (mu / (4 * m.pi**2))**(1/3)
 a_0 = period_0**(2/3) * period_constant  # km
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("phasing_orbit_a_0", a_0)
-```
-
-The semi-major axis of the phasing orbit is $a_0 =$ {glue:text}`phasing_orbit_a_0:.1f` km. Since the period of the phasing orbit is shorter than that of the GEO orbit, the impulse point is the apogee point of the phasing orbit. Thus, we know $a$ and $r_a$ for the phasing orbit and we can determine the other parameters from these two.
+The semi-major axis of the phasing orbit is $a_0 =$ {eval}`a_0:.1f` km. Since the period of the phasing orbit is shorter than that of the GEO orbit, the impulse point is the apogee point of the phasing orbit. Thus, we know $a$ and $r_a$ for the phasing orbit and we can determine the other parameters from these two.
 
 ```{code-cell} ipython3
 r_geo = sidereal_day**(2/3) * period_constant  # km
@@ -131,13 +117,7 @@ r_a_0 = r_geo  # km
 r_p_0 = 2 * a_0 - r_a_0  # km
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("phasing_orbit_v_geo", v_geo)
-glue("phasing_orbit_r_p_0", r_p_0)
-```
-
-The perigee radius of the phasing orbit is $r_{p_0} =$ {glue:text}`phasing_orbit_r_p_0:.2f` km. Since this is less than the radius of Earth, this phasing orbit is not possible. Nonetheless, we can calculate the $\Delta v$ requirement for comparison.
+The perigee radius of the phasing orbit is $r_{p_0} =$ {eval}`r_p_0:.2f` km. Since this is less than the radius of Earth, this phasing orbit is not possible. Nonetheless, we can calculate the $\Delta v$ requirement for comparison.
 
 The two impulses in the phasing orbit occur at the same location relative to the phasing orbit. Thus, the $\Delta v$ required to move from the initial orbit onto the phasing orbit has the same magnitude as the $\Delta v$ required to do the reverse.
 
@@ -163,13 +143,7 @@ v_a_0 = m.sqrt(2 * (E_0 + mu / r_a_0))
 delta_v_0 = 2 * abs(v_a_0 - v_geo)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("phasing_orbit_delta_v_0", delta_v_0)
-glue("phasing_orbit_v_a_0", v_a_0)
-```
-
-The GEO velocity is $v_{\text{GEO}} =$ {glue:text}`phasing_orbit_v_geo:.3f` km/s, the phasing orbit apogee velocity is $v_{a_0} =$ {glue:text}`phasing_orbit_v_a_0:.3f` km/s, and the $\Delta v$ is {glue:text}`phasing_orbit_delta_v_0:.3f` km/s.
+The GEO velocity is $v_{\text{GEO}} =$ {eval}`v_geo:.3f` km/s, the phasing orbit apogee velocity is $v_{a_0} =$ {eval}`v_a_0:.3f` km/s, and the $\Delta v$ is {eval}`delta_v_0:.3f` km/s.
 
 Now, let's allow the phasing maneuver to cover multiple revolutions of Earth. This means that the period of the phasing orbit will be:
 
@@ -209,22 +183,27 @@ delta_v_5 = delta_v(a_5)
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
-loc = locals()
-for n in (1, 2, 5):
-    glue(f"phasing_orbit_hours_{n}", loc[f"period_{n}"] / 3600)
-    glue(f"phasing_orbit_delta_v_{n}", loc[f"delta_v_{n}"])
+
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({
+  "Number of Complete Rotations": [0, 1, 2, 5],
+  "Period (hours)": np.array([period_0, period_1, period_2, period_5])/3600,
+  "Delta v (km/s)": [delta_v_0, delta_v_1, delta_v_2, delta_v_5],
+})
 ```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+:label: code:phasing-orbit-comparison
+
+df
+```
+
 
 :::{table} Comparison of results for various phasing orbits.
 :name: tab:phasing-orbit-comparison
-:align: center
-
-| Number of<br>Complete Rotations | Period (hours) | $\Delta v$ (km/s) |
-|:-----------------------------|:---------------|:------------------|
-| 0 | {glue:text}`phasing_orbit_hours_0:.2f` | {glue:text}`phasing_orbit_delta_v_0:.3f` |
-| 1 | {glue:text}`phasing_orbit_hours_1:.2f` | {glue:text}`phasing_orbit_delta_v_1:.3f` |
-| 2 | {glue:text}`phasing_orbit_hours_2:.2f` | {glue:text}`phasing_orbit_delta_v_2:.3f` |
-| 5 | {glue:text}`phasing_orbit_hours_5:.2f` | {glue:text}`phasing_orbit_delta_v_5:.3f` |
+![](#code:phasing-orbit-comparison)
 :::
 
 A comparison of the results is shown in @tab:phasing-orbit-comparison. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the Earth, has the highest $\Delta v$ requirement. The smallest $\Delta v$ requirement is for the case of a single complete rotation of the Earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional $\Delta v$ to do so.

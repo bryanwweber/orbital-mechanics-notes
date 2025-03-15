@@ -102,20 +102,6 @@ nu_i = (alpha - m.acos(c / a * m.cos(alpha))) % (2*m.pi)
 nu_f = (nu_i - eta) % (2*m.pi)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from myst_nb import glue as myst_glue
-from functools import partial
-glue = partial(myst_glue, display=False)
-
-glue("apse-line-rotation-a_i", a_i)
-glue("apse-line-rotation-e_i", e_i)
-glue("apse-line-rotation-a_f", a_f)
-glue("apse-line-rotation-e_f", e_f)
-glue("apse-line-rotation-nu_i", m.degrees(nu_i))
-glue("apse-line-rotation-nu_f", m.degrees(nu_f))
-```
-
 The results are shown in @tab:apse-line-rotation-nu-results. We chose the negative sign in @eq:apse-line-rotation-nu-roots for convenience. Choosing the positive sign would give a different, although valid, result.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
@@ -124,9 +110,9 @@ The results are shown in @tab:apse-line-rotation-nu-results. We chose the negati
 
 |  | Initial | Final |
 |:-|:--------|:------|
-| $a$ (km/s) | {glue:text}`apse-line-rotation-a_i:.2f` | {glue:text}`apse-line-rotation-a_f:.2f` |
-| $e$ | {glue:text}`apse-line-rotation-e_i:.2f` | {glue:text}`apse-line-rotation-e_f:.2f` |
-| $\nu$ (deg.) | {glue:text}`apse-line-rotation-nu_i:.2f` | {glue:text}`apse-line-rotation-nu_f:.2f` |
+| $a$ (km/s) | {eval}`a_i:.2f` | {eval}`a_f:.2f` |
+| $e$ | {eval}`e_i:.2f` | {eval}`e_f:.2f` |
+| $\nu$ (deg.) | {eval}`nu_i:.2f` | {eval}`nu_f:.2f` |
 :::
 
 With the orbital elements fully determined for both orbits, we can calculate the velocity components, $\Delta v$, and $\gamma$.
@@ -153,20 +139,7 @@ Delta_v = m.sqrt(v_i**2 + v_f**2 - 2 * v_i * v_f * m.cos(m.radians(phi_f - phi_i
 gamma = m.degrees(m.atan2(v_r_f - v_r_i, v_p_f - v_p_i))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("apse-line-rotation-r", r)
-glue("apse-line-rotation-delta-v", Delta_v)
-glue("apse-line-rotation-gamma", gamma)
-loc = locals()
-for n in ("v_p", "v_r", "v", "phi"):
-    name = n + "_i"
-    glue("apse-line-rotation-" + name, loc[name])
-    name = n + "_f"
-    glue("apse-line-rotation-" + name, loc[name])
-```
-
-The radius at the impulse point is $r =$ {glue:text}`apse-line-rotation-r:.2f` km, the $\Delta v=$ {glue:text}`apse-line-rotation-delta-v:.2f` km/s, and the thrust vector angle is $\gamma =$ {glue:text}`apse-line-rotation-gamma:.2f`°. The velocity components and flight path angles are shown in @tab:apse-line-rotation.
+The radius at the impulse point is $r =$ {eval}`r:.2f` km, the $\Delta v=$ {eval}`delta-v:.2f` km/s, and the thrust vector angle is $\gamma =$ {eval}`gamma:.2f`°. The velocity components and flight path angles are shown in @tab:apse-line-rotation.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
 :name: tab:apse-line-rotation
@@ -174,8 +147,8 @@ The radius at the impulse point is $r =$ {glue:text}`apse-line-rotation-r:.2f` k
 
 |  | Initial | Transfer |
 |:-|:--------|:---------|
-| $v_{\perp}$ (km/s) | {glue:text}`apse-line-rotation-v_p_i:.2f` | {glue:text}`apse-line-rotation-v_p_f:.2f` |
-| $v_{r}$ (km/s) | {glue:text}`apse-line-rotation-v_r_i:.2f` | {glue:text}`apse-line-rotation-v_r_f:.2f` |
-| $v$ (km/s) | {glue:text}`apse-line-rotation-v_i:.2f` | {glue:text}`apse-line-rotation-v_f:.2f` |
-| $\phi$ (deg.) | {glue:text}`apse-line-rotation-phi_i:.2f` | {glue:text}`apse-line-rotation-phi_f:.2f` |
+| $v_{\perp}$ (km/s) | {eval}`v_p_i:.2f` | {eval}`v_p_f:.2f` |
+| $v_{r}$ (km/s) | {eval}`v_r_i:.2f` | {eval}`v_r_f:.2f` |
+| $v$ (km/s) | {eval}`v_i:.2f` | {eval}`v_f:.2f` |
+| $\phi$ (deg.) | {eval}`phi_i:.2f` | {eval}`phi_f:.2f` |
 :::

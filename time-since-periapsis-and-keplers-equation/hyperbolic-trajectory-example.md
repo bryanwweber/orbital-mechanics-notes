@@ -37,19 +37,7 @@ h = r_p * v_p  # km**2/s
 e = h**2 / (r_p * mu) - 1
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as myst_glue
-
-np.set_printoptions(legacy="1.25")
-glue = partial(myst_glue, display=False)
-
-glue("hyperbolic-time-since-perigee-h", h)
-glue("hyperbolic-time-since-perigee-e", e)
-```
-
-The eccentricity is $e =$ {glue:text}`hyperbolic-time-since-perigee-e:.4f`. Since $e > 1$, this trajectory is a hyperbola.
+The eccentricity is $e =$ {eval}`e:.4f`. Since $e > 1$, this trajectory is a hyperbola.
 
 We should find the true anomaly of the asymptote from @eq:hyperbolic-true-anomaly-asymptote, to ensure that our desired true anomaly is valid.
 
@@ -57,12 +45,7 @@ We should find the true anomaly of the asymptote from @eq:hyperbolic-true-anomal
 nu_infty = np.arccos(-1 / e)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hyperbolic-time-since-perigee-nu_infty", np.degrees(nu_infty))
-```
-
-The true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`hyperbolic-time-since-perigee-nu_infty:.2f`°. Therefore, our desired true anomaly is valid. Now we can calculate the eccentric anomaly, $F$.
+The true anomaly of the asymptote is $\nu_{\infty} =$ {eval}`f"{np.degrees(nu_infty):.2f}"`°. Therefore, our desired true anomaly is valid. Now we can calculate the eccentric anomaly, $F$.
 
 ```{code-cell} ipython3
 F_1 = 2 * np.arctanh(np.sqrt((e - 1)/(e + 1)) * np.tan(nu_1 / 2))
@@ -80,12 +63,7 @@ Finally, calculating the time from the mean anomaly is done from the definition 
 t_1 = h**3 / mu**2 * 1 / (e**2 - 1)**(3/2) * M_h1
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hyperbolic-time-since-perigee-t_1", t_1 / 3600)
-```
-
-The total time is $t_1 =$ {glue:text}`hyperbolic-time-since-perigee-t_1:.2f` hr.
+The total time is $t_1 =$ {eval}`f"{t_1/3600:.2f}"` hr.
 
 ## Given Time Since Perigee, Find True Anomaly
 
@@ -100,11 +78,6 @@ Since we already have the orbital eccentricity and specific angular momentum, we
 ```{code-cell} ipython3
 t_2 = 3 * 3600 + t_1  # sec
 M_h2 = mu**2 / h**3 * (e**2 - 1)**(3/2) * t_2
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hyperbolic-time-since-perigee-t_2", t_2 / 3600)
 ```
 
 Now, we need to solve Kepler's equation to find the eccentric anomaly, $F$. Since the equation is transcendental in $F$, we need to use the Newton solver in SciPy. Since we know the derivative, we will define two Python functions:
@@ -135,20 +108,15 @@ sqrt_e = np.sqrt((e + 1) / (e - 1))
 nu_2 = (2 * np.arctan(sqrt_e * np.tanh(F_2 / 2))) % (2 * np.pi)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hyperbolic-time-since-perigee-nu_2", np.degrees(nu_2))
-```
-
 Like for the ellipse, to convert $\nu$ to the range $[0, 2\pi)$, we take the modulus with $2\pi$. In most programming languages, Python and MATLAB included, the `arctan` function returns a value between $-\pi/2$ and $\pi/2$. When the result is multiplied by 2, it gives the range from $-\pi$ to $\pi$. We need to transform this angle to be in the range of $0$ to $2\pi$. To do so, we can take the **modulus** of the angle with $2\pi$.
 
 The modulus is the remainder after division. In Python, the modulus operator is `%`, while in MATLAB, we have to use the function `mod(numerator, denominator)`. This works for both positive and negative numbers, and ensures that we get the correct angle for the appropriate quadrant.
 
-The true anomaly after {glue:text}`hyperbolic-time-since-perigee-t_2:.2f` hr is $\nu_2 =$ {glue:text}`hyperbolic-time-since-perigee-nu_2:.2f`°.
+The true anomaly after {eval}`f"{t_2/3600:.2f}"` hr is $\nu_2 =$ {eval}`f"{np.degrees(nu_2):.2f}"`°.
 
 ## Calculate the Speed of the Spacecraft
 
-To find the speed, we will calculate the velocity components. The radius at $\nu_2 =$ {glue:text}`hyperbolic-time-since-perigee-nu_2:.2f`° can be found from the orbit equation, @eq:scalar-orbit-equation.
+To find the speed, we will calculate the velocity components. The radius at $\nu_2 =$ {eval}`f"{np.degrees(nu_2):.2f}"`° can be found from the orbit equation, @eq:scalar-orbit-equation.
 
 ```{code-cell} ipython3
 r_2 = h**2 / mu / (1 + e * np.cos(nu_2))
@@ -162,15 +130,7 @@ v_r = mu / h * e * np.sin(nu_2)
 v_2 = np.sqrt(v_r**2 + v_perp**2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hyperbolic-time-since-perigee-r_2", r_2)
-glue("hyperbolic-time-since-perigee-v_perp", v_perp)
-glue("hyperbolic-time-since-perigee-v_r", v_r)
-glue("hyperbolic-time-since-perigee-v_2", v_2)
-```
-
-The radius is $r_2 =$ {glue:text}`hyperbolic-time-since-perigee-r_2:.4E` km and the speed is $v_2 =$ {glue:text}`hyperbolic-time-since-perigee-v_2:.2f` km/s.
+The radius is $r_2 =$ {eval}`r_2:.4E` km and the speed is $v_2 =$ {eval}`v_2:.2f` km/s.
 
 ## MATLAB Solution
 

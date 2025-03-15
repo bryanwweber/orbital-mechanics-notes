@@ -49,42 +49,57 @@ and we can subsequently find the azimuthal velocity by the Pythagorean theorem:
 v_{\perp} = \sqrt{v^2 - v_r^2}
 :::
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-1]"
-:end-before: "[section-2]"
-:language: python
-:::
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+import numpy as np
 
+r_vec = np.array((1_000, 5_000, 7_000))  # km
+v_vec = np.array((3.0, 4.0, 5.0))  # km/s
+mu = 3.986e5  # km^3/s^2
+
+r = np.linalg.norm(r_vec)
+v = np.linalg.norm(v_vec)
+v_r = np.dot(r_vec / r, v_vec)
+v_p = np.sqrt(v**2 - v_r**2)
+```
+::::
+::::{tab-item} Matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-1]"
-:end-before: "[section-2]"
+:start-after: [section-1]
+:end-before: [section-2]
 :language: matlab
 :::
 ::::
+:::::
 
-For this example, we find $r =$ {glue:text}`orbital-elements-radius:.3F` km, $v =$ {glue:text}`orbital-elements-velocity:.3f` km/s, $v_r =$ {glue:text}`orbital-elements-v_r:.3f` km/s, and $v_{\perp} =$ {glue:text}`orbital-elements-v_p:.3f` km/s.
+For this example, we find $r =$ {eval}`f"{r:.3F}"` km, $v =$ {eval}`f"{v:.3f}"` km/s, $v_r =$ {eval}`f"{v_r:.3f}"` km/s, and $v_{\perp} =$ {eval}`f"{v_p:.3f}"` km/s.
 
 ### Step 2—Orbital Angular Momentum
 
 Next, we need to calculate the orbital angular momentum. By definition, $\vector{h} = \vector{r}\cross\vector{v}$. We also need the magnitude of the angular momentum.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-2]"
-:end-before: "[section-3]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+h_vec = np.cross(r_vec, v_vec)
+h = np.linalg.norm(h_vec)
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-2]"
-:end-before: "[section-3]"
+:start-after: [section-2]
+:end-before: [section-3]
 :language: matlab
 :::
 ::::
+:::::
 
 <!-- markdownlint-disable MD033 -->
-We find $\vector{h} =$ {glue:text}`orbital-elements-h_vec-I:.0f` $\uvec{I}$ + {glue:text}`orbital-elements-h_vec-J:.0f` $\uvec{J}$ - {glue:text}`orbital-elements-h_vec-K:.0f` $\uvec{K}$ km<sup>2</sup>/s and $h =$ {glue:text}`orbital-elements-h:.3f` km<sup>2</sup>/s. Notice that the $Z$ component of the angular momentum is negative. This means the momentum vector is pointing down and the orbit is retrograde. The magnitude of the orbital angular momentum is the first orbital element.
+We find $\vector{h} =$ {eval}`f"{h_vec[0]:.0f}"` $\uvec{I}$ + {eval}`f"{h_vec[1]:.0f}"` $\uvec{J}$ - {eval}`f"{abs(h_vec[2]):.0f}"` $\uvec{K}$ km<sup>2</sup>/s and $h =$ {eval}`f"{h:.3f}"` km<sup>2</sup>/s. Notice that the $Z$ component of the angular momentum is negative. This means the momentum vector is pointing down and the orbit is retrograde. The magnitude of the orbital angular momentum is the first orbital element.
 <!-- markdownlint-enable MD033 -->
 
 ### Step 3—Inclination
@@ -98,21 +113,24 @@ i = \cos^{-1}\left(\frac{h_Z}{h}\right)
 
 Since the inclination is restricted to lie between 0° and 180°, we do not need to worry about the quadrant ambiguity inherent in the inverse cosine function.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-3]"
-:end-before: "[section-4]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+i = np.arccos(h_vec[2] / h)
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-3]"
-:end-before: "[section-4]"
+:start-after: [section-3]
+:end-before: [section-4]
 :language: matlab
 :::
 ::::
+:::::
 
-The inclination of this orbit is $i =$ {glue:text}`orbital-elements-i:.2f`°. We know for retrograde orbits, the inclination must be between 90° and 180°, which is the case here. The inclination is the second orbital element.
+The inclination of this orbit is $i =$ {eval}`f"{np.degrees(i):.2f}"`°. We know for retrograde orbits, the inclination must be between 90° and 180°, which is the case here. The inclination is the second orbital element.
 
 ### Step 4—Right Ascension of the Ascending Node
 
@@ -144,27 +162,34 @@ If $N_Y \geq 0$, then $\vector{N}$ must be pointing to the first or second quadr
 \end{cases}
 :::
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-4]"
-:end-before: "[section-5]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+K = np.array((0, 0, 1))
+N_vec = np.cross(K, h_vec)
+N = np.linalg.norm(N_vec)
+Omega = 2 * np.pi - np.arccos(N_vec[0] / N)
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
 :start-after: "[section-4]"
 :end-before: "[section-5]"
 :language: matlab
 :::
 ::::
+:::::
 
-For this problem, we find $N_Y =$ {glue:text}`orbital-elements-N_Y:.0F`, so the right ascension of the ascending node is in the third or fourth quadrant. Then, we find $\Omega =$ {glue:text}`orbital-elements-raan:.2F`°. The right ascension of the ascending node is the third orbital element.
+For this problem, we find $N_Y =$ {eval}`f"{N_vec[1]:.0F}"`, so the right ascension of the ascending node is in the third or fourth quadrant. Then, we find $\Omega =$ {eval}`f"{np.degrees(Omega):.2F}"`°. The right ascension of the ascending node is the third orbital element.
 
 ### Step 5—Eccentricity
 
 The fourth orbital element is the eccentricity. Way back in @eq:vector-orbit-equation, we found the eccentricity vector as the constant of integration of the equation of motion. Repeating the equation here:
 
 :::{math}
+:enumerated: false
 \vector{e} = \frac{\dot{\vector{r}}\cross\vector{h}}{\mu} - \frac{\vector{r}}{r}
 :::
 
@@ -186,21 +211,25 @@ e = \sqrt{1 + \frac{h^2}{\mu^2}\left(v^2 - \frac{2\mu}{r}\right)}
 
 Again, @eq:simplified-eccentricity-magnitude is useful for hand calculations.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-4]"
-:end-before: "[section-6]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+e_vec = np.cross(v_vec, h_vec) / mu - r_vec / r
+e = np.linalg.norm(e_vec)
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-4]"
-:end-before: "[section-6]"
+:start-after: [section-4]
+:end-before: [section-6]
 :language: matlab
 :::
 ::::
+:::::
 
-The eccentricity of this orbit is $e =$ {glue:text}`orbital-elements-e:.3f`, so the orbit is a very eccentric ellipse.
+The eccentricity of this orbit is $e =$ {eval}`f"{e:.3f}"`, so the orbit is a very eccentric ellipse.
 
 ### Step 6—Argument of Periapsis
 
@@ -232,21 +261,24 @@ If $e_Z \geq 0$, then $\vector{e}$ points up and periapsis must be between the a
 \end{cases}
 :::
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-6]"
-:end-before: "[section-7]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+omega = 2 * np.pi - np.arccos(np.dot(N_vec, e_vec) / (N * e))
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-6]"
-:end-before: "[section-7]"
+:start-after: [section-6]
+:end-before: [section-7]
 :language: matlab
 :::
 ::::
+:::::
 
-For this problem, we find $e_Z =$ {glue:text}`orbital-elements-e_Z:.4F`, so the argument of periapsis is in the third or fourth quadrant. Then, we find $\omega =$ {glue:text}`orbital-elements-aop:.2F`°. The argument of periapsis is the fifth orbital element.
+For this problem, we find $e_Z =$ {eval}`f"{e_vec[2]:.4F}"`, so the argument of periapsis is in the third or fourth quadrant. Then, we find $\omega =$ {eval}`f"{np.degrees(omega):.2F}"`°. The argument of periapsis is the fifth orbital element.
 
 ### Step 7—True Anomaly
 
@@ -269,21 +301,24 @@ If $v_r \geq 0$, then $\vector{r}$ is increasing in length and the spacecraft mu
 \end{cases}
 :::
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-7]"
-:end-before: "[section-8]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+nu = np.arccos(np.dot(r_vec / r, e_vec / e))
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-7]"
-:end-before: "[section-8]"
+:start-after: [section-7]
+:end-before: [section-8]
 :language: matlab
 :::
 ::::
+:::::
 
-For this problem, we find $v_r =$ {glue:text}`orbital-elements-v_r:.4F` km/s, so the argument of periapsis is in the first or second quadrant. Then, we find $\nu =$ {glue:text}`orbital-elements-true-anomaly:.2F`°. The true anomaly is the sixth and final orbital element.
+For this problem, we find $v_r =$ {eval}`f"{v_r:.4F}"` km/s, so the argument of periapsis is in the first or second quadrant. Then, we find $\nu =$ {eval}`f"{np.degrees(nu):.2F}"`°. The true anomaly is the sixth and final orbital element.
 
 ## Orbital Elements → State Vector
 
@@ -298,21 +333,25 @@ The first step is rather simple, but the derivation of the second step requires 
 
 Remember that the perifocal frame is defined in the orbital plane with the unit vectors $\uvec{p}$, $\uvec{q}$, and $\uvec{w}$, as shown in @fig:definition-of-perifocal-frame. The position and velocity components in the perifocal frame are given by @eq:perifocal-vector-orbit-equation and @eq:perifocal-simplified-velocity-vector, respectively.
 
-::::{tab-set-code}
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-8]"
-:end-before: "[section-9]"
-:language: python
-:::
-
+:::::{tab-set}
+::::{tab-item} Python
+:sync: python
+```{code-cell} ipython3
+r_w = h**2 / mu / (1 + e * np.cos(nu)) * np.array((np.cos(nu), np.sin(nu), 0))
+v_w = mu / h * np.array((-np.sin(nu), e + np.cos(nu), 0))
+```
+::::
+::::{tab-item} Matlab
+:sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-8]"
-:end-before: "[section-9]"
+:start-after: [section-8]
+:end-before: [section-9]
 :language: matlab
 :::
 ::::
+:::::
 
-For this example, we find $\vector{r}_{\omega} =$ {glue:text}`orbital-elements-r_w-I:.4f` $\uvec{p}$ + {glue:text}`orbital-elements-r_w-J:.4f` $\uvec{q}$ km and $\vector{v}_{\omega} =$ {glue:text}`orbital-elements-v_w-I:.4f` $\uvec{p}$ + {glue:text}`orbital-elements-v_w-J:.4f` $\uvec{q}$ km/s.
+For this example, we find $\vector{r}_{\omega} =$ {eval}`f"{r_w[0]:.4f}"` $\uvec{p}$ + {eval}`f"{r_w[1]:.4f}"` $\uvec{q}$ km and $\vector{v}_{\omega} =$ {eval}`f"{r_w[0]:.4f}"` $\uvec{p}$ + {eval}`f"{r_w[1]:.4f}"` $\uvec{q}$ km/s.
 
 ### Step 2—Rotate the Perifocal Frame
 
@@ -329,10 +368,6 @@ The sequence of rotations to convert from the perifocal frame to the inertial fr
 :::
 
 ::::{grid} 1
----
-
-gutter: 2
----
 
 :::{grid-item-card} Step 2.1—Rotate Until $\uvec{p}$ is Aligned With the Node Line
 
@@ -351,21 +386,18 @@ The last step is to account for the right ascension of the ascending node. Since
 :::
 ::::
 
-These three angles ($\omega$, $i$, and $\Omega$) are called [**Euler angles**](https://en.wikipedia.org/wiki/Euler_angles). Transformations based on the Euler angles are well known and can be calculated in many ways. Here, we'll use a computing environment to simplify the calculations.
+These three angles ($\omega$, $i$, and $\Omega$) are called [**Euler angles**](https://en.wikipedia.org/wiki/Euler_angles). Transformations based on the Euler angles are well known and can be calculated in many ways.
 
 :::::{tab-set}
+::::{tab-item} Python
+:sync: PYTHON
+```{code-cell} ipython3
+from scipy.spatial.transform import Rotation
 
-::::{tab-item} PYTHON
----
-
-sync: PYTHON
----
-
-:::{literalinclude} scripts/orbital_elements_and_the_state_vector.py
-:start-after: "[section-9]"
-:end-before: "[section-10]"
-:language: python
-:::
+R = Rotation.from_euler("ZXZ", [-omega, -i, -Omega])
+r_rot = r_w @ R.as_matrix()
+v_rot = v_w @ R.as_matrix()
+```
 
 In Python, the SciPy library includes a class to automatically compute the rotation matrix. The class takes the three angles and the axes about which the rotations should be done. In this case, our rotations are around the $\uvec{w}$ axis (the $z$ axis of the perifocal frame), the $x$ axis that is present after the first rotation, and finally, the $z$ axis which is present after the second rotation.
 
@@ -374,15 +406,12 @@ Notice that the rotation is right-handed by default, positive clockwise. Since w
 To actually perform the rotation, we need to multiply the position and velocity vectors in the perifocal frame by the rotation matrix. The `@` symbol in Python performs matrix multiplication, instead of scalar multiplication.
 ::::
 
-::::{tab-item} MATLAB
----
-
-sync: MATLAB
----
+::::{tab-item} Matlab
+:sync: MATLAB
 
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-9]"
-:end-before: "[section-10]"
+:start-after: [section-9]
+:end-before: [section-10]
 :language: matlab
 :::
 
@@ -394,4 +423,4 @@ In addition, notice that the angles must be specified as negative, since we are 
 ::::
 :::::
 
-In the end, we find $\vector{r} =$ {glue:text}`orbital-elements-r_rot-I:.0f` $\uvec{I}$ + {glue:text}`orbital-elements-r_rot-J:.0f` $\uvec{J}$ + {glue:text}`orbital-elements-r_rot-K:.0f` $\uvec{K}$ km and $\vector{v} =$ {glue:text}`orbital-elements-v_rot-I:.0f` $\uvec{I}$ + {glue:text}`orbital-elements-v_rot-J:.0f` $\uvec{J}$ + {glue:text}`orbital-elements-v_rot-K:.0f` $\uvec{K}$ km/s. This is exactly the same as the initial condition, showing that we did the conversion correctly.
+In the end, we find $\vector{r} =$ {eval}`f"{r_rot[0]:.0f}"` $\uvec{I}$ + {eval}`f"{r_rot[1]:.0f}"` $\uvec{J}$ + {eval}`f"{r_rot[2]:.0f}"` $\uvec{K}$ km and $\vector{v} =$ {eval}`f"{v_rot[0]:.0f}"` $\uvec{I}$ + {eval}`f"{v_rot[1]:.0f}"` $\uvec{J}$ + {eval}`f"{v_rot[2]:.0f}"` $\uvec{K}$ km/s. This is exactly the same as the initial condition, showing that we did the conversion correctly.
