@@ -109,6 +109,7 @@ project:
         - file: orbital-maneuvers/bielliptic-hohmann-transfer.md
         - file: orbital-maneuvers/comparison-of-bielliptic-and-hohmann.md
         - file: orbital-maneuvers/phasing-maneuvers.md
+        - file: orbital-maneuvers/phasing-maneuvers-example.md
         - file: orbital-maneuvers/non-hohmann-transfers.md
         - file: orbital-maneuvers/common-apse-line-example.md
         - file: orbital-maneuvers/apse-line-rotation-example.md
@@ -119,8 +120,10 @@ project:
         - file: interplanetary-maneuvers/introduction.md
         - file: interplanetary-maneuvers/heliocentric-trajectories.md
         - file: interplanetary-maneuvers/interplanetary-transfer-phasing.md
+        - file: interplanetary-maneuvers/interplanetary-transfer-phasing-example.md
         - file: interplanetary-maneuvers/sphere-of-influence.md
         - file: interplanetary-maneuvers/planetary-departure-trajectory.md
+        - file: interplanetary-maneuvers/planetary-departure-trajectory-example.md
         - file: interplanetary-maneuvers/planetary-arrival-capture.md
         - file: interplanetary-maneuvers/planetary-arrival-flyby.md
     - title: Review of Vectors, Kinematics, and Newtonian Mechanics
@@ -139,7 +142,7 @@ project:
       children:
         - file: interplanetary-maneuvers/planetary-depahture-trajectory.md
         - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers.md
-        - file: orbital-maneuvers/nonimpulsive-maneuver-example.ipynb
+        - file: orbital-maneuvers/nonimpulsive-maneuver-example.md
 site:
   options:
     logo: _static/hohmann-light.svg

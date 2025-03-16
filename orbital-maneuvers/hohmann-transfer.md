@@ -1,6 +1,6 @@
 # Hohmann Transfer
 
-If the initial orbit and final, or target, orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann @Hohmann1960 showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a [**Hohmann transfer**](https://en.wikipedia.org/wiki/Hohmann_transfer_orbit).
+If the initial orbit and final, or target, orbit do not intersect, we need at least two impulses to transfer between the orbits. In 1925, Walter Hohmann [-@Hohmann1960] showed that the most efficient way to do this with two impulses, when the initial and final orbits are circular, is to connect opposite sides of the initial and target orbits with an ellipse. This transfer is called a [**Hohmann transfer**](https://en.wikipedia.org/wiki/Hohmann_transfer_orbit).
 
 :::{figure} ../images/hohmann-transfer-orbit.svg
 :width: 50%

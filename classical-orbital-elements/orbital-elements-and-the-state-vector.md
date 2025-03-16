@@ -15,11 +15,6 @@ kernelspec:
 
 As we saw in the [last section](./classical-orbital-elements.md), we can replace the six elements in the state vector with six orbital elements which describe the orbit. If the position and velocity vectors are known, we need to be able to convert them to the classical orbital elements. Likewise, if we have six independent orbital elements, we might want to convert them into a state vector.
 
-```{code-cell} python3
-:tags: [remove-cell]
-from scripts import orbital_elements_and_the_state_vector
-```
-
 ## State Vector → Orbital Elements
 
 Let's assume that we are given the state vector, composed of $\vector{r}$ and $\vector{v}$ at some time $t_0$. We would like to determine the six classical orbital elements:
@@ -175,8 +170,8 @@ Omega = 2 * np.pi - np.arccos(N_vec[0] / N)
 ::::{tab-item} Matlab
 :sync: matlab
 :::{literalinclude} scripts/orbital_elements_and_the_state_vector.m
-:start-after: "[section-4]"
-:end-before: "[section-5]"
+:start-after: [section-4]
+:end-before: [section-5]
 :language: matlab
 :::
 ::::

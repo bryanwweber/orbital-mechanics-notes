@@ -110,9 +110,9 @@ The results are shown in @tab:apse-line-rotation-nu-results. We chose the negati
 
 |  | Initial | Final |
 |:-|:--------|:------|
-| $a$ (km/s) | {eval}`a_i:.2f` | {eval}`a_f:.2f` |
-| $e$ | {eval}`e_i:.2f` | {eval}`e_f:.2f` |
-| $\nu$ (deg.) | {eval}`nu_i:.2f` | {eval}`nu_f:.2f` |
+| $a$ (km/s) | {eval}`f"{a_i:.2f}"` | {eval}`f"{a_f:.2f}"` |
+| $e$ | {eval}`f"{e_i:.2f}"` | {eval}`f"{e_f:.2f}"` |
+| $\nu$ (deg.) | {eval}`f"{nu_i:.2f}"` | {eval}`f"{nu_f:.2f}"` |
 :::
 
 With the orbital elements fully determined for both orbits, we can calculate the velocity components, $\Delta v$, and $\gamma$.
@@ -139,7 +139,7 @@ Delta_v = m.sqrt(v_i**2 + v_f**2 - 2 * v_i * v_f * m.cos(m.radians(phi_f - phi_i
 gamma = m.degrees(m.atan2(v_r_f - v_r_i, v_p_f - v_p_i))
 ```
 
-The radius at the impulse point is $r =$ {eval}`r:.2f` km, the $\Delta v=$ {eval}`delta-v:.2f` km/s, and the thrust vector angle is $\gamma =$ {eval}`gamma:.2f`°. The velocity components and flight path angles are shown in @tab:apse-line-rotation.
+The radius at the impulse point is $r =$ {eval}`f"{r:.2f}"` km, the $\Delta v=$ {eval}`f"{Delta_v:.2f}"` km/s, and the thrust vector angle is $\gamma =$ {eval}`f"{gamma:.2f}"`°. The velocity components and flight path angles are shown in @tab:apse-line-rotation.
 
 :::{table} Velocity components and flight path angles on the original and transfer orbits
 :name: tab:apse-line-rotation
@@ -147,8 +147,8 @@ The radius at the impulse point is $r =$ {eval}`r:.2f` km, the $\Delta v=$ {eval
 
 |  | Initial | Transfer |
 |:-|:--------|:---------|
-| $v_{\perp}$ (km/s) | {eval}`v_p_i:.2f` | {eval}`v_p_f:.2f` |
-| $v_{r}$ (km/s) | {eval}`v_r_i:.2f` | {eval}`v_r_f:.2f` |
-| $v$ (km/s) | {eval}`v_i:.2f` | {eval}`v_f:.2f` |
-| $\phi$ (deg.) | {eval}`phi_i:.2f` | {eval}`phi_f:.2f` |
+| $v_{\perp}$ (km/s) | {eval}`f"{v_p_i:.2f}"` | {eval}`f"{v_p_f:.2f}"` |
+| $v_{r}$ (km/s) | {eval}`f"{v_r_i:.2f}"` | {eval}`f"{v_r_f:.2f}"` |
+| $v$ (km/s) | {eval}`f"{v_i:.2f}"` | {eval}`f"{v_f:.2f}"` |
+| $\phi$ (deg.) | {eval}`f"{phi_i:.2f}"` | {eval}`f"{phi_f:.2f}"` |
 :::

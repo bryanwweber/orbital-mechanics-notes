@@ -63,16 +63,7 @@ v_1 = m.sqrt(mu / r_1)
 v_2 = m.sqrt(mu / r_2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as mystglue
-glue = partial(mystglue, display=False)
-glue("heliocentric-hohmann-v_1", v_1)
-glue("heliocentric-hohmann-v_2", v_2)
-```
-
-This gives orbital velocities of $v_1 =$ {glue:text}`heliocentric-hohmann-v_1:.3f` km/s for Neptune and $v_2 =$ {glue:text}`heliocentric-hohmann-v_2:.3f` km/s for Venus. These match the values from @tab:planetary-orbital-elements, as expected.
+This gives orbital velocities of $v_1 =$ {eval}`f"{v_1:.3f}"` km/s for Neptune and $v_2 =$ {eval}`f"{v_2:.3f}"` km/s for Venus. These match the values from @tab:planetary-orbital-elements, as expected.
 
 Next, we'll use the orbital energy of the transfer orbit to determine the velocities at aphelion and perihelion of the transfer orbit.
 
@@ -83,23 +74,11 @@ v_t1 = m.sqrt(2 * (E_t + mu / r_1))
 v_t2 = m.sqrt(2 * (E_t + mu / r_2))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("heliocentric-hohmann-v_t1", v_t1)
-glue("heliocentric-hohmann-v_t2", v_t2)
-```
-
-The velocities on the transfer orbit are $v_{t,1} =$ {glue:text}`heliocentric-hohmann-v_t1:.3f` km/s at depature from Neptune and $v_{t,2} =$ {glue:text}`heliocentric-hohmann-v_t2:.3f` km/s at arrival at Venus. Finally, the total $\Delta v$ is found by the sum of the $\Delta v$ at each end of the transfer orbit. We can also calculate the transfer time from the semimajor axis.
+The velocities on the transfer orbit are $v_{t,1} =$ {eval}`f"{v_t1:.3f}"` km/s at depature from Neptune and $v_{t,2} =$ {eval}`f"{v_t2:.3f}"` km/s at arrival at Venus. Finally, the total $\Delta v$ is found by the sum of the $\Delta v$ at each end of the transfer orbit. We can also calculate the transfer time from the semimajor axis.
 
 ```{code-cell} ipython3
 Delta_v = abs(v_t1 - v_1) + abs(v_t2 - v_2)
 t_12 = m.pi / m.sqrt(mu) * a_t**(3/2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("heliocentric-hohmann-Delta_v", Delta_v)
-glue("heliocentric-hohmann-t_12", t_12/(525600*60))
-```
-
-The results are $\Delta v =$ {glue:text}`heliocentric-hohmann-Delta_v:.3f` km/s and $t_{12} =$ {glue:text}`heliocentric-hohmann-t_12:.3f` years.
+The results are $\Delta v =$ {eval}`f"{Delta_v:.3f}"` km/s and $t_{12} =$ {eval}`f"{t_12/(525_600*60):.3f}"` years.
