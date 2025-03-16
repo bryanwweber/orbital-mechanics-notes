@@ -188,7 +188,7 @@ For this problem, the first element of `sol.t_events` is the time of the `reache
 print(sol.t_events[:2])
 ```
 
-Here we can see that a time is reported for the first event (`reached_destination`) and not for the second event (`mass`). Thus, we conclude that the spacecraft reached its destination radius!
+Here we can see that a time is reported for the first event (`reached_destination`) and not for the second event (`mass`). Thus, we conclude that the spacecraft reached its destination radius and did not run out of mass!
 
 Now let's plot the solution. As before, we can get the solution vectors with the `sol.y` attribute:
 

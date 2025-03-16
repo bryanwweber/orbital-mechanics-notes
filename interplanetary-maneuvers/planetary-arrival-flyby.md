@@ -212,7 +212,7 @@ A spacecraft will use a flyby manuever around Venus to change its heliocentric o
 First, we need to calculate the arrival heliocentric velocity vector. The spacecraft departs Neptune's orbit at aphelion of the transfer orbit. We know the departure point is aphelion because the velocity vector is perpendicular to the radius vector. We can find the orbital elements of the transfer orbit by using the orbit equation, @eq:scalar-orbit-equation at the departure and arrival points.
 
 :::{math}
-:label:
+:enumerated: false
 \begin{aligned}
   R_{\text{Neptune}} &= \frac{h_1^2}{\mu_{\text{sun}}} \frac{1}{1 - e_1} & \text{Departure} \\
   R_{\text{Venus}} &= \frac{h_1^2}{\mu_{\text{sun}}} \frac{1}{1 - e_1\cos\nu_1} & \text{Arrival}
@@ -222,14 +222,14 @@ First, we need to calculate the arrival heliocentric velocity vector. The spacec
 where $\nu$ at Neptune departure is 180° and $\nu_1 =$ -60° or 300°. This pair of equations can be simultaneously solved for $h_1$ and $e_1$ to give the parameters of the transfer orbit. Solving first for $e_1$, we find:
 
 :::{math}
-:label:
+:enumerated: false
 e_1 = \frac{R_{\text{Neptune}} - R_{\text{Venus}}}{R_{\text{Neptune}} + R_{\text{Venus}}\cos\nu_1}
 :::
 
 Then, $h_1$ is found from the orbit equation at Neptune departure:
 
 :::{math}
-:label:
+:enumerated: false
 h_1 = \sqrt{\mu_{\text{sun}} R_{\text{Neptune}}\left(1 - e_1\right)}
 :::
 
@@ -245,30 +245,14 @@ e_1 = (R_Neptune - R_Venus) / (R_Neptune + R_Venus * np.cos(nu_1))
 h_1 = np.sqrt(mu_sun * R_Neptune * (1 - e_1))
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as myst_glue
-glue = partial(myst_glue, display=False)
-np.set_printoptions(legacy="1.25")
-glue("interplanetary-flyby-e_1", e_1)
-glue("interplanetary-flyby-h_1", h_1)
-```
-
-This give an eccentricity of $e_1 =$ {glue:text}`interplanetary-flyby-e_1:.4f` and $h_1 =$ {glue:text}`interplanetary-flyby-h_1:.2E` km<sup>2</sup>/s. With $e_1$, $nu_1$, and $h_1$, we can find the heliocentric velocity components at Venus using @eq:perpendicular-velocity-component and @eq:parallel-velocity-component:
+This give an eccentricity of $e_1 =$ {eval}`f"{e_1:.4f}"` and $h_1 =$ {eval}`f"{h_1:.2E}"` km<sup>2</sup>/s. With $e_1$, $nu_1$, and $h_1$, we can find the heliocentric velocity components at Venus using @eq:perpendicular-velocity-component and @eq:parallel-velocity-component:
 
 ```{code-cell} ipython3
 V_p1 = h_1 / R_Venus
 V_r1 = mu_sun / h_1 * e_1 * np.sin(nu_1)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("interplanetary-flyby-V_p1", V_p1)
-glue("interplanetary-flyby-V_r1", V_r1)
-```
-
-The heliocentric velocity components are $V_{\perp,1}^s =$ {glue:text}`interplanetary-flyby-V_p1:.2f` km/s and $V_{r,1}^s =$ {glue:text}`interplanetary-flyby-V_r1:.2f` km/s. Next, we need to find the excess velocity vector at arrival, and its magnitude:
+The heliocentric velocity components are $V_{\perp,1}^s =$ {eval}`f"{V_p1:.2f}"` km/s and $V_{r,1}^s =$ {eval}`f"{V_r1:.2f}"` km/s. Next, we need to find the excess velocity vector at arrival, and its magnitude:
 
 ```{code-cell} ipython3
 V_1 = np.sqrt(V_p1**2 + V_r1**2)
@@ -281,17 +265,7 @@ v_infty1_S = -V_r1
 v_infty = np.sqrt(v_infty1_V**2 + v_infty1_S**2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("interplanetary-flyby-V_1", V_1)
-glue("interplanetary-flyby-alpha_1", np.degrees(alpha_1))
-glue("interplanetary-flyby-V_Venus", V_Venus)
-glue("interplanetary-flyby-v_infty1_V", v_infty1_V)
-glue("interplanetary-flyby-v_infty1_S", abs(v_infty1_S))
-glue("interplanetary-flyby-v_infty", v_infty)
-```
-
-The spacecraft heliocentric velocity magnitude is $V_1^s =$ {glue:text}`interplanetary-flyby-V_1:.2f` km/s, the flight path angle is $\alpha_1 =$ {glue:text}`interplanetary-flyby-alpha_1:.2f`°, and the velocity of Venus is $V_{\text{Venus}} =$ {glue:text}`interplanetary-flyby-V_Venus:.2f` km/s. The excess velocity vector is $\vector{v}_{\infty,1} =$ {glue:text}`interplanetary-flyby-v_infty1_V:.2f` $\uvec{u}_V$ - {glue:text}`interplanetary-flyby-v_infty1_S:.2f` $\uvec{u}_S$ km/s, and its magnitude is $v_{\infty} =$ {glue:text}`interplanetary-flyby-v_infty:.2f` km/s.
+The spacecraft heliocentric velocity magnitude is $V_1^s =$ {eval}`f"{V_1:.2f}"` km/s, the flight path angle is $\alpha_1 =$ {eval}`f"{np.degrees(alpha_1):.2f}"`°, and the velocity of Venus is $V_{\text{Venus}} =$ {eval}`f"{V_Venus:.2f}"` km/s. The excess velocity vector is $\vector{v}_{\infty,1} =$ {eval}`f"{v_infty1_V:.2f}"` $\uvec{u}_V$ - {eval}`f"{abs(v_infty1_S):.2f}"` $\uvec{u}_S$ km/s, and its magnitude is $v_{\infty} =$ {eval}`f"{v_infty:.2f}"` km/s.
 
 Now we can compute the geocentric orbital elements of the flyby trajectory. In particular, we need to calculate the turn angle $\delta$ using @eq:hyperbolic-turn-angle, which requires the eccentricity $e$ from @eq:interplanetary-arrival-eccentricity. Then, we can calculate the $\phi$ angles.
 
@@ -306,17 +280,7 @@ phi_2_leading = phi_1 + delta
 phi_2_trailing = phi_1 - delta
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-d = np.degrees
-glue("interplanetary-flyby-e", e)
-glue("interplanetary-flyby-delta", d(delta))
-glue("interplanetary-flyby-phi_1", d(phi_1))
-glue("interplanetary-flyby-phi_2_leading", d(phi_2_leading))
-glue("interplanetary-flyby-phi_2_trailing", d(phi_2_trailing))
-```
-
-The eccentricity of the hyperbola is $e =$ {glue:text}`interplanetary-flyby-e:.4f` and the turn angle is $\delta =$ {glue:text}`interplanetary-flyby-delta:.2f`°. This gives turn angles of $\phi_1 =$ {glue:text}`interplanetary-flyby-phi_1:.2f`° at arrival, $\phi_2 =$ {glue:text}`interplanetary-flyby-phi_2_leading:.2f`° when the flyby occurs on the leading side, and $\phi_2 =$ {glue:text}`interplanetary-flyby-phi_2_trailing:.2f`° for the trailing-side flyby. Notice that $\delta$ is treated as negative for the trailing-side flyby!
+The eccentricity of the hyperbola is $e =$ {eval}`f"{e:.4f}"` and the turn angle is $\delta =$ {eval}`f"{np.degrees(delta):.2f}"`°. This gives turn angles of $\phi_1 =$ {eval}`f"{np.degrees(phi_1):.2f}"`° at arrival, $\phi_2 =$ {eval}`f"{np.degrees(phi_2_leading):.2f}"`° when the flyby occurs on the leading side, and $\phi_2 =$ {eval}`f"{np.degrees(phi_2_trailing):.2f}"`° for the trailing-side flyby. Notice that $\delta$ is treated as negative for the trailing-side flyby!
 
 Finally, we can compute the departure excess velocity vector and the departure heliocentric velocity vector, which allows us to compute the new heliocentric orbital elements.
 
@@ -331,17 +295,10 @@ v_infty2_S = v_infty * np.sin(phi_2_leading)
 V_p2 = V_Venus + v_infty2_V
 V_r2 = - v_infty2_S
 V_2 = np.sqrt(V_p2**2 + V_r2**2)
+Delta_V = abs(V_2 - V_1)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("interplanetary-flyby-leading-V_2", V_2)
-glue("interplanetary-flyby-leading-V_p2", V_p2)
-glue("interplanetary-flyby-leading-V_r2", V_r2)
-glue("interplanetary-flyby-leading-Delta_V", abs(V_2 - V_1))
-```
-
-This gives a heliocentric velocity of $V_2^s =$ {glue:text}`interplanetary-flyby-leading-V_2:.2f` km/s, with components $V_{\perp,2}^s =$ {glue:text}`interplanetary-flyby-leading-V_p2:.2f` km/s and $V_{r,2}^s =$ {glue:text}`interplanetary-flyby-leading-V_r2:.2f` km/s. This is a decrease of about {glue:text}`interplanetary-flyby-leading-Delta_V:.2f` km/s in heliocentric speed, as expected for a leading-side flyby.
+This gives a heliocentric velocity of $V_2^s =$ {eval}`f"{V_2:.2f}"` km/s, with components $V_{\perp,2}^s =$ {eval}`f"{V_p2:.2f}"` km/s and $V_{r,2}^s =$ {eval}`f"{V_r2:.2f}"` km/s. This is a decrease of about {eval}`f"{Delta_V:.2f}"` km/s in heliocentric speed, as expected for a leading-side flyby.
 
 The departure angular momentum is found by @eq:interplanetary-flyby-departure-ang-mom. From @eq:interplanetary-flyby-departure-orbit-equation, we find:
 
@@ -375,16 +332,7 @@ R_p2 = a_2 * (1 - e_2)
 R_a2 = 2 * a_2 - R_p2
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("interplanetary-flyby-leading-nu_2", d(nu_2))
-glue("interplanetary-flyby-leading-e_2", e_2)
-glue("interplanetary-flyby-leading-a_2", a_2)
-glue("interplanetary-flyby-leading-R_p2", R_p2)
-glue("interplanetary-flyby-leading-R_a2", R_a2)
-```
-
-For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-leading-e_2:.4f`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the Sun. The perihelion distance is $R_{p,2} =$ {glue:text}`interplanetary-flyby-leading-R_p2:.3E` km and the aphelion distance is $R_{a,2} =$ {glue:text}`interplanetary-flyby-leading-R_a2:.3E` km. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-leading-nu_2:.2f`°, so the spacecraft is approaching perihelion.
+For the leading-side flyby the eccentricity is $e_2 =$ {eval}`f"{e_2:.4f}"`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the sun. The perihelion distance is $R_{p,2} =$ {eval}`f"{R_p2:.3E}"` km and the aphelion distance is $R_{a,2} =$ {eval}`f"{R_a2:.3E}"` km. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {eval}`f"{np.degrees(nu_2):.2f}"`°, so the spacecraft is approaching perihelion.
 
 ### Trailing-Side Flyby
 
@@ -397,6 +345,7 @@ v_infty2_S = v_infty * np.sin(phi_2_trailing)
 V_p2 = V_Venus + v_infty2_V
 V_r2 = - v_infty2_S
 V_2 = np.sqrt(V_p2**2 + V_r2**2)
+Delta_V = abs(V_2 - V_1)
 h_2 = R_Venus * V_p2
 nu_2 = np.arctan2(R_Venus * V_r2 * h_2, h_2**2 - R_Venus * mu_sun)
 e_2 = (V_r2 * h_2) / (mu_sun * np.sin(nu_2))
@@ -406,26 +355,8 @@ R_a2 = 2 * a_2 - R_p2
 nu_infty_2 = np.arccos(-1 / e_2)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("interplanetary-flyby-trailing-V_2", V_2)
-glue("interplanetary-flyby-trailing-V_p2", V_p2)
-glue("interplanetary-flyby-trailing-V_r2", V_r2)
-glue("interplanetary-flyby-trailing-Delta_V", abs(V_2 - V_1))
-```
+This gives a heliocentric velocity of $V_2^s =$ {eval}`f"{V_2:.2f}"` km/s, with components $V_{\perp,2}^s =$ {eval}`f"{V_p2:.2f}"` km/s and $V_{r,2}^s =$ {eval}`f"{V_r2:.2f}"` km/s. This is an increase of about {eval}`f"{Delta_V:.2f}"` km/s in heliocentric speed, as expected for a trailing-side flyby.
 
-This gives a heliocentric velocity of $V_2^s =$ {glue:text}`interplanetary-flyby-trailing-V_2:.2f` km/s, with components $V_{\perp,2}^s =$ {glue:text}`interplanetary-flyby-trailing-V_p2:.2f` km/s and $V_{r,2}^s =$ {glue:text}`interplanetary-flyby-trailing-V_r2:.2f` km/s. This is an increase of about {glue:text}`interplanetary-flyby-trailing-Delta_V:.2f` km/s in heliocentric speed, as expected for a trailing-side flyby.
+For the trailing-side flyby the eccentricity is $e_2 =$ {eval}`f"{e_2:.4f}"`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the sun and the true anomaly of the asymptote is $\nu_{\infty} =$ {eval}`f"{np.degrees(nu_infty_2):.2f}"`°. This means the spacecraft is now on a trajectory to escape the solar system!
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("interplanetary-flyby-trailing-nu_2", d(nu_2))
-glue("interplanetary-flyby-trailing-e_2", e_2)
-glue("interplanetary-flyby-trailing-a_2", a_2)
-glue("interplanetary-flyby-trailing-R_p2", R_p2)
-glue("interplanetary-flyby-trailing-R_a2", R_a2)
-glue("interplanetary-flyby-trailing-nu_infty_2" , d(nu_infty_2))
-```
-
-For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the Sun and the true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°. This means the spacecraft is now on a trajectory to escape the solar system!
-
-The current true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.0f` km. Unfortunately, this is inside the equatorial radius of the Sun as shown in @tab:planetary-radius-parameters, so the spacecraft would most likely not survive the encounter.
+The current true anomaly is $\nu_2 =$ {eval}`f"{np.degrees(nu_2):.2f}"`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {eval}`f"{R_p2:.0f}"` km. Unfortunately, this is inside the equatorial radius of the Sun as shown in @tab:planetary-radius-parameters, so the spacecraft most likely would not survive the encounter.
