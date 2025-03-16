@@ -41,7 +41,7 @@ An [indiction](https://en.wikipedia.org/wiki/Indiction) is the periodic reassess
 
 ## Calculating Julian Days
 
-The Julian calendar was introduced in 46 BC by Julius Cesar, with leap years occuring every four years. This gives the average length of a year as 365.25 days, which is slightly longer than the [solar year](https://en.wikipedia.org/wiki/Tropical_year) of 365.2422 days. Therefore, over time, the day on which the equinox will occur shifts.
+The Julian calendar was introduced in 46 BC by Julius Cesar, with leap years occurring every four years. This gives the average length of a year as 365.25 days, which is slightly longer than the [solar year](https://en.wikipedia.org/wiki/Tropical_year) of 365.2422 days. Therefore, over time, the day on which the equinox will occur shifts.
 
 In 1582, Pope Gregory XIII imposed a modified version of the Julian calendar. The Gregorian calendar, which is still in use today, corrects the average length of the year to 365.2425 days by skipping leap years under certain conditions:
 
@@ -53,7 +53,7 @@ A Gregorian calendar date must have 3 integer parts to calculate the Julian Day 
 
 1. The month number, $M$, varying from 1-12.
 2. The day of the month, $D$, varying from 1-31 depending on the month.
-3. The year, $Y$, using [astronomical year numbering](https://en.wikipedia.org/wiki/Astronomical_year_numbering). Astronomical year numbering is the same as the Gregorian year for all after 1 AD. However, the Gregorian calendar does not include a Year 0, whereas the astronomical year numbering does. Therefore:
+3. The year, $Y$, using [astronomical year numbering](https://en.wikipedia.org/wiki/Astronomical_year_numbering). Astronomical year numbering is the same as the Gregorian year for all years after 1 AD. However, the Gregorian calendar does not include a Year 0, whereas the astronomical year numbering does. Therefore:
 
    * AD 2 = Astronomical Year 2
    * AD 1 = Astronomical Year 1
@@ -82,10 +82,10 @@ where $\mathrm{INT}$ indicates that integer division should be done. This means 
 
 Sample implementations of this algorithm can be found in many places online, and for many programming languages. See:
 
-* <https://web.archive.org/web/20140902005638/http://mysite.verizon.net/aesir_research/date/jdimp.htm>
-* <https://archive.org/details/131123ExplanatorySupplementAstronomicalAlmanac/page/n315/mode/2up>, Page 604
-* <https://web.archive.org/web/20201207022832/https://craftofcoding.files.wordpress.com/2013/07/cs_langjuliandates.pdf>
-* <https://dl.acm.org/doi/10.1145/364096.364097>
+* @Baum2014
+* @Seidelmann1992 [pp. 604]
+* @Wirth2013
+* @Fliegel1968
 
 ## Julian Dates
 
@@ -118,16 +118,7 @@ today = date(year=2020, month=12, day=7)
 jdn = gregorian_to_julian_day_number(today.month, today.day, today.year)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as myst_glue
-glue = partial(myst_glue, display=False)
-glue("julian-date-jdn", f"{jdn:,d}")
-glue("julian-date-today", today.strftime("%B %e, %Y"))
-```
-
-The Julian day number corresponding to {glue:text}`julian-date-today` is {glue:text}`julian-date-jdn`. We can confirm this with the NASA calculator at <https://core2.gsfc.nasa.gov/time/julian.html>.
+The Julian day number corresponding to {eval}`today.strftime("%B %e, %Y")` is {eval}`f"{jdn:,d}"`. We can confirm this with the NASA calculator at <https://core2.gsfc.nasa.gov/time/julian.html>.
 
 :::{note}
 **Note**: In Python 3, integer division (with two slashes `//`) is also known as _floor division_, meaning the result is rounded towards negative infinity. However, the `int()` built-in function rounds floating point numbers towards zero, so in the function above, we use floating point division (with a single slash `/`) and then convert to an integer.
@@ -149,22 +140,9 @@ morning = evening.replace(hour=6, minute=0, second=0, microsecond=0)
 jdt_morning = gregorian_to_julian_date(morning)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("julian-date-evening", evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z"))
-glue("julian-date-morning", morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z"))
-glue("julian-date-next-day", evening.replace(day=evening.day + 1).strftime("%B %e"))
-glue("julian-date-jdt_evening", f"{jdt_evening:,.4f}")
-glue("julian-date-jdt_morning", f"{jdt_morning:,.4f}")
-glue("julian-date-jdt_evening-fraction", jdt_evening % 1)
-glue("julian-date-jdt_morning-fraction", jdt_morning % 1)
-glue("julian-date-morning-time", morning.strftime("%-I:%M %p"))
-glue("julian-date-previous-day", morning.replace(day=morning.day - 1).strftime("%B %e"))
-```
+We first set the time to {eval}`evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` using `timezone.utc`. Since this time is before 12:00 PM UTC on {eval}`evening.replace(day=evening.day + 1).strftime("%B %e")`, the JDN is still {eval}`f"{jdn:,d}"`. The fraction of the day completed is about {eval}`f"{jdt_evening % 1:.2f}"`, so the complete Julian date is {eval}`f"{jdt_evening:,.4f}"`.
 
-We first set the time to {glue:text}`julian-date-evening` using `timezone.utc`. Since this time is before 12:00 PM UTC on {glue:text}`julian-date-next-day`, the JDN is still {glue:text}`julian-date-jdn`. The fraction of the day completed is about {glue:text}`julian-date-jdt_evening-fraction:.2f`, so the complete Julian date is {glue:text}`julian-date-jdt_evening`.
-
-If the time is replaced with {glue:text}`julian-date-morning-time` but the date is still {glue:text}`julian-date-today`, then exactly {glue:text}`julian-date-jdt_morning-fraction` of a Julian date has passed, so the JDT is {glue:text}`julian-date-jdt_morning`. However, notice that the JDN is reduced by one, because {glue:text}`julian-date-morning-time` on {glue:text}`julian-date-today` is part of the Julian day that began on {glue:text}`julian-date-previous-day` at 12:00 PM (noon).
+If the time is replaced with {eval}`morning.strftime("%-I:%M %p")` but the date is still {eval}`today.strftime("%B %e, %Y")`, then exactly {eval}`jdt_morning % 1` of a Julian date has passed, so the JDT is {eval}`f"{jdt_morning:,.4f}"`. However, notice that the JDN is reduced by one, because {eval}`morning.strftime("%-I:%M %p")` on {eval}`today.strftime("%B %e, %Y")` is part of the Julian day that began on {eval}`morning.replace(day=morning.day - 1).strftime("%B %e")` at 12:00 PM (noon).
 
 The reverse conversion is also useful, going from JDT to proleptic Gregorian date and time.
 
@@ -201,12 +179,6 @@ gregorian_evening = julian_date_to_gregorian(jdt_evening)
 gregorian_morning = julian_date_to_gregorian(jdt_morning)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("julian-date-gregorian_evening", gregorian_evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z"))
-glue("julian-date-gregorian_morning", gregorian_morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z"))
-```
-
 @tab:julian-date-conversion-results shows that the reverse conversion gives back nearly identical results. The difference is most likely due to floating point error in the microsecond calculation.
 
 :::{table} Julian date conversion results using an evening and a morning time.
@@ -214,8 +186,8 @@ glue("julian-date-gregorian_morning", gregorian_morning.strftime("%B %e, %Y at %
 
 | Original | Julian Date | Converted |
 |----------|-------------|-----------|
-| {glue:text}`julian-date-evening` | {glue:text}`julian-date-jdt_evening` | {glue:text}`julian-date-gregorian_evening` |
-| {glue:text}`julian-date-morning` | {glue:text}`julian-date-jdt_morning` | {glue:text}`julian-date-gregorian_morning` |
+| {eval}`evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` | {eval}`f"{jdt_evening:,.4f}"` | {eval}`gregorian_evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` |
+| {eval}`morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` | {eval}`f"{jdt_morning:,.4f}"` | {eval}`gregorian_morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` |
 :::
 
 Note that `julian_day_number_to_gregorian()` only gives dates in the proleptic Gregorian calendar, and does not account for the change from Julian to Gregorian calendar in 1582. This also means that the minimum Gregorian date is November 24, 4714 BC, corresponding to a Julian Day Number of 0.

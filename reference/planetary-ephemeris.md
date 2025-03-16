@@ -169,16 +169,7 @@ JDT = gregorian_to_julian_date(T_eph)
 T = (JDT - 2_451_545) / 36_525
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as myst_glue
-glue = partial(myst_glue, display=False)
-glue("planetary-ephemeris-JDT", f"{JDT:,.4f}")
-glue("planetary-ephemeris-epoch", f"{T:.4f}")
-```
-
-Then, we use the functions defined in [](./julian-date.md) to calculate the time since the J2000.0 epoch. The JDT is {glue:text}`planetary-ephemeris-JDT` and the number of centuries since the epoch is {glue:text}`planetary-ephemeris-epoch`. Finally, we can calculate the orbital elements.
+Then, we use the functions defined in [](./julian-date.md) to calculate the time since the J2000.0 epoch. The JDT is {eval}`f"{JDT:,.4f}"` and the number of centuries since the epoch is {eval}`f"{T:.4F}"`. Finally, we can calculate the orbital elements.
 
 ```{code-cell} ipython3
 a = (mercury["a"] + mercury["a_dot"] * T) * 149_597_870.7
@@ -236,7 +227,7 @@ epoch = time.Time(T_eph)
 Next, we will set Astropy to use the JPL ephemerides.
 
 ```{code-cell} ipython3
-:tags: [remove-output,raises-exception]
+:tags: [remove-output]
 from astropy.coordinates import solar_system_ephemeris
 solar_system_ephemeris.set("jpl")
 ```
@@ -354,7 +345,7 @@ Each of the options can be changed by clicking the _Edit_ buttons. For our purpo
 1. _Ephemeris Type_: Either _Vector Table_ or _Osculating Orbital Elements_ is suitable, although the latter is more direct for this example
 2. _Target Body_: This option opens a pop-up where we can search for the body of interest. In the drop-down menu under _Choose a method for specifying the target body_, you can choose _Select from a list of major bodies_, then choose *Mercury*
 3. _Center_: The default selection here is _Solar System Barycenter_, the center of gravity of the entire solar system. This is usually a little bit outside the Sun, depending on the relative locations of the planets, especially Jupiter. In our case, we want the center of the Sun as the focus of the orbit, so click _Edit_ and then type `@sun` into the search box.
-4. _Time Span_: This can be used to generate a range of dates, or to input specific dates. We will choose _Specify a list of times_ for this example, and then input the date of interest, in JDT, {glue:text}`planetary-ephemeris-JDT`.
+4. _Time Span_: This can be used to generate a range of dates, or to input specific dates. We will choose _Specify a list of times_ for this example, and then input the date of interest, in JDT, {eval}`f"{JDT:,.4f}"`.
 5. _Table Settings_: Here, we want to change the units to _km and seconds_. Another useful option is the _Reference plane_. The default of _ecliptic x-y plane derived from reference plane_ is appropriate for this example. You may also want to set the CSV output option, depending on how you will use the data.
 
 When you've set the options for this example, the screen should appear as in @fig:horizons-mercury.

@@ -26,6 +26,7 @@ In this section, we'll talk about the first two options, and discuss flyby traje
 When arriving at the target planet, the spacecraft will cross the sphere of influence *ahead of* or *behind* the planet on the planet's orbital path.
 
 - **Inner to Outer Planet**: The spacecraft velocity is lower than the planet's orbital velocity. The spacecraft crosses the sphere of influence *in front* of the planet. This is shown in @fig:interplanetary-arrival.
+
   :::{figure} ../images/interplanetary-arrival.svg
   :name: fig:interplanetary-arrival
   :width: 50%
@@ -88,7 +89,7 @@ With the eccentricity and semimajor axis, we can determine any of the other orbi
 
 Depending on the mission design, we may want to impact the planetary atmosphere from the hyperbolic approach trajectory. In that case, the offset distance must be precisely determined so that the hyperbolic periapsis radius is within the atmosphere. There is a small range of values of the offset distance that will achieve this, depending on the height of the atmosphere.
 
-In addition, since the plane of the hyperbolic arrival trajectory can be rotated around the center of the planet, there is a surface of possible arrival trajectories (much like the surface of departure trajectories). Combined with the range of offset distances, this gives a small annulus where the hyperbola will impact the atmosphere. This annulus is called the [**reentry corridor**](https://web.archive.org/web/20211115092141/https://www.faa.gov/about/office_org/headquarters_offices/avs/offices/aam/cami/library/online_libraries/aerospace_medicine/tutorial/media/iii.4.1.7_returning_from_space.pdf).
+In addition, since the plane of the hyperbolic arrival trajectory can be rotated around the center of the planet, there is a surface of possible arrival trajectories, much like the surface of departure trajectories. Combined with the range of offset distances, this gives a small annulus where the hyperbola will impact the atmosphere. This annulus is called the [**reentry corridor**](https://web.archive.org/web/20211115092141/https://www.faa.gov/about/office_org/headquarters_offices/avs/offices/aam/cami/library/online_libraries/aerospace_medicine/tutorial/media/iii.4.1.7_returning_from_space.pdf).
 
 The size of the reentry corridor depends on:
 
@@ -118,17 +119,7 @@ v_t2 = m.sqrt(2 * (E_t + mu / r_f))  # km/s
 Delta_vt = abs(v_f - v_t2)  # km/s
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as mystglue
-glue = partial(mystglue, display=False)
-glue("reentry-corridor-v_f", v_f)
-glue("reentry-corridor-v_t2", v_t2)
-glue("reentry-corridor-Delta_vt", Delta_vt)
-```
-
-Here, $v_f$ is the orbital velocity of Earth relative to the Sun, {glue:text}`reentry-corridor-v_f:.3f` km/s. $v_{t,2}$ is the velocity of the spacecraft on the Hohmann transfer ellipse relative to the Sun, {glue:text}`reentry-corridor-v_t2:.3f` km/s. This gives $\Delta v = v_{\infty} =$ {glue:text}`reentry-corridor-Delta_vt:.3f` km/s.
+Here, $v_f$ is the orbital velocity of Earth relative to the Sun, {eval}`f"{v_f:.3f}"` km/s. $v_{t,2}$ is the velocity of the spacecraft on the Hohmann transfer ellipse relative to the Sun, {eval}`f"{v_t2:.3f}"` km/s. This gives $\Delta v = v_{\infty} =$ {eval}`f"{Delta_vt:.3f}"` km/s.
 
 Now, we can calculate the eccentricity, semimajor axis, and offset distance of the geocentric hyperbola given the two $r_p$ values at the surface of the Earth and at the Kármán line.
 
@@ -146,19 +137,10 @@ a = mu_f / v_infty**2  # km
 
 y_1 = a * m.sqrt(e_1**2 - 1)  # km
 y_2 = a * m.sqrt(e_2**2 - 1)  # km
+radius = y_2 - y_1
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("reentry-corridor-e_1", e_1)
-glue("reentry-corridor-e_2", e_2)
-glue("reentry-corridor-a", a)
-glue("reentry-corridor-y_1", y_1)
-glue("reentry-corridor-y_2", y_2)
-glue("reentry-corridor-radius", y_2 - y_1)
-```
-
-The offset distance to have $r_p =$ 6,378 km is $y_1 =$ {glue:text}`reentry-corridor-y_1:.1f` km and to hit the edge of the atmosphere, $y_2 =$ {glue:text}`reentry-corridor-y_2:.1f` km. This gives an annulus of thickness {glue:text}`reentry-corridor-radius:.1f` km that the spacecraft must be within to arrive in Earth's atmosphere. This is approximately the distance from Storrs, CT to the Statue of Liberty. If Earth was the size of a baseball, the reentry corridor would be about the thickness of a credit card.
+The offset distance to have $r_p =$ 6,378 km is $y_1 =$ {eval}`f"{y_1:.1f}"` km and to hit the edge of the atmosphere, $y_2 =$ {eval}`f"{y_2:.1f}"` km. This gives an annulus of thickness {eval}`f"{radius:.1f}"` km that the spacecraft must be within to arrive in Earth's atmosphere. This is approximately the distance from Storrs, CT to the Statue of Liberty. If Earth was the size of a baseball, the reentry corridor would be about the thickness of a credit card.
 
 ## $\Delta v$ for a Capture Orbit
 
@@ -263,16 +245,6 @@ v_t2 = m.sqrt(2 * (E_t + mu / r_f))  # km/s
 Delta_vt = abs(v_f - v_t2)  # km/s
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as mystglue
-glue = partial(mystglue, display=False)
-glue("hohmann-arrival-v_f", v_f)
-glue("hohmann-arrival-v_t1", v_t2)
-glue("hohmann-arrival-Delta_vt", Delta_vt)
-```
-
 Here, `v_f` is the heliocentric orbital velocity of Venus, and `v_t2` is the spacecraft velocity on the heliocentric transfer orbit at Venus's orbital radius relative to the Sun. `Delta_vt` is the change in velocity needed between Venus's orbital velocity and the transfer orbit velocity. In other words, this is the spacecraft speed relative to Venus at the end of the heliocentric transfer orbit.
 
 `Delta_vt` is equal to $v_{\infty}$ that the spacecraft has at the SOI for the Venus-centered hyperbolic arrival trajectory. In addition, we know that the capture orbit altitude, and therefore the altitude of the hyperbolic periapsis, is 300 km. Using this we can find the periapsis radius and velocity.
@@ -293,15 +265,7 @@ h = y * v_infty  # km**2/s
 v_p = h / r_p  # km/s
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hohmann-arrival-e", e)
-glue("hohmann-arrival-a", a)
-glue("hohmann-arrival-y", y)
-glue("hohmann-arrival-v_p", v_p)
-```
-
-The eccentricity of the arrival hyperbola is $e =$ {glue:text}`hohmann-arrival-e:.5f`, the offset distance is {glue:text}`hohmann-arrival-y:.2f` km, and the speed at periapsis is $v_p =$ {glue:text}`hohmann-arrival-v_p:.3f` km/s.
+The eccentricity of the arrival hyperbola is $e =$ {eval}`f"{e:.5f}"`, the offset distance is {eval}`f"{y:.2f}"` km, and the speed at periapsis is $v_p =$ {eval}`f"{v_p:.3f}"` km/s.
 
 Next, we need to calculate the velocity on the circular capture orbit. Since the radius of the capture orbit is the same as the hyperbolic periapsis radius, calculating the speed can be done by @eq:circular-orbit-velocity. Then, we can calculate $\Delta v$.
 
@@ -311,19 +275,19 @@ v_p_capture = m.sqrt(mu_f / r_p)
 Delta_v = abs(v_p - v_p_capture)
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hohmann-arrival-v_p_capture", v_p_capture)
-glue("hohmann-arrival-Delta_v", Delta_v)
-```
-
-The velocity on the capture orbit is {glue:text}`hohmann-arrival-v_p_capture:.2f` km/s and the $\Delta v$ is {glue:text}`hohmann-arrival-Delta_v:.2f` km/s.
+The velocity on the capture orbit is {eval}`f"{v_p_capture:.2f}"` km/s and the $\Delta v$ is {eval}`f"{Delta_v:.2f}"` km/s.
 
 To extend the problem, we can plot the $\Delta v$ for several $r_p$ values, as a function of capture orbit eccentricity.
 
 ```{code-cell} ipython3
-from bokeh.plotting import figure
+:tags:[remove-cell]
+from bokeh.io import output_notebook
+output_notebook(hide_banner=True)
+```
+
+```{code-cell} ipython3
 import numpy as np
+from bokeh.plotting import figure
 
 r_p_array = np.linspace(r_Venus, r_Venus + 5000, 3)
 e_array = np.linspace(0, 0.99, 100)
@@ -343,11 +307,11 @@ v_p_capture = np.sqrt(2 * (E_array + mu_f / r_p_array))
 Delta_v_array = np.abs(v_p - v_p_capture).T
 
 p = figure(
-      width=600,
-      height=350,
-      x_axis_label="Eccentricity [-]",
-      y_axis_label="𝛥v [km/s]"
-  )
+    width=600,
+    height=350,
+    x_axis_label="Eccentricity [-]",
+    y_axis_label="𝛥v [km/s]"
+)
 colors = ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f"]
 for i, row in enumerate(Delta_v_array):
     p.line(
@@ -359,12 +323,14 @@ for i, row in enumerate(Delta_v_array):
 ```
 
 ```{code-cell} ipython3
-:tags: [remove-input]
-from myst_nb_bokeh import glue_bokeh
-glue_bokeh("hohmann-arrival-r_p_e_plot", p)
+:tags: [remove-cell]
+:label: code:hohmann-arrival-r_p_e_plot
+from bokeh.plotting import show
+
+show(p)
 ```
 
-:::{glue:figure} hohmann-arrival-r_p_e_plot
+:::{figure} #code:hohmann-arrival-r_p_e_plot
 :name: fig:hohmann-arrival-r_p_e_plot
 
 The required $\Delta v$ to enter a capture orbit of the given periapsis radius. The eccentricity is plotted on the x-axis of the chart. For this range of $r_p$ values, the $\Delta v$ increases at fixed $e$. For a fixed $r_p$, $\Delta v$ decreases as $e$ increases.
@@ -372,11 +338,7 @@ The required $\Delta v$ to enter a capture orbit of the given periapsis radius. 
 
 @fig:hohmann-arrival-r_p_e_plot shows the required $\Delta v$ to enter a capture orbit as a function of the eccentricity. For each value of $r_p$, $\Delta v$ decreases as $e$ increases, as we discussed earlier. In addition, for a given value of $e$, $\Delta v$ increases as $r_p$ increases.
 
-:::{margin}
-Page 409, 4th edition.
-:::
-
-As it happens, there is a minimum of $\Delta v$ with respect to $r_p$. Following {cite:t}`Curtis2020`, we can take derivatives of @eq:interplanetary-arrival-delta-v to find the optimal value of $r_p$ to minimize $\Delta v$. This turns out to be:
+As it happens, there is a minimum of $\Delta v$ with respect to $r_p$. Following [@Curtis2020, pp. 409, 4th ed], we can take derivatives of @eq:interplanetary-arrival-delta-v to find the optimal value of $r_p$ to minimize $\Delta v$. This turns out to be:
 
 :::{math}
 :label: eq:interplanetary-arrival-minimum-delta-v-r_p
@@ -418,12 +380,7 @@ For the example here, we can calculate the optimal $r_a$:
 r_a = 2 * mu_f / v_infty**2
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hohmann-arrival-r_a", r_a)
-```
-
-The optimal apoapsis distance is {glue:text}`hohmann-arrival-r_a:.2f` km. This radius is inside the surface of Venus, so we cannot achieve the optimal $\Delta v$ with these parameters.
+The optimal apoapsis distance is {eval}`f"{r_a:.2f}"` km. This radius is inside the surface of Venus, so we cannot achieve the optimal $\Delta v$ with these parameters.
 
 Notice that the optimal $r_a$ value is inversely proportional to the square of $v_{\infty}$. Thus, a decrease in $v_{\infty}$ will result in an increase in $r_a$. For instance, transferring from Mars instead of Neptune, we find:
 
@@ -438,10 +395,4 @@ Delta_vt_mars = abs(v_f - v_t2_mars)  # km/s
 r_a_mars = 2 * mu_f / Delta_vt_mars**2
 ```
 
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("hohmann-arrival-mars-delta_vt", Delta_vt_mars)
-glue("hohmann-arrival-mars-r_a", r_a_mars)
-```
-
-The $v_{\infty}$ when transferring from Mars is {glue:text}`hohmann-arrival-mars-delta_vt:.2f` km/s, giving an optimal apoapsis radius of {glue:text}`hohmann-arrival-mars-r_a:.2f` km. This is well outside Venus's radius, so would be achievable by the spacecraft.
+The $v_{\infty}$ when transferring from Mars is {eval}`f"{Delta_vt_mars:.2f}"` km/s, giving an optimal apoapsis radius of {eval}`f"{r_a_mars:.2f}"` km. This is well outside Venus's radius, so would be achievable by the spacecraft.
