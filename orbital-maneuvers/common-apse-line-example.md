@@ -33,7 +33,7 @@ e_i = (r_a_i - r_p_i) / (r_a_i + r_p_i)
 p_i = a_i * (1 - e_i**2)
 ```
 
-The semimajor axis is $a_i =$ {eval}`a_i:.2f` km and the eccentricity is $e_i =$ {eval}`e_i:.4f`. Next, we need to calculate $r_A$ and $r_B$ to determine the orbital parameters for the transfer orbit.
+The semimajor axis is $a_i =$ {eval}`f"{a_i:.2f}"` km and the eccentricity is $e_i =$ {eval}`f"{e_i:.4f}"`. Next, we need to calculate $r_A$ and $r_B$ to determine the orbital parameters for the transfer orbit.
 
 There is no target orbit; rather, the target is a point on the apse line at the radius of Earth. Thus, $r_B =$ 6378.1 km and $\nu_B =$ 0°. $r_A$ is found from the orbit equation on the initial orbit. Then, @eq:non-hohmann-orbital-elements is used to find the orbital elements.
 
@@ -47,7 +47,7 @@ p_t = r_A * r_B * (m.cos(nu_A) - m.cos(nu_B)) / (r_A * m.cos(nu_A) - r_B * m.cos
 a_t = p_t / (1 - e_t**2)
 ```
 
-The semimajor axis is $a_t =$ {eval}`a_t:.2f` km and the eccentricity is $e_t =$ {eval}`e_t:.4f`. Now we have enough information to determine the velocity components and the flight path angles on the original orbit and the transfer orbit.
+The semimajor axis is $a_t =$ {eval}`f"{a_t:.2f}"` km and the eccentricity is $e_t =$ {eval}`f"{e_t:.4f}"`. Now we have enough information to determine the velocity components and the flight path angles on the original orbit and the transfer orbit.
 
 ```{code-cell} ipython3
 h_i = m.sqrt(p_i * mu)
@@ -74,10 +74,10 @@ The velocities and flight path angles are shown in @tab:common-apse-line.
 
 |  | Initial | Transfer |
 |:-|:--------|:---------|
-| $v_{\perp}$ (km/s) | {glue:text}`v_p_i:.2f` | {glue:text}`v_p_t:.2f` |
-| $v_{r}$ (km/s) | {glue:text}`v_r_i:.2f` | {glue:text}`v_r_t:.2f` |
-| $v$ (km/s) | {glue:text}`v_i:.2f` | {glue:text}`v_t:.2f` |
-| $\phi$ (deg.) | {eval}`phi_i:.2f` | {eval}`phi_t:.2f` |
+| $v_{\perp}$ (km/s) | {eval}`f"{v_p_i:.2f}"` | {eval}`f"{v_p_t:.2f}"` |
+| $v_{r}$ (km/s) | {eval}`f"{v_r_i:.2f}"` | {eval}`f"{v_r_t:.2f}"` |
+| $v$ (km/s) | {eval}`f"{v_i:.2f}"` | {eval}`f"{v_t:.2f}"` |
+| $\phi$ (deg.) | {eval}`f"{phi_i:.2f}"` | {eval}`f"{phi_t:.2f}"` |
 
 :::
 
@@ -88,4 +88,4 @@ Delta_v = m.sqrt(v_i**2 + v_t**2 - 2 * v_i * v_t * m.cos(m.radians(phi_t - phi_i
 gamma = m.degrees(m.atan2(v_r_t - v_r_i, v_p_t - v_p_i))
 ```
 
-The required $\Delta v=$ {eval}`Delta_v:.4f` km/s and the angle of the thrust vector is $\gamma =$ {eval}`gamma:.2f`°.
+The required $\Delta v=$ {eval}`f"{Delta_v:.4f}"` km/s and the angle of the thrust vector is $\gamma =$ {eval}`f"{gamma:.2f}"`°.

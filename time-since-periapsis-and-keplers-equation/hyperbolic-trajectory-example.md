@@ -37,7 +37,7 @@ h = r_p * v_p  # km**2/s
 e = h**2 / (r_p * mu) - 1
 ```
 
-The eccentricity is $e =$ {eval}`e:.4f`. Since $e > 1$, this trajectory is a hyperbola.
+The eccentricity is $e =$ {eval}`f"{e:.4f}"`. Since $e > 1$, this trajectory is a hyperbola.
 
 We should find the true anomaly of the asymptote from @eq:hyperbolic-true-anomaly-asymptote, to ensure that our desired true anomaly is valid.
 
@@ -130,7 +130,7 @@ v_r = mu / h * e * np.sin(nu_2)
 v_2 = np.sqrt(v_r**2 + v_perp**2)
 ```
 
-The radius is $r_2 =$ {eval}`r_2:.4E` km and the speed is $v_2 =$ {eval}`v_2:.2f` km/s.
+The radius is $r_2 =$ {eval}`f"{r_2:.4E}"` km and the speed is $v_2 =$ {eval}`f"{v_2:.2f}"` km/s.
 
 ## MATLAB Solution
 

@@ -1,16 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.11.5
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
----
-
 # Interplanetary Transfer Phasing
 
 Aside from the $\Delta v$ requirement discussed in the [previous section](./heliocentric-trajectories.md), the other important requirement for interplanetary trajectories is to correctly time the transfer so that the spacecraft and target planet rendezvous at arrival. Since the transfer orbits can take months or years to complete, the target planet may complete a significant fraction of its orbit during the transfer. Therefore, it is critical to launch the spacecraft at just the right time to rendezvous at arrival.
@@ -33,7 +20,7 @@ The first item can be determined from the orbital elements of the transfer orbit
 A hypothetical Hohmann transfer with increasing radius. The initial phase angle between the initial and final planets is $\gamma_1$ and the phase angle after the transfer is complete is $\gamma_2$. Note that while the spacecraft travels 180° of true anomaly on the transfer trajectory (green), the initial planet (blue) travels more than 180° and the final planet (red) travels less than 180°.
 :::
 
-In the previous section, we assumed that the orbits of the planets are circular. This allows us to define the angluar distance traversed by the planet in a time interval by its average angular velocity, also called the _mean motion_:
+In the previous section, we assumed that the orbits of the planets are circular. This allows us to define the angular distance traversed by the planet in a time interval by its average angular velocity, also called the _mean motion_:
 
 :::{math}
 :label: eq:mean-motion
@@ -120,7 +107,7 @@ where $n_i t_{12}$ is the angular distance traveled by the initial planet during
 \gamma_1 = \nu_{f,1} - \nu_{i,1}
 :::
 
-Meanwhilie, the spacecraft travels an angular distance of $\Gamma$ radians during the transfer. $\Gamma$ is the difference in true anomaly between the departure and arrival points on the transfer trajectory.
+Meanwhile, the spacecraft travels an angular distance of $\Gamma$ radians during the transfer. $\Gamma$ is the difference in true anomaly between the departure and arrival points on the transfer trajectory.
 
 :::{math}
 :label: eq:interplanetary-transfer-true-anomaly
@@ -191,105 +178,3 @@ t_{\text{wait}} &= \frac{-2\gamma_2 + 2\pi N}{n_f - n_i} &&\text{if } n_i < n_f
 :::
 
 where $N = 0, 1, 2, \ldots$ is chosen so that $t_{\text{wait}}$ is positive.
-
-## Example: Neptune–Venus Hohmann Transfer
-
-Continuing the {ref}`example from the previous section <sec:neptune-venus-hohmann-example>`, we can determine the required phase angles for the Neptune–Venus Hohmann transfer and the total time taken for the transfer and the waiting period.
-
-First, we compute the mean motion of Neptune and Venus.
-
-```{code-cell} ipython3
-import math as m
-mu = 1.32712E11  # km**3/s**2
-
-T_i = 60910.25  # days
-T_f = 224.70  # days
-n_i = 2 * m.pi / (T_i * 86400)  # s
-n_f = 2 * m.pi / (T_f * 86400)  # s
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-from functools import partial
-from myst_nb import glue as mystglue
-glue = partial(mystglue, display=False)
-glue("heliocentric-hohmann-n_i", n_i)
-glue("heliocentric-hohmann-n_f", n_f)
-```
-
-The mean motion of Neptune is $n_i =$ {glue:text}`heliocentric-hohmann-n_i:.2e` rad/s and of Venus is $n_f =$ {glue:text}`heliocentric-hohmann-n_f:.2e` rad/s. For a Hohmann transfer, $\Gamma = \pi$ and the transfer time is found from @eq:hohmann-transfer-time. Then, we can find the initial phase angle required.
-
-```{code-cell} ipython3
-r_i = 4.53239E9  # km
-r_f = 1.08209E8  # km
-a_t = (r_i + r_f) / 2  # km
-t_12 = m.pi / m.sqrt(mu) * a_t**(3/2)  # s
-
-gamma_1 = (m.pi - n_f * t_12) % (2 * m.pi)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("heliocentric-hohmann-gamma_1", m.degrees(gamma_1))
-```
-
-Note that we use the modulus (`%`) operator to bring the phase angle into the range of 0-2𝜋. The initial phase angle is $\gamma_1 =$ {glue:text}`heliocentric-hohmann-gamma_1:.2f`°. Although this is the initial phase angle, Venus actually completes approximately 53 orbits of the Sun while waiting for the spacecraft to arrive from Neptune. We can compute the phase angle at arrival similarly.
-
-```{code-cell} ipython3
-gamma_2 = (m.pi - n_i * t_12) % (2 * m.pi)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("heliocentric-hohmann-gamma_2", m.degrees(gamma_2))
-```
-
-The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamma_2:.2f`°. These angles are shown in @fig:interplanetary-phase-angle-example.
-
-:::{figure} ../images/interplanetary-phase-angle-example.svg
-:name: fig:interplanetary-phase-angle-example
-:width: 100%
-
-The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the Sun, while Neptune completes less than half of one orbit during this entire process.
-:::
-
-Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since $n_f > n_i$, we choose the positive version of @eq:interplanetary-wait-time.
-
-```{code-cell} ipython3
-t_wait = []
-for N in (0, 1, 2, 3):
-    t = (-2 * gamma_2 + 2 * m.pi * N) / (n_f - n_i)
-    t_wait.append(t)
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-for N in (0, 1, 2, 3):
-    glue(f"heliocentric-hohmann-t_wait_{N}", t_wait[N] / (525600 * 60))
-    if t_wait[N] > 0 and t_wait[N - 1] < 0:
-        glue("heliocentric-hohmann-t_total", (2 * t_12 + t_wait[N]) / (525600 * 60))
-```
-
-The wait times are shown in @tab:heliocentric-hohmann-wait-times. The total mission time, including the wait time, is {glue:text}`heliocentric-hohmann-t_total:.2f` years.
-
-:::{table} The wait times for heliocentric Hohmann transfers from Neptune to Venus and back.
-:name: tab:heliocentric-hohmann-wait-times
-
-| N | $t_{\text{wait}}$ (years) |
-|---|-----------------------|
-| 0 | {glue:text}`heliocentric-hohmann-t_wait_0:.4f` |
-| 1 | {glue:text}`heliocentric-hohmann-t_wait_1:.4f` |
-| 2 | {glue:text}`heliocentric-hohmann-t_wait_2:.4f` |
-| 3 | {glue:text}`heliocentric-hohmann-t_wait_3:.4f` |
-:::
-
-Clearly, the total mission time is dominated by the transfer time. This is because the synodic period of Venus relative to Neptune is quite small, at only {glue:text}`heliocentric-hohmann-T_syn:.2f` Earth years. Since Venus whips around the Sun, relative to Neptune, the same phase angle occurs relatively often.
-
-```{code-cell} ipython3
-T_syn = T_i * T_f / abs(T_i - T_f)  # days
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-glue("heliocentric-hohmann-T_syn", T_syn / (365.25))
-```

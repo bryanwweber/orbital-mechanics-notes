@@ -1,6 +1,6 @@
 # Bi-elliptic Hohmann transfer
 
-Hohmann {cite}`Hohmann1960` showed that the Hohmann transfer is the most efficient _two_ impulse maneuver. However, for some cases, adding an additional impulse reduces the total $\Delta v$ requirement for an orbital transfer.
+@Hohmann1960 showed that the Hohmann transfer is the most efficient _two_ impulse maneuver. However, for some cases, adding an additional impulse reduces the total $\Delta v$ requirement for an orbital transfer.
 
 Assume that the initial and target orbits are circular. A [Bi-elliptic Hohmann transfer](https://en.wikipedia.org/wiki/Bi-elliptic_transfer) starts by departing the initial orbit onto an elliptical transfer orbit whose apoapsis is at a _higher altitude_ than the target orbit. Upon reaching apoapsis of the first transfer orbit, the velocity is boosted again onto a second transfer orbit. This second transfer orbit has the same periapsis altitude as the target orbit.
 
