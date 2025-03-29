@@ -430,7 +430,7 @@ for e in e_vals:
     nu = np.hstack((nu, 2 * np.pi - nu[::-1]))
     ax_2.plot(nu, M_e, label=f"$e$ = {e:.2F}")
 
-ax_2.legend()
+ax_2.legend();
 ```
 
 ```{code-cell} ipython3
@@ -505,7 +505,7 @@ for e in e_vals:
     M_e = np.hstack((M_e, 2 * np.pi - M_e[::-1]))
     ax_1.plot(np.hstack((E, 2 * np.pi - E[::-1])), M_e, label=f"$e$ = {e:.2F}")
 
-ax_1.legend()
+ax_1.legend();
 ```
 
 ```{code-cell} ipython3
