@@ -239,11 +239,8 @@ By convention, the Lagrange points are numbered such that $L_1$ lies between $m_
 ```{code-cell}
 :tags: [remove-cell]
 
-import matplotlib.pyplot as plt
 import matplotlib.path as mpath
 import matplotlib.animation as animation
-import numpy as np
-from scipy.optimize import newton
 
 def collinear_lagrange(xstar, pi_2):
     return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
@@ -284,7 +281,7 @@ l = ax.axhline(0, color='k')
 
 ann = ax.annotate("", xy=(1, 0.85), ha="center", va="center", fontsize=20)
 
-ax.legend(bbox_to_anchor=(0, 1, 1, 0), loc="lower left", mode="expand", ncol=7)
+ax.legend(bbox_to_anchor=(0, 1, 1, 0), loc="lower left", mode="expand", ncol=7);
 
 
 def init():
@@ -323,7 +320,7 @@ def animate(pi_2):
 pi_2 = np.hstack((np.logspace(-5, -1, 25), np.linspace(0.1, 0.8, 50), np.logspace(-0.08, -4e-6, 25)))
 anim = animation.FuncAnimation(
     fig, animate, init_func=init, frames=pi_2, blit=True
-)
+);
 ```
 
 ```{code-cell} ipython3
@@ -361,10 +358,7 @@ A plot of this function is shown in @fig:pseudo-potential-energy-cr3bp, includin
 ```{code-cell}
 :tags: [remove-cell]
 
-import matplotlib.pyplot as plt
 from matplotlib import cm
-import numpy as np
-from scipy.optimize import newton
 from mpl_toolkits.mplot3d import Axes3D
 
 pi_2 = 0.3
@@ -413,7 +407,7 @@ ax.plot(L_2, 0, U_L2, 'r^', zorder=10, label="$L_2$", markersize=15)
 ax.plot(L_3, 0, U_L3, 'rp', zorder=10, label="$L_3$", markersize=15)
 ax.plot(0.5 - pi_2, np.sqrt(3)/2, L_45, 'rX', zorder=10, label="$L_4$", markersize=15)
 ax.plot(0.5 - pi_2, -np.sqrt(3)/2, L_45, 'rs', zorder=10, label="$L_5$", markersize=15)
-ax.legend()
+ax.legend();
 ```
 
 ```{code-cell} ipython3
@@ -456,9 +450,7 @@ Note that @fig:pseudo-potential-energy-cr3bp shows the potential surface for $\p
 ```{code-cell}
 :tags: [remove-cell]
 
-import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-import numpy as np
 
 plt.rcdefaults()
 
@@ -503,7 +495,7 @@ ax.annotate("$L_4$", xy=(x_G, y_G), ha="left", va="top", fontsize=30, color="r")
 x_arc_G = 3*r_J/4 * np.cos(theta_J - arc) + 300
 y_arc_G = 3*r_J/4 * np.sin(theta_J - arc) + 300
 ax.plot(x_arc_G, y_arc_G, lw=3, color="r")
-ax.annotate("60°", xy=(7*r_J/8*np.cos(theta_J - np.pi/6) + 300, 7*r_J/8*np.sin(theta_J - np.pi/6) + 300), fontsize=30, color='r', ha="center", va="center")
+ax.annotate("60°", xy=(7*r_J/8*np.cos(theta_J - np.pi/6) + 300, 7*r_J/8*np.sin(theta_J - np.pi/6) + 300), fontsize=30, color='r', ha="center", va="center");
 ```
 
 ```{code-cell} ipython3

@@ -148,7 +148,7 @@ ax.annotate("$r_p$", xy=(-a - r_p/2, -0.4), ha="center", va="center")
 ax.plot((-a - r_p, -a - r_p), (-0.1, -0.3), lw=0.5, color="black")
 ax.plot((-a , -a), (-0.1, -0.3), lw=0.5, color="black")
 ax.annotate("$r$", xy=((x_1 + hyperbola_focus) / 2, y_1 / 2), ha="right", va="top")
-ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white")
+ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white");
 ```
 
 ```{code-cell}
@@ -282,7 +282,7 @@ ax.grid(which="both")
 for e in e_vals:
     M_h = np.log10(e * np.sinh(F) - F)
     ax.plot(F, M_h, label=f"$e$ = {e}")
-ax.legend()
+ax.legend();
 ```
 
 ```{code-cell} ipython3

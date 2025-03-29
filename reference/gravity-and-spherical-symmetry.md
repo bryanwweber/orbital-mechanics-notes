@@ -1,6 +1,6 @@
 # Gravity and Spherical Symmetry
 
-In the [section about conservation of energy](sec:conservation-of-energy), we assumed that the two masses were spherically symmetric. In this section, we are going to prove that the force field from a conservative force is the same for a spherically symmetric distributed mass as an equivalent point mass. We will use gravity as an example.
+In the [section about conservation of energy](#sec:conservation-of-energy), we assumed that the two masses were spherically symmetric. In this section, we are going to prove that the force field from a conservative force is the same for a spherically symmetric distributed mass as an equivalent point mass. We will use gravity as an example.
 
 ## Conservative Forces Are Related to Potential Energy
 
