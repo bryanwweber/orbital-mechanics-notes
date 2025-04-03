@@ -145,7 +145,7 @@ ax_3.plot(x_3, y1_3, label="$S(z)$")
 ax_3.grid(which="both")
 ax_3.xaxis.set_minor_locator(AutoMinorLocator(2))
 ax_3.yaxis.set_minor_locator(AutoMinorLocator(2))
-ax_3.legend()
+ax_3.legend();
 ```
 
 ```{code-cell}
