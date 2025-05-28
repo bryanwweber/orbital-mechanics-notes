@@ -23,7 +23,7 @@ import numpy as np
 
 ureg = UnitRegistry()
 ureg.setup_matplotlib()
-ureg.default_format = "~H"
+ureg.formatter.default_format = "~H"
 Q_ = ureg.Quantity
 
 G = Q_(6.6742E-11, "m**3 / (kg * s**2)")
