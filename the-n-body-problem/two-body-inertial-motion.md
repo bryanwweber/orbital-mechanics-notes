@@ -65,7 +65,7 @@ Newton's second law says that the force is equal to the mass times the accelerat
 
 where $\ddot{\vector{R}}$ is the **absolute acceleration** of the subscripted mass. Absolute means that the acceleration is taken relative to an inertial reference frame. This is important because Newton's second law only applies for absolute accelerations.
 
-Since the only force in this system is the gravitational attraction, the force is also equal to Newton's law of gravitation, {eq}`eq:newtons-law-of-gravitation`. The force of $m_2$ on $m_1$, $F_{12}$, points in the _positive_ direction of $\uvec{u}_r$. Because of Newton's third law, as represented by {eq}`eq:newtons-third-law-for-two-body`, the force of $m_1$ on $m_2$, $F_{21}$, points in the negative direction of $\uvec{u}_r$. This is shown in {eq}`eq:gravitational-force-two-body`:
+Since the only force in this system is the gravitational attraction, the force may also be described by Newton's law of gravitation, {eq}`eq:newtons-law-of-gravitation`. The force of $m_2$ on $m_1$, $F_{12}$, points in the _positive_ direction of $\uvec{u}_r$. Because of Newton's third law, as represented by {eq}`eq:newtons-third-law-for-two-body`, the force of $m_1$ on $m_2$, $F_{21}$, points in the negative direction of $\uvec{u}_r$. This is shown in {eq}`eq:gravitational-force-two-body`:
 
 :::{math}
 :label: eq:gravitational-force-two-body
