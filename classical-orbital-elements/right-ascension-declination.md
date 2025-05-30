@@ -37,7 +37,7 @@ Finally, stars with declinations below about -90° + $\phi$ do not rise at all.
 
 As of the year 2021, the March equinox points in the direction of the constellation Pisces. In antiquity, when the first astronomical observations were recorded, the March equinox was in the constellation of Aries. Thus, the March equinox is also sometimes called the first point of Aries.
 
-This change has occurred due to a phenomenon called [**axial precession**](https://en.wikipedia.org/wiki/Axial_precession). Over time, the rotation vector of the Earth changes direction due to the combined pull of the moon and the Sun on the Earth. Axial precession occurs in a cycle that is approximately 25,700 years long.
+This change has occurred due to a phenomenon called [**axial precession**](https://en.wikipedia.org/wiki/Axial_precession). Over time, the rotation vector of the Earth changes direction due to the combined pull of the Moon and the Sun on the Earth. Axial precession occurs in a cycle that is approximately 25,700 years long.
 
 This means that we need to define where point of 0° right ascension occurs based on the time of the observation. This defines the [**epoch**](https://en.wikipedia.org/wiki/Epoch_(astronomy)) for the observation. The most common epoch in use today is called the **J2000** epoch.
 

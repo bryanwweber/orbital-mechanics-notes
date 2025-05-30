@@ -33,7 +33,7 @@ The Julian calendar is the calendar imposed by Julius Cesar during the Roman Rep
 
 ### The Lunar Cycle
 
-As we know, the moon goes through phases as it orbits around the Earth. The [lunar, or **metonic**, cycle](https://en.wikipedia.org/wiki/Metonic_cycle) of 19 years is approximately the time for the lunar phase to repeat on the same day of the year.
+As we know, the Moon goes through phases as it orbits around the Earth. The [lunar, or **metonic**, cycle](https://en.wikipedia.org/wiki/Metonic_cycle) of 19 years is approximately the time for the lunar phase to repeat on the same day of the year.
 
 ### The Indiction Cycle
 
