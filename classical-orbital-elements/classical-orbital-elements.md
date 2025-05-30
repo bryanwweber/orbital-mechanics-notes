@@ -56,7 +56,7 @@ glue("definition_of_inclination", HTML(definition_of_inclination.html), display=
 The inclination of a planar orbit with respect to a reference plane.
 :::
 
-An inclination of 0° is an equatorial orbit. Orbits with inclinations from 0° to 90° are called **prograde** orbits because they rotate counterclockwise when viewed from above the north pole. This is the same direction as the surface of the earth rotates and the same direction that planets orbit around the sun.
+An inclination of 0° is an equatorial orbit. Orbits with inclinations from 0° to 90° are called **prograde** orbits because they rotate counterclockwise when viewed from above the north pole. This is the same direction as the surface of the earth rotates and the same direction that planets orbit around the Sun.
 
 An orbit with an inclination of 90° is called a polar orbit because it passes directly over the north and south poles of the primary object.
 

@@ -37,7 +37,7 @@ To calculate the orbital parameters for a transfer, we will simplify the calcula
 
 With these three assumptions, the calculation of the required velocities can be completed by the methods discussed in [](../orbital-maneuvers/hohmann-transfer.md) and [](../orbital-maneuvers/non-hohmann-transfers.md).
 
-The value for the gravitational parameter $\mu$ *must* be the value for the sun, $\mu_{\text{Sun}} =$ 1.32712×10<sup>11</sup> km<sup>3</sup>/s<sup>2</sup>.
+The value for the gravitational parameter $\mu$ *must* be the value for the Sun, $\mu_{\text{Sun}} =$ 1.32712×10<sup>11</sup> km<sup>3</sup>/s<sup>2</sup>.
 
 <!-- markdownlint-disable MD022 -->
 (sec:neptune-venus-hohmann-example)=

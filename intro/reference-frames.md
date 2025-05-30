@@ -26,7 +26,7 @@ Therefore, in an inertial reference frame, an object obeys Newton's First Law of
 In orbital mechanics, we usually define an inertial reference frame with respect to the **fixed stars**. Of course, the stars are not really fixed—our Sun orbits the center of the galaxy, as do other stars in the Milky Way, and other galaxies may be approaching or receding at some velocity.
 
 :::{margin}
-According to Graneau and Graneau {cite}`Graneau2006` (pg. 147), the centrifugal acceleration due to the sun's orbit around the galactic center is about thirty million times less than that of the earth about the sun. The effect of the motion of other stars is presumably even smaller still.
+According to Graneau and Graneau {cite}`Graneau2006` (pg. 147), the centrifugal acceleration due to the Sun's orbit around the galactic center is about thirty million times less than that of the earth about the Sun. The effect of the motion of other stars is presumably even smaller still.
 :::
 
 However, on the scale of most orbital mechanics problems we have to deal with (on the order of a few days to a few years), assuming the stars are fixed is reasonable.
@@ -80,7 +80,7 @@ In the ECI, the $Z$ axis points towards the North pole and the $X$-$Y$ plane is 
 The Earth Centered Inertial coordinate system has its origin at the center of the earth and is fixed with respect to the celestial sphere. [U.S. Department of Transportation Federal Aviation Administration - Airway Facilities Division](https://commons.wikimedia.org/wiki/File:Earth_Centered_Inertial_Coordinate_System.png), Public domain, via Wikimedia Commons.
 :::
 
-In the ECI, the $X$ axis points towards the **March equinox**. The equinoxes are the points in space where the earth's equatorial plane and its ecliptic plane intersect. The March equinox occurs when the sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the **First point of Aries**.
+In the ECI, the $X$ axis points towards the **March equinox**. The equinoxes are the points in space where the earth's equatorial plane and its ecliptic plane intersect. The March equinox occurs when the Sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the **First point of Aries**.
 
 :::{margin}
 For more about the equinoxes, see the page about the [](../reference/celestial-sphere.md) and [](../classical-orbital-elements/right-ascension-declination.md).

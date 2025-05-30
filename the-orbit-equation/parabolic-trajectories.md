@@ -43,7 +43,7 @@ Let's start with a circular orbit with a radius $r$. The velocity is given by Eq
 v_{\text{esc}} = \sqrt{2} v_{\text{circular}}
 :::
 
-In practice, an object that is launched from Earth on an escape trajectory will not actually make it out to infinity. This is because of the influence of other gravitational bodies in our solar system, particularly the sun. Interestingly, the satellite will end up in the same orbit as Earth if it doesn't have any other velocity boosts.
+In practice, an object that is launched from Earth on an escape trajectory will not actually make it out to infinity. This is because of the influence of other gravitational bodies in our solar system, particularly the Sun. Interestingly, the satellite will end up in the same orbit as Earth if it doesn't have any other velocity boosts.
 
 ## Flight Path Angle
 

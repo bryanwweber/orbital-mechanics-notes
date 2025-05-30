@@ -6,7 +6,7 @@ In this section, we solve the three-body problem, subject to some restrictions. 
 2. The mass of $m_1$ is larger than $m_2$
 3. The two primary objects orbit in a circle around their center of mass
 
-Although these assumptions seem fairly restrictive, they actually represent several very important physical situations: the Earth-Moon system, as well as the orbits of many of the planets around the sun, with a man-made object as the third mass! This is called the _Circular Restricted Three-Body Problem_ (CRTBP or CR3BP), because the orbits are restricted to circles and the mass of the third body is restricted to be much smaller than the other two.
+Although these assumptions seem fairly restrictive, they actually represent several very important physical situations: the Earth-Moon system, as well as the orbits of many of the planets around the Sun, with a man-made object as the third mass! This is called the _Circular Restricted Three-Body Problem_ (CRTBP or CR3BP), because the orbits are restricted to circles and the mass of the third body is restricted to be much smaller than the other two.
 
 :::{margin}
 We'll see in a later section that the eccentricity of an orbit determines how close to a circle the orbit is. An eccentricity of 0 gives the equation for a circle, while vales up to 1.0 are ellipses.
@@ -14,7 +14,7 @@ We'll see in a later section that the eccentricity of an orbit determines how cl
 
 The orbit of the moon around the earth is approximately circular, with a mean eccentricity of 0.054, and semi-major and semi-minor axes of 384,400 km and 383,800 km, respectively. The center of mass of the system occurs at a distance of 4,600 km from the Earth's center, about 72% of the radius of the Earth. This data comes from [Wikipedia](https://en.wikipedia.org/wiki/Orbit_of_the_Moon).
 
-Similarly, the orbits of Venus, Earth, Jupiter, Saturn, Neptune, and Uranus around the sun all have eccentricities less than 0.06, according to the [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/).
+Similarly, the orbits of Venus, Earth, Jupiter, Saturn, Neptune, and Uranus around the Sun all have eccentricities less than 0.06, according to the [NASA Planetary Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/).
 
 Unlike the two-body problem, there is no general closed-form solution to this problem. Closed-form means an analytical equation we can solve. But we can construct the equations of motion to find some interesting parameters of the orbits.
 

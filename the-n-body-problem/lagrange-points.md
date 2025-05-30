@@ -431,9 +431,9 @@ Since the equilateral Lagrange points are stable, objects placed in a small orbi
 Note that {numref}`fig:pseudo-potential-energy-cr3bp` shows the potential surface for $\pi_2 = 0.3$, which does not satisfy the numerical stability criteria here for $L_4$ and $L_5$ from Eq. {eq}`eq:lagrange-point-stability-criterion`. We're plotting $\pi_2 = 0.3$ to exaggerate the shape of the potential function for clarity.
 :::
 
-which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Earth-Moon system, that ratio is $m_1/m_2 \approx 81.3$, so $L_4$ and $L_5$ are nominally stable. However, the $L_4$ and $L_5$ points for the Earth-Moon system are slightly destabilized by the influence of the sun and they aren't completely stable. Nonetheless, there are clouds of dust which have collected at these points because they are kinda stable.
+which will be satisfied if $m_1/m_2>24.95994$ or $\pi_2 < 0.0385209$. In the Earth-Moon system, that ratio is $m_1/m_2 \approx 81.3$, so $L_4$ and $L_5$ are nominally stable. However, the $L_4$ and $L_5$ points for the Earth-Moon system are slightly destabilized by the influence of the Sun and they aren't completely stable. Nonetheless, there are clouds of dust which have collected at these points because they are kinda stable.
 
-Other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points. In particular, the orbit of Jupiter around the sun has stable equilateral Lagrange points. There are groups of asteroids, called **Trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in {numref}`fig:trojan-asteroids-jupiter`.
+Other pairs of $m_1$ and $m_2$ do have somewhat more stable $L_4$ and $L_5$ points. In particular, the orbit of Jupiter around the Sun has stable equilateral Lagrange points. There are groups of asteroids, called **Trojan asteroids** that cluster around the stable Lagrange points in the orbit of Jupiter, as shown in {numref}`fig:trojan-asteroids-jupiter`.
 
 ```{code-cell}
 :tags: [remove-input, remove-output]

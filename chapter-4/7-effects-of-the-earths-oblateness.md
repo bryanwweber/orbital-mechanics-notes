@@ -74,15 +74,15 @@ We can use the regression of the nodes and the advance of perigee to generate tw
 
 In some cases, it is useful for a satellite to pass over the same position on the earth at the same local solar time each day. Since the solar day is longer than the sidereal day, the plane of the orbit must advance eastward by advancing the node line.
 
-Imagine starting a stopwatch precisely when the sun crosses the meridian, or line of longitude, at your location. At that moment, there is a line directly from the center of the earth, through your meridian to the center of the sun. Exactly 24 hours later, the sun will cross the meridian again.
+Imagine starting a stopwatch precisely when the Sun crosses the meridian, or line of longitude, at your location. At that moment, there is a line directly from the center of the earth, through your meridian to the center of the Sun. Exactly 24 hours later, the Sun will cross the meridian again.
 
 Now, over the course of the 24 hours, the earth moved:
 
 $$\frac{360°}{356.26\text{ days}} 1\text{ day} = 0.9856°$$
 
-in its orbit around the sun. This means that, relative to the **vernal equinox line**, which always points in a fixed direction, the radial line from the center of the earth to the center of the sun also shifted by 0.9856°.
+in its orbit around the Sun. This means that, relative to the **vernal equinox line**, which always points in a fixed direction, the radial line from the center of the earth to the center of the Sun also shifted by 0.9856°.
 
-A satellite in orbit around the earth with coordinates specified in either the geocentric equatorial frame or the perifocal frame is always relative to the vernal equinox line. Imagine that the orbit of a given satellite has its node line parallel to the radial line through your meridian when the sun crosses the meridian on the first day.
+A satellite in orbit around the earth with coordinates specified in either the geocentric equatorial frame or the perifocal frame is always relative to the vernal equinox line. Imagine that the orbit of a given satellite has its node line parallel to the radial line through your meridian when the Sun crosses the meridian on the first day.
 
 For the satellite to have its node line pass through the radial at exactly the same time 24 hours later, the node line must move eastward by 0.9856° over the course of the day. Therefore, we need to use the regression of the nodes to design an orbit where:
 
