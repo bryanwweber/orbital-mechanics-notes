@@ -229,9 +229,8 @@ As a practical consideration, launch azimuths are limited by the geography surro
 ```{code-cell} ipython3
 :tags: [remove-input]
 from bokeh.plotting import figure
-from bokeh.tile_providers import get_provider, OSM
 from myst_nb_bokeh import glue_bokeh
-tile_provider = get_provider(OSM)
+
 y_center, x_center = 28.626407252553207, -80.6204675295687
 def wgs84_to_web_mercator(lon, lat):
     """Converts decimal longitude/latitude to Web Mercator format"""
@@ -244,7 +243,7 @@ scale = 20000
 x_range = (int(x_center - scale), int(x_center + scale))
 y_range = (int(y_center - scale), int(y_center + scale))
 plot = figure(match_aspect=True, x_axis_type="mercator", y_axis_type="mercator", x_range=x_range, y_range=y_range)
-map = plot.add_tile(tile_provider)
+map = plot.add_tile("OSM")
 map.level = "underlay"
 plot.grid.visible = True
 # plot.xaxis.visible = False
@@ -279,14 +278,14 @@ The other major launch site in the US is Vandenberg Space Force Base in southern
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-tile_provider_2 = get_provider(OSM)
+
 y_center, x_center = 34.58275238653322, -120.62596633922566
 x_center, y_center = wgs84_to_web_mercator(x_center, y_center)
 scale = 20000
 x_range = (int(x_center - scale), int(x_center + scale))
 y_range = (int(y_center - scale), int(y_center + scale))
 plot = figure(match_aspect=True, x_axis_type="mercator", y_axis_type="mercator", x_range=x_range, y_range=y_range)
-map = plot.add_tile(tile_provider_2)
+map = plot.add_tile("OSM")
 map.level = "underlay"
 plot.grid.visible = True
 # plot.xaxis.visible = False
