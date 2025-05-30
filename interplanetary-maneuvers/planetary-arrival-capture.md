@@ -130,7 +130,7 @@ glue("reentry-corridor-Delta_vt", Delta_vt)
 
 Here, $v_f$ is the orbital velocity of Earth relative to the Sun, {glue:text}`reentry-corridor-v_f:.3f` km/s. $v_{t,2}$ is the velocity of the spacecraft on the Hohmann transfer ellipse relative to the Sun, {glue:text}`reentry-corridor-v_t2:.3f` km/s. This gives $\Delta v = v_{\infty} =$ {glue:text}`reentry-corridor-Delta_vt:.3f` km/s.
 
-Now, we can calculate the eccentricity, semimajor axis, and offset distance of the geocentric hyperbola given the two $r_p$ values at the surface of the earth and at the Kármán line.
+Now, we can calculate the eccentricity, semimajor axis, and offset distance of the geocentric hyperbola given the two $r_p$ values at the surface of the Earth and at the Kármán line.
 
 ```{code-cell} ipython3
 v_infty = Delta_vt

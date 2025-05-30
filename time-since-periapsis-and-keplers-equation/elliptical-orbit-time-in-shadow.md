@@ -13,12 +13,12 @@ kernelspec:
 
 # Example: Time in Earth's Shadow
 
-A satellite is in a 500 km by 5000 km orbit with its apse line parallel to the line from the earth to the Sun, as in {numref}`fig:ellipse-time-in-shadow-figure`. Find the time that the satellite is in the earth's shadow if:
+A satellite is in a 500 km by 5000 km orbit with its apse line parallel to the line from the Earth to the Sun, as in {numref}`fig:ellipse-time-in-shadow-figure`. Find the time that the satellite is in the Earth's shadow if:
 
 1. the apogee is toward the Sun
 2. the perigee is toward the Sun
 
-{numref}`fig:ellipse-time-in-shadow-figure` shows the shaded and sunlit regions of the orbit. The satellite will be in shade when its orbit intersects the lines at the edge of the earth, on the other side from the Sun. When apogee is towards the Sun, the satellite is in the shade from $a$ to $b$, and when perigee is towards the Sun, the satellite is in the shade from $c$ to $d$.
+{numref}`fig:ellipse-time-in-shadow-figure` shows the shaded and sunlit regions of the orbit. The satellite will be in shade when its orbit intersects the lines at the edge of the Earth, on the other side from the Sun. When apogee is towards the Sun, the satellite is in the shade from $a$ to $b$, and when perigee is towards the Sun, the satellite is in the shade from $c$ to $d$.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -96,7 +96,7 @@ glue("ellipse-time-in-shadow-figure", fig)
 :::{glue:figure} ellipse-time-in-shadow-figure
 :name: fig:ellipse-time-in-shadow-figure
 
-The orientation of the Sun relative to the earth in this example.
+The orientation of the Sun relative to the Earth in this example.
 :::
 
 ## Solution
@@ -128,7 +128,7 @@ glue("ellipse-time-in-shadow-T", T/3600)
 
 The eccentricity of the orbit is $e =$ {glue:text}`ellipse-time-in-shadow-e:.4f`, the semimajor axis distance is $a =$ {glue:text}`ellipse-time-in-shadow-a:.2f` km, and the period is $T =$ {glue:text}`ellipse-time-in-shadow-T:.2f` hr. Then, we need to solve for the value of $\nu$ at $b$ and $c$. With this value of $\nu$, we can find the time to fly between the two points. This will tell us the time the satellite is in the shade.
 
-From {numref}`fig:ellipse-time-in-shadow-figure`, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the earth. This gives:
+From {numref}`fig:ellipse-time-in-shadow-figure`, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the Earth. This gives:
 
 :::{math}
 :label: eq:ellipse-time-in-shadow-right-triangle
@@ -153,7 +153,7 @@ def shadow(nu, e, a, R_E):
     """This function computes the angle 𝜈 in the shadow example problem.
 
     The arguments are the angle, the eccentricity, the semimajor axis, and
-    the radius of the earth.
+    the radius of the Earth.
     """
     return e * np.cos(nu) - (1 - e**2) * a / R_E * np.sin(nu) + 1
 

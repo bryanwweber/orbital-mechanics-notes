@@ -227,4 +227,4 @@ for n in (1, 2, 5):
 | 5 | {glue:text}`phasing_orbit_hours_5:.2f` | {glue:text}`phasing_orbit_delta_v_5:.3f` |
 :::
 
-A comparison of the results is shown in {numref}`tab:phasing-orbit-comparison`. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the earth, has the highest $\Delta v$ requirement. The smallest $\Delta v$ requirement is for the case of a single complete rotation of the earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional $\Delta v$ to do so.
+A comparison of the results is shown in {numref}`tab:phasing-orbit-comparison`. We can see that the impossible phasing orbit, taking only 9.2 hours and cutting through the Earth, has the highest $\Delta v$ requirement. The smallest $\Delta v$ requirement is for the case of a single complete rotation of the Earth. This is because having a longer period requires raising apogee higher than is necessary, incurring additional $\Delta v$ to do so.

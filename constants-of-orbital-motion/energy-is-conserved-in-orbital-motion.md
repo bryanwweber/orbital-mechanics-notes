@@ -147,6 +147,6 @@ Now that we have proven that the two-body equation of motion satisfies conservat
 \end{aligned}
 :::
 
-where $C$ is an arbitrary constant of integration. By choosing a value for $C$, we are setting the **reference point** for the potential energy. For instance, we could choose the reference point at $r = R_E$, the radius of the earth, which would give some finite value for $C$. However, it is most convenient to choose $C=0$, corresponding to a reference point at infinite radius.
+where $C$ is an arbitrary constant of integration. By choosing a value for $C$, we are setting the **reference point** for the potential energy. For instance, we could choose the reference point at $r = R_E$, the radius of the Earth, which would give some finite value for $C$. However, it is most convenient to choose $C=0$, corresponding to a reference point at infinite radius.
 
 Equation {eq}`eq:integrate-energy-equation` is a statement of the conservation of energy of the system. It is called the _vis viva_ equation, which translates as the _living force_ equation due to its central role in understanding how objects orbit each other.

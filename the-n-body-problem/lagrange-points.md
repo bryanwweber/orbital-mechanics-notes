@@ -506,7 +506,7 @@ These satellites orbit around the unstable Lagrange points in a [Lissajous orbit
 :::{figure} ../images/wmap-trajectory.gif
 :name: fig:wmap-trajectory
 
-The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
+The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the Earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
 :::
 
 Another example is the JWST, mentioned previously. JWST has a simpler [halo orbit](https://en.wikipedia.org/wiki/Halo_orbit) around $L_2$. The orbit of JWST is shown in {numref}`fig:jwst-trajectory`.
@@ -514,7 +514,7 @@ Another example is the JWST, mentioned previously. JWST has a simpler [halo orbi
 :::{figure} ../images/jwst-trajectory.gif
 :name: fig:jwst-trajectory
 
-The trajectory of the [James Webb Space Telescope](https://en.wikipedia.org/wiki/James_Webb_Space_Telescope) (JWST) as viewed from above the ecliptic plane with Earth fixed. Note again the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_James_Webb_Space_Telescope_trajectory_-_Polar_view.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
+The trajectory of the [James Webb Space Telescope](https://en.wikipedia.org/wiki/James_Webb_Space_Telescope) (JWST) as viewed from above the ecliptic plane with Earth fixed. Note again the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the Earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_James_Webb_Space_Telescope_trajectory_-_Polar_view.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
 :::
 
 $L_1$ and $L_2$ in the Earth-Sun system are about 1.5 million km towards the Sun and away from the Sun, starting at the Earth, respectively. $L_3$ lies on the other side of the Sun, and has long been the predicted location of a hidden planet, since it could not be observed from Earth prior to the advent of satellite observation. Now, of course, we know there is no planet at that location.

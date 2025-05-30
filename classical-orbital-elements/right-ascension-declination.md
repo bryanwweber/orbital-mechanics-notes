@@ -1,6 +1,6 @@
 # Right Ascension and Declination Coordinates
 
-To the human eye, from the surface of the earth, stars and other objects in the night sky appear as points on a sphere surrounding the earth. This sphere is called the [celestial sphere](../reference/celestial-sphere.md). The points on the celestial sphere appear in the same location at the same time of night throughout the year, even as the earth orbits the Sun. This is because most stars are so far away that the scale of motion in the solar system is not enough to change our perspective on them, so they appear to be fixed to the sphere.
+To the human eye, from the surface of the Earth, stars and other objects in the night sky appear as points on a sphere surrounding the Earth. This sphere is called the [celestial sphere](../reference/celestial-sphere.md). The points on the celestial sphere appear in the same location at the same time of night throughout the year, even as the Earth orbits the Sun. This is because most stars are so far away that the scale of motion in the solar system is not enough to change our perspective on them, so they appear to be fixed to the sphere.
 
 Since the stars are fixed, we can identify their positions on the celestial sphere and use them as reference points to determine orbital parameters. The reference frame used to describe these positions is similar to the [Earth-Centered Inertial](sec:earth-centered-inertial) frame. However, the celestial sphere uses spherical coordinates rather than Cartesian. Due to the huge distances to the visible stars, the radial distance is not important, and we only care about the angular position.
 
@@ -13,15 +13,15 @@ Since the stars are fixed, we can identify their positions on the celestial sphe
 The coordinate system on the celestial sphere. [Tfr000 (talk) 15:34, 15 June 2012 (UTC)](https://commons.wikimedia.org/wiki/File:Ra_and_dec_on_celestial_sphere.png)</a>, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons.
 :::
 
-The celestial sphere is shown in {numref}`fig:Ra_and_dec_on_celestial_sphere`. The fundamental plane in this coordinate system is the earth's equatorial plane. The intersection of the earth's equatorial plane and the celestial sphere is the **celestial equator**. The coordinates are similar to latitude and longitude on the earth, but projected out onto the celestial sphere.
+The celestial sphere is shown in {numref}`fig:Ra_and_dec_on_celestial_sphere`. The fundamental plane in this coordinate system is the Earth's equatorial plane. The intersection of the Earth's equatorial plane and the celestial sphere is the **celestial equator**. The coordinates are similar to latitude and longitude on the Earth, but projected out onto the celestial sphere.
 
-The celestial north and south poles are aligned with the earth's north and south poles. The angle from the equator to the poles is called the [**declination**](https://en.wikipedia.org/wiki/Declination). Like latitude, declination is 0° at the celestial equator and ±90° at the poles. Declination is usually abbreviated DEC.
+The celestial north and south poles are aligned with the Earth's north and south poles. The angle from the equator to the poles is called the [**declination**](https://en.wikipedia.org/wiki/Declination). Like latitude, declination is 0° at the celestial equator and ±90° at the poles. Declination is usually abbreviated DEC.
 
-The other coordinate is called [**right ascension**](https://en.wikipedia.org/wiki/Right_ascension), abbreviated RA. The zero point of right ascension is at the March, or vernal, equinox and increases going eastward. It takes the earth about 1 hour to rotate through 15° of right ascension, so lines of right ascension are also called hour lines.
+The other coordinate is called [**right ascension**](https://en.wikipedia.org/wiki/Right_ascension), abbreviated RA. The zero point of right ascension is at the March, or vernal, equinox and increases going eastward. It takes the Earth about 1 hour to rotate through 15° of right ascension, so lines of right ascension are also called hour lines.
 
 ## Ecliptic
 
-Also shown on {numref}`fig:Ra_and_dec_on_celestial_sphere` is a line representing the ecliptic. This is the apparent path that the Sun follows through the sky if we measured the right ascension and declination of the Sun at the same time every day. The ecliptic is also the plane of the earth's orbit around the Sun. The reason that the Sun does not follow the celestial equator is because the earth's rotation axis is tilted by 23.4°.
+Also shown on {numref}`fig:Ra_and_dec_on_celestial_sphere` is a line representing the ecliptic. This is the apparent path that the Sun follows through the sky if we measured the right ascension and declination of the Sun at the same time every day. The ecliptic is also the plane of the Earth's orbit around the Sun. The reason that the Sun does not follow the celestial equator is because the Earth's rotation axis is tilted by 23.4°.
 
 Another way to view the equinox is as the line generated by the intersection of the equatorial plane and the ecliptic plane.
 
@@ -37,7 +37,7 @@ Finally, stars with declinations below about -90° + $\phi$ do not rise at all.
 
 As of the year 2021, the March equinox points in the direction of the constellation Pisces. In antiquity, when the first astronomical observations were recorded, the March equinox was in the constellation of Aries. Thus, the March equinox is also sometimes called the first point of Aries.
 
-This change has occurred due to a phenomenon called [**axial precession**](https://en.wikipedia.org/wiki/Axial_precession). Over time, the rotation vector of the earth changes direction due to the combined pull of the moon and the Sun on the earth. Axial precession occurs in a cycle that is approximately 25,700 years long.
+This change has occurred due to a phenomenon called [**axial precession**](https://en.wikipedia.org/wiki/Axial_precession). Over time, the rotation vector of the Earth changes direction due to the combined pull of the moon and the Sun on the Earth. Axial precession occurs in a cycle that is approximately 25,700 years long.
 
 This means that we need to define where point of 0° right ascension occurs based on the time of the observation. This defines the [**epoch**](https://en.wikipedia.org/wiki/Epoch_(astronomy)) for the observation. The most common epoch in use today is called the **J2000** epoch.
 
