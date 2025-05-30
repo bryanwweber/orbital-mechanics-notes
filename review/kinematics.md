@@ -4,7 +4,7 @@ In classical mechanics, [**kinematics**](https://en.wikipedia.org/wiki/Kinematic
 
 ## Position and Velocity
 
-Given a [frame of reference](../intro/reference-frames.md), we can specify the position of any particle $P$ with reference to the origin $O$ of the the coordinate system:
+Given a [frame of reference](../intro/reference-frames.md), we can specify the position of any particle $P$ with reference to the origin $O$ of the coordinate system:
 
 :::{math}
 :label: eq:cartesian-position-vector
