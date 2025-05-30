@@ -313,5 +313,5 @@ glue_bokeh("vandenberg-launch-angles", plot)
 :::{glue:figure} vandenberg-launch-angles
 :name: fig:vandenberg-launch-angles
 
-The permitted launch angles from Vandenberg Space Force Base on the Wast coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
+The permitted launch angles from Vandenberg Space Force Base on the West coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::
