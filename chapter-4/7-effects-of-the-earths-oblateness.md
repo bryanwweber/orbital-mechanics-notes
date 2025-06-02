@@ -115,7 +115,7 @@ If the Earth did not rotate (and was therefore spherical), the ground track woul
 To calculate the ground track, we can imagine a pair of coordinate systems:
 
 1. Fixed in space, with its origin at the center of the Earth—the geocentric equatorial coordinate system, $X$, $Y$, and $Z$
-2. Rotating at the same rate as the Earth, with its origin at the center of the Earth—the Earth-centered, Earth-fixed (ECEF) frame, $x'$, $y'$, and $z'$
+2. Rotating at the same rate as the Earth, with its origin at the center of the Earth—the Earth-Centered, Earth-Fixed (ECEF) frame, $x'$, $y'$, and $z'$
 
 The ground track of the spacecraft is then found by calculating the right ascension and declination at any instant in the ECEF frame.
 
