@@ -32,7 +32,7 @@ The specific energy of the circular orbit is negative. As the orbit radius goes 
 
 ## Low Earth Orbit
 
-Many manned spacecraft and unpopulated satellites occupy ideally circular orbits around the Earth. These orbits typically fall between altitudes of 150 km (100 miles) and 2000 km (1200 miles). These orbits are called **low Earth orbits**, or LEO. The lower of these altitudes is substantially above the bulk of the drag-inducing atmosphere. The higher altitude is less than the altitude of the [Van Allen radiation belts](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt), a dangerous region of space extending from about 1000 km outwards.
+Many manned spacecraft and unpopulated satellites occupy ideally circular orbits around the Earth. These orbits typically fall between altitudes of 150 km (100 miles) and 2000 km (1200 miles). These orbits are called **Low Earth Orbits**, or LEO. The lower of these altitudes is substantially above the bulk of the drag-inducing atmosphere. The higher altitude is less than the altitude of the [Van Allen radiation belts](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt), a dangerous region of space extending from about 1000 km outwards.
 
 :::{figure} ../images/Comparison_satellite_navigation_orbits.svg
 :name: fig:Comparison_satellite_navigation_orbits
