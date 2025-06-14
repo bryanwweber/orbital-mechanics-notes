@@ -15,7 +15,7 @@ kernelspec:
 
 When $e > 1$, the geometry of the trajectory is a hyperbola. The shape of a hyperbola is two symmetric, disconnected curves. The body following the trajectory occupies one of the curves. The other is an empty, imaginary orbit present only due to the mathematics.
 
-All interplanetary bodies such as comets or asteroids that approach the earth, or any spacecraft we want to send to other planets, must be on a hyperbolic trajectory. Whereas a parabolic trajectory has zero velocity at infinite radius, the hyperbolic trajectory has some non-zero velocity.
+All interplanetary bodies such as comets or asteroids that approach the Earth, or any spacecraft we want to send to other planets, must be on a hyperbolic trajectory. Whereas a parabolic trajectory has zero velocity at infinite radius, the hyperbolic trajectory has some non-zero velocity.
 
 From the orbit equation, Eq. {eq}`eq:scalar-orbit-equation`, we see that the denominator goes to zero when $1 + e\cos\nu$ goes to zero. The true anomaly when this happens is called the **true anomaly of the asymptote**:
 

@@ -26,7 +26,7 @@ Therefore, in an inertial reference frame, an object obeys Newton's First Law of
 In orbital mechanics, we usually define an inertial reference frame with respect to the **fixed stars**. Of course, the stars are not really fixed—our Sun orbits the center of the galaxy, as do other stars in the Milky Way, and other galaxies may be approaching or receding at some velocity.
 
 :::{margin}
-According to Graneau and Graneau {cite}`Graneau2006` (pg. 147), the centrifugal acceleration due to the sun's orbit around the galactic center is about thirty million times less than that of the earth about the sun. The effect of the motion of other stars is presumably even smaller still.
+According to Graneau and Graneau {cite}`Graneau2006` (pg. 147), the centrifugal acceleration due to the Sun's orbit around the galactic center is about thirty million times less than that of the Earth about the Sun. The effect of the motion of other stars is presumably even smaller still.
 :::
 
 However, on the scale of most orbital mechanics problems we have to deal with (on the order of a few days to a few years), assuming the stars are fixed is reasonable.
@@ -71,16 +71,16 @@ For now, we will assume that the Earth is a sphere. We use the Earth here since 
 
 The [**Earth-Centered Inertial**](https://en.wikipedia.org/wiki/Earth-centered_inertial) (ECI) frame is an inertial frame with the origin fixed to the center of the Earth, $C$. This frame uses **capital letters** for the axes and unit vectors, as shown in {numref}`fig-earth-centered-inertial-frame`.
 
-In the ECI, the $Z$ axis points towards the North pole and the $X$-$Y$ plane is in the same plane as the equator. Since this is an inertial frame, it is fixed in place with respect to the [**celestial sphere**](https://en.wikipedia.org/wiki/Celestial_sphere), the stars surrounding the earth.
+In the ECI, the $Z$ axis points towards the North pole and the $X$-$Y$ plane is in the same plane as the equator. Since this is an inertial frame, it is fixed in place with respect to the [**celestial sphere**](https://en.wikipedia.org/wiki/Celestial_sphere), the stars surrounding the Earth.
 
 :::{figure} ../images/Earth_Centered_Inertial_Coordinate_System.png
 :name: fig-earth-centered-inertial-frame
 :alt: Earth Centered Inertial coordinate system with satellite demonstrating position in this frame.
 
-The Earth Centered Inertial coordinate system has its origin at the center of the earth and is fixed with respect to the celestial sphere. [U.S. Department of Transportation Federal Aviation Administration - Airway Facilities Division](https://commons.wikimedia.org/wiki/File:Earth_Centered_Inertial_Coordinate_System.png), Public domain, via Wikimedia Commons.
+The Earth Centered Inertial coordinate system has its origin at the center of the Earth and is fixed with respect to the celestial sphere. [U.S. Department of Transportation Federal Aviation Administration - Airway Facilities Division](https://commons.wikimedia.org/wiki/File:Earth_Centered_Inertial_Coordinate_System.png), Public domain, via Wikimedia Commons.
 :::
 
-In the ECI, the $X$ axis points towards the **March equinox**. The equinoxes are the points in space where the earth's equatorial plane and its ecliptic plane intersect. The March equinox occurs when the sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the **First point of Aries**.
+In the ECI, the $X$ axis points towards the **March equinox**. The equinoxes are the points in space where the Earth's equatorial plane and its ecliptic plane intersect. The March equinox occurs when the Sun crosses the equatorial plane from below. This currently happens in the constellation Pisces, although in antiquity this occurred in the constellation Aries (the ram). Thus, the March equinox is also called the **First point of Aries**.
 
 :::{margin}
 For more about the equinoxes, see the page about the [](../reference/celestial-sphere.md) and [](../classical-orbital-elements/right-ascension-declination.md).
@@ -90,16 +90,16 @@ For more about the equinoxes, see the page about the [](../reference/celestial-s
 
 ### Earth-Centered, Earth-Fixed
 
-The **Earth-centered, Earth-fixed** (ECEF) frame is a _non-inertial frame_, but with the origin still fixed at the center of the Earth. The main difference from the ECI is that the axes in the ECEF **rotate** at the same rate as the surface of the earth.
+The **Earth-centered, Earth-fixed** (ECEF) frame is a _non-inertial frame_, but with the origin still fixed at the center of the Earth. The main difference from the ECI is that the axes in the ECEF **rotate** at the same rate as the surface of the Earth.
 
-The ECEF uses lower case, primed letters for the axes and unit vectors. The $z'$ axis points towards the North pole, and the $x'$ axis intersects the equator and the prime meridian. Since the ECEF rotates with the earth, the $x'$ axis _always_ points through the equator and the prime meridian.
+The ECEF uses lower case, primed letters for the axes and unit vectors. The $z'$ axis points towards the North pole, and the $x'$ axis intersects the equator and the prime meridian. Since the ECEF rotates with the Earth, the $x'$ axis _always_ points through the equator and the prime meridian.
 
 :::{figure} ../images/earth-centered-earth-fixed.svg
 :name: fig:earth-centered-earth-fixed
 :alt: The Earth-centered, Earth-fixed coordinate system
 :width: 60%
 
-The Earth-centered, Earth-fixed coordinate system is centered at the center of the earth and rotates with the same angular velocity, such that the $x'$ axis always points through the intersection of the prime meridian and the equator.
+The Earth-centered, Earth-fixed coordinate system is centered at the center of the Earth and rotates with the same angular velocity, such that the $x'$ axis always points through the intersection of the prime meridian and the equator.
 :::
 
 Every 24 hours, the ECEF and ECI are aligned. Thus, the angular distance between $X$ and $x'$ is $\theta_G$, and $\theta_G$ increases at the rate $\Omega$, the rotation rate of the Earth such that there are 24 hours in the day.
@@ -131,5 +131,5 @@ The third direction, $z$, is directly up from the surface of the Earth and is ca
 :alt: The topocentric-horizon coordinate system
 :width: 60%
 
-The topocentric-horizon coordinate system is centered at the object. The $x$ axis points east, the $y$ axis points north, and the $z$ axis points up from the earth. Modified from [Original: Brews ohare This Version: CheChe](https://commons.wikimedia.org/wiki/File:Earth_coordinates.svg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons
+The topocentric-horizon coordinate system is centered at the object. The $x$ axis points east, the $y$ axis points north, and the $z$ axis points up from the Earth. Modified from [Original: Brews ohare This Version: CheChe](https://commons.wikimedia.org/wiki/File:Earth_coordinates.svg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons
 :::

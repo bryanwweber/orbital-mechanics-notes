@@ -41,7 +41,7 @@ I_{sp} = \frac{\text{Thrust}}{\text{Sea-level weight rate of fuel consumption}}
 
 Therefore, $I_{sp}$ has units of seconds. Higher values of $I_{sp}$ are better, because it means we are either getting more thrust per unit fuel consumed per unit time (the top gets bigger and the bottom is constant) or we are getting the same thrust at a lower fuel consumption rate (the top is constant and the bottom gets bigger).
 
-Although $I_{sp}$ is a measure of the efficiency of the engine in converting fuel chemical energy into thrust, it is not the only performance metric of interest for rocket engines. In practice, engines with high specific impulse tend to have very low thrust. This makes them poorly suited for applications that require a large acceleration, such lift-off from the surface of the earth.
+Although $I_{sp}$ is a measure of the efficiency of the engine in converting fuel chemical energy into thrust, it is not the only performance metric of interest for rocket engines. In practice, engines with high specific impulse tend to have very low thrust. This makes them poorly suited for applications that require a large acceleration, such lift-off from the surface of the Earth.
 
 ## Total Velocity Change
 

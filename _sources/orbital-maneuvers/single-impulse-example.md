@@ -17,7 +17,7 @@ The simplest case of an orbit change is one that only requires a single impulse.
 
 For any single-impulse orbital maneuver, the initial and final orbits must intersect at some point. The two velocities required for Eq. {eq}`eq:single-impulse-delta-v` are determined at the point of intersection of the two orbits. Eq. {eq}`eq:single-impulse-delta-v` can be simplified to involve only velocity magnitudes when the velocity vectors are parallel at the point of intersection.
 
-Let's consider a case where we want to deorbit a spacecraft from low Earth orbit. To deorbit a spacecraft, we need to place it in an orbit that will intersect the atmosphere. Once in the atmosphere, drag will take over and reduce the velocity to the terminal velocity. As a simplification, we will neglect the atmosphere. This means we will determine the true anomaly when the spacecraft reaches the surface of the earth, or when the orbital radius is equal to the earth's radius.
+Let's consider a case where we want to deorbit a spacecraft from low Earth orbit. To deorbit a spacecraft, we need to place it in an orbit that will intersect the atmosphere. Once in the atmosphere, drag will take over and reduce the velocity to the terminal velocity. As a simplification, we will neglect the atmosphere. This means we will determine the true anomaly when the spacecraft reaches the surface of the Earth, or when the orbital radius is equal to the Earth's radius.
 
 Initially, the spacecraft is in a circular orbit at 1000 km altitude. We define the apse line pointing to the right along the $x$ axis, as usual. When the spacecraft reaches the apse line, an impulsive thrust is provided to put the spacecraft on the deorbit trajectory, which will be an ellipse. We would like the spacecraft to impact at a point 145° from the impulse point. This situation is shown in {numref}`fig:single-impulse-example-orbit`.
 
@@ -89,11 +89,11 @@ The initial orbit is a circular orbit, with velocity given by Eq. {eq}`eq:circul
 v_1 = \sqrt{\frac{\mu}{z_0 + R_E}}
 :::
 
-where $z_0$ is the initial altitude and $R_E$ is the radius of the earth.
+where $z_0$ is the initial altitude and $R_E$ is the radius of the Earth.
 
 Although the impact orbit is only a segment of the elliptical orbit, it nonetheless has the same properties as any other elliptical orbit. Since we chose for the velocity vectors to be parallel at the impulse point, the impulse must occur at the perigee or apogee of the impact orbit. The reason for this is that the radial velocity for a circular orbit is zero and the only places on an elliptical orbit where the radial velocity is zero are the apses.
 
-If the impulse point is at perigee of the impact orbit, then apogee would be _further_ away from the earth and no impact would occur. Thus, the impulse point must be the _apogee_ of the impact orbit and perigee is inside the earth, on the opposite side of the earth from the impulse point.
+If the impulse point is at perigee of the impact orbit, then apogee would be _further_ away from the Earth and no impact would occur. Thus, the impulse point must be the _apogee_ of the impact orbit and perigee is inside the Earth, on the opposite side of the Earth from the impulse point.
 
 Thus, the velocity on the impact orbit at the impulse point is the apogee velocity, given by:
 

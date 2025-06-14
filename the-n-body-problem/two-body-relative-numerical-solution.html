@@ -510,7 +510,7 @@ PYTHON</label><div class="sd-tab-content docutils">
   \vector{r}_0 &amp;= \left(8000 \uvec{\imath} + 6000 \uvec{k}\right)\ \mathrm{km} \\
   \dot{\vector{r}}_0 &amp;= 7.0 \uvec{\jmath}\ \mathrm{km/s}
 \end{aligned}\end{split}\]</div>
-<p>We want to determine the minimum and maximum altitude, and the satellite’s speed at those two locations. The altitude of the satellite is its height above the earth’s surface. The radius of the earth is 6378.12 km.</p>
+<p>We want to determine the minimum and maximum altitude, and the satellite’s speed at those two locations. The altitude of the satellite is its height above the Earth’s surface. The radius of the Earth is 6378.12 km.</p>
 <p>To avoid confusion with the <span class="math notranslate nohighlight">\(y\)</span> coordinate, we will use capital <span class="math notranslate nohighlight">\(Y\)</span> for the state vector. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-1" name="sd-tab-set-1" type="radio">
@@ -625,10 +625,10 @@ MATLAB</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Since we are looking for the minimum and maximum <em>altitude</em>, we need to calculate the distance of the satellite from the center of the earth and then subtract the radius of the earth. This will give the altitude above the surface:</p>
+<p>Since we are looking for the minimum and maximum <em>altitude</em>, we need to calculate the distance of the satellite from the center of the Earth and then subtract the radius of the Earth. This will give the altitude above the surface:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earth-altitude-definition">
 <span class="eqno">(41)<a class="headerlink" href="#equation-eq-earth-altitude-definition" title="Link to this equation">#</a></span>\[h = \mag{\vector{r}} - R_E\]</div>
-<p>where <span class="math notranslate nohighlight">\(h\)</span> is the altitude and <span class="math notranslate nohighlight">\(R_E\)</span> is the radius of the earth. Similarly, the speed is the magnitude of the velocity.</p>
+<p>where <span class="math notranslate nohighlight">\(h\)</span> is the altitude and <span class="math notranslate nohighlight">\(R_E\)</span> is the radius of the Earth. Similarly, the speed is the magnitude of the velocity.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-7" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="python" for="sd-tab-item-7">
@@ -726,7 +726,7 @@ The velocity at the maximum altitude is: 4.4353 km/s
 The time at maximum altitude is: 7288.57 s
 </pre></div>
 </div>
-<p>Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let’s plot the orbit. The central sphere is representative of the earth.</p>
+<p>Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let’s plot the orbit. The central sphere is representative of the Earth.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-13" name="sd-tab-set-7" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="python" for="sd-tab-item-13">
@@ -970,7 +970,7 @@ MATLAB</label><div class="sd-tab-content docutils">
   }
 </script>
 </div><figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The motion of a satellite in orbit around the earth.</span><a class="headerlink" href="#fig-two-body-relative" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The motion of a satellite in orbit around the Earth.</span><a class="headerlink" href="#fig-two-body-relative" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

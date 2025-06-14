@@ -17,7 +17,7 @@ As we discussed, bi-elliptic transfers can save $\Delta v$ requirement when the 
 
 In this example, we will explore this with some numbers, and also discuss the tradeoffs of a bielliptic transfer.
 
-Let's start the initial orbit at the radius of the moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using Eq. {eq}`eq:circular-orbit-velocity`:
+Let's start the initial orbit at the radius of the Moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using Eq. {eq}`eq:circular-orbit-velocity`:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -90,7 +90,7 @@ glue("v_p_t", v_p_t)
 glue("v_a_t", v_a_t)
 ```
 
-The velocity at the apogee of the transfer orbit is $v_{a,t} =$ {glue:text}`v_a_t:.3f` km/s, but the orbital velocity at the moon's orbit is over 1 km/s, a factor of nearly five. Now, let's calculate $\Delta v$:
+The velocity at the apogee of the transfer orbit is $v_{a,t} =$ {glue:text}`v_a_t:.3f` km/s, but the orbital velocity at the Moon's orbit is over 1 km/s, a factor of nearly five. Now, let's calculate $\Delta v$:
 
 ```{code-cell} ipython3
 delta_v_t = abs(v_p_t - v_3) + abs(v_1 - v_a_t)

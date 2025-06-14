@@ -13,7 +13,7 @@ kernelspec:
 
 # Example: Universal Lagrange Coefficients
 
-An Earth satellite moves in an inertial frame with the origin at the earth's center. Relative to that frame, the initial position and velocity of the satellite are measured as:
+An Earth satellite moves in an inertial frame with the origin at the Earth's center. Relative to that frame, the initial position and velocity of the satellite are measured as:
 
 :::{math}
 :label:
@@ -206,4 +206,4 @@ r_p = a * (1 - e)
 print(r_p)
 ```
 
-Fortunately, since the radius of the earth is 6378 km, this satellite will not impact the earth and will have an altitude at closest approach of ~622 km.
+Fortunately, since the radius of the Earth is 6378 km, this satellite will not impact the Earth and will have an altitude at closest approach of ~622 km.

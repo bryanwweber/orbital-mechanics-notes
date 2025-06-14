@@ -485,7 +485,7 @@
 <h1>Example: Comparison of Bi-elliptic and Two-Impulse Hohmann Transfers<a class="headerlink" href="#example-comparison-of-bi-elliptic-and-two-impulse-hohmann-transfers" title="Link to this heading">#</a></h1>
 <p>As we discussed, bi-elliptic transfers can save <span class="math notranslate nohighlight">\(\Delta v\)</span> requirement when the initial and target orbits have very different radii. When the target orbit radius is more than about 15.5 times larger than the initial radius (or vice versa), the bi-elliptic transfer is more energy efficient than the standard, two-impulse, Hohmann transfer.</p>
 <p>In this example, we will explore this with some numbers, and also discuss the tradeoffs of a bielliptic transfer.</p>
-<p>Let’s start the initial orbit at the radius of the moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using Eq. <a class="reference internal" href="../the-orbit-equation/circular-orbits.html#equation-eq-circular-orbit-velocity">(121)</a>:</p>
+<p>Let’s start the initial orbit at the radius of the Moon, 385,000 km, and set the target as an LEO orbit of 500 km altitude. Assuming both orbits are circular, we can find the initial and target orbital velocities using Eq. <a class="reference internal" href="../the-orbit-equation/circular-orbits.html#equation-eq-circular-orbit-velocity">(121)</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -529,7 +529,7 @@
 </div>
 </div>
 </div>
-<p>The velocity at the apogee of the transfer orbit is <span class="math notranslate nohighlight">\(v_{a,t} =\)</span> <span class="pasted-text">0.191</span> km/s, but the orbital velocity at the moon’s orbit is over 1 km/s, a factor of nearly five. Now, let’s calculate <span class="math notranslate nohighlight">\(\Delta v\)</span>:</p>
+<p>The velocity at the apogee of the transfer orbit is <span class="math notranslate nohighlight">\(v_{a,t} =\)</span> <span class="pasted-text">0.191</span> km/s, but the orbital velocity at the Moon’s orbit is over 1 km/s, a factor of nearly five. Now, let’s calculate <span class="math notranslate nohighlight">\(\Delta v\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_v_t</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_p_t</span> <span class="o">-</span> <span class="n">v_3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v_1</span> <span class="o">-</span> <span class="n">v_a_t</span><span class="p">)</span>

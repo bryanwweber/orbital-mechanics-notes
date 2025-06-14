@@ -67,7 +67,7 @@ where $e_1$, $h_1$, and $\nu_1$ are the eccentricity, angular momentum, and true
 
 ### Geocentric Unit Vectors
 
-To simplify the calculation of $\vector{v}_{\infty}$, we would like to work with unit vectors attached to the planet, rather than the sun. The $\uvec{u}_r$-$\uvec{u}_{\perp}$ coordinate system, which is attached to the heliocentric orbit, can be converted into a geocentric system with the unit vectors $\uvec{u}_{V}$ and $\uvec{u}_{S}$.
+To simplify the calculation of $\vector{v}_{\infty}$, we would like to work with unit vectors attached to the planet, rather than the Sun. The $\uvec{u}_r$-$\uvec{u}_{\perp}$ coordinate system, which is attached to the heliocentric orbit, can be converted into a geocentric system with the unit vectors $\uvec{u}_{V}$ and $\uvec{u}_{S}$.
 
 $\uvec{u}_V$ points along the planet's orbital velocity vector. Since we assumed that the planet's orbit is circular, the planet's orbital velocity vector is always perpendicular to it's radial vector. In other words:
 
@@ -184,7 +184,7 @@ From Eqs. {eq}`eq:interplanetary-flyby-uvec-perp` and {eq}`eq:interplanetary-fly
 \end{aligned}
 :::
 
-Using these two velocity components and the known radial distance of the planet from the sun, we can compute the orbital elements of the new heliocentric orbit. The orbital angular momentum is found by:
+Using these two velocity components and the known radial distance of the planet from the Sun, we can compute the orbital elements of the new heliocentric orbit. The orbital angular momentum is found by:
 
 :::{math}
 :label: eq:interplanetary-flyby-departure-ang-mom
@@ -207,7 +207,7 @@ V_{r,2}^s = \frac{\mu_{\text{sun}}}{h_2}e_2\sin\nu_2
 
 ## Example
 
-A spacecraft will use a flyby manuever around Venus to change its heliocentric orbit. The spacecraft departs the orbit of Neptune on a velocity perpendicular to a line to the sun, and meets Venus at a true anomaly of 120° relative to the departure point. The periapsis altitude is 300 km. Calculate the spacecraft's new heliocentric orbital elements after a leading-side flyby and a trailing-side flyby.
+A spacecraft will use a flyby manuever around Venus to change its heliocentric orbit. The spacecraft departs the orbit of Neptune on a velocity perpendicular to a line to the Sun, and meets Venus at a true anomaly of 120° relative to the departure point. The periapsis altitude is 300 km. Calculate the spacecraft's new heliocentric orbital elements after a leading-side flyby and a trailing-side flyby.
 
 First, we need to calculate the arrival heliocentric velocity vector. The spacecraft departs Neptune's orbit at aphelion of the transfer orbit. We know the departure point is aphelion because the velocity vector is perpendicular to the radius vector. We can find the orbital elements of the transfer orbit by using the orbit equation, Eq. {eq}`eq:scalar-orbit-equation` at the departure and arrival points.
 
@@ -384,7 +384,7 @@ glue("interplanetary-flyby-leading-R_p2", R_p2)
 glue("interplanetary-flyby-leading-R_a2", R_a2)
 ```
 
-For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-leading-e_2:.4f`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the sun. The perihelion distance is $R_{p,2} =$ {glue:text}`interplanetary-flyby-leading-R_p2:.3E` km and the aphelion distance is $R_{a,2} =$ {glue:text}`interplanetary-flyby-leading-R_a2:.3E` km. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-leading-nu_2:.2f`°, so the spacecraft is approaching perihelion.
+For the leading-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-leading-e_2:.4f`. Since $e_2 < 1$, the new heliocentric trajectory is still an ellipse around the Sun. The perihelion distance is $R_{p,2} =$ {glue:text}`interplanetary-flyby-leading-R_p2:.3E` km and the aphelion distance is $R_{a,2} =$ {glue:text}`interplanetary-flyby-leading-R_a2:.3E` km. This aphelion distance is approximately at the orbital radius of Jupiter. The true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-leading-nu_2:.2f`°, so the spacecraft is approaching perihelion.
 
 ### Trailing-Side Flyby
 
@@ -426,6 +426,6 @@ glue("interplanetary-flyby-trailing-R_a2", R_a2)
 glue("interplanetary-flyby-trailing-nu_infty_2" , d(nu_infty_2))
 ```
 
-For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the sun and the true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°. This means the spacecraft is now on a trajectory to escape the solar system!
+For the trailing-side flyby the eccentricity is $e_2 =$ {glue:text}`interplanetary-flyby-trailing-e_2:.4f`. Since $e_2 > 1$, the new heliocentric trajectory is a hyperbola relative to the Sun and the true anomaly of the asymptote is $\nu_{\infty} =$ {glue:text}`interplanetary-flyby-trailing-nu_infty_2:.2f`°. This means the spacecraft is now on a trajectory to escape the solar system!
 
 The current true anomaly is $\nu_2 =$ {glue:text}`interplanetary-flyby-trailing-nu_2:.2f`°, so the spacecraft is approaching perihelion, which will be at a distance of $R_{p,2} =$ {glue:text}`interplanetary-flyby-trailing-R_p2:.0f` km. Unfortunately, this is inside the equatorial radius of the Sun as shown in {numref}`tab:planetary-radius-parameters`, so the spacecraft would most likely not survive the encounter.
