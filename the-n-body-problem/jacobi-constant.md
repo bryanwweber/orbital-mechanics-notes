@@ -191,6 +191,6 @@ One example of a use for these data is to determine whether or not a spacecraft 
 
 Imagine a spacecraft in orbit around the moon. The spacecraft has $J =$ -1.797, corresponding to the upper left axis in {numref}`fig:jacobi-forbidden-regions`. With this value of $J$, the spacecraft cannot leave orbit around the moon, because it does not have enough energy to enter any of the gray areas.
 
-Now, imagine the same spacecraft has $J =$ -1.592. If the spacecraft is at the same position as before, its speed will have increased. This gives the spacecraft access to more of the space between the earth and the moon. Now, if the spacecraft has the right initial position and speed for it, there is a possible trajectory that connects the moon and the earth.
+Now, imagine the same spacecraft has $J =$ -1.592. If the spacecraft is at the same position as before, its speed will have increased. This gives the spacecraft access to more of the space between the Earth and the moon. Now, if the spacecraft has the right initial position and speed for it, there is a possible trajectory that connects the moon and the Earth.
 
-As $J$ increases, more and more of the space between the earth and the moon becomes accessible to the spacecraft. Although the Jacobi constant cannot tell us what initial conditions are required for a given trajectory, it can tell us whether or not a given set of initial conditions will be able to get us where we want to go.
+As $J$ increases, more and more of the space between the Earth and the moon becomes accessible to the spacecraft. Although the Jacobi constant cannot tell us what initial conditions are required for a given trajectory, it can tell us whether or not a given set of initial conditions will be able to get us where we want to go.

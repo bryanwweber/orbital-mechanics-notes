@@ -42,7 +42,7 @@ A 1000 kg satellite is in orbit around Earth. The initial position and velocity 
 \end{aligned}
 :::
 
-We want to determine the minimum and maximum altitude, and the satellite's speed at those two locations. The altitude of the satellite is its height above the earth's surface. The radius of the earth is 6378.12 km.
+We want to determine the minimum and maximum altitude, and the satellite's speed at those two locations. The altitude of the satellite is its height above the Earth's surface. The radius of the Earth is 6378.12 km.
 
 To avoid confusion with the $y$ coordinate, we will use capital $Y$ for the state vector. Remember that the state vector includes 6 components, 3 positions and 3 velocities. These all need to be stored in one array.
 
@@ -98,14 +98,14 @@ In Python, once the solver finishes, the solution is stored in `sol.y`. Each col
 :::
 ::::
 
-Since we are looking for the minimum and maximum _altitude_, we need to calculate the distance of the satellite from the center of the earth and then subtract the radius of the earth. This will give the altitude above the surface:
+Since we are looking for the minimum and maximum _altitude_, we need to calculate the distance of the satellite from the center of the Earth and then subtract the radius of the Earth. This will give the altitude above the surface:
 
 :::{math}
 :label: eq:earth-altitude-definition
 h = \mag{\vector{r}} - R_E
 :::
 
-where $h$ is the altitude and $R_E$ is the radius of the earth. Similarly, the speed is the magnitude of the velocity.
+where $h$ is the altitude and $R_E$ is the radius of the Earth. Similarly, the speed is the magnitude of the velocity.
 
 ::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
@@ -162,7 +162,7 @@ The velocity at the maximum altitude is: 4.4353 km/s
 The time at maximum altitude is: 7288.57 s
 ```
 
-Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let's plot the orbit. The central sphere is representative of the earth.
+Interestingly, the results from Python and Matlab are slightly different. This is most likely because of different time resolution from the solvers. Now let's plot the orbit. The central sphere is representative of the Earth.
 
 ::::{tab-set-code}
 :::{literalinclude} scripts/two-body-relative-numerical-solution.py
@@ -190,5 +190,5 @@ glue("two_body_relative_figure", js, display=False)
 :::{glue:figure} two_body_relative_figure
 :name: fig:two-body-relative
 
-The motion of a satellite in orbit around the earth.
+The motion of a satellite in orbit around the Earth.
 :::

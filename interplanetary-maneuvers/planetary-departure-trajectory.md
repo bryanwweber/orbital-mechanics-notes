@@ -25,7 +25,7 @@ Another way to think of this is in terms of an inertial reference frame attached
 
 However, we want the spacecraft to transfer orbits around the Sun. This means that its velocity relative to the Sun cannot be the same as the planet's, it needs some **excess velocity** relative to the parabolic trajectory to break out of the planet's orbit. Remember, a parabolic trajectory ends with $v_{\infty} = 0$ relative to the planet!
 
-The only type of trajectory with excess velocity is a hyperbolic trajectory. From our calculations of the [heliocentric transfer trajectory](./heliocentric-trajectories.md), we know the velocity that the spacecraft must have *relative to the sun* when it leaves the influence of the planet. We previously called this $v_{t,1}$ for the velocity on the transfer orbit at the departure point.
+The only type of trajectory with excess velocity is a hyperbolic trajectory. From our calculations of the [heliocentric transfer trajectory](./heliocentric-trajectories.md), we know the velocity that the spacecraft must have *relative to the Sun* when it leaves the influence of the planet. We previously called this $v_{t,1}$ for the velocity on the transfer orbit at the departure point.
 
 The velocity of the spacecraft at any point on the geocentric hyperbolic trajectory is *relative to the planet*. Relative to the Sun, the spacecraft's velocity is the sum of the planet's orbital velocity and the relative velocity.
 

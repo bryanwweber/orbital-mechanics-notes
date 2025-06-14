@@ -13,12 +13,12 @@ kernelspec:
 
 # Example: Time in Earth's Shadow
 
-A satellite is in a 500 km by 5000 km orbit with its apse line parallel to the line from the earth to the sun, as in {numref}`fig:ellipse-time-in-shadow-figure`. Find the time that the satellite is in the earth's shadow if:
+A satellite is in a 500 km by 5000 km orbit with its apse line parallel to the line from the Earth to the Sun, as in {numref}`fig:ellipse-time-in-shadow-figure`. Find the time that the satellite is in the Earth's shadow if:
 
-1. the apogee is toward the sun
-2. the perigee is toward the sun
+1. the apogee is toward the Sun
+2. the perigee is toward the Sun
 
-{numref}`fig:ellipse-time-in-shadow-figure` shows the shaded and sunlit regions of the orbit. The satellite will be in shade when its orbit intersects the lines at the edge of the earth, on the other side from the sun. When apogee is towards the sun, the satellite is in the shade from $a$ to $b$, and when perigee is towards the sun, the satellite is in the shade from $c$ to $d$.
+{numref}`fig:ellipse-time-in-shadow-figure` shows the shaded and sunlit regions of the orbit. The satellite will be in shade when its orbit intersects the lines at the edge of the Earth, on the other side from the Sun. When apogee is towards the Sun, the satellite is in the shade from $a$ to $b$, and when perigee is towards the Sun, the satellite is in the shade from $c$ to $d$.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -65,7 +65,7 @@ x_1 = R_E/np.tan(np.radians(57.423)) + ellipse_focus
 ax_1.plot((x_1, ellipse_focus, x_1), (-R_E, 0, R_E), "k-o")
 ax_1.annotate("$a$", xy=(x_1, -R_E), ha="left", va="top")
 ax_1.annotate("$b$", xy=(x_1, R_E), ha="left", va="bottom")
-ax_1.annotate("To the sun", xy=(-a, 0), xytext=(-1.5*a, 0), ha="right", va="center", arrowprops={"arrowstyle": "<-"})
+ax_1.annotate("To the Sun", xy=(-a, 0), xytext=(-1.5*a, 0), ha="right", va="center", arrowprops={"arrowstyle": "<-"})
 ax_1.annotate("Shaded", xy=(1.5*a, 0), ha="left", va="center")
 ax_1.annotate("$P$", xy=(a, 0), ha="left", va="top")
 ax_1.annotate("$A$", xy=(-a, 0), ha="left", va="top")
@@ -80,7 +80,7 @@ x_2 = R_E/np.tan(np.radians(143.36)) + ellipse_focus
 ax_2.plot((x_2, ellipse_focus, x_2), (-R_E, 0, R_E), "k-o")
 ax_2.annotate("$d$", xy=(x_2, -R_E), ha="right", va="top")
 ax_2.annotate("$c$", xy=(x_2, R_E), ha="right", va="bottom")
-ax_2.annotate("To the sun", xy=(a, 0), xytext=(1.5*a, 0), ha="left", va="center", arrowprops={"arrowstyle": "<-"})
+ax_2.annotate("To the Sun", xy=(a, 0), xytext=(1.5*a, 0), ha="left", va="center", arrowprops={"arrowstyle": "<-"})
 ax_2.annotate("Shaded", xy=(-1.5*a, 0), ha="right", va="center")
 ax_2.annotate("$P$", xy=(a, 0), ha="left", va="top")
 ax_2.annotate("$A$", xy=(-a, 0), ha="left", va="top")
@@ -96,12 +96,12 @@ glue("ellipse-time-in-shadow-figure", fig)
 :::{glue:figure} ellipse-time-in-shadow-figure
 :name: fig:ellipse-time-in-shadow-figure
 
-The orientation of the sun relative to the earth in this example.
+The orientation of the Sun relative to the Earth in this example.
 :::
 
 ## Solution
 
-In this problem, we are looking for the time the satellite spends between two points in the orbit. We can find the true anomaly of the sun/shadow crossing points geometrically, so this problem is the type where $\nu$ is given and we are finding $t$.
+In this problem, we are looking for the time the satellite spends between two points in the orbit. We can find the true anomaly of the Sun/shadow crossing points geometrically, so this problem is the type where $\nu$ is given and we are finding $t$.
 
 We start by finding $e$, $a$, and $T$.
 
@@ -128,7 +128,7 @@ glue("ellipse-time-in-shadow-T", T/3600)
 
 The eccentricity of the orbit is $e =$ {glue:text}`ellipse-time-in-shadow-e:.4f`, the semimajor axis distance is $a =$ {glue:text}`ellipse-time-in-shadow-a:.2f` km, and the period is $T =$ {glue:text}`ellipse-time-in-shadow-T:.2f` hr. Then, we need to solve for the value of $\nu$ at $b$ and $c$. With this value of $\nu$, we can find the time to fly between the two points. This will tell us the time the satellite is in the shade.
 
-From {numref}`fig:ellipse-time-in-shadow-figure`, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the earth. This gives:
+From {numref}`fig:ellipse-time-in-shadow-figure`, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the Earth. This gives:
 
 :::{math}
 :label: eq:ellipse-time-in-shadow-right-triangle
@@ -153,7 +153,7 @@ def shadow(nu, e, a, R_E):
     """This function computes the angle 𝜈 in the shadow example problem.
 
     The arguments are the angle, the eccentricity, the semimajor axis, and
-    the radius of the earth.
+    the radius of the Earth.
     """
     return e * np.cos(nu) - (1 - e**2) * a / R_E * np.sin(nu) + 1
 
@@ -205,9 +205,9 @@ glue("ellipse-orbit-time-in-shadow-t_b", t_b / 60)
 glue("ellipse-orbit-time-in-shadow-time_in_shadow_ab", time_in_shadow_ab / 60)
 ```
 
-The time to fly from perigee to point $b$, {glue:text}`ellipse-orbit-time-in-shadow-t_b:.1f` min, is the same as the time to fly from point $a$ to perigee, because the orbit is symmetrical around the apse line. Therefore, the time the satellite is in shadow when apogee is towards the sun is a little less than half an hour, {glue:text}`ellipse-orbit-time-in-shadow-time_in_shadow_ab:.1f` min.
+The time to fly from perigee to point $b$, {glue:text}`ellipse-orbit-time-in-shadow-t_b:.1f` min, is the same as the time to fly from point $a$ to perigee, because the orbit is symmetrical around the apse line. Therefore, the time the satellite is in shadow when apogee is towards the Sun is a little less than half an hour, {glue:text}`ellipse-orbit-time-in-shadow-time_in_shadow_ab:.1f` min.
 
-When perigee is towards the sun, then the satellite will be in shadow from point $c$ to point $d$. The time the satellite spends in the sun, going from perigee to apogee, is the time flying from perigee to point c. The total time in the sun is twice this time, and the time in shadow is the total period minus the time in the sun.
+When perigee is towards the Sun, then the satellite will be in shadow from point $c$ to point $d$. The time the satellite spends in the Sun, going from perigee to apogee, is the time flying from perigee to point c. The total time in the Sun is twice this time, and the time in shadow is the total period minus the time in the Sun.
 
 ```{code-cell} ipython3
 E_c = (2 * np.arctan(np.sqrt((1 - e) / (1 + e)) * np.tan(nu_c / 2)))
@@ -222,4 +222,4 @@ glue("ellipse-orbit-time-in-shadow-time_in_shadow_cd", time_in_shadow_cd / 60)
 glue("ellipse-orbit-time-in-shadow-t_c", t_c / 60)
 ```
 
-The total time in shadow is {glue:text}`ellipse-orbit-time-in-shadow-time_in_shadow_cd:.1f` min when perigee points towards the sun. This result is intuitively correct because the satellite is travelling slower near apogee, due to Kepler's second law (equal areas in equal times).
+The total time in shadow is {glue:text}`ellipse-orbit-time-in-shadow-time_in_shadow_cd:.1f` min when perigee points towards the Sun. This result is intuitively correct because the satellite is travelling slower near apogee, due to Kepler's second law (equal areas in equal times).

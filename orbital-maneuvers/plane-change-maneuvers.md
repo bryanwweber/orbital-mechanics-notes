@@ -163,13 +163,13 @@ This is why plane changes are often described as very _expensive_ maneuvers, tha
 
 In some cases, however, plane changes are unavoidable due to the latitude of the launch site of the spacecraft. One common example is putting a spacecraft in geosynchronous equatorial orbit. It is not possible to launch a spacecraft into an equatorial orbit unless the launch site is on the equator.
 
-We know that the orbital plane must intersect with the center of the earth. Therefore, if a spacecraft is launched from any latitude above or below the equator, the orbit will have some natural inclination relative to the equatorial plane.
+We know that the orbital plane must intersect with the center of the Earth. Therefore, if a spacecraft is launched from any latitude above or below the equator, the orbit will have some natural inclination relative to the equatorial plane.
 
 The final inclination of the orbit can also be controlled by determining the **launch azimuth**. The launch azimuth is the flight direction when the spacecraft is inserted into its orbit. It is equal to 0° pointing North and increases _clockwise_. Therefore, launches due East have an azimuth of 90°, due South of 180°, and due West of 270°.
 
-A launch azimuth of 90° (due East) takes most advantage of the rotation of the earth to give a velocity boost to the spacecraft. Since the orbital speed is relative to the inertial coordinates fixed to the earth's center, launching in an eastward direction reduces the $\Delta v$ required to achieve a particular orbital speed.
+A launch azimuth of 90° (due East) takes most advantage of the rotation of the Earth to give a velocity boost to the spacecraft. Since the orbital speed is relative to the inertial coordinates fixed to the Earth's center, launching in an eastward direction reduces the $\Delta v$ required to achieve a particular orbital speed.
 
-The linear velocity at the equator is the ratio of the earth's circumference and its sidereal period:
+The linear velocity at the equator is the ratio of the Earth's circumference and its sidereal period:
 
 :::{math}
 :label: eq:plane-change-earth-equator-speed
@@ -192,7 +192,7 @@ The due East launch azimuth also puts the spacecraft into an orbit with its incl
 
 where $A$ is the launch azimuth.
 
-For northeasterly ($0° < A < 90°$) and southeasterly ($90° < A< 180°$) launch azimuths, the spacecraft does not take full advantage of the earth's rotational velocity. These launch azimuths produce an inclination greater than the launch latitude, but less than 90°. Since these orbits have a velocity component in the eastward direction, they are called **prograde** orbits.
+For northeasterly ($0° < A < 90°$) and southeasterly ($90° < A< 180°$) launch azimuths, the spacecraft does not take full advantage of the Earth's rotational velocity. These launch azimuths produce an inclination greater than the launch latitude, but less than 90°. Since these orbits have a velocity component in the eastward direction, they are called **prograde** orbits.
 
 Launches to the west, with $180° < A < 360°$, are called **retrograde** orbits. These produce an inclination between 90° and 180°.
 
@@ -275,7 +275,7 @@ glue_bokeh("kennedy-launch-angles", plot)
 The permitted launch angles from Kennedy Space Center on the East coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::
 
-The other major launch site in the US is Vandenberg Space Force Base in southern California ($\phi$ = 34.7°N). Similar restrictions at Vandenberg require most launches to go to the south, over the Pacific Ocean. However, polar and sun-synchronous orbits are possible from Vandenberg, where the azimuth limits are from [158° to 201°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html).
+The other major launch site in the US is Vandenberg Space Force Base in southern California ($\phi$ = 34.7°N). Similar restrictions at Vandenberg require most launches to go to the south, over the Pacific Ocean. However, polar and Sun-synchronous orbits are possible from Vandenberg, where the azimuth limits are from [158° to 201°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html).
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -313,5 +313,5 @@ glue_bokeh("vandenberg-launch-angles", plot)
 :::{glue:figure} vandenberg-launch-angles
 :name: fig:vandenberg-launch-angles
 
-The permitted launch angles from Vandenberg Space Force Base on the Wast coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
+The permitted launch angles from Vandenberg Space Force Base on the West coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::

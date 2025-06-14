@@ -250,7 +250,7 @@ The phase angle at arrival is $\gamma_2 =$ {glue:text}`heliocentric-hohmann-gamm
 :name: fig:interplanetary-phase-angle-example
 :width: 100%
 
-The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the sun, while Neptune completes less than half of one orbit during this entire process.
+The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the Sun, while Neptune completes less than half of one orbit during this entire process.
 :::
 
 Using the final phase angle, we can compute the waiting time at Venus before a return Hohmann transfer is possible. Since $n_f > n_i$, we choose the positive version of Eq. {eq}`eq:interplanetary-wait-time`.

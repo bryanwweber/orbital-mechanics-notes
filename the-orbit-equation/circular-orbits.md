@@ -32,7 +32,7 @@ The specific energy of the circular orbit is negative. As the orbit radius goes 
 
 ## Low Earth Orbit
 
-Many manned spacecraft and unpopulated satellites occupy ideally circular orbits around the Earth. These orbits typically fall between altitudes of 150 km (100 miles) and 2000 km (1200 miles). These orbits are called **low earth orbits**, or LEO. The lower of these altitudes is substantially above the bulk of the drag-inducing atmosphere. The higher altitude is less than the altitude of the [Van Allen radiation belts](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt), a dangerous region of space extending from about 1000 km outwards.
+Many manned spacecraft and unpopulated satellites occupy ideally circular orbits around the Earth. These orbits typically fall between altitudes of 150 km (100 miles) and 2000 km (1200 miles). These orbits are called **Low Earth Orbits**, or LEO. The lower of these altitudes is substantially above the bulk of the drag-inducing atmosphere. The higher altitude is less than the altitude of the [Van Allen radiation belts](https://en.wikipedia.org/wiki/Van_Allen_radiation_belt), a dangerous region of space extending from about 1000 km outwards.
 
 :::{figure} ../images/Comparison_satellite_navigation_orbits.svg
 :name: fig:Comparison_satellite_navigation_orbits
@@ -43,11 +43,11 @@ A comparison of satellite navigation orbits. [cmglee](https://commons.wikimedia.
 
 ## Geostationary Equatorial Orbit
 
-If a satellite remains at a constant location above the earth's equator, then the orbit is a circular **geostationary equatorial orbit**, or GEO. For GEO, the radial vector from the center of the earth to the satellite must have the same angular velocity as the surface of the earth.
+If a satellite remains at a constant location above the Earth's equator, then the orbit is a circular **geostationary equatorial orbit**, or GEO. For GEO, the radial vector from the center of the Earth to the satellite must have the same angular velocity as the surface of the Earth.
 
-The angular velocity of the earth's surface is calculated by dividing the circular distance for one revolution, $2\pi$ radians, by the time taken for one rotation about the axis through the poles. This length of time is called the the [**sidereal day**](https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day) and is equal to approximately 23.93 hours.
+The angular velocity of the Earth's surface is calculated by dividing the circular distance for one revolution, $2\pi$ radians, by the time taken for one rotation about the axis through the poles. This length of time is called the [**sidereal day**](https://en.wikipedia.org/wiki/Sidereal_time#Sidereal_day) and is equal to approximately 23.93 hours.
 
-The familiar, 24-hour, day is called the [**synodic day**](https://en.wikipedia.org/wiki/Synodic_day) or **solar day**. The solar day is the time that it takes for the Sun to reach its maximum height in the sky on consecutive days. This is slightly longer than the sidereal day, because the Earth is also moving around the sun as it rotates. If the Earth were fixed in space relative to the sun, the synodic and sidereal days would be equal length.
+The familiar, 24-hour, day is called the [**synodic day**](https://en.wikipedia.org/wiki/Synodic_day) or **solar day**. The solar day is the time that it takes for the Sun to reach its maximum height in the sky on consecutive days. This is slightly longer than the sidereal day, because the Earth is also moving around the Sun as it rotates. If the Earth were fixed in space relative to the Sun, the synodic and sidereal days would be equal length.
 
 Using the duration of the sidereal day, we find an inertial angular velocity of the Earth of:
 
