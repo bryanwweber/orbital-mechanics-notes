@@ -3,7 +3,8 @@
         "**/*.md",
         "!.venv",
         "!_build",
-        "!_static"
+        "!_static",
+        "!vendor"
     ],
     "config": {
         "MD003": false,
