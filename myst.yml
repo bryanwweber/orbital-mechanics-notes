@@ -1,5 +1,6 @@
 version: 1
 project:
+  jupyter: false
   title: Orbital Mechanics & Astrodynamics
   authors:
     - name: Bryan Weber
@@ -8,6 +9,7 @@ project:
       github: bryanwweber
       url: https://bryanwweber.com
   exclude:
+    - interplanetary-maneuvers/planetary-depahture-trajectory.md
     - homework
     - raw_svg
     - drawing-scripts
@@ -38,6 +40,7 @@ project:
   numbering:
     figure:
       template: Fig. %s
+      continue: true
     equation:
       template: Eq. %s
       continue: true
@@ -140,7 +143,7 @@ project:
         - file: reference/gravity-and-spherical-symmetry.md
     - title: Postscript
       children:
-        - file: interplanetary-maneuvers/planetary-depahture-trajectory.md
+        # - file: interplanetary-maneuvers/planetary-depahture-trajectory.md
         - file: orbital-maneuvers/nonimpulsive-orbital-maneuvers.md
         - file: orbital-maneuvers/nonimpulsive-maneuver-example.md
 site:
@@ -149,4 +152,5 @@ site:
     logo_dark: _static/hohmann-dark.svg
     favicon: _static/favicon-16x16.png
     folders: true
-  template: book-theme
+  # template: book-theme
+  template: /home/bweber/GitHub/myst-theme/.deploy/book

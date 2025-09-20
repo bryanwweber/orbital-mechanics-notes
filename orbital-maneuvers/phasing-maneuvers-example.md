@@ -143,7 +143,6 @@ df = pd.DataFrame({
 df
 ```
 
-
 :::{table} Comparison of results for various phasing orbits.
 :name: tab:phasing-orbit-comparison
 ![](#code:phasing-orbit-comparison)
