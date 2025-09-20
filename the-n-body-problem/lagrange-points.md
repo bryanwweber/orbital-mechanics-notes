@@ -417,7 +417,6 @@ ax.legend();
 fig
 ```
 
-
 :::{figure} #code:pseudo-potential-energy-cr3bp
 :name: fig:pseudo-potential-energy-cr3bp
 

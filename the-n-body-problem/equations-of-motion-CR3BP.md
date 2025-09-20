@@ -254,7 +254,6 @@ ax.ticklabel_format(style="plain", useOffset=False);
 fig
 ```
 
-
 :::{figure} #code:runge-kutta-small-tolerance
 :name: fig:runge-kutta-small-tolerance
 
@@ -292,7 +291,6 @@ ax.legend(loc="upper left", bbox_to_anchor=(1, 1));
 
 fig
 ```
-
 
 :::{figure} #code:trajectory-comparison-cr3bp
 :name: fig:trajectory-comparison-cr3bp

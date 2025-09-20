@@ -160,7 +160,6 @@ ax.set_ylabel(r"$d\Delta v/d \Delta i$");
 fig
 ```
 
-
 :::{figure} #code:plane-change-delta-v-derivative
 :name: fig:plane-change-delta-v-derivative
 
