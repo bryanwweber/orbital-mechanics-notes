@@ -181,7 +181,7 @@ The magnitude of the eccentricity can be found in the usual method programmatica
 
 :::{math}
 :label: eq:simplified-eccentricity-magnitude
-e = \sqrt{1 + \frac{h^2}{\mu}\left(v^2 - \frac{2\mu}{r}\right)}
+e = \sqrt{1 + \frac{h^2}{\mu^2}\left(v^2 - \frac{2\mu}{r}\right)}
 :::
 
 Again, Eq. {eq}`eq:simplified-eccentricity-magnitude` is useful for hand calculations.
