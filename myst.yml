@@ -2,7 +2,7 @@ version: 1
 project:
   plugins:
     - type: javascript
-      path: inlineHTML.mjs
+      path: plugins/inlineHTML.mjs
   static_files:
     - assets/
   jupyter: false
