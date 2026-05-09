@@ -4,14 +4,14 @@ When two spacecraft want to rendezvous in space, they must simultaneously have t
 
 For two spacecraft to rendezvous, there are typically two stages to the maneuver:
 
-1. **Phasing maneuver**: The two spacecraft may begin the maneuver very far apart. The first stage of the rendezvous is to bring the two spacecraft into close proximity by performing a phasing maneuver, usually by one of the spacecraft.
+1. **Phasing maneuver**: The two spacecraft may begin the maneuver very far apart. The first stage of the rendezvous is to bring the two spacecraft into close proximity by performing a phasing maneuver, usually by only one of the spacecraft.
 2. **Final approach**: Once the spacecraft are in close proximity, the final approach maneuver requires small adjustments to the approaching craft's velocity so that the two can match.
 
 In this section, we are going to focus on the first stage, the phasing maneuver. A phasing maneuver, in general, is a two-impulse transfer from an orbit into a different orbit, then back to the original orbit. The period of the transfer orbit is different from the original orbit, so the spacecraft will arrive back at the original impulse point at a different time than if it had stayed on the original orbit.
 
 We assume that the velocity change is applied parallel to the velocity vector at the impulse point. This gives the minimum propellant usage for such a maneuver, but is relatively slow. More general orbital transfers, including rendezvous maneuvers that require less than a full orbit, will be covered in [](./non-hohmann-transfers.md).
 
-## Returning At A Later Time
+## Returning at a Later Time
 
 As shown in @fig:phasing-orbit-increase-period, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked _Impulse Point_ and the target spacecraft is _behind_ the chase craft in the orbit.
 
@@ -40,7 +40,7 @@ T_1 = \frac{2\pi}{\sqrt{\mu}} a_1^{3/2}
 
 Since $a_1 < a_2$, the period of Orbit 2 is greater. Therefore, while the interceptor craft travels 360° of true anomaly in time $T_2$, the target spacecraft travels _more than_ 360° of true anomaly. This allows the target spacecraft to catch up and reach the impulse point at the same time that the interceptor returns there.
 
-## Returning At An Earlier Time
+## Returning at an Earlier Time
 
 As shown in @fig:phasing-orbit-decrease-period, two spacecraft are initially on Orbit 1. The chase or interceptor spacecraft is at the point marked _Impulse Point_ and the target spacecraft is _behind_ the chase craft in the orbit.
 

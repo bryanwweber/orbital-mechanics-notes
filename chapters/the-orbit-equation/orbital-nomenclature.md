@@ -4,7 +4,7 @@ In this section, we will introduce some common nomenclature for orbits that are 
 
 ## Periapsis and Apoapsis
 
-For the four conical orbits, the true anomaly is defined with $\nu=0$ pointing along the apse line, or the eccentricity vector.
+For the four conical orbits, the true anomaly is defined with $\nu=0$ pointing along the apse line or the eccentricity vector.
 
 :::::{tab-set}
 ::::{tab-item} Ellipse

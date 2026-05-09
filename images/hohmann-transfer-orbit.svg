@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg id="hohmann_transfer_orbit" version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1200">
+<style>@media (prefers-color-scheme:dark){:root{background-color:#fff}}</style>
 
   <title>Hohmann transfer orbit.svg - illustration of a Hohmann transfer orbit</title>
   <desc>
