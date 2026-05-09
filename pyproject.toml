@@ -33,7 +33,7 @@ version = "0.0.0"
 python-preference = "only-system"
 
 [dependency-groups]
-dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "requests>=2.32.3", "ruff>=0.5.0"]
+dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "requests>=2.32.3", "ruff>=0.5.0", "render-svg"]
 lab = ["jupyterlab-myst>=2.4.2", "jupyterlab>=4.1.4", "jupytext>=1.16.6"]
 
 [tool.uv.sources]
@@ -41,9 +41,13 @@ lab = ["jupyterlab-myst>=2.4.2", "jupyterlab>=4.1.4", "jupytext>=1.16.6"]
 # fork to be able to upgrade some other things like astropy. Nothing seems to be broken
 # but I'll need a replacement here at some point.
 poliastro = { workspace = true }
+render-svg = { workspace = true }
 
 [tool.uv.workspace]
-members = ["vendor/*"]
+members = [
+    "vendor/*",
+    "plugins/render_svg",
+]
 
 [tool.ruff]
 extend-exclude = ["vendor"]
