@@ -45,7 +45,7 @@ Now, we need to solve for the $x^*$ and $y^*$ coordinates of the Lagrange points
 1. $y^* \neq 0$, giving the so-called **equilateral Lagrange points**
 2. $y^* = 0$, giving the so-called **collinear Lagrange points**
 
-The collinear Lagrange points lie along the $x^*$ axis, between $m_1$ and $m_2$. The equilateral Lagrange points form an equilateral triangle with $m_1$ and $m_2$ as two of the corners and sides of length $r_{12}$.
+The collinear Lagrange points lie along the $x^*$ axis, which is a line between $m_1$ and $m_2$. The equilateral Lagrange points form an equilateral triangle with $m_1$ and $m_2$ as two of the corners and sides of length $r_{12}$.
 
 ## Equilateral Lagrange Points
 
@@ -60,7 +60,7 @@ Remember that $z^*$ is zero for all the equilibrium points.
 1 = \frac{1 - \pi_2}{\sigma_3} + \frac{\pi_2}{\psi^3}
 :::
 
-The equation for $x^*$ in @eq:non-dim-equilibrium-eom-lagrange we see the $\left(1 - \pi_2\right)/\sigma^3$ term, so let's solve the $y^*$ equation for that and plug into the $x^*$ equation:
+In the equation for $x^*$ in @eq:non-dim-equilibrium-eom-lagrange we see the $\left(1 - \pi_2\right)/\sigma^3$ term, so let's solve the $y^*$ equation for that and plug into the $x^*$ equation:
 
 :::{math}
 :label: eq:x-star-equilateral-lagrange
@@ -134,7 +134,7 @@ The equilateral Lagrange points are given the symbols $L_4$ and $L_5$, for the p
 \end{aligned}
 :::
 
-To convert these to dimensional $x$ and $y$ coordinates, you should multiply by $r_{12}$.
+To convert these into dimensional $x$ and $y$ coordinates, you should multiply by $r_{12}$.
 
 ## Collinear Lagrange Points
 

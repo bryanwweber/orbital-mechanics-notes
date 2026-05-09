@@ -4,9 +4,6 @@ authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
 dependencies = [
   "astropy>=6.1.1",
   "bokeh>=3.4.2",
-  "docutils>=0.20.1",
-  "ipympl>=0.9.4",
-  "jupyter-book>=2.0.0a0",
   "jupyterlab>=4.3.5",
   "matplotlib>=3.9.0",
   "numpy>=1.26.4",
@@ -18,7 +15,6 @@ dependencies = [
   "pyproj>=3.7.1",
   "scipy>=1.14.0",
   "skyfield>=1.49",
-  "sphinx-design>=0.6.0",
   "sympy>=1.12.1",
   "uncertainties>=3.2.3",
   "wheel>=0.43.0",
@@ -28,9 +24,6 @@ license = { text = "CC-BY-SA-4.0" }
 name = "orbital-mechanics-notes"
 requires-python = ">=3.10,<3.14"
 version = "0.0.0"
-
-[tool.uv]
-python-preference = "only-system"
 
 [dependency-groups]
 dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "requests>=2.32.3", "ruff>=0.5.0", "render-svg"]
