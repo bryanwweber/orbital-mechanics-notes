@@ -25,7 +25,7 @@ ureg.setup_matplotlib()
 ureg.formatter.default_format = "~H"
 Q_ = ureg.Quantity
 
-G = Q_(6.6742E-11, "m**3 / (kg * s**2)")
+G = Q_(6.67430E-11, "m**3 / (kg * s**2)").plus_minus(0.00015E-11)
 M = Q_(5.974E24, "kg")
 R_E = Q_(6378, "km")
 g_0 = (G * M / R_E**2).to("m / s**2")
@@ -67,7 +67,11 @@ Therefore, the **weight** of a smaller mass, $m$, in the gravitational field of 
 W = mg
 :::
 
-For the surface of the Earth, we can plug in $R_E =$ {eval}`R_E` and $M =$ {eval}`M` to find $g_0 =$ {eval}`g_0`.
+For the surface of the Earth, we can plug in $R_E =$ {eval}`R_E` and $M =$ {eval}`M` to find the average acceleration due to gravity, $g_0 =$ {eval}`g_0`.
+
+:::{note}
+$g_0$ is the average acceleration of gravity on Earth, assuming the Earth is a sphere with uniform density. In reality, Earth is a lumpy oblate spheroid, so the acceleration due to gravity varies by as much as 0.5% from the equators to the poles. In addition, using @eq:gravity-acceleration does not account for the non-inertial reference frame due to the Earth's axial rotation. Check out [Wikipedia](https://en.wikipedia.org/wiki/Gravity_of_Earth) for a lot more detail!
+:::
 
 We can also determine the variation of $g$ with altitude for the Earth. Referenced to the gravity at the surface of the Earth ($g_0$), we find:
 
@@ -99,6 +103,6 @@ ax.legend();
 Variation of $g/g_0$ with altitude.
 ```
 
-In @fig:g/g_0 you can see that gravity varies significantly with altitude. However, for most normal altitudes, there isn't much variation. At 10 km, a typical cruise altitude, the value of $g$ is almost the same as $g_0$. Even at the height of the ISS (400 km), $g$ is still 90% of the value of $g_0$.
+In @fig:g/g_0 you can see that gravity varies significantly with altitude. However, for most normal altitudes, there isn't much variation. At 10 km, a typical airliner cruise altitude, the value of $g$ is almost the same as $g_0$. Even at the height of the ISS (400 km), $g$ is still 90% of the value of $g_0$.
 
 Using the value of $g$ at the ISS, we find that an astronaut still has a weight, $mg\neq 0$. That is, the force of gravity is still acting on them. However, there is no support under their feet, so they do not feel their weight and we say they are experiencing **weightlessness** although they are not **weightless**.

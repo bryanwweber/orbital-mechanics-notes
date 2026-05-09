@@ -7,6 +7,7 @@ dependencies = [
   "docutils>=0.20.1",
   "ipympl>=0.9.4",
   "jupyter-book>=2.0.0a0",
+  "jupyterlab>=4.3.5",
   "matplotlib>=3.9.0",
   "numpy>=1.26.4",
   "pandas>=2.2.3",
@@ -19,6 +20,7 @@ dependencies = [
   "skyfield>=1.49",
   "sphinx-design>=0.6.0",
   "sympy>=1.12.1",
+  "uncertainties>=3.2.3",
   "wheel>=0.43.0",
 ]
 description = "A book for Orbital Mechanics"
