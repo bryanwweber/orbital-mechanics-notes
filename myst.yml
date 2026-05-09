@@ -1,5 +1,10 @@
 version: 1
 project:
+  plugins:
+    - type: javascript
+      path: inlineHTML.mjs
+  static_files:
+    - assets/
   jupyter: false
   title: Orbital Mechanics & Astrodynamics
   authors:
@@ -21,6 +26,8 @@ project:
     - .pytest_cache
     - INSTALL.md
     - vendor
+    - Project.toml
+    - Manifest.toml
   bibliography:
     - references.bib
   license: CC-BY-4.0
@@ -153,4 +160,4 @@ site:
     favicon: _static/favicon-16x16.png
     folders: true
   # template: book-theme
-  template: /home/bweber/GitHub/myst-theme/.deploy/book
+  # template: /home/bweber/GitHub/myst-theme/.deploy/book

@@ -1804,6 +1804,7 @@ dependencies = [
     { name = "docutils" },
     { name = "ipympl" },
     { name = "jupyter-book" },
+    { name = "jupyterlab" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
@@ -1816,6 +1817,7 @@ dependencies = [
     { name = "skyfield" },
     { name = "sphinx-design" },
     { name = "sympy" },
+    { name = "uncertainties" },
     { name = "wheel" },
 ]
 
@@ -1839,6 +1841,7 @@ requires-dist = [
     { name = "docutils", specifier = ">=0.20.1" },
     { name = "ipympl", specifier = ">=0.9.4" },
     { name = "jupyter-book", specifier = ">=2.0.0a0" },
+    { name = "jupyterlab", specifier = ">=4.3.5" },
     { name = "matplotlib", specifier = ">=3.9.0" },
     { name = "numpy", specifier = ">=1.26.4" },
     { name = "pandas", specifier = ">=2.2.3" },
@@ -1851,6 +1854,7 @@ requires-dist = [
     { name = "skyfield", specifier = ">=1.49" },
     { name = "sphinx-design", specifier = ">=0.6.0" },
     { name = "sympy", specifier = ">=1.12.1" },
+    { name = "uncertainties", specifier = ">=3.2.3" },
     { name = "wheel", specifier = ">=0.43.0" },
 ]
 
@@ -3075,6 +3079,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/43/0f/fa4723f22942480be4ca9527bbde8d43f6c3f2fe8412f00e7f5f6746bc8b/tzdata-2025.1.tar.gz", hash = "sha256:24894909e88cdb28bd1636c6887801df64cb485bd593f2fd83ef29075a81d694", size = 194950, upload-time = "2025-01-21T19:49:38.686Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0f/dd/84f10e23edd882c6f968c21c2434fe67bd4a528967067515feca9e611e5e/tzdata-2025.1-py2.py3-none-any.whl", hash = "sha256:7e127113816800496f027041c570f50bcd464a020098a3b6b199517772303639", size = 346762, upload-time = "2025-01-21T19:49:37.187Z" },
+]
+
+[[package]]
+name = "uncertainties"
+version = "3.2.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fe/0c/cb09f33b26955399c675ab378e4063ed7e48422d3d49f96219ab0be5eba9/uncertainties-3.2.3.tar.gz", hash = "sha256:76a5653e686f617a42922d546a239e9efce72e6b35411b7750a1d12dcba03031", size = 160492, upload-time = "2025-04-21T19:58:28.63Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8f/5e/f1e1dd319e35e962a4e00b33150a8868b6329cc1d19fd533436ba5488f09/uncertainties-3.2.3-py3-none-any.whl", hash = "sha256:313353900d8f88b283c9bad81e7d2b2d3d4bcc330cbace35403faaed7e78890a", size = 60118, upload-time = "2025-04-21T19:58:26.864Z" },
 ]
 
 [[package]]

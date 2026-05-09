@@ -1,0 +1,14 @@
+{
+  "name": "orbital-mechanics-notes",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "hast-util-from-html": "^2.0.3",
+    "unist-util-visit": "^5.1.0"
+  }
+}
