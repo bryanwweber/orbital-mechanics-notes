@@ -1,15 +1,11 @@
 [tools]
 bun                     = "latest"
-julia = "latest"
-node                    = "22"
+julia                   = "latest"
+node                    = "26"
 "npm:markdownlint-cli2" = "latest"
-python                  = "3.13"
 taplo                   = "latest"
 uv                      = "latest"
 watchexec               = "latest"
-
-[env]
-_.python.venv = { path = ".venv", create = true }
 
 [tool_alias]
 julia = "asdf:rkyleg/asdf-julia"
@@ -17,7 +13,6 @@ julia = "asdf:rkyleg/asdf-julia"
 [settings]
 lockfile = true
 npm      = { bun = true }
-python   = { uv_venv_auto = true }
 
 [tasks.build_book]
 description = "Build the book"
