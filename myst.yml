@@ -1,0 +1,163 @@
+version: 1
+project:
+  plugins:
+    - type: javascript
+      path: plugins/inlineHTML.mjs
+  static_files:
+    - assets/
+  jupyter: false
+  title: Orbital Mechanics & Astrodynamics
+  authors:
+    - name: Bryan Weber
+      orcid: "0000-0003-0815-9270"
+      email: "bryan@bryanwweber.com"
+      github: bryanwweber
+      url: https://bryanwweber.com
+  exclude:
+    - interplanetary-maneuvers/planetary-depahture-trajectory.md
+    - homework
+    - raw_svg
+    - drawing-scripts
+    - docker
+    - assets
+    - blender
+    - chapter-4
+    - .venv
+    - .pytest_cache
+    - INSTALL.md
+    - vendor
+    - Project.toml
+    - Manifest.toml
+  bibliography:
+    - references.bib
+  license: CC-BY-4.0
+  open_access: true
+  github: bryanwweber/orbital-mechanics-notes
+  math:
+    '\vector': "\\boldsymbol{#1}"
+    '\uvec': "\\boldsymbol{\\hat{#1}}"
+    '\mag': "\\lVert#1\\rVert"
+    '\cross': "\\times"
+    '\unit': "#1~\\mathrm{#2}"
+    '\pf': "{#1}_{\\omega}" # This is for the perifocal frame
+    '\mat': "\\left[\\mathbf{#1}\\right]" # A matrix
+    '\COG': "\\mathrm{COG}" # Center of gravity
+    '\KE': "\\mathrm{KE}" # Kinetic energy
+    '\PE': "V" # Potential energy
+  numbering:
+    figure:
+      template: Fig. %s
+      continue: true
+    equation:
+      template: Eq. %s
+      continue: true
+
+  toc:
+    - file: chapters/intro.md
+    - title: Introduction
+      children:
+        - file: chapters/intro/reference-frames.md
+        - file: chapters/intro/mass-force-and-newtons-law-of-gravitation.md
+        - file: chapters/intro/force-acceleration-and-momentum.md
+    - title: The N-Body Problem
+      children:
+        - file: chapters/the-n-body-problem/two-body-inertial-motion.md
+        - file: chapters/the-n-body-problem/two-body-inertial-numerical-solution.md
+        - file: chapters/the-n-body-problem/motion-of-the-barycenter.md
+        - file: chapters/the-n-body-problem/two-body-relative-motion.md
+        - file: chapters/the-n-body-problem/two-body-relative-numerical-solution.md
+        - file: chapters/the-n-body-problem/circular-restricted-three-body-problem.md
+        - file: chapters/the-n-body-problem/lagrange-points.md
+        - file: chapters/the-n-body-problem/lagrange-points-example.md
+        - file: chapters/the-n-body-problem/jacobi-constant.md
+        - file: chapters/the-n-body-problem/equations-of-motion-CR3BP.md
+        - file: chapters/the-n-body-problem/many-body-problems.md
+    - title: Constants of Orbital Motion
+      children:
+        - file: chapters/constants-of-orbital-motion/energy-is-conserved-in-orbital-motion.md
+        - file: chapters/constants-of-orbital-motion/angular-momentum-is-conserved.md
+        - file: chapters/constants-of-orbital-motion/orbital-plane-and-keplers-second-law.md
+    - title: The Orbit Equation
+      children:
+        - file: chapters/the-orbit-equation/the-orbit-equation.md
+        - file: chapters/the-orbit-equation/orbital-nomenclature.md
+        - file: chapters/the-orbit-equation/circular-orbits.md
+        - file: chapters/the-orbit-equation/elliptical-orbits.md
+        - file: chapters/the-orbit-equation/parabolic-trajectories.md
+        - file: chapters/the-orbit-equation/hyperbolic-trajectories.md
+    - title: The Classical Orbital Elements
+      children:
+        - file: chapters/classical-orbital-elements/perifocal-frame.md
+        - file: chapters/classical-orbital-elements/right-ascension-declination.md
+        - file: chapters/classical-orbital-elements/classical-orbital-elements.md
+        - file: chapters/classical-orbital-elements/orbital-elements-and-the-state-vector.md
+    - title: Time Since Periapsis & Kepler's Equation
+      children:
+        - file: chapters/time-since-periapsis-and-keplers-equation/time-since-periapsis.md
+        - file: chapters/time-since-periapsis-and-keplers-equation/elliptical-orbits.md
+        - file: >-
+            chapters/time-since-periapsis-and-keplers-equation/elliptical-orbit-example.md
+        - file: >-
+            chapters/time-since-periapsis-and-keplers-equation/elliptical-orbit-time-in-shadow.md
+        - file: chapters/time-since-periapsis-and-keplers-equation/parabolic-trajectories.md
+        - file: chapters/time-since-periapsis-and-keplers-equation/hyperbolic-trajectories.md
+        - file: >-
+            chapters/time-since-periapsis-and-keplers-equation/hyperbolic-trajectory-example.md
+        - file: >-
+            chapters/time-since-periapsis-and-keplers-equation/the-lagrange-coefficients.md
+        - file: chapters/time-since-periapsis-and-keplers-equation/universal-variables.md
+        - file: >-
+            chapters/time-since-periapsis-and-keplers-equation/universal-variables-example.md
+        - file: >-
+            chapters/time-since-periapsis-and-keplers-equation/universal-lagrange-coefficients-example.md
+    - title: Orbital Maneuvers
+      children:
+        - file: chapters/orbital-maneuvers/impulsive-maneuvers.md
+        - file: chapters/orbital-maneuvers/single-impulse-example.md
+        - file: chapters/orbital-maneuvers/hohmann-transfer.md
+        - file: chapters/orbital-maneuvers/hohmann-transfer-example.md
+        - file: chapters/orbital-maneuvers/bielliptic-hohmann-transfer.md
+        - file: chapters/orbital-maneuvers/comparison-of-bielliptic-and-hohmann.md
+        - file: chapters/orbital-maneuvers/phasing-maneuvers.md
+        - file: chapters/orbital-maneuvers/phasing-maneuvers-example.md
+        - file: chapters/orbital-maneuvers/non-hohmann-transfers.md
+        - file: chapters/orbital-maneuvers/common-apse-line-example.md
+        - file: chapters/orbital-maneuvers/apse-line-rotation-example.md
+        - file: chapters/orbital-maneuvers/plane-change-maneuvers.md
+        - file: chapters/orbital-maneuvers/plane-change-example.md
+    - title: Interplanetary Trajectories
+      children:
+        - file: chapters/interplanetary-maneuvers/introduction.md
+        - file: chapters/interplanetary-maneuvers/heliocentric-trajectories.md
+        - file: chapters/interplanetary-maneuvers/interplanetary-transfer-phasing.md
+        - file: chapters/interplanetary-maneuvers/interplanetary-transfer-phasing-example.md
+        - file: chapters/interplanetary-maneuvers/sphere-of-influence.md
+        - file: chapters/interplanetary-maneuvers/planetary-departure-trajectory.md
+        - file: chapters/interplanetary-maneuvers/planetary-departure-trajectory-example.md
+        - file: chapters/interplanetary-maneuvers/planetary-arrival-capture.md
+        - file: chapters/interplanetary-maneuvers/planetary-arrival-flyby.md
+    - title: Review of Vectors, Kinematics, and Newtonian Mechanics
+      children:
+        - file: chapters/review/kinematics.md
+        - file: chapters/review/time-derivatives-of-moving-vectors.md
+    - title: Reference
+      children:
+        - file: chapters/reference/celestial-sphere.md
+        - file: chapters/reference/relative-motion.md
+        - file: chapters/reference/planetary-parameters.md
+        - file: chapters/reference/julian-date.md
+        - file: chapters/reference/planetary-ephemeris.md
+        - file: chapters/reference/gravity-and-spherical-symmetry.md
+    - title: Postscript
+      children:
+        # - file: interplanetary-maneuvers/planetary-depahture-trajectory.md
+        - file: chapters/orbital-maneuvers/nonimpulsive-orbital-maneuvers.md
+        - file: chapters/orbital-maneuvers/nonimpulsive-maneuver-example.md
+site:
+  options:
+    logo: _static/hohmann-light.svg
+    logo_dark: _static/hohmann-dark.svg
+    favicon: _static/favicon-16x16.png
+    folders: true
+  # template: book-theme
+  # template: /home/bweber/GitHub/myst-theme/.deploy/book

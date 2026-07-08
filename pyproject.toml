@@ -2,45 +2,52 @@
 [project]
 authors = [{ name = "Bryan Weber", email = "bryan.w.weber@gmail.com" }]
 dependencies = [
-  "astropy==6.1.1",
-  "bokeh==3.4.2",
+  "astropy>=6.1.1",
+  "bokeh>=3.4.2",
   "docutils>=0.20.1",
   "ipympl>=0.9.4",
-  "jupyter-book>=1.0.2",
+  "jupyter-book>=2.0.0a0",
+  "jupyterlab>=4.3.5",
   "matplotlib>=3.9.0",
-  "myst-nb-bokeh>=2024.1.0",
-  "myst-nb>=1.1.1",
   "numpy>=1.26.4",
+  "pandas>=2.2.3",
+  "pint-pandas>=0.7.1",
   "pint>=0.24.1",
   "plotly>=5.22.0",
   "poliastro>=0.18.dev0",
+  "pyproj>=3.7.1",
   "scipy>=1.14.0",
   "skyfield>=1.49",
   "sphinx-design>=0.6.0",
   "sympy>=1.12.1",
+  "uncertainties>=3.2.3",
   "wheel>=0.43.0",
 ]
 description = "A book for Orbital Mechanics"
 license = { text = "CC-BY-SA-4.0" }
 name = "orbital-mechanics-notes"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.10,<3.14"
 version = "0.0.0"
 
 [tool.uv]
 python-preference = "only-system"
 
 [dependency-groups]
-dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "requests>=2.32.3", "ruff>=0.5.0"]
-lab = ["jupyterlab>=4.1.4", "jupytext>=1.16.6"]
+dev = ["doit>=0.36.0", "pyyaml>=6.0.1", "requests>=2.32.3", "ruff>=0.5.0", "render-svg"]
+lab = ["jupyterlab-myst>=2.4.2", "jupyterlab>=4.1.4", "jupytext>=1.16.6"]
 
 [tool.uv.sources]
 # Unfortunately, poliastro is no longer maintained. I updated some dependencies on my
 # fork to be able to upgrade some other things like astropy. Nothing seems to be broken
 # but I'll need a replacement here at some point.
 poliastro = { workspace = true }
+render-svg = { workspace = true }
 
 [tool.uv.workspace]
-members = ["vendor/*"]
+members = [
+    "vendor/*",
+    "plugins/render_svg",
+]
 
 [tool.ruff]
 extend-exclude = ["vendor"]
