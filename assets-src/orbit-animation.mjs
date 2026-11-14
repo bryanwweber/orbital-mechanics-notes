@@ -56,10 +56,15 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
 
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
+    const labelText = config.labelText ?? "m1    COG    m2";
+    context.font = "40px sans-serif";
+    const bounds = context.measureText(labelText);
+    canvas.width = Math.max(canvas.width, Math.ceil(Math.max(bounds.width, bounds.actualBoundingBoxRight)) + 8);
+    // Resizing resets the drawing context. Leave room for the complete last glyph.
     context.font = "40px sans-serif";
     context.fillStyle = "rgba(255,255,255,1)";
     context.textAlign = "left";
-    context.fillText(config.labelText ?? "m1    COG    m2", 0, 60);
+    context.fillText(labelText, 0, 60);
 
     // canvas contents will be used for a texture
     const texture = new CanvasTexture(canvas);
@@ -68,8 +73,10 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
     const material = new MeshBasicMaterial({ map: texture, side: DoubleSide });
     material.transparent = true;
 
-    const mesh = new Mesh(new PlaneGeometry(50, 20), material);
-    mesh.position.x = config.labelOffset ?? 0;
+    const labelWidth = 50 * canvas.width / 300;
+    const mesh = new Mesh(new PlaneGeometry(labelWidth, 20), material);
+    // Extend the right edge without moving or shrinking the existing labels.
+    mesh.position.x = (config.labelOffset ?? 0) + (labelWidth - 50) / 2;
 
     scene = new Scene();
 
@@ -120,6 +127,15 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
       const size = box.getSize(new Vector3()).length();
       const center = box.getCenter(new Vector3());
 
+      // Body materials share their colors with the corresponding trajectories.
+      // Convert the model's linear colors to CSS/sRGB for the canvas texture.
+      function labelColor(name) {
+        const object = gltfScene.getObjectByName(name);
+        const material = Array.isArray(object?.material) ? object.material[0] : object?.material;
+        if (!material?.color) throw new Error(`Missing model label color: ${name}`);
+        return material.color.getStyle(SRGBColorSpace);
+      }
+
       if (config.altitudeLabels) {
         material.dispose();
         texture.dispose();
@@ -127,17 +143,17 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
         const labels = { visible: true };
         const labelMaterials = [];
         for (const [name, text] of [["min-altitude", "Min. Altitude"], ["max-altitude", "Max. Altitude"]]) {
+          const anchor = gltfScene.getObjectByName(name);
+          if (!anchor) throw new Error(`Missing model label anchor: ${name}`);
           const labelCanvas = document.createElement("canvas");
           const labelContext = labelCanvas.getContext("2d");
           labelContext.font = "40px sans-serif";
-          labelContext.fillStyle = "white";
+          labelContext.fillStyle = labelColor(name);
           labelContext.fillText(text, 0, 60);
           const labelTexture = new CanvasTexture(labelCanvas);
           labelTexture.colorSpace = SRGBColorSpace;
           const labelMaterial = new MeshBasicMaterial({ map: labelTexture, side: DoubleSide, transparent: true });
           labelMaterials.push(labelMaterial);
-          const anchor = gltfScene.getObjectByName(name);
-          if (!anchor) throw new Error(`Missing model label anchor: ${name}`);
           anchor.add(new Mesh(new PlaneGeometry(200, 100), labelMaterial));
         }
         gui.add(labels, "visible").name("Show labels").onChange(() => {
@@ -145,6 +161,19 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
           updateLoop();
         });
       } else {
+        const colors = {
+          m1: labelColor("Sphere"),
+          COG: labelColor("Sphere002"),
+          m2: labelColor("Sphere001"),
+        };
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        let labelX = 0;
+        for (const part of labelText.split(/(m1|COG|m2)/)) {
+          context.fillStyle = colors[part] ?? "white";
+          context.fillText(part, labelX, 60);
+          labelX += context.measureText(part).width;
+        }
+        texture.needsUpdate = true;
         const anchor = gltfScene.getObjectByName(config.labelAnchor ?? "Sphere002");
         if (!anchor) throw new Error("Missing body label anchor");
         anchor.add(mesh);
