@@ -443,15 +443,6 @@ wheels = [
 ]
 
 [[package]]
-name = "doit"
-version = "0.37.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/35/f6/3a817d438799bda4d4e5fd136175cf7c328c074fadc1422dec3b374907e7/doit-0.37.0.tar.gz", hash = "sha256:d3c72e0e46a8fa1ddabea8f830762402dee090caf33c30c2295ac7010db8f09c", size = 1450967, upload-time = "2026-02-09T07:02:15.578Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/9c/38/3d6dcbf8379cb86d71a2325210ca3469a33767d8254b74d8c343db26ce87/doit-0.37.0-py3-none-any.whl", hash = "sha256:a9f181566aa90faac515e276f85e6526019554ed7e13c12cf9dc094ffecf3e1b", size = 85780, upload-time = "2026-02-09T07:02:10.155Z" },
-]
-
-[[package]]
 name = "executing"
 version = "2.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1315,7 +1306,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "doit" },
     { name = "pyyaml" },
     { name = "render-svg" },
     { name = "requests" },
@@ -1349,7 +1339,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "doit", specifier = ">=0.36.0" },
     { name = "pyyaml", specifier = ">=6.0.1" },
     { name = "render-svg", editable = "plugins/render_svg" },
     { name = "requests", specifier = ">=2.32.3" },

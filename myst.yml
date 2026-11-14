@@ -28,6 +28,8 @@ project:
     - vendor
     - Project.toml
     - Manifest.toml
+    - TODO.md
+    - AGENTS.md
   bibliography:
     - references.bib
   license: CC-BY-4.0
