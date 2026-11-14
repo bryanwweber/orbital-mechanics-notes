@@ -3,8 +3,11 @@ project:
   plugins:
     - type: javascript
       path: plugins/inlineHTML.mjs
+    - type: javascript
+      path: plugins/render3js.mjs
   static_files:
     - assets/
+    - _build/threejs/
   jupyter: false
   title: Orbital Mechanics & Astrodynamics
   authors:

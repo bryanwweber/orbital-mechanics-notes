@@ -57,10 +57,21 @@ located one directory above this project:
    bun run theme:book
    ```
 
-6. Start the book from the project repository:
+6. Install the book's JavaScript dependencies and generate its animation runtime:
 
    ```bash
    cd ../orbital-mechanics-notes
+   bun install --frozen-lockfile
+   bun run build:threejs
+   ```
+
+   The generated bundle and license notices are published through `assets/`.
+   Rebuild after changing the animation sources or pinned dependencies. See
+   [Three.js figures](plugins/THREEJS.md) for update and validation commands.
+
+7. Start the book from the project repository:
+
+   ```bash
    myst start --execute --debug --headless
    ```
 

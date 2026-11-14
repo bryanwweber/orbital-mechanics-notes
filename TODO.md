@@ -2,7 +2,7 @@
 
 ## Must Fix
 
-- Create a plugin for threejs to load and display 2-body animations
+- [x] Create a plugin for threejs to load and display 2-body animations
 - Figure 50, Time Since Periapsis: Circular and Elliptical Orbits, missing
 - Application of CR3BP: Figure 16 animation broken
 - Hyperbolic trajectory, Figure 41, needs animation

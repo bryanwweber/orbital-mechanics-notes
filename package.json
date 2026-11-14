@@ -1,7 +1,16 @@
 {
   "name": "orbital-mechanics-notes",
   "private": true,
+  "scripts": {
+    "build:threejs": "bun scripts/build-threejs.mjs",
+    "browser:check": "node scripts/browser-check.mjs",
+    "browser:threejs": "node scripts/threejs-check.mjs",
+    "browser:threejs:headed": "node scripts/threejs-check.mjs --headed",
+    "browser:threejs:static": "node scripts/threejs-static-check.mjs",
+    "browser:threejs:models": "node scripts/threejs-models-check.mjs"
+  },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@types/bun": "latest"
   },
   "peerDependencies": {
@@ -9,7 +18,9 @@
   },
   "dependencies": {
     "hast-util-from-html": "^2.0.3",
+    "lil-gui": "0.21.0",
     "svgo": "^4.0.1",
+    "three": "0.187.0",
     "unist-util-visit": "^5.1.0"
   }
 }
