@@ -28,16 +28,11 @@ As the true anomaly approaches $\nu_{\infty}$, $r$ approaches infinity. $\nu_{\i
 
 For $-\nu_{\infty} < \nu < \nu_{\infty}$, the trajectory of $m_2$ follows the occupied or real trajectory shown on the left in @fig:hyperbolic-trajectory-animation. For $\nu_{\infty} < \nu < \left({360}^{\circ} - \nu_{\infty}\right)$, $m_2$ would occupy the virtual trajectory on the figure below. This trajectory would require a repulsive gravitational force for a mass to actually follow it, so it is only a mathematical result.
 
-```{code-cell} ipython3
-:label: code:hyperbolic-trajectory-animation
-:tags: [remove-cell]
-
-from hyperbolic_trajectory import plot_figure
-anim = plot_figure()
-```
-
-:::{figure} #code:hyperbolic-trajectory-animation
+:::{html-figure} assets/hyperbolic-trajectory-animation.html
 :name: fig:hyperbolic-trajectory-animation
+:title: Hyperbolic trajectory and true anomaly
+:placeholder: assets/hyperbolic-trajectory-animation.svg
+:width: 100%
 
 Animation showing the hyperbolic trajectory and the value of the true anomaly for various positions on the occupied and virtual trajectories.
 :::

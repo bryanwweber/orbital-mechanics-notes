@@ -44,6 +44,8 @@ E = newton(
     func=kepler, fprime=d_kepler_d_E, x0=np.ones_like(M_e) * np.pi, args=(M_e, e)
 )
 nu = (2 * np.arctan(np.sqrt((1 + e) / (1 - e)) * np.tan(E / 2))) % (2 * np.pi)
+# Preserve the completed revolution instead of wrapping its angle to zero.
+nu[0] = 2 * np.pi
 r = p / (1 + e * np.cos(nu))
 # Scale and translate x, y coordinates to fit 400x400 SVG view
 x = a * e + r * np.cos(nu)
@@ -112,18 +114,20 @@ const r_p = {r_p};
 
 const eccArc = svg.querySelector('#ecc-arc');
 const eccArcRadius = 25;
-const eccArcInitialPoint = [half_width + eccArcRadius, half_height];
-const eccArcPathStart = `M ${{eccArcInitialPoint.join(' ')}} A ${{eccArcRadius}} ${{eccArcRadius}} 0`;
-
 const trueArc = svg.querySelector('#true-arc');
 const trueArcRadius = 20;
-const trueArcInitialPoint = [half_width + a - r_p + trueArcRadius, half_height];
-const trueArcPathStart = `M ${{trueArcInitialPoint.join(' ')}} A ${{trueArcRadius}} ${{trueArcRadius}} 0`;
-
 const meanArc = svg.querySelector('#mean-arc');
 const meanArcRadius = 50;
-const meanArcInitialPoint = [half_width + meanArcRadius, half_height];
-const meanArcPathStart = `M ${{meanArcInitialPoint.join(' ')}} A ${{meanArcRadius}} ${{meanArcRadius}} 0`;
+
+// Two arc segments also represent a full circle: one SVG arc with coincident
+// start and end points is omitted by the renderer.
+function arcPath(cx, cy, radius, angle) {{
+  const midX = cx + radius * Math.cos(angle / 2);
+  const midY = cy - radius * Math.sin(angle / 2);
+  const endX = cx + radius * Math.cos(angle);
+  const endY = cy - radius * Math.sin(angle);
+  return `M ${{cx + radius}} ${{cy}} A ${{radius}} ${{radius}} 0 0 0 ${{midX}} ${{midY}} A ${{radius}} ${{radius}} 0 0 0 ${{endX}} ${{endY}}`;
+}}
 
 function animate() {{
   const row = data[slider.value - 1];
@@ -145,12 +149,9 @@ function animate() {{
   eccentricAnomaly.setAttribute('d', newEccentricAnomaly);
   m1ToE.setAttribute('d', `M ${{true_x}} ${{true_y}} L ${{ecc_x}} ${{ecc_y}}`);
 
-  const eccLargeArcFlag = E > Math.PI ? 1 : 0;
-  const meanLargeArcFlag = M > Math.PI ? 1 : 0;
-  const trueLargeArcFlag = nu > Math.PI ? 1 : 0;
-  const newEccArc = `${{eccArcPathStart}} ${{eccLargeArcFlag}} 0 ${{half_width + eccArcRadius*Math.cos(E)}} ${{half_height - eccArcRadius*Math.sin(E)}}`;
-  const newMeanArc = `${{meanArcPathStart}} ${{meanLargeArcFlag}} 0 ${{half_width + meanArcRadius*Math.cos(M)}} ${{half_height - meanArcRadius*Math.sin(M)}}`;
-  const newTrueArc = `${{trueArcPathStart}} ${{trueLargeArcFlag}} 0 ${{half_width + a - r_p + trueArcRadius*Math.cos(nu)}} ${{half_height - trueArcRadius*Math.sin(nu)}}`;
+  const newEccArc = arcPath(half_width, half_height, eccArcRadius, E);
+  const newMeanArc = arcPath(half_width, half_height, meanArcRadius, M);
+  const newTrueArc = arcPath(half_width + a - r_p, half_height, trueArcRadius, nu);
 
   m2.setAttribute('cx', true_x);
   m2.setAttribute('cy', true_y);

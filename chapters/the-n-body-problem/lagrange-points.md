@@ -236,102 +236,11 @@ By convention, the Lagrange points are numbered such that $L_1$ lies between $m_
 
 @fig:lagrange-points-animation plots the five Lagrange points in non-dimensional coordinates as a function of the mass ratio $\pi_2$.
 
-```{code-cell}
-:tags: [remove-cell]
-
-import matplotlib.path as mpath
-import matplotlib.animation as animation
-
-def collinear_lagrange(xstar, pi_2):
-    return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
-
-plt.ioff()
-circle = mpath.Path.unit_circle()
-wedge_1 = mpath.Path.wedge(90, 180)
-wedge_2 = mpath.Path.wedge(270, 0)
-
-verts = np.concatenate([circle.vertices, wedge_1.vertices[::-1, ...], wedge_2.vertices[::-1, ...]])
-codes = np.concatenate([circle.codes, wedge_1.codes, wedge_2.codes])
-center_of_mass = mpath.Path(verts, codes)
-
-fig, ax = plt.subplots(figsize=(12, 9))
-ax.set_xlim(-1.5, 1.5)
-ax.set_ylim(-1.1, 1.1)
-ax.set_aspect("equal")
-ax.set_xlabel("$x^*$")
-ax.set_ylabel("$y^*$")
-
-cos = np.cos(np.linspace(0, np.pi, 100))
-sin = np.sin(np.linspace(0, np.pi, 100))
-
-(com,) = ax.plot(0, 0, 'k', marker=center_of_mass, markersize=15)
-l = ax.axhline(0, color='k')
-
-(m2_orb,) = ax.plot([], [], 'C0')
-(m1_orb,) = ax.plot([], [], 'C1')
-(equil,) = ax.plot([], [], 'k', ls="--", lw=1)
-
-(L1_line,) = ax.plot([], [], 'rv', label="$L_1$", markersize=15)
-(L2_line,) = ax.plot([], [], 'r^', label="$L_2$", markersize=15)
-(L3_line,) = ax.plot([], [], 'rp', label="$L_3$", markersize=15)
-(L4_line,) = ax.plot([], [], 'rX', label="$L_4$", markersize=15)
-(L5_line,) = ax.plot([], [], 'rs', label="$L_5$", markersize=15)
-(m1_line,) = ax.plot([], [], 'bo', label="$m_1$", markersize=15)
-(m2_line,) = ax.plot([], [], 'go', label="$m_2$", markersize=15)
-
-ann = ax.annotate("", xy=(1, 0.85), ha="center", va="center", fontsize=20)
-
-ax.legend(bbox_to_anchor=(0, 1, 1, 0), loc="lower left", mode="expand", ncol=7);
-
-
-def init():
-    m2_orb.set_data([], [])
-    m1_orb.set_data([], [])
-    equil.set_data([], [])
-    ann.set_text("")
-    return (com, l, m2_orb, m1_orb, equil, ann)
-
-
-def animate(pi_2):
-    m_1 = -pi_2
-    m_2 = 1 - pi_2
-    m1_line.set_data([m_1], [0])
-    m2_line.set_data([m_2], [0])
-    x_2 = m_2 * cos
-    y_2 = m_2 * sin
-    x_1 = m_1 * cos
-    y_1 = m_1 * sin
-    m2_orb.set_data(np.hstack((x_2, x_2[::-1])), np.hstack((y_2, -y_2[::-1])))
-    m1_orb.set_data(np.hstack((x_1, x_1[::-1])), np.hstack((y_1, -y_1[::-1])))
-    L_2 = newton(func=collinear_lagrange, x0=1, args=(pi_2,))
-    L_1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
-    L_3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
-    L_4 = L_5 = 0.5 - pi_2
-    L1_line.set_data([L_1], [0])
-    L2_line.set_data([L_2], [0])
-    L3_line.set_data([L_3], [0])
-    L4_line.set_data([L_4], [np.sqrt(3) / 2])
-    L5_line.set_data([L_5], [-np.sqrt(3) / 2])
-    equil.set_data([m_1, L_4, m_2, L_5, m_1], [0, np.sqrt(3) / 2, 0, -np.sqrt(3) / 2, 0])
-    ann.set_text(fr"$\pi_2$ = {pi_2:.4G}")
-
-    return (m2_orb, m1_orb, equil, m1_line, m2_line, L1_line, L2_line, L3_line, L4_line, L5_line)
-
-pi_2 = np.hstack((np.logspace(-5, -1, 25), np.linspace(0.1, 0.8, 50), np.logspace(-0.08, -4e-6, 25)))
-anim = animation.FuncAnimation(
-    fig, animate, init_func=init, frames=pi_2, blit=True
-);
-```
-
-```{code-cell} ipython3
-:label: code:lagrange-points-animation
-:tags: [remove-cell]
-
-fig
-```
-
-:::{figure} #code:lagrange-points-animation
+:::{html-figure} assets/lagrange-points-animate.html
 :name: fig:lagrange-points-animation
+:title: Lagrange points and mass ratio
+:placeholder: assets/lagrange-points-animate.svg
+:width: 100%
 
 Animation showing the position of the five Lagrange points as the value of $\pi_2$ goes from 0 to 1.
 :::
