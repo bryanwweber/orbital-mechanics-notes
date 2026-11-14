@@ -334,20 +334,10 @@ Finally, we construct some plots of the situation. In @fig:two-body-inertial, we
 
 The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.
 
-```{code-cell} python
-:label: code:two-body-inertial
-:tags: ["remove-cell"]
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection="3d")
-ax.plot(R_1[:, 0], R_1[:, 1], R_1[:, 2], label="m_1")
-ax.plot(R_2[:, 0], R_2[:, 1], R_2[:, 2], label="m_2")
-ax.plot(barycenter[:, 0], barycenter[:, 1], barycenter[:, 2], label="COG")
-ax.legend();
-```
-
-:::{figure} #code:two-body-inertial
+:::{threejs} scripts/two-body-inertial.html
 :name: fig:two-body-inertial
+:title: Two-body motion in an inertial frame
+:placeholder: ../../assets/threejs-placeholders/inertial.png
 
 The motion of two bodies subject to mutual gravitational attraction, viewed from an external inertial frame.
 :::
@@ -358,44 +348,20 @@ Another way to view this system is by setting the barycenter to be the origin of
 Note, though, that the barycenter of the real Earth-Moon system is located below the Earth's surface, at about three-quarters of the radius of the Earth. So this picture isn't totally accurate.
 :::
 
-```{code-cell} python
-:tags: ["remove-cell"]
-:label: code:two-body-inertial-cg-relative
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection="3d")
-R1_rel_COG = R_1 - barycenter
-R2_rel_COG = R_2 - barycenter
-ax.plot(R1_rel_COG[:, 0], R1_rel_COG[:, 1], R1_rel_COG[:, 2], label="m_1")
-ax.plot(R2_rel_COG[:, 0], R2_rel_COG[:, 1], R2_rel_COG[:, 2], label="m_2")
-ax.plot(0, 0, 0, "ro", label="COG")
-ax.legend();
-```
-
-:::{figure} #code:two-body-inertial-cg-relative
+:::{threejs} scripts/two-body-inertial-cg-relative.html
 :name: fig:two-body-inertial-cg-relative
+:title: Two-body motion relative to the barycenter
+:placeholder: ../../assets/threejs-placeholders/barycenter.png
 
 The motion of two bodies subject to mutual gravitational attraction, viewed from an inertial frame attached to the system barycenter. In this reference frame, the orbits of $m_1$ and $m_2$ appear to be ellipses with the barycenter at one of the foci.
 :::
 
 @fig:two-body-inertial-m1-relative fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.
 
-```{code-cell} python
-:label: code:two-body-inertial-m1-relative
-:tags: ["remove-cell"]
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection="3d")
-R2_rel_R1 = R_2 - R_1
-COG_rel_R1 = barycenter - R_1
-ax.plot(R2_rel_R1[:, 0], R2_rel_R1[:, 1], R2_rel_R1[:, 2], label="m_2")
-ax.plot(COG_rel_R1[:, 0], COG_rel_R1[:, 1], COG_rel_R1[:, 2], label="COG")
-ax.plot(0, 0, 0, "ro", label="m_1")
-ax.legend();
-```
-
-:::{figure} #code:two-body-inertial-m1-relative
+:::{threejs} scripts/two-body-inertial-m1-relative.html
 :name: fig:two-body-inertial-m1-relative
+:title: Two-body motion relative to the first mass
+:placeholder: ../../assets/threejs-placeholders/primary.png
 
 The motion of two bodies subject to mutual gravitational attraction, viewed from a non-inertial frame attached to $m_1$. In this reference frame, the orbits of the barycenter and $m_2$ appear to be ellipses with $m_1$ at one of the foci.
 :::

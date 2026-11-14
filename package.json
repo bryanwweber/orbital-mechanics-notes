@@ -7,7 +7,8 @@
     "browser:threejs": "node scripts/threejs-check.mjs",
     "browser:threejs:headed": "node scripts/threejs-check.mjs --headed",
     "browser:threejs:static": "node scripts/threejs-static-check.mjs",
-    "browser:threejs:models": "node scripts/threejs-models-check.mjs"
+    "browser:threejs:models": "node scripts/threejs-models-check.mjs",
+    "browser:threejs:chapters": "node scripts/threejs-chapters-check.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.65.1",

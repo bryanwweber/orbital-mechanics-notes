@@ -41,7 +41,7 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
   try {
     // Modern WebGLRenderer requires WebGL 2.
     const renderCanvas = document.createElement("canvas");
-    const renderContext = renderCanvas.getContext("webgl2", { antialias: true });
+    const renderContext = renderCanvas.getContext("webgl2", { antialias: true, alpha: false });
     if (!renderContext) {
       throw new Error("WebGL 2 is unavailable. Enable hardware acceleration or use a supported browser.");
     }

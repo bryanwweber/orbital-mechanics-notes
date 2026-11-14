@@ -106,6 +106,12 @@ require MyST or add a test page to the book.
   static asset layout without relying on a previous MyST build.
 - `bun run browser:threejs:models`: check all four migrated presets, label controls,
   default speeds, screenshots, and visible WebGL/model-loading errors.
+- `bun run browser:threejs:chapters`: inspect the four figures on the two live
+  numerical-solution chapter pages, including captions, cross-references, and assets.
+  Add `--update-placeholders` to capture their paused canvases to
+  `assets/threejs-placeholders/` for static exports. These images are generated
+  from the existing GLBs by the shared runtime; edit the Blender sources to change
+  the trajectories, then regenerate the images with this command.
 
 Browser artifacts go in `_build/browser/`. The general `browser:check` command
 uses the running book (override its server with `BOOK_URL`); the animation

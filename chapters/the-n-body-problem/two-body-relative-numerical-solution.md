@@ -274,34 +274,10 @@ ax.legend();
 ::::
 :::::
 
-<!-- The code is duplicated here from the tab item above so that we can remove the cell after it runs so we don't end up with duplicate figure output -->
-```{code-cell} python
-:label: code:two-body-relative
-:tags: ["remove-cell"]
-fig = plt.figure()
-ax = fig.add_subplot(111, projection="3d")
-ax.plot(r[:, 0], r[:, 1], r[:, 2], label="Orbit")
-ax.set_xlabel("km")
-ax.set_ylabel("km")
-ax.set_zlabel("km")
-
-# This adds a sphere to the plot of the radius of the Earth
-p = np.linspace(0, np.pi, 200)
-t = np.linspace(0, 2 * np.pi, 200)
-P, T = np.meshgrid(p, t)
-
-X = R_E * np.cos(T) * np.sin(P)
-Y = R_E * np.sin(T) * np.sin(P)
-Z = R_E * np.cos(P)
-
-ax.plot_surface(X, Y, Z)
-ax.plot(r[i_min, 0], r[i_min, 1], r[i_min, 2], "ro", label="Min. Altitude")
-ax.plot(r[i_max, 0], r[i_max, 1], r[i_max, 2], "go", label="Max. Altitude")
-ax.legend();
-```
-
-:::{figure} #code:two-body-relative
+:::{threejs} scripts/two-body-relative.html
 :name: fig:two-body-relative
+:title: Satellite motion relative to the Earth
+:placeholder: ../../assets/threejs-placeholders/relative.png
 
 The motion of a satellite in orbit around the Earth.
 :::
