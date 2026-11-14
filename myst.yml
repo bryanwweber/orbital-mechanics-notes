@@ -4,10 +4,10 @@ project:
     - type: javascript
       path: plugins/inlineHTML.mjs
     - type: javascript
-      path: plugins/render3js.mjs
+      path: plugins/htmlFigure.mjs
   static_files:
     - assets/
-    - _build/threejs/
+    - _build/html-figures/chapters/
   jupyter: false
   title: Orbital Mechanics & Astrodynamics
   authors:

@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { threejsDirective } from "../plugins/render3js.mjs";
+import { htmlFigureDirective } from "../plugins/htmlFigure.mjs";
 
 // Exercise the real animation entry points without adding a test page to the book.
 export async function startThreejsFixture() {
@@ -14,7 +14,7 @@ export async function startThreejsFixture() {
     ["two-body-inertial-m1-relative.html", "Migrated primary-relative animation"],
     ["two-body-relative.html", "Migrated relative animation"],
   ];
-  const figures = scenes.map(([filename, title], index) => threejsDirective.run({
+  const figures = scenes.map(([filename, title], index) => htmlFigureDirective.run({
     arg: `scripts/${filename}`,
     options: { title, label: `fig:fixture-${index}`, placeholder: "../../assets/threejs-test-placeholder.png" },
     body: [{ type: "paragraph", children: [{ type: "text", value: title }] }],
@@ -29,7 +29,7 @@ export async function startThreejsFixture() {
     }).join("")}</html>`;
   const roots = {
     "/preview/assets/": path.resolve("assets"),
-    "/preview/threejs/": path.resolve("_build/threejs"),
+    "/preview/chapters/": path.resolve("_build/html-figures/chapters"),
   };
   const mime = { ".html": "text/html", ".js": "text/javascript", ".glb": "model/gltf-binary", ".png": "image/png" };
   const server = createServer(async (request, response) => {

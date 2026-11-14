@@ -1,11 +1,11 @@
 # Three.js figures
 
-The `threejs` directive publishes a local HTML entry point and embeds it in a
+The `html-figure` directive publishes a local HTML entry point and embeds it in a
 standard MyST iframe figure. Run MyST from the repository root. HTML paths are
 relative to the Markdown document; captions support MyST syntax.
 
 ```markdown
-:::{threejs} scripts/two-body-inertial.html
+:::{html-figure} scripts/two-body-inertial.html
 :name: fig:example-animation
 :title: Two-body motion in an inertial frame
 :width: 100%
@@ -19,14 +19,16 @@ Use `@fig:example-animation` to reference the figure. `title` is required for
 accessibility. `placeholder` is an optional document-relative image for static
 document exports. MyST controls the iframe aspect ratio (currently 5:3).
 
-The plugin writes HTML to `_build/threejs/`, registered in `project.static_files`.
-MyST publishes this directory as `threejs/` alongside `assets/`. HTML entry points
-must therefore load shared dependencies relative to their published location:
-`../assets/js/orbital-three/orbital-three.js`. Models are resolved relative to
-the runtime bundle, under `assets/models/`. The plugin copies the HTML
-entry point; dependency files must be placed in the configured static directories.
-The iframe URL is relative to the document route, consistent with `folders: true`
-in this book. No URLs assume hosting at the domain root.
+The plugin stages HTML and sibling web assets under `_build/html-figures/`,
+preserving the source directory layout. `project.static_files` publishes its
+`chapters/` tree. For example, `scripts/two-body-inertial.html` stays in the
+chapter's published `scripts/` directory. Entry points import the shared bundle
+using `../../../assets/js/orbital-three/orbital-three.js`. Models are resolved
+relative to that bundle under `assets/models/`. These relative URLs support
+hosting beneath a deployment prefix. See [local HTML figures](HTML-FIGURES.md).
+
+The former `threejs` plugin is no longer enabled; its source remains for legacy
+reference. All book figures and browser fixtures use `html-figure`.
 
 Restart the existing MyST process after changing plugin code. After HTML-only
 changes, restart MyST or force a full rebuild so the staged and published HTML
@@ -95,7 +97,7 @@ Install dependencies with `bun install`, build the runtime with
 server using the real chapter HTML entry points and asset files; they do not
 require MyST or add a test page to the book.
 
-- `node --test plugins/render3js.test.mjs`: directive and file diagnostics.
+- `node --test plugins/htmlFigure.test.mjs`: directive and file diagnostics.
 - `bun run browser:check`: basic page, browser errors, WebGL capability, screenshot.
 - `bun run browser:threejs`: animation, controls, independent instances, resizing,
   and page navigation checks in a standalone browser fixture.

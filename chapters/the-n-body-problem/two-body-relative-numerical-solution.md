@@ -274,7 +274,7 @@ ax.legend();
 ::::
 :::::
 
-:::{threejs} scripts/two-body-relative.html
+:::{html-figure} scripts/two-body-relative.html
 :name: fig:two-body-relative
 :title: Satellite motion relative to the Earth
 :placeholder: ../../assets/threejs-placeholders/relative.png
