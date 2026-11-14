@@ -71,7 +71,7 @@ Y_0 = np.hstack((r_0, v_0))
 ::::
 :::: {tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-2]
 :end-before: [section-3]
 :language: matlab
@@ -112,7 +112,7 @@ def relative_motion(t, Y):
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-3]
 :end-before: [section-4]
 :language: matlab
@@ -142,7 +142,7 @@ v = Y[:, 3:]  # km/s
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-4]
 :end-before: [section-5]
 :language: matlab
@@ -172,7 +172,7 @@ speed = np.sqrt(np.sum(np.square(v), axis=1))
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-5]
 :end-before: [section-6]
 :language: matlab
@@ -200,7 +200,7 @@ time_at_max_alt = sol.t[i_max]
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-6]
 :end-before: [section-7]
 :language: matlab
@@ -228,7 +228,7 @@ The time at maximum altitude is: {time_at_max_alt:.2F} s
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-7]
 :end-before: [section-8]
 :language: matlab
@@ -266,7 +266,7 @@ ax.legend();
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
-:::{literalinclude} scripts/two_body_relative_numerical_solution.m
+:::{literalinclude} assets/two_body_relative_numerical_solution.m
 :start-after: [section-8]
 :end-before: [section-9]
 :language: matlab
@@ -274,7 +274,7 @@ ax.legend();
 ::::
 :::::
 
-:::{html-figure} scripts/two-body-relative.html
+:::{html-figure} assets/two-body-relative.html
 :name: fig:two-body-relative
 :title: Satellite motion relative to the Earth
 :placeholder: ../../assets/threejs-placeholders/relative.png

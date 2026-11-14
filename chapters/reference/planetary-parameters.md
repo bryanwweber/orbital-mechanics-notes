@@ -353,9 +353,9 @@ def parse_pck_file(filename: Path) -> dict[int | None, float]:
 
 HERE = Path.cwd()
 if HERE.name == "reference":
-    HERE /= "scripts"
+    HERE /= "assets"
 elif HERE.name == "orbital-mechanics-notes":
-    HERE = HERE.joinpath("reference", "scripts")
+    HERE = HERE.joinpath("chapters", "reference", "assets")
 GM_dict = parse_pck_file(HERE / "gm_Horizons.pck")
 planets = load_file(HERE / "de442s.bsp")
 with HERE.joinpath("finals2000A.all").open("rb") as f:

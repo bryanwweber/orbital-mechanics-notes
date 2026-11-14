@@ -82,7 +82,7 @@ y_0 = np.hstack((R_1_0, R_2_0, dotR_1_0, dotR_2_0))
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-1]
 :end-before: [section-2]
 :language: matlab
@@ -142,7 +142,7 @@ ddotZ_2 = -G * m_1 * (Z_2 - Z_1) / r**3
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-2]
 :end-before: [section-3]
 :language: matlab
@@ -174,7 +174,7 @@ ddotR_2_0 = -m_1 * ddot
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-3]
 :end-before: [section-4]
 :language: matlab
@@ -215,7 +215,7 @@ R_2_1 = dotR_2_0 * Delta_t + R_2_0
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-4]
 :end-before: [section-5]
 :language: matlab
@@ -288,7 +288,7 @@ def absolute_motion(t, y):
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-6]
 :end-before: [section-7]
 :language: matlab
@@ -322,7 +322,7 @@ barycenter = (m_1 * R_1 + m_2 * R_2) / (m_1 + m_2)  # km
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-7]
 :end-before: [section-8]
 :language: matlab
@@ -334,7 +334,7 @@ Finally, we construct some plots of the situation. In @fig:two-body-inertial, we
 
 The two masses spiral around the barycenter. One way to imagine this system is as the Earth and the Moon viewed as though you were sitting on the Sun. The Earth and Moon would move through space, and they would appear to be orbiting around each other. If you observed them for a short enough time, their motion would appear to be in a straight line.
 
-:::{html-figure} scripts/two-body-inertial.html
+:::{html-figure} assets/two-body-inertial.html
 :name: fig:two-body-inertial
 :title: Two-body motion in an inertial frame
 :placeholder: ../../assets/threejs-placeholders/inertial.png
@@ -348,7 +348,7 @@ Another way to view this system is by setting the barycenter to be the origin of
 Note, though, that the barycenter of the real Earth-Moon system is located below the Earth's surface, at about three-quarters of the radius of the Earth. So this picture isn't totally accurate.
 :::
 
-:::{html-figure} scripts/two-body-inertial-cg-relative.html
+:::{html-figure} assets/two-body-inertial-cg-relative.html
 :name: fig:two-body-inertial-cg-relative
 :title: Two-body motion relative to the barycenter
 :placeholder: ../../assets/threejs-placeholders/barycenter.png
@@ -358,7 +358,7 @@ The motion of two bodies subject to mutual gravitational attraction, viewed from
 
 @fig:two-body-inertial-m1-relative fixes the coordinate system on the first mass and plots the motion of the barycenter and the second mass relative to the position of the first mass. This is kind of like sitting on the Earth and watching the Moon go around. Notice that the barycenter of the system also orbits around the first mass in this reference frame.
 
-:::{html-figure} scripts/two-body-inertial-m1-relative.html
+:::{html-figure} assets/two-body-inertial-m1-relative.html
 :name: fig:two-body-inertial-m1-relative
 :title: Two-body motion relative to the first mass
 :placeholder: ../../assets/threejs-placeholders/primary.png
@@ -402,7 +402,7 @@ ax.legend();
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
-:::{literalinclude} scripts/two_body_inertial_numerical_solution.m
+:::{literalinclude} assets/two_body_inertial_numerical_solution.m
 :start-after: [section-8]
 :end-before: [end-here]
 :language: matlab

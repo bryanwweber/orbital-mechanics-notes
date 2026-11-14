@@ -3,10 +3,10 @@
 Use `html-figure` for chapter-local HTML with sibling assets:
 
 ```markdown
-:::{html-figure} scripts/ellipse-area-animate.html
+:::{html-figure} assets/ellipse-area-animate.html
 :name: fig:ellipse-area-animate
 :title: Stretching an ellipse into a circumscribing circle
-:placeholder: scripts/ellipse-area-animate.svg
+:placeholder: assets/ellipse-area-animate.svg
 
 Figure caption.
 :::
@@ -20,7 +20,7 @@ by filename. This follows the book's `folders: true` chapter routes (without a
 trailing slash), including deployment beneath a URL prefix.
 
 Run the chapter's uv generator before building to refresh its HTML/SVG outputs.
-Generated outputs are kept beside their Python source in `scripts/`.
+Generated outputs are kept beside their Python source in `assets/`.
 Restart MyST after adding or changing the plugin; rebuild after regenerating
 assets so staged and published files are refreshed.
 

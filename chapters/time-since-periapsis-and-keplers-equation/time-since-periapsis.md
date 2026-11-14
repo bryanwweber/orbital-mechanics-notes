@@ -50,10 +50,10 @@ The **eccentric anomaly** is defined slightly differently. Imagine the same circ
 
 The three anomalies: true, mean, and eccentric, are shown in @fig:true-mean-eccentric-anomalies.
 
-:::{html-figure} scripts/true-mean-eccentric-anomalies.html
+:::{html-figure} assets/true-mean-eccentric-anomalies.html
 :name: fig:true-mean-eccentric-anomalies
 :title: True, mean, and eccentric anomalies
-:placeholder: scripts/true-mean-eccentric-anomalies.svg
+:placeholder: assets/true-mean-eccentric-anomalies.svg
 
 The true, mean, and eccentric anomalies for an elliptical orbit. The true anomaly is shown in blue, the mean anomaly is shown in orange, and the eccentric anomaly is shown in green. The mean anomaly proceeds around the orange circle at a constant rate, while the rates of the true and eccentric anomalies vary with position. Nonetheless, they all meet at periapsis and apoapsis. Note the vertical line connecting the true and eccentric anomalies.
 :::

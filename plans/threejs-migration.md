@@ -13,7 +13,7 @@ does not complete the final validation steps.
   `37f083b` updated the core builds and GLTFLoader on August 24, 2021. The original
   download source and exact upstream commit are not recorded. OrbitControls and
   dat.gui were not updated in the second commit.
-- [x] Identify consumers in `chapters/the-n-body-problem/scripts/`:
+- [x] Identify consumers in `chapters/the-n-body-problem/assets/`:
   `threejs-test.html`, `two-body-inertial.html`, `two-body-relative.html`,
   `two-body-inertial-m1-relative.html`, and `two-body-intertial-cg-relative.js`.
 - [x] Establish working headed Chromium checks for model loading, animation,

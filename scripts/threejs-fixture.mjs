@@ -15,7 +15,7 @@ export async function startThreejsFixture() {
     ["two-body-relative.html", "Migrated relative animation"],
   ];
   const figures = scenes.map(([filename, title], index) => htmlFigureDirective.run({
-    arg: `scripts/${filename}`,
+    arg: `assets/${filename}`,
     options: { title, label: `fig:fixture-${index}`, placeholder: "../../assets/threejs-test-placeholder.png" },
     body: [{ type: "paragraph", children: [{ type: "text", value: title }] }],
   }, { path: documentPath, fail(message) { throw new Error(message); } })[0]);

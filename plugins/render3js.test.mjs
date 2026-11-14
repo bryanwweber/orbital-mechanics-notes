@@ -9,7 +9,7 @@ const file = {
   fail(message) { throw new Error(message); },
 };
 const data = {
-  arg: "scripts/two-body-inertial.html",
+  arg: "assets/two-body-inertial.html",
   options: { label: "fig:test", title: "Test animation", placeholder: "test.png" },
   body: [{ type: "paragraph", children: [{ type: "text", value: "Caption" }] }],
 };
@@ -25,13 +25,13 @@ test("publishes document-relative HTML and preserves figure/export metadata", ()
   assert.deepEqual(caption.children, data.body);
   assert.equal(
     readFileSync(path.join("_build/threejs", path.basename(iframe.src)), "utf8"),
-    readFileSync("chapters/the-n-body-problem/scripts/two-body-inertial.html", "utf8"),
+    readFileSync("chapters/the-n-body-problem/assets/two-body-inertial.html", "utf8"),
   );
 });
 
 test("reports missing files and rejects non-HTML or paths outside the project", () => {
   assert.throws(() => threejsDirective.run({ ...data, arg: "missing.html" }, file), /not found/);
-  for (const arg of ["../../../../outside.html", "scripts/example.py"]) {
+  for (const arg of ["../../../../outside.html", "assets/example.py"]) {
     assert.throws(() => threejsDirective.run({ ...data, arg }, file), /HTML file inside the project/);
   }
 });

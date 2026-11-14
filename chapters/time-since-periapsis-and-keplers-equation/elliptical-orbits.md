@@ -78,10 +78,10 @@ The circle here is called an **circumscribing circle** because it is tangent to 
 
 Instead, we can work with a circle, where it's much easier to calculate areas. We are going to transform the ellipse into a circle by stretching it in the vertical direction, ensuring that the circle and ellipse continue to touch at the point $P$. While the ellipse is stretching, the swept area is also stretching. This process is animated in @fig:ellipse-area-animate.
 
-:::{html-figure} scripts/ellipse-area-animate.html
+:::{html-figure} assets/ellipse-area-animate.html
 :name: fig:ellipse-area-animate
 :title: Stretching an ellipse into a circumscribing circle
-:placeholder: scripts/ellipse-area-animate.svg
+:placeholder: assets/ellipse-area-animate.svg
 :width: 75%
 
 Transforming the original elliptical orbit into a circumscribing circle by stretching the ellipse in the vertical direction. Note that the point $B$ translates vertically to point $Q$.

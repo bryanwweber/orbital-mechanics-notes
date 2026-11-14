@@ -175,7 +175,7 @@ The location of the Lagrange points in the Earth-Moon system, shown in non-dimen
 
 In MATLAB, we are using `fzero` as the solver. The code below produces the same output as the Python code above.
 
-:::{literalinclude} scripts/lagrange_points_example.m
+:::{literalinclude} assets/lagrange_points_example.m
 :language: matlab
 :::
 
