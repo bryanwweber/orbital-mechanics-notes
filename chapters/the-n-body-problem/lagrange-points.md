@@ -427,7 +427,7 @@ Nonetheless, these are quite useful points for observation of the solar system. 
 
 These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in @fig:wmap-trajectory.
 
-:::{figure} ../../images/wmap-trajectory.gif
+:::{figure} ../../images/wmap-trajectory.webp
 :name: fig:wmap-trajectory
 
 The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) as viewed from Earth. Note the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the Earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_Wilkinson_Microwave_Anisotropy_Probe_trajectory_-_Viewd_from_Earth.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.
@@ -435,7 +435,7 @@ The trajectory of the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedi
 
 Another example is the JWST, mentioned previously. JWST has a simpler [halo orbit](https://en.wikipedia.org/wiki/Halo_orbit) around $L_2$. The orbit of JWST is shown in @fig:jwst-trajectory.
 
-:::{figure} ../../images/jwst-trajectory.gif
+:::{figure} ../../images/jwst-trajectory.webp
 :name: fig:jwst-trajectory
 
 The trajectory of the [James Webb Space Telescope](https://en.wikipedia.org/wiki/James_Webb_Space_Telescope) (JWST) as viewed from above the ecliptic plane with Earth fixed. Note again the distance in the bottom of the animation, showing the satellite as approximately 1.5 million km from the Earth. [Phoenix7777](https://commons.wikimedia.org/wiki/File:Animation_of_James_Webb_Space_Telescope_trajectory_-_Polar_view.gif), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons.

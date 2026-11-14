@@ -159,10 +159,9 @@ project:
         - file: chapters/orbital-maneuvers/nonimpulsive-orbital-maneuvers.md
         - file: chapters/orbital-maneuvers/nonimpulsive-maneuver-example.md
 site:
+  template: book-theme
   options:
     logo: _static/hohmann-light.svg
     logo_dark: _static/hohmann-dark.svg
     favicon: _static/favicon-16x16.png
     folders: true
-  # template: book-theme
-  # template: /home/bweber/GitHub/myst-theme/.deploy/book

@@ -14,11 +14,19 @@ export async function startThreejsFixture() {
     ["two-body-inertial-m1-relative.html", "Migrated primary-relative animation"],
     ["two-body-relative.html", "Migrated relative animation"],
   ];
-  const figures = scenes.map(([filename, title], index) => htmlFigureDirective.run({
-    arg: `assets/${filename}`,
-    options: { title, label: `fig:fixture-${index}`, placeholder: "../../assets/threejs-test-placeholder.png" },
-    body: [{ type: "paragraph", children: [{ type: "text", value: title }] }],
-  }, { path: documentPath, fail(message) { throw new Error(message); } })[0]);
+  const originalBaseUrl = process.env.BASE_URL;
+  let figures;
+  try {
+    process.env.BASE_URL = "/preview";
+    figures = scenes.map(([filename, title], index) => htmlFigureDirective.run({
+      arg: `assets/${filename}`,
+      options: { title, label: `fig:fixture-${index}`, placeholder: "../../assets/threejs-placeholders/inertial.png" },
+      body: [{ type: "paragraph", children: [{ type: "text", value: title }] }],
+    }, { path: documentPath, fail(message) { throw new Error(message); } })[0]);
+  } finally {
+    if (originalBaseUrl === undefined) delete process.env.BASE_URL;
+    else process.env.BASE_URL = originalBaseUrl;
+  }
   const route = "/preview/chapters/the-n-body-problem/animations";
   const html = `<!doctype html><html lang="en"><meta charset="utf-8">
     <title>Animation validation</title><link rel="icon" href="data:,">

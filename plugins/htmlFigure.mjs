@@ -31,7 +31,9 @@ export const htmlFigureDirective = {
     }
     const iframe = {
       type: "iframe",
-      src: data.arg.split(path.sep).join("/"),
+      // Page routes may end in a slash, so document-relative URLs are ambiguous.
+      // Keep the published chapter tree and any deployment prefix explicit.
+      src: `${(process.env.BASE_URL ?? "").replace(/\/$/, "")}/${relative.split(path.sep).map(encodeURIComponent).join("/")}`,
       title: data.options.title,
       width: data.options.width ?? "100%",
     };

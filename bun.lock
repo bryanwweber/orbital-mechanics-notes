@@ -14,6 +14,7 @@
       "devDependencies": {
         "@playwright/test": "^1.65.1",
         "@types/bun": "latest",
+        "mystmd": "1.13.0",
       },
       "peerDependencies": {
         "typescript": "^5",
@@ -72,6 +73,8 @@
     "lil-gui": ["lil-gui@0.21.0", "", {}, "sha512-tpvxN7v1GvE/Tv+GRopfOp0W7fVEjF4PltkuX8vOCIfim22rD1ztvfkoEMcv9lzQeuNUSeIrUmUjBwmlW/oUew=="],
 
     "mdn-data": ["mdn-data@2.27.1", "", {}, "sha512-9Yubnt3e8A0OKwxYSXyhLymGW4sCufcLG6VdiDdUGVkPhpqLxlvP5vl1983gQjJl3tqbrM731mjaZaP68AgosQ=="],
+
+    "mystmd": ["mystmd@1.13.0", "", { "bin": { "myst": "dist/myst.cjs" } }, "sha512-aFhP6WaFLwjj18+YjAqWteAprqW1Bh6cwOBxYBQe3VShfP071d0QCbA2/JlLR+8SIDbufdWtp9mIKLjST5O9RQ=="],
 
     "nth-check": ["nth-check@2.1.1", "", { "dependencies": { "boolbase": "^1.0.0" } }, "sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w=="],
 

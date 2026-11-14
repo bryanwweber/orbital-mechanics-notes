@@ -1,82 +1,64 @@
 # Install and Run the Book
 
-The project uses the MyST CLI directly. The CLI and book theme are built
-from the `main` branches of local `mystmd` and `myst-theme` repositories,
-located one directory above this project:
+The project uses the released MyST CLI from npm. Its exact version is recorded
+in `package.json`, and its dependencies are locked in `bun.lock`. Local checkouts
+of `mystmd` and `myst-theme` are not required.
 
-```text
-../
-├── mystmd/
-├── myst-theme/
-└── orbital-mechanics-notes/
+1. Install the tools declared in `mise.toml`:
+
+   ```bash
+   mise install
+   ```
+
+2. Install the book's JavaScript and Python dependencies:
+
+   ```bash
+   bun install --frozen-lockfile
+   uv sync --frozen --python 3.13
+   ```
+
+   Python 3.13 satisfies the requirements of all uv workspace members.
+
+3. Preview the book with live reload:
+
+   ```bash
+   mise run serve
+   ```
+
+4. Generate the static site in `_build/html`:
+
+   ```bash
+   mise run build
+   ```
+
+Both tasks generate the Three.js animation runtime and run the project-local
+MyST CLI with code execution enabled. The uv environment supplies the Python
+execution dependencies. The equivalent commands are
+`uv run --frozen bun run book:dev` and `uv run --frozen bun run book:build`.
+See [Three.js figures](plugins/THREEJS.md) for animation update and validation
+commands.
+
+The published `book-theme` is configured in `myst.yml`. MyST downloads it on
+first use and caches it under `_build/templates`. The theme is updated
+independently of the CLI and is not pinned by `bun.lock`. To fetch the current
+published theme on the next build, run:
+
+```bash
+bun run myst clean --templates
 ```
 
-1. From the project directory, update Bun and Node using [mise](https://mise.jdx.dev):
+To check or update the pinned CLI version:
 
-   ```bash
-   mise upgrade bun node
-   ```
+```bash
+bun run book:version
+bun add --dev --exact mystmd@<version>
+```
 
-2. Fetch and update `main` from upstream in both repositories:
-
-   ```bash
-   cd ../mystmd
-   git fetch upstream
-   git switch main
-   git merge --ff-only upstream/main
-
-   cd ../myst-theme
-   git fetch upstream
-   git switch main
-   git merge --ff-only upstream/main
-   ```
-
-   These commands assume each repository has an `upstream` remote.
-
-3. Install dependencies in both repositories:
-
-   ```bash
-   cd ../mystmd
-   bun install
-
-   cd ../myst-theme
-   bun install
-   ```
-
-4. Build and link the MyST CLI:
-
-   ```bash
-   cd ../mystmd
-   bun run build && bun run link
-   ```
-
-5. Build the book theme:
-
-   ```bash
-   cd ../myst-theme
-   bun run theme:book
-   ```
-
-6. Install the book's JavaScript dependencies and generate its animation runtime:
-
-   ```bash
-   cd ../orbital-mechanics-notes
-   bun install --frozen-lockfile
-   bun run build:threejs
-   ```
-
-   The generated bundle and license notices are published through `assets/`.
-   Rebuild after changing the animation sources or pinned dependencies. See
-   [Three.js figures](plugins/THREEJS.md) for update and validation commands.
-
-7. Start the book from the project repository:
-
-   ```bash
-   myst start --execute --debug --headless
-   ```
+Commit both `package.json` and `bun.lock` after updating, and validate the static
+build before deploying.
 
 For examples requiring Julia, install the project dependencies from the
-project directory:
+project directory and ensure the Julia Jupyter kernel is available:
 
 ```bash
 julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.precompile();'
