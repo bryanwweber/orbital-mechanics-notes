@@ -19,7 +19,7 @@ try {
   const response = await page.request.get(new URL(placeholder.url, fixture.url).href);
   assert.ok(response.ok(), "static placeholder exists");
   assert.deepEqual(errors, []);
-  console.log("Passed: directive-staged HTML, bundled JS, GLB, and placeholder load under /preview/ without MyST.");
+  console.log("Passed: directive-staged HTML, bundled JS and placeholder load under /preview/ without MyST.");
 } finally {
   await browser.close();
   await fixture.close();

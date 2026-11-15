@@ -3,15 +3,15 @@ import {
   PerspectiveCamera, AmbientLight, WebGLRenderer, Box3, Vector3, AnimationMixer,
   Timer, DoubleSide, SRGBColorSpace,
 } from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { createTwoBodyScene } from "./two-body-scenes.mjs";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
 
 export const animationPresets = {
-  inertial: { model: "two-body-inertial.glb" },
-  barycenter: { model: "cg-relative-two-body.glb" },
-  primary: { model: "m1-relative-two-body.glb", labelAnchor: "Sphere", labelText: "m1  COG   m2", labelOffset: 25 },
-  relative: { model: "two-body-relative.glb", altitudeLabels: true, light: 10,
+  inertial: {},
+  barycenter: {},
+  primary: { labelAnchor: "Sphere", labelText: "m1  COG   m2", labelOffset: 25 },
+  relative: { altitudeLabels: true, light: 10,
     minDistance: 100, maxDistance: 300, view: [-0.2, 0.5, 1], speed: 1 },
 };
 
@@ -26,7 +26,7 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
     <p id="status" role="status" style="position:absolute;bottom:8px;left:8px;color:white;background:#222;font:14px sans-serif">Loading animation…</p>`;
   const status = root.querySelector('[role="status"]');
   let disposed = false;
-  let camera, scene, renderer, controls, gltfScene;
+  let camera, scene, renderer, controls, orbitScene;
   let mixer, timer, container, guiContainer, gui;
   let height;
   let width;
@@ -104,35 +104,21 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
     gui = new GUI({ width: 320, container: guiContainer });
     if (!config.altitudeLabels) gui.add(material, "visible").name("Show label").onChange(updateLoop);
 
-    let loader = new Promise((resolve, reject) => {
-      const ldr = new GLTFLoader();
-      ldr.load(
-        new URL(`../../models/${config.model}`, import.meta.url).href,
-        function (gltf) {
-          // Call this here to make sure everything is loaded before rendering.
-          // This load function is async
-          resolve(gltf);
-        },
-        undefined,
-        function (error) {
-          reject(error);
-        }
-      );
-    });
-    loader.then((gltf) => {
-      gltfScene = gltf.scene;
+    {
+      const model = createTwoBodyScene(preset);
+      orbitScene = model.scene;
       if (disposed) return;
 
-      const box = new Box3().setFromObject(gltfScene);
+      const box = new Box3().setFromObject(orbitScene);
       const size = box.getSize(new Vector3()).length();
       const center = box.getCenter(new Vector3());
 
       // Body materials share their colors with the corresponding trajectories.
-      // Convert the model's linear colors to CSS/sRGB for the canvas texture.
+      // Convert the materials' linear colors to CSS/sRGB for the canvas texture.
       function labelColor(name) {
-        const object = gltfScene.getObjectByName(name);
+        const object = orbitScene.getObjectByName(name);
         const material = Array.isArray(object?.material) ? object.material[0] : object?.material;
-        if (!material?.color) throw new Error(`Missing model label color: ${name}`);
+        if (!material?.color) throw new Error(`Missing scene label color: ${name}`);
         return material.color.getStyle(SRGBColorSpace);
       }
 
@@ -143,8 +129,8 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
         const labels = { visible: true };
         const labelMaterials = [];
         for (const [name, text] of [["min-altitude", "Min. Altitude"], ["max-altitude", "Max. Altitude"]]) {
-          const anchor = gltfScene.getObjectByName(name);
-          if (!anchor) throw new Error(`Missing model label anchor: ${name}`);
+          const anchor = orbitScene.getObjectByName(name);
+          if (!anchor) throw new Error(`Missing scene label anchor: ${name}`);
           const labelCanvas = document.createElement("canvas");
           const labelContext = labelCanvas.getContext("2d");
           labelContext.font = "40px sans-serif";
@@ -174,29 +160,29 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
           labelX += context.measureText(part).width;
         }
         texture.needsUpdate = true;
-        const anchor = gltfScene.getObjectByName(config.labelAnchor ?? "Sphere002");
+        const anchor = orbitScene.getObjectByName(config.labelAnchor ?? "Sphere002");
         if (!anchor) throw new Error("Missing body label anchor");
         anchor.add(mesh);
       }
 
-      scene.add(gltfScene);
+      scene.add(orbitScene);
 
-      gltfScene.position.x += gltfScene.position.x - center.x;
-      gltfScene.position.y += gltfScene.position.y - center.y;
-      gltfScene.position.z += gltfScene.position.z - center.z;
+      orbitScene.position.sub(center);
       controls.maxDistance = config.maxDistance ?? size * 10;
       camera.near = size / 100;
       camera.far = size * 100;
       camera.updateProjectionMatrix();
 
-      camera.position.copy(center);
+      camera.position.set(0, 0, 0);
       const view = config.view ?? [0.5, 0.2, 0.5];
-      camera.position.add(new Vector3(...view).multiplyScalar(size));
-      camera.lookAt(center);
+      const halfFov = Math.atan(Math.tan(camera.fov * Math.PI / 360) * Math.min(camera.aspect, 1));
+      const distance = Math.min(controls.maxDistance, size / (2 * Math.sin(halfFov)) * 1.1);
+      camera.position.add(new Vector3(...view).normalize().multiplyScalar(distance));
+      camera.lookAt(controls.target);
       controls.update();
 
-      mixer = new AnimationMixer(gltfScene);
-      gltf.animations.forEach((clip) => {
+      mixer = new AnimationMixer(orbitScene);
+      model.animations.forEach((clip) => {
         const clipAction = mixer.clipAction(clip);
         clipAction.play();
       });
@@ -208,12 +194,7 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
 
       status.hidden = true;
       updateLoop();
-    }).catch((error) => {
-      if (disposed) return;
-      status.hidden = false;
-      status.textContent = `Unable to load the animation: ${error.message}`;
-      console.error(error);
-    });
+    }
     const observer = new ResizeObserver(handleResize);
     observer.observe(container);
     const visibility = new IntersectionObserver(([entry]) => {
@@ -254,8 +235,7 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
     if (time - previousFrame < 1000 / 30) return;
     previousFrame = time;
 
-    // Check whether these are defined due to the async
-    // loading of the file
+    // Timer deltas exclude time spent paused or offscreen.
     if (mixer && timer) {
       timer.update(time);
       mixer.update(timer.getDelta());

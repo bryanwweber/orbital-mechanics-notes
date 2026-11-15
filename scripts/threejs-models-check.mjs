@@ -20,6 +20,11 @@ try {
   page.on("response", (response) => {
     if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
   });
+  const modelRequests = [];
+  await page.route(/\.(glb|gltf)(\?|$)/, (route) => {
+    modelRequests.push(route.request().url());
+    return route.abort();
+  });
   await page.goto(url);
   await mkdir("_build/browser/r187-models", { recursive: true });
   const scenes = [
@@ -65,12 +70,8 @@ try {
   assert.deepEqual(escapedErrors, []);
   await unsupported.close();
 
-  const missing = await browser.newPage();
-  await missing.route("**/two-body-inertial.glb", (route) => route.abort());
-  await missing.goto(standalone);
-  await missing.getByRole("status").filter({ hasText: "Unable to load the animation" }).waitFor();
-  await missing.close();
-  console.log("Passed visible errors for unavailable WebGL 2 and failed model loading.");
+  assert.deepEqual(modelRequests, [], "procedural scenes never request model files");
+  console.log("Passed unavailable WebGL 2 error and zero model requests.");
 } finally {
   clearTimeout(deadline);
   await browser.close();

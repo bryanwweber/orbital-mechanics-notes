@@ -12,7 +12,7 @@
 ## Second Tier
 
 - [x] Relative Motion, Table 1 has HTML tags in the header
-- [ ] Use direct ThreeJS syntax instead of loading Blender GLB output
+- [x] Use direct ThreeJS syntax instead of loading Blender GLB output
 - [ ] Figure 59, time since periapsis hyperbola, wrong math font (matplotlib)
 - [ ] Figure 60, time since periapsis hyperbola needs a complete license reference, also the `L` is cut off on the left of the figure, and it might use the wrong math font
 - [ ] Universal variables example uses print statements, can use "glue"

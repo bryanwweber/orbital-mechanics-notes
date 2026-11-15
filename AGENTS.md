@@ -23,7 +23,8 @@ animations.
 - `raw_svg/` contains SVG sources, figure metadata, and a math-rendering cache.
 - `images/` contains figures and other media referenced by the book.
 - `drawing-scripts/` contains notebooks used to create diagrams.
-- `blender/` contains Blender scene sources; `assets/models/` contains GLB models.
+- `assets-src/` contains native Three.js scene sources; the former Blender scenes
+  and GLB exports have been removed.
 - `stellarium-scripts/` contains astronomy visualization scripts and media.
 - `assets/` contains site assets, including CSS and bundled Three.js code.
   It is listed in `myst.yml` as static content.
