@@ -161,6 +161,7 @@ project:
 site:
   template: book-theme
   options:
+    style: assets/orbital-elements.css
     logo: _static/hohmann-light.svg
     logo_dark: _static/hohmann-dark.svg
     favicon: _static/favicon-16x16.png

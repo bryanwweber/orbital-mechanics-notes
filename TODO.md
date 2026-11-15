@@ -2,6 +2,7 @@
 
 ## Must Fix
 
+- [x] Replace the broken Classical Orbital Elements Plotly figures with Three.js diagrams
 - [x] Create a plugin for threejs to load and display 2-body animations
 - [x] Figure 50, Time Since Periapsis: Circular and Elliptical Orbits, missing
 - [x] Application of CR3BP: Figure 16 animation broken
@@ -11,7 +12,6 @@
 ## Second Tier
 
 - [ ] Relative Motion, Table 1 looks awful
-- [ ] Classical orbital elements needs to load faster
 - [ ] Figure 59, time since periapsis hyperbola, wrong math font (matplotlib)
 - [ ] Figure 60, time since periapsis hyperbola needs a complete license reference, also the `L` is cut off on the left of the figure, and it might use the wrong math font
 - [ ] Universal variables example uses print statements, can use "glue"

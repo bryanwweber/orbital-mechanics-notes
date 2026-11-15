@@ -7,6 +7,7 @@
     "book:version": "myst --version",
     "build:threejs": "bun scripts/build-threejs.mjs",
     "browser:check": "node scripts/browser-check.mjs",
+    "browser:elements": "node scripts/orbital-elements-check.mjs",
     "browser:threejs": "node scripts/threejs-check.mjs",
     "browser:threejs:headed": "node scripts/threejs-check.mjs --headed",
     "browser:threejs:static": "node scripts/threejs-static-check.mjs",
