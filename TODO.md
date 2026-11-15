@@ -6,7 +6,7 @@
 - [x] Figure 50, Time Since Periapsis: Circular and Elliptical Orbits, missing
 - [x] Application of CR3BP: Figure 16 animation broken
 - [x] Hyperbolic trajectory, Figure 41, needs animation
-- [ ] Time since periapsis, Figure 48, missing and it's an animation
+- [x] Time since periapsis, Figure 48, missing and it's an animation
 
 ## Second Tier
 
