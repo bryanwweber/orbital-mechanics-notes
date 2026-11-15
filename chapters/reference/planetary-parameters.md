@@ -34,6 +34,7 @@ from io import StringIO
 
 import pandas as pd
 import pint_pandas
+from IPython.display import HTML
 from pint import UnitRegistry, set_application_registry
 
 units = UnitRegistry()
@@ -99,11 +100,11 @@ gm_data = pd.DataFrame(
 gm_data["mass"] = (gm_data["GM_in_km"] / units.gravitational_constant).pint.to("kg")
 gm_data["Mass Fraction [kg/kg]"] = gm_data["mass"] / gm_data["mass"].sum()
 gm_data.columns = [
-    r"$\mu$ [km<sup>3</sup>/s<sup>2</sup>]",
+    "μ [km<sup>3</sup>/s<sup>2</sup>]",
     "Mass [kg]",
     "Mass Fraction [kg/kg]",
 ]
-gm_data
+HTML(gm_data.to_html(escape=False))
 ```
 
 :::{table} Mass, gravitational parameter, and mass fraction of the Sun, planets, and other solar system bodies
