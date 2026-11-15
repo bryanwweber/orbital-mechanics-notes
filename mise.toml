@@ -1,35 +1,35 @@
 [tools]
+jactionlint             = "2.6.0"
+biome                   = "latest"
 bun                     = "latest"
-cargo-binstall          = "latest"
-"cargo:taplo-cli"       = "latest"
 julia                   = "latest"
-node                    = "22"
+node                    = "26"
 "npm:markdownlint-cli2" = "latest"
-python                  = "3.12"
+shellcheck              = "0.11.0"
+taplo                   = "latest"
 uv                      = "latest"
 watchexec               = "latest"
+zizmor                  = "latest"
 
-[env]
-_.python.venv = { path = ".venv", create = true }
-
-[alias]
+[tool_alias]
 julia = "asdf:rkyleg/asdf-julia"
 
 [settings]
-cargo  = { binstall = true }
-npm    = { bun = true }
-python = { uv_venv_auto = true }
-
-[tasks.build_book]
-description = "Build the book"
-outputs     = ["_build/html/**/*.html"]
-run         = "uv run jb build -W --nitpick -v ."
-sources     = ["time-since-periapsis-and-keplers-equation/*.md"]
+lockfile = true
+npm      = { bun = true }
 
 [tasks.format]
 depends     = ["markdownlint_format", "ruff_check_format", "ruff_format_format"]
 description = "Run all the formatting tools"
 env         = { MISE_JOBS = "1" }
+
+[tasks.build]
+description = "Build the static book in _build/html"
+run         = "uv run --frozen bun run book:build"
+
+[tasks.serve]
+description = "Preview the book with live reload"
+run         = "uv run --frozen bun run book:dev"
 
 [tasks.julia]
 depends     = ["julia_install"]
@@ -46,9 +46,26 @@ description = "Upgrade Julia dependencies"
 run         = "julia --project=. -e 'using Pkg; Pkg.update()'"
 
 [tasks.lint]
-depends     = ["markdownlint_lint", "ruff_check_lint", "ruff_format_lint"]
+depends     = ["ci-lint", "zizmor"]
 description = "Run all the linter tools"
 env         = { MISE_JOBS = "1" }
+
+[tasks.ci-lint]
+depends     = ["actionlint", "biome_lint", "markdownlint_lint", "ruff_check_lint", "ruff_format_lint"]
+description = "Run CI linters; zizmor runs as a separate GitHub Action"
+env         = { MISE_JOBS = "1" }
+
+[tasks.zizmor]
+description = "Analyze GitHub Actions security"
+run         = "zizmor .github/workflows"
+
+[tasks.actionlint]
+description = "Lint GitHub Actions workflows and their shell scripts"
+run         = "jactionlint --profile correctness"
+
+[tasks.biome_lint]
+description = "Lint JavaScript plugins with Biome"
+run         = "biome lint --error-on-warnings plugins/*.mjs"
 
 [tasks.markdownlint_format]
 description = "Run markdownlint in fix mode"
@@ -64,7 +81,7 @@ run         = "ruff check --fix ."
 
 [tasks.ruff_check_lint]
 description = "Run the ruff linter"
-run         = "ruff check ."
+run         = "uv run --frozen ruff check ."
 
 [tasks.ruff_format_format]
 description = "Run the ruff formatter"
@@ -72,4 +89,4 @@ run         = "ruff format ."
 
 [tasks.ruff_format_lint]
 description = "Run the ruff formatter in check mode"
-run         = "ruff format --check ."
+run         = "uv run --frozen ruff format --check ."

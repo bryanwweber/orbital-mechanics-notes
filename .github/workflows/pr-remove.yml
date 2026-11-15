@@ -1,0 +1,66 @@
+name: Remove PR preview
+
+on:
+  pull_request_target: # zizmor: ignore[dangerous-triggers] -- Cleanup only checks out main and never executes PR code.
+    branches: [main]
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request number whose preview should be removed
+        required: true
+        type: number
+
+permissions:
+  contents: read
+
+jobs:
+  remove:
+    if: >-
+      (github.event_name == 'pull_request_target' && github.event.action == 'closed') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: gh-pages-publish
+      cancel-in-progress: false
+      queue: max
+    steps:
+      # Cleanup executes only trusted main-branch code, including for fork PRs.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Prepare removal
+        id: pr
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]]
+          echo "number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+          preview_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/trees/gh-pages" \
+            --jq '.tree[] | select(.path == "pr-preview" and .type == "tree") | .sha')
+          if [[ -n "$preview_tree" ]]; then
+            previews=$(gh api "repos/$GITHUB_REPOSITORY/git/trees/$preview_tree" \
+              --jq '.tree[] | select(.type == "tree") | .path')
+            if grep -Fxq "pr-$PR_NUMBER" <<< "$previews"; then
+              mkdir -p _build/empty-preview
+              echo "exists=true" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+      - name: Remove preview
+        if: steps.pr.outputs.exists == 'true'
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
+        with:
+          branch: gh-pages
+          folder: _build/empty-preview
+          target-folder: pr-preview/pr-${{ steps.pr.outputs.number }}
+          force: false
+      - name: Report removal
+        if: steps.pr.outputs.exists == 'true'
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          echo "Removed preview for PR #$PR_NUMBER." >> "$GITHUB_STEP_SUMMARY"
