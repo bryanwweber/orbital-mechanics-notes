@@ -38,6 +38,18 @@ execution dependencies. The equivalent commands are
 See [Three.js figures](plugins/THREEJS.md) for animation update and validation
 commands.
 
+Page URLs retain the published section paths, such as `/intro/reference-frames`,
+without the `chapters/` source directory. `project.url_root: chapters` explicitly
+sets the source directory used to compute folder URLs, relative to the repository
+root. `patches/mystmd@1.13.0.patch` adds this option to MyST. Bun applies this
+patch during installation; `package.json` and `bun.lock` record it. File lookup,
+figure publishing, and `_build/` output still use the repository root. Recheck this
+patch when updating MyST.
+The source changes for a future upstream proposal and the option's regression
+tests are described in [patches/README.md](patches/README.md).
+Run `bun run book:check-urls` after a static build to verify the page paths and
+navigation. Deployment runs this check before uploading the book.
+
 The published `book-theme` is configured in `myst.yml`. MyST downloads it on
 first use and caches it under `_build/templates`. The theme is updated
 independently of the CLI and is not pinned by `bun.lock`. To fetch the current
@@ -63,3 +75,28 @@ project directory and ensure the Julia Jupyter kernel is available:
 ```bash
 julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.precompile();'
 ```
+
+## Pull request previews
+
+Once the workflows are on `main`, open **Actions → Publish PR preview → Run
+workflow**, select `main`, and enter the PR number. The workflow builds the PR's
+current head commit and publishes it at
+`https://orbital-mechanics.space/pr-preview/pr-<number>/`. Later commits do not
+update the preview until you run the workflow again. The PR must be open and
+target `main`; a PR closed during its build is skipped before publication.
+
+Closing or merging a PR into `main` automatically removes its preview. To remove
+one earlier, use **Actions → Remove PR preview → Run workflow**, select `main`,
+and enter the PR number. Removal does not build or execute PR code.
+
+Pages must continue deploying from the root of the `gh-pages` branch. Production
+publishing preserves `pr-preview/`, the custom-domain `CNAME`, and `.nojekyll`.
+Production, preview publication, and removal share a queued concurrency group so
+their writes cannot overlap or replace pending cleanup jobs.
+
+Every preview HTML page, including standalone figures, receives
+`<meta name="robots" content="noindex, nofollow">`. This is applied to the
+downloaded preview artifact using trusted `main` code; production pages are not
+changed. Do not disallow `/pr-preview/` in the site's root `robots.txt`: crawlers
+must access the pages to read these directives. Previews remain publicly readable.
+Run `node --test scripts/preview-html.test.mjs` to check this processing.

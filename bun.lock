@@ -21,6 +21,9 @@
       },
     },
   },
+  "patchedDependencies": {
+    "mystmd@1.13.0": "patches/mystmd@1.13.0.patch",
+  },
   "packages": {
     "@playwright/test": ["@playwright/test@1.65.1", "", { "dependencies": { "playwright": "1.65.1" }, "bin": { "playwright": "cli.js" } }, "sha512-y+NCIRm2LvY4slUVWvGh1nujJ8RF/hEisIsq2mtUPgdQC4L701bq5hZGMhrpeXjACvwvO9tj5dJqhvM6TP9lbw=="],
 

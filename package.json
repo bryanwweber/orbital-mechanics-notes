@@ -2,9 +2,11 @@
   "name": "orbital-mechanics-notes",
   "private": true,
   "scripts": {
-    "book:dev": "bun run build:threejs && myst start --execute --max-size-webp 6",
-    "book:build": "bun run build:threejs && myst build --html --execute --max-size-webp 6",
+    "book:dev": "bun run build:threejs && myst start --execute",
+    "book:build": "bun run build:threejs && myst build --html --execute",
     "book:version": "myst --version",
+    "book:check-urls": "node scripts/book-urls-check.mjs",
+    "test:url-root": "node --test scripts/myst-url-root.test.mjs",
     "build:threejs": "bun scripts/build-threejs.mjs",
     "browser:check": "node scripts/browser-check.mjs",
     "browser:elements": "node scripts/orbital-elements-check.mjs",
@@ -28,5 +30,8 @@
     "svgo": "^4.0.1",
     "three": "0.187.0",
     "unist-util-visit": "^5.1.0"
+  },
+  "patchedDependencies": {
+    "mystmd@1.13.0": "patches/mystmd@1.13.0.patch"
   }
 }

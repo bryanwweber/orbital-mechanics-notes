@@ -17,6 +17,7 @@ under `_build/html-figures/`, preserving their paths from the project root.
 `myst.yml` publishes the staged `chapters/` directory. Python files are excluded.
 The iframe uses an explicit path from the site root; its HTML can fetch sibling
 SVGs by filename. This supports chapter routes with or without a trailing slash.
+Figure asset URLs retain `/chapters/`; book page URLs omit that source directory.
 Set `BASE_URL=/book` when building or serving beneath a URL prefix.
 
 Run the chapter's uv generator before building to refresh its HTML/SVG outputs.

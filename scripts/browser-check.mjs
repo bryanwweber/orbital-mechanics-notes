@@ -2,7 +2,7 @@ import { chromium } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 
 const url = new URL(
-  process.argv[2] ?? "/chapters/the-n-body-problem/two-body-inertial-numerical-solution",
+  process.argv[2] ?? "/the-n-body-problem/two-body-inertial-numerical-solution",
   process.env.BOOK_URL ?? "http://localhost:3000",
 ).href;
 const browser = await chromium.launch();

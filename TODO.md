@@ -18,7 +18,7 @@
 - [x] Universal variables example uses print statements, can use "glue"
 - [x] Same for Universal Lagrange coefficients
 - [ ] Consider moving flight path angle section to non-Hohmann transfers section
-- [ ] Tables are not numbered consecutively
+- [x] Tables are not numbered consecutively
 - [ ] Split planetary arrival: capture into text and example pages
 - [x] Planetary parameters, the tables look terrible
 - [ ] `swept-angle.svg` and `center-of-curvature.svg` have a font definition included

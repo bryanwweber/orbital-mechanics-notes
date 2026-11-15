@@ -1,5 +1,6 @@
 version: 1
 project:
+  url_root: chapters
   plugins:
     - type: javascript
       path: plugins/inlineHTML.mjs

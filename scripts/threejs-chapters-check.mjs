@@ -36,7 +36,7 @@ try {
     ]],
   ];
   for (const [chapter, figures] of chapters) {
-    await page.goto(`${process.env.BOOK_URL ?? "http://localhost:3000"}/chapters/the-n-body-problem/${chapter}`);
+    await page.goto(`${process.env.BOOK_URL ?? "http://localhost:3000"}/the-n-body-problem/${chapter}`);
     await page.getByTitle(figures[0][1], { exact: true }).waitFor({ state: "attached" });
     assert.equal(await page.locator("iframe").count(), figures.length);
     for (const [preset, title, label] of figures) {

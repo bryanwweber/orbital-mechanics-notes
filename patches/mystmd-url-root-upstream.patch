@@ -1,0 +1,220 @@
+diff --git a/packages/myst-config/src/project/types.ts b/packages/myst-config/src/project/types.ts
+--- a/packages/myst-config/src/project/types.ts
++++ b/packages/myst-config/src/project/types.ts
+@@ -16,6 +16,8 @@
+ export type ProjectConfig = ProjectFrontmatter & {
+   remote?: string;
+   index?: string;
++  /** Source directory for folder URLs, relative to the project root. */
++  url_root?: string;
+   exclude?: string[];
+   plugins?: PluginInfo[];
+   error_rules?: ErrorRule[];
+diff --git a/packages/myst-config/src/project/validators.ts b/packages/myst-config/src/project/validators.ts
+--- a/packages/myst-config/src/project/validators.ts
++++ b/packages/myst-config/src/project/validators.ts
+@@ -16,7 +16,7 @@
+ import { type ProjectConfig, type PluginInfo, PluginTypes } from './types.js';
+ 
+ const PROJECT_CONFIG_KEYS = {
+-  optional: ['remote', 'index', 'exclude', 'plugins', 'error_rules', ...PROJECT_FRONTMATTER_KEYS],
++  optional: ['remote', 'index', 'url_root', 'exclude', 'plugins', 'error_rules', ...PROJECT_FRONTMATTER_KEYS],
+   alias: FRONTMATTER_ALIASES,
+ };
+ 
+@@ -52,6 +52,12 @@
+     // TODO: Warn if these files don't exist
+     output.index = validateString(input.index, incrementOptions('index', opts));
+   }
++  if (defined(input.url_root)) {
++    output.url_root = validateString(input.url_root, {
++      ...incrementOptions('url_root', opts),
++      minLength: 1,
++    });
++  }
+   if (defined(input.exclude)) {
+     output.exclude = validateList(
+       input.exclude,
+diff --git a/packages/myst-cli/src/config.ts b/packages/myst-cli/src/config.ts
+--- a/packages/myst-cli/src/config.ts
++++ b/packages/myst-cli/src/config.ts
+@@ -412,6 +412,9 @@
+   if (projectConfig.index) {
+     resolvedFields.index = await resolutionFn(session, path, projectConfig.index);
+   }
++  if (projectConfig.url_root !== undefined) {
++    resolvedFields.url_root = await resolutionFn(session, path, projectConfig.url_root);
++  }
+   if (projectConfig.plugins) {
+     resolvedFields.plugins = await Promise.all(
+       projectConfig.plugins.map(async (info) => {
+@@ -495,6 +498,9 @@
+     configValidationOpts(vfile, 'config.project', RuleId.validProjectConfig),
+   );
+   logMessagesFromVFile(session, vfile);
++  if (rawProject.url_root !== undefined && project.url_root === undefined) {
++    throw new Error('project.url_root must be a nonempty string');
++  }
+   if (!project) {
+     const errorSuffix = vfile.path ? ` in ${vfile.path}` : '';
+     throw Error(`Please address invalid project config${errorSuffix}`);
+diff --git a/packages/myst-cli/src/project/types.ts b/packages/myst-cli/src/project/types.ts
+--- a/packages/myst-cli/src/project/types.ts
++++ b/packages/myst-cli/src/project/types.ts
+@@ -51,4 +51,6 @@
+ export type SlugOptions = {
+   projectPath?: string;
+   urlFolders?: boolean;
++  /** Absolute source directory for folder URLs; defaults to projectPath. */
++  urlRoot?: string;
+ };
+diff --git a/packages/myst-cli/src/utils/fileInfo.ts b/packages/myst-cli/src/utils/fileInfo.ts
+--- a/packages/myst-cli/src/utils/fileInfo.ts
++++ b/packages/myst-cli/src/utils/fileInfo.ts
+@@ -71,16 +71,20 @@
+ export function fileInfo(
+   file: string,
+   pageSlugs: PageSlugs,
+-  opts?: { session?: ISession; projectPath?: string; urlFolders?: boolean },
++  opts?: { session?: ISession; projectPath?: string; urlFolders?: boolean; urlRoot?: string },
+ ): { slug: string; title: string } {
+   const { name, dir } = parseFilePath(file);
+   let slug = createSlug(name);
+   if (opts?.urlFolders && opts?.projectPath) {
++    const urlRoot = opts.urlRoot ?? opts.projectPath;
+     const slugFolders = path
+-      .relative(opts.projectPath, dir)
++      .relative(urlRoot, dir)
+       .split(path.sep)
+       .filter((folder) => folder !== '');
+     if (slugFolders.includes('..')) {
++      if (opts.urlRoot) {
++        throw new Error(`Page is outside project.url_root (${urlRoot}): ${file}`);
++      }
+       opts.session?.log.warn(
+         `URL path will not match folder structure for file outside project: ${file}`,
+       );
+diff --git a/packages/myst-cli/src/project/load.ts b/packages/myst-cli/src/project/load.ts
+--- a/packages/myst-cli/src/project/load.ts
++++ b/packages/myst-cli/src/project/load.ts
+@@ -60,10 +60,17 @@
+   let legacyToc = false;
+   const siteConfig = selectors.selectLocalSiteConfig(state, path);
+   const folders = !!siteConfig?.options?.folders;
++  const urlRoot = projectConfig?.url_root === undefined
++    ? undefined
++    : resolve(path, projectConfig.url_root);
++  if (urlRoot && (!fs.existsSync(urlRoot) || !fs.statSync(urlRoot).isDirectory())) {
++    throw new Error(`project.url_root must be an existing local directory: ${urlRoot}`);
++  }
+   const sphinxTOCFile = validateSphinxTOC(session, path) ? tocFile(path) : undefined;
+   if (projectConfig?.toc !== undefined) {
+     newProject = projectFromTOC(session, path, projectConfig.toc, 1, projectConfigFile, {
+       urlFolders: folders,
++      urlRoot,
+     });
+     if (sphinxTOCFile) {
+       addWarningForFile(
+@@ -99,14 +106,14 @@
+       //   },
+       // );
+     }
+-    newProject = projectFromSphinxTOC(session, path, undefined, { urlFolders: folders });
++    newProject = projectFromSphinxTOC(session, path, undefined, { urlFolders: folders, urlRoot });
+   } else {
+     const project = selectors.selectLocalProject(state, path);
+     if (!index && !project?.implicitIndex && project?.file) {
+       // If there is no new index, keep the original unless it was implicit previously
+       index = project.file;
+     }
+-    newProject = projectFromPath(session, path, index, { urlFolders: folders });
++    newProject = projectFromPath(session, path, index, { urlFolders: folders, urlRoot });
+   }
+   if (!newProject) {
+     throw new Error(`Could not load project from ${path}`);
+diff --git a/docs/table-of-contents.md b/docs/table-of-contents.md
+--- a/docs/table-of-contents.md
++++ b/docs/table-of-contents.md
+@@ -354,6 +354,34 @@
+ By default, MyST will _remove folder information_ when creating URLs.
+ To make your URL match your folder structure (so that `myfolder/myfile.md` becomes `myfolder/myfile/`), see [](#site-url-folders).
+ 
++### Choose the source directory for folder URLs
++
++With `site.options.folders: true`, set `project.url_root` to omit a source
++container directory from page URLs:
++
++```yaml
++project:
++  url_root: chapters
++  toc:
++    - file: chapters/index.md
++    - file: chapters/intro/reference-frames.md
++site:
++  options:
++    folders: true
++```
++
++The second file is served at `/intro/reference-frames`, rather than
++`/chapters/intro/reference-frames`. Resolve `url_root` relative to the project
++root, independently of the config file's location. It must name an existing
++local directory. Non-index pages outside that directory cause a build error
++when folder URLs are enabled. The explicit TOC's first page remains the site
++home page at `/`.
++
++Omitting `url_root` preserves the existing project-relative folder URLs.
++With `folders: false`, page URLs remain flat. This option does not change
++source lookup, static assets, or build output directories. It is separate from
++`BASE_URL`, which specifies a deployment URL prefix.
++
+ (implicit-toc)=
+ 
+ ## Implicit Table of Contents from filenames
+diff --git a/packages/myst-cli/src/utils/fileInfo.spec.ts b/packages/myst-cli/src/utils/fileInfo.spec.ts
+new file mode 100644
+--- /dev/null
++++ b/packages/myst-cli/src/utils/fileInfo.spec.ts
+@@ -0,0 +1,25 @@
++import { describe, expect, it } from 'vitest';
++import { fileInfo } from './fileInfo.js';
++
++describe('folder URL roots', () => {
++  const file = '/project/content/section/page.md';
++  const opts = { projectPath: '/project', urlFolders: true };
++  it('preserves the project root by default', () => {
++    expect(fileInfo(file, {}, opts).slug).toBe('content.section.page');
++  });
++  it('uses an explicit source directory', () => {
++    expect(fileInfo(file, {}, { ...opts, urlRoot: '/project/content' }).slug)
++      .toBe('section.page');
++  });
++  it('keeps flat URLs when folders are disabled', () => {
++    expect(fileInfo(file, {}, { ...opts, urlRoot: '/project/content', urlFolders: false }).slug)
++      .toBe('page');
++  });
++  it('rejects pages outside an explicit root', () => {
++    expect(() => fileInfo(file, {}, { ...opts, urlRoot: '/project/other' }))
++      .toThrow('outside project.url_root');
++  });
++  it('preserves the fallback for files outside the project without an explicit root', () => {
++    expect(fileInfo('/other/page.md', {}, opts).slug).toBe('page');
++  });
++});
+diff --git a/packages/myst-config/src/project/project.spec.ts b/packages/myst-config/src/project/project.spec.ts
+--- a/packages/myst-config/src/project/project.spec.ts
++++ b/packages/myst-config/src/project/project.spec.ts
+@@ -20,6 +20,14 @@
+     };
+     expect(validateProjectConfig(projConfig, opts)).toEqual(projConfig);
+   });
++  it('accepts a URL root', () => {
++    expect(validateProjectConfig({ url_root: 'chapters' }, opts)).toEqual({ url_root: 'chapters' });
++    expect(opts.messages.errors).toBeUndefined();
++  });
++  it.each([42, ''])('rejects invalid URL roots: %s', (url_root) => {
++    expect(validateProjectConfig({ url_root }, opts).url_root).toBeUndefined();
++    expect(opts.messages.errors?.length).toBe(1);
++  });
+   it('single exclude coerces', async () => {
+     expect(
+       validateProjectConfig(

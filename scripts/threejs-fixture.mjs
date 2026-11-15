@@ -27,7 +27,7 @@ export async function startThreejsFixture() {
     if (originalBaseUrl === undefined) delete process.env.BASE_URL;
     else process.env.BASE_URL = originalBaseUrl;
   }
-  const route = "/preview/chapters/the-n-body-problem/animations";
+  const route = "/preview/the-n-body-problem/animations";
   const html = `<!doctype html><html lang="en"><meta charset="utf-8">
     <title>Animation validation</title><link rel="icon" href="data:,">
     <style>body{margin:24px;font-family:sans-serif}figure{margin:24px 0;width:665px;max-width:100%}iframe{display:block;border:0;width:100%;aspect-ratio:5/3}</style>

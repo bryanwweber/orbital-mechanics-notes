@@ -56,7 +56,7 @@ try {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   page.on('response', (response) => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
-  await page.goto('http://localhost:3000/chapters/classical-orbital-elements/classical-orbital-elements');
+  await page.goto(`${process.env.BOOK_URL ?? 'http://localhost:3000'}/classical-orbital-elements/classical-orbital-elements`);
   await mkdir('_build/browser/elements', { recursive: true });
   const frames = page.locator('iframe');
   await frames.nth(5).waitFor({ state: 'attached' });

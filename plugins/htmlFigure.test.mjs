@@ -27,7 +27,7 @@ test("preserves HTML and sibling SVG URLs without publishing Python", () => {
     assert.equal(readFileSync(path.join(published, name), "utf8"), readFileSync(path.join(directory, "assets", name), "utf8"));
   }
   assert.equal(existsSync(path.join(published, "ellipse_area_animate.py")), false);
-  const page = new URL("https://example.com/book/chapters/time-since-periapsis-and-keplers-equation/elliptical-orbits");
+  const page = new URL("https://example.com/book/time-since-periapsis-and-keplers-equation/elliptical-orbits");
   const html = new URL(iframe.src, page);
   assert.equal(html.pathname, "/chapters/time-since-periapsis-and-keplers-equation/assets/ellipse-area-animate.html");
   assert.equal(new URL("ellipse-area-animate.svg", html).pathname, "/chapters/time-since-periapsis-and-keplers-equation/assets/ellipse-area-animate.svg");
@@ -40,7 +40,7 @@ test("iframe paths support trailing-slash routes and deployment prefixes", () =>
       process.env.BASE_URL = prefix;
       const [figure] = htmlFigureDirective.run(data, file);
       for (const slash of ["", "/"]) {
-        const page = `https://example.com${prefix.replace(/\/$/, "")}/${directory}/elliptical-orbits${slash}`;
+        const page = `https://example.com${prefix.replace(/\/$/, "")}/time-since-periapsis-and-keplers-equation/elliptical-orbits${slash}`;
         assert.equal(new URL(figure.children[0].src, page).pathname,
           `${prefix.replace(/\/$/, "")}/${directory}/${data.arg}`);
       }
@@ -63,7 +63,7 @@ test("Three.js entry points load the shared bundle from preserved chapter paths"
   };
   for (const name of ["two-body-inertial", "two-body-inertial-cg-relative", "two-body-inertial-m1-relative", "two-body-relative"]) {
     const [figure] = htmlFigureDirective.run({ ...data, arg: `assets/${name}.html` }, document);
-    const url = new URL(figure.children[0].src, "https://example.com/book/chapters/the-n-body-problem/two-body-inertial-numerical-solution");
+    const url = new URL(figure.children[0].src, "https://example.com/book/the-n-body-problem/two-body-inertial-numerical-solution");
     const html = readFileSync(path.join("_build/html-figures", url.pathname), "utf8");
     const imported = html.match(/from "([^"]+)"/)[1];
     assert.equal(new URL(imported, url).pathname, "/assets/js/orbital-three/orbital-three.js");
