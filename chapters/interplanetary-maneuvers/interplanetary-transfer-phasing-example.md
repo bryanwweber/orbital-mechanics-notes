@@ -69,12 +69,12 @@ The wait times are shown in @tab:heliocentric-hohmann-wait-times. The total miss
 :::{table} The wait times for heliocentric Hohmann transfers from Neptune to Venus and back.
 :name: tab:heliocentric-hohmann-wait-times
 
-| N | $t_{\text{wait}}$ (years) |
-|---|---------------------------|
-| 0 | {eval}`f"{t_wait[0] / (525_600 * 60):.4f}"`     |
-| 1 | {eval}`f"{t_wait[1] / (525_600 * 60):.4f}"`     |
-| 2 | {eval}`f"{t_wait[2] / (525_600 * 60):.4f}"`     |
-| 3 | {eval}`f"{t_wait[3] / (525_600 * 60):.4f}"`     |
+| N   | $t_{\text{wait}}$ (years)                   |
+| --- | ------------------------------------------- |
+| 0   | {eval}`f"{t_wait[0] / (525_600 * 60):.4f}"` |
+| 1   | {eval}`f"{t_wait[1] / (525_600 * 60):.4f}"` |
+| 2   | {eval}`f"{t_wait[2] / (525_600 * 60):.4f}"` |
+| 3   | {eval}`f"{t_wait[3] / (525_600 * 60):.4f}"` |
 :::
 
 ```{code-cell} ipython3

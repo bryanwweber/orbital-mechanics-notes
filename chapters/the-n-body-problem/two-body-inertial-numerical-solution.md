@@ -66,6 +66,7 @@ In the following code samples we use arrays to store the initial positions and v
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 import numpy as np
 
@@ -79,6 +80,7 @@ dotR_2_0 = np.array((0, 40, 0))  # km/s
 
 y_0 = np.hstack((R_1_0, R_2_0, dotR_1_0, dotR_2_0))
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
@@ -122,6 +124,7 @@ We now have enough information to start to solve the problem. The first step is 
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 X_1 = y_0[0]
 Y_1 = y_0[1]
@@ -139,6 +142,7 @@ ddotX_2 = -G * m_1 * (X_2 - X_1) / r**3
 ddotY_2 = -G * m_1 * (Y_2 - Y_1) / r**3
 ddotZ_2 = -G * m_1 * (Z_2 - Z_1) / r**3
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
@@ -162,6 +166,7 @@ This code is pretty long, and we've created a bunch of variables to keep track o
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 R_1 = y_0[:3]
 R_2 = y_0[3:6]
@@ -171,6 +176,7 @@ ddot = G * (R_2 - R_1) / r**3
 ddotR_1_0 = m_2 * ddot
 ddotR_2_0 = -m_1 * ddot
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
@@ -204,6 +210,7 @@ Let's choose $\Delta t = 1\text{ s}$. Then, to compute the state vector at the n
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 Delta_t = 1  # s
 dotR_1_1 = ddotR_1_0 * Delta_t + dotR_1_0
@@ -212,6 +219,7 @@ dotR_2_1 = ddotR_2_0 * Delta_t + dotR_2_0
 R_1_1 = dotR_1_0 * Delta_t + R_1_0
 R_2_1 = dotR_2_0 * Delta_t + R_2_0
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
@@ -234,10 +242,12 @@ First, you need to start by importing the appropriate Python libraries. In Matla
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 ```
+
 ::::
 :::::
 
@@ -252,6 +262,7 @@ Inside the function, we use the values in the state vector to fill the `ydot` ve
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 def absolute_motion(t, y):
     """Calculate the motion of a two-body system in an inertial reference frame.
@@ -285,6 +296,7 @@ def absolute_motion(t, y):
     ydot[9:] = ddotR_2
     return ydot
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
@@ -305,6 +317,7 @@ Then we extract the position and velocity of each mass as a function of time, an
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 t_0 = 0  # seconds
 t_f = 480  # seconds
@@ -319,6 +332,7 @@ V_1 = y[:, 6:9]  # km/s
 V_2 = y[:, 9:]  # km/s
 barycenter = (m_1 * R_1 + m_2 * R_2) / (m_1 + m_2)  # km
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab
@@ -373,13 +387,14 @@ The code to generate the plots is shown below.
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```python
 fig = plt.figure()
 ax = fig.add_subplot(111, projection="3d")
 ax.plot(R_1[:, 0], R_1[:, 1], R_1[:, 2], label="m_1")
 ax.plot(R_2[:, 0], R_2[:, 1], R_2[:, 2], label="m_2")
 ax.plot(barycenter[:, 0], barycenter[:, 1], barycenter[:, 2], label="COG")
-ax.legend();
+_ = ax.legend()
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection="3d")
@@ -388,7 +403,7 @@ R2_rel_COG = R_2 - barycenter
 ax.plot(R1_rel_COG[:, 0], R1_rel_COG[:, 1], R1_rel_COG[:, 2], label="m_1")
 ax.plot(R2_rel_COG[:, 0], R2_rel_COG[:, 1], R2_rel_COG[:, 2], label="m_2")
 ax.plot(0, 0, 0, "ro", label="COG")
-ax.legend();
+_ = ax.legend()
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection="3d")
@@ -397,8 +412,9 @@ COG_rel_R1 = barycenter - R_1
 ax.plot(R2_rel_R1[:, 0], R2_rel_R1[:, 1], R2_rel_R1[:, 2], label="m_2")
 ax.plot(COG_rel_R1[:, 0], COG_rel_R1[:, 1], COG_rel_R1[:, 2], label="COG")
 ax.plot(0, 0, 0, "ro", label="m_1")
-ax.legend();
+_ = ax.legend()
 ```
+
 ::::
 ::::{tab-item} MATLAB
 :sync: matlab

@@ -145,6 +145,7 @@ df
 
 :::{table} Comparison of results for various phasing orbits.
 :name: tab:phasing-orbit-comparison
+<!-- markdownlint-disable-next-line MD045 -->
 ![](#code:phasing-orbit-comparison)
 :::
 

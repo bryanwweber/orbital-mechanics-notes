@@ -30,12 +30,14 @@ In this example, we will solve the two-body problem in relative coordinates. Alt
 ::::{tab-set}
 :::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401, needed for 3d plots
 from scipy.integrate import solve_ivp
 ```
+
 :::
 ::::
 
@@ -57,6 +59,7 @@ To avoid confusion with the $y$ coordinate, we will use capital `Y` for the stat
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 G = 6.67430e-20  # km**3/(kg * s**2)
 m_1 = 5.97219e24  # kg
@@ -68,6 +71,7 @@ r_0 = np.array((8000, 0, 6000))  # km
 v_0 = np.array((0, 7, 0))  # km/s
 Y_0 = np.hstack((r_0, v_0))
 ```
+
 ::::
 :::: {tab-item} Matlab
 :sync: matlab
@@ -86,6 +90,7 @@ Inside the function, we use the values in the state vector to fill the `Ydot` ve
 :::::{tab-set}
 :::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 def relative_motion(t, Y):
     """Calculate the motion of a two-body system relative to $m_1$.
@@ -109,6 +114,7 @@ def relative_motion(t, Y):
 
     return Ydot
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -129,6 +135,7 @@ In Python, once the solver finishes, the solution is stored in `sol.y`. Each col
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 t_0 = 0  # seconds
 t_f = 14_709  # seconds, period of one orbit
@@ -139,6 +146,7 @@ Y = sol.y.T
 r = Y[:, :3]  # km
 v = Y[:, 3:]  # km/s
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -162,6 +170,7 @@ where $h$ is the altitude and $R_E$ is the radius of the Earth. Similarly, the s
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 r_mag = np.sqrt(np.sum(np.square(r), axis=1))
 # altitude is the distance above the surface of the Earth
@@ -169,6 +178,7 @@ altitude = r_mag - R_E
 
 speed = np.sqrt(np.sum(np.square(v), axis=1))
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -185,6 +195,7 @@ Now we can process the arrays to find the minimum and maximum altitude, and the 
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 min_altitude = np.min(altitude)
 i_min = np.argmin(altitude)
@@ -197,6 +208,7 @@ speed_at_max_alt = speed[i_max]
 time_at_min_alt = sol.t[i_min]
 time_at_max_alt = sol.t[i_max]
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -213,6 +225,7 @@ Finally, we can print the results to the screen.
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} python
 print(
     f"""\
@@ -225,6 +238,7 @@ The time at maximum altitude is: {time_at_max_alt:.2F} s
 """
 )
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -241,6 +255,7 @@ Interestingly, the results from Python and Matlab are slightly different. This i
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```python
 fig = plt.figure()
 ax = fig.add_subplot(111, projection="3d")
@@ -261,8 +276,9 @@ Z = R_E * np.cos(P)
 ax.plot_surface(X, Y, Z)
 ax.plot(r[i_min, 0], r[i_min, 1], r[i_min, 2], "ro", label="Min. Altitude")
 ax.plot(r[i_max, 0], r[i_max, 1], r[i_max, 2], "go", label="Max. Altitude")
-ax.legend();
+_ = ax.legend()
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab

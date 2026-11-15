@@ -2,7 +2,7 @@
 
 Avoid modifying files in the `chapters` folder, those contain the text of the book. Modifications to those files should be specifically approved. The `vendor` folder also contains code that should not be modified.
 
-The rendered book is available on http://localhost:3000 so you can inspect pages.
+The rendered book is available on <http://localhost:3000> so you can inspect pages.
 
 ## Repository overview
 
@@ -79,4 +79,4 @@ runs the configured checks. Repository-wide formatting tasks can modify
 chapter files; do not run them without the required approval. Prefer checks
 and formatting scoped to the files being changed.
 
-For visual changes, inspect the affected pages at http://localhost:3000.
+For visual changes, inspect the affected pages at <http://localhost:3000>.

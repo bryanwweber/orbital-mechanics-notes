@@ -31,14 +31,14 @@ Therefore, it is sufficient to define any two of $a$, $b$, or $f$ to define the 
 The parameters specified in the WGS84 standard are:
 
 <!-- markdownlint-disable MD033 -->
-| Parameter      | Value                                                                            |
-|----------------|----------------------------------------------------------------------------------|
-| $a$            | 6,378,137.0 m                                                                    |
-| $1/f$          | 298.257223 563                                                                  |
-| $b$            | 6,356,752.314245 m (calculated)                                                 |
-| Zero Longitude | [IERS Reference Meridian](https://en.wikipedia.org/wiki/IERS_Reference_Meridian) |
-| $\mu$          | 3986004.418×10<sup>8</sup> m³/s².                                              |
-| $\omega_E$     | 72.92115×10<sup>−6</sup> rad/s                                                   |
+| Parameter        | Value                                                                              |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| $a$              | 6,378,137.0 m                                                                      |
+| $1/f$            | 298.257223 563                                                                     |
+| $b$              | 6,356,752.314245 m (calculated)                                                    |
+| Zero Longitude   | [IERS Reference Meridian](https://en.wikipedia.org/wiki/IERS_Reference_Meridian)   |
+| $\mu$            | 3986004.418×10<sup>8</sup> m³/s².                                                  |
+| $\omega_E$       | 72.92115×10<sup>−6</sup> rad/s                                                     |
 <!-- markdownline-enable MD033 -->
 
 For even more accurate orbit calculations, particularly over longer time scales, it is necessary to map the variations in the Earth's gravitational field due to things such as the tides, mountain ranges, oceans, and more. These effects are represented in a model called the [**Earth Gravitational Model**](https://en.wikipedia.org/wiki/Earth_Gravitational_Model) (EGM). The most recent EGM is from 2008 and relies on high accuracy satellite measurements of Earth's gravitational field.

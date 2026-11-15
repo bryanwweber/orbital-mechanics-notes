@@ -108,6 +108,7 @@ gm_data
 
 :::{table} Mass, gravitational parameter, and mass fraction of the Sun, planets, and other solar system bodies
 :name: tab:planetary-mass-parameters
+<!-- markdownlint-disable-next-line MD045 -->
 ![](#code:planetary-mass-parameters)
 :::
 
@@ -265,6 +266,7 @@ all_planets_df.style.format(na_rep="—")
 
 :::{table} Radial parameters for objects in the Solar System. The gas giants assume a surface at the 1-bar pressure altitude.
 :name: tab:planetary-radius-parameters
+<!-- markdownlint-disable-next-line MD045 -->
 ![](#code:planetary-radius-parameters)
 :::
 
@@ -408,5 +410,6 @@ planet_data
 
 :::{table} Orbital elements for objects in the Solar System. The values for the Moon are relative to Earth; all other values are relative to the Sun.
 :name: tab:planetary-orbital-elements
+<!-- markdownlint-disable-next-line MD045 -->
 ![](#code:planetary-orbital-elements)
 :::

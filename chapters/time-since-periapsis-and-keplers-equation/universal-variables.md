@@ -18,16 +18,16 @@ The equations for an ellipse and a hyperbola are summarized in @tab:ellipse-hype
 :::{table} The equations representing the ellipse and hyperbola trajectories
 :name: tab:ellipse-hyperbola-comparison
 
-| Equation                           | Ellipse ($e < 1$)                                      | Hyperbola ($e > 1$)                                    |
-|------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| Orbit equation (true anomaly)      | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$           | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$      |
-| Cartesian Coordinates              | $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$                | $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$              |
-| Semimajor axis                     | $a = \frac{h^2}{\mu}\frac{1}{1 - e^2}$                 | $a = \frac{h^2}{\mu}\frac{1}{e^2 - 1}$               |
-| Semiminor Axis                     | $b = a\sqrt{1 - e^2}$                                  | $b = a\sqrt{e^2 - 1}$                                |
-| Energy Equation                    | $\frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a}$      | $\frac{v^2}{2} - \frac{\mu}{r} = \frac{\mu}{2a}$     |
-| Mean anomaly                       | $M_e = \frac{\mu^2}{h^3}\left(1 - e^2\right)^{3/2}t$   | $M_h = \frac{\mu^2}{h^3}\left(e^2 - 1\right)^{3/2}t$ |
-| Kepler's Equation                  | $M_e = E - e \sin E$                                   | $M_h = e\sinh F - F$                                 |
-| Orbit equation (eccentric anomaly) | $r = a\left(1 - e\cos E\right)$                        | $r = a\left(e\cosh F - 1\right)$                     |
+| Equation                             | Ellipse ($e < 1$)                                        | Hyperbola ($e > 1$)                                      |
+| ------------------------------------ | -------------------------------------------------------- | -------------------------------------------------------- |
+| Orbit equation (true anomaly)        | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$             | $r = \frac{h^2}{\mu} \frac{1}{1 + e\cos\nu}$             |
+| Cartesian Coordinates                | $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$                  | $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$                  |
+| Semimajor axis                       | $a = \frac{h^2}{\mu}\frac{1}{1 - e^2}$                   | $a = \frac{h^2}{\mu}\frac{1}{e^2 - 1}$                   |
+| Semiminor Axis                       | $b = a\sqrt{1 - e^2}$                                    | $b = a\sqrt{e^2 - 1}$                                    |
+| Energy Equation                      | $\frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a}$        | $\frac{v^2}{2} - \frac{\mu}{r} = \frac{\mu}{2a}$         |
+| Mean anomaly                         | $M_e = \frac{\mu^2}{h^3}\left(1 - e^2\right)^{3/2}t$     | $M_h = \frac{\mu^2}{h^3}\left(e^2 - 1\right)^{3/2}t$     |
+| Kepler's Equation                    | $M_e = E - e \sin E$                                     | $M_h = e\sinh F - F$                                     |
+| Orbit equation (eccentric anomaly)   | $r = a\left(1 - e\cos E\right)$                          | $r = a\left(e\cosh F - 1\right)$                         |
 :::
 
 ## The Universal Variable

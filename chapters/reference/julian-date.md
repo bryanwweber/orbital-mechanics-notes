@@ -184,8 +184,8 @@ gregorian_morning = julian_date_to_gregorian(jdt_morning)
 :::{table} Julian date conversion results using an evening and a morning time.
 :name: tab:julian-date-conversion-results
 
-| Original | Julian Date | Converted |
-|----------|-------------|-----------|
+| Original                                                     | Julian Date                   | Converted                                                              |
+| ------------------------------------------------------------ | ----------------------------- | ---------------------------------------------------------------------- |
 | {eval}`evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` | {eval}`f"{jdt_evening:,.4f}"` | {eval}`gregorian_evening.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` |
 | {eval}`morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` | {eval}`f"{jdt_morning:,.4f}"` | {eval}`gregorian_morning.strftime("%B %e, %Y at %-I:%M:%-S.%f %p %Z")` |
 :::

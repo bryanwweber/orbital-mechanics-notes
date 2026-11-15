@@ -72,8 +72,8 @@ The velocities and flight path angles are shown in @tab:common-apse-line.
 :name: tab:common-apse-line
 :align: center
 
-|  | Initial | Transfer |
-|:-|:--------|:---------|
+| | Initial | Transfer |
+| :- | :-------- | :--------- |
 | $v_{\perp}$ (km/s) | {eval}`f"{v_p_i:.2f}"` | {eval}`f"{v_p_t:.2f}"` |
 | $v_{r}$ (km/s) | {eval}`f"{v_r_i:.2f}"` | {eval}`f"{v_r_t:.2f}"` |
 | $v$ (km/s) | {eval}`f"{v_i:.2f}"` | {eval}`f"{v_t:.2f}"` |

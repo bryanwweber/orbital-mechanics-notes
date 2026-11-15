@@ -33,8 +33,7 @@ for step in range(1001):
     frames.append(
         {
             "stretch": (
-                f"translate(0 {center_y}) scale(1 {scale:.8f}) "
-                f"translate(0 {-center_y})"
+                f"translate(0 {center_y}) scale(1 {scale:.8f}) translate(0 {-center_y})"
             ),
             "point": f"translate(0 {(point_y - center_y) * (scale - 1):.8f})",
             "showQ": step >= 990,

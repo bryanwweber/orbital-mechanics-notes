@@ -74,6 +74,7 @@ Therefore, we can tabulate values of $\mu$ for various celestial bodies, as show
 
 :::{table} The standard gravitational parameter ($\mu$) and the mass for major celestial objects in the Solar System. See also: @sec:planetary-parameters and @Park2021
 :name: tab:standard-gravitational-parameter
+<!-- markdownlint-disable-next-line MD045 -->
 ![](#code:planetary-mass-parameters)
 :::
 

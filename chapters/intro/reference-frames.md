@@ -59,9 +59,9 @@ All reference frames are either inertial or non-inertial, and deciding which typ
 
 With respect to the Earth, we will define three separate reference frames:
 
-1. [](#sec:earth-centered-inertial)
-2. [](#sec:earth-centered-earth-fixed)
-3. [](#sec:topocentric-horizon)
+1. {ref}`sec:earth-centered-inertial`
+2. {ref}`sec:earth-centered-earth-fixed`
+3. {ref}`sec:topocentric-horizon`
 
 For now, we will assume that the Earth is a sphere. We use the Earth here since most human spaceflight takes place near the Earth.
 

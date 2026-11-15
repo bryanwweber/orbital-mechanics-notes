@@ -47,10 +47,10 @@ Next, we need to inspect the data. There are two tables given, one that is valid
 :::{table} Keplerian elements and their rates, with respect to the mean ecliptic and equinox of J2000.0, valid for the time-interval 1800 AD - 2050 AD. Reproduced from Standish {cite}`Standish1992,Standish2021`. The subset here is for demonstration only.
 :name: tab:standish-keplerian-elements
 
-|         | $a$ [AU, AU/Cy] | $e$ [rad, rad/Cy] | $i$ [deg, deg/Cy] | $L$ [deg, deg/Cy] | $\varpi$ [deg, deg/Cy] | $\Omega$ [deg, deg/Cy] |
-|---------|---------------|-----------------|-----------------|-----------------|------------------------|------------------------|
-| Mercury | 0.38709927    | 0.20563593      | 7.00497902      | 252.250324      | 77.4577963             | 48.3307659             |
-|         | 0.00000037    | 0.00001906      | -0.0059475      | 149472.674      | 0.16047689             | -0.1253408             |
+|           | $a$ [AU, AU/Cy] | $e$ [rad, rad/Cy] | $i$ [deg, deg/Cy] | $L$ [deg, deg/Cy] | $\varpi$ [deg, deg/Cy]   | $\Omega$ [deg, deg/Cy]   |
+| --------- | --------------- | ----------------- | ----------------- | ----------------- | ------------------------ | ------------------------ |
+| Mercury   | 0.38709927      | 0.20563593        | 7.00497902        | 252.250324        | 77.4577963               | 48.3307659               |
+|           | 0.00000037      | 0.00001906        | -0.0059475        | 149472.674        | 0.16047689               | -0.1253408               |
 :::
 
 There are 6 columns and two rows associated with each planet. The first row gives the absolute value of the orbital element at the J2000.0 epoch and the second row gives the rate of change of the orbital element. Cy stands for an astronomical century (100 Julian years), or 36,525 days, although this notation is [outdated](https://www.iau.org/publications/proceedings_rules/units/). The six columns are:
@@ -108,9 +108,9 @@ The data shown in @tab:standish-keplerian-elements are valid from AD 1800-AD 205
 :::{table} Additional terms which must be added to the computation of $M_e$ for Jupiter through Pluto, 3000 BC to AD 3000 {cite}`Standish1992,Standish2021`. The subset here is for demonstration only.
 :name: tab:standish-long-term-elements
 
-|            |     $b$       |    $c$       |    $s$     |     $f$      |
-|------------|---------------|--------------|------------|--------------|
-|Jupiter     | -0.00012452   | 0.06064060   | -0.35635438|   38.35125000|
+|              | $b$             | $c$            | $s$          | $f$            |
+| ------------ | --------------- | -------------- | ------------ | -------------- |
+| Jupiter      | -0.00012452     | 0.06064060     | -0.35635438  | 38.35125000    |
 :::
 
 The modified equation for the mean anomaly is:

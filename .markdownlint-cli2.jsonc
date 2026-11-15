@@ -4,6 +4,7 @@
         "!.venv",
         "!_build",
         "!_static",
+        "!node_modules",
         "!vendor"
     ],
     "config": {

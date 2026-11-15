@@ -47,6 +47,7 @@ v_{\perp} = \sqrt{v^2 - v_r^2}
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 import numpy as np
 
@@ -59,6 +60,7 @@ v = np.linalg.norm(v_vec)
 v_r = np.dot(r_vec / r, v_vec)
 v_p = np.sqrt(v**2 - v_r**2)
 ```
+
 ::::
 ::::{tab-item} Matlab
 :::{literalinclude} assets/orbital_elements_and_the_state_vector.m
@@ -78,10 +80,12 @@ Next, we need to calculate the orbital angular momentum. By definition, $\vector
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 h_vec = np.cross(r_vec, v_vec)
 h = np.linalg.norm(h_vec)
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -111,9 +115,11 @@ Since the inclination is restricted to lie between 0° and 180°, we do not need
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 i = np.arccos(h_vec[2] / h)
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -160,12 +166,14 @@ If $N_Y \geq 0$, then $\vector{N}$ must be pointing to the first or second quadr
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 K = np.array((0, 0, 1))
 N_vec = np.cross(K, h_vec)
 N = np.linalg.norm(N_vec)
 Omega = 2 * np.pi - np.arccos(N_vec[0] / N)
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -209,10 +217,12 @@ Again, @eq:simplified-eccentricity-magnitude is useful for hand calculations.
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 e_vec = np.cross(v_vec, h_vec) / mu - r_vec / r
 e = np.linalg.norm(e_vec)
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -259,9 +269,11 @@ If $e_Z \geq 0$, then $\vector{e}$ points up and periapsis must be between the a
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 omega = 2 * np.pi - np.arccos(np.dot(N_vec, e_vec) / (N * e))
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -299,9 +311,11 @@ If $v_r \geq 0$, then $\vector{r}$ is increasing in length and the spacecraft mu
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 nu = np.arccos(np.dot(r_vec / r, e_vec / e))
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -331,10 +345,12 @@ Remember that the perifocal frame is defined in the orbital plane with the unit 
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: python
+
 ```{code-cell} ipython3
 r_w = h**2 / mu / (1 + e * np.cos(nu)) * np.array((np.cos(nu), np.sin(nu), 0))
 v_w = mu / h * np.array((-np.sin(nu), e + np.cos(nu), 0))
 ```
+
 ::::
 ::::{tab-item} Matlab
 :sync: matlab
@@ -386,6 +402,7 @@ These three angles ($\omega$, $i$, and $\Omega$) are called [**Euler angles**](h
 :::::{tab-set}
 ::::{tab-item} Python
 :sync: PYTHON
+
 ```{code-cell} ipython3
 from scipy.spatial.transform import Rotation
 

@@ -252,6 +252,7 @@ The characteristic mass is the sum of the primary and secondary masses, $m_1 + m
 
 The characteristic length is the circular orbit radius, $r_{12}$. Using this, we define the non-dimensional position vectors by dividing the dimensional position vectors, $\vector{r}_1$, $\vector{r}_2$, and $\vector{r}$ by $r_{12}$:
 
+<!-- markdownlint-disable MD049 -->
 :::{math}
 :label: eq:non-dim-r-vectors-cr3bp
 \begin{aligned}
@@ -260,6 +261,7 @@ The characteristic length is the circular orbit radius, $r_{12}$. Using this, we
   \vector{\psi} &= \frac{\vector{r}_2}{r_{12}} = \left(x^* - 1 + \pi_2\right)\uvec{\imath} + y^*\uvec{\jmath} + z^*uvec{k}
 \end{aligned}
 :::
+<!-- markdownlint-enable MD049 -->
 
 where $x^* = x/r_{12}$, and similar for $y^*$ and $z^*$.
 
@@ -279,10 +281,12 @@ To make @eq:five-term-acceleration-cr3bp non-dimensional, we need to multiply bo
 
 where $\tau = t/t_C$. Making the terms on the right hand side of @eq:five-term-acceleration-cr3bp non-dimensional is also the result of multiplying by $t_C^2/r_{12}$. Note that the dimensions of $\varOmega$ are $t^{-1}$:
 
+<!-- markdownlint-disable MD049 -->
 :::{math}
 :label: eq:non-dim-five-term-accel-cr3bp
 \ddot{\vector{\rho}} = \left(\ddot{x}^* - 2\dot{y}^* - x^*\right)\uvec{\imath} + \left(\ddot{y}^* + 2\dot{x}^* - y^*\right)\uvec{\jmath} + \ddot{z}^*\uvec{k}
 :::
+<!-- markdownlint-enable MD049 -->
 
 Now we have the non-dimensional inertial acceleration, we need to make @eq:vector-eom-cr3bp, the equation of motion, non-dimensional. After a bunch of algebra, not shown here, we end up with:
 

@@ -10,7 +10,6 @@ from rich.progress import (
     SpinnerColumn,
     TextColumn,
     TimeRemainingColumn,
-    track,
 )
 from typer import Argument, Option, Typer
 
