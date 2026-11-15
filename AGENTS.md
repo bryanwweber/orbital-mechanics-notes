@@ -50,6 +50,7 @@ The repository includes a `bin/math` executable.
 ## Dependencies and tooling
 
 - `mise.toml` declares tools and lint, formatting, and Julia tasks.
+- Running a live server can be done with `mise run serve` for visualization tests
 - Python dependencies use `pyproject.toml` and `uv.lock`.
 - The uv workspace includes `plugins/render_svg` and `vendor/*`.
   `vendor/poliastro` is a Git submodule pointing to the author's fork.

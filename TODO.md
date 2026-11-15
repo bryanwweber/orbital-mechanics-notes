@@ -11,7 +11,8 @@
 
 ## Second Tier
 
-- [ ] Relative Motion, Table 1 looks awful
+- [ ] Relative Motion, Table 1 has HTML tags in the header
+- [ ] Use direct ThreeJS syntax instead of loading Blender GLB output
 - [ ] Figure 59, time since periapsis hyperbola, wrong math font (matplotlib)
 - [ ] Figure 60, time since periapsis hyperbola needs a complete license reference, also the `L` is cut off on the left of the figure, and it might use the wrong math font
 - [ ] Universal variables example uses print statements, can use "glue"
@@ -21,3 +22,4 @@
 - [ ] Split planetary arrival: capture into text and example pages
 - [ ] Planetary parameters, the tables look terrible
 - [ ] `swept-angle.svg` and `center-of-curvature.svg` have a font definition included
+- [ ] Upgrade to Python 3.15
