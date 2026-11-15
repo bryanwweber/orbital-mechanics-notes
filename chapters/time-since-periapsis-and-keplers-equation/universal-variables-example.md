@@ -34,16 +34,28 @@ import numpy as np
 from scipy.optimize import newton
 import matplotlib.pyplot as plt
 
-theta_0 = np.radians(30)
+nu_0 = np.radians(30)
 r_0 = 10_000  # km
 v_0 = 10  # km/s
 mu = 3.986004418E5  # km**3/s**2
 
 a = 1 / (2 / r_0 - v_0**2 / mu)
-print(round(a, 3), "km")
 ```
 
-Since the semimajor axis is negative, we know the orbit is a hyperbola. Therefore, we can solve for the eccentricity using the orbit equation for a hyperbola, in terms of the semimajor axis:
+```{code-cell} ipython3
+:tags: [remove-input]
+from pint import UnitRegistry
+import matplotlib.pyplot as plt
+import numpy as np
+
+ureg = UnitRegistry()
+ureg.setup_matplotlib()
+ureg.formatter.default_format = "~H"
+Q_ = ureg.Quantity
+a_val = Q_(round(a, 3), "km")
+```
+
+This gives $a=$ {eval}`a_val`. Since the semimajor axis is negative, we know the orbit is a hyperbola. Therefore, we can solve for the eccentricity using the orbit equation for a hyperbola, in terms of the semimajor axis:
 
 $$r_0 = a\frac{e^2 - 1}{1 + e\cos\nu_0}$$
 
@@ -54,11 +66,15 @@ $$0 = e^2 - \frac{r_0}{a}\cos\nu_0 e - \left(1 + \frac{r_0}{a}\right)$$
 This equation is quadratic in $e$, so we can use the quadratic formula to solve it. Notice that the signs of the second and third term are negative. In addition, we need to take the absolute value of the semimajor axis, because the orbit formula was developed assuming that $a$ was positive.
 
 ```{code-cell} ipython3
-e = (r_0/np.abs(a) * np.cos(theta_0) + np.sqrt((-r_0 / np.abs(a) * np.cos(theta_0))**2 + 4 * (1 + r_0/np.abs(a)))) / 2
-print(round(e, 3))
+e = (r_0/np.abs(a) * np.cos(nu_0) + np.sqrt((-r_0 / np.abs(a) * np.cos(nu_0))**2 + 4 * (1 + r_0/np.abs(a)))) / 2
 ```
 
-As expected, the eccentricity is larger than 1 for a hyperbola.
+```{code-cell} ipython3
+:tags: [remove-input]
+e_val = Q_(round(e, 5), "dimensionless")
+```
+
+As expected, the eccentricity $e=$ {eval}`e_val` is larger than 1 for a hyperbola.
 
 Next, to find the universal anomaly at $t_0$ + 1 hr, we need the initial radial velocity. From Ch. 2, we know that:
 
@@ -77,11 +93,15 @@ Note again that this formula was derived under the assumption that $a$ is positi
 ```{code-cell} ipython3
 v_infty = np.sqrt(mu / np.abs(a))
 h = mu / v_infty * np.sqrt(e**2 - 1)
-v_r0 = mu / h * e * np.sin(theta_0)
-print(round(v_r0, 3), "km/s")
+v_r0 = mu / h * e * np.sin(nu_0)
 ```
 
-Now we have enough information to find the universal anomaly from Kepler's equation:
+```{code-cell} ipython3
+:tags: [remove-input]
+v_r0_val = Q_(round(v_r0, 3), "km/s")
+```
+
+The initial radial velocity is thus $v_{r,0}=$ {eval}`v_r0_val`. Now we have enough information to find the universal anomaly from Kepler's equation:
 
 $$f(\chi) = 0 = \frac{r_0 v_{r,0}}{\sqrt{\mu}}\chi^2 C(z) + \left(1 - \alpha r_0\right) \chi^3 S(z)+ r_0 \chi - \sqrt{\mu}\Delta t$$
 
@@ -160,10 +180,14 @@ chi = newton(
     x0=chi_0,
     args=(r_0, v_r0, alpha, delta_t, mu)
 )
-print(round(chi, 3))
 ```
 
-With $\chi$ determined, we need to relate it back to the eccentric anomaly to determine the true anomaly. The appropriate eccentric anomaly is $F$, for hyperbolic trajectories. The relationship between $\chi$ and $F$ is:
+```{code-cell} ipython3
+:tags: [remove-input]
+chi_val = Q_(round(chi, 3), "dimensionless")
+```
+
+With $\chi=$ {eval}`chi_val`, we need to relate it back to the eccentric anomaly to determine the true anomaly. The appropriate eccentric anomaly is $F$, for hyperbolic trajectories. The relationship between $\chi$ and $F$ is:
 
 $$\chi = \sqrt{-a} \left(F - F_0\right)$$
 
@@ -172,11 +196,15 @@ where $F_0$ is the eccentric anomaly determined at the initial true anomaly:
 $$F_0 = 2 \tanh^{-1}\left(\sqrt{\frac{e - 1}{e + 1}}\tan\frac{\nu_0}{2}\right)$$
 
 ```{code-cell} ipython3
-F_0 = 2. * np.arctanh(np.sqrt((e - 1) / (e + 1)) * np.tan(theta_0 / 2))
-print(round(F_0, 3))
+F_0 = 2. * np.arctanh(np.sqrt((e - 1) / (e + 1)) * np.tan(nu_0 / 2))
 ```
 
-Then, we can solve for $F$ and relate that back to $\nu$:
+```{code-cell} ipython3
+:tags: [remove-input]
+F_0_val = Q_(round(F_0, 3), "dimensionless")
+```
+
+The initial eccentric anomaly is $F_0=$ {eval}`F_0_val`. Then, we can solve for $F$ and relate that back to $\nu$:
 
 $$F = \frac{\chi}{\sqrt{-a}} + F_0$$
 
@@ -186,7 +214,7 @@ $$\nu = 2 \tan^{-1} \left(\sqrt{\frac{e + 1}{e - 1}}\tanh\frac{F}{2}\right)$$
 
 ```{code-cell} ipython3
 F = chi / np.sqrt(-a) + F_0
-print(round(F, 3))
-theta = 2 * np.arctan(np.sqrt((e + 1) / (e - 1)) * np.tanh(F / 2))
-print(round(theta, 3), f"{np.degrees(theta):.3F}°")
+nu = 2 * np.arctan(np.sqrt((e + 1) / (e - 1)) * np.tanh(F / 2))
 ```
+
+The true anomaly after one hour is $\nu=$ {eval}`Q_(round(np.degrees(nu), 3), "degrees")`.

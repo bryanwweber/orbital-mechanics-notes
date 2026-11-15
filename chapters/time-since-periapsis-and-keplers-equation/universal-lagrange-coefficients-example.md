@@ -55,8 +55,18 @@ vec_v_0 = np.array((2.6679, 4.6210))  # km/s
 
 r_0 = np.sqrt(vec_r_0.dot(vec_r_0))
 v_r0 = vec_v_0.dot(vec_r_0) / r_0
-print(round(r_0, 3), round(v_r0, 3))
 ```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+from pint import UnitRegistry
+
+ureg = UnitRegistry()
+ureg.formatter.default_format = "~H"
+Q_ = ureg.Quantity
+```
+
+The initial distance is $r_0=$ {eval}`Q_(round(r_0, 3), "km")`, and the initial radial velocity is $v_{r,0}=$ {eval}`Q_(round(v_r0, 3), "km/s")`.
 
 Then, we need to find $\alpha$, which we can find from the energy equation:
 
@@ -74,10 +84,9 @@ v_0^2 = \vector{v}_0 \cdot\vector{v}_0
 
 ```{code-cell} ipython3
 alpha = 2 / r_0 - vec_v_0.dot(vec_v_0) / mu
-print(alpha)
 ```
 
-Since $\alpha$ is positive, this must be an elliptical orbit.
+Since $\alpha=$ {eval}`Q_(alpha, "1/km")` is positive, this must be an elliptical orbit.
 
 Now we have enough information to solve the universal Kepler equation.
 
@@ -134,10 +143,9 @@ chi = newton(
     x0=chi_0,
     args=(r_0, v_r0, alpha, delta_t, mu),
 )
-print(round(chi, 3))
 ```
 
-Now we can solve the equations to find the Lagrange coefficients, and then the position and velocity at the later time.
+With $\chi=$ {eval}`Q_(round(chi, 3), "dimensionless")`, we can solve the equations to find the Lagrange coefficients, and then the position and velocity at the later time.
 
 ```{code-cell} ipython3
 z = alpha * chi**2
@@ -146,9 +154,9 @@ g = delta_t - chi**3 / np.sqrt(mu) * stumpff_3(z)
 
 vec_r = f * vec_r_0 + g * vec_v_0
 r = np.sqrt(vec_r.dot(vec_r))
-print(f"vec_r = {vec_r[0]:.3F}i + {vec_r[1]:.3F}j (km)")
-print(round(r, 3), "km")
 ```
+
+The position has components $r_i=$ {eval}`Q_(round(vec_r[0], 3), "km")` and $r_j=$ {eval}`Q_(round(vec_r[1], 3), "km")`, with magnitude $r=$ {eval}`Q_(round(r, 3), "km")`.
 
 ```{code-cell} ipython3
 fdot = chi * np.sqrt(mu) / (r * r_0) * (z * stumpff_3(z) - 1)
@@ -156,9 +164,9 @@ gdot = 1 - chi**2 / r * stumpff_2(z)
 
 vec_v = fdot * vec_r_0 + gdot * vec_v_0
 v = np.sqrt(vec_v.dot(vec_v))
-print(f"vec_v = {vec_v[0]:.3F}i + {vec_v[1]:.3F}j (km/s)")
-print(round(v, 3), "km/s")
 ```
+
+The velocity has components $v_i=$ {eval}`Q_(round(vec_v[0], 3), "km/s")` and $v_j=$ {eval}`Q_(round(vec_v[1], 3), "km/s")`, with magnitude $v=$ {eval}`Q_(round(v, 3), "km/s")`.
 
 We can also compute the distance to perigee. First, we calculate the orbital angular momentum via:
 
@@ -203,7 +211,6 @@ h = v_perp0 * r_0
 a = 1 / alpha
 e = np.sqrt(1 - h**2 / (a * mu))
 r_p = a * (1 - e)
-print(r_p)
 ```
 
-Fortunately, since the radius of the Earth is 6378 km, this satellite will not impact the Earth and will have an altitude at closest approach of ~622 km.
+The distance to perigee is $r_p=$ {eval}`Q_(round(r_p, 3), "km")`. Fortunately, since the radius of the Earth is 6378 km, this satellite will not impact the Earth and will have an altitude at closest approach of ~622 km.

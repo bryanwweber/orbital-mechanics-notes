@@ -13,10 +13,10 @@
 
 - [x] Relative Motion, Table 1 has HTML tags in the header
 - [x] Use direct ThreeJS syntax instead of loading Blender GLB output
-- [ ] Figure 59, time since periapsis hyperbola, wrong math font (matplotlib)
-- [ ] Figure 60, time since periapsis hyperbola needs a complete license reference, also the `L` is cut off on the left of the figure, and it might use the wrong math font
-- [ ] Universal variables example uses print statements, can use "glue"
-- [ ] Same for Universal Lagrange coefficients
+- [x] Figure 59, time since periapsis hyperbola, wrong math font (matplotlib)
+- [x] Figure 60, time since periapsis hyperbola needs a complete license reference, also the `L` is cut off on the left of the figure, and it might use the wrong math font
+- [x] Universal variables example uses print statements, can use "glue"
+- [x] Same for Universal Lagrange coefficients
 - [ ] Consider moving flight path angle section to non-Hohmann transfers section
 - [ ] Tables are not numbered consecutively
 - [ ] Split planetary arrival: capture into text and example pages

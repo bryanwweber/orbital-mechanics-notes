@@ -46,6 +46,10 @@ The hyperbolic mean anomaly, like the elliptical mean anomaly, is a monotonic fu
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+from pathlib import Path
+
+from IPython.display import display
+from matplotlib import font_manager
 from matplotlib.ticker import (
     MultipleLocator,
     FuncFormatter,
@@ -54,33 +58,51 @@ from matplotlib.ticker import (
 import matplotlib.pyplot as plt
 import numpy as np
 
-fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
-ax.set_ylabel("$M_h$")
-ax.set_xlabel(r"$\nu$")
-ax.set_xlim(0, np.pi)
-e_vals = [1.1, 1.5, 2.0, 3.0, 5.0]
-ax.xaxis.set_major_locator(MultipleLocator(base=np.pi / 2))
-ax.xaxis.set_major_formatter(FuncFormatter(lambda val, pos: {0: "0", np.pi/2: r"$\pi$/2", np.pi: r"$\pi$"}.get(val, "")))
-ax.xaxis.set_minor_locator(AutoMinorLocator(n=10))
-ax.xaxis.grid(which="both")
-ax.yaxis.grid(which="major")
-for e in e_vals:
-    nu_inf = np.arccos(-1 / e)
-    nu = np.linspace(0.1, np.pi / 2)
-    nu = np.hstack((nu, np.linspace(np.pi / 2, nu_inf - 1.0E-3, 150)))
-    M_h = e * np.sqrt(e**2 - 1) * np.sin(nu) / (1 + e * np.cos(nu))
-    sqrt_e_p_1 = np.sqrt(e + 1)
-    sqrt_e_m_1_t = np.sqrt(e - 1) * np.tan(nu / 2)
-    M_h -= np.log((sqrt_e_p_1 + sqrt_e_m_1_t) / (sqrt_e_p_1 - sqrt_e_m_1_t))
-    ax.semilogy(nu, M_h, label=f"$e$ = {e}")
-ax.legend();
+# Match the page's KaTeX 0.15.2 math fonts without changing ordinary text.
+font_dir = next(
+    parent / "assets-src/fonts/katex"
+    for parent in (Path.cwd(), *Path.cwd().parents)
+    if (parent / "assets-src/fonts/katex").is_dir()
+)
+for font_file in font_dir.glob("*.ttf"):
+    font_manager.fontManager.addfont(font_file)
+katex_math = {
+    "mathtext.fontset": "custom",
+    "mathtext.rm": "KaTeX_Main",
+    "mathtext.it": "KaTeX_Math:style=italic",
+    "mathtext.cal": "KaTeX_Main",
+}
+
+with plt.rc_context(katex_math):
+    fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
+    ax.set_ylabel("$M_h$")
+    ax.set_xlabel(r"$\nu$")
+    ax.set_xlim(0, np.pi)
+    e_vals = [1.1, 1.5, 2.0, 3.0, 5.0]
+    ax.xaxis.set_major_locator(MultipleLocator(base=np.pi / 2))
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda val, pos: {0: "0", np.pi/2: r"$\pi/2$", np.pi: r"$\pi$"}.get(val, "")))
+    ax.xaxis.set_minor_locator(AutoMinorLocator(n=10))
+    ax.xaxis.grid(which="both")
+    ax.yaxis.grid(which="major")
+    for e in e_vals:
+        nu_inf = np.arccos(-1 / e)
+        nu = np.linspace(0.1, np.pi / 2)
+        nu = np.hstack((nu, np.linspace(np.pi / 2, nu_inf - 1.0E-3, 150)))
+        M_h = e * np.sqrt(e**2 - 1) * np.sin(nu) / (1 + e * np.cos(nu))
+        sqrt_e_p_1 = np.sqrt(e + 1)
+        sqrt_e_m_1_t = np.sqrt(e - 1) * np.tan(nu / 2)
+        M_h -= np.log((sqrt_e_p_1 + sqrt_e_m_1_t) / (sqrt_e_p_1 - sqrt_e_m_1_t))
+        ax.semilogy(nu, M_h, label=f"$e = {e}$")
+    ax.legend();
 ```
 
 ```{code-cell} ipython3
 :label: code:mean-anomaly-hyperbola-function
 :tags: [remove-cell]
 
-fig
+# Keep the same math configuration when the notebook renders the figure.
+with plt.rc_context(katex_math):
+    display(fig)
 ```
 
 :::{figure} #code:mean-anomaly-hyperbola-function
@@ -98,64 +120,66 @@ Similar to the ellipse, we will define an auxiliary angle $F$ to simplify the eq
 ```{code-cell} ipython3
 :tags: [remove-cell]
 
-fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
-ax.set_aspect("auto")
+with plt.rc_context(katex_math):
+    fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
+    ax.set_aspect("auto")
 
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
-ax.xaxis.set_tick_params(bottom=False, top=False, which="both", labelbottom=False)
-ax.yaxis.set_tick_params(left=False, right=False, which="both", labelleft=False)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.xaxis.set_tick_params(bottom=False, top=False, which="both", labelbottom=False)
+    ax.yaxis.set_tick_params(left=False, right=False, which="both", labelleft=False)
 
-# Move remaining spines to the center
-ax.spines["bottom"].set_position("zero")  # spine for xaxis
-ax.spines["left"].set_position("zero")  # spine for yaxis
+    # Move remaining spines to the center
+    ax.spines["bottom"].set_position("zero")  # spine for xaxis
+    ax.spines["left"].set_position("zero")  # spine for yaxis
 
-e = 1.5
-nu_inf = np.arccos(-1 / e)
-a = 1
-b = a * np.sqrt(e ** 2 - 1)
-r_p = a * (e - 1)
-x_a = 100 * np.cos(nu_inf)
-y_a = 100 * np.sin(nu_inf)
+    e = 1.5
+    nu_inf = np.arccos(-1 / e)
+    a = 1
+    b = a * np.sqrt(e ** 2 - 1)
+    r_p = a * (e - 1)
+    x_a = 100 * np.cos(nu_inf)
+    y_a = 100 * np.sin(nu_inf)
 
-ax.set_xlim(-4, 1)
-ax.set_ylim(-3, 3)
+    ax.set_xlim(-4, 1)
+    ax.set_ylim(-3, 3)
 
-x = np.linspace(a, 3 * a, 100)
-y = b / a * np.sqrt(x ** 2 - a ** 2)
-ax.plot(np.hstack((-x[::-1], -x)), np.hstack((y[::-1], -y)))
-ax.plot((x_a, -x_a), (y_a, -y_a), ls="--", color="C1")
-ax.plot((-x_a, x_a), (y_a, -y_a), ls="--", color="C1")
+    x = np.linspace(a, 3 * a, 100)
+    y = b / a * np.sqrt(x ** 2 - a ** 2)
+    ax.plot(np.hstack((-x[::-1], -x)), np.hstack((y[::-1], -y)))
+    ax.plot((x_a, -x_a), (y_a, -y_a), ls="--", color="C1")
+    ax.plot((-x_a, x_a), (y_a, -y_a), ls="--", color="C1")
 
-t = np.radians(100)
-r = a * (e ** 2 - 1) / (1 + e * np.cos(t))
-x_1 = -a - r_p + r * np.cos(t)
-y_1 = r * np.sin(t)
-hyperbola_focus = -a - r_p
-ax.plot((hyperbola_focus, x_1), (0, y_1), "k-o")
-ax.plot((-a, -a), (0, b), "ko-", markersize=5)
-ax.annotate("", xy=(-2*a - r_p, 0), xytext=(-2*a - r_p, y_1), arrowprops={"arrowstyle": "<->"})
-ax.annotate("$y$", xy=(-2*a - r_p, y_1/2), backgroundcolor="white", ha="center", va="center")
-ax.plot((-2*a - r_p - 0.1, x_1 - 0.1), (y_1, y_1), color="black", lw=0.5)
-ax.annotate("", xy=(0, 2*b), xytext=(x_1, 2*b), arrowprops={"arrowstyle": "<->"})
-ax.annotate("$x$", xy=(x_1/2, 2*b), backgroundcolor="white", ha="center", va="center")
-ax.plot((x_1, x_1), (2*b + 0.1, y_1 + 0.1), color="black", lw=0.5)
-ax.annotate("$b$", xy=(-a, b/2), ha="left", va="center")
-ax.annotate("", xy=(0, -0.2), xytext=(-a, -0.2), arrowprops={"arrowstyle": "<->"})
-ax.annotate("$a$", xy=(-a/2, -0.35), ha="center", va="center")
-ax.annotate("", xy=(-a, -0.2), xytext=(-a - r_p, -0.2), arrowprops={"arrowstyle": "<->"})
-ax.annotate("$r_p$", xy=(-a - r_p/2, -0.4), ha="center", va="center")
-ax.plot((-a - r_p, -a - r_p), (-0.1, -0.3), lw=0.5, color="black")
-ax.plot((-a , -a), (-0.1, -0.3), lw=0.5, color="black")
-ax.annotate("$r$", xy=((x_1 + hyperbola_focus) / 2, y_1 / 2), ha="right", va="top")
-ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white");
+    t = np.radians(100)
+    r = a * (e ** 2 - 1) / (1 + e * np.cos(t))
+    x_1 = -a - r_p + r * np.cos(t)
+    y_1 = r * np.sin(t)
+    hyperbola_focus = -a - r_p
+    ax.plot((hyperbola_focus, x_1), (0, y_1), "k-o")
+    ax.plot((-a, -a), (0, b), "ko-", markersize=5)
+    ax.annotate("", xy=(-2*a - r_p, 0), xytext=(-2*a - r_p, y_1), arrowprops={"arrowstyle": "<->"})
+    ax.annotate("$y$", xy=(-2*a - r_p, y_1/2), backgroundcolor="white", ha="center", va="center")
+    ax.plot((-2*a - r_p - 0.1, x_1 - 0.1), (y_1, y_1), color="black", lw=0.5)
+    ax.annotate("", xy=(0, 2*b), xytext=(x_1, 2*b), arrowprops={"arrowstyle": "<->"})
+    ax.annotate("$x$", xy=(x_1/2, 2*b), backgroundcolor="white", ha="center", va="center")
+    ax.plot((x_1, x_1), (2*b + 0.1, y_1 + 0.1), color="black", lw=0.5)
+    ax.annotate("$b$", xy=(-a, b/2), ha="left", va="center")
+    ax.annotate("", xy=(0, -0.2), xytext=(-a, -0.2), arrowprops={"arrowstyle": "<->"})
+    ax.annotate("$a$", xy=(-a/2, -0.35), ha="center", va="center")
+    ax.annotate("", xy=(-a, -0.2), xytext=(-a - r_p, -0.2), arrowprops={"arrowstyle": "<->"})
+    ax.annotate("$r_p$", xy=(-a - r_p/2, -0.4), ha="center", va="center")
+    ax.plot((-a - r_p, -a - r_p), (-0.1, -0.3), lw=0.5, color="black")
+    ax.plot((-a , -a), (-0.1, -0.3), lw=0.5, color="black")
+    ax.annotate("$r$", xy=((x_1 + hyperbola_focus) / 2, y_1 / 2), ha="right", va="top")
+    ax.annotate("$C$", xy=(0, 0.2), va="bottom", ha="center", backgroundcolor="white");
 ```
 
 ```{code-cell}
 :label: code:hyperbolic-eccentric-anomaly-figure
 :tags: [remove-cell]
 
-fig
+with plt.rc_context(katex_math):
+    display(fig)
 ```
 
 :::{figure} #code:hyperbolic-eccentric-anomaly-figure
@@ -198,7 +222,7 @@ A_{\text{circular sector}} = \frac{r^2 \phi}{2}
 :::{figure} ../../images/Circle_arc.svg
 :name: fig:circle_arc
 
-The highlighted area is a **circular sector**. Modified from [Wikimedia](https://en.wikipedia.org/wiki/File:Circle_arc.svg).
+The highlighted area is a **circular sector**. Modified from [Original: Cburnett](https://commons.wikimedia.org/wiki/File:Circle_arc.svg), [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons.
 :::
 
 If the circle is a unit circle ($r = 1$), then the area of the sector will be equal to the angle divided by two. Turned around, the angle is equal to twice the area:
