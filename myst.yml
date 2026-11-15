@@ -56,6 +56,9 @@ project:
     equation:
       template: Eq. %s
       continue: true
+    table:
+      template: Table %s
+      continue: true
 
   toc:
     - file: chapters/intro.md
