@@ -119,7 +119,38 @@ jobs:
           path: _build/preview-html
       - name: Prevent preview indexing
         if: steps.pr.outputs.state == 'open'
-        run: node scripts/preview-html.mjs _build/preview-html
+        run: |
+          node --input-type=module - _build/preview-html <<'JS'
+          import assert from "node:assert/strict";
+          import { readdir, readFile, writeFile } from "node:fs/promises";
+          import path from "node:path";
+
+          // Run only on the downloaded preview artifact, never on the production build.
+          async function preventPreviewIndexing(root) {
+            let count = 0;
+            async function visit(directory) {
+              for (const entry of await readdir(directory, { withFileTypes: true })) {
+                const file = path.join(directory, entry.name);
+                assert.ok(!entry.isSymbolicLink(), `Unexpected symlink in preview: ${file}`);
+                if (entry.isDirectory()) {
+                  await visit(file);
+                } else if (/\.html?$/i.test(entry.name)) {
+                  const html = await readFile(file, "utf8");
+                  assert.match(html, /<head\b[^>]*>/i, `Missing HTML head: ${file}`);
+                  const updated = html.replace(/<head\b[^>]*>/i,
+                    '$&\n<meta name="robots" content="noindex, nofollow">');
+                  await writeFile(file, updated);
+                  count += 1;
+                }
+              }
+            }
+            await visit(root);
+            assert.ok(count > 0, "No preview HTML found");
+            return count;
+          }
+
+          console.log(await preventPreviewIndexing(process.argv[2]));
+          JS
       - name: Publish preview
         if: steps.pr.outputs.state == 'open'
         uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
