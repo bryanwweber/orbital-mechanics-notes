@@ -1,0 +1,8 @@
+/* User Provided Stylesheet */
+
+/* Keep the combined diagram and all five controls visible at every width.
+   The book theme normally reserves only 60% of the figure width for iframes. */
+figure div:has(> iframe[title="Explore the five orbital elements"]) {
+  padding-bottom: 0 !important;
+  height: 700px;
+}
