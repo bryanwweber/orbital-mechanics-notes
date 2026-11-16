@@ -136,11 +136,24 @@ jobs:
                   await visit(file);
                 } else if (/\.html?$/i.test(entry.name)) {
                   const html = await readFile(file, "utf8");
-                  assert.match(html, /<head\b[^>]*>/i, `Missing HTML head: ${file}`);
-                  const updated = html.replace(/<head\b[^>]*>/i,
+                  count += 1;
+                  // Figures already declare their permanent indexing policy.
+                  // Preserve indexifembedded and avoid duplicate robots tags.
+                  const protectedPage = [...html.matchAll(/<meta\b[^>]*>/gi)].some(([tag]) => {
+                    if (!/\bname\s*=\s*(["'])robots\1/i.test(tag)) return false;
+                    const content = tag.match(/\bcontent\s*=\s*(["'])(.*?)\1/i)?.[2];
+                    const rules = content?.toLowerCase().split(/[\s,]+/) ?? [];
+                    return rules.includes("none") || (rules.includes("noindex") && rules.includes("nofollow"));
+                  });
+                  if (protectedPage) continue;
+                  // HTML permits an omitted head tag. A meta tag immediately
+                  // after html becomes part of the browser's implicit head.
+                  const insertionPoint = /<head\b[^>]*>/i.test(html)
+                    ? /<head\b[^>]*>/i : /<html\b[^>]*>/i;
+                  assert.match(html, insertionPoint, `Missing HTML document: ${file}`);
+                  const updated = html.replace(insertionPoint,
                     '$&\n<meta name="robots" content="noindex, nofollow">');
                   await writeFile(file, updated);
-                  count += 1;
                 }
               }
             }
