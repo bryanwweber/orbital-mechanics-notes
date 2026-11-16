@@ -96,7 +96,7 @@ their writes cannot overlap or replace pending cleanup jobs.
 
 Every preview HTML page, including standalone figures, receives
 `<meta name="robots" content="noindex, nofollow">`. This is applied to the
-downloaded preview artifact using trusted `main` code; production pages are not
-changed. Do not disallow `/pr-preview/` in the site's root `robots.txt`: crawlers
+downloaded preview artifact directly in the trusted workflow; production pages
+are not changed. Do not disallow `/pr-preview/` in the site's root `robots.txt`: crawlers
 must access the pages to read these directives. Previews remain publicly readable.
 Run `node --test scripts/preview-html.test.mjs` to check this processing.
