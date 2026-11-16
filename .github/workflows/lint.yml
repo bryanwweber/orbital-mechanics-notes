@@ -1,0 +1,49 @@
+name: GitHub Actions lint
+
+on:
+  pull_request:
+    branches: ["**"]
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci-lint:
+    name: Run CI linters
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      MISE_ENABLE_TOOLS: jactionlint,biome,bun,node,npm:markdownlint-cli2,shellcheck,uv
+      UV_PYTHON: "3.13"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          submodules: recursive
+
+      - name: Install locked lint tools
+        uses: jdx/mise-action@d5574b52816a478f9d4e6529a3f6ff17a8a36785 # v5.2.8
+        with:
+          install_args: jactionlint biome bun node npm:markdownlint-cli2 shellcheck uv --locked
+
+      - name: Run CI linters
+        run: mise run ci-lint
+
+  zizmor:
+    name: Run zizmor 🌈
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write # Upload zizmor's SARIF results to GitHub code scanning.
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
