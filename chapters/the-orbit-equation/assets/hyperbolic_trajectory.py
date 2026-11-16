@@ -88,6 +88,7 @@ def main():
     svg = drawing()
     html = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, indexifembedded">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hyperbolic trajectory and true anomaly</title>
 <style>

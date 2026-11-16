@@ -47,6 +47,7 @@ html = """<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, indexifembedded">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stretching an ellipse into a circumscribing circle</title>
 <style>

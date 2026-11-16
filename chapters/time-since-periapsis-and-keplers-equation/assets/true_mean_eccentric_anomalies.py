@@ -184,6 +184,7 @@ html = (
 output = Path(__file__).resolve().parent
 (output / "true-mean-eccentric-anomalies.html").write_text(
     '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+    '<meta name="robots" content="noindex, nofollow, indexifembedded">'
     '<meta name="viewport" content="width=device-width, initial-scale=1">'
     "<title>True, mean, and eccentric anomalies</title>"
     "<style>body { margin: 0; font-family: sans-serif; background: white; }"

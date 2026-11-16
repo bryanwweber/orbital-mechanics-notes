@@ -133,6 +133,7 @@ def main():
     svg = drawing(frames[0])
     html = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, indexifembedded">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lagrange points and mass ratio</title>
 <style>
