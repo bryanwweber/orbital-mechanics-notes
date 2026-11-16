@@ -7,8 +7,8 @@ no system font installation is required. This source-only directory is outside
 
 Sources:
 
-- https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/fonts/KaTeX_Main-Regular.ttf
-- https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/fonts/KaTeX_Math-Italic.ttf
-- https://cdn.jsdelivr.net/npm/katex@0.15.2/LICENSE
+- <https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/fonts/KaTeX_Main-Regular.ttf>
+- <https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/fonts/KaTeX_Math-Italic.ttf>
+- <https://cdn.jsdelivr.net/npm/katex@0.15.2/LICENSE>
 
 See LICENSE for the KaTeX license.
