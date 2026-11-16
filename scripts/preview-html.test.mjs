@@ -42,8 +42,21 @@ test("marks nested preview pages, including standalone figures, without touching
 test("refuses empty or malformed output", async (t) => {
   const root = await fixture(t);
   await assert.rejects(preventPreviewIndexing(root), /No preview HTML/);
-  await writeFile(path.join(root, "index.html"), "<html><body>No head</body></html>");
-  await assert.rejects(preventPreviewIndexing(root), /Missing HTML head/);
+  await writeFile(path.join(root, "index.html"), "<div>Not an HTML document</div>");
+  await assert.rejects(preventPreviewIndexing(root), /Missing HTML document/);
+});
+
+test("marks figure documents with an omitted head tag", async (t) => {
+  const root = await fixture(t);
+  const figure = '<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n'
+    + '<title>Explore the five orbital elements</title>\n'
+    + '<style>canvas{display:block}</style>\n<body><script type="module">'
+    + 'console.log("figure");</script></body></html>';
+  await writeFile(path.join(root, "combined.html"), figure);
+  await preventPreviewIndexing(root);
+  const updated = await readFile(path.join(root, "combined.html"), "utf8");
+  assert.match(updated, /<html lang="en">\n<meta name="robots" content="noindex, nofollow">/);
+  assert.equal(updated.replace('\n<meta name="robots" content="noindex, nofollow">', ""), figure);
 });
 
 test("refuses symlinks instead of modifying files outside the artifact", async (t) => {
@@ -54,4 +67,21 @@ test("refuses symlinks instead of modifying files outside the artifact", async (
   await symlink(path.join(root, "production.html"), path.join(root, "preview", "index.html"));
   await assert.rejects(preventPreviewIndexing(path.join(root, "preview")), /Unexpected symlink/);
   assert.equal(await readFile(path.join(root, "production.html"), "utf8"), original);
+});
+
+test("preserves pre-tagged figures and remains idempotent", async (t) => {
+  const root = await fixture(t);
+  const figure = '<!doctype html><html><meta charset="utf-8">'
+    + '<meta content="noindex, nofollow, indexifembedded" name="robots">'
+    + '<title>Figure</title><body>Figure</body></html>';
+  await writeFile(path.join(root, "figure.html"), figure);
+  // An artifact containing only pre-tagged pages still counts as HTML output.
+  await preventPreviewIndexing(root);
+  assert.equal(await readFile(path.join(root, "figure.html"), "utf8"), figure);
+  await writeFile(path.join(root, "index.html"), '<html><head></head><body>Chapter</body></html>');
+  await preventPreviewIndexing(root);
+  const once = await readFile(path.join(root, "index.html"), "utf8");
+  await preventPreviewIndexing(root);
+  assert.equal(await readFile(path.join(root, "index.html"), "utf8"), once);
+  assert.equal(await readFile(path.join(root, "figure.html"), "utf8"), figure);
 });
