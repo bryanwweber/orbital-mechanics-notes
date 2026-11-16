@@ -13,7 +13,7 @@ kernelspec:
 
 # Interplanetary Phasing Example: Neptune–Venus Hohmann Transfer
 
-Continuing the [example from the previous section](@sec:neptune-venus-hohmann-example), we can determine the required phase angles for the Neptune–Venus Hohmann transfer and the total time taken for the transfer and the waiting period.
+Continuing the {ref}`example from the previous section <sec:neptune-venus-hohmann-example>`, we can determine the required phase angles for the Neptune–Venus Hohmann transfer and the total time taken for the transfer and the waiting period.
 
 First, we compute the mean motion of Neptune and Venus.
 

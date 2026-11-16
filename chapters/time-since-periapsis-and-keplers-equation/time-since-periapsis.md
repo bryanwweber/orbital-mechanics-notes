@@ -25,7 +25,7 @@ Instead of trying to find this direct relationship between $t$ and $\nu$, we're 
 
 1. Calculate an auxiliary angle from the true anomaly
 2. Calculate another auxiliary angle from the orbital parameters such as the period, eccentricity, angular momentum, and time since periapsis
-3. Relate these angle to each other so we can solve in either direction
+3. Relate these angles to each other so we can solve in either direction
 
 ### Mean and Eccentric Anomalies
 

@@ -235,7 +235,7 @@ There are a few things we can note from these equations. First, the $x$ and $y$ 
 ## Non-dimensional Equations of Motion
 
 :::{margin}
-This section is adapted from Rubinsztejn {cite}`Rubinsztejn2018,Rubinsztejn2018a,Rubinsztejn2018b`.
+This section is adapted from {cite:t}`Rubinsztejn2018`, {cite:t}`Rubinsztejn2018a`, and {cite:t}`Rubinsztejn2018b`.
 :::
 
 Next, let's make these equations non-dimensional. This offers the advantage of being general for any system we want to study and removing the dependence on the rate of rotation of the coordinate system.

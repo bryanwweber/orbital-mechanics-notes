@@ -76,7 +76,7 @@ fig
 :::{figure} #code:single-impulse-example-orbit
 :name: fig:single-impulse-example-orbit
 
-A deorbit maneuver conducted by a providing a single impulse to the spacecraft.
+A deorbit maneuver conducted by providing a single impulse to the spacecraft.
 :::
 
 We are interested in calculating the $\Delta v$ required to perform this maneuver. Since the impact orbit and the circular orbit intersect at one point, we can use a single impulse transfer to perform the maneuver. We will choose the impact trajectory such that the velocity vectors are parallel for the circular and impact orbits at the impulse point. This means we can work entirely in magnitudes.

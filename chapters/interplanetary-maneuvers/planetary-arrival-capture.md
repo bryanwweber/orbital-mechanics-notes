@@ -370,7 +370,7 @@ Finally, we can solve for the offset distance required to achieve the minimum $\
 y_{\text{optimal}} = r_{p,\text{optimal}}\sqrt{\frac{2}{1 - e}}
 :::
 
-Notice that Eqs. @eq:interplanetary-arrival-minimum-delta-v-r_p, @eq:interplanetary-arrival-optimal-delta-v, and @eq:interplanetary-arrival-optimal-offset-distance all depend on the eccentricity of the capture orbit.
+Notice that @eq:interplanetary-arrival-minimum-delta-v-r_p, @eq:interplanetary-arrival-optimal-delta-v, and @eq:interplanetary-arrival-optimal-offset-distance all depend on the eccentricity of the capture orbit.
 
 ---
 

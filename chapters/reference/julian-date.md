@@ -29,7 +29,7 @@ A Julian Period starts when each of these cycles is on its first day, on the sam
 
 ### The Solar Cycle
 
-The Julian calendar is the calendar imposed by Julius Cesar during the Roman Republic. It had a leap year every 4th year, with no exceptions. This gave the average length of a year as 365.25 days, keeping the days of the year roughly in sync with the length of the solar year. Since there are 7 days in a week, it takes 28 years for a leap day to happen on every day of the week, giving the length of the [solar cycle](https://en.wikipedia.org/wiki/Solar_cycle_(calendar)).
+The Julian calendar is the calendar imposed by Julius Caesar during the Roman Republic. It had a leap year every 4th year, with no exceptions. This gave the average length of a year as 365.25 days, keeping the days of the year roughly in sync with the length of the solar year. Since there are 7 days in a week, it takes 28 years for a leap day to happen on every day of the week, giving the length of the [solar cycle](https://en.wikipedia.org/wiki/Solar_cycle_(calendar)).
 
 ### The Lunar Cycle
 
@@ -41,7 +41,7 @@ An [indiction](https://en.wikipedia.org/wiki/Indiction) is the periodic reassess
 
 ## Calculating Julian Days
 
-The Julian calendar was introduced in 46 BC by Julius Cesar, with leap years occurring every four years. This gives the average length of a year as 365.25 days, which is slightly longer than the [solar year](https://en.wikipedia.org/wiki/Tropical_year) of 365.2422 days. Therefore, over time, the day on which the equinox will occur shifts.
+The Julian calendar was introduced in 46 BC by Julius Caesar, with leap years occurring every four years. This gives the average length of a year as 365.25 days, which is slightly longer than the [solar year](https://en.wikipedia.org/wiki/Tropical_year) of 365.2422 days. Therefore, over time, the day on which the equinox will occur shifts.
 
 In 1582, Pope Gregory XIII imposed a modified version of the Julian calendar. The Gregorian calendar, which is still in use today, corrects the average length of the year to 365.2425 days by skipping leap years under certain conditions:
 

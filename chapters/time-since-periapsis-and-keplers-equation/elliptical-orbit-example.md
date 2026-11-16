@@ -108,7 +108,7 @@ Now, let's calculate the true anomaly about 2 hours later, after 3 total hours s
 First, the mean anomaly. Since we already have the period of this orbit, we do not need to recalculate it.
 
 ```{code-cell} ipython3
-t_2 = 3 * 3600  # hr
+t_2 = 3 * 3600  # s
 M_e2 = 2 * np.pi * t_2 / T
 ```
 
@@ -161,14 +161,14 @@ function kepler
     a = (rp + ra)/2;
     T = 2 * pi / sqrt(mu) * a^(3/2);
     t2 = 3 * 3600; % sec
-    Me2 = 2 * pi * t_2 / T;
+    Me2 = 2 * pi * t2 / T;
 
     function x = fun(E, M_e, e)
         x = E - e * sin(E) - M_e;
     end
 
-    E2 = fzero(@(x) fun(x, M_e, e), [0, 2*pi]);
-    nu2 = 2 * atan(sqrt((1 + e) / (1 - e)) * tan(E / 2));
+    E2 = fzero(@(x) fun(x, Me2, e), [0, 2*pi]);
+    nu2 = 2 * atan(sqrt((1 + e) / (1 - e)) * tan(E2 / 2));
     nu2 = mod(nu2, 2 * pi);
     fprintf('nu₂=%.2f°\n', rad2deg(nu2))
 end
@@ -207,6 +207,7 @@ ax.annotate("$t_1$", xy=(x_1, y_1 + 500), ha="center", va="bottom")
 ax.plot((ellipse_focus, x_2), (0, y_2), "ko-")
 ax.annotate("$t_2$", xy=(x_2 - 500, y_2), ha="right", va="center")
 ax.annotate("Earth", xy=(ellipse_focus, -5000), ha="center", va="center");
+plt.close(fig)
 ```
 
 ```{code-cell} ipython3
@@ -216,7 +217,7 @@ ax.annotate("Earth", xy=(ellipse_focus, -5000), ha="center", va="center");
 fig
 ```
 
-:::{figure} #code:ellipse-time-since-perigee-figure
+:::{figure} #code:ellipse-time-since-perigee
 :name: fig:ellipse-time-since-perigee-figure
 
 The orbit in this example showing the two time points, at 120° true anomaly and 3 hours after perigee.

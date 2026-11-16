@@ -72,10 +72,10 @@ This situation is shown in @fig:non-hohmann-delta-v for the departure point.
 :::{figure} ../../images/non-hohmann-delta-v.svg
 :name: fig:non-hohmann-delta-v
 
-Arbitrary changes may be made to the velocity vector by aligning the thrust vector to the angle $\gamma$. This causes a change in flight path angle from $\phi_A$ to $\phi_{A_t}$. This manuever will transfer from the initial orbit to the transfer orbit. A similar maneuver is required to go from the transfer orbit to the final orbit.
+Arbitrary changes may be made to the velocity vector by aligning the thrust vector to the angle $\gamma$. This causes a change in flight path angle from $\phi_A$ to $\phi_{A_t}$. This maneuver will transfer from the initial orbit to the transfer orbit. A similar maneuver is required to go from the transfer orbit to the final orbit.
 :::
 
-This gives the required velocity change at the departure point, $A$. The same calculate can be done at the arrival point, $B$, to compute the total $\Delta v$ for the maneuver.
+This gives the required velocity change at the departure point, $A$. The same calculation can be done at the arrival point, $B$, to compute the total $\Delta v$ for the maneuver.
 
 ## Thrust Direction
 

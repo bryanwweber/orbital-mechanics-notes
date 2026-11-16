@@ -97,7 +97,7 @@ e = 1 + \frac{r_p}{a} = 1 + \frac{r_p v_{\infty}^2}{\mu_i}
 
 Since all the terms in the rightmost term in @eq:interplanetary-hyperbola-eccentricity are positive, the eccentricity will be greater than one, as expected. Using combinations of $a$, $e$, $v_p$, and $r_p$, the other orbital elements can be found as needed.
 
-Examining Eqs. @eq:interplanetary-departure-hyperbola-energy, @eq:interplanetary-departure-periapsis-velocity, @eq:interplanetary-departure-delta-v, and @eq:interplanetary-hyperbola-eccentricity, we see that none of them depend on the size of $v_{\infty}$ relative to the planet's orbital velocity. Therefore, all the analysis and equations are identical for a hyperbola that reduces the spacecraft heliocentric speed relative to the planet's heliocentric speed, as shown in @fig:interplanetary-departure-inward-transfer.
+Examining @eq:interplanetary-departure-hyperbola-energy, @eq:interplanetary-departure-periapsis-velocity, @eq:interplanetary-departure-delta-v, and @eq:interplanetary-hyperbola-eccentricity, we see that none of them depend on the size of $v_{\infty}$ relative to the planet's orbital velocity. Therefore, all the analysis and equations are identical for a hyperbola that reduces the spacecraft heliocentric speed relative to the planet's heliocentric speed, as shown in @fig:interplanetary-departure-inward-transfer.
 
 :::{figure} ../../images/interplanetary-departure-inward-transfer.svg
 :name: fig:interplanetary-departure-inward-transfer
@@ -108,6 +108,6 @@ A departure trajectory from a planet where the heliocentric orbital radius of th
 
 ## Angle of the Departure Hyperbola
 
-In @eq:interplanetary-departure-impulse-angle, we found the angle $\eta$, the angle of the apse line of the hyperbola relative to the heliocentric planetary velocity. However, the inverse cosine function is ambigous in the quadrant of the result, meaning that the impulse could occur on either side of the velocity vector.
+In @eq:interplanetary-departure-impulse-angle, we found the angle $\eta$, the angle of the apse line of the hyperbola relative to the heliocentric planetary velocity. However, the inverse cosine function is ambiguous in the quadrant of the result, meaning that the impulse could occur on either side of the velocity vector.
 
 The solution for $\eta$ that is chosen in practice is determined by the inclination of the parking orbit. If the parking orbit is prograde ($0° < i < 90°$), then the injection to the departure hyperbola will be counterclockwise. On the other hand, if the parking orbit is retrograde ($90° < i < 180°$), then the injection to the departure hyperbola will be clockwise.

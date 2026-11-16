@@ -296,7 +296,7 @@ The final orbital element is the true anomaly, $\nu$. The true anomaly is the an
 \nu = \cos^{-1}\left(\frac{\vector{e}\cdot\vector{r}}{e r}\right)
 :::
 
-Like the right ascension of the ascending node, the argument of periapsis can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the radial component of the velocity, $v_r$.
+Like the right ascension of the ascending node, the true anomaly can vary from 0° to 360°. To determine the appropriate quadrant, we can inspect the sign of the radial component of the velocity, $v_r$.
 
 If $v_r \geq 0$, then $\vector{r}$ is increasing in length and the spacecraft must be flying away from periapsis, so 0° ≤ $\nu$ < 180°. On the other hand, if $v_r < 0$, then $\vector{r}$ must be getting shorter and the spacecraft must be flying towards periapsis, such that 180° ≤ $\nu$ < 360°. We can express this fully with the conditions in @eq:orbital-elements-true-anomaly.
 
@@ -327,7 +327,7 @@ nu = np.arccos(np.dot(r_vec / r, e_vec / e))
 ::::
 :::::
 
-For this problem, we find $v_r =$ {eval}`f"{v_r:.4F}"` km/s, so the argument of periapsis is in the first or second quadrant. Then, we find $\nu =$ {eval}`f"{np.degrees(nu):.2F}"`°. The true anomaly is the sixth and final orbital element.
+For this problem, we find $v_r =$ {eval}`f"{v_r:.4F}"` km/s, so the true anomaly is in the first or second quadrant. Then, we find $\nu =$ {eval}`f"{np.degrees(nu):.2F}"`°. The true anomaly is the sixth and final orbital element.
 
 ## Orbital Elements → State Vector
 
@@ -362,7 +362,7 @@ v_w = mu / h * np.array((-np.sin(nu), e + np.cos(nu), 0))
 ::::
 :::::
 
-For this example, we find $\vector{r}_{\omega} =$ {eval}`f"{r_w[0]:.4f}"` $\uvec{p}$ + {eval}`f"{r_w[1]:.4f}"` $\uvec{q}$ km and $\vector{v}_{\omega} =$ {eval}`f"{r_w[0]:.4f}"` $\uvec{p}$ + {eval}`f"{r_w[1]:.4f}"` $\uvec{q}$ km/s.
+For this example, we find $\vector{r}_{\omega} =$ {eval}`f"{r_w[0]:.4f}"` $\uvec{p}$ + {eval}`f"{r_w[1]:.4f}"` $\uvec{q}$ km and $\vector{v}_{\omega} =$ {eval}`f"{v_w[0]:.4f}"` $\uvec{p}$ + {eval}`f"{v_w[1]:.4f}"` $\uvec{q}$ km/s.
 
 ### Step 2—Rotate the Perifocal Frame
 

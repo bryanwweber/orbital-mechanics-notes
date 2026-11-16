@@ -8,7 +8,7 @@ Since the position is changing during the impulse, we must return to the equatio
 
 $$\ddot{\vector{r}} = -\mu\frac{\vector{r}}{r^3} + \frac{\vector{F}}{m}$$
 
-Assuming that force is a thrust is provided in the same direction as the velocity, then:
+Assuming that a thrust force is provided in the same direction as the velocity, then:
 
 $$\vector{F} = T\frac{\vector{v}}{v}$$
 

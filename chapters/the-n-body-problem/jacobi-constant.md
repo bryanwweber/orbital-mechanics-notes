@@ -40,7 +40,7 @@ The mass-specific kinetic energy is:
 \frac{1}{2} \left(v^*\right)^2 = \frac{1}{2}\left[\left(\dot{x}^*\right)^2 + \left(\dot{y}^*\right)^2\right]
 :::
 
-Combining Eqs. @eq:pseudo-potential-energy-cr3bp and @eq:mass-specific-ke-cr3bp, we find from conservation of energy:
+Combining @eq:pseudo-potential-energy-cr3bp and @eq:mass-specific-ke-cr3bp, we find from conservation of energy:
 
 :::{math}
 :label: eq:jacobi-constant-cr3bp
@@ -185,7 +185,7 @@ for (J, ax) in zip(J_values, axes.flatten()):
 The forbidden regions in the Earth-Moon system, for varying values of the Jacobi constant, $J$.
 :::
 
-At a given instant, assume that the position and and velocity of the satellite are known, such that $J$ can be calculated. @fig:jacobi-forbidden-regions tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.
+At a given instant, assume that the position and velocity of the satellite are known, such that $J$ can be calculated. @fig:jacobi-forbidden-regions tells us what regions of space a satellite can access purely by exchanging kinetic and potential energy.
 
 One example of a use for these data is to determine whether or not a spacecraft can complete a [**free return trajectory**](https://en.wikipedia.org/wiki/Free-return_trajectory) from the moon back to Earth. A free return trajectory requires no additional propulsion. Depending on the exact trajectory, the return can result in the spacecraft entering Earth's atmosphere for a safe landing, as was done in the [*Apollo 13*](https://en.wikipedia.org/wiki/Apollo_13) mission.
 

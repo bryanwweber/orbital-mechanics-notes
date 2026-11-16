@@ -52,7 +52,7 @@ Using the universal anomaly, we can find the position and velocity of the orbiti
 
 where $\alpha = 1/a$ and we will define $C(z)$ and $S(z)$ shortly. Note that $\alpha < 0$ for hyperbolas, $\alpha = 0$ for parabolas ($a\rightarrow\infty$) and $\alpha > 0$ for ellipses. This gives $\chi$ dimensions of square root of length, such that $\alpha\chi^2$ is dimensionless.
 
-In a [previous section](./the-lagrange-coefficients.md), we identified the coefficients of $\vector{r}_0$ and $\vector{v}_0$ in equations similar to @eq:radius-velocity-universal-anomaly as the **Lagrange coefficients**, in that case, in terms of the change of true anomaly. Eqs. @eq:radius-velocity-universal-anomaly give the Lagrange coefficients in terms of the universal anomaly.
+In a [previous section](./the-lagrange-coefficients.md), we identified the coefficients of $\vector{r}_0$ and $\vector{v}_0$ in equations similar to @eq:radius-velocity-universal-anomaly as the **Lagrange coefficients**, in that case, in terms of the change of true anomaly. The equations in @eq:radius-velocity-universal-anomaly give the Lagrange coefficients in terms of the universal anomaly.
 
 Now, we need a way to solve for $\chi$, the universal anomaly. We can write Kepler's equation in terms of the universal anomaly as:
 
@@ -158,7 +158,7 @@ fig
 :::{figure} #code:stumpff-functions-plot
 :name: fig:stumpff-functions-plot
 
-The Stumpff functions defined by Eqs. @eq:stumpff-function-0 and @eq:stumpff-function-1. Note the varying $x$ axes on the plots.
+The Stumpff functions defined by @eq:stumpff-function-0 and @eq:stumpff-function-1. Note the varying $x$ axes on the plots.
 :::
 
 ## Relation of $\chi$ to Other Anomalies

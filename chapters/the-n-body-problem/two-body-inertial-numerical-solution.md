@@ -48,7 +48,7 @@ and the initial velocities are:
 
 where the subscript $0$ indicates the _initial_ position and velocity. These are the 12 components of the _initial state vector_, which we will give the symbol $y_0$.
 
-The two masses are equal, $m_1 = m_2 = 1.0\times 10^{26} \text{ kg}$ and Newton's gravitational constant is $G = 6.67430\times 10^{-2} \text{ km}^3 \text{ kg}^{-1} \text{ s}^{-2}$.
+The two masses are equal, $m_1 = m_2 = 1.0\times 10^{26} \text{ kg}$ and Newton's gravitational constant is $G = 6.67430\times 10^{-20} \text{ km}^3 \text{ kg}^{-1} \text{ s}^{-2}$.
 
 ## The State Vector
 

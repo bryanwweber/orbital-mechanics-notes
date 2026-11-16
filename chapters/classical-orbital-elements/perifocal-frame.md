@@ -12,7 +12,7 @@ The unit vectors that define this coordinate system are:
 :name: fig:definition-of-perifocal-frame
 :width: 75%
 
-The definition of the perifocal frame. The $\uvec{w}$ direction is pointing direction towards the viewer.
+The definition of the perifocal frame. The $\uvec{w}$ direction is pointing towards the viewer.
 :::
 
 As shown in @fig:definition-of-perifocal-frame, $\uvec{p}$ points along the apse line to the right of the focus, towards periapsis. $\uvec{q}$ points 90° true anomaly from $\uvec{p}$. Finally, $\uvec{w}$ points in the same direction as the angular momentum, and can be defined by:

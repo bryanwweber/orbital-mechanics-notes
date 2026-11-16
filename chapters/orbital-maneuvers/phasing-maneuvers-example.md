@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-## Phasing Maneuver: Example
+# Phasing Maneuver: Example
 
 Although we've treated phasing maneuvers as useful to rendezvous two spacecraft, they can also be used to change the longitude above which a satellite orbits. Assume a satellite is in GEO above the prime meridian, a longitude of 0°E. The target longitude is 137.2°W. Determine the $\Delta v$ requirement if the phasing maneuver takes 1, 2, and 5 rotations of Earth.
 

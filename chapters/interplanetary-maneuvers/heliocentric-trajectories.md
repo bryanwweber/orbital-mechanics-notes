@@ -74,7 +74,7 @@ v_t1 = m.sqrt(2 * (E_t + mu / r_1))
 v_t2 = m.sqrt(2 * (E_t + mu / r_2))
 ```
 
-The velocities on the transfer orbit are $v_{t,1} =$ {eval}`f"{v_t1:.3f}"` km/s at depature from Neptune and $v_{t,2} =$ {eval}`f"{v_t2:.3f}"` km/s at arrival at Venus. Finally, the total $\Delta v$ is found by the sum of the $\Delta v$ at each end of the transfer orbit. We can also calculate the transfer time from the semimajor axis.
+The velocities on the transfer orbit are $v_{t,1} =$ {eval}`f"{v_t1:.3f}"` km/s at departure from Neptune and $v_{t,2} =$ {eval}`f"{v_t2:.3f}"` km/s at arrival at Venus. Finally, the total $\Delta v$ is found by the sum of the $\Delta v$ at each end of the transfer orbit. We can also calculate the transfer time from the semimajor axis.
 
 ```{code-cell} ipython3
 Delta_v = abs(v_t1 - v_1) + abs(v_t2 - v_2)

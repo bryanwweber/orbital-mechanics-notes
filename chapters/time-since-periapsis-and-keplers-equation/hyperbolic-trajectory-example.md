@@ -122,7 +122,7 @@ To find the speed, we will calculate the velocity components. The radius at $\nu
 r_2 = h**2 / mu / (1 + e * np.cos(nu_2))
 ```
 
-The velocity components can be found from Eqs. @eq:perpendicular-velocity-component and @eq:parallel-velocity-component.
+The velocity components can be found from @eq:perpendicular-velocity-component and @eq:parallel-velocity-component.
 
 ```{code-cell} ipython3
 v_perp = h / r_2

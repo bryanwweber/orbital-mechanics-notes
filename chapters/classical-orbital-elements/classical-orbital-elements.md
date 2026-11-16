@@ -29,7 +29,7 @@ Each of these six elements will be developed in the following subsections. This 
 
 The semi-major axis determines the size of the conic section. For a circle, it is the radius, while for an ellipse, it describes the width of the ellipse. For a hyperbola, the semi-major axis describes the distance from the origin of the Cartesian coordinate system.
 
-The semi-latus rectum may specified instead of the semi-major axis, since with $a$ and $e$, $p$ can be calculated. This is convenient for parabolic trajectories where the semi-major axis is not as meaningful.
+The semi-latus rectum may be specified instead of the semi-major axis, since with $a$ and $e$, $p$ can be calculated. This is convenient for parabolic trajectories where the semi-major axis is not as meaningful.
 
 Finally, the specific angular momentum, $h$, can also be used in place of the semi-major axis.
 
@@ -83,7 +83,7 @@ Consider an orbit inclined at angle $i$ to the reference plane of the coordinate
 The right ascension of the ascending node is the angle from the $X$ axis to the ascending node.
 :::
 
-The intersection of these two planes is a line, called the **node line**. This line will appear in calculations later. Since the orbit follows the perimeter of th orbital plane, this implies there are two crossing points:
+The intersection of these two planes is a line, called the **node line**. This line will appear in calculations later. Since the orbit follows the perimeter of the orbital plane, this implies there are two crossing points:
 
 1. The **descending node**: The point when the spacecraft goes from above to below the reference plane
 2. The **ascending node**: The point when the spacecraft goes from below to above the reference plane

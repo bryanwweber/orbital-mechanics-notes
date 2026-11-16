@@ -15,7 +15,7 @@ We start by taking the cross product of this equation with the angular momentum,
 \ddot{\vector{r}}\cross\vector{h} = -\left(\frac{\mu}{r^3}\right)\vector{r}\cross\vector{h}
 :::
 
-To make this easy to integrate, we want both sides to be $d/dt(\ldots)$. Let's try to replace the left-hand side of the equation. Since $\ddot{\vector{r}} = d/dt\left(\dot{\vector{r}}\right)$, lets try to pull a $d/dt$ out. By the product rule of differentiation, we find:
+To make this easy to integrate, we want both sides to be $d/dt(\ldots)$. Let's try to replace the left-hand side of the equation. Since $\ddot{\vector{r}} = d/dt\left(\dot{\vector{r}}\right)$, let's try to pull a $d/dt$ out. By the product rule of differentiation, we find:
 
 :::{math}
 :label: eq:relative-motion-cross-h-lhs

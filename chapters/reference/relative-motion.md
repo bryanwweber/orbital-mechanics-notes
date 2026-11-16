@@ -45,10 +45,10 @@ where $R_E$ is the radius of the Earth (assumed constant for now) and $z$ is the
 \vector{v}_{\text{rel}} = \dot{z}\uvec{k} + \left(R_E + z\right)\frac{d\uvec{k}}{dt}
 :::
 
-Now we have to calculate $d\uvec{k}/dt$. To do that, we need the angular velocity of the topopcentric-horizon coordinate system, $\vector{\omega}$, relative to the non-rotating Earth. This is found in terms of the rates of change of latitude ($\phi$) and longitude ($\Lambda$):
+Now we have to calculate $d\uvec{k}/dt$. To do that, we need the angular velocity of the topocentric-horizon coordinate system, $\vector{\omega}$, relative to the non-rotating Earth. This is found in terms of the rates of change of latitude ($\phi$) and longitude ($\Lambda$):
 
 :::{margin}
-You can find a derivation of the equation for angular velocity in spherical coordiantes here: [University of Illinois Online Dynamics Textbook](http://dynref.engr.illinois.edu/rvs.html). Just watch out for the different symbols that the author uses.
+You can find a derivation of the equation for angular velocity in spherical coordinates here: [University of Illinois Online Dynamics Textbook](http://dynref.engr.illinois.edu/rvs.html). Just watch out for the different symbols that the author uses.
 :::
 
 :::{math}

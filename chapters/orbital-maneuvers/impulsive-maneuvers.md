@@ -41,13 +41,13 @@ I_{sp} = \frac{\text{Thrust}}{\text{Sea-level weight rate of fuel consumption}}
 
 Therefore, $I_{sp}$ has units of seconds. Higher values of $I_{sp}$ are better, because it means we are either getting more thrust per unit fuel consumed per unit time (the top gets bigger and the bottom is constant) or we are getting the same thrust at a lower fuel consumption rate (the top is constant and the bottom gets bigger).
 
-Although $I_{sp}$ is a measure of the efficiency of the engine in converting fuel chemical energy into thrust, it is not the only performance metric of interest for rocket engines. In practice, engines with high specific impulse tend to have very low thrust. This makes them poorly suited for applications that require a large acceleration, such lift-off from the surface of the Earth.
+Although $I_{sp}$ is a measure of the efficiency of the engine in converting fuel chemical energy into thrust, it is not the only performance metric of interest for rocket engines. In practice, engines with high specific impulse tend to have very low thrust. This makes them poorly suited for applications that require a large acceleration, such as lift-off from the surface of the Earth.
 
 ## Total Velocity Change
 
 As suggested by @eq:rocket-thrust-equation, the required propellant mass when using an engine with a given $I_{sp}$ is exponentially proportional to the change of velocity. The $\Delta v$ in @eq:rocket-thrust-equation must be the magnitude of the *total* velocity change for the maneuver.
 
-Some maneuvers require multiple impulse events to accomplish the goal. The total $\Delta v$ is the sum of the absolute value of the change in velocity required for each impulse event. This means that speeding up or slowing down or changing the direction of the spacecraft all required some $\Delta v$ and some propellant to accomplish.
+Some maneuvers require multiple impulse events to accomplish the goal. The total $\Delta v$ is the sum of the absolute value of the change in velocity required for each impulse event. This means that speeding up or slowing down or changing the direction of the spacecraft all require some $\Delta v$ and some propellant to accomplish.
 
 For a single impulse, the change in velocity is given by the vector difference between the velocity before the impulse and after the impulse:
 

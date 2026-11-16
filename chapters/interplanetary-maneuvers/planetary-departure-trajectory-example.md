@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-## Planetary Departure Trajectory: Example
+# Planetary Departure Trajectory: Example
 
 Let's consider the example of a Hohmann transfer from Neptune to Venus. Assume the spacecraft starts in a 25,000-km-radius circular parking orbit. What $\Delta v$ is required to conduct the transfer away from Neptune? At what angle relative to Neptune's velocity vector should the impulsive transfer to the hyperbola occur?
 
@@ -35,7 +35,7 @@ Delta_vt = abs(v_i - v_t1)  # km/s
 
 Here, `v_1` is the heliocentric orbital velocity of Neptune, and `v_t1` is the spacecraft velocity on the heliocentric transfer orbit at Neptune's orbital radius relative to the Sun. `Delta_vt` is the change in velocity needed between Neptune's orbital velocity and the transfer orbit velocity. In other words, this is the spacecraft speed relative to Neptune at the start of the heliocentric transfer orbit.
 
-`Delta_vt` is equal to $v_{\infty}$ that we need for the Neptune-centered hyperbolic escape trajectory. In addition, we know that the parking orbit radius, and therefore the radius of the hyperbolic periapsis is 26,000 km. Using this we can find the periapsis velocity.
+`Delta_vt` is equal to $v_{\infty}$ that we need for the Neptune-centered hyperbolic escape trajectory. In addition, we know that the parking orbit radius, and therefore the radius of the hyperbolic periapsis is 25,000 km. Using this we can find the periapsis velocity.
 
 ```{code-cell} ipython3
 v_infty = Delta_vt
@@ -60,4 +60,4 @@ ecc = 1 + r_p * v_infty**2 / mu_i
 eta = m.acos(-1/ecc)
 ```
 
-The eccentricity of the hyperbola is $e =$ {eval}`f"{m.degrees(ecc):.4f}"` and the impulse angle is $\eta =$ {eval}`f"{m.degrees(eta):.2f}"`°, assuming the parking orbit is prograde.
+The eccentricity of the hyperbola is $e =$ {eval}`f"{ecc:.4f}"` and the impulse angle is $\eta =$ {eval}`f"{m.degrees(eta):.2f}"`°, assuming the parking orbit is prograde.

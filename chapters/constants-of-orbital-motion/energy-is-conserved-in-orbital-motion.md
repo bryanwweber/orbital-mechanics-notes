@@ -46,7 +46,7 @@ where $E$ is the total mechanical energy of the system and must be a constant.
 Conservative forces allow infinite conversion of energy between forms. Non-conservative forces, such as friction and drag, result in a conversion of mechanical energy into heat.
 :::
 
-The potential energy is due to the location of $m_2$ in the gravitational field of $m_1$, while the kinetic energy is due to the velocity of $m_2$ relative to $m_1$. Gravity is a [**conservative force**](https://en.wikipedia.org/wiki/Conservative_force), which means that any change of kinetic energy is associated with an equal and opposite equal change of potential energy.
+The potential energy is due to the location of $m_2$ in the gravitational field of $m_1$, while the kinetic energy is due to the velocity of $m_2$ relative to $m_1$. Gravity is a [**conservative force**](https://en.wikipedia.org/wiki/Conservative_force), which means that any change of kinetic energy is associated with an equal and opposite change of potential energy.
 
 As kinetic energy increases and the speed of $m_2$ increases, the potential energy must decrease and $m_2$ gets closer to $m_1$. The point of highest speed is at the point of closest approach. Likewise, the point of lowest speed is at the farthest point on the orbit. You can examine the results from [](../the-n-body-problem/two-body-relative-numerical-solution.md) to verify this is correct.
 
@@ -149,4 +149,4 @@ Now that we have proven that the two-body equation of motion satisfies conservat
 
 where $C$ is an arbitrary constant of integration. By choosing a value for $C$, we are setting the **reference point** for the potential energy. For instance, we could choose the reference point at $r = R_E$, the radius of the Earth, which would give some finite value for $C$. However, it is most convenient to choose $C=0$, corresponding to a reference point at infinite radius.
 
-Equation @eq:integrate-energy-equation is a statement of the conservation of energy of the system. It is called the _vis viva_ equation, which translates as the _living force_ equation due to its central role in understanding how objects orbit each other.
+@eq:integrate-energy-equation is a statement of the conservation of energy of the system. It is called the _vis viva_ equation, which translates as the _living force_ equation due to its central role in understanding how objects orbit each other.

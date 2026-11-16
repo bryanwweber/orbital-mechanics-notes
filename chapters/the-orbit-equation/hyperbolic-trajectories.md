@@ -103,7 +103,7 @@ The specific energy of a hyperbolic trajectory is:
 E = \frac{\mu}{2a}
 :::
 
-Note tha the specific energy is positive. Plugging this in to @eq:integrate-energy-equation, we find:
+Note that the specific energy is positive. Plugging this in to @eq:integrate-energy-equation, we find:
 
 :::{math}
 :label: eq:hyperbolic-energy-equation

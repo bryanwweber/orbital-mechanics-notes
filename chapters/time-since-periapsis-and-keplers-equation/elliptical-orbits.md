@@ -70,10 +70,10 @@ This area is shown in @fig:time-since-periapsis-area-ellipse as $m_1$-$P$-$B$.
 
 ### Swept Area Inside a Circumscribing Circle
 
-The next step is find another equation for $A_m$ so that we can solve for $t$ in @eq:mean-anomaly-area. We already used Kepler's second law to define @eq:mean-anomaly-area, so continuing to work with the ellipse will be kind of a pain.
+The next step is to find another equation for $A_m$ so that we can solve for $t$ in @eq:mean-anomaly-area. We already used Kepler's second law to define @eq:mean-anomaly-area, so continuing to work with the ellipse will be kind of a pain.
 
 :::{margin}
-The circle here is called an **circumscribing circle** because it is tangent to the ellipse at two points, on both ends of the major axis. These positions are also the periapsis and apoapsis.
+The circle here is called a **circumscribing circle** because it is tangent to the ellipse at two points, on both ends of the major axis. These positions are also the periapsis and apoapsis.
 :::
 
 Instead, we can work with a circle, where it's much easier to calculate areas. We are going to transform the ellipse into a circle by stretching it in the vertical direction, ensuring that the circle and ellipse continue to touch at the point $P$. While the ellipse is stretching, the swept area is also stretching. This process is animated in @fig:ellipse-area-animate.
@@ -213,7 +213,7 @@ The inverse tangent function is not multi-valued for a given value of $\nu$ or $
 **Note:** @eq:eccentric-anomaly-true-anomaly-ellipse can be solved in Python with `np.arctan()` and in Matlab with `atan()`. It is not necessary to use `np.arctan2()` or `atan2()`. Make sure all your arguments are in terms of radians!
 ```
 
-Now with Eqs. @eq:keplers-equation-ellipse, @eq:eccentric-anomaly-true-anomaly-ellipse, and @eq:mean-anomaly-definition we have the three equations we need to solve time since periapsis problems!
+Now with @eq:keplers-equation-ellipse, @eq:eccentric-anomaly-true-anomaly-ellipse, and @eq:mean-anomaly-definition we have the three equations we need to solve time since periapsis problems!
 
 :::{hint}
 The next section describes an alternate means of deriving these equations from calculus and trigonometric manipulations. I find these derivations interesting, but you may not! Feel free to skip to the examples in the next pages, starting with [](./elliptical-orbit-example.md).
@@ -264,10 +264,10 @@ where $t_p$ is defined as the **time since periapsis**. Remember that periapsis 
 \frac{\mu^2}{h^3}t = \int_{0}^{\nu}\frac{d\nu}{\left(1 + e\cos\nu\right)^2}
 :::
 
-The integral on the right-hand side of @eq:time-since-periapsis can be found in standard tables of integrals {cite}`Gradshtein2007,Zwillinger2003`. There are three forms of the equation, depending on the value of $e$. In this section, we'll show the equation for $e < 1$ and the other equations will be shown in the sections for the [parabola](./parabolic-trajectories.md) and [hyperbola](./hyperbolic-trajectories.md).
+The integral on the right-hand side of @eq:time-since-periapsis can be found in standard tables of integrals by {cite:t}`Gradshtein2007` and {cite:t}`Zwillinger2003`. There are three forms of the equation, depending on the value of $e$. In this section, we'll show the equation for $e < 1$ and the other equations will be shown in the sections for the [parabola](./parabolic-trajectories.md) and [hyperbola](./hyperbolic-trajectories.md).
 
 :::{margin}
-In {cite}`Gradshtein2007` (available [Table of Integrals, Series, and Products](http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf)), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for Eqs. @eq:time-since-periapsis-rhs-e-lt-1 and @eq:time-since-periapsis-rhs-e-gt-1. In {cite}`Zwillinger2003` (available [CRC Standard Mathematical Tables and Formulae](https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&gbpv=1&pg=PA434&printsec=frontcover)), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for Eqs. @eq:time-since-periapsis-rhs-e-lt-1 and @eq:time-since-periapsis-rhs-e-gt-1. I couldn't find the form for @eq:time-since-periapsis-rhs-e-eq-1 in those references. Note that $a = 1$ and $b = e$ to relate the reference equations to @eq:time-since-periapsis.
+In {cite}`Gradshtein2007` (available [Table of Integrals, Series, and Products](http://fisica.ciens.ucv.ve/~svincenz/TISPISGIMR.pdf)), the appropriate integrals are found on pages 172 and 173, No. 2.554-3 and related integrals for @eq:time-since-periapsis-rhs-e-lt-1 and @eq:time-since-periapsis-rhs-e-gt-1. In {cite}`Zwillinger2003` (available [CRC Standard Mathematical Tables and Formulae](https://www.google.com/books/edition/CRC_Standard_Mathematical_Tables_and_For/gE_MBQAAQBAJ?hl=en&gbpv=1&pg=PA434&printsec=frontcover)), the appropriate integrals are found on pages 433 and 434, No. 354 and 324 for @eq:time-since-periapsis-rhs-e-lt-1 and @eq:time-since-periapsis-rhs-e-gt-1. I couldn't find the form for @eq:time-since-periapsis-rhs-e-eq-1 in those references. Note that $a = 1$ and $b = e$ to relate the reference equations to @eq:time-since-periapsis.
 :::
 
 :::{math}
@@ -365,7 +365,7 @@ For a circle, the mean anomaly equals the true anomaly:
 \nu_{\text{circle}} = \frac{2\pi}{T} t
 :::
 
-Further solution is not needed if the orbit is circular. Now we have the relationship between mean anomaly and time that we need for solution of these problems. Note that @eq:mean-anomaly-definition and Eqs. @eq:mean-anomaly-ellipse and @eq:mean-anomaly-ellipse-period are exactly identical.
+Further solution is not needed if the orbit is circular. Now we have the relationship between mean anomaly and time that we need for solution of these problems. Note that @eq:mean-anomaly-definition, @eq:mean-anomaly-ellipse, and @eq:mean-anomaly-ellipse-period are exactly identical.
 
 The procedure to find the eccentric anomaly is the same as in the {ref}`previous section <sec:ellipse-eccentric-anomaly>`, so we can move on to deriving Kepler's equation.
 
@@ -473,7 +473,7 @@ a_n = \frac{1}{2^{n - 1}} \sum_{k=0}^{\mathrm{floor}(n/2)}(-1)^k\frac{1}{\left(n
 and where $\mathrm{floor}(x)$ means to take the next lowest integer relative to $x$.
 
 ```{margin}
-**Note:** Sacchetti {cite}`Sacchetti2020` states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series five years before Laplace completed his work. DRAMA!
+**Note:** {cite:t}`Sacchetti2020` states that Italian astronomer Francesco Carlini was the first to prove the existence of the convergence limit for the Lagrange series five years before Laplace completed his work. DRAMA!
 ```
 
 This infinite series converges for $e < 0.6627434193$, a limit that was proven by Laplace, and is therefore typically called the Laplace limit. For larger values of $e$, the series diverges.

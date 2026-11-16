@@ -53,4 +53,4 @@ A phasing orbit to allow an interceptor spacecraft to catch up to the target spa
 
 At the impulse point, the interceptor spacecraft decreases its velocity to place itself on Orbit 2. The period of Orbit 2 is given by @eq:phasing-orbit-2-period while the period of Orbit 1 is given by @eq:phasing-orbit-1-period.
 
-Since $a_1 > a_2$, the period of Orbit 2 is smaller. Therefore, while the interceptor craft travels 360° of true anomaly in time $T_2$, the target spacecraft travels less than_ 360° of true anomaly. This allows the interceptor spacecraft to catch up and reach the impulse point at the same time that the target returns there.
+Since $a_1 > a_2$, the period of Orbit 2 is smaller. Therefore, while the interceptor craft travels 360° of true anomaly in time $T_2$, the target spacecraft travels less than 360° of true anomaly. This allows the interceptor spacecraft to catch up and reach the impulse point at the same time that the target returns there.

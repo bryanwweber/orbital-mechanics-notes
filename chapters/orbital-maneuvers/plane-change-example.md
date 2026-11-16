@@ -16,7 +16,7 @@ kernelspec:
 Find the $\Delta v$ requirement for an orbital transfer from a 300 km circular LEO at 28.6° inclination to geostationary equatorial orbit. The orbital transfer should consist of two impulses. Compare the $\Delta v$ requirement for 3 cases:
 
 1. The spacecraft changes its orbital inclination to 0° and changes to a Hohmann transfer trajectory in one impulse, then circularizes its orbit at GEO (plane change at LEO)
-2. The spacecraft changes to a Hohmann transfer trajectory without changing plane with the first impulse, then circularizes its orbit and changes plane upon reaching GEO altitue (plane change at GEO)
+2. The spacecraft changes to a Hohmann transfer trajectory without changing plane with the first impulse, then circularizes its orbit and changes plane upon reaching GEO altitude (plane change at GEO)
 3. The spacecraft starts in a 300 km equatorial orbit, instead of an inclined orbit, so no plane change is required
 
 ## Solution
@@ -128,7 +128,7 @@ fig
 :::{figure} #code:plane-change-optimize-delta-v
 :name: fig:plane-change-optimize-delta-v
 
-The total $\Delta v$ requirement for a Hohmann transfer from LEO to GEO, including a plane change. $\Delta i$ is the fraction of the plane change occuring at LEO.
+The total $\Delta v$ requirement for a Hohmann transfer from LEO to GEO, including a plane change. $\Delta i$ is the fraction of the plane change occurring at LEO.
 :::
 
 In @fig:plane-change-optimize-delta-v, $\Delta i$ = 28.6° shows Case 1 (plane change at LEO) and $\Delta i$ = 0° shows Case 2 (plane change at GEO). We can see that there appears to be a minimum in the $\Delta v$ around $\Delta i$ = 2.5°. This means that about 2.5° of plane change should happen when transferring into the Hohmann trajectory, and the remainder should happen at altitude.
@@ -163,7 +163,7 @@ fig
 :::{figure} #code:plane-change-delta-v-derivative
 :name: fig:plane-change-delta-v-derivative
 
-The derivative of the total $\Delta v$ as a function of the fraction of the plane change occuring at LEO.
+The derivative of the total $\Delta v$ as a function of the fraction of the plane change occurring at LEO.
 :::
 
 As expected, there is a single zero crossing of this function, meaning there is one value of the optimum. We can use the Newton solver to find the optimum value.

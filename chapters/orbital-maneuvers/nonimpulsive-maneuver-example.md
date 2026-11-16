@@ -33,7 +33,7 @@ In addition, we have to add an equation for the conservation of mass. Since the 
 \frac{dm}{dt} = -\frac{T}{I_{sp}g_0}
 :::
 
-Now we need to construct the initial state vector. The state vector will have 7 components, the three position coordinates, the three velocity components, and the mass. Since the initial orbit is circular, the initial position is arbitrary, so we will chose it to be on the $x$ axis for convenience. In turn, this means that the only initial velocity component is in the $y$ direction:
+Now we need to construct the initial state vector. The state vector will have 7 components, the three position coordinates, the three velocity components, and the mass. Since the initial orbit is circular, the initial position is arbitrary, so we will choose it to be on the $x$ axis for convenience. In turn, this means that the only initial velocity component is in the $y$ direction:
 
 :::{math}
 :enumerated: false

@@ -173,7 +173,7 @@ We cannot cancel any of the terms because we don't know the sign of the cubic te
 
 This equation is cubic in $x^*$, so it will have three separate values of $x^*$ that solve the equation, as long as $0 < \pi_2 < 1$. In the cases where $\pi_2 = 0$ or $\pi_2 = 1$, either $m_2$ or $m_1$ must be zero, which aren't very interesting.
 
-There is no analytical solution to this equation, it must be solved numerically. There are many methods to solve the equation numerically, my suggestions are to use [`scipy.optimize.newton()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html) in Python and [`fzero`](https://www.mathworks.com/help/matlab/ref/fzero.html) in Matlab. We will see how to use these functions in the [next example](./Lagrange-points-example.ipynb).
+There is no analytical solution to this equation, it must be solved numerically. There are many methods to solve the equation numerically, my suggestions are to use [`scipy.optimize.newton()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html) in Python and [`fzero`](https://www.mathworks.com/help/matlab/ref/fzero.html) in Matlab. We will see how to use these functions in the [next example](./lagrange-points-example.md).
 
 In the meantime, @fig:collinear-lagrange-solution shows the solution of @eq:collinear-lagrange-solution:
 
@@ -423,7 +423,7 @@ The Trojan and the Greek asteroids are clusters of asteroids that have collected
 
 The collinear Lagrange points, $L_1$, $L_2$, and $L_3$ are all **saddle points** in @fig:pseudo-potential-energy-cr3bp, meaning that the function increases when going in one axis, but decreases going in the other axis. This means that the three collinear Lagrange points are **unstable** and an object placed at one of those points, if perturbed, will diverge from the position.
 
-Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope (JWST) is located at the $L_2$ point in the Earth-Sun system specifically to avoid sunlight interefering with observations.
+Nonetheless, these are quite useful points for observation of the solar system. Several satellites have been placed at the $L_1$ point of the Earth-Sun system for solar observation, and the James Webb Space Telescope (JWST) is located at the $L_2$ point in the Earth-Sun system specifically to avoid sunlight interfering with observations.
 
 These satellites orbit around the unstable Lagrange points in a [Lissajous orbit](https://en.wikipedia.org/wiki/Lissajous_orbit). This type of orbit requires a very small amount of propulsion onboard the satellite to keep position, but the orbit can last for a very long time with only a little fuel. One example is the [Wilkinson Microwave Anisotropy Probe](https://en.wikipedia.org/wiki/Wilkinson_Microwave_Anisotropy_Probe) (WMAP) which was sent to the $L_2$ point in the Earth-Sun system to study the [Cosmic microwave background](https://en.wikipedia.org/wiki/Cosmic_microwave_background). The trajectory of WMAP is shown in @fig:wmap-trajectory.
 

@@ -42,9 +42,9 @@ T = \frac{\mathrm{JDT} - 2451545}{36525}
 
 where $\mathrm{JDT}$ is the desired Julian Date. Note that this should be floating point division, not integer division.
 
-Next, we need to inspect the data. There are two tables given, one that is valid from AD 1800 to AD 1950, and the other that is valid from 3000 BC to AD 3000. The longer time range has a larger error relative to historical data.
+Next, we need to inspect the data. There are two tables given, one that is valid from AD 1800 to AD 2050, and the other that is valid from 3000 BC to AD 3000. The longer time range has a larger error relative to historical data.
 
-:::{table} Keplerian elements and their rates, with respect to the mean ecliptic and equinox of J2000.0, valid for the time-interval 1800 AD - 2050 AD. Reproduced from Standish {cite}`Standish1992,Standish2021`. The subset here is for demonstration only.
+:::{table} Keplerian elements and their rates, with respect to the mean ecliptic and equinox of J2000.0, valid for the time-interval 1800 AD - 2050 AD. Reproduced from {cite:t}`Standish1992` and {cite:t}`Standish2021`. The subset here is for demonstration only.
 :name: tab:standish-keplerian-elements
 
 |           | $a$ [AU, AU/Cy] | $e$ [rad, rad/Cy] | $i$ [deg, deg/Cy] | $L$ [deg, deg/Cy] | $\varpi$ [deg, deg/Cy]   | $\Omega$ [deg, deg/Cy]   |
@@ -71,7 +71,7 @@ Once we know the desired time relative to the J2000.0 epoch, in astronomical cen
 Q = Q_0 + \dot{Q} T
 :::
 
-where $Q$ is any of the properties given in the table, $\dot{Q}$ is the rate of change of that property, and $Q_0$ is the initial value at J2000.0. The next steps convert the mean longitude and longitude of the perihelion to the more familar true anomaly and argument of perihelion, respectively.
+where $Q$ is any of the properties given in the table, $\dot{Q}$ is the rate of change of that property, and $Q_0$ is the initial value at J2000.0. The next steps convert the mean longitude and longitude of the perihelion to the more familiar true anomaly and argument of perihelion, respectively.
 
 First, we will calculate the true anomaly using the mean longitude and longitude of perihelion. The mean longitude is related to the mean anomaly by:
 
@@ -105,7 +105,7 @@ We now have $a$, $e$, $i$, $\Omega$, $\omega$, and $\nu$, from which we can also
 
 The data shown in @tab:standish-keplerian-elements are valid from AD 1800-AD 2050. If the data for 3000 BC-AD 3000 are used instead, there are a few extra terms, given in @tab:standish-long-term-elements, which must be used in the equation for the mean anomaly, for the planets from Jupiter to Pluto.
 
-:::{table} Additional terms which must be added to the computation of $M_e$ for Jupiter through Pluto, 3000 BC to AD 3000 {cite}`Standish1992,Standish2021`. The subset here is for demonstration only.
+:::{table} Additional terms which must be added to the computation of $M_e$ for Jupiter through Pluto, 3000 BC to AD 3000. Reproduced from {cite:t}`Standish1992` and {cite:t}`Standish2021`. The subset here is for demonstration only.
 :name: tab:standish-long-term-elements
 
 |              | $b$             | $c$            | $s$          | $f$            |
@@ -212,12 +212,12 @@ The formulas given in the last section are only approximate, with errors up to a
 
 All these libraries use either the [NASA SPICE database](https://naif.jpl.nasa.gov/naif/data.html), in the form of SPK files, or the [NASA/JPL HORIZONS database](https://ssd.jpl.nasa.gov/horizons/), which we'll also discuss in the next section.
 
-poliastro has a [number of methods](https://docs.poliastro.space/en/stable/quickstart.html#where-are-the-planets-computing-ephemerides) to produce ephemerides for the planets and also has a convenient interface to retrieve the classical orbtial parameters, which is why I've selected it here. The two main methods are:
+poliastro has a [number of methods](https://docs.poliastro.space/en/stable/quickstart.html#where-are-the-planets-computing-ephemerides) to produce ephemerides for the planets and also has a convenient interface to retrieve the classical orbital parameters, which is why I've selected it here. The two main methods are:
 
 * Lower-accuracy Astropy ephemerides, which rely on the [PyERFA](https://github.com/liberfa/pyerfa) library
 * Higher-accuracy JPL ephemerides using the SPICE files
 
-The Astropy ephemerids are included when poliastro is installed, while the JPL ephemerides require a separate download. We'll use the JPL ephemerides in this example. First, we need to determine a time at which the ephemerides should be calculated. poliastro requires an instance of the Astropy [`time.Time()`](https://docs.astropy.org/en/stable/time/) class to work, but we can create that using the `datetime` we set in the last section.
+The Astropy ephemerides are included when poliastro is installed, while the JPL ephemerides require a separate download. We'll use the JPL ephemerides in this example. First, we need to determine a time at which the ephemerides should be calculated. poliastro requires an instance of the Astropy [`time.Time()`](https://docs.astropy.org/en/stable/time/) class to work, but we can create that using the `datetime` we set in the last section.
 
 ```{code-cell} ipython3
 from astropy import time

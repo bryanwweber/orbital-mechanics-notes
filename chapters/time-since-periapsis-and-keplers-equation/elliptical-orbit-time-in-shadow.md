@@ -123,7 +123,7 @@ T = 2 * np.pi / np.sqrt(mu) * a**(3/2)
 
 The eccentricity of the orbit is $e =$ {eval}`f"{e:.4f}"`, the semimajor axis distance is $a =$ {eval}`f"{a:.0f}"` km, and the period is $T =$ {eval}`f"{T/3600:.2f}"` hr. Then, we need to solve for the value of $\nu$ at $b$ and $c$. With this value of $\nu$, we can find the time to fly between the two points. This will tell us the time the satellite is in the shade.
 
-From @fig:ellipse-time-in-shadow-figure, we can draw a right triangle from the center of Earth vertically up, the over to the spacecraft, then back down the $\vector{r}$ vector to the center of the Earth. This gives:
+From @fig:ellipse-time-in-shadow-figure, we can draw a right triangle from the center of Earth vertically up, then over to the spacecraft, then back down the $\vector{r}$ vector to the center of the Earth. This gives:
 
 :::{math}
 :label: eq:ellipse-time-in-shadow-right-triangle

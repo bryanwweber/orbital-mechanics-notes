@@ -13,7 +13,7 @@ kernelspec:
 
 # Non-Hohmann Transfers: Apse Line Rotation Example
 
-Another case of non-Hohmann orbital transfers are when the apse line of the orbit should be changed. To accomplish the transfer with one impulse, the initial and target orbits must intersect at at least one point. If the orbits do not intersect, then it will require at least two impulses to accomplish the total maneuver, using an intermediate transfer orbit. The case of multiple impulses is a generalization of the single-impulse case shown here.
+Another case of non-Hohmann orbital transfers are when the apse line of the orbit should be changed. To accomplish the transfer with one impulse, the initial and target orbits must intersect at least one point. If the orbits do not intersect, then it will require at least two impulses to accomplish the total maneuver, using an intermediate transfer orbit. The case of multiple impulses is a generalization of the single-impulse case shown here.
 
 In general, two orbits with different apse lines and a common focus will intersect in two locations. We can choose either location to perform the maneuver that switches from one orbit to the other.
 
@@ -104,15 +104,15 @@ nu_f = (nu_i - eta) % (2*m.pi)
 
 The results are shown in @tab:apse-line-rotation-nu-results. We chose the negative sign in @eq:apse-line-rotation-nu-roots for convenience. Choosing the positive sign would give a different, although valid, result.
 
-:::{table} Velocity components and flight path angles on the original and transfer orbits
+:::{table} Semimajor axes, eccentricities, and true anomalies of the initial and final orbits
 :name: tab:apse-line-rotation-nu-results
 :align: center
 
-|              | Initial               | Final                 |
-| :----------- | :-------------------- | :-------------------- |
-| $a$ (km/s)   | {eval}`f"{a_i:.2f}"`  | {eval}`f"{a_f:.2f}"`  |
-| $e$          | {eval}`f"{e_i:.2f}"`  | {eval}`f"{e_f:.2f}"`  |
-| $\nu$ (deg.) | {eval}`f"{nu_i:.2f}"` | {eval}`f"{nu_f:.2f}"` |
+|              | Initial                             | Final                               |
+| :----------- | :---------------------------------- | :---------------------------------- |
+| $a$ (km)     | {eval}`f"{a_i:.2f}"`                | {eval}`f"{a_f:.2f}"`                |
+| $e$          | {eval}`f"{e_i:.2f}"`                | {eval}`f"{e_f:.2f}"`                |
+| $\nu$ (deg.) | {eval}`f"{m.degrees(nu_i):.2f}"`    | {eval}`f"{m.degrees(nu_f):.2f}"`    |
 :::
 
 With the orbital elements fully determined for both orbits, we can calculate the velocity components, $\Delta v$, and $\gamma$.

@@ -115,7 +115,7 @@ ds = \rho d\phi
 The angle swept during a differential movement of the particle $P$ is $d\phi$.
 :::
 
-The time rate change of $\phi$ is then given by:
+The time rate of change of $\phi$ is then given by:
 
 :::{math}
 :label: eq:angular-velocity

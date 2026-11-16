@@ -23,7 +23,7 @@ To calculate the departure velocity vector, we will treat the arrival and depart
 
 ## Arrival Trajectory
 
-When the spacecraft arrives at the target planet, it's trajectory will be a hyperbola relative to the planet. When crossing the sphere of influence of the planet, the spacecraft can be in one of two orientations:
+When the spacecraft arrives at the target planet, its trajectory will be a hyperbola relative to the planet. When crossing the sphere of influence of the planet, the spacecraft can be in one of two orientations:
 
 1. crossing in front of the planet, as shown in @fig:interplanetary-leading-flyby, called a **leading-side flyby**.
 
@@ -69,7 +69,7 @@ where $e_1$, $h_1$, and $\nu_1$ are the eccentricity, angular momentum, and true
 
 To simplify the calculation of $\vector{v}_{\infty}$, we would like to work with unit vectors attached to the planet, rather than the Sun. The $\uvec{u}_r$-$\uvec{u}_{\perp}$ coordinate system, which is attached to the heliocentric orbit, can be converted into a geocentric system with the unit vectors $\uvec{u}_{V}$ and $\uvec{u}_{S}$.
 
-$\uvec{u}_V$ points along the planet's orbital velocity vector. Since we assumed that the planet's orbit is circular, the planet's orbital velocity vector is always perpendicular to it's radial vector. In other words:
+$\uvec{u}_V$ points along the planet's orbital velocity vector. Since we assumed that the planet's orbit is circular, the planet's orbital velocity vector is always perpendicular to its radial vector. In other words:
 
 :::{math}
 :label: eq:interplanetary-flyby-uvec-perp
@@ -124,7 +124,7 @@ v_{\infty} = \sqrt{\left(V_1^s\right)^2 + V^2 - 2 V_1^s V \cos\alpha_1}
 
 The magnitude $V_1^s$ can be found from the velocity components in @eq:interplanetary-flyby-arrival-heliocentric-components, and $V$ is given by @eq:interplanetary-flyby-planet-velocity.
 
-The magnitude of the excess velocity depends only on the semimajor axis of the hyperbola. Since the semimajor axis is constant, the magnitude of the excess velocity is also constant. Thus, we drop the subscript for arrival and departure for the magntiude.
+The magnitude of the excess velocity depends only on the semimajor axis of the hyperbola. Since the semimajor axis is constant, the magnitude of the excess velocity is also constant. Thus, we drop the subscript for arrival and departure for the magnitude.
 
 Once we have the magnitude of the excess velocity, and when we specify a value for $r_p$, we can apply the techniques in the [previous section](./planetary-arrival-capture.md) to compute the orbital elements of the hyperbola.
 
@@ -175,7 +175,7 @@ Then, finally, the heliocentric velocity vector at departure is found by the vec
 \vector{V}_{2}^s = \vector{V} + \vector{v}_{\infty,2} = V + v_{\infty} \cos\phi_2\uvec{u}_V + v_{\infty}\sin\phi_2 \uvec{u}_S
 :::
 
-From Eqs. @eq:interplanetary-flyby-uvec-perp and @eq:interplanetary-flyby-uvec-r, we see that the perpendicular and radial components of the heliocentric velocity are:
+From @eq:interplanetary-flyby-uvec-perp and @eq:interplanetary-flyby-uvec-r, we see that the perpendicular and radial components of the heliocentric velocity are:
 
 :::{math}
 :label:
@@ -207,7 +207,7 @@ V_{r,2}^s = \frac{\mu_{\text{sun}}}{h_2}e_2\sin\nu_2
 
 ## Example
 
-A spacecraft will use a flyby manuever around Venus to change its heliocentric orbit. The spacecraft departs the orbit of Neptune on a velocity perpendicular to a line to the Sun, and meets Venus at a true anomaly of 120° relative to the departure point. The periapsis altitude is 300 km. Calculate the spacecraft's new heliocentric orbital elements after a leading-side flyby and a trailing-side flyby.
+A spacecraft will use a flyby maneuver around Venus to change its heliocentric orbit. The spacecraft departs the orbit of Neptune on a velocity perpendicular to a line to the Sun, and meets Venus at a true anomaly of 120° relative to the departure point. The periapsis altitude is 300 km. Calculate the spacecraft's new heliocentric orbital elements after a leading-side flyby and a trailing-side flyby.
 
 First, we need to calculate the arrival heliocentric velocity vector. The spacecraft departs Neptune's orbit at aphelion of the transfer orbit. We know the departure point is aphelion because the velocity vector is perpendicular to the radius vector. We can find the orbital elements of the transfer orbit by using the orbit equation, @eq:scalar-orbit-equation at the departure and arrival points.
 
@@ -245,7 +245,7 @@ e_1 = (R_Neptune - R_Venus) / (R_Neptune + R_Venus * np.cos(nu_1))
 h_1 = np.sqrt(mu_sun * R_Neptune * (1 - e_1))
 ```
 
-This give an eccentricity of $e_1 =$ {eval}`f"{e_1:.4f}"` and $h_1 =$ {eval}`f"{h_1:.2E}"` km<sup>2</sup>/s. With $e_1$, $nu_1$, and $h_1$, we can find the heliocentric velocity components at Venus using @eq:perpendicular-velocity-component and @eq:parallel-velocity-component:
+This gives an eccentricity of $e_1 =$ {eval}`f"{e_1:.4f}"` and $h_1 =$ {eval}`f"{h_1:.2E}"` km<sup>2</sup>/s. With $e_1$, $nu_1$, and $h_1$, we can find the heliocentric velocity components at Venus using @eq:perpendicular-velocity-component and @eq:parallel-velocity-component:
 
 ```{code-cell} ipython3
 V_p1 = h_1 / R_Venus
@@ -314,7 +314,7 @@ Similarly, from @eq:interplanetary-flyby-departure-radial-velocity, we find:
 e_2 \sin\nu_2 = \frac{V_{r,2}^s h_2}{\mu_{\text{sun}}}
 :::
 
-Taking the ratio of Eqs. @eq:interplanetary-flyby-e-cos and @eq:interplanetary-flyby-e-sin, we find:
+Taking the ratio of @eq:interplanetary-flyby-e-cos and @eq:interplanetary-flyby-e-sin, we find:
 
 :::{math}
 :label:
