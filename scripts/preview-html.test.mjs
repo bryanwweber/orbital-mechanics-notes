@@ -42,8 +42,21 @@ test("marks nested preview pages, including standalone figures, without touching
 test("refuses empty or malformed output", async (t) => {
   const root = await fixture(t);
   await assert.rejects(preventPreviewIndexing(root), /No preview HTML/);
-  await writeFile(path.join(root, "index.html"), "<html><body>No head</body></html>");
-  await assert.rejects(preventPreviewIndexing(root), /Missing HTML head/);
+  await writeFile(path.join(root, "index.html"), "<div>Not an HTML document</div>");
+  await assert.rejects(preventPreviewIndexing(root), /Missing HTML document/);
+});
+
+test("marks figure documents with an omitted head tag", async (t) => {
+  const root = await fixture(t);
+  const figure = '<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n'
+    + '<title>Explore the five orbital elements</title>\n'
+    + '<style>canvas{display:block}</style>\n<body><script type="module">'
+    + 'console.log("figure");</script></body></html>';
+  await writeFile(path.join(root, "combined.html"), figure);
+  await preventPreviewIndexing(root);
+  const updated = await readFile(path.join(root, "combined.html"), "utf8");
+  assert.match(updated, /<html lang="en">\n<meta name="robots" content="noindex, nofollow">/);
+  assert.equal(updated.replace('\n<meta name="robots" content="noindex, nofollow">', ""), figure);
 });
 
 test("refuses symlinks instead of modifying files outside the artifact", async (t) => {

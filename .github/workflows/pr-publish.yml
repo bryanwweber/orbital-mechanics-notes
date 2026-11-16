@@ -136,8 +136,12 @@ jobs:
                   await visit(file);
                 } else if (/\.html?$/i.test(entry.name)) {
                   const html = await readFile(file, "utf8");
-                  assert.match(html, /<head\b[^>]*>/i, `Missing HTML head: ${file}`);
-                  const updated = html.replace(/<head\b[^>]*>/i,
+                  // HTML permits an omitted head tag. A meta tag immediately
+                  // after html becomes part of the browser's implicit head.
+                  const insertionPoint = /<head\b[^>]*>/i.test(html)
+                    ? /<head\b[^>]*>/i : /<html\b[^>]*>/i;
+                  assert.match(html, insertionPoint, `Missing HTML document: ${file}`);
+                  const updated = html.replace(insertionPoint,
                     '$&\n<meta name="robots" content="noindex, nofollow">');
                   await writeFile(file, updated);
                   count += 1;
