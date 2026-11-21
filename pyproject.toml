@@ -22,7 +22,7 @@ dependencies = [
 description = "A book for Orbital Mechanics"
 license = { text = "CC-BY-SA-4.0" }
 name = "orbital-mechanics-notes"
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.15,<3.16"
 version = "0.0.0"
 
 [dependency-groups]

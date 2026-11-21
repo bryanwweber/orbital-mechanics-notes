@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import re
 import subprocess
@@ -91,8 +93,8 @@ def replace_text(search_elem: ET.Element, cache: CACHE_T) -> None:
 
 
 def doit(
-    svg_tree: "ET.ElementTree[ET.Element[str]]", cache: CACHE_T
-) -> "ET.ElementTree[ET.Element[str]]":
+    svg_tree: ET.ElementTree[ET.Element[str]], cache: CACHE_T
+) -> ET.ElementTree[ET.Element[str]]:
     svg_element = svg_tree.getroot()
     if svg_element is None:
         raise ValueError("Could not find root SVG element")

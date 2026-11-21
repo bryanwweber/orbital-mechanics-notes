@@ -14,10 +14,11 @@ of `mystmd` and `myst-theme` are not required.
 
    ```bash
    bun install --frozen-lockfile
-   uv sync --frozen --python 3.13
+   uv sync --frozen --python 3.15
    ```
 
-   Python 3.13 satisfies the requirements of all uv workspace members.
+   The book targets Python 3.15. This version satisfies the requirements of all
+   uv workspace members, including the local SVG renderer and poliastro fork.
 
 3. Preview the book with live reload:
 
