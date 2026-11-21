@@ -62,16 +62,38 @@ refuses to overwrite existing content. Redirect files are not added to the MyST
 sitemap. The former standalone bibliography has no replacement page and is not
 covered by this mapping. Run `bun run test:redirects` to check the generator.
 
-The published `book-theme` is configured in `myst.yml`. MyST downloads it on
-first use and caches it under `_build/templates`. The theme is updated
-independently of the CLI and is not pinned by `bun.lock`. To fetch the current
-published theme on the next build, run:
+The book uses the upstream MyST theme with small source patches in
+`patches/book-theme/`. Its exact upstream revision and archive SHA-256 are in
+`patches/book-theme/source.json`; its dependencies use that revision's frozen
+`bun.lock`. The iframe patch removes the unnecessary `autoplay` permission that
+Firefox reports as unsupported. JavaScript figure animations do not use media
+autoplay permissions.
+
+Both book tasks run `bun run build:theme` automatically. On the first run it
+downloads and verifies the source archive, applies the patches, installs the
+locked theme dependencies, and builds the preview server and static renderer.
+The generated template is `_build/book-theme/template.yml`. This requires `tar`
+and `patch` in addition to the tools above. No sibling source checkout is used.
+The cache is keyed by source, patches, Bun version, deployment prefix
+(`BASE_URL`), and build script; unchanged runs reuse it.
+
+To prepare the theme before invoking the MyST CLI directly, run:
 
 ```bash
-bun run myst clean --templates
+bun run build:theme
 ```
 
-To check or update the pinned CLI version:
+To update the theme, change the pinned revision and archive hash, recheck the
+source patches, then rebuild and verify both preview and static output. Patches
+fail on source drift rather than applying approximately. Run `bun run test:theme`
+for the patch and cache checks.
+
+With the preview running, `bun run browser:iframe-permissions` checks the 14
+interactive figures in headed Chrome. Add `--firefox` to reproduce and check the
+Firefox Permissions Policy warning; both modes keep captions, titles, and iframe
+geometry in the checks. Set `BOOK_URL` to check a separate preview or static site.
+
+To check or update the separately pinned CLI version:
 
 ```bash
 bun run book:version

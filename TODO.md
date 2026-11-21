@@ -22,7 +22,7 @@
 - [ ] Make the pseudo-potential energy graph interactive on the application of cr3bp
 - [ ] Can the interactive figures use KaTeX math fonts?
 - [ ] Resolve the hydration warning
-- [ ] Resolve the unsupported feature name "autoplay"
+- [x] Resolve the unsupported feature name "autoplay"
 - [ ] Resolve the deprecated "mathvariant='bold-italic'"
 - [ ] Resolve warning about scroll-linked position with asynchronous panning
 - [ ] Resolve warning about microtask reordering
