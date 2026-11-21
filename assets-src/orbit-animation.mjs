@@ -6,6 +6,7 @@ import {
 import { createTwoBodyScene } from "./two-body-scenes.mjs";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
+import { loadMathFonts, mainFont, canvasLabel } from "./math-fonts.mjs";
 
 export const animationPresets = {
   inertial: {},
@@ -15,7 +16,7 @@ export const animationPresets = {
     minDistance: 100, maxDistance: 300, view: [-0.2, 0.5, 1], speed: 1 },
 };
 
-export function mountOrbitAnimation({ preset = "inertial", root = document.body } = {}) {
+export async function mountOrbitAnimation({ preset = "inertial", root = document.body } = {}) {
   const config = animationPresets[preset];
   if (!config) throw new Error(`Unknown orbit animation preset: ${preset}`);
   root.style.position = "relative";
@@ -39,6 +40,7 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
   }
   document.documentElement.dataset.threeRevision = REVISION;
   try {
+    await loadMathFonts();
     // Modern WebGLRenderer requires WebGL 2.
     const renderCanvas = document.createElement("canvas");
     const renderContext = renderCanvas.getContext("webgl2", { antialias: true, alpha: false });
@@ -57,14 +59,14 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
     const labelText = config.labelText ?? "m1    COG    m2";
-    context.font = "40px sans-serif";
-    const bounds = context.measureText(labelText);
-    canvas.width = Math.max(canvas.width, Math.ceil(Math.max(bounds.width, bounds.actualBoundingBoxRight)) + 8);
+    const parts = labelText.split(/(m1|COG|m2)/);
+    const labelPixels = parts.reduce((width, part) => width + canvasLabel(context, part, 0, 60, false), 0);
+    canvas.width = Math.max(canvas.width, Math.ceil(labelPixels) + 8);
     // Resizing resets the drawing context. Leave room for the complete last glyph.
-    context.font = "40px sans-serif";
+    context.font = `40px "${mainFont}"`;
     context.fillStyle = "rgba(255,255,255,1)";
     context.textAlign = "left";
-    context.fillText(labelText, 0, 60);
+    // Labels are drawn after assigning the scene colors below.
 
     // canvas contents will be used for a texture
     const texture = new CanvasTexture(canvas);
@@ -133,7 +135,7 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
           if (!anchor) throw new Error(`Missing scene label anchor: ${name}`);
           const labelCanvas = document.createElement("canvas");
           const labelContext = labelCanvas.getContext("2d");
-          labelContext.font = "40px sans-serif";
+          labelContext.font = `40px "${mainFont}"`;
           labelContext.fillStyle = labelColor(name);
           labelContext.fillText(text, 0, 60);
           const labelTexture = new CanvasTexture(labelCanvas);
@@ -154,10 +156,9 @@ export function mountOrbitAnimation({ preset = "inertial", root = document.body 
         };
         context.clearRect(0, 0, canvas.width, canvas.height);
         let labelX = 0;
-        for (const part of labelText.split(/(m1|COG|m2)/)) {
+        for (const part of parts) {
           context.fillStyle = colors[part] ?? "white";
-          context.fillText(part, labelX, 60);
-          labelX += context.measureText(part).width;
+          labelX += canvasLabel(context, part, labelX, 60);
         }
         texture.needsUpdate = true;
         const anchor = orbitScene.getObjectByName(config.labelAnchor ?? "Sphere002");
