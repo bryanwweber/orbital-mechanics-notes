@@ -5,6 +5,7 @@ import {
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
+import { loadMathFonts, labelFont } from './math-fonts.mjs';
 
 // Recreate the original Plotly diagrams: Rz(raan) Ry(i) Rz(omega),
 // with periapsis on the negative perifocal x axis. These are display rotations;
@@ -45,7 +46,7 @@ export function elementGeometry(preset, inclination = 30, rightAscension, argume
   };
 }
 
-export function mountOrbitalElements({ preset = 'inclination', root = document.body } = {}) {
+export async function mountOrbitalElements({ preset = 'inclination', root = document.body } = {}) {
   const geometry = elementGeometry(preset);
   const { config, orbitPoint, nodeAngle } = geometry;
   root.style.cssText = 'position:relative;width:100%;height:100%;overflow:hidden;background:white';
@@ -54,6 +55,8 @@ export function mountOrbitalElements({ preset = 'inclination', root = document.b
   status.setAttribute('role', 'status');
   status.textContent = 'Loading orbital-element diagram…';
   root.append(status);
+  try { await loadMathFonts(); }
+  catch (error) { status.textContent = `Unable to load diagram fonts: ${error.message}`; return; }
   let renderer;
   try { renderer = new WebGLRenderer({ antialias: true }); }
   catch (error) { status.textContent = `Unable to display the diagram: ${error.message}`; return; }
@@ -79,7 +82,7 @@ export function mountOrbitalElements({ preset = 'inclination', root = document.b
   function label(text, point, dx = 0, dy = 0, size = 20) {
     const element = document.createElement('span');
     element.textContent = text;
-    element.style.cssText = `font:${size}px Arial,sans-serif;color:black;white-space:nowrap;position:relative;left:${dx}px;top:${dy}px`;
+    element.style.cssText = `font:${labelFont(text, size)};color:black;white-space:nowrap;position:relative;left:${dx}px;top:${dy}px`;
     const object = new CSS2DObject(element);
     object.position.copy(display(point));
     object.userData = { size, dx, dy };
