@@ -62,6 +62,8 @@ jobs:
             echo "::error::Book build emitted warnings; refusing to publish."
             exit 1
           fi
+      - name: Generate legacy HTML redirects
+        run: bun run book:redirects
       - name: Fix sitemap and robots URLs
         env:
           CUSTOM_DOMAIN: https://orbital-mechanics.space
@@ -76,6 +78,7 @@ jobs:
         run: |
           test -s _build/html/index.html
           bun run test:url-root
+          bun run test:redirects
           bun run book:check-urls
       - name: Upload the book
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
