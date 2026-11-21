@@ -19,7 +19,7 @@
 - [x] Same for Universal Lagrange coefficients
 - [x] Tables are not numbered consecutively
 - [x] Planetary parameters, the tables look terrible
-- [ ] Make the pseudo-potential energy graph interactive on the application of cr3bp
+- [x] Make the pseudo-potential energy graph interactive on the application of cr3bp
 - [x] Can the interactive figures use KaTeX math fonts?
 - [ ] Resolve the hydration warning
 - [ ] Resolve the unsupported feature name "autoplay"

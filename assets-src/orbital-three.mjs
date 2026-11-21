@@ -8,3 +8,4 @@ export { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 export { default as GUI } from "lil-gui";
 export { mountOrbitAnimation, animationPresets } from "./orbit-animation.mjs";
 export { mountOrbitalElements, elementPresets } from './orbital-elements.mjs';
+export { mountCR3BPPotential } from './cr3bp-potential.mjs';
