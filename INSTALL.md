@@ -50,6 +50,18 @@ tests are described in [patches/README.md](patches/README.md).
 Run `bun run book:check-urls` after a static build to verify the page paths and
 navigation. Deployment runs this check before uploading the book.
 
+After a static build, run `bun run book:redirects` to generate compatibility files
+for the former `.html` page URLs. Production and PR preview workflows run this
+before uploading their artifacts. Redirects use an immediate HTML refresh and a
+canonical link to the replacement page. JavaScript preserves query strings and
+fragments, translating the old Sphinx equation anchors where a matching target
+exists. Relative destinations also work under a PR preview's URL prefix.
+The generator retains source filename case and explicit aliases for the renamed
+notebooks and the old misspelled departure page. It validates destinations and
+refuses to overwrite existing content. Redirect files are not added to the MyST
+sitemap. The former standalone bibliography has no replacement page and is not
+covered by this mapping. Run `bun run test:redirects` to check the generator.
+
 The published `book-theme` is configured in `myst.yml`. MyST downloads it on
 first use and caches it under `_build/templates`. The theme is updated
 independently of the CLI and is not pinned by `bun.lock`. To fetch the current
