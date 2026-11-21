@@ -2,4 +2,4 @@
 
 User-agent: *
 Allow: /
-Sitemap: http://pre.render/sitemap.xml
+Sitemap: https://orbital-mechanics.space/sitemap.xml
