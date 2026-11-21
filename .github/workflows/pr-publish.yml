@@ -20,7 +20,7 @@ jobs:
       pull-requests: read
     env:
       PYDEVD_DISABLE_FILE_VALIDATION: "1"
-      UV_PYTHON: "3.13"
+      UV_PYTHON: "3.15"
       BASE_URL: /pr-preview/pr-${{ inputs.pr_number }}
       MISE_ENABLE_TOOLS: bun,node,uv
     steps:

@@ -29,4 +29,4 @@
 - [ ] Consider moving flight path angle section to non-Hohmann transfers section
 - [ ] Split planetary arrival: capture into text and example pages
 - [ ] `swept-angle.svg` and `center-of-curvature.svg` have a font definition included
-- [ ] Upgrade to Python 3.15
+- [x] Upgrade to Python 3.15

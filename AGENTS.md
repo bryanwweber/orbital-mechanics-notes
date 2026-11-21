@@ -58,8 +58,8 @@ The repository includes a `bin/math` executable.
 - JavaScript dependencies use `package.json` and `bun.lock`.
 - Julia dependencies use `Project.toml` and `Manifest.toml`.
 
-Check Python compatibility across workspace members: the root project
-allows Python 3.10–3.13, while `render-svg` requires Python 3.13 or newer.
+The uv workspace targets Python 3.15: the root project requires Python 3.15.x,
+while `render-svg` allows Python 3.13 or newer. CI uses `UV_PYTHON=3.15`.
 
 ## Build and validation caveats
 
@@ -70,11 +70,9 @@ documents the setup: update Bun and Node with mise, update the sibling
 in `myst-theme`, run `bun run theme:book`. From this project, run
 `myst start --execute --debug --headless`.
 
-The Jupyter Book mise task and doit tooling have been removed.
-GitHub Actions still installs Python 3.12, synchronizes uv dependencies,
-invokes `jupyter-book build`, and publishes `_build/html` on pushes to
-`main`. This legacy workflow needs migration to MyST and reconciliation
-with the workspace requirements.
+The Jupyter Book mise task and doit tooling have been removed. GitHub Actions
+uses Python 3.15, synchronizes frozen uv dependencies, builds with the project-local
+MyST CLI, and publishes `_build/html` on pushes to `main`.
 
 Linting is configured through Markdownlint and Ruff. `mise run lint`
 runs the configured checks. Repository-wide formatting tasks can modify
