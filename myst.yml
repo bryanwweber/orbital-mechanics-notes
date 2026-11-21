@@ -144,6 +144,7 @@ project:
         - file: chapters/interplanetary-maneuvers/planetary-departure-trajectory.md
         - file: chapters/interplanetary-maneuvers/planetary-departure-trajectory-example.md
         - file: chapters/interplanetary-maneuvers/planetary-arrival-capture.md
+        - file: chapters/interplanetary-maneuvers/planetary-arrival-capture-example.md
         - file: chapters/interplanetary-maneuvers/planetary-arrival-flyby.md
     - title: Review of Vectors, Kinematics, and Newtonian Mechanics
       children:

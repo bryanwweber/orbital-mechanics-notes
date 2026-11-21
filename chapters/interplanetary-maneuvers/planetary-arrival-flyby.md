@@ -13,7 +13,7 @@ kernelspec:
 
 # Planetary Arrival: Flyby
 
-As we discussed in the [last section](./planetary-arrival-capture.md), the options that a spacecraft has when arriving at a planet are to impact the planet, enter a capture orbit, or do a flyby to change its heliocentric velocity vector. In this section, we'll consider the case of a flyby of the arrival planet.
+As we discussed in the [capture section](./planetary-arrival-capture.md), the options that a spacecraft has when arriving at a planet are to impact the planet, enter a capture orbit, or do a flyby to change its heliocentric velocity vector. In this section, we'll consider the case of a flyby of the arrival planet.
 
 Let's begin with a few definitions. All capital letters will refer to heliocentric velocities, while lower case letters refer to geocentric velocities. Furthermore, the superscript $s$ will refer to the spacecraft, while variables with no superscript refer to the planet. Finally, subscript 1 refers to the arrival point at the sphere of influence and subscript 2 refers to the departure point from the sphere of influence.
 
@@ -126,7 +126,7 @@ The magnitude $V_1^s$ can be found from the velocity components in @eq:interplan
 
 The magnitude of the excess velocity depends only on the semimajor axis of the hyperbola. Since the semimajor axis is constant, the magnitude of the excess velocity is also constant. Thus, we drop the subscript for arrival and departure for the magnitude.
 
-Once we have the magnitude of the excess velocity, and when we specify a value for $r_p$, we can apply the techniques in the [previous section](./planetary-arrival-capture.md) to compute the orbital elements of the hyperbola.
+Once we have the magnitude of the excess velocity, and when we specify a value for $r_p$, we can apply the techniques in the [capture section](./planetary-arrival-capture.md) to compute the orbital elements of the hyperbola.
 
 :::{note}
 The techniques described in this section can also be used for a capture orbit if the excess velocity vector is not parallel to the planet's orbital velocity.
