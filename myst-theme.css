@@ -1,0 +1,14 @@
+/* User Provided Stylesheet */
+
+/* Keep the combined diagram and all five controls visible at every width.
+   The book theme normally reserves only 60% of the figure width for iframes. */
+figure div:has(> iframe[title="Explore the five orbital elements"]) {
+  padding-bottom: 0 !important;
+  height: 700px;
+}
+
+/* The diagrams use dark strokes and labels on transparent backgrounds.
+   The book's theme can differ from the system color scheme used by SVG media queries. */
+article img[src$=".svg"] {
+  background-color: #fff;
+}
