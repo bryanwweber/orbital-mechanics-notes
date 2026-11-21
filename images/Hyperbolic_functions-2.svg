@@ -14,6 +14,7 @@
     <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 210 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="519.99998 : 210 : 1" inkscape:persp3d-origin="259.99999 : 140 : 1" id="perspective48"/>
     <path id="p2" d="m 401.421,310 c 8,11.314 23.938,33.205 58.579,73.205" inkscape:connector-curvature="0" style="stroke:#000000;stroke-width:2"/>
   </defs>
+  <style>@media (prefers-color-scheme:dark){:root{background-color:#fff}}</style>
   <g id="g6275" transform="translate(-4.4806986,-4.9356615)">
     <path style="stroke:#000000;stroke-width:1" inkscape:connector-curvature="0" id="path7" d="m 60,210 h 400 m -20,-10 20,10 -20,10 M 260,10 V 410 M 250,30 260,10 270,30"/>
     <path style="stroke:#000000;stroke-width:2;stroke-dasharray:20, 10" inkscape:connector-curvature="0" id="path9" d="M 60,10 460,410 M 460,10 60,410"/>

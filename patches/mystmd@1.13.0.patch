@@ -1,0 +1,90 @@
+diff --git a/dist/myst.cjs b/dist/myst.cjs
+index f0abd5defbb9430bd840adccfa6e7c3aba8fa5cf..4992e264673a5cbd9ffc2c9c45059bec5f414ba3 100755
+--- a/dist/myst.cjs
++++ b/dist/myst.cjs
+@@ -201346,7 +201346,7 @@ function validateErrorRuleList(input4, opts) {
+ 
+ // ../myst-config/dist/project/validators.js
+ var PROJECT_CONFIG_KEYS = {
+-  optional: ["remote", "index", "exclude", "plugins", "error_rules", ...PROJECT_FRONTMATTER_KEYS],
++  optional: ["remote", "index", "url_root", "exclude", "plugins", "error_rules", ...PROJECT_FRONTMATTER_KEYS],
+   alias: FRONTMATTER_ALIASES
+ };
+ function validatePluginInfo(input4, opts) {
+@@ -201378,6 +201378,9 @@ function validateProjectConfigKeys(input4, opts) {
+   if (defined(input4.index)) {
+     output3.index = validateString(input4.index, incrementOptions("index", opts));
+   }
++  if (defined(input4.url_root)) {
++    output3.url_root = validateString(input4.url_root, { ...incrementOptions("url_root", opts), minLength: 1 });
++  }
+   if (defined(input4.exclude)) {
+     output3.exclude = validateList(input4.exclude, { coerce: true, ...incrementOptions("exclude", opts) }, (value, index4) => {
+       return validateString(value, incrementOptions(`exclude.${index4}`, opts));
+@@ -289015,8 +289018,12 @@ function fileInfo2(file2, pageSlugs, opts) {
+   const { name: name3, dir } = parseFilePath(file2);
+   let slug = createSlug(name3);
+   if (opts?.urlFolders && opts?.projectPath) {
+-    const slugFolders = import_node_path13.default.relative(opts.projectPath, dir).split(import_node_path13.default.sep).filter((folder) => folder !== "");
++    const urlRoot = opts.urlRoot ?? opts.projectPath;
++    const slugFolders = import_node_path13.default.relative(urlRoot, dir).split(import_node_path13.default.sep).filter((folder) => folder !== "");
+     if (slugFolders.includes("..")) {
++      if (opts.urlRoot) {
++        throw new Error(`Page is outside project.url_root (${urlRoot}): ${file2}`);
++      }
+       opts.session?.log.warn(`URL path will not match folder structure for file outside project: ${file2}`);
+     } else {
+       slug = [...slugFolders.map((folder) => createSlug(folder)), slug].join(".");
+@@ -290897,6 +290904,9 @@ async function resolveProjectConfigPaths(session, path48, projectConfig, resolut
+   if (projectConfig.index) {
+     resolvedFields.index = await resolutionFn(session, path48, projectConfig.index);
+   }
++  if (projectConfig.url_root !== void 0) {
++    resolvedFields.url_root = await resolutionFn(session, path48, projectConfig.url_root);
++  }
+   if (projectConfig.plugins) {
+     resolvedFields.plugins = await Promise.all(projectConfig.plugins.map(async (info) => {
+       const resolved = await resolutionFn(session, path48, info.path, {
+@@ -290935,6 +290945,9 @@ function saveSiteConfig(session, path48, site) {
+ async function validateProjectConfigAndThrow(session, path48, vfile2, rawProject) {
+   const project = validateProjectConfig(rawProject, configValidationOpts(vfile2, "config.project", RuleId.validProjectConfig));
+   logMessagesFromVFile(session, vfile2);
++  if (rawProject.url_root !== void 0 && project.url_root === void 0) {
++    throw new Error("project.url_root must be a nonempty string");
++  }
+   if (!project) {
+     const errorSuffix = vfile2.path ? ` in ${vfile2.path}` : "";
+     throw Error(`Please address invalid project config${errorSuffix}`);
+@@ -298404,10 +298417,15 @@ Consider running "${binaryName()} init --project" in that directory`, "warn", {
+   let legacyToc = false;
+   const siteConfig = selectors_exports.selectLocalSiteConfig(state, path48);
+   const folders = !!siteConfig?.options?.folders;
++  const urlRoot = projectConfig?.url_root === void 0 ? void 0 : (0, import_node_path27.resolve)(path48, projectConfig.url_root);
++  if (urlRoot && (!import_node_fs20.default.existsSync(urlRoot) || !import_node_fs20.default.statSync(urlRoot).isDirectory())) {
++    throw new Error(`project.url_root must be an existing local directory: ${urlRoot}`);
++  }
+   const sphinxTOCFile = validateSphinxTOC(session, path48) ? tocFile(path48) : void 0;
+   if (projectConfig?.toc !== void 0) {
+     newProject = projectFromTOC(session, path48, projectConfig.toc, 1, projectConfigFile, {
+-      urlFolders: folders
++      urlFolders: folders,
++      urlRoot
+     });
+     if (sphinxTOCFile) {
+       addWarningForFile(session, sphinxTOCFile, `Ignoring legacy Jupyter Book TOC in favor of myst.yml TOC: ${sphinxTOCFile}`, "warn", {
+@@ -298423,13 +298441,13 @@ Consider running "${binaryName()} init --project" in that directory`, "warn", {
+       session.log.debug(`Encountered legacy Jupyter Book TOC: ${sphinxTOCFile}`);
+       session.log.debug(`To upgrade to a ${readableName()} TOC, try running \`${binaryName()} init --write-toc\``);
+     }
+-    newProject = projectFromSphinxTOC(session, path48, void 0, { urlFolders: folders });
++    newProject = projectFromSphinxTOC(session, path48, void 0, { urlFolders: folders, urlRoot });
+   } else {
+     const project2 = selectors_exports.selectLocalProject(state, path48);
+     if (!index4 && !project2?.implicitIndex && project2?.file) {
+       index4 = project2.file;
+     }
+-    newProject = projectFromPath(session, path48, index4, { urlFolders: folders });
++    newProject = projectFromPath(session, path48, index4, { urlFolders: folders, urlRoot });
+   }
+   if (!newProject) {
+     throw new Error(`Could not load project from ${path48}`);

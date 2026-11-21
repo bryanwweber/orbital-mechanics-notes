@@ -1,0 +1,212 @@
+{
+  "apse-line.svg": {
+    "title": "Apse Line",
+    "description": "The eccentricity vector lies in the plane of the orbit, starting at the occupied focus and pointing towards the point of closest approach. A line through this vector is the apse line. The true anomaly is the angle from the apse line to the current position vector from m_1 to m_2.",
+    "date": "2026-06-19T17:27:00+00:00"
+  },
+  "center-of-curvature.svg": {
+    "title": "Center of Curvature",
+    "description": "The center of curvature of a path $s$ is a distance $\rho$ from the particle.",
+    "date": "2026-06-21T23:00:00+00:00"
+  },
+  "circular-restricted-three-body-problem.svg": {
+    "title": "Circular-Restricted Three-Body Problem",
+    "description": "The system of masses for the circular restricted three body problem.",
+    "date": "2026-06-21T23:03:00+00:00"
+  },
+  "cartesian-axes.svg": {
+    "title": "Cartesian Axes",
+    "description": "",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "definition-of-eccentric-anomaly-ellipse.svg": {
+    "title": "Definition Of Eccentric Anomaly Ellipse",
+    "description": "The eccentric anomaly. The blue ellipse is the trajectory of the spacecraft; the green circle is circumscribed around the ellipse. Point $O$ is the origin, point $F$ is the focus of the ellipse, point $S$ is the spacecraft, point $P$ is the intersection of the apse line and a perpendicular line through $S$, and point $Q$ is the intersection of the circle and the perpendicular line through $S$.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "definition-of-perifocal-frame.svg": {
+    "title": "Definition Of Perifocal Frame",
+    "description": "The definition of the perifocal frame. The w direction is pointing direction towards the viewer.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "earth-centered-earth-fixed.svg": {
+    "title": "Earth Centered Earth Fixed",
+    "description": "The Earth-centered, Earth-fixed coordinate system is centered at the center of the Earth and rotates with the same angular velocity, such that the x' axis always points through the intersection of the prime meridian and the equator.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "ecef-to-eci.svg": {
+    "title": "Ecef To Eci",
+    "description": "The angle between the X axis in the ECI and the x' axis in the ECEF is theta_G.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-arrival-inward-transfer.svg": {
+    "title": "Interplanetary Arrival Inward Transfer",
+    "description": "Arrival phase of a trajectory from an outer planet to an inner planet.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-arrival.svg": {
+    "title": "Interplanetary Arrival",
+    "description": "Arrival phase of a trajectory from an inner planet to an outer planet.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-depahture-inward-transfer.svg": {
+    "title": "Interplanetary Depahture Inward Transfer",
+    "description": "",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-depahture.svg": {
+    "title": "Interplanetary Depahture",
+    "description": "",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-departure-inward-transfer.svg": {
+    "title": "Interplanetary Departure Inward Transfer",
+    "description": "A departure trajectory from a planet where the heliocentric orbital radius of the departure planet is larger than the final planet. Note that the spacecraft's heliocentric speed is smaller than the planet's, so it emerges from the back side of the sphere of influence.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-departure.svg": {
+    "title": "Interplanetary Departure",
+    "description": "A departure trajectory from a planet where the heliocentric orbital radius of the departure planet is smaller than the final planet.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-flyby-phi-angle.svg": {
+    "title": "Interplanetary Flyby Phi Angle",
+    "description": "The angles phi_1 and phi_2 are defined from the planet's velocity vector to the excess velocity vector.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-initial-phase-angle.svg": {
+    "title": "Interplanetary Initial Phase Angle",
+    "description": "The initial phase angle gamma_1 and final phase angle gamma_2 are related to the angular travel distances.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-leading-flyby.svg": {
+    "title": "Interplanetary Leading Flyby",
+    "description": "A leading-side planetary flyby. Notice that the spacecraft crosses in front of the planet along the planet's direction of motion.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-phase-angle-example.svg": {
+    "title": "Interplanetary Phase Angle Example",
+    "description": "The figure on the left shows the transfer from Neptune inward to Venus. The figure on the right shows the return trip from Venus outward to Neptune. Note that Venus completes many orbits around the sun, while Neptune completes less than half of one orbit during this entire process.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-phase-angle.svg": {
+    "title": "Interplanetary Phase Angle",
+    "description": "A hypothetical Hohmann transfer with increasing radius. The initial phase angle between the initial and final planets is gamma_1 and the phase angle after the transfer is complete is gamma_2. Note that while the spacecraft travels 180° of true anomaly on the transfer trajectory (green), the initial planet (blue) travels more than 180° and the final planet (red) travels less than 180°.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "interplanetary-trailing-flyby.svg": {
+    "title": "Interplanetary Trailing Flyby",
+    "description": "A trailing-side planetary flyby. Notice that the spacecraft crosses behind the planet along the planet's direction of motion.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "plane-change-maneuver-2d.svg": {
+    "title": "Plane Change Maneuver 2D",
+    "description": "The plane change maneuver from the other figure shown looking down the line of intersection. The circle at the intersection of the orbits represents the focus of the orbits. The radial velocity vector is projecting out of the screen.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "plane-change-maneuver-3d-zoom.svg": {
+    "title": "Plane Change Maneuver 3D Zoom",
+    "description": "A single-impulse plane change maneuver. The orbital planes intersect at a line through the focus of the orbit. Transfer is possible between the orbits by rotating the velocity vector of the spacecraft around the radial vector. Note that the radial velocity magnitude may change, as shown here, but the direction remains the same.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "plane-change-maneuver-3d.svg": {
+    "title": "Plane Change Maneuver 3D",
+    "description": "A single-impulse plane change maneuver. The orbital planes intersect at a line through the focus of the orbit. Transfer is possible between the orbits by rotating the velocity vector of the spacecraft around the radial vector. Note that the radial velocity magnitude may change, as shown here, but the direction remains the same.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "position-vector-to-point.svg": {
+    "title": "Position Vector To Point",
+    "description": "The position vector vec{r}(t) specifies the position of P relative to O.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "swept-angle.svg": {
+    "title": "Swept Angle",
+    "description": "The angle swept during a differential movement of the particle P is dphi.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "topocentric-horizon.svg": {
+    "title": "Topocentric Horizon",
+    "description": "The topocentric-horizon coordinate system is centered at the object. The x axis points east, the y axis points north, and the z axis points up from the Earth. Modified from [Original: Brews ohare This Version: CheChe](https://commons.wikimedia.org/wiki/File:Earth_coordinates.svg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "common-apse-line-transfer.svg": {
+    "title": "Common Apse Line Transfer",
+    "description": "The setup for the common apse line transfer orbit. The initial and final orbits are shown in black, while the transfer orbit is shown in blue. The solid section of the transfer orbit is the portion actually traversed by the spacecraft.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "coordinate-relative-to-m1.svg": {
+    "title": "Coordinate Relative To M1",
+    "description": "The co-moving coordinate system attached to m_1.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "definition-of-vr-vp.svg": {
+    "title": "Definition Of Vr Vp",
+    "description": "The orbital plane viewed from above. The angular momentum vector is coming out of the screen towards you.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "elliptical-orbit-definitions.svg": {
+    "title": "Elliptical Orbit Definitions",
+    "description": "The geometry and definition of distances in an elliptical orbit.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "flight-path-angle.svg": {
+    "title": "Flight Path Angle",
+    "description": "Definition of the flight path angle.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "non-hohmann-delta-v.svg": {
+    "title": "Non Hohmann Delta V",
+    "description": "Arbitrary changes may be made to the velocity vector by aligning the thrust vector to the angle gamma. This causes a change in flight path angle from phi_A to phi_{A_t}. This manuever will transfer from the initial orbit to the transfer orbit. A similar maneuver is required to go from the transfer orbit to the final orbit.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "orbital-angular-momentum.svg": {
+    "title": "Orbital Angular Momentum",
+    "description": "The orbital angular momentum is perpendicular to the position and velocity vectors.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "parabolic-orbit-definitions.svg": {
+    "title": "Parabolic Orbit Definitions",
+    "description": "Definition of distances in the parabolic trajectory. p is the orbital parameter.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "periapsis-and-apoapsis-circle.svg": {
+    "title": "Periapsis And Apoapsis Circle",
+    "description": "A circular orbit, e = 0",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "periapsis-and-apoapsis-ellipse.svg": {
+    "title": "Periapsis And Apoapsis Ellipse",
+    "description": "An elliptical orbit, 0 < e < 1",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "periapsis-and-apoapsis-hyperbola.svg": {
+    "title": "Periapsis And Apoapsis Hyperbola",
+    "description": "A hyperbolic trajectory, e > 1",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "periapsis-and-apoapsis-parabola.svg": {
+    "title": "Periapsis And Apoapsis Parabola",
+    "description": "A parabolic trajectory, e = 1",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "time-since-periapsis-area-animate.svg": {
+    "title": "Time Since Periapsis Area Animate",
+    "description": "Transforming the original elliptical orbit into a circumscribing circle by stretching the ellipse in the vertical direction. Note that the point B translates vertically to point Q.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "time-since-periapsis-area-circle.svg": {
+    "title": "Time Since Periapsis Area Circle",
+    "description": "Areas within the circular sector formed by transforming the original ellipse. Note that the original ellipse has been removed from this figure for clarity and only the circumscribing circle is present.",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "time-since-periapsis-area-ellipse.svg": {
+    "title": "Time Since Periapsis Area Ellipse",
+    "description": "The swept area m_1-P-B inside the elliptical orbit corresponding to time t with true anomaly nu",
+    "date": "2026-06-21T22:10:00+00:00"
+  },
+  "two-point-masses.svg": {
+    "title": "Two Point Masses",
+    "description": "The locations of two point masses, m_1 and m_2, in an inertial reference frame",
+    "date": "2026-06-21T22:10:00+00:00"
+  }
+}

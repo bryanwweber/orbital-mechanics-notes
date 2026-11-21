@@ -3,7 +3,9 @@
         "**/*.md",
         "!.venv",
         "!_build",
-        "!_static"
+        "!_static",
+        "!node_modules",
+        "!vendor"
     ],
     "config": {
         "MD003": false,
