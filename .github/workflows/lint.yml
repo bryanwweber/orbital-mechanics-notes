@@ -20,7 +20,7 @@ jobs:
       contents: read
     env:
       MISE_ENABLE_TOOLS: jactionlint,biome,bun,node,npm:markdownlint-cli2,shellcheck,uv
-      UV_PYTHON: "3.13"
+      UV_PYTHON: "3.15"
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
