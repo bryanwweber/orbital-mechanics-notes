@@ -62,6 +62,16 @@ jobs:
             echo "::error::Book build emitted warnings; refusing to publish."
             exit 1
           fi
+      - name: Fix sitemap and robots URLs
+        env:
+          CUSTOM_DOMAIN: https://orbital-mechanics.space
+        run: |
+          # Work around https://github.com/jupyter-book/myst-theme/issues/669.
+          sed -i \
+            -e "s|http://pre.render|$CUSTOM_DOMAIN|g" \
+            -e "s|http://localhost:3000|$CUSTOM_DOMAIN|g" \
+            _build/html/sitemap.xml \
+            _build/html/robots.txt
       - name: Verify static output
         run: |
           test -s _build/html/index.html
