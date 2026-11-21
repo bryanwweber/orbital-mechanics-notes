@@ -2,8 +2,11 @@
   "name": "orbital-mechanics-notes",
   "private": true,
   "scripts": {
-    "book:dev": "bun run build:threejs && myst start --execute",
-    "book:build": "bun run build:threejs && myst build --html --execute",
+    "book:dev": "bun run build:theme && bun run build:threejs && myst start --execute",
+    "book:build": "bun run build:theme && bun run build:threejs && myst build --html --execute",
+    "build:theme": "bun scripts/build-book-theme.mjs",
+    "test:theme": "node --test scripts/build-book-theme.test.mjs",
+    "browser:iframe-permissions": "node scripts/iframe-permissions-check.mjs",
     "book:version": "myst --version",
     "book:check-urls": "node scripts/book-urls-check.mjs",
     "book:redirects": "node scripts/book-redirects.mjs",

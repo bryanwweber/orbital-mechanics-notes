@@ -1,0 +1,13 @@
+--- a/turbo.json
++++ b/turbo.json
+@@ -8,6 +8,10 @@
+       "dependsOn": ["^build"],
+       "outputs": ["dist/**", ".next/**", "api/**", "public/build/**"]
+     },
++    "@myst-theme/book#build": {
++      "dependsOn": ["^build"],
++      "cache": false
++    },
+     "clean": {
+       "outputs": []
+     },

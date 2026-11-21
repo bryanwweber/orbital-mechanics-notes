@@ -1,0 +1,11 @@
+--- a/packages/prerender/src/index.ts
++++ b/packages/prerender/src/index.ts
+@@ -277,7 +277,7 @@
+       : item.path;
+ 
+   const contentURL = new URL(prerenderPath, 'http://pre.render');
+-  const contentResponse = await handler(new Request(contentURL));
++  const contentResponse = await handler(new Request(contentURL.href));
+ 
+   const prerenderPathNoBase = prerenderPath.slice(base_url.length);
+ 
