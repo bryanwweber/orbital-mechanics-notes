@@ -23,7 +23,7 @@
 - [ ] Can the interactive figures use KaTeX math fonts?
 - [ ] Resolve the hydration warning
 - [ ] Resolve the unsupported feature name "autoplay"
-- [ ] Resolve the deprecated "mathvariant='bold-italic'"
+- [x] Resolve the deprecated "mathvariant='bold-italic'"
 - [ ] Resolve warning about scroll-linked position with asynchronous panning
 - [ ] Resolve warning about microtask reordering
 - [ ] Consider moving flight path angle section to non-Hohmann transfers section
