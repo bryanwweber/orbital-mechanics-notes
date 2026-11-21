@@ -20,7 +20,7 @@
 - [x] Tables are not numbered consecutively
 - [x] Planetary parameters, the tables look terrible
 - [ ] Make the pseudo-potential energy graph interactive on the application of cr3bp
-- [ ] Can the interactive figures use KaTeX math fonts?
+- [x] Can the interactive figures use KaTeX math fonts?
 - [ ] Resolve the hydration warning
 - [ ] Resolve the unsupported feature name "autoplay"
 - [ ] Resolve the deprecated "mathvariant='bold-italic'"
