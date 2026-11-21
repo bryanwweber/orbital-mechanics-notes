@@ -6,7 +6,7 @@ import path from "node:path";
 import test from "node:test";
 
 const cli = path.resolve("node_modules/mystmd/dist/myst.cjs");
-const template = path.resolve("_build/templates/site/myst/book-theme");
+const template = path.resolve("_build/book-theme");
 
 async function build({ urlRoot, folders = true, nestedConfig = true, mode = "toc", outside = false }) {
   const directory = await mkdtemp(path.join(os.tmpdir(), "myst-url-root-"));

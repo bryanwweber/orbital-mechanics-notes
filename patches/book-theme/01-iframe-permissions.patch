@@ -1,0 +1,10 @@
+--- a/packages/myst-to-react/src/iframe.tsx
++++ b/packages/myst-to-react/src/iframe.tsx
+@@ -43,7 +43,6 @@
+           src={node.src}
+           title={node.title}
+           allowFullScreen
+-          allow="autoplay"
+           style={{
+             width: '100%',
+             height: '100%',

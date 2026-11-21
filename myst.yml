@@ -163,7 +163,7 @@ project:
         - file: chapters/orbital-maneuvers/nonimpulsive-orbital-maneuvers.md
         - file: chapters/orbital-maneuvers/nonimpulsive-maneuver-example.md
 site:
-  template: book-theme
+  template: _build/book-theme/template.yml
   options:
     style: assets/orbital-elements.css
     logo: _static/hohmann-light.svg
