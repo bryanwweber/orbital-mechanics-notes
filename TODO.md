@@ -26,7 +26,10 @@
 - [ ] Resolve the deprecated "mathvariant='bold-italic'"
 - [ ] Resolve warning about scroll-linked position with asynchronous panning
 - [ ] Resolve warning about microtask reordering
-- [ ] Consider moving flight path angle section to non-Hohmann transfers section
+- [x] Consider moving flight path angle section to non-Hohmann transfers section
+  Retain the general definition in Orbital Nomenclature: Parabolic Trajectories
+  uses the concept before Orbital Maneuvers, and Non-Hohmann Transfers already
+  references `eq:flight-path-angle`.
 - [ ] Split planetary arrival: capture into text and example pages
 - [x] `swept-angle.svg` and `center-of-curvature.svg` have a font definition included
 - [ ] Upgrade to Python 3.15
