@@ -10,3 +10,14 @@ figure div:has(> iframe[title="Explore the five orbital elements"]) {
 article img[src$=".svg"] {
   background-color: #fff;
 }
+
+/* Reserve space for the potential surface and its accessible controls. */
+figure div:has(> iframe[title="Explore the CR3BP pseudo-potential surface"]) {
+  padding-bottom: 0 !important;
+  height: 700px;
+}
+@media (max-width: 640px) {
+  figure div:has(> iframe[title="Explore the CR3BP pseudo-potential surface"]) {
+    height: 620px;
+  }
+}

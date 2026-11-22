@@ -264,72 +264,12 @@ U(x^*, y^*) = -\frac{1 - \pi_2}{\sigma} - \frac{\pi_2}{\psi} - \frac{1}{2}\left[
 
 A plot of this function is shown in @fig:pseudo-potential-energy-cr3bp, including the positions of the five Lagrange points, for $\pi_2 =$ 0.3.
 
-```{code-cell}
-:tags: [remove-cell]
-
-from matplotlib import cm
-from mpl_toolkits.mplot3d import Axes3D
-
-pi_2 = 0.3
-m_1 = -pi_2
-m_2 = 1 - pi_2
-x = np.linspace(-2, 2, 100)
-y = np.linspace(-2, 2, 100)
-X, Y = np.meshgrid(x, y)
-r_1 = np.sqrt((X + pi_2)**2 + Y**2)
-r_2 = np.sqrt((X - 1 + pi_2)**2 + Y**2)
-U = -(1 - pi_2) / r_1 - pi_2 / r_2 - 0.5 * ((1 - pi_2) * r_1**2 + pi_2 * r_2**2)
-U[U < -3] = -3
-
-def collinear_lagrange(xstar, pi_2):
-    return xstar - (1 - pi_2)/np.abs(xstar + pi_2)**3 * (xstar + pi_2) - pi_2 / np.abs(xstar - 1 + pi_2)**3 * (xstar - 1 + pi_2)
-
-r_L45 = np.sqrt(0.5**2 + 3/4)
-L_45 = -(1 - pi_2)/r_L45 - pi_2/r_L45 - 0.5 * ((1 - pi_2) * r_L45**2 + pi_2 * r_L45**2)
-
-L_1 = newton(func=collinear_lagrange, x0=0, args=(pi_2,))
-L_2 = newton(func=collinear_lagrange, x0=1, args=(pi_2,))
-L_3 = newton(func=collinear_lagrange, x0=-1, args=(pi_2,))
-
-r_1_L1 = L_1 - m_1
-r_2_L1 = m_2 - L_1
-U_L1 = -(1 - pi_2) / r_1_L1 - pi_2 / r_2_L1 - 0.5 * ((1 - pi_2) * r_1_L1**2 + pi_2 * r_2_L1**2)
-
-r_1_L2 = L_2 - m_1
-r_2_L2 = L_2 - m_2
-U_L2 = -(1 - pi_2) / r_1_L2 - pi_2 / r_2_L2 - 0.5 * ((1 - pi_2) * r_1_L2**2 + pi_2 * r_2_L2**2)
-
-r_1_L3 = m_1 - L_3
-r_2_L3 = m_2 - L_3
-U_L3 = -(1 - pi_2) / r_1_L3 - pi_2 / r_2_L3 - 0.5 * ((1 - pi_2) * r_1_L3**2 + pi_2 * r_2_L3**2)
-
-fig = plt.figure(figsize=(12, 12))
-ax = fig.add_subplot(111, projection='3d')
-azim = -29.220779220779093
-elev = 69.05844155844153
-ax.view_init(elev, azim)
-ax.set_zlim(-3, -1.5)
-ax.axis('off')
-ax.plot_surface(X, Y, U, rcount=100, ccount=100, cmap=cm.cividis, linewidth=0, antialiased=True, alpha=0.8)
-ax.plot(L_1, 0, U_L1, 'rv', zorder=10, label="$L_1$", markersize=15)
-ax.plot(L_2, 0, U_L2, 'r^', zorder=10, label="$L_2$", markersize=15)
-ax.plot(L_3, 0, U_L3, 'rp', zorder=10, label="$L_3$", markersize=15)
-ax.plot(0.5 - pi_2, np.sqrt(3)/2, L_45, 'rX', zorder=10, label="$L_4$", markersize=15)
-ax.plot(0.5 - pi_2, -np.sqrt(3)/2, L_45, 'rs', zorder=10, label="$L_5$", markersize=15)
-ax.legend();
-```
-
-```{code-cell} ipython3
-:label: code:pseudo-potential-energy-cr3bp
-:tags: [remove-cell]
-
-fig
-```
-
-:::{figure} #code:pseudo-potential-energy-cr3bp
+:::{html-figure} ../../assets/cr3bp-potential.html
 :name: fig:pseudo-potential-energy-cr3bp
+:title: Explore the CR3BP pseudo-potential surface
+:placeholder: ../../assets/threejs-placeholders/cr3bp-potential.png
 
-The pseudo-potential energy function in the rotation reference frame used for the CR3BP, with $\pi_2 =$ 0.3. The five Lagrange points for this system are labeled on the figure.
+The pseudo-potential energy function in the rotating reference frame used for the CR3BP, initially with $\pi_2 =$ 0.3. The five Lagrange points are labeled. Drag to rotate, scroll to zoom, or use the keyboard controls described below the plot. Change the mass ratio or turn the surface upside-down to explore its shape.
 :::
 
 Using this figure, we can get a qualitative sense of the stability of the Lagrange points. Imagine that we turn the potential function upside-down, and put a marble on each of the Lagrange points.
