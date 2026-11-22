@@ -5,6 +5,10 @@ const output = "assets/js/orbital-three";
 const packages = {};
 const project = JSON.parse(await readFile("package.json", "utf8"));
 await mkdir(output, { recursive: true });
+await mkdir("assets/fonts/katex", { recursive: true });
+for (const filename of ['KaTeX_Main-Regular.ttf', 'KaTeX_Math-Italic.ttf', 'LICENSE']) {
+  await writeFile(`assets/fonts/katex/${filename}`, await readFile(`assets-src/fonts/katex/${filename}`));
+}
 for (const name of ["three", "lil-gui"]) {
   const metadata = JSON.parse(await readFile(`node_modules/${name}/package.json`, "utf8"));
   if (project.dependencies[name] !== metadata.version) {
@@ -15,7 +19,7 @@ for (const name of ["three", "lil-gui"]) {
   await writeFile(`${output}/${name}.LICENSE.txt`, await readFile(`node_modules/${name}/${license}`));
 }
 const result = await Bun.build({
-  entrypoints: ["assets-src/orbital-three.mjs"],
+  entrypoints: ["assets-src/orbital-three.mjs", "assets-src/math-fonts.mjs"],
   outdir: output,
   naming: "[name].js",
   target: "browser",
