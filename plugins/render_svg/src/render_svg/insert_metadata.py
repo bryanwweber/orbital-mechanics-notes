@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Literal
 from xml.etree import ElementTree as ET
 
@@ -77,8 +79,8 @@ def create_metadata(title: str, description: str, date: str) -> ET.Element:
 
 
 def main(
-    svg_tree: "ET.ElementTree[ET.Element[str]]", metadata_json: METADATA_T
-) -> "ET.ElementTree[ET.Element[str]]":
+    svg_tree: ET.ElementTree[ET.Element[str]], metadata_json: METADATA_T
+) -> ET.ElementTree[ET.Element[str]]:
     svg_element = svg_tree.getroot()
     if svg_element is None:
         raise ValueError("Could not find root SVG element")
