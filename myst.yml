@@ -6,6 +6,8 @@ project:
       path: plugins/inlineHTML.mjs
     - type: javascript
       path: plugins/htmlFigure.mjs
+    - type: javascript
+      path: plugins/mathmlCore.mjs
   static_files:
     - assets/
     - _build/html-figures/chapters/
