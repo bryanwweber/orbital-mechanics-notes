@@ -108,7 +108,7 @@ The data shown in @tab:standish-keplerian-elements are valid from AD 1800-AD 205
 :::{table} Additional terms which must be added to the computation of $M_e$ for Jupiter through Pluto, 3000 BC to AD 3000. Reproduced from {cite:t}`Standish1992` and {cite:t}`Standish2021`. The subset here is for demonstration only.
 :name: tab:standish-long-term-elements
 
-|              | $b$             | $c$            | $s$          | $f$            |
+| Planet       | $b$             | $c$            | $s$          | $f$            |
 | ------------ | --------------- | -------------- | ------------ | -------------- |
 | Jupiter      | -0.00012452     | 0.06064060     | -0.35635438  | 38.35125000    |
 :::
