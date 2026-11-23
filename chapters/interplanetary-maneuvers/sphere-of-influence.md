@@ -8,6 +8,7 @@ To define the start and end of the planetary trajectories, we define the [**sphe
 
 :::{image} ../../images/interplanetary-transfer.svg
 :width: 100%
+:alt: A spacecraft leaves the departure planet's dashed sphere of influence, follows an orbit around the Sun, and enters the arrival planet's sphere of influence.
 :::
 
 Conceptually, we can imagine the sphere of influence as a boundary, inside of which the planet's gravitational pull dominates the pull of the Sun on a much smaller mass. This allows us to estimate a specific radius beyond which the focus of the trajectory switches from the planet to the Sun. Therefore, the velocity that the spacecraft has when it leaves the sphere of influence of a planet is the velocity that it starts with on its heliocentric trajectory.

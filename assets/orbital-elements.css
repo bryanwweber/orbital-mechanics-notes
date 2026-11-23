@@ -21,3 +21,12 @@ figure div:has(> iframe[title="Explore the CR3BP pseudo-potential surface"]) {
     height: 620px;
   }
 }
+
+.myst-fm-author-icon-link {
+  display: inline-flex;
+  min-width: 24px;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}

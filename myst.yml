@@ -13,6 +13,7 @@ project:
     - _build/html-figures/chapters/
   jupyter: false
   title: Orbital Mechanics & Astrodynamics
+  description: An undergraduate textbook on orbital mechanics and astrodynamics, with derivations, worked examples, and interactive figures.
   authors:
     - name: Bryan Weber
       orcid: "0000-0003-0815-9270"
@@ -171,5 +172,6 @@ site:
     style: assets/orbital-elements.css
     logo: _static/hohmann-light.svg
     logo_dark: _static/hohmann-dark.svg
+    logo_alt: Orbital Mechanics & Astrodynamics
     favicon: _static/favicon-16x16.png
     folders: true
