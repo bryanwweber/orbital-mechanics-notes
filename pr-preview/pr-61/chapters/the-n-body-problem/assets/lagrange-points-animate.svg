@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="45 15 820 620" role="img" aria-labelledby="title description">
+<title id="title">The five Lagrange points</title>
+<desc id="description">Positions in rotating dimensionless coordinates as the mass ratio changes. Dashed lines connect the masses and equilateral points. Circles show the primary orbits about the center of mass.</desc>
+<rect width="900" height="700" fill="white"/>
+<g font-family="sans-serif" font-size="17" fill="#292524">
+<path d="M60 350H840 M450 75V625" stroke="#a8a29e"/>
+<text x="850" y="338" text-anchor="end">x*</text><text x="462" y="82">y*</text>
+<path d="M75.0 345v10" stroke="#a8a29e"/><text x="75.0" y="379" text-anchor="middle">-1.5</text>
+<path d="M200 345v10" stroke="#a8a29e"/><text x="200" y="379" text-anchor="middle">-1</text>
+<path d="M325.0 345v10" stroke="#a8a29e"/><text x="325.0" y="379" text-anchor="middle">-0.5</text>
+<path d="M575.0 345v10" stroke="#a8a29e"/><text x="575.0" y="379" text-anchor="middle">0.5</text>
+<path d="M700 345v10" stroke="#a8a29e"/><text x="700" y="379" text-anchor="middle">1</text>
+<path d="M825.0 345v10" stroke="#a8a29e"/><text x="825.0" y="379" text-anchor="middle">1.5</text>
+<text x="440" y="606" text-anchor="end">-1</text>
+<text x="440" y="481.0" text-anchor="end">-0.5</text>
+<text x="440" y="231.0" text-anchor="end">0.5</text>
+<text x="440" y="106" text-anchor="end">1</text>
+<circle id="m1-orbit" cx="450" cy="350" r="0.0025" fill="none" stroke="#e07b39" stroke-width="2"/>
+<circle id="m2-orbit" cx="450" cy="350" r="249.9975" fill="none" stroke="#4c78a8" stroke-width="2"/>
+<polyline id="equilateral" points="449.9975,350 574.9975,133.49364905389035 699.9975,350 574.9975,566.5063509461097 449.9975,350" fill="none" stroke="#57534e" stroke-dasharray="6 5"/>
+<g id="L1" transform="translate(696.2816750928423 350)"><path d="M-8 -6H8L0 9Z" stroke="#c62828" stroke-width="3" fill="#c62828"/></g>
+<g transform="translate(100 35)"><path d="M-8 -6H8L0 9Z" stroke="#c62828" stroke-width="3" fill="#c62828"/><text x="16" y="6">L<tspan baseline-shift="sub" font-size="12">1</tspan></text></g>
+<g id="L2" transform="translate(703.7505144384705 350)"><path d="M-8 6H8L0 -9Z" stroke="#c62828" stroke-width="3" fill="#c62828"/></g>
+<g transform="translate(210 35)"><path d="M-8 6H8L0 -9Z" stroke="#c62828" stroke-width="3" fill="#c62828"/><text x="16" y="6">L<tspan baseline-shift="sub" font-size="12">2</tspan></text></g>
+<g id="L3" transform="translate(199.9989583333333 350)"><path d="M0 -9L9 -3L6 8H-6L-9 -3Z" stroke="#c62828" stroke-width="3" fill="#c62828"/></g>
+<g transform="translate(320 35)"><path d="M0 -9L9 -3L6 8H-6L-9 -3Z" stroke="#c62828" stroke-width="3" fill="#c62828"/><text x="16" y="6">L<tspan baseline-shift="sub" font-size="12">3</tspan></text></g>
+<g id="L4" transform="translate(574.9975 133.49364905389035)"><path d="M-7 -7L7 7M-7 7L7 -7" stroke="#c62828" stroke-width="3" fill="#c62828"/></g>
+<g transform="translate(430 35)"><path d="M-7 -7L7 7M-7 7L7 -7" stroke="#c62828" stroke-width="3" fill="#c62828"/><text x="16" y="6">L<tspan baseline-shift="sub" font-size="12">4</tspan></text></g>
+<g id="L5" transform="translate(574.9975 566.5063509461097)"><path d="M-7 -7H7V7H-7Z" stroke="#c62828" stroke-width="3" fill="#c62828"/></g>
+<g transform="translate(540 35)"><path d="M-7 -7H7V7H-7Z" stroke="#c62828" stroke-width="3" fill="#c62828"/><text x="16" y="6">L<tspan baseline-shift="sub" font-size="12">5</tspan></text></g>
+<g id="m1" transform="translate(449.9975 350)"><circle r="8" fill="#2454b5"/></g>
+<g transform="translate(650 35)"><circle r="8" fill="#2454b5"/><text x="16" y="6">m<tspan baseline-shift="sub" font-size="12">1</tspan></text></g>
+<g id="m2" transform="translate(699.9975 350)"><circle r="8" fill="#16803c"/></g>
+<g transform="translate(760 35)"><circle r="8" fill="#16803c"/><text x="16" y="6">m<tspan baseline-shift="sub" font-size="12">2</tspan></text></g>
+<g aria-label="Center of mass" transform="translate(450 350)"><circle r="8" fill="white" stroke="black"/><path d="M0 0H8A8 8 0 0 0 0 -8ZM0 0H-8A8 8 0 0 0 0 8Z"/></g>
+<text id="mass-ratio" x="680" y="115" text-anchor="middle">π₂ = 1e-05</text>
+</g></svg>

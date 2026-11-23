@@ -1,0 +1,13 @@
+{
+  "generatedBy": "bun run build:threejs",
+  "bun": "1.4.4",
+  "packages": {
+    "three": "0.187.0",
+    "lil-gui": "0.21.0"
+  },
+  "upstream": {
+    "three": "https://github.com/mrdoob/three.js",
+    "lil-gui": "https://github.com/georgealways/lil-gui"
+  },
+  "sha256": "214ddd18270ba7d9f443a262dfe78867b35cc194a5626fd1f0b40b8537d0fbd8"
+}

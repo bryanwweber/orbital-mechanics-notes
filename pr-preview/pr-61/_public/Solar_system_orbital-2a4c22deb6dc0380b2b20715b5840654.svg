@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+""" To recover the Python script to generate this SVG, delete the line above -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-147 -340 500 500">
+ <title>solar system orbital period vs semimajor axis</title>
+ <desc>Log-log plot of orbital period in Earth years vs orbit semi-major axis in AU of some Solar System bodies by CMG Lee. Crosses denote values used by Kepler. Data is from http://nssdc.gsfc.nasa.gov/planetary/factsheet/planet_table_ratio.html .</desc>
+<!-- BEGIN_DYNAMIC_DEFS -->
+
+<!--   END_DYNAMIC_DEFS -->
+ <defs>
+  <g id="grid_log" stroke="#cccccc">
+   <path d="M 30.1,0 V 100 M 47.71,0 V 100 M 60.2,0 V 100 M 77.82,0 V 100 M 84.51,0 V 100 M 90.3,0 V 100 M 95.42,0 V 100" stroke-width="0.5"/>
+   <path d="M 0.2,0 V 100 M 69.9,0 V 100 M 99.8,0 V 100"/>
+  </g>
+  <pattern id="pattern_grid_log_log" patternUnits="userSpaceOnUse" width="100" height="100">
+   <use xlink:href="#grid_log"/>
+   <use xlink:href="#grid_log" transform="translate(0,100) rotate(270)"/>
+  </pattern>
+
+  <filter id="filter_blur"><feGaussianBlur stdDeviation="4"/></filter>
+  <radialGradient id="grad_sphere" cx="50%" cy="50%" r="50%" fx="50%" fy="90%">
+   <stop offset="0%"  stop-color="#000000" stop-opacity="0"/>
+   <stop offset="99%" stop-color="#000000" stop-opacity="0.3"/>
+  </radialGradient>
+  <linearGradient id="grad_highlight" x1="0%" y1="0%" x2="0%" y2="100%">
+   <stop offset="10%" stop-color="#ffffff" stop-opacity="0.9"/>
+   <stop offset="99%" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <g id="orb" stroke="none">
+   <circle  cx="0" cy="0" r="100"/>
+   <circle  cx="0" cy="0" r="100" fill="url(#grad_sphere)"/>
+   <ellipse cx="0" cy="-45" rx="70" ry="50" fill="url(#grad_highlight)" filter="url(#filter_blur)"/>
+  </g>
+  <g id="planet"><use xlink:href="#orb" transform="scale(0.1)"/></g>
+  <g id="dwarf"><use xlink:href="#orb" transform="scale(0.05)"/></g>
+
+  <path id="cross" d="M -4,-4 L 4,4 M -4,4 L 4,-4" stroke="#000000" pointer-events="none"/>
+ </defs>
+ <circle cx="0" cy="0" r="99999" fill="#ffffff"/>
+ <g font-family="Helvetica,Arial,sans-serif" font-size="18" text-anchor="start" fill="#000000" stroke="none">
+  <path d="M 0,0 H 200 V -300" fill="#eeffee"/>
+  <rect x="-100" y="-300" width="448" height="400" fill="url(#pattern_grid_log_log)" stroke="#999999"/>
+  <text transform="translate(-100,-300)" x="-4.7ex" y="-2ex">Orbital period (Earth years)</text>
+  <g text-anchor="middle">
+   <text transform="translate(-100,-300)" x="-2.5ex" y="0.7ex">1000</text>
+   <text transform="translate(-100,-200)" x="-2.5ex" y="0.7ex">100</text>
+   <text transform="translate(-100,-100)" x="-2.5ex" y="0.7ex">10</text>
+   <text transform="translate(-100,   0)" x="-2.5ex" y="0.7ex">1</text>
+   <text transform="translate(-100, 100)" x="-2.5ex" y="0.7ex">0.1</text>
+   <!--
+   <text transform="translate(-100,  52)" x="-2.5ex" y="0.7ex">0.3</text>
+   <text transform="translate(-100, -48)" x="-2.5ex" y="0.7ex">3</text>
+   <text transform="translate(-100,-148)" x="-2.5ex" y="0.7ex">30</text>
+   <text transform="translate(-100,-248)" x="-2.5ex" y="0.7ex">300</text>
+   <text transform="translate( -52, 100)" x="0" y="2.5ex">0.3</text>
+   <text transform="translate(  48, 100)" x="0" y="2.5ex">3</text>
+   <text transform="translate( 148, 100)" x="0" y="2.5ex">30</text>
+   <text transform="translate( 248, 100)" x="0" y="2.5ex">300</text>
+   -->
+   <text transform="translate(-100, 100)" x="0" y="2.5ex">0.1</text>
+   <text transform="translate(   0, 100)" x="0" y="2.5ex">1</text>
+   <text transform="translate( 100, 100)" x="0" y="2.5ex">10</text>
+   <text transform="translate( 200, 100)" x="0" y="2.5ex">100</text>
+   <text transform="translate( 300, 100)" x="0" y="2.5ex">1000</text>
+   <text transform="translate( 125, 100)" x="0" y="5ex">Orbit semi-major axis (astronomical units)</text>
+  </g>
+  <path d="M 210,-315 L -76,114" stroke="#00cc00" stroke-width="2"/>
+<!-- BEGIN_DYNAMIC_MAIN -->
+  <g transform="translate(-41.34,61.80)">
+   <use xlink:href="#planet" fill="#cccccc"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Mercury</tspan
+    ><tspan font-size="17">:&#8202;0.386&#8201;AU,&#8202;0.241&#8201;y</tspan></text>
+   <title>MERCURY
+Orbit semimajor axis: 0.386 AU
+Orbital period: 0.241 Earth years</title>
+  </g>
+  <use xlink:href="#cross" transform="translate(-41.01,61.98)"/>
+  <g transform="translate(-14.06,21.11)">
+   <use xlink:href="#planet" fill="#ffcc00"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Venus</tspan
+    ><tspan font-size="17">:&#8202;0.724&#8201;AU,&#8202;0.615&#8201;y</tspan></text>
+   <title>VENUS
+Orbit semimajor axis: 0.7235 AU
+Orbital period: 0.615 Earth years</title>
+  </g>
+  <use xlink:href="#cross" transform="translate(-14.03,21.11)"/>
+  <g transform="translate(0.00,-0.00)">
+   <use xlink:href="#planet" fill="#0099ff"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Earth</tspan
+    ><tspan font-size="17">:&#8202;1.00&#8201;AU,&#8202;1.00&#8201;y</tspan></text>
+   <title>EARTH
+Orbit semimajor axis: 1 AU
+Orbital period: 1 Earth year</title>
+  </g>
+  <use xlink:href="#cross" transform="translate(0.00,-0.00)"/>
+  <g transform="translate(18.33,-27.42)">
+   <use xlink:href="#planet" fill="#ff9999"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Mars</tspan
+    ><tspan font-size="17">:&#8202;1.52&#8201;AU,&#8202;1.88&#8201;y</tspan></text>
+   <title>MARS
+Orbit semimajor axis: 1.525 AU
+Orbital period: 1.88 Earth years</title>
+  </g>
+  <use xlink:href="#cross" transform="translate(18.30,-27.44)"/>
+  <g transform="translate(71.60,-107.55)">
+   <use xlink:href="#planet" fill="#ffcc99"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Jupiter</tspan
+    ><tspan font-size="17">:&#8202;5.20&#8201;AU,&#8202;11.9&#8201;y</tspan></text>
+   <title>JUPITER
+Orbit semimajor axis: 5.2 AU
+Orbital period: 11.9 Earth years</title>
+  </g>
+  <use xlink:href="#cross" transform="translate(71.60,-107.42)"/>
+  <g transform="translate(98.14,-146.83)">
+   <use xlink:href="#planet" fill="#ffcc66"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Saturn</tspan
+    ><tspan font-size="17">:&#8202;9.58&#8201;AU,&#8202;29.4&#8201;y</tspan></text>
+   <title>SATURN
+Orbit semimajor axis: 9.58 AU
+Orbital period: 29.4 Earth years</title>
+  </g>
+  <use xlink:href="#cross" transform="translate(97.82,-146.92)"/>
+  <g transform="translate(128.32,-192.27)">
+   <use xlink:href="#planet" fill="#66ccff"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Uranus</tspan
+    ><tspan font-size="17">:&#8202;19.2&#8201;AU,&#8202;83.7&#8201;y</tspan></text>
+   <title>URANUS
+Orbit semimajor axis: 19.195 AU
+Orbital period: 83.7 Earth years</title>
+  </g>
+  <g transform="translate(147.79,-221.40)">
+   <use xlink:href="#planet" fill="#9999ff"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Neptune</tspan
+    ><tspan font-size="17">:&#8202;30.1&#8201;AU,&#8202;164&#8201;y</tspan></text>
+   <title>NEPTUNE
+Orbit semimajor axis: 30.055 AU
+Orbital period: 163.7 Earth years</title>
+  </g>
+  <g transform="translate(159.47,-239.43)">
+   <use xlink:href="#dwarf" fill="#ff9966"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Pluto</tspan
+    ><tspan font-size="17">:&#8202;39.3&#8201;AU,&#8202;248&#8201;y</tspan></text>
+   <title>PLUTO
+Orbit semimajor axis: 39.325 AU
+Orbital period: 247.9 Earth years</title>
+  </g>
+  <g transform="translate(183.16,-274.75)">
+   <use xlink:href="#dwarf" fill="#999999"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Eris</tspan
+    ><tspan font-size="17">:&#8202;67.9&#8201;AU,&#8202;559&#8201;y</tspan></text>
+   <title>ERIS
+Orbit semimajor axis: 67.864 AU
+Orbital period: 559.07 Earth years</title>
+  </g>
+  <g transform="translate(44.24,-66.37)">
+   <use xlink:href="#dwarf" fill="#666666"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">Ceres</tspan
+    ><tspan font-size="17">:&#8202;2.77&#8201;AU,&#8202;4.61&#8201;y</tspan></text>
+   <title>CERES
+Orbit semimajor axis: 2.7695 AU
+Orbital period: 4.61 Earth years</title>
+  </g>
+<!--   END_DYNAMIC_MAIN -->
+ </g>
+</svg>
+<!-- Please retain this and other comments, which contain Python code to generate this SVG. """
+import re, math
+class dict2class(dict):
+ def __getattr__(self, k): return dict2class(self[k]) if isinstance(self[k], dict) else self[k]
+def fmt(string): ## string.format(**vars()) using tags {expression!format} by CMG Lee
+ def f(tag): i_sep = tag.rfind('!'); return (re.sub('\.0$', '', str(eval(tag[1:-1])))
+  if (i_sep < 0) else ('{:%s}' % tag[i_sep + 1:-1]).format(eval(tag[1:i_sep])))
+ return (re.sub(r'(?<!{){[^{}]+}', lambda m:f(m.group()), string)
+         .replace('{{', '{').replace('}}', '}'))
+def append(obj, string): return obj.append(fmt(string))
+def roundm(x, multiple=1):
+ if   (isinstance(x, tuple)): return tuple(roundm(list(x), multiple))
+ elif (isinstance(x, list )): return [roundm(x_i, multiple) for x_i in x]
+ else: return int(math.floor(float(x) / multiple + 0.5)) * multiple
+def try_int_float(field):
+ try:               return int(field)
+ except Exception:
+  try:              return float(field)
+  except Exception: return field
+def tabbify(cellss, separator='|'):
+ cellpadss = [list(rows) + [''] * (len(max(cellss, key=len)) - len(rows)) for rows in cellss]
+ fmts = ['%%%ds' % (max([len(str(cell)) for cell in cols])) for cols in zip(*cellpadss)]
+ return '\n'.join([separator.join(fmts) % tuple(rows) for rows in cellpadss])
+
+def compute_x(period        ): return  100 * math.log10(period        )
+def compute_y(semimajor_axis): return -100 * math.log10(semimajor_axis)
+def roundsf(x, sf=3):
+ str_round = str(round(x, sf - 1 - int(math.floor(math.log10(abs(x))))))
+ n_pad     = sf - len(re.sub(r'\D', r'', str_round).lstrip('0'))
+ if n_pad < 0: return str_round[:-2]
+ else:         return str_round + '0' * n_pad
+# for x in [1, 0.1, 0.012345, 123.45, 4e4, 4e-4, math.pi]:
+#  for sf in range(1, 7): print(x, sf, roundsf(x, sf), roundsf(-x, sf))
+
+(out_defs, out_mains) = ([], [])
+datass = [[try_int_float(field.strip()) for field in record.split('|')] for record in '''
+Mercury| 0.313| 0.459|  0.241|#cccccc|0| 0.389|  0.240
+Venus  | 0.731| 0.716|  0.615|#ffcc00|0| 0.724|  0.615
+Earth  | 1    | 1    |  1    |#0099ff|0| 1    |  1
+Mars   | 1.41 | 1.64 |  1.88 |#ff9999|0| 1.524|  1.881
+Jupiter| 5.03 | 5.37 | 11.9  |#ffcc99|0| 5.20 | 11.862
+Saturn | 9.2  | 9.96 | 29.4  |#ffcc66|0| 9.510| 29.457
+Uranus |18.64 |19.75 | 83.7  |#66ccff|0|      |
+Neptune|30.22 |29.89 |163.7  |#9999ff|0|      |
+Pluto  |30.16 |48.49 |247.9  |#ff9966|1|      |
+Eris   |38.271|97.457|559.07 |#999999|1|      |
+Ceres  | 2.559| 2.980|  4.61 |#666666|1|      |
+'''.strip().split('\n')] ## name|perihelion|aphelion|orbital period
+# print(tabbify(datass))
+
+for (name, perihelion, aphelion, period, colour, is_dwarf, kepler_radius, kepler_period) in datass:
+ semimajor_axis     = float(perihelion + aphelion) / 2
+ out_semimajor_axis = roundsf(semimajor_axis, 3)
+ out_period         = roundsf(period        , 3)
+ print(name, out_semimajor_axis, out_period, compute_x(period), compute_y(semimajor_axis))
+ append(out_mains, '''\
+  <g transform="translate({compute_x(semimajor_axis)!.2f},{compute_y(period)!.2f})">
+   <use xlink:href="#{'dwarf' if is_dwarf else 'planet'}" fill="{colour}"/>
+   <text transform="translate(12,0)" x="0" y="0.7ex"
+    ><tspan font-weight="bold">{name}</tspan
+    ><tspan font-size="17">:&#8202;{out_semimajor_axis}&#8201;AU,&#8202;{out_period}&#8201;y</tspan></text>
+   <title>{name.upper()}
+Orbit semimajor axis: {semimajor_axis} AU
+Orbital period: {period} Earth year{'' if period == 1 else 's'}</title>
+  </g>''')
+ if kepler_radius != '':
+  append(out_mains, '''\
+  <use xlink:href="#cross" transform="translate({compute_x(kepler_radius)!.2f},{compute_y(kepler_period)!.2f})"/>''')
+
+out_p = fmt('width="100%" height="100%" viewBox="-147 -340 500 500"')
+
+## Compile everything into an .svg file
+myself   = open(__file__, 'r').read() ## the contents of this very file
+file_out = open(__file__[:__file__.rfind('.')] + '.svg', 'w') ## *.* -> *.svg
+try: ## use try/finally so that file is closed even if write fails
+ file_out.write('''<?xml version="1.0" encoding="utf-8"?><!%s%s
+%s%s%s\n%s%s\n%s%s''' % ('-', '-', ## because SVG comments cannot have 2 consecutive '-'s
+  myself[:myself.find('width',myself.find('<svg'))], ## assume width specified before height/viewBox
+  out_p, ## replace SVG width/height/viewBox with {out_p} & dynamic SVG blocks with {out*s} contents
+  myself[myself.find ('>',myself.find('<svg')):
+         myself.find ('\n',myself.find('BEGIN_'+'DYNAMIC_DEFS'))], '\n'.join(out_defs),
+  myself[myself.rfind('\n',0,myself.find('END_'+'DYNAMIC_DEFS')):
+         myself.find ('\n',myself.find('BEGIN_'+'DYNAMIC_MAIN'))], '\n'.join(out_mains),
+  myself[myself.rfind('\n',0,myself.find('END_'+'DYNAMIC_MAIN')):]))
+finally:
+ file_out.close()
+
+## SVG-Python near-polyglot framework version 3 by CMG Lee (March 2018) -->

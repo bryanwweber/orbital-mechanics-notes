@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg version="1.1" viewBox="-432 -432 864 864" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>Comparison of several satellite navigation system orbits</title>
+ <switch></switch>
+ <style type="text/css">.main { font-family:Helvetica,Arial,sans-serif; font-size:40px; text-anchor:end; fill:none; stroke-opacity:0.75; stroke-width:2; stroke-linecap:round; cursor:default; }
+.main:hover   { fill-opacity:0.2; stroke-opacity:0.2; }
+.active:hover { fill-opacity:1;   stroke-opacity:1; stroke-width:3; }
+.nofade       { fill-opacity:1;   stroke-opacity:1; pointer-events:none; }
+.vab  { font-style:italic; font-weight:bold; font-size:24px; text-anchor:middle; stroke:none; }
+.rule { fill:none; stroke-width:1; }
+path, ellipse { pointer-events:none; }
+text { stroke:none; }
+a    { outline:none; }
+@keyframes         rot { from { transform:         rotate(360deg); } to   { transform:         rotate(0deg);   } }
+@-moz-keyframes    rot { from { -moz-transform:    rotate(360deg); } to   { -moz-transform:    rotate(0deg);   } }
+@-webkit-keyframes rot { from { -webkit-transform: rotate(360deg); } to   { -webkit-transform: rotate(0deg);   } }
+.rot_sun { animation:         rot 8766s  linear infinite; -moz-animation:    rot 8766s  linear infinite; -webkit-animation: rot 8766s  linear infinite; }
+.rot_gra { animation:         rot 24.19s linear infinite; -moz-animation:    rot 24.19s linear infinite; -webkit-animation: rot 24.19s linear infinite; }
+.rot_geo { animation:         rot 23.93s linear infinite; -moz-animation:    rot 23.93s linear infinite; -webkit-animation: rot 23.93s linear infinite; }
+.rot_gal { animation:         rot 14.37s linear infinite; -moz-animation:    rot 14.37s linear infinite; -webkit-animation: rot 14.37s linear infinite; }
+.rot_com { animation:         rot 12.62s linear infinite; -moz-animation:    rot 12.62s linear infinite; -webkit-animation: rot 12.62s linear infinite; }
+.rot_gps { animation:         rot 11.97s linear infinite; -moz-animation:    rot 11.97s linear infinite; -webkit-animation: rot 11.97s linear infinite; }
+.rot_glo { animation:         rot 11.25s linear infinite; -moz-animation:    rot 11.25s linear infinite; -webkit-animation: rot 11.25s linear infinite; }
+.rot_iri { animation:         rot  1.7s  linear infinite; -moz-animation:    rot  1.7s  linear infinite; -webkit-animation: rot  1.7s  linear infinite; }
+.rot_hub { animation:         rot  1.6s  linear infinite; -moz-animation:    rot  1.6s  linear infinite; -webkit-animation: rot  1.6s  linear infinite; }
+.rot_iss { animation:         rot  1.5s  linear infinite; -moz-animation:    rot  1.5s  linear infinite; -webkit-animation: rot  1.5s  linear infinite; }
+.rot_min { animation:         rot  1s    linear infinite; -moz-animation:    rot  1s    linear infinite; -webkit-animation: rot  1s    linear infinite; }
+.rot_hr  { animation:         rot  12s   linear infinite; -moz-animation:    rot  12s   linear infinite; -webkit-animation: rot  12s   linear infinite; }</style>
+ <defs>
+  <radialGradient id="gradient_shade" r="67%" fx="33%" fy="33%">
+   <stop stop-color="#000000" stop-opacity="0" offset=".1"/>
+   <stop stop-color="#000000" stop-opacity=".75" offset=".99"/>
+  </radialGradient>
+  <radialGradient id="gradient_vab">
+   <stop stop-color="#ff9900" stop-opacity="0" offset=".074"/>
+   <stop stop-color="#ff9900" stop-opacity=".3" offset=".094"/>
+   <stop stop-color="#ff9900" stop-opacity=".3" offset=".104"/>
+   <stop stop-color="#ff9900" stop-opacity="0" offset=".124"/>
+   <stop stop-color="#9999ff" stop-opacity="0" offset=".194"/>
+   <stop stop-color="#9999ff" stop-opacity=".2" offset=".214"/>
+   <stop stop-color="#9999ff" stop-opacity="0" offset=".664"/>
+  </radialGradient>
+  <path id="km" class="rule" d="m10 0v-10m10 10v-10m10 10v-10m10 10v-10m10 10v-20m10 20v-10m10 10v-10m10 10v-10m10 10v-10m10 10v-30"/>
+  <path id="mi" class="rule" d="m16.1 0v10m16.1-10v10m16.1-10v10m16.1-10v10m16.1-10v20m16.1-20v10m16.1-10v10m16.1-10v10m16.1-10v10m16.1-10v30"/>
+  <circle id="satellite" r="3"/>
+  <path id="tick" d="m0-50v-10"/>
+  <g id="tick_3" stroke="#cccccc">
+   <use stroke="#999999" xlink:href="#tick"/>
+   <use transform="rotate(30)" xlink:href="#tick"/>
+   <use transform="rotate(60)" xlink:href="#tick"/>
+  </g>
+  <clipPath id="clip_earth">
+   <ellipse rx="100" ry="100"/>
+  </clipPath>
+ </defs>
+ <g class="main">
+  <circle r="99999" fill="#ffffff"/>
+  <g id="vab" class="active vab">
+   <ellipse rx="1e3" ry="1e3" fill="url(#gradient_vab)"/>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Van_Allen_radiation_belt">
+     <text x="-6" y="-109" fill="#cc6600"><tspan>Inner   Van</tspan><tspan x="-6" y="-86">Allen   belt</tspan></text>
+     <text x="80" y="358" fill="#9999cc"><tspan>Outer Van</tspan><tspan x="80" y="380">Allen belt</tspan></text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/Cinturones_de_Van_Allen">
+     <text x="-6" y="-117" fill="#cc6600"><tspan>Cinturón   de Van</tspan><tspan x="10" y="-94">Allen   interior</tspan></text>
+     <text x="100" y="358" fill="#9999cc"><tspan>Cinturón de Van</tspan><tspan x="100" y="380">Allen exterior</tspan></text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Ceinture_de Van_Allen">
+     <text x="-6" y="-117" fill="#cc6600"><tspan>Ceinture de Van</tspan><tspan x="10" y="-94">Allen intérieure</tspan></text>
+     <text x="100" y="358" fill="#9999cc"><tspan>Ceinture de Van</tspan><tspan x="100" y="380">Allen extérieure</tspan></text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Van_Allen_radiation_belt">
+     <text x="-6" y="-109" fill="#cc6600"><tspan>Inner   Van</tspan><tspan x="-6" y="-86">Allen   belt</tspan></text>
+     <text x="80" y="358" fill="#9999cc"><tspan>Outer Van</tspan><tspan x="80" y="380">Allen belt</tspan></text>
+    </a>
+   </switch>
+  </g>
+  <g id="grave" class="active" fill="#cc9999" stroke="#cc9999" text-anchor="end">
+   <path d="m0-425h140"/>
+   <ellipse rx="425" ry="425" fill="none"/>
+   <g class="rot_gra">
+    <use transform="translate(0,-425)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Graveyard_orbit">
+     <text x="430" y="-400"><tspan>Graveyard orbit</tspan><tspan x="430" y="-366" font-size="28">(GEO+300 km)</tspan></text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/%C3%93rbita_cementerio">
+     <text x="430" y="-400"><tspan>Órbita cementerio</tspan><tspan x="430" y="-366" font-size="28">(GEO+300 km)</tspan></text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Orbite_de_rebut">
+     <text x="430" y="-400"><tspan>Orbite de rebut</tspan><tspan x="430" y="-366" font-size="28">(GEO+300 km)</tspan></text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Graveyard_orbit">
+     <text x="430" y="-400"><tspan>Graveyard orbit</tspan><tspan x="430" y="-366" font-size="28">(GEO+300 km)</tspan></text>
+    </a>
+   </switch>
+  </g>
+  <g id="geo" class="active" fill="#666666" stroke="#666666">
+   <path d="m0-422h-170"/>
+   <ellipse rx="422" ry="422" fill="none"/>
+   <g class="rot_geo">
+    <use transform="translate(0,-422)" xlink:href="#satellite"/>
+    <path d="m0 0v-422" stroke-dasharray="1,4"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Geostationary_orbit">
+     <text x="-425" y="-400"><tspan>Geostationary</tspan><tspan x="-425" y="-365">Earth orbit</tspan></text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/%C3%93rbita_geoestacionaria">
+     <text x="-425" y="-400"><tspan>Órbita Geo-</tspan><tspan x="-425" y="-365">estacionaria</tspan></text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Orbite_g%C3%A9ostationnaire">
+     <text x="-425" y="-400"><tspan>Orbite géo-</tspan><tspan x="-425" y="-365">stationnaire</tspan></text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Geostationary_orbit">
+     <text x="-425" y="-400"><tspan>Geostationary</tspan><tspan x="-425" y="-365">Earth orbit</tspan></text>
+    </a>
+   </switch>
+  </g>
+  <g id="galileo" class="active" fill="#009999" stroke="#009999">
+   <path d="m0-296h-145"/>
+   <ellipse rx="296" ry="296" fill="none"/>
+   <g class="rot_gal">
+    <use transform="translate(0,-296)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Galileo_(satellite_navigation)">
+     <text x="-145" y="-296">Galileo</text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/Galileo_(navegaci%C3%B3n_por_sat%C3%A9lite)">
+     <text x="-145" y="-296">Galileo</text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Galileo_(syst%C3%A8me_de_positionnement)">
+     <text x="-145" y="-296">Galileo</text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Galileo_(satellite_navigation)">
+     <text x="-145" y="-296">Galileo</text>
+    </a>
+   </switch>
+  </g>
+  <g id="beidou" class="active" fill="#cc9900" stroke="#cc9900" text-anchor="end">
+   <path d="m0-276h230"/>
+   <ellipse rx="276" ry="276" fill="none"/>
+   <g class="rot_com">
+    <use transform="translate(0,-276)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/BeiDou">
+     <text x="430" y="-295"><tspan>BeiDou</tspan><tspan x="430" y="-270" font-size="28">MEO satellites</tspan></text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/Beidou">
+     <text x="430" y="-295"><tspan>BeiDou</tspan><tspan x="430" y="-270" font-size="28">Satélites MEO</tspan></text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Beidou">
+     <text x="430" y="-295"><tspan>BeiDou</tspan><tspan x="430" y="-270" font-size="28">Satellites MEO</tspan></text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/BeiDou">
+     <text x="430" y="-295"><tspan>BeiDou</tspan><tspan x="430" y="-270" font-size="28">MEO satellites</tspan></text>
+    </a>
+   </switch>
+  </g>
+  <g id="gps" class="active" fill="#0000ff" stroke="#0000ff">
+   <path d="m0-266h-145"/>
+   <ellipse rx="266" ry="266" fill="none"/>
+   <g class="rot_gps">
+    <use transform="translate(0,-266)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Global_Positioning_System">
+     <text x="-145" y="-261">GPS</text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/GPS">
+     <text x="-145" y="-261">GPS</text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/GPS_(assistant_de_navigation)">
+     <text x="-145" y="-261">GPS</text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Global_Positioning_System">
+     <text x="-145" y="-261">GPS</text>
+    </a>
+   </switch>
+  </g>
+  <g id="glonass" class="active" fill="#ff0000" stroke="#ff0000" text-anchor="end">
+   <path d="m0-255h230"/>
+   <ellipse rx="255" ry="255" fill="none"/>
+   <g class="rot_glo">
+    <use transform="translate(0,-255)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/GLONASS">
+     <text x="430" y="-228">GLONASS</text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/GLONASS">
+     <text x="430" y="-228">GLONASS</text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/GLONASS">
+     <text x="430" y="-228">GLONASS</text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/GLONASS">
+     <text x="430" y="-228">GLONASS</text>
+    </a>
+   </switch>
+  </g>
+  <g id="iridium" class="active" fill="#660099" stroke="#660099">
+   <path d="m0-71.8h-80"/>
+   <ellipse rx="71.8" ry="71.8" fill="none"/>
+   <g class="rot_iri">
+    <use transform="translate(0,-71.8)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Iridium_satellite_constellation">
+     <text x="-80" y="-71.8">Iridium</text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/Iridium">
+     <text x="-80" y="-71.8">Iridium</text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Iridium_(t%C3%A9l%C3%A9phonie_par_satellite)">
+     <text x="-80" y="-71.8">Iridium</text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Iridium_satellite_constellation">
+     <text x="-80" y="-71.8">Iridium</text>
+    </a>
+   </switch>
+  </g>
+  <g id="iss" class="active" fill="#ff00cc" stroke="#ff00cc">
+   <path d="m0 67.5h80"/>
+   <ellipse rx="67.5" ry="67.5" fill="none"/>
+   <g class="rot_iss">
+    <use transform="translate(0,67.5)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/International_Space_Station">
+     <text x="80" y="67.5">ISS</text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/Estaci%C3%B3n_Espacial_Internacional">
+     <text x="80" y="67.5">ISS</text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Station_spatiale_internationale">
+     <text x="80" y="67.5">ISS</text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/International_Space_Station">
+     <text x="80" y="67.5">ISS</text>
+    </a>
+   </switch>
+  </g>
+  <g id="hst" class="active" fill="#00cc00" stroke="#00cc00">
+   <path d="m0-69.4h80"/>
+   <ellipse rx="69.4" ry="69.4" fill="none"/>
+   <g class="rot_hub">
+    <use transform="translate(0,-69.4)" xlink:href="#satellite"/>
+   </g>
+   <switch>
+    <a systemLanguage="en" target="info" xlink:href="https://en.wikipedia.org/wiki/Hubble_Space_Telescope">
+     <text x="80" y="-69.4">Hubble</text>
+    </a>
+    <a systemLanguage="es" target="info" xlink:href="https://es.wikipedia.org/wiki/Telescopio_espacial_Hubble">
+     <text x="80" y="-69.4">Hubble</text>
+    </a>
+    <a systemLanguage="fr" target="info" xlink:href="https://fr.wikipedia.org/wiki/Hubble_(t%C3%A9lescope_spatial)">
+     <text x="80" y="-69.4">Hubble</text>
+    </a>
+    <a target="info" xlink:href="https://en.wikipedia.org/wiki/Hubble_Space_Telescope">
+     <text x="80" y="-69.4">Hubble</text>
+    </a>
+   </switch>
+  </g>
+  <g fill="#000000" font-size="24" stroke="#000000" text-anchor="middle">
+   <g class="active">
+    <path class="rule" d="m0 0h-490"/>
+    <use transform="translate(-100)" xlink:href="#km"/>
+    <use transform="translate(-200)" xlink:href="#km"/>
+    <use transform="translate(-300)" xlink:href="#km"/>
+    <use transform="translate(-400)" xlink:href="#km"/>
+    <use transform="translate(-500)" xlink:href="#km"/>
+    <use transform="translate(-161)" xlink:href="#mi"/>
+    <use transform="translate(-322)" xlink:href="#mi"/>
+    <use transform="translate(-483)" xlink:href="#mi"/>
+    <text x="-115" y="-35">10000 km</text>
+    <text x="-215" y="-35">20000</text>
+    <text x="-310" y="-35">30000</text>
+    <text x="-432" y="-35" text-anchor="start">40000</text>
+    <text x="-160" y="55">10000 mi</text>
+    <text x="-330" y="55">20000</text>
+    <switch font-weight="bold" text-anchor="start">
+     <text x="-390" y="-90" systemLanguage="en"><tspan>Radius</tspan><tspan x="-390" y="-70">of orbit</tspan></text>
+     <text x="-390" y="-95" systemLanguage="es"><tspan>Radio de</tspan><tspan x="-390" y="-70">la órbita</tspan></text>
+     <text x="-390" y="-95" systemLanguage="fr"><tspan>Rayon de</tspan><tspan x="-390" y="-70">l'orbite</tspan></text>
+     <text x="-390" y="-90"><tspan>Radius</tspan><tspan x="-390" y="-70">of orbit</tspan></text>
+    </switch>
+   </g>
+   <g class="active">
+    <g transform="translate(64)">
+     <path class="rule" d="m0 0h483"/>
+     <use xlink:href="#km"/>
+     <use transform="translate(100)" xlink:href="#km"/>
+     <use transform="translate(200)" xlink:href="#km"/>
+     <use transform="translate(300)" xlink:href="#km"/>
+     <use xlink:href="#mi"/>
+     <use transform="translate(161)" xlink:href="#mi"/>
+     <use transform="translate(322)" xlink:href="#mi"/>
+     <text x="100" y="-35">10000</text>
+     <text x="190" y="-35">20000</text>
+     <text x="300" y="-35">30000 km</text>
+     <text x="150" y="55">10000</text>
+     <text x="300" y="55">20000 mi</text>
+     <switch font-weight="bold" text-anchor="end">
+      <text x="345" y="-90" systemLanguage="en"><tspan>Height above</tspan><tspan x="345" y="-70">sea level</tspan></text>
+      <text x="345" y="-95" systemLanguage="es"><tspan>Altura sobre el</tspan><tspan x="345" y="-70">nivel del mar</tspan></text>
+      <text x="345" y="-70" systemLanguage="fr"><tspan>Altitude</tspan></text>
+      <text x="345" y="-90"><tspan>Height above</tspan><tspan x="345" y="-70">sea level</tspan></text>
+     </switch>
+    </g>
+   </g>
+   <g class="active" text-anchor="start">
+    <path class="rule" d="m0 0v-432m0 381h10m-10-30h10m-10-25h10m-10-22h10m-10-21h20m-20-19h10m-10-18h10m-10-17h10m-10-17h10m-10-16h30m-30-15h10m-10-15h10m-10-15h10m-10-14h10m-10-14h20m-20-13h10m-10-14h10m-10-13h10m-10-13h10m-10-12h30m-30-13h10m-10-12h10m-10-12h10m-10-12h10"/>
+    <switch>
+     <g systemLanguage="en">
+      <text x="-15" y="-350" font-weight="bold" text-anchor="end">Orbital period</text>
+      <text x="30" y="-139">5 hours</text>
+      <text x="30" y="-221">10 hours</text>
+      <text x="30" y="-299">15 hours</text>
+      <text x="30" y="-364">20 hours</text>
+     </g>
+     <g systemLanguage="es">
+      <text x="-15" y="-340" font-weight="bold" text-anchor="end">Periodo orbital</text>
+      <text x="30" y="-139">5 horas</text>
+      <text x="30" y="-221">10 horas</text>
+      <text x="30" y="-299">15 horas</text>
+      <text x="30" y="-364">20 horas</text>
+     </g>
+     <g systemLanguage="fr">
+      <text x="-15" y="-340" font-weight="bold" text-anchor="end">Période orbitale</text>
+      <text x="30" y="-139">5 heures</text>
+      <text x="30" y="-221">10 heures</text>
+      <text x="30" y="-299">15 heures</text>
+      <text x="30" y="-364">20 heures</text>
+     </g>
+     <g>
+      <text x="-15" y="-350" font-weight="bold" text-anchor="end">Orbital period</text>
+      <text x="30" y="-139">5 hours</text>
+      <text x="30" y="-221">10 hours</text>
+      <text x="30" y="-299">15 hours</text>
+      <text x="30" y="-364">20 hours</text>
+     </g>
+    </switch>
+   </g>
+   <g class="active" text-anchor="start">
+    <path class="rule" d="m0 69h-10m10 9h-10m10 11h-20m20 13h-10m10 16h-10m10 21h-10m10 26h-10m10 35h-30m30 47h-10m10 65h-10m10 96h-10m10-408v432m0-366h10m-10 5h10m-10 6h10m-10 6h20m-20 7h10m-10 8h10m-10 9h10m-10 10h10m-10 12h30m-30 14h10m-10 17h10m-10 19h10m-10 23h10m-10 28h20m-20 34h10m-10 42h10m-10 53h10m-10 68h10"/>
+    <text x="30" y="93">25000 km/h</text>
+    <text x="30" y="139">20000 km/h</text>
+    <text x="30" y="235">15000 km/h</text>
+    <text x="15" y="429">11000 km/h</text>
+    <text x="-30" y="99" text-anchor="end">15000 mph</text>
+    <text x="-30" y="210" text-anchor="end">10000 mph</text>
+    <text x="-15" y="415" text-anchor="end">7000 mph</text>
+    <switch>
+     <g systemLanguage="en">
+      <text x="-15" y="350" font-weight="bold" text-anchor="end">Orbital speed</text>
+     </g>
+     <g systemLanguage="es">
+      <text x="-15" y="350" font-weight="bold" text-anchor="end">Velocidad orbital</text>
+     </g>
+     <g systemLanguage="fr">
+      <text x="-15" y="350" font-weight="bold" text-anchor="end">Vitesse orbitale</text>
+     </g>
+     <g>
+      <text x="-15" y="350" font-weight="bold" text-anchor="end">Orbital speed</text>
+     </g>
+    </switch>
+   </g>
+   <g id="earth" class="nofade">
+    <ellipse rx="64.28" ry="64.28" fill="#0066ff" stroke="#66ccff"/>
+    <g class="rot_geo">
+     <path transform="scale(.6378)" d="m-15-22c-3-6 6 2 2-6 4-2 1-3 7-6 4-2-3-1 3-9 5 5-3 9 1 12-1-7 22 0 10-10 1-12 4-6 2-1 10-14 9-1 13-8 5 0-2-4 5-5 0 5 1 12 7 9-9-8 1 2 0-10 16-9 18 7 24 4 0-10 3-9 9-7 1 2-1 13 6 7 2-6-4-3 2-11 3 11 0 5-1 13-13 9 1 7-5 10-8 11 7 11 10 17 4-2 19 4-4 12 1 12-5 0-5 17-4 17-7 6-8 14 16-3 1-8 11-13 7 4 5 15 7 24-9 2-24 1-22 5 36-2 20-14 26-17 15 18-3 26 23 29-7 20 6 7 2 19 1 4 3 18-14 33-11-2-30-1-26-13-18-8-10 5-15-7-14-3-27 22-42 5-3-11-2-24 22-37-1 5 14 0 11-3 0-5 14-7 7-16-4-3-2 11-10 5 3-9 6-8 6-13-5 0-4 2-7 1l2 4c-10 0 0 5-1 8-5 5 6 2-2 6-19-4-9 2-2 1-4 7 5 5-5 5 10-5-10-6-11 4 0 5-7 11-9 0 10-5 7-6 2-6-2-4 9-7 3-14 3-4 0 5 5 1 9-7-3-7-4-14-2 1 11 18 0 10 0 5-7 1-4-3 0-5-4-10 6-14 4 3 0-5 1-8 3-4-11-3 0-5-7 0-7-5-13-7-2-4 4-2 0-5-3-1 0-7-7-4-10-7-9 2-18-3m-11-8c-2 16 2-5 11 13-1 10-9 3-7 12-6 13 1 12 4 8 5 6-11 8-1 8-4 7-4-3-5 5-7-9-12-4-8 4-4 2-4 9 1 2 2 6 6-13 8 3 3 6 0 10 1 17-13-6 11-3-12-9 12 4-2 1 6 7-13-1-1-2-9-3-4 2-4-3-9 2-13-7-10 4-14 1 0-5 6-3-2-11 1-18-25-1-7 3 5 10-10-2-2 11-11 7 1 7-1 13 16 2 5 5 19 15 5 15 11 7 12 19 3 6 27 12 22 17-1 3-11 3-9 7-4 7-6 7-23 3 0 5-16 8-26-3 11 13-12 1-16-2 5 10-12-6-8 4-15-8-5 4-4 6-21-14-19-30-6-24 7-10 2 4 25-14-8-18-1-14-2-26 7-5 9 4 14-1 2-6 0-5-2-4-4-13 0-15-1-24-2-4-2-19 2-16 1-3 4-7 9-12-8 4-7 6-9 7 1-8 11-8 13-14 16-9 3 6 31-9 7-6 1-8 5-15m39-111c-28 13 11 19 10 32 5 0 2-11 10-5 7 5 5 6 0 5 16 10 15 1 20 6 20 7 5-5 28 9 9-2 1-8 6-13-14-15-28-9-43-24-11-2-2-11-31-10m-1 35c7 4 15 5 17 9 13-1 0 2 11 5 2-8-15-8-7-12-3-1-7-4-12-4-5 5-2-4-14-3-5 0 12 4 5 5m96 137c7-6 6 2 12 6 1 2 3 6-1 8-8 4-2-4-8-1-3-1-2-4-1-7 0 0 2-3-2-6m-96-83c-1-2 1-5 3-6 1-3 6-3 10 2-2 1-11-4-12 6-6 2-6-3-1-2m31-29c-3 8 5 10-1 12 2 7 7 0 6-2-3-6 11 2 0-5 5 0-1-7-5-5m5-5c2 4 0 0 7 4 10 0 3-4 6-3 1-8-3 4-5-5-2 1 3 6-8 4m7 9c0 5 2 4 5 5s8 1 11 4c3-6-4-15-8-13-10 0 0 5-8 4m-76 74c-1-2 8 2 6 3 1 7-1 8-3-1-3 3 2 4-4 6-5-5 0-5 1-8m-22-136c-2 0-6 2-7 0 8-3 9-11 20-9-1 3-7 1-13 9m1 7c-3 3-8-2-14 1-3 4 2-11 10-5-6 3 1 2 4 4m27 142c-1 7 4 8-6 14-7-16 2-1 3-11-3-6 1-7 3-3m27 26c-1-7 1-3 5 0 6 2-1 3-2 6-1-7 0-5-3-6m-64-90c-3 4-9 7-8 4-2-4 1 2 8-4m44 68c-9-4 7-11 10-5 1 24-12 13-12 23-8-2 0-12 2-18m50-76c-1 3-4 0-4 2 0-2 2-3 4-2m15 6c-3-1-4-3-4 2 5 0 3 1 4-2m-33-88c-3-1-9 2-8-1 6-8 16 8 8 1m45 60c6 7 7 9 11 15 1-5-8-14-11-15m-130 137c4 3 9 8 7 4s-6-7-7-4m141-122c-2-2-2 20 1 21 0-5 4-11-1-21m-146 107c4-2 9 18 6 12-5-10 0-5-6-12m78 3c2-1 1-3 0-5-3-1-2 6 0 5m-12-14c2-1 4-2 5 0-3 4-4 2-5 0m-5-22c1 2-9 7-11 3 1-3 7-6 11-3m93-31c-3-2-2 0-3 3 5 1 6-2 3-3m-80 32c5 5 1 2 2 4-5 0-3-1-2-4m6-8c3 1 3 6 7 5 2 4-7 0-7-5" clip-path="url(#clip_earth)" fill="#ffcc00" stroke="none"/>
+    </g>
+    <ellipse class="rot_sun" rx="63.78" ry="63.78" fill="url(#gradient_shade)"/>
+   </g>
+   <g id="clock" class="nofade" transform="translate(360,360) scale(-1,1)" stroke="#999999" stroke-width="2">
+    <use xlink:href="#tick_3"/>
+    <use transform="rotate(90)" xlink:href="#tick_3"/>
+    <use transform="rotate(180)" xlink:href="#tick_3"/>
+    <use transform="rotate(270)" xlink:href="#tick_3"/>
+    <path class="rot_min" d="m0 0v-40"/>
+    <path class="rot_hr" d="m0 0v-20"/>
+   </g>
+  </g>
+ </g>
+</svg>
