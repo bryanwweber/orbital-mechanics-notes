@@ -35,3 +35,16 @@ figure div:has(> iframe[title="Explore the CR3BP pseudo-potential surface"]) {
   width: 2.25rem;
   height: 2.25rem;
 }
+
+/* Keep the search button's existing text available to assistive technology. */
+@media (width < 640px) {
+  .myst-search-bar .myst-search-text-placeholder {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
