@@ -28,12 +28,13 @@ test("media hints apply to prefixed book pages and leave embedded documents alon
   const original = [
     '<iframe src="/preview/chapters/assets/demo.html" title="Orbit"></iframe>',
     '<iframe src="https://example.org/demo" title="External"></iframe>',
-    '<figure id="fig-pseudo-potential-energy-cr3bp"><img src="/preview/_public/plot.png"></figure>',
+    '<figure id="fig-trojan-asteroids-jupiter"><img src="/preview/_public/plot.png"></figure>',
     '<figure id="fig-wmap-trajectory"><img src="/preview/_public/wmap-trajectory-abcd.webp"></figure>',
     '<img src="/preview/_public/plot.png" width="100" height="50">',
     '<script>const example = \'<iframe src="/preview/chapters/assets/demo.html">\';</script>',
     '<link rel="preload" as="image" href="/preview/_public/wmap-trajectory-abcd.webp">',
     '<link rel="preload" as="image" href="/preview/_public/logo.svg">',
+    '<iframe src="/preview/assets/cr3bp-potential.html" title="CR3BP surface"></iframe>',
   ];
   await writeFile(chapter, original.join("\n"));
   await writeFile(embed, original[0]);
@@ -49,7 +50,8 @@ test("media hints apply to prefixed book pages and leave embedded documents alon
   assert.match(lines[2], /<img loading="lazy" width="[1-9]\d*" height="[1-9]\d*" /);
   assert.equal(lines[3], original[3].replace("<img", '<img loading="lazy" width="560" height="420"'));
   assert.equal(lines[4], original[4].replace("<img", '<img loading="lazy"'));
-  assert.deepEqual(lines.slice(5), [original[5], "", original[7]]);
+  assert.deepEqual(lines.slice(5, 8), [original[5], "", original[7]]);
+  assert.equal(lines[8], original[8].replace("<iframe", '<iframe loading="lazy"'));
   const [png, svg] = (await readFile(path.join(html, "index.html"), "utf8")).split("\n");
   assert.match(png, /^<img width="\d+" height="\d+" src=/);
   assert.equal(svg, '<img width="42" height="28" src="/preview/_public/diagram.svg" style="width:75%">');

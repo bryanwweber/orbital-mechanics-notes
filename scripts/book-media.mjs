@@ -10,7 +10,6 @@ const project = JSON.parse(await readFile(path.join(buildRoot, "site/config.json
 const imageSizes = new Map();
 const deferredFigures = new Set([
   "fig-collinear-lagrange-solution",
-  "fig-pseudo-potential-energy-cr3bp",
   "fig-trojan-asteroids-jupiter",
   "fig-wmap-trajectory",
   "fig-jwst-trajectory",
@@ -85,7 +84,8 @@ for (const slug of slugs) {
   visit(tree, "element", (node) => {
     const { tagName, properties, position } = node;
     if (tagName === "iframe" && properties.loading === undefined &&
-        properties.src?.startsWith(`${baseUrl}/chapters/`)) {
+        (properties.src?.startsWith(`${baseUrl}/chapters/`) ||
+          properties.src === `${baseUrl}/assets/cr3bp-potential.html`)) {
       additions.push(node);
     } else if (tagName === "img") {
       additions.push(node);

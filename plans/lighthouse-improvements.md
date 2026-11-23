@@ -232,8 +232,8 @@ The static book build now adds native lazy loading to local figure iframes,
 removes eager preloads for the selected Lagrange Points figures, and reserves
 space using intrinsic dimensions for supported PNG, SVG, and WebP images.
 The six orbital-element scenes display their existing placeholders and wait
-for viewport intersection before loading the Three.js runtime. The Lagrange
-Points notebook produces smaller versions of its two largest plots.
+for viewport intersection before loading the Three.js runtime. The Lagrange Points notebook produces a smaller Trojan-asteroid plot. The
+interactive CR3BP pseudo-potential figure from current `main` is also lazy-loaded.
 
 The book supplies a mobile Search label, home-logo alt text, larger
 author-link targets, diagram alt text, and table column labels. The built
@@ -256,7 +256,8 @@ The cached theme archive had SHA-256
 The observed `gh-pages` revision was `e83889b15060f30b2bbfbaf0be57a8d0f0ec408a`.
 The local HTTP server sends uncompressed responses, so compare the local
 measurements with each other. The measurements below are medians of three
-cold navigations in each build.
+cold navigations in each build, taken before the branch was reconciled with
+current `main` and its interactive CR3BP figure.
 
 | Page | Transfer (MiB) | FCP (s) | LCP (s) | TBT (ms) | CLS |
 | --- | --- | --- | --- | --- | --- |
