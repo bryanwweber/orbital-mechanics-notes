@@ -15,7 +15,9 @@ search results, cross-references, and sitemap URLs.
 The build writes `section/page/index.html` and emits slashless links for
 these routes. In a Lighthouse mobile crawl, all 56 chapter entry URLs
 redirected to a trailing slash. The median estimated redirect cost was
-795 ms. The home URL was already final.
+795 ms. The home URL was already final. The example host serves an HTML
+compatibility redirect at the slashless `/intro/reference-frames` URL, so
+following the final directory URL avoids a second document navigation.
 
 ## Expected behavior
 

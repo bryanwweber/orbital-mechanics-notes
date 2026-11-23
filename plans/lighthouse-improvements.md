@@ -226,6 +226,77 @@ The MyST theme supports project-level and page-level descriptions.
   Track pages above 4 s LCP and 0.10 CLS alongside the medians. Use separate
   warm visits to verify cache behavior.
 
+## Implementation and verification
+
+The static book build now adds native lazy loading to local figure iframes,
+removes eager preloads for the selected Lagrange Points figures, and reserves
+space using intrinsic dimensions for supported PNG, SVG, and WebP images.
+The six orbital-element scenes display their existing placeholders and wait
+for viewport intersection before loading the Three.js runtime. The Lagrange
+Points notebook produces smaller versions of its two largest plots.
+
+The book supplies a mobile Search label, home-logo alt text, larger
+author-link targets, diagram alt text, and table column labels. The built
+homepage and section entry pages have distinct descriptions, with a book
+description as a fallback. All 72 built pages have one description and a
+production sitemap entry that serves the directory index directly.
+
+The production-shaped build and a build under `/pr-preview/pr-999` passed
+the URL, legacy redirect, static-output, preview HTML, and figure checks.
+Chromium checks covered mobile and desktop keyboard focus, author target
+bounds, scrolling to deferred images and scenes, figure links, and the
+orbital-elements controls. The existing live site also returned HTTP 200
+for all 72 final sitemap URLs. The slashless *Reference Frames* response
+contained an HTML redirect.
+
+The local comparisons used MyST 1.13.0, Lighthouse 13.6.0, headless Chromium
+157, a 412 × 823 viewport, and the saved run's simulated mobile throttling.
+The cached theme archive had SHA-256
+`d0c1ff573d2554d2d76c2b75fb392c5eae3fdea0bd83fe3ab1d955248d313550`.
+The observed `gh-pages` revision was `e83889b15060f30b2bbfbaf0be57a8d0f0ec408a`.
+The local HTTP server sends uncompressed responses, so compare the local
+measurements with each other. The measurements below are medians of three
+cold navigations in each build.
+
+| Page | Transfer (MiB) | FCP (s) | LCP (s) | TBT (ms) | CLS |
+| --- | --- | --- | --- | --- | --- |
+| Homepage | 3.75 → 3.75 | 3.01 → 3.00 | 3.01 → 3.00 | 206 → 21 | 0 → 0 |
+| Classical Orbital Elements | 4.55 → 4.01 | 3.60 → 3.46 | 3.60 → 3.60 | 1,944 → 111 | 0.178 → 0.178 |
+| Lagrange Points | 7.40 → 4.57 | 6.75 → 6.75 | 6.76 → 6.76 | 131 → 288 | 0.134 → 0.134 |
+| Elliptical Orbits (Kepler chapter) | 4.93 → 4.93 | 7.50 → 7.50 | 7.50 → 7.50 | 192 → 233 | 0.286 → 0.286 |
+| Hyperbolic Trajectories (Orbit Equation chapter) | 4.10 → 4.10 | 4.66 → 4.65 | 4.66 → 4.65 | 211 → 27 | 0.091 → 0.091 |
+
+All 72 final local routes passed Lighthouse checks for button names, image
+alt text, target size, meta descriptions, crawlability, and redirects. All
+nine pages where the table-header audit applied passed it. The full local
+crawl recorded median FCP and LCP of 3.75 s, TBT of 33 ms, and CLS of 0.004.
+There were 31 pages above 4 s LCP and 20 above 0.10 CLS.
+
+Deferred figures reduced the initial payload. Blocking time and layout
+stability varied across the sample. *Elliptical Orbits* and *Julian Date*
+still recorded CLS of 0.286 and 0.247. The shared
+theme bundle and Thebe still load on ordinary reading pages, and the home
+page's estimated unused JavaScript stayed at 2,677 KiB in the uncompressed
+local comparison. Shared author, figure, and navigation label mismatches, initial theme assets,
+client-rendered media attributes, and generated navigation URLs are
+documented in the upstream issue drafts.
+
+Production returned `Cache-Control: max-age=600` on HTML, a fingerprinted
+theme bundle, and the unversioned Thebe script. A conditional request for
+the fingerprinted bundle returned 304, and a second Chromium visit in the
+same browser context downloaded zero bytes for the theme bundle.
+GitHub.com's Pages repository configuration exposes publishing, domain,
+and HTTPS settings. Changing cache policy would require control of the
+serving layer. [GitHub Pages API][pages-api]
+
+### Upstream issue drafts
+
+- [MyST theme accessibility][issue-accessibility]
+- [MyST theme startup assets][issue-assets]
+- [MyST theme media rendering][issue-rendering]
+- [MyST theme directory URLs][issue-urls]
+- [MyST media metadata and loading hints][issue-metadata]
+
 [agents]: ../AGENTS.md
 [dashboard]: ../.unlighthouse/orbital-mechanics.space/6edb/index.html
 [deploy]: ../.github/workflows/deploy-book.yml
@@ -238,3 +309,9 @@ The MyST theme supports project-level and page-level descriptions.
 [myst]: ../myst.yml
 [plugin]: ../plugins/htmlFigure.mjs
 [threejs]: ../plugins/THREEJS.md
+[pages-api]: https://docs.github.com/en/rest/pages/pages#update-information-about-a-github-pages-site
+[issue-accessibility]: upstream-issues/myst-theme-mobile-accessibility.md
+[issue-assets]: upstream-issues/myst-theme-initial-assets.md
+[issue-rendering]: upstream-issues/myst-theme-media-loading.md
+[issue-urls]: upstream-issues/myst-theme-directory-urls.md
+[issue-metadata]: upstream-issues/mystmd-media-metadata.md
