@@ -7,7 +7,7 @@ const buildRoot = process.argv[2] ?? "_build";
 const htmlRoot = path.join(buildRoot, "html");
 const baseUrl = (process.env.BASE_URL ?? "").replace(/\/$/, "");
 const project = JSON.parse(await readFile(path.join(buildRoot, "site/config.json"), "utf8")).projects[0];
-const pngSizes = new Map();
+const imageSizes = new Map();
 const deferredFigures = new Set([
   "fig-collinear-lagrange-solution",
   "fig-pseudo-potential-energy-cr3bp",
@@ -16,23 +16,37 @@ const deferredFigures = new Set([
   "fig-jwst-trajectory",
 ]);
 
-function readPngSize(filename) {
-  if (!pngSizes.has(filename)) {
+function readImageSize(filename) {
+  if (!imageSizes.has(filename)) {
     const dimensions = (async () => {
       const file = await open(path.join(htmlRoot, "_public", filename), "r");
       try {
-        const { buffer, bytesRead } = await file.read({ buffer: Buffer.alloc(24) });
-        if (bytesRead === 24 && buffer.readUInt32BE(0) === 0x89504e47 &&
+        if (filename.endsWith(".svg")) {
+          const { buffer, bytesRead } = await file.read({ buffer: Buffer.alloc(8192) });
+          const start = buffer.toString("utf8", 0, bytesRead).match(/<svg\b[^>]*>/)?.[0];
+          if (!start) return undefined;
+          const svg = fromHtml(start, { fragment: true }).children[0];
+          return ["width", "height"].map((name) => {
+            const value = String(svg.properties[name]).match(/^(\d+)(?:px)?$/)?.[1];
+            return Number(value);
+          });
+        }
+        const { buffer, bytesRead } = await file.read({ buffer: Buffer.alloc(30) });
+        if (bytesRead >= 24 && buffer.readUInt32BE(0) === 0x89504e47 &&
             buffer.toString("ascii", 12, 16) === "IHDR") {
           return [buffer.readUInt32BE(16), buffer.readUInt32BE(20)];
+        }
+        if (bytesRead === 30 && buffer.toString("ascii", 0, 4) === "RIFF" &&
+            buffer.toString("ascii", 8, 16) === "WEBPVP8X") {
+          return [buffer.readUIntLE(24, 3) + 1, buffer.readUIntLE(27, 3) + 1];
         }
       } finally {
         await file.close();
       }
     })();
-    pngSizes.set(filename, dimensions);
+    imageSizes.set(filename, dimensions);
   }
-  return pngSizes.get(filename);
+  return imageSizes.get(filename);
 }
 
 async function imageAttributes(properties, defer) {
@@ -44,9 +58,8 @@ async function imageAttributes(properties, defer) {
   if (defer && properties.loading === undefined) attributes.loading = "lazy";
   if (properties.width !== undefined || properties.height !== undefined) return attributes;
 
-  const trajectory = /^(?:jwst|wmap)-trajectory-[a-f0-9]+\.webp$/.test(filename);
-  const dimensions = trajectory ? [560, 420]
-    : /^[a-zA-Z0-9_.-]+\.png$/.test(filename) ? await readPngSize(filename) : undefined;
+  const dimensions = /^[a-zA-Z0-9_.-]+\.(?:png|svg|webp)$/.test(filename)
+    ? await readImageSize(filename) : undefined;
   if (dimensions?.every((value) => value > 0)) {
     [attributes.width, attributes.height] = dimensions;
   }

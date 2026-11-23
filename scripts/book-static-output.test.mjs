@@ -16,7 +16,13 @@ test("media hints apply to prefixed book pages and leave embedded documents alon
     projects: [{ index: "index", pages: [{ slug: "chapter" }] }],
   }));
   await copyFile("assets/threejs-placeholders/inertial.png", path.join(html, "_public/plot.png"));
-  await writeFile(path.join(html, "index.html"), '<img src="/preview/_public/plot.png">');
+  await copyFile("images/wmap-trajectory.webp", path.join(html, "_public/wmap-trajectory-abcd.webp"));
+  await writeFile(path.join(html, "_public/diagram.svg"),
+    '<?xml version="1.0"?><svg width="42px" height="28" viewBox="0 0 42 28"></svg>');
+  await writeFile(path.join(html, "index.html"), [
+    '<img src="/preview/_public/plot.png">',
+    '<img src="/preview/_public/diagram.svg" style="width:75%">',
+  ].join("\n"));
   const chapter = path.join(html, "chapter/index.html");
   const embed = path.join(html, "chapters/assets/demo.html");
   const original = [
@@ -44,7 +50,9 @@ test("media hints apply to prefixed book pages and leave embedded documents alon
   assert.equal(lines[3], original[3].replace("<img", '<img loading="lazy" width="560" height="420"'));
   assert.equal(lines[4], original[4].replace("<img", '<img loading="lazy"'));
   assert.deepEqual(lines.slice(5), [original[5], "", original[7]]);
-  assert.match(await readFile(path.join(html, "index.html"), "utf8"), /^<img width="\d+" height="\d+" src=/);
+  const [png, svg] = (await readFile(path.join(html, "index.html"), "utf8")).split("\n");
+  assert.match(png, /^<img width="\d+" height="\d+" src=/);
+  assert.equal(svg, '<img width="42" height="28" src="/preview/_public/diagram.svg" style="width:75%">');
   assert.equal(await readFile(embed, "utf8"), original[0]);
   run();
   assert.equal(await readFile(chapter, "utf8"), updated);
