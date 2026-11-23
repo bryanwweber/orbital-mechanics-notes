@@ -26,7 +26,9 @@ responsive sizing. Reserve logo space in both theme modes. Support
 `loading="lazy"` or an explicit deferred placeholder for below-the-fold
 iframes and images while allowing the first visible image to load eagerly.
 Keep figure IDs, titles, captions, and export placeholders intact. Apply the
-same behavior to static HTML and client-rendered navigation.
+same behavior to static HTML and client-rendered navigation. Check that
+server-generated image preload links respect the loading hint, including when
+the same notebook image appears in a hidden output and a visible figure.
 
 Add a fixture that confirms an offscreen iframe delays its request, renders
 after scrolling or following a figure anchor, and retains its reserved size.
