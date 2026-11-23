@@ -62,6 +62,8 @@ jobs:
             echo "::error::Book build emitted warnings; refusing to publish."
             exit 1
           fi
+      - name: Add image dimensions and lazy-load media
+        run: bun run book:media
       - name: Generate legacy HTML redirects
         run: bun run book:redirects
       - name: Fix sitemap and robots URLs

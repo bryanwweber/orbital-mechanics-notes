@@ -4,6 +4,7 @@
   "scripts": {
     "book:dev": "bun run build:threejs && myst start --execute",
     "book:build": "bun run build:threejs && myst build --html --execute",
+    "book:media": "node scripts/book-media.mjs",
     "book:version": "myst --version",
     "book:check-urls": "node scripts/book-urls-check.mjs",
     "book:redirects": "node scripts/book-redirects.mjs",

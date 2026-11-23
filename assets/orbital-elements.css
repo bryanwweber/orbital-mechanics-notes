@@ -30,3 +30,8 @@ figure div:has(> iframe[title="Explore the CR3BP pseudo-potential surface"]) {
   justify-content: center;
   vertical-align: middle;
 }
+
+.myst-home-link-logo img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
