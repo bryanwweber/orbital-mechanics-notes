@@ -1,4 +1,5 @@
 ---
+description: Connect time since periapsis with mean, eccentric, and true anomaly to describe how a spacecraft moves along its orbit.
 jupytext:
   text_representation:
     extension: .md

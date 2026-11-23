@@ -1,3 +1,7 @@
+---
+description: Define the perifocal coordinate frame and use it to express the position and velocity of a spacecraft in its orbital plane.
+---
+
 # Perifocal Frame
 
 In this section, we define the **perifocal reference frame**, a convenient reference frame for describing the planar orbits that we've been discussing. The perifocal frame is a Cartesian reference centered at the occupied focus of the orbit, the location where $m_1$ exists. Since all the orbits we've looked at so far are planar, the $\pf{x}\pf{y}$ plane of the perifocal frame lies in the same plane as the orbit. This means that the $\pf{z}$ direction is pointing in the same direction as the angular momentum.
