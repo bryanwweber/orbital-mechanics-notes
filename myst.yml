@@ -168,6 +168,7 @@ project:
         - file: chapters/orbital-maneuvers/nonimpulsive-maneuver-example.md
 site:
   template: book-theme
+  description: Explore orbital mechanics and astrodynamics through undergraduate course notes, worked calculations, and interactive trajectory figures.
   options:
     style: assets/orbital-elements.css
     logo: _static/hohmann-light.svg

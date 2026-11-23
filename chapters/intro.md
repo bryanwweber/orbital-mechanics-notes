@@ -1,7 +1,3 @@
----
-description: Explore orbital mechanics and astrodynamics through undergraduate course notes, worked calculations, and interactive trajectory figures.
----
-
 # Orbital Mechanics & Astrodynamics
 
 This reference material covers orbital mechanics and astrodynamics, with a focus on Mechanical or Aerospace engineering undergraduate students.
