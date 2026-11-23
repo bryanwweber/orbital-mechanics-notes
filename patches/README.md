@@ -30,3 +30,28 @@ invalid settings. They reuse the downloaded book template under
 `_build/templates/site/myst/book-theme`, populated by `mise run serve` or
 `mise run build`. Run `bun run book:check-urls` after a static book build to check
 all exported pages and their navigation.
+
+## Load Thebe only when needed
+
+`myst-theme-thebe-on-demand.patch` gates the eager Thebe server monitor on
+whether live compute is enabled. Rich notebook outputs retain their own
+renderer and can still request Thebe. The book already sets `jupyter: false`.
+
+To use the patch with a local static build, start with a separate
+`myst-theme` checkout. The patch was tested against
+`f54d87e603c0f4815c8b21a152d192c96624bf8c`. In that checkout, apply
+`patch -p1 < /path/to/orbital-mechanics-notes/patches/myst-theme-thebe-on-demand.patch`,
+install the locked dependencies with `bun install --frozen-lockfile`, compile
+the theme workspace packages with `bun run build -- --filter='./packages/*'`,
+then package the book theme with `make build-book`.
+
+In the book checkout used for the local build, set `site.template` in
+`myst.yml` to the patched checkout's absolute
+`.deploy/book/template.yml` path and run `bun run book:build`. For a repeatable
+deployment, build or package a pinned patched theme where CI can resolve it.
+[MyST developer guide](https://mystmd.org/guide/developer#approach-2-static-build)
+
+In a cold browser context, check that the homepage and Reference Frames
+request no `thebe-core.min.js`. Check that the three Planetary Parameters
+tables and both Plane Change Maneuvers maps still render and request Thebe
+on demand.
