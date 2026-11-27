@@ -1,36 +1,42 @@
-# Preserve media dimensions and support lazy figures in book-theme
+# Reserve image space and let offscreen figures load lazily
 
-Target repository is `jupyter-book/myst-theme`.
+## Problem
 
-## Reproduction
+Images without intrinsic dimensions can shift the text below them as they
+load. This can affect both local images and saved notebook plots. The logo
+also needs space reserved in light and dark mode. An iframe below the fold
+can start fetching its content during the initial page load even though its
+box is already reserved.
 
-Create a long book chapter using an above-the-fold image, several
-below-the-fold image and iframe figures, and executed notebook plots. Load
-it on a cold mobile connection. Compare requests and layout shifts on a
-direct document navigation and on navigation from another chapter.
-[Interactive chapter](https://orbital-mechanics.space/classical-orbital-elements/classical-orbital-elements/)
+Observed with MyST 1.13.0 and Book Theme 2.0.0.
+[MyST Theme source commit](https://github.com/jupyter-book/myst-theme/commit/c3e99b4b1938d2aae078a3c866c486a7d66b5bc9)
 
-## Observed behavior
+## Steps to reproduce
 
-The iframe renderer reserves a box but eagerly sets the source. The image
-renderer and notebook image output commonly emit images without intrinsic
-dimensions. The book logo sets a height attribute with CSS units and omits
-its width. In the example, six Three.js figures load in one chapter with
-2.45 s Total Blocking Time. Across the 57 audited pages, 25 had CLS over
-0.10. Layout-shift diagnostics include unsized images and math fonts.
+1. Create a book page with a local PNG at the top and a saved notebook plot
+   and an `{iframe}` figure several screens below it.
+2. Build with `myst build --html` and open the page on a throttled connection.
+   Inspect the image dimension attributes and the iframe's loading behavior
+   before scrolling. Repeat after following a link from another page.
 
 ## Expected behavior
 
-Render intrinsic image dimensions where available, with CSS that preserves
-responsive sizing. Reserve logo space in both theme modes. Support
-`loading="lazy"` or an explicit deferred placeholder for below-the-fold
-iframes and images while allowing the first visible image to load eagerly.
-Keep figure IDs, titles, captions, and export placeholders intact. Apply the
-same behavior to static HTML and client-rendered navigation. Check that
-server-generated image preload links respect the loading hint, including when
-the same notebook image appears in a hidden output and a visible figure.
+Images with known dimensions should reserve space at responsive widths.
+Authors should be able to defer offscreen figures and keep images near the
+start of the page loading immediately.
 
-Add a fixture that confirms an offscreen iframe delays its request, renders
-after scrolling or following a figure anchor, and retains its reserved size.
-Verify responsive sizing for both normal images and pre-rendered notebook
-plots and confirm the same DOM behavior after navigating within the book.
+## Suggested resolution
+
+Use known pixel dimensions for the HTML `width` and `height` attributes and
+keep responsive sizing in CSS. Apply the same approach to both logo variants.
+When a figure opts into lazy loading, pass `loading="lazy"` to the image or
+iframe and skip preloading that lazy image unless another visible use needs
+it immediately. Preserve captions, figure links, and export placeholders.
+
+## Verification
+
+- [ ] Check that the logo, local image, and notebook image keep their space
+  while loading at narrow and wide widths.
+- [ ] Check that a lazy iframe far offscreen is deferred and loads when
+  reached by scrolling or following its figure link. Test both direct loads
+  and in-book navigation.

@@ -1,37 +1,41 @@
-# Give book navigation and author controls accessible names and touch targets
+# Improve accessible names and touch targets in the Book Theme
 
-Target repository is `jupyter-book/myst-theme`.
+## Problem
 
-## Reproduction
+At narrow widths the Search button hides its text and can lose its accessible
+name. A logo configured without a text label can render without alternative
+text. Author email and ORCID icons have small touch targets. Some visible
+labels also differ from the accessible names. For example, a button showing
+an author's name is announced as “Author Details,” which makes the visible
+name harder to use with voice control.
 
-Open a book-theme site with search, an author popover, email and ORCID links,
-numbered figures, and previous/next navigation. In Chromium, use a 412 CSS px
-viewport and inspect the accessibility tree or run Lighthouse Accessibility.
-The example book exhibits the shared failures across all 57 routes in a
-Lighthouse 13.6 mobile crawl. [Example book](https://orbital-mechanics.space/)
+Observed with MyST 1.13.0 and Book Theme 2.0.0.
+[MyST Theme source commit](https://github.com/jupyter-book/myst-theme/commit/c3e99b4b1938d2aae078a3c866c486a7d66b5bc9)
 
-## Observed behavior
+## Steps to reproduce
 
-- `SearchPlaceholderButton` hides its visible “Search” text at small widths
-  and the icon-only button has no accessible name.
-- `HomeLink` can render an image without an `alt` attribute when no logo
-  label is supplied. Both logo variants should have a useful default when
-  the site has a title.
-- The inline email and ORCID links have overlapping target neighborhoods
-  with clickable areas of about 16 × 19 CSS px.
-- The author trigger is named “Author Details” while displaying the author's
-  name. Figure links are named “Link to this figure” while displaying the
-  figure number. Previous/next names can diverge from the visible labels,
-  including chapter titles containing math.
+1. Create a two-page book with light and dark logos, an author with email and
+   ORCID fields, and a numbered figure. Give one page a title with inline math.
+2. At a 412 CSS pixel viewport, inspect the accessibility tree for Search,
+   the home link, the author button, the figure permalink, and the page footer
+   links. Open the author popover and inspect the size and spacing of its links.
 
 ## Expected behavior
 
-Expose a name for the mobile search button and a meaningful name for the
-home link. Give the author icon links a 24 × 24 CSS px target or equivalent
-spacing. Derive accessible names for text-bearing controls from their
-rendered labels so speech input can select them by the text on screen.
+Icon-only controls should have useful names. Controls with visible text
+should include that text in their accessible names. Author links should have
+at least 24 × 24 CSS pixel targets or sufficient spacing.
 
-An automated regression fixture should check mobile and desktop accessible
-names for both logo variants, search, author controls, a numbered figure,
-and a previous or next link whose title contains math. It should also
-exercise keyboard opening, closing, and focus return for the dialogs.
+## Suggested resolution
+
+Give the icon-only search button a “Search” name and use the site title as
+fallback logo alt text for both logo variants. Use the rendered text when
+naming author buttons, numbered figure links, and previous and next links.
+Add padding or spacing around the email and ORCID links.
+
+## Verification
+
+- [ ] Check accessible names on mobile and desktop in both color modes,
+  including a numbered figure and a page title containing math.
+- [ ] Check author link size or spacing. Open and close Search and the author
+  popover by keyboard and confirm focus returns to the trigger.

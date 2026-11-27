@@ -1,33 +1,44 @@
-# Carry intrinsic dimensions and loading hints through figure directives
+# Carry image dimensions and loading hints in figure data
 
-Target repository is `jupyter-book/mystmd`. This pairs with renderer work in
-`myst-theme`.
+## Problem
 
-## Reproduction
+A figure with `:width: 50%` carries its display width. For an 800 × 600 PNG,
+its theme also needs the original pixel dimensions to reserve the correct
+space while it loads. This information is useful for saved notebook images
+as well. Image and iframe directives have no option to tell the theme that
+an individual figure should load lazily.
 
-Build an executed book chapter with an image from a local file, an image
-from a notebook output, and an iframe figure below the fold. Leave the
-responsive display width as a percentage and inspect the generated MyST
-content and HTML. Try to request lazy loading for only the iframe and one
-below-the-fold image.
+Observed with MyST 1.13.0.
+[MyST source commit](https://github.com/jupyter-book/mystmd/commit/a159a3f26870d712061f2bc9860f0f19a4ced08c)
 
-## Observed behavior
+## Steps to reproduce
 
-Display width and height can style the figure, but those values describe
-layout rather than the intrinsic size of the resource. Authors need a way
-to preserve the latter when the display width changes with the viewport.
-The iframe directive also needs a way to carry a loading hint to the
-renderer alongside its title and optional static export placeholder.
+1. Create a page with a local PNG figure set to `:width: 50%`, an embedded
+   PNG output from a notebook, and an `{iframe}` figure.
+2. Run `myst build --html` and inspect the image and iframe nodes in
+   `_build/site/content/`. Look for pixel dimensions alongside the display
+   width. Check the directive options for a per-figure loading hint.
+   [Figure and iframe documentation](https://mystmd.org/guide/figures)
 
 ## Expected behavior
 
-Carry intrinsic width and height for supported local image files and
-executed image outputs when those dimensions can be determined during
-the build. Preserve dimensions for selected optimized images. Define an
-optional loading hint for image and iframe directives and nodes so themes
-can render the corresponding HTML behavior. Keep the existing meaning of
-responsive display widths, labels, and placeholder children.
+Themes should receive intrinsic pixel dimensions where MyST knows them, in
+addition to any display width. Authors should be able to set a loading hint
+on an image or iframe without changing its size, label, or placeholder.
 
-Add parser and build tests for a figure with a percentage width, a
-notebook-image output, an iframe with an explicit loading hint, and a
-remote image whose dimensions are unknown at build time.
+## Suggested resolution
+
+Add optional intrinsic width and height fields to image nodes. Fill them
+from supported local or notebook image data during the build, using the
+pixel size of the resource emitted if MyST creates an optimized copy.
+Leave the fields unset when the dimensions are unknown. Define an optional
+`loading` field with `lazy` and `eager` values and pass it from the image,
+figure, and iframe directives to their media nodes.
+
+## Verification
+
+- [ ] Check that a local PNG with `:width: 50%` and a saved notebook image
+  carry their pixel dimensions. Check an optimized copy and a remote image
+  whose dimensions are unknown.
+- [ ] Check that an explicit loading hint reaches the image or iframe node
+  and that an iframe's label and export placeholder still work.
