@@ -8,6 +8,8 @@ project:
       path: plugins/htmlFigure.mjs
     - type: javascript
       path: plugins/mathmlCore.mjs
+    - type: javascript
+      path: plugins/githubSource.mjs
   static_files:
     - assets/
     - _build/html-figures/chapters/
