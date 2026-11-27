@@ -69,3 +69,17 @@ test("Three.js entry points load the shared bundle from preserved chapter paths"
     assert.equal(new URL(imported, url).pathname, "/assets/js/orbital-three/orbital-three.js");
   }
 });
+
+test("orbital element figures stage the viewport loader beside the HTML", () => {
+  const document = {
+    ...file,
+    path: path.resolve("chapters/classical-orbital-elements/classical-orbital-elements.md"),
+  };
+  const [figure] = htmlFigureDirective.run({ ...data, arg: "assets/semimajor.html" }, document);
+  const url = new URL(figure.children[0].src, "https://example.com");
+  const html = readFileSync(path.join("_build/html-figures", url.pathname), "utf8");
+  const loader = new URL(html.match(/<script type="module" src="([^"]+)"/)[1], url);
+  const script = readFileSync(path.join("_build/html-figures", loader.pathname), "utf8");
+  assert.equal(new URL(script.match(/await import\("([^"]+)"\)/)[1], loader).pathname,
+    "/assets/js/orbital-three/orbital-three.js");
+});

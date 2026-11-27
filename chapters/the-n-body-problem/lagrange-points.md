@@ -303,7 +303,7 @@ import matplotlib.image as mpimg
 plt.rcdefaults()
 
 img = mpimg.imread('../../images/InnerSolarSystem-en.png')
-fig, ax = plt.subplots(figsize=(12, 12))
+fig, ax = plt.subplots(figsize=(12, 12), dpi=80)
 ax.axis('off')
 ax.imshow(img)
 

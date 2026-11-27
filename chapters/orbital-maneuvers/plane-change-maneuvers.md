@@ -237,151 +237,18 @@ The launch azimuth, $A$, in combination with the latitude $\phi$ determines the 
 
 As a practical consideration, launch azimuths are limited by the geography surrounding the launch site. Launches from Kennedy Space Center in Florida ($\phi$=28.6°N) are limited to azimuths between [35° and 120°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html) so that they do not cross land over the US. Therefore, polar orbits ($i$ = 90°) are not possible to achieve from Kennedy.
 
-```{code-cell} ipython3
-:tags: [remove-input]
-
-from bokeh.io import output_notebook
-from bokeh.models import ColumnDataSource, HoverTool
-from bokeh.plotting import figure, show
-import numpy as np
-from pyproj import Transformer
-import xyzservices.providers as xyz
-
-output_notebook(hide_banner=True)
-
-ksc_lat, ksc_lon = 28.626407252553207, -80.6204675295687
-north_lat, north_lon = 50, ksc_lon
-south_lat, south_lon = 0, ksc_lon
-
-transformer = Transformer.from_crs("EPSG:4326", "EPSG:3857")
-
-# Convert lat/lon to Web Mercator for plotting
-ksc_x, ksc_y = transformer.transform(ksc_lat, ksc_lon)
-north_x, north_y = transformer.transform(north_lat, north_lon)
-south_x, south_y = transformer.transform(south_lat, south_lon)
-
-# Directly use xyzservices.providers tile source with p.add_tile
-tile_source = xyz.OpenStreetMap.Mapnik
-
-scale = 20000
-x_range = (int(ksc_x - scale), int(ksc_x + scale))
-y_range = (int(ksc_y - scale), int(ksc_y + scale))
-# Create the Bokeh plot figure with Web Mercator projection
-p = figure(
-    x_axis_type="mercator", y_axis_type="mercator",
-    match_aspect=True,
-    x_range=x_range, y_range=y_range,
-)
-
-map = p.add_tile(tile_source)
-map.level = "underlay"
-p.grid.visible = True
-
-p.line(x=(south_x, ksc_x, north_x), y=(south_y, ksc_y, north_y), line_color="red", line_width=2)
-distance = 50
-
-theta_1 = np.radians(35)
-line_35_lon = np.linspace(ksc_lon, distance * np.sin(theta_1) + ksc_lon, 1000)
-line_35_lat = np.linspace(ksc_lat, ksc_lat + distance * np.cos(theta_1), 1000)
-line_35_x, line_35_y = transformer.transform(line_35_lat, line_35_lon)
-p.line(x=line_35_x, y=line_35_y, line_width=5, line_color="#66C2A5");
-
-theta_2 = np.radians(120)
-line_120_lon = np.linspace(ksc_lon, distance * np.sin(theta_2) + ksc_lon, 200)
-line_120_lat = np.linspace(ksc_lat, ksc_lat + distance * np.cos(theta_2), 200)
-line_120_x, line_120_y = transformer.transform(line_120_lat, line_120_lon)
-p.line(x=line_120_x, y=line_120_y, line_width=5, line_color="#FC8D62");
-
-source = ColumnDataSource({"latitude": [ksc_lat], "longitude": [ksc_lon], "x": [ksc_x], "y": [ksc_y], "point_name": ["Launch Pad 39A, Kennedy Space Center"]})
-s = p.scatter(x="x", y="y", source=source, size=10, color="red", fill_color="red")
-
-# Add hover tool to display point names
-hover = HoverTool()
-hover.tooltips = [
-    ("Point", "@point_name"),
-    ("(Lat, Lon)", "(@latitude, @longitude)")
-]
-p.add_tools(hover)
-p.hover.renderers = [s]
-```
-
-```{code-cell} ipython3
-:label: code:kennedy-launch-angles
-:tags: [remove-cell]
-
-show(p)
-```
-
-:::{figure} #code:kennedy-launch-angles
+:::{html-figure} assets/launch-azimuths/kennedy.html
 :name: fig:kennedy-launch-angles
+:title: Launch azimuths from Kennedy Space Center
 
 The permitted launch angles from Kennedy Space Center on the East coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::
 
 The other major launch site in the US is Vandenberg Space Force Base in southern California ($\phi$ = 34.7°N). Similar restrictions at Vandenberg require most launches to go to the south, over the Pacific Ocean. However, polar and Sun-synchronous orbits are possible from Vandenberg, where the azimuth limits are from [158° to 201°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html).
 
-```{code-cell} ipython3
-:tags: [remove-input]
-
-van_lat, van_lon = 34.58275238653322, -120.62596633922566
-north_lat, north_lon = 50, van_lon
-south_lat, south_lon = 0, van_lon
-
-van_x, van_y = transformer.transform(van_lat, van_lon)
-north_x, north_y = transformer.transform(north_lat, north_lon)
-south_x, south_y = transformer.transform(south_lat, south_lon)
-
-scale = 20000
-x_range = (int(van_x - scale), int(van_x + scale))
-y_range = (int(van_y - scale), int(van_y + scale))
-# Create the Bokeh plot figure with Web Mercator projection
-p = figure(
-    x_axis_type="mercator", y_axis_type="mercator",
-    match_aspect=True,
-    x_range=x_range, y_range=y_range,
-)
-
-map = p.add_tile(tile_source)
-map.level = "underlay"
-p.grid.visible = True
-
-p.line(x=(south_x, van_x, north_x), y=(south_y, van_y, north_y), line_color="red", line_width=2)
-distance = 50
-
-theta_1 = np.radians(158)
-line_158_lon = np.linspace(van_lon, distance * np.sin(theta_1) + van_lon, 1000)
-line_158_lat = np.linspace(van_lat, van_lat + distance * np.cos(theta_1), 1000)
-line_158_x, line_158_y = transformer.transform(line_158_lat, line_158_lon)
-p.line(x=line_158_x, y=line_158_y, line_width=5, line_color="#66C2A5");
-
-theta_2 = np.radians(201)
-line_201_lon = np.linspace(van_lon, distance * np.sin(theta_2) + van_lon, 200)
-line_201_lat = np.linspace(van_lat, van_lat + distance * np.cos(theta_2), 200)
-line_201_x, line_201_y = transformer.transform(line_201_lat, line_201_lon)
-p.line(x=line_201_x, y=line_201_y, line_width=5, line_color="#FC8D62");
-
-source = ColumnDataSource({"latitude": [van_lat], "longitude": [van_lon], "x": [van_x], "y": [van_y], "point_name": ["Vandenberg Space Center"]})
-s = p.scatter(x="x", y="y", source=source, size=10, color="red", fill_color="red")
-
-# Add hover tool to display point names
-hover = HoverTool()
-hover.tooltips = [
-    ("Point", "@point_name"),
-    ("(Lat, Lon)", "(@latitude, @longitude)")
-]
-p.add_tools(hover)
-p.hover.renderers = [s]
-```
-
-```{code-cell} ipython3
-:label: code:vandenberg-launch-angles
-:tags: remove-cell
-
-show(p)
-```
-
-:::{figure} #code:vandenberg-launch-angles
+:::{html-figure} assets/launch-azimuths/vandenberg.html
 :name: fig:vandenberg-launch-angles
+:title: Launch azimuths from Vandenberg Space Force Base
 
 The permitted launch angles from Vandenberg Space Force Base on the West coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::

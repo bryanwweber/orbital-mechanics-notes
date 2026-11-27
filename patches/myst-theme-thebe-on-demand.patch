@@ -1,0 +1,12 @@
+diff --git a/packages/jupyter/src/execute/provider.tsx b/packages/jupyter/src/execute/provider.tsx
+--- a/packages/jupyter/src/execute/provider.tsx
++++ b/packages/jupyter/src/execute/provider.tsx
+@@ -199,7 +199,7 @@ export function ExecuteScopeProvider({
+           </div>
+         )}
+       </div>
+-      <ServerMonitor state={state} dispatch={dispatch} />
++      {enable && <ServerMonitor state={state} dispatch={dispatch} />}
+       {children}
+     </ExecuteScopeContext.Provider>
+   );

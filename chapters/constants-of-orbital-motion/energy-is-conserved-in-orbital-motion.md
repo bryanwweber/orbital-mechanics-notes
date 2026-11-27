@@ -1,3 +1,7 @@
+---
+description: Derive conservation of mechanical energy for two-body orbital motion and connect specific orbital energy to speed and distance.
+---
+
 (sec:conservation-of-energy)=
 
 # Energy Is Conserved In Orbital Motion

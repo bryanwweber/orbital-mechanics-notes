@@ -1,3 +1,7 @@
+---
+description: Learn how reference frames describe position and motion, and how the choice of frame changes the equations used in orbital mechanics.
+---
+
 # Reference Frames
 
 In orbital mechanics, we track the motion of particles through a [Euclidean space](https://en.wikipedia.org/wiki/Euclidean_space). This means we need a **frame of reference**, also known as a reference frame, in which the motion is tracked. The frame of reference consists of a **clock** to count time and a **non-rotating Cartesian coordinate system** to track the $x$, $y$, and $z$ position of the particle. We are going to assume that relativity is not important in this course, so a single universal clock is sufficient to specify the time for all Cartesian coordinate systems.

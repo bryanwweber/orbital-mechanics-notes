@@ -1,3 +1,7 @@
+---
+description: Follow the patched-conic model from planetary departure through a heliocentric transfer to arrival at the destination planet.
+---
+
 # Interplanetary Trajectories and Maneuvers
 
 In the chapter on Orbital Maneuvers, we focused on maneuvers where there was a common focus for the initial and final orbits. For interplanetary trajectories, the spacecraft will be in multiple orbits that have several foci. In addition, interplanetary trajectories require the spacecraft to leave the gravitational influence of Earth, so the trajectory is perturbed by the other objects in the solar system, primarily Jupiter.

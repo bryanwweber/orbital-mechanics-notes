@@ -1,3 +1,7 @@
+---
+description: Learn how an impulsive change in spacecraft velocity changes the orbit and how to measure a maneuver by its total delta-v.
+---
+
 # Impulsive Maneuvers
 
 In this chapter, we will consider general maneuvers that can change the orbit of a spacecraft. All orbital changes require application of an external force to modify one or more of the orbital elements. This external force most commonly comes from an on-board propulsion system, although it can also come from gravitational interactions with other celestial bodies (so-called slingshot maneuvers).
