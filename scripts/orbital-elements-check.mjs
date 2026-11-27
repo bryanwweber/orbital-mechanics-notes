@@ -66,8 +66,9 @@ try {
     const iframe = frames.nth(index);
     await iframe.scrollIntoViewIfNeeded();
     const frame = iframe.contentFrame();
+    // A lazy frame can still be on about:blank after the iframe scrolls into view.
+    await frame.locator(`body[data-preset="${preset}"]`).waitFor({ state: 'attached' });
     await frame.locator('#status').waitFor({ state: 'hidden' });
-    assert.equal(await frame.locator('body').getAttribute('data-preset'), preset);
     assert.ok((await iframe.evaluate((e) => e.closest('figure').textContent)).trim());
     await iframe.screenshot({ path: `_build/browser/elements/${preset}.png` });
     if (process.argv.includes('--update-placeholders')) {
