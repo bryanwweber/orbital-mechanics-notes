@@ -1,3 +1,7 @@
+---
+description: Derive the orbit equation and see how eccentricity and true anomaly describe circular, elliptical, parabolic, and hyperbolic paths.
+---
+
 # The Orbit Equation
 
 Now, we'll return to the equation of relative motion, @eq:two-body-relative-motion, repeated here for reference:

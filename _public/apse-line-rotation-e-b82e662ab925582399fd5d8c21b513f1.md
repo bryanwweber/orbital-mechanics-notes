@@ -108,7 +108,7 @@ The results are shown in @tab:apse-line-rotation-nu-results. We chose the negati
 :name: tab:apse-line-rotation-nu-results
 :align: center
 
-|              | Initial                             | Final                               |
+| Quantity     | Initial                             | Final                               |
 | :----------- | :---------------------------------- | :---------------------------------- |
 | $a$ (km)     | {eval}`f"{a_i:.2f}"`                | {eval}`f"{a_f:.2f}"`                |
 | $e$          | {eval}`f"{e_i:.2f}"`                | {eval}`f"{e_f:.2f}"`                |
@@ -145,7 +145,7 @@ The radius at the impulse point is $r =$ {eval}`f"{r:.2f}"` km, the $\Delta v=$ 
 :name: tab:apse-line-rotation
 :align: center
 
-|                    | Initial                | Transfer               |
+| Quantity           | Initial                | Transfer               |
 | :----------------- | :--------------------- | :--------------------- |
 | $v_{\perp}$ (km/s) | {eval}`f"{v_p_i:.2f}"` | {eval}`f"{v_p_f:.2f}"` |
 | $v_{r}$ (km/s)     | {eval}`f"{v_r_i:.2f}"` | {eval}`f"{v_r_f:.2f}"` |

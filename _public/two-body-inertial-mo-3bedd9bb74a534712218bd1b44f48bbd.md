@@ -1,3 +1,7 @@
+---
+description: Derive the inertial equations of motion for two gravitating bodies and relate their accelerations to their positions and masses.
+---
+
 # Two-Body Equations of Motion in an Inertial Frame
 
 In this section, we will develop the equations of motion for two masses, $m_1$ and $m_2$, each affected by the other's gravitational pull. Remember that an inertial reference frame may move with constant velocity, but it cannot rotate or accelerate.

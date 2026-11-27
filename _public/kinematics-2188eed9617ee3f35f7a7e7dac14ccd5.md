@@ -1,3 +1,7 @@
+---
+description: Review position, velocity, and acceleration as preparation for orbital motion and the use of moving reference frames.
+---
+
 # Kinematics
 
 In classical mechanics, [**kinematics**](https://en.wikipedia.org/wiki/Kinematics) is the study of the motion of bodies without considering the forces applied to them. In other words, we do not care about why or how a body is in motion, only that it is in motion. This leads to a simplified description of the equations of motion.

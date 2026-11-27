@@ -4,11 +4,9 @@
 <meta name="robots" content="noindex, nofollow, indexifembedded">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Explore the five orbital elements</title>
-<style>html,body{margin:0;width:100%;height:100%;overflow:hidden}canvas{display:block}</style>
-<body>
-<script type="module">
-import { mountOrbitalElements } from '../../../assets/js/orbital-three/orbital-three.js';
-mountOrbitalElements({ preset: 'combined' });
-</script>
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden}canvas{display:block}img{display:block;width:100%;height:100%;object-fit:contain}body{background:white}p[role=status]{position:absolute;bottom:0;left:0;margin:0;background:white;color:black}</style>
+<body data-orbital-elements="combined">
+<img src="../../../assets/threejs-placeholders/elements-combined.png" alt="Explore the five orbital elements">
+<script type="module" src="./orbital-elements-loader.js"></script>
 </body>
 </html>

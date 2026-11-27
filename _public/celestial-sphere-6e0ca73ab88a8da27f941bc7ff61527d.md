@@ -1,3 +1,7 @@
+---
+description: Learn how the celestial sphere and observations from Earth define directions used in astronomy and orbital mechanics.
+---
+
 # Celestial Sphere
 
 Just a bunch of links for now.
