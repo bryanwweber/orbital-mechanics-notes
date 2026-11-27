@@ -53,5 +53,6 @@ deployment, build or package a pinned patched theme where CI can resolve it.
 
 In a cold browser context, check that the homepage and Reference Frames
 request no `thebe-core.min.js`. Check that the three Planetary Parameters
-tables and both Plane Change Maneuvers maps still render and request Thebe
-on demand.
+tables and both Plane Change Maneuvers maps still render without requesting
+Thebe. A rich notebook output can still load Thebe when its renderer needs it.
+The default `book-theme` template continues to load Thebe on plain pages.

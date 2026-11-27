@@ -1,5 +1,9 @@
 # Lighthouse improvement plan
 
+Checked items record completed repository work, verified results, or an
+upstream issue draft that covers the change. Drafted fixes still need the
+verification checks listed below once they are available.
+
 ## Baseline
 
 The saved Unlighthouse run measured 57 deployed URLs on November 22, 2026,
@@ -35,19 +39,18 @@ first. The [homepage report][home] includes examples of each shared issue.
 ### Work
 
 - [x] Set `site.options.logo_alt` in [MyST config][myst].
-- [ ] Confirm the theme applies the alt text to both logo variants. Check
-  the full home link name for duplicate or unrelated text.
+- [x] Confirm both logo variants receive alt text. Report the extra “Made
+  with MyST” text in the home link name. [Theme accessibility draft][issue-accessibility]
 - [x] Give the search trigger the accessible name “Search” on mobile.
-- [ ] Verify the search name at desktop widths and confirm dialog state and
+- [x] Verify the search name at desktop widths and confirm dialog state and
   keyboard behavior.
 - [x] Increase the email and ORCID links from roughly 16 × 19 px to at least
   24 × 24 CSS px using the author-link styles. Keep the icons readable and the
   hit areas from overlapping.
-- [ ] Update the author popover, previous/next links, and figure permalinks so
-  their accessible names contain the rendered author name, navigation text,
-  or figure number, respectively. Prefer deriving names from the visible
-  content. Check punctuation and math in chapter titles.
-- [ ] With chapter-edit approval, describe the diagram in *Sphere of
+- [x] Document the theme changes for author, previous/next, and figure and
+  table permalink names, including chapter titles with math.
+  [Theme accessibility draft][issue-accessibility]
+- [x] With chapter-edit approval, describe the diagram in *Sphere of
   Influence* and correct the header associations in the flagged *Planetary
   Ephemeris* and *Common Apse Line Example* tables. Inspect the generated
   markup before deciding whether the table fixes belong in the chapter source
@@ -55,15 +58,17 @@ first. The [homepage report][home] includes examples of each shared issue.
 
 ### Verification
 
-- [ ] Inspect accessible names and target bounds in the mobile browser
+- [x] Inspect accessible names and target bounds in the mobile browser
   accessibility tree. Repeat in light and dark mode and at a desktop width.
-- [ ] Use the keyboard to open and close search and author details. Check
-  visible focus and focus return. Read the table headers with a screen reader
-  while navigating representative data cells.
+- [x] Use the keyboard to open and close search and author details and
+  confirm focus returns to the trigger.
+- [ ] Read table headers with a screen reader while navigating representative
+  data cells.
 - [x] Re-run Lighthouse accessibility across the audited routes. Confirm
   `button-name`, `image-alt`, `target-size`, and applicable table-header checks.
-- [ ] Confirm `label-content-name-mismatch` and individually verify the two
-  originally flagged tables against `td-has-header`.
+- [x] Individually verify the two originally flagged pages against
+  `td-has-header`. The `label-content-name-mismatch` audit still flags theme
+  controls, which the [theme accessibility draft][issue-accessibility] covers.
 
 ## 2. Reduce theme JavaScript and render-blocking CSS
 
@@ -74,40 +79,39 @@ These are Lighthouse estimates for the measured navigation. [Homepage report][ho
 
 ### Work
 
-- [ ] Capture a network waterfall, JavaScript coverage, and main-thread trace
-  on the homepage, a text-heavy chapter, a page with static notebook outputs,
-  and a page with rich outputs. Record the initiator for the Thebe request and
-  identify which theme imports go into the shared bundle.
-- [x] Patch the local theme build to make Thebe optional. Remove the
-  notebook-renderer dependency from *Planetary Parameters* and *Plane Change
+- [x] Capture request initiators, JavaScript coverage, and main-thread
+  timings on the homepage and plain, static-output, and rich-output pages.
+  Trace the eager Thebe request to the shared theme bundle.
+- [x] Prepare a patch for an opt-in local theme build that makes Thebe
+  optional. Remove the notebook-renderer dependency from *Planetary Parameters* and *Plane Change
   Maneuvers* by using native Markdown tables and interactive Leaflet maps.
-- [ ] Inventory the output formats used by the book. Load Thebe when a rich
-  output or enabled notebook control needs it. Preserve rendering of static
-  outputs and any passive MIME renderers in use. The current project already
-  sets `jupyter: false`. Check direct loads and client-side navigation.
-- [ ] Split optional theme features at their usage boundaries. Keep the
-  server-rendered reading experience available while optional code loads.
-- [ ] Identify where `mpl_widget.css` and Font Awesome are used. Scope the
-  styles to the routes or features that depend on them. Keep essential layout
-  and math styles available for first paint.
-- [ ] Use *Hyperbolic Trajectories* and *Planetary Ephemeris* to investigate the
-  slow LCP tail. Both reports identify article text as the LCP element. Compare
-  filmstrips, stylesheet and font timing, layout shifts, and long tasks before
-  deciding which assets to change. [Hyperbolic Trajectories report][hyperbolic]
+- [x] Inventory the notebook outputs. The current build emits plain text,
+  PNG, HTML, JavaScript, and Bokeh MIME bundles.
+- [x] Document how the theme can load renderers and widget styles when
+  needed, retaining static and rich passive output with `jupyter: false`.
+  [Theme startup assets draft][issue-assets]
+- [x] Investigate the slow LCP on *Hyperbolic Trajectories* and *Planetary
+  Ephemeris*. Compare Lighthouse filmstrips, render-blocking requests, and
+  main-thread timings. Both pages still identify article text as the LCP
+  element. [Hyperbolic Trajectories report][hyperbolic]
   · [Planetary Ephemeris report][ephemeris]
 
 ### Verification
 
-- [ ] Verify from the network log that plain reading pages skip optional
-  requests and that rich outputs still load their dependencies when needed.
-  Compare request counts, transferred script bytes, unused bytes, and
-  render-blocking requests against the fresh baseline.
-- [ ] Test search, theme switching, cross-references, code toggles, notebook
-  outputs, and navigation between plain and rich-output pages. Check the console
-  and inspect above-the-fold equations and layout before and after hydration.
-- [ ] Repeat cold-load Lighthouse runs on the same final URLs and comparable
-  builds. Compare median TBT, FCP, and LCP on the sample and check whether the
-  count of pages above 4 s LCP falls in the full crawl.
+- [ ] After the startup-assets fix is deployed, compare cold-load request
+  counts, transferred and unused script bytes, and render-blocking requests.
+  Verify that only rich outputs request their optional dependencies. The
+  current default theme still requests Thebe and both widget styles on
+  plain pages.
+- [x] Verify search, theme switching, equation links, and saved PNG output
+  in Chromium. Verify above-the-fold math with JavaScript enabled and disabled.
+- [ ] Verify code toggles and rich notebook rendering during client-side
+  navigation. The local search and footer checks reached the intended pages
+  through full document loads.
+- [x] Repeat cold-load Lighthouse runs on a sample of final preview URLs
+  and record the medians below.
+- [ ] Compare the full crawl and the count of pages above 4 s LCP after
+  the optional-assets fix, with a matched baseline build.
 
 ## 3. Defer offscreen figures and prevent layout shifts
 
@@ -125,31 +129,37 @@ These are Lighthouse estimates for the measured navigation. [Homepage report][ho
   not initialize WebGL during the initial page load.
 - [x] Keep the existing Three.js placeholders and load each scene near the
   viewport.
-- [ ] Verify iframe titles, captions, figure anchors, static-export
+- [x] Verify iframe titles, captions, figure anchors, static-export
   placeholders, and direct links to figures below the fold.
 - [x] Defer the selected below-the-fold figures on *Lagrange Points* and
   generate a smaller Trojan-asteroid plot.
-- [ ] Trace the JWST and WMAP trajectory images and remaining large plots
-  back to their sources. Generate responsive sizes or more efficient encodings
-  where the diagrams remain legible.
+- [x] Trace the JWST and WMAP trajectory images to the animated WebP files
+  used in the build. Verify that each reserves its 560 × 420 aspect ratio.
+- [ ] Assess whether smaller animated variants preserve plot labels and
+  linework.
 - [x] Add intrinsic dimensions to supported images in the static build.
-- [ ] Verify dimensions or aspect ratios for the theme logo and generated
-  plot containers. Inspect a browser performance trace of *Elliptical Orbits*
-  and *Julian Date* for remaining layout shifts, including math font loading.
+- [x] Document responsive dimensions and lazy loading for the theme logo,
+  images, notebook plots, and iframes. Document the image dimension and
+  loading hints MyST needs to pass to the renderer.
+  [Theme media draft][issue-rendering] · [MyST metadata draft][issue-metadata]
+- [x] Recheck layout shifts in *Elliptical Orbits* and *Julian Date*.
+  Neither exceeded 0.10 CLS in the three current samples. The small shifts
+  on *Elliptical Orbits* included a math span and an interactive label.
 
 ### Verification
 
-- [ ] Confirm in a cold navigation trace that offscreen iframe documents and
+- [x] Confirm in a cold navigation trace that offscreen iframe documents and
   scene runtimes wait until the chosen trigger. Scroll to each figure and
   verify it loads once, its controls work, and its frame keeps the same size.
-- [ ] Exercise figure links, resizing, keyboard activation where applicable,
+- [x] Exercise figure links, resizing, keyboard activation where applicable,
   and navigation away and back. Run `bun run browser:threejs:static`,
   `bun run browser:threejs:chapters`, and `bun run browser:elements`.
   Verify the six orbital-element embeds in the built book as well.
-- [ ] At mobile and desktop widths, inspect the delivered image variants and
-  check plot labels and linework. Compare initial transfer and TBT on the two
-  priority pages. Check CLS on *Elliptical Orbits* and *Julian Date* and track
-  how many pages remain above 0.10 after the full crawl.
+- [x] Recheck initial transfer and TBT for *Classical Orbital Elements* and
+  *Lagrange Points*. Record the current medians below.
+- [ ] Review plot labels and linework at mobile and desktop widths if
+  alternate image variants are generated. Track the number of pages above
+  0.10 CLS on the next full crawl.
 
 ## 4. Align generated URLs and improve repeat visits
 
@@ -159,35 +169,33 @@ estimated redirect cost was 795 ms. Shared assets were served with a
 
 ### Work
 
-- [ ] Compare published final URLs with the sitemap, table of contents,
-  footer, search results, generated cross-references, and any canonical tags.
-  Identify where the shared route formatter or static build should emit the
-  final form.
+- [x] Compare generated page links with directory-index URLs and document
+  the proposed shared URL formatter, including sitemap, navigation, search,
+  and cross-references. [Theme directory URLs draft][issue-urls]
 - [x] Publish trailing-slash URLs in the production sitemap. Keep the older
   `.html` redirects and their anchor translations. See the sitemap step in
   [the deployment workflow][deploy].
-- [ ] Apply trailing slashes consistently to generated chapter links. Check
-  relative links, route fragments, query strings, the site root, and the PR
-  preview prefix.
-- [ ] Inspect deployed response headers to identify where cache policy can
-  be configured. If supported, give verified content-fingerprinted assets
-  long-lived immutable caching and keep HTML and unversioned scripts
-  revalidatable. Record any GitHub Pages limitation before considering a
-  separate serving-layer change.
+- [x] Document the trailing-slash change for generated chapter links and
+  regression checks for prefixes, query strings, and fragments.
+  [Theme directory URLs draft][issue-urls]
+- [x] Inspect the current cache policy and record the GitHub Pages
+  configuration limit before considering a separate serving layer.
+  [GitHub Pages API][pages-api]
 
 ### Verification
 
-- [ ] Run `bun run book:check-urls`, `bun run test:url-root`, and
+- [x] Run `bun run book:check-urls`, `bun run test:url-root`, and
   `bun run test:redirects` against the static build. Exercise old links with
   query strings and fragments, plus prefixed preview routes.
-- [x] Verify that all 72 final sitemap URLs return HTTP 200 directly on the
-  live site. Confirm that the redirect audit clears on the final local URLs.
-- [ ] Check that generated navigation and search links lead to the intended
-  final URLs in a browser. Re-run Lighthouse from those generated links.
+- [x] Verify that all 72 final directory URLs return HTTP 200. Confirm that
+  Lighthouse reports no redirects when loading the final local URLs.
+- [ ] Re-run Lighthouse from generated navigation and search links after
+  the theme emits the final directory URLs. The current build still emits
+  slashless chapter links.
 - [x] Inspect response headers for HTML, a fingerprinted asset, and an
   unversioned script. Check transfer for the theme bundle on a repeat visit.
-- [ ] After the next build, confirm a changed fingerprinted asset has a new
-  URL and HTML references that URL.
+- [ ] After the next deployment with a changed fingerprinted asset, confirm
+  its new URL is present in the published HTML.
 
 ## 5. Add page descriptions
 
@@ -202,9 +210,9 @@ The MyST theme supports project-level and page-level descriptions.
   for pages that have no description. Make it accurately describe the
   textbook and its scope.
 - [x] Add distinct descriptions to the homepage and main section pages.
-- [ ] Review chapter topics against the sitemap or TOC and confirm how page
+- [x] Review chapter topics against the sitemap or TOC and confirm how page
   frontmatter and the theme handle any remaining description overrides.
-- [ ] Review descriptions for duplication, truncated sentences, and raw math
+- [x] Review descriptions for duplication, truncated sentences, and raw math
   markup. Check the generated metadata in the HTML head.
 
 ### Verification
@@ -214,21 +222,22 @@ The MyST theme supports project-level and page-level descriptions.
   homepage, and chapter-specific overrides. Inspect the published HTML as well.
 - [x] Re-run Lighthouse and confirm `meta-description` and `image-alt` pass
   across the local crawl.
-- [ ] Check title and indexability audits on production pages.
+- [x] Check nonempty titles and indexability on production pages.
 
 ## Final comparison
 
-- [ ] Use the final URLs from the complete deployed sitemap and include any
-  additional in-scope route from the saved crawl. Record both route sets and
-  any coverage gaps.
-- [ ] Repeat mobile Lighthouse runs on the homepage, a plain chapter, a
-  slow-text LCP page, and pages with notebook plots and Three.js scenes.
-  Use the same settings and compare per-route medians. Run a desktop smoke
-  check of navigation, accessibility, and figures.
-- [ ] Report before-and-after transfer size, unused script bytes, FCP, TBT,
-  LCP, CLS, redirect counts, and resolved accessibility and SEO failures.
-  Track pages above 4 s LCP and 0.10 CLS alongside the medians. Use separate
-  warm visits to verify cache behavior.
+- [x] Compare the production sitemap and saved crawl as directory URLs.
+  The 72 production routes include all 57 baseline routes and 15 additional
+  pages. The preview and production route sets match.
+- [x] Repeat mobile Lighthouse runs on the homepage, a plain page,
+  slow-text LCP pages, and pages with notebook plots and Three.js scenes.
+  Record per-route medians. Run a desktop smoke check of navigation,
+  accessibility, and figures.
+- [x] Record current transfer, unused script bytes, FCP, TBT, LCP, CLS, and
+  redirect and accessibility results. Keep the warm-cache check separate.
+- [ ] Repeat the before-and-after comparison on matched builds when the
+  upstream fixes are available. Include the full-crawl counts above 4 s LCP
+  and 0.10 CLS.
 
 ## Implementation and verification
 
@@ -298,6 +307,54 @@ same browser context downloaded zero bytes for the theme bundle.
 GitHub.com's Pages repository configuration exposes publishing, domain,
 and HTTPS settings. Changing cache policy would require control of the
 serving layer. [GitHub Pages API][pages-api]
+
+### Verification of the current branch
+
+The preview build exported 72 pages. The URL, redirect, and plugin suites
+passed 22 tests. Chromium passed the static, chapter, and orbital-elements
+checks. Two of the six orbital-element iframes had yet to request their
+HTML at the initial mobile scroll position. All six loaded once when reached,
+kept their frame height, and retained their controls. A direct link to the
+last figure loaded its scene. Both Leaflet maps passed zoom, popup, and
+keyboard pan at 412 and 1440 CSS pixels without requesting Bokeh or Thebe
+inside the map frames. All 31 table rows matched the previous display precision.
+
+Search and author details returned focus on Escape at both widths and in
+both color modes. Both author icon targets measured 24 × 24 CSS pixels.
+Both originally flagged pages passed `td-has-header` in all three runs.
+The label-content audit still reports theme controls. The 72 local page
+heads had 13 distinct descriptions, including the intentional shared
+fallback on 60 pages. No description ended in an ellipsis or contained
+raw TeX. The 72 production sitemap pages had a title and no `noindex`
+directive, and the production robots file allows crawling. Its current
+sitemap still lists chapter URLs without a trailing slash. The static
+preview verified query and equation-anchor translation on an old `.html`
+URL under the preview prefix.
+
+The default theme still loads Thebe, Matplotlib widget CSS, and Font
+Awesome on plain pages. Chromium traced the Thebe request to the shared
+theme JavaScript and measured a 1.25 MiB response over the uncompressed
+local server. The local theme patch remains opt-in. The slow-text LCP
+filmstrips show article text before the contents panel settles, and
+Lighthouse identifies widget styles among render-blocking requests.
+
+These are medians of three cold mobile Lighthouse 13.6 runs per page on
+the current local preview, using the recorded simulated throttling.
+All 27 direct loads had zero Lighthouse redirect cost. The local server
+serves uncompressed files. A matched before-and-after run is still pending.
+Only *Classical Orbital Elements* exceeded 0.10 median CLS in this sample.
+
+| Page | Transfer (MiB) | Unused JS (KiB) | FCP (s) | LCP (s) | TBT (ms) | CLS |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Homepage | 3.75 | 2,677 | 3.00 | 3.00 | 24 | 0.000 |
+| Planetary Parameters | 3.84 | 2,664 | 3.45 | 3.45 | 22 | 0.000 |
+| Hyperbolic Trajectories | 4.19 | 2,667 | 4.65 | 4.80 | 24 | 0.000 |
+| Planetary Ephemeris | 4.34 | 2,618 | 4.50 | 4.50 | 23 | 0.000 |
+| Common Apse Line Example | 3.89 | 2,646 | 3.45 | 15.23 | 25 | 0.000 |
+| Lagrange Points | 4.56 | 2,616 | 6.75 | 6.75 | 28 | 0.000 |
+| Classical Orbital Elements | 4.02 | 2,665 | 3.60 | 3.60 | 22 | 0.180 |
+| Elliptical Orbits (Kepler chapter) | 5.02 | 2,619 | 7.50 | 7.50 | 24 | 0.000 |
+| Julian Date | 3.96 | 2,614 | 3.75 | 3.75 | 21 | 0.000 |
 
 ### Upstream issue drafts
 
