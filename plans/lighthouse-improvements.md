@@ -34,12 +34,13 @@ first. The [homepage report][home] includes examples of each shared issue.
 
 ### Work
 
-- [ ] Set `site.options.logo_alt` in [MyST config][myst] and confirm the theme
-  applies it to both logo variants. Check the full home link name for duplicate
-  or unrelated text.
-- [ ] Give the search trigger a stable accessible name such as “Search” at
-  every viewport width. Keep the dialog state and keyboard behavior intact.
-- [ ] Increase the email and ORCID links from roughly 16 × 19 px to at least
+- [x] Set `site.options.logo_alt` in [MyST config][myst].
+- [ ] Confirm the theme applies the alt text to both logo variants. Check
+  the full home link name for duplicate or unrelated text.
+- [x] Give the search trigger the accessible name “Search” on mobile.
+- [ ] Verify the search name at desktop widths and confirm dialog state and
+  keyboard behavior.
+- [x] Increase the email and ORCID links from roughly 16 × 19 px to at least
   24 × 24 CSS px using the author-link styles. Keep the icons readable and the
   hit areas from overlapping.
 - [ ] Update the author popover, previous/next links, and figure permalinks so
@@ -59,10 +60,10 @@ first. The [homepage report][home] includes examples of each shared issue.
 - [ ] Use the keyboard to open and close search and author details. Check
   visible focus and focus return. Read the table headers with a screen reader
   while navigating representative data cells.
-- [ ] Re-run Lighthouse accessibility across the audited routes. Confirm that
-  `button-name`, `image-alt`, `target-size`, and
-  `label-content-name-mismatch` pass where applicable and that both flagged
-  tables pass `td-has-header`.
+- [x] Re-run Lighthouse accessibility across the audited routes. Confirm
+  `button-name`, `image-alt`, `target-size`, and applicable table-header checks.
+- [ ] Confirm `label-content-name-mismatch` and individually verify the two
+  originally flagged tables against `td-has-header`.
 
 ## 2. Reduce theme JavaScript and render-blocking CSS
 
@@ -77,6 +78,9 @@ These are Lighthouse estimates for the measured navigation. [Homepage report][ho
   on the homepage, a text-heavy chapter, a page with static notebook outputs,
   and a page with rich outputs. Record the initiator for the Thebe request and
   identify which theme imports go into the shared bundle.
+- [x] Patch the local theme build to make Thebe optional. Remove the
+  notebook-renderer dependency from *Planetary Parameters* and *Plane Change
+  Maneuvers* by using native Markdown tables and interactive Leaflet maps.
 - [ ] Inventory the output formats used by the book. Load Thebe when a rich
   output or enabled notebook control needs it. Preserve rendering of static
   outputs and any passive MIME renderers in use. The current project already
@@ -115,22 +119,23 @@ These are Lighthouse estimates for the measured navigation. [Homepage report][ho
 
 ### Work
 
-- [ ] Trace the interactive figure path through the [HTML figure plugin][plugin],
+- [x] Trace the interactive figure path through the [HTML figure plugin][plugin],
   the MyST iframe renderer, and the existing [Three.js placeholders][threejs].
   Identify where to defer iframe creation or loading so offscreen scenes do
   not initialize WebGL during the initial page load.
-- [ ] Use a fixed-aspect-ratio placeholder. Load each scene near the viewport
-  or use a keyboard-operable activation control. Preserve the iframe title,
-  caption, figure anchor, and placeholder used in static exports. Account for
-  direct links to figures below the fold.
-- [ ] On *Lagrange Points*, trace the JWST and WMAP trajectory images and the
-  large generated plots back to their sources. Lazy-load below-the-fold
-  images and generate responsive sizes or more efficient encodings where the
-  diagrams remain legible. Apply changes at the source or generation step.
-- [ ] Add intrinsic dimensions or an aspect ratio to the theme logo, images,
-  and generated plot containers where missing. Inspect a browser performance
-  trace of *Elliptical Orbits* and *Julian Date* to identify remaining layout
-  shifts, including shifts around math font loading.
+- [x] Keep the existing Three.js placeholders and load each scene near the
+  viewport.
+- [ ] Verify iframe titles, captions, figure anchors, static-export
+  placeholders, and direct links to figures below the fold.
+- [x] Defer the selected below-the-fold figures on *Lagrange Points* and
+  generate a smaller Trojan-asteroid plot.
+- [ ] Trace the JWST and WMAP trajectory images and remaining large plots
+  back to their sources. Generate responsive sizes or more efficient encodings
+  where the diagrams remain legible.
+- [x] Add intrinsic dimensions to supported images in the static build.
+- [ ] Verify dimensions or aspect ratios for the theme logo and generated
+  plot containers. Inspect a browser performance trace of *Elliptical Orbits*
+  and *Julian Date* for remaining layout shifts, including math font loading.
 
 ### Verification
 
@@ -158,11 +163,12 @@ estimated redirect cost was 795 ms. Shared assets were served with a
   footer, search results, generated cross-references, and any canonical tags.
   Identify where the shared route formatter or static build should emit the
   final form.
-- [ ] Apply consistent trailing slashes to generated chapter links and
-  sitemap entries. Check relative links, route fragments, query strings, the
-  site root, and the PR preview prefix. Keep compatibility for the older
-  `.html` URLs and their anchor translations. Review the sitemap step in
+- [x] Publish trailing-slash URLs in the production sitemap. Keep the older
+  `.html` redirects and their anchor translations. See the sitemap step in
   [the deployment workflow][deploy].
+- [ ] Apply trailing slashes consistently to generated chapter links. Check
+  relative links, route fragments, query strings, the site root, and the PR
+  preview prefix.
 - [ ] Inspect deployed response headers to identify where cache policy can
   be configured. If supported, give verified content-fingerprinted assets
   long-lived immutable caching and keep HTML and unversioned scripts
@@ -174,14 +180,14 @@ estimated redirect cost was 795 ms. Shared assets were served with a
 - [ ] Run `bun run book:check-urls`, `bun run test:url-root`, and
   `bun run test:redirects` against the static build. Exercise old links with
   query strings and fragments, plus prefixed preview routes.
-- [ ] Test every sitemap entry on the deployed build and verify it returns
-  HTTP 200 directly. Check generated navigation and search links in a browser
-  and verify they lead to the intended final URLs. Re-run Lighthouse with
-  those URLs and verify the redirect audit clears.
-- [ ] Inspect response headers for HTML, a fingerprinted asset, and an
-  unversioned script. Compare network transfers across repeated visits with
-  cache enabled. After the next build, confirm a changed fingerprinted asset
-  has a new URL and HTML references that URL.
+- [x] Verify that all 72 final sitemap URLs return HTTP 200 directly on the
+  live site. Confirm that the redirect audit clears on the final local URLs.
+- [ ] Check that generated navigation and search links lead to the intended
+  final URLs in a browser. Re-run Lighthouse from those generated links.
+- [x] Inspect response headers for HTML, a fingerprinted asset, and an
+  unversioned script. Check transfer for the theme bundle on a repeat visit.
+- [ ] After the next build, confirm a changed fingerprinted asset has a new
+  URL and HTML references that URL.
 
 ## 5. Add page descriptions
 
@@ -192,25 +198,23 @@ The MyST theme supports project-level and page-level descriptions.
 
 ### Work
 
-- [ ] Add a concise project description to `myst.yml` and use it as the default
+- [x] Add a concise project description to `myst.yml` and use it as the default
   for pages that have no description. Make it accurately describe the
   textbook and its scope.
-- [ ] Inventory chapter pages through the sitemap or project TOC and identify
-  their main topics. With chapter-edit approval, add unique descriptions to
-  the homepage and the main chapter or section pages. Use page frontmatter
-  for chapter-specific descriptions and confirm how the theme handles the
-  homepage description.
+- [x] Add distinct descriptions to the homepage and main section pages.
+- [ ] Review chapter topics against the sitemap or TOC and confirm how page
+  frontmatter and the theme handle any remaining description overrides.
 - [ ] Review descriptions for duplication, truncated sentences, and raw math
   markup. Check the generated metadata in the HTML head.
 
 ### Verification
 
-- [ ] Parse each generated book page and assert that it has exactly one
+- [x] Parse each generated book page and assert that it has exactly one
   nonempty `<meta name="description">`. Spot-check the project fallback,
   homepage, and chapter-specific overrides. Inspect the published HTML as well.
-- [ ] Re-run Lighthouse SEO and confirm that `meta-description` clears across
-  the crawl and `image-alt` clears after item 1. Check that the title and
-  indexability audits continue to pass for production pages.
+- [x] Re-run Lighthouse and confirm `meta-description` and `image-alt` pass
+  across the local crawl.
+- [ ] Check title and indexability audits on production pages.
 
 ## Final comparison
 
