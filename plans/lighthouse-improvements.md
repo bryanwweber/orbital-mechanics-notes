@@ -251,8 +251,13 @@ contained an HTML redirect.
 
 The local comparisons used MyST 1.13.0, Lighthouse 13.6.0, headless Chromium
 157, a 412 × 823 viewport, and the saved run's simulated mobile throttling.
-The cached theme archive had SHA-256
+The cached Book Theme 2.0.0 archive was built from `jupyter-book/myst-theme`
+commit `c3e99b4b1938d2aae078a3c866c486a7d66b5bc9` and published as
+`myst-templates/book-theme` commit `39551f85e7540f44b3b7e1341b4fd4ca236621dc`.
+The archive had SHA-256
 `d0c1ff573d2554d2d76c2b75fb392c5eae3fdea0bd83fe3ab1d955248d313550`.
+[Theme source commit][theme-source] · [Published template commit][theme-template]
+
 The observed `gh-pages` revision was `e83889b15060f30b2bbfbaf0be57a8d0f0ec408a`.
 The local HTTP server sends uncompressed responses, so compare the local
 measurements with each other. The measurements below are medians of three
@@ -316,3 +321,5 @@ serving layer. [GitHub Pages API][pages-api]
 [issue-rendering]: upstream-issues/myst-theme-media-loading.md
 [issue-urls]: upstream-issues/myst-theme-directory-urls.md
 [issue-metadata]: upstream-issues/mystmd-media-metadata.md
+[theme-source]: https://github.com/jupyter-book/myst-theme/commit/c3e99b4b1938d2aae078a3c866c486a7d66b5bc9
+[theme-template]: https://github.com/myst-templates/book-theme/commit/39551f85e7540f44b3b7e1341b4fd4ca236621dc
