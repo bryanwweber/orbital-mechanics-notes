@@ -241,7 +241,7 @@ As a practical consideration, launch azimuths are limited by the geography surro
 :name: fig:kennedy-launch-angles
 :title: Launch azimuths from Kennedy Space Center
 
-The launch azimuth limits shown for Kennedy Space Center are 35° and 120°, measured clockwise from true north. The red line marks the north–south meridian.
+The permitted launch angles from Kennedy Space Center on the East coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::
 
 The other major launch site in the US is Vandenberg Space Force Base in southern California ($\phi$ = 34.7°N). Similar restrictions at Vandenberg require most launches to go to the south, over the Pacific Ocean. However, polar and Sun-synchronous orbits are possible from Vandenberg, where the azimuth limits are from [158° to 201°](https://web.archive.org/web/20200731192341/https://spaceflight.nasa.gov/shuttle/reference/shutref/sts/launch.html).
@@ -250,5 +250,5 @@ The other major launch site in the US is Vandenberg Space Force Base in southern
 :name: fig:vandenberg-launch-angles
 :title: Launch azimuths from Vandenberg Space Force Base
 
-The launch azimuth limits shown for Vandenberg Space Force Base are 158° and 201°, measured clockwise from true north. The red line marks the north–south meridian.
+The permitted launch angles from Vandenberg Space Force Base on the West coast of the US. The vertical line indicates due north/south. The upper line indicates the maximum northerly launch azimuth while the lower line indicates the maximum southerly launch azimuth.
 :::
